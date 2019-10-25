@@ -1,0 +1,246 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/04_Simulation/Modelsim
+Evga_controller
+Z1 w1571919275
+Z2 DPx8 lib_vhdl 32 vga_pkg_1280x1024_60hz_108_00mhz 0 22 VYSn=JGK0dn7Z<l[gXD^33
+Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z6 8./../../02_Source/VGA_controller.vhd
+Z7 F./../../02_Source/VGA_controller.vhd
+l0
+L43
+V;g?IOhMz0]oi`B8j^=iXc2
+!s100 k_kdoTJg2@O:[lZka233V2
+Z8 OP;C;10.4a;61
+32
+Z9 !s110 1571994414
+!i10b 1
+Z10 !s108 1571994414.000000
+Z11 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VGA_controller.vhd|
+Z12 !s107 ./../../02_Source/VGA_controller.vhd|
+!i113 1
+Z13 o-work lib_VHDL -O0
+Z14 tExplicit 1
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 14 vga_controller 0 22 ;g?IOhMz0]oi`B8j^=iXc2
+l103
+L74
+VGYd8E[RV?XJ^jnE9]aU1[1
+!s100 _RI1m:`RQ6SLKa7DXa2eB1
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Pvga_pkg_1024x768_60hz_65_00mhz
+Z15 w1571919268
+R0
+Z16 8./../../02_Source/VGA_Pkg.vhd
+Z17 F./../../02_Source/VGA_Pkg.vhd
+l0
+L58
+VRK<D`mlzeU9T031MOcbZM0
+!s100 O]o64[7B2P`cMHCln=c073
+R8
+32
+R9
+!i10b 1
+R10
+Z18 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VGA_Pkg.vhd|
+Z19 !s107 ./../../02_Source/VGA_Pkg.vhd|
+!i113 1
+R13
+R14
+Pvga_pkg_1152x864_75hz_108_00mhz
+R15
+R0
+R16
+R17
+l0
+L71
+V01E?XCMVWjUP]J;LQSU`50
+!s100 z^_Q9@WTlM2WmGLH0OFmm0
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Pvga_pkg_1280x1024_60hz_108_00mhz
+R15
+R0
+R16
+R17
+l0
+L84
+VVYSn=JGK0dn7Z<l[gXD^33
+!s100 @V<OGZoF0:Fk1][]zgLoo0
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Pvga_pkg_1600x1200_60hz_162_00mhz
+R15
+R0
+R16
+R17
+l0
+L97
+VT22J9S0k4e423Ti:MH_e81
+!s100 0K6?ZO8410g;<JdYzmKB;2
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Pvga_pkg_1920x1200_60hz_193_16mhz
+R15
+R0
+R16
+R17
+l0
+L110
+V>ej<ElQd2l`;0Ga4]8K[]0
+!s100 CF7:k`h>o>M:A]O`>2f4;2
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Pvga_pkg_1920x1440_60hz_234_00mhz
+R15
+R0
+R16
+R17
+l0
+L123
+V3`6B_>Y;jDzMW?]WP:@3R2
+!s100 I6iIIM:f^3oa[^=8?V1e80
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Pvga_pkg_640x480_60hz_25_175mhz
+R15
+R0
+R16
+R17
+l0
+L32
+V4?eog=kBJ6OFlc<HJaK>k2
+!s100 VaJDiKdQCV9`NQj@AjAMk0
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Pvga_pkg_800x600_60hz_40_00mhz
+R15
+R0
+R16
+R17
+l0
+L45
+V4ET45TcaWNXFE3jelJhhc0
+!s100 K_K4I>bJW=MIn?aKRMB163
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Evga_ram_interface
+Z20 w1571994398
+R3
+R4
+R5
+R0
+Z21 8./../../02_Source/VGA_RAM_interface.vhd
+Z22 F./../../02_Source/VGA_RAM_interface.vhd
+l0
+L36
+VEzh5eX6eTF?XhBF8jFCom3
+!s100 9ldRoF[mZ:Td3lAilCEPC3
+R8
+32
+R9
+!i10b 1
+R10
+Z23 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VGA_RAM_interface.vhd|
+Z24 !s107 ./../../02_Source/VGA_RAM_interface.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 17 vga_ram_interface 0 22 Ezh5eX6eTF?XhBF8jFCom3
+l105
+L66
+VoEaOF<igLnC=_6[2kzga40
+!s100 njEQQ=n`DgZegk=fD6SRo1
+R8
+32
+R9
+!i10b 1
+R10
+R23
+R24
+!i113 1
+R13
+R14
