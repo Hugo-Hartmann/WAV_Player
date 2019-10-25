@@ -10,8 +10,8 @@
 -- File       : SRAM_Wrapper.vhd
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
--- Created    : 2019-09-27
--- Last update: 2019-09-27
+-- Created    : 2019-10-24
+-- Last update: 2019-10-25
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -19,7 +19,7 @@
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
--- 2019-09-27  1.0      Hugo HARTMANN   Creation
+-- 2019-10-24  1.0      Hugo HARTMANN   Creation
 -------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
@@ -61,6 +61,11 @@ end SRAM_Wrapper;
 architecture RTL of SRAM_Wrapper is
 
     --------------------------------------------------------------------------------
+    -- CONSTANTS DECLARATIONS
+    --------------------------------------------------------------------------------
+    constant C_RAM_MAX_ADDR : integer   := 22049;
+
+    --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
     component SRAM_8bit
@@ -68,7 +73,7 @@ architecture RTL of SRAM_Wrapper is
             clka    : in  std_logic;
             ena     : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
-            addra   : in  std_logic_vector(16 downto 0);
+            addra   : in  std_logic_vector(14 downto 0);
             dina    : in  std_logic_vector(7 downto 0);
             douta   : out std_logic_vector(7 downto 0)
             );
@@ -77,14 +82,14 @@ architecture RTL of SRAM_Wrapper is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal counter_read     : unsigned(16 downto 0);
+    signal counter_read     : unsigned(14 downto 0);
     signal cnt_read_end     : std_logic;
-    signal counter_write    : unsigned(16 downto 0);
+    signal counter_write    : unsigned(14 downto 0);
     signal cnt_write_end    : std_logic;
-    signal SRAM1_addr       : std_logic_vector(16 downto 0);
+    signal SRAM1_addr       : std_logic_vector(14 downto 0);
     signal SRAM1_write      : std_logic_vector(0 downto 0);
     signal SRAM1_dout       : std_logic_vector(7 downto 0);
-    signal SRAM2_addr       : std_logic_vector(16 downto 0);
+    signal SRAM2_addr       : std_logic_vector(14 downto 0);
     signal SRAM2_write      : std_logic_vector(0 downto 0);
     signal SRAM2_dout       : std_logic_vector(7 downto 0);
     signal SRAM_select      : std_logic;
@@ -145,7 +150,7 @@ begin
     -- COMBINATORY :
     -- Description : Counter_read cycle back
     --------------------------------------------------------------------------------
-    cnt_read_end    <= '1' when(counter_read=110249) else '0';
+    cnt_read_end    <= '1' when(counter_read=to_unsigned(C_RAM_MAX_ADDR, counter_read'length)) else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_count_write
@@ -170,7 +175,7 @@ begin
     -- COMBINATORY :
     -- Description : Counter_write cycle back
     --------------------------------------------------------------------------------
-    cnt_write_end   <= '1' when(counter_write=110249) else '0';
+    cnt_write_end   <= '1' when(counter_write=to_unsigned(C_RAM_MAX_ADDR, counter_read'length)) else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_SRAM_select

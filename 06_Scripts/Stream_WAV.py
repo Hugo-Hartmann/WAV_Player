@@ -4,6 +4,22 @@ import os.path
 
 ## Parameters
 COMPORT = 'COM5'
+PACKET_BURST_SIZE = 22050 # 1 second of 8-bit song sampled at 22050 Hz
+
+## Progress bar
+def progress_bar(i, N):
+    char = "-♫"
+    total = int(round(i/N*100, 0))
+    line = "\r"
+    for j in range(1, 101):
+        if(total>=j):
+            line += char[j%2]
+        else:
+            break
+            line += " "
+    #line += " %i" % total + "%"
+    sys.stdout.write(line)
+    sys.stdout.flush()
 
 ## Check inputs
 try:
@@ -54,15 +70,16 @@ cmd = 0
 while(True):
     cmd = ser.read()
     if(cmd):
-        print("Sending packet.")
-        k = (i+110250)%file_size
-        if(k!=i+110250):
-            print("End of song !")
+        #print("Sending packet.")
+        k = (i+PACKET_BURST_SIZE)%file_size
+        if(k!=i+PACKET_BURST_SIZE):
+            print("\nEnd of song ! (Looping...)")
             ser.write(bytearray(bin[i:file_size]))
             ser.write(bytearray(bin[0:k]))
             i = k
         else:
-            ser.write(bytearray(bin[i:i+110250]))
-            i = i+110250
-        print("Done.")
+            ser.write(bytearray(bin[i:i+PACKET_BURST_SIZE]))
+            i = i+PACKET_BURST_SIZE
+        progress_bar(i, file_size)
+        #print("Done.")
         cmd = 0
