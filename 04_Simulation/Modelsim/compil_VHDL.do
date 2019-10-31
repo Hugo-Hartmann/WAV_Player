@@ -14,3 +14,8 @@ vmap lib_VHDL ./libs/lib_VHDL
 vcom -work lib_VHDL ./../../02_Source/VGA_Pkg.vhd
 vcom -work lib_VHDL ./../../02_Source/VGA_controller.vhd
 vcom -work lib_VHDL ./../../02_Source/VGA_RAM_interface.vhd
+
+# FIR filters
+vcom -work lib_VHDL ./../../02_Source/Multiplier.vhd
+vcom -work lib_VHDL ./../../02_Source/FIR_filter.vhd
+vcom -work lib_VHDL ./../../02_Source/FIR_interface.vhd
