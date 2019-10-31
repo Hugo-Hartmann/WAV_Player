@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-10-25
+-- Last update: 2019-10-31
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -28,7 +28,8 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-
+library lib_VHDL;
+use lib_VHDL.TYPE_Pkg.all;
 
 --------------------------------------------------------------------------------
 -- ENTITY DECLARATION
@@ -55,6 +56,7 @@ entity VGA_RAM_interface is
         RAM_read_audio  : in  std_logic;
 
         ------- RAM interface --------------------
+        VU_dout         : in  std_logic_vector(C_FIR_MAX*5+4 downto 0);
         RAM_dout        : in  std_logic_vector(7 downto 0)
 
         );
@@ -103,6 +105,11 @@ architecture RTL of VGA_RAM_interface is
     signal din_portB    : std_logic_vector(7 downto 0);
     signal write_portA  : std_logic_vector(0 downto 0);
     signal write_portB  : std_logic_vector(0 downto 0);
+    signal VU_data      : VU_tab;
+    signal VU_inbound   : std_logic;
+    signal red_color    : std_logic;
+    signal yellow_color : std_logic;
+    signal green_color  : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -177,10 +184,52 @@ begin
     addr_read   <= addr_bottom + unsigned(RAM_h_add(10 downto 0));
 
     --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_VU_metre
+    -- Description : Register VU_metre data for display
+    --------------------------------------------------------------------------------
+    P_VU_metre : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            for i in C_FIR_MIN to C_FIR_MAX loop
+                VU_data(i) <= (others => '0');
+            end loop;
+        elsif(rising_edge(clk)) then
+            if(VGA_new_frame='1') then
+                for i in C_FIR_MIN to C_FIR_MAX loop
+                    VU_data(i) <= VU_dout(i*5+4 downto i*5);
+                end loop;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Display a 20-segment VU_metre
+    --------------------------------------------------------------------------------
+    process(VU_data, RAM_v_add, RAM_h_add)
+    begin
+        VU_inbound  <= '0';
+        for i in C_FIR_MIN to C_FIR_MAX loop
+            if(unsigned(RAM_h_add)>39+i*60 and unsigned(RAM_h_add)<100+i*60) then
+                if(8*unsigned(VU_data(i))>1023-unsigned(RAM_v_add)) then
+                    VU_inbound  <= '1';
+                end if;
+            end if;
+        end loop;
+    end process;
+
+    --------------------------------------------------------------------------------
     -- COMBINATORY :
     -- Description : Pixel mapping
     --------------------------------------------------------------------------------
-    RGB_out <= (others => '1') when(pixel=RAM_v_add) else (others => '0');
+    green_color     <= '1' when(unsigned(RAM_v_add)>895) else '0';
+    yellow_color    <= '1' when(unsigned(RAM_v_add)>639) else '0';
+    red_color       <= '1' when(unsigned(RAM_v_add)>511) else '0';
+    RGB_out         <= "11111111"   when(pixel=RAM_v_add) else
+                       "00011100"   when(green_color='1' and VU_inbound='1') else
+                       "11111100"   when(yellow_color='1' and VU_inbound='1') else
+                       "11100000"   when(red_color='1' and VU_inbound='1') else
+                       "00000000";
 
 end RTL;
 --------------------------------------------------------------------------------

@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-10-24
+-- Last update: 2019-10-31
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -28,6 +28,8 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+library lib_VHDL;
+use lib_VHDL.TYPE_Pkg.all;
 
 --------------------------------------------------------------------------------
 -- ENTITY DECLARATION
@@ -127,7 +129,7 @@ architecture RTL of TOP is
             );
     end component;
 
-    component VGA_Controller is
+    component VGA_controller is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -156,7 +158,28 @@ architecture RTL of TOP is
             RAM_h_add       : in  std_logic_vector(15 downto 0);
             RGB_out         : out std_logic_vector(7 downto 0);
             RAM_read_audio  : in  std_logic;
+            VU_dout         : in  std_logic_vector(C_FIR_MAX*5+4 downto 0);
             RAM_dout        : in  std_logic_vector(7 downto 0)
+            );
+    end component;
+
+    component FIR_wrapper is
+        port(
+            clk             : in  std_logic;
+            reset_n         : in  std_logic;
+            FIR_dout        : out std_logic_vector(C_FIR_MAX*8+7 downto 0);
+            RAM_read_audio  : in  std_logic;
+            RAM_dout        : in  std_logic_vector(7 downto 0)
+            );
+    end component;
+
+    component VU_metre is
+        port(
+            clk     : in  std_logic;
+            reset_n : in  std_logic;
+            VU_en   : in  std_logic;
+            VU_din  : in  std_logic_vector(C_FIR_MAX*8+7 downto 0);
+            VU_dout : out std_logic_vector(C_FIR_MAX*5+4 downto 0)
             );
     end component;
 
@@ -177,6 +200,8 @@ architecture RTL of TOP is
     signal RAM_h_add        : std_logic_vector(15 downto 0);
     signal RGB_VGA          : std_logic_vector(7 downto 0);
     signal VGA_new_frame    : std_logic;
+    signal FIR_dout         : std_logic_vector(C_FIR_MAX*8+7 downto 0);
+    signal VU_dout          : std_logic_vector(C_FIR_MAX*5+4 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -254,7 +279,7 @@ begin
     -- INSTANCE : U_VGA_controller
     -- Description: VGA controller, fetch image from memory and outputs VGA format
     ----------------------------------------------------------------
-    U_VGA_controller : VGA_Controller port map(
+    U_VGA_controller : VGA_controller port map(
         clk             => clk,
         reset_n         => reset_n,
         VGA_new_frame   => VGA_new_frame,
@@ -283,7 +308,30 @@ begin
         RAM_h_add       => RAM_h_add,
         RGB_out         => RGB_VGA,
         RAM_read_audio  => RAM_read,
+        VU_dout         => VU_dout,
         RAM_dout        => RAM_dout);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_FIR_interface
+    -- Description: FIR wrapper for multiple FIR filters working on same data
+    ----------------------------------------------------------------
+    U_FIR_interface : FIR_wrapper port map(
+        clk             => clk,
+        reset_n         => reset_n,
+        FIR_dout        => FIR_dout,
+        RAM_read_audio  => RAM_read,
+        RAM_dout        => RAM_dout);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_VU_metre
+    -- Description: 2048 element VU-metre
+    ----------------------------------------------------------------
+    U_VU_metre : VU_metre port map(
+        clk     => clk,
+        reset_n => reset_n,
+        VU_en   => RAM_read,
+        VU_din  => FIR_dout,
+        VU_dout => VU_dout);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

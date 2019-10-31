@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-10-23
+-- Last update: 2019-10-31
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ use IEEE.numeric_std.all;
 --------------------------------------------------------------------------------
 entity UART_Wrapper is
     generic(
-        G_SPEED         : INTEGER := 115200;                            -- speed in baud
+        G_SPEED         : INTEGER := 3686400;                           -- speed in baud
         G_PARITY_BIT    : INTEGER := 1;                                 -- use parity bit
         G_PARIY_EVEN    : INTEGER := 1                                  -- select even/odd parity
         );
