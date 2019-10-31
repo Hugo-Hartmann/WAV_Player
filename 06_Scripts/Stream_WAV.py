@@ -1,6 +1,7 @@
 import serial
 import sys
 import os.path
+import time
 
 ## Parameters
 COMPORT = 'COM5'
