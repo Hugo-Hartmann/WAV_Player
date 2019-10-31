@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-10-23
+-- Last update: 2019-10-24
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ use IEEE.numeric_std.all;
 --------------------------------------------------------------------------------
 entity Hearbeat is
     generic(
-        G_HALF_PERIOD     : INTEGER := 16#35D57E8#      -- heartbeat period
+        G_HALF_PERIOD     : INTEGER := 16#337F980#      -- heartbeat period
         );
     port(
     

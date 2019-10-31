@@ -202,6 +202,7 @@ architecture RTL of TOP is
     signal VGA_new_frame    : std_logic;
     signal FIR_dout         : std_logic_vector(C_FIR_MAX*8+7 downto 0);
     signal VU_dout          : std_logic_vector(C_FIR_MAX*5+4 downto 0);
+    signal FIR_0            : std_logic_vector(7 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -309,7 +310,9 @@ begin
         RGB_out         => RGB_VGA,
         RAM_read_audio  => RAM_read,
         VU_dout         => VU_dout,
-        RAM_dout        => RAM_dout);
+        RAM_dout        => FIR_0);
+
+    FIR_0   <= FIR_dout(7 downto 0);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_FIR_interface
