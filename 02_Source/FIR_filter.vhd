@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-10-30
+-- Last update: 2019-11-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ architecture RTL of FIR_filter is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component ROM_1024_16bit
+    component ROM_1024_16bit_0
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
@@ -75,7 +75,7 @@ architecture RTL of FIR_filter is
             );
     end component;
 
-    component ROM_1024_16bit_500
+    component ROM_1024_16bit_1
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
@@ -84,7 +84,7 @@ architecture RTL of FIR_filter is
             );
     end component;
 
-    component ROM_1024_16bit_1000
+    component ROM_1024_16bit_2
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
@@ -93,7 +93,7 @@ architecture RTL of FIR_filter is
             );
     end component;
 
-    component ROM_1024_16bit_1500
+    component ROM_1024_16bit_3
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
@@ -102,7 +102,7 @@ architecture RTL of FIR_filter is
             );
     end component;
 
-    component ROM_1024_16bit_2000
+    component ROM_1024_16bit_4
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
@@ -111,7 +111,7 @@ architecture RTL of FIR_filter is
             );
     end component;
 
-    component ROM_1024_16bit_2500
+    component ROM_1024_16bit_5
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
@@ -119,133 +119,6 @@ architecture RTL of FIR_filter is
             douta   : out std_logic_vector(15 downto 0)
             );
     end component;
-
-    component ROM_1024_16bit_3000
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_3500
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_4000
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_4500
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_5000
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_5500
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_6000
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_6500
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_7000
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_7500
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_8000
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_8500
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_9000
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component ROM_1024_16bit_9500
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            addra   : in  std_logic_vector(9 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
 
     component Multiplier is
         generic(
@@ -284,7 +157,7 @@ begin
     -- Description : Contains coefficient for filtering
     ----------------------------------------------------------------
     ROM0 : if G_BEHAVIOURAL=false and G_SELECT=0 generate
-        U_ROM : ROM_1024_16bit port map(
+        U_ROM : ROM_1024_16bit_0 port map(
             clka    => clk,
             addra   => FIR_addr,
             ena     => '1',
@@ -292,7 +165,7 @@ begin
     end generate;
 
     ROM1 : if G_BEHAVIOURAL=false and G_SELECT=1 generate
-        U_ROM : ROM_1024_16bit_500 port map(
+        U_ROM : ROM_1024_16bit_1 port map(
             clka    => clk,
             addra   => FIR_addr,
             ena     => '1',
@@ -300,7 +173,7 @@ begin
     end generate;
 
     ROM2 : if G_BEHAVIOURAL=false and G_SELECT=2 generate
-        U_ROM : ROM_1024_16bit_1000 port map(
+        U_ROM : ROM_1024_16bit_2 port map(
             clka    => clk,
             addra   => FIR_addr,
             ena     => '1',
@@ -308,7 +181,7 @@ begin
     end generate;
 
     ROM3 : if G_BEHAVIOURAL=false and G_SELECT=3 generate
-        U_ROM : ROM_1024_16bit_1500 port map(
+        U_ROM : ROM_1024_16bit_3 port map(
             clka    => clk,
             addra   => FIR_addr,
             ena     => '1',
@@ -316,7 +189,7 @@ begin
     end generate;
 
     ROM4 : if G_BEHAVIOURAL=false and G_SELECT=4 generate
-        U_ROM : ROM_1024_16bit_2000 port map(
+        U_ROM : ROM_1024_16bit_4 port map(
             clka    => clk,
             addra   => FIR_addr,
             ena     => '1',
@@ -324,124 +197,13 @@ begin
     end generate;
 
     ROM5 : if G_BEHAVIOURAL=false and G_SELECT=5 generate
-        U_ROM : ROM_1024_16bit_2500 port map(
+        U_ROM : ROM_1024_16bit_5 port map(
             clka    => clk,
             addra   => FIR_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
 
-    ROM6 : if G_BEHAVIOURAL=false and G_SELECT=6 generate
-        U_ROM : ROM_1024_16bit_3000 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM7 : if G_BEHAVIOURAL=false and G_SELECT=7 generate
-        U_ROM : ROM_1024_16bit_3500 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM8 : if G_BEHAVIOURAL=false and G_SELECT=8 generate
-        U_ROM : ROM_1024_16bit_4000 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM9 : if G_BEHAVIOURAL=false and G_SELECT=9 generate
-        U_ROM : ROM_1024_16bit_4500 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM10 : if G_BEHAVIOURAL=false and G_SELECT=10 generate
-        U_ROM : ROM_1024_16bit_5000 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM11 : if G_BEHAVIOURAL=false and G_SELECT=11 generate
-        U_ROM : ROM_1024_16bit_5500 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM12 : if G_BEHAVIOURAL=false and G_SELECT=12 generate
-        U_ROM : ROM_1024_16bit_6000 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM13 : if G_BEHAVIOURAL=false and G_SELECT=13 generate
-        U_ROM : ROM_1024_16bit_6500 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM14 : if G_BEHAVIOURAL=false and G_SELECT=14 generate
-        U_ROM : ROM_1024_16bit_7000 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM15 : if G_BEHAVIOURAL=false and G_SELECT=15 generate
-        U_ROM : ROM_1024_16bit_7500 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM16 : if G_BEHAVIOURAL=false and G_SELECT=16 generate
-        U_ROM : ROM_1024_16bit_8000 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM17 : if G_BEHAVIOURAL=false and G_SELECT=17 generate
-        U_ROM : ROM_1024_16bit_8500 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM18 : if G_BEHAVIOURAL=false and G_SELECT=18 generate
-        U_ROM : ROM_1024_16bit_9000 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
-
-    ROM19 : if G_BEHAVIOURAL=false and G_SELECT=19 generate
-        U_ROM : ROM_1024_16bit_9500 port map(
-            clka    => clk,
-            addra   => FIR_addr,
-            ena     => '1',
-            douta   => ROM_out);
-    end generate;
 
     ----------------------------------------------------------------
     -- INSTANCE : U_Mult
@@ -472,8 +234,8 @@ begin
             if(FIR_clr='1') then
                 mult_opA    <= (others => '0');
                 mult_opB    <= (others => '0');
-            else
-                mult_opA    <= std_logic_vector(unsigned(FIR_din)-128);
+            elsif(FIR_en='1') then
+                mult_opA    <= std_logic_vector(unsigned(FIR_din) - 128);
                 mult_opB    <= ROM_out;
             end if;
         end if;
@@ -506,16 +268,83 @@ begin
     -- COMBINATORY :
     -- Description : Saturation
     --------------------------------------------------------------------------------
-    process(accu)
-    begin
-        if(accu(34 downto 26)="000000000" or accu(34 downto 26)="111111111") then
-            sat_out <= accu(26 downto 19);
-        elsif(accu(34)='0') then
-            sat_out <= X"7F";
-        else
-            sat_out <= X"80";
-        end if;
-    end process;
+    SAT0 : if G_SELECT=0 generate
+        process(accu)
+        begin
+            if(accu(34 downto 30)="00000" or accu(34 downto 30)="11111") then
+                sat_out <= accu(30 downto 23);
+            elsif(accu(34)='0') then
+                sat_out <= X"7F";
+            else
+                sat_out <= X"80";
+            end if;
+        end process;
+    end generate;
+
+    SAT1 : if G_SELECT=1 generate
+        process(accu)
+        begin
+            if(accu(34 downto 27)="00000000" or accu(34 downto 27)="11111111") then
+                sat_out <= accu(27 downto 20);
+            elsif(accu(34)='0') then
+                sat_out <= X"7F";
+            else
+                sat_out <= X"80";
+            end if;
+        end process;
+    end generate;
+
+    SAT2 : if G_SELECT=2 generate
+        process(accu)
+        begin
+            if(accu(34 downto 25)="0000000000" or accu(34 downto 25)="1111111111") then
+                sat_out <= accu(25 downto 18);
+            elsif(accu(34)='0') then
+                sat_out <= X"7F";
+            else
+                sat_out <= X"80";
+            end if;
+        end process;
+    end generate;
+
+    SAT3 : if G_SELECT=3 generate
+        process(accu)
+        begin
+            if(accu(34 downto 24)="00000000000" or accu(34 downto 24)="11111111111") then
+                sat_out <= accu(24 downto 17);
+            elsif(accu(34)='0') then
+                sat_out <= X"7F";
+            else
+                sat_out <= X"80";
+            end if;
+        end process;
+    end generate;
+
+    SAT4 : if G_SELECT=4 generate
+        process(accu)
+        begin
+            if(accu(34 downto 23)="000000000000" or accu(34 downto 23)="111111111111") then
+                sat_out <= accu(23 downto 16);
+            elsif(accu(34)='0') then
+                sat_out <= X"7F";
+            else
+                sat_out <= X"80";
+            end if;
+        end process;
+    end generate;
+
+    SAT5 : if G_SELECT=5 generate
+        process(accu)
+        begin
+            if(accu(34 downto 23)="000000000000" or accu(34 downto 23)="111111111111") then
+                sat_out <= accu(23 downto 16);
+            elsif(accu(34)='0') then
+                sat_out <= X"7F";
+            else
+                sat_out <= X"80";
+            end if;
+        end process;
+    end generate;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

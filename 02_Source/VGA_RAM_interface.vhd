@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-10-31
+-- Last update: 2019-11-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -43,6 +43,9 @@ entity VGA_RAM_interface is
         ------- Clock and RESET ------------------
         clk             : in  std_logic;                        -- clock
         reset_n         : in  std_logic;                        -- reset_n
+
+        ------- Switch selection -----------------
+        sw              : in  std_logic_vector(3 downto 0);
 
         ------- VGA interface --------------------
         VGA_new_frame   : in  std_logic;
@@ -110,6 +113,7 @@ architecture RTL of VGA_RAM_interface is
     signal red_color    : std_logic;
     signal yellow_color : std_logic;
     signal green_color  : std_logic;
+    signal draw_box     : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -210,7 +214,7 @@ begin
     begin
         VU_inbound  <= '0';
         for i in C_FIR_MIN to C_FIR_MAX loop
-            if(unsigned(RAM_h_add)>39+i*60 and unsigned(RAM_h_add)<100+i*60) then
+            if(unsigned(RAM_h_add)>294+i*75 and unsigned(RAM_h_add)<355+i*75) then
                 if(8*unsigned(VU_data(i))>1023-unsigned(RAM_v_add)) then
                     VU_inbound  <= '1';
                 end if;
@@ -220,12 +224,43 @@ begin
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
+    -- Description : Display a box around selected frequency band
+    --------------------------------------------------------------------------------
+    process(sw, RAM_v_add, RAM_h_add)
+    
+    variable h_min : integer := 0;
+    variable h_max : integer := 0;
+    
+    begin
+        draw_box    <= '0';
+        case sw is
+            when "0000" => h_min := 294; h_max := 730;
+            when "0001" => h_min := 294; h_max := 355;
+            when "0010" => h_min := 369; h_max := 430;
+            when "0011" => h_min := 444; h_max := 505;
+            when "0100" => h_min := 519; h_max := 580;
+            when "0101" => h_min := 594; h_max := 655;
+            when "0110" => h_min := 669; h_max := 430;
+            when others => h_min := 294; h_max := 730;
+        end case;
+
+        if(unsigned(RAM_v_add)>500 and unsigned(RAM_v_add)<510) then
+            if(unsigned(RAM_h_add)>to_unsigned(h_min, 16) and unsigned(RAM_h_add)<to_unsigned(h_max, 16)) then
+                draw_box    <= '1';
+            end if;
+        end if;
+
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
     -- Description : Pixel mapping
     --------------------------------------------------------------------------------
     green_color     <= '1' when(unsigned(RAM_v_add)>895) else '0';
     yellow_color    <= '1' when(unsigned(RAM_v_add)>639) else '0';
     red_color       <= '1' when(unsigned(RAM_v_add)>511) else '0';
-    RGB_out         <= "11111111"   when(pixel=RAM_v_add) else
+    RGB_out         <= "11100000"   when(RAM_v_add=X"007F" or draw_box='1') else
+                       "11111111"   when(pixel=RAM_v_add) else
                        "00011100"   when(green_color='1' and VU_inbound='1') else
                        "11111100"   when(yellow_color='1' and VU_inbound='1') else
                        "11100000"   when(red_color='1' and VU_inbound='1') else

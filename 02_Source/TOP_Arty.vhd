@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-10-31
+-- Last update: 2019-11-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -42,6 +42,9 @@ entity TOP is
         ------- Clock and reset -----------------
         CLK12MHZ    : in  std_logic;
         RESET       : in  std_logic;
+
+        ------- Switches ------------------------
+        SW          : in  std_logic_vector(3 downto 0);
 
         ------- AUDIO interface -----------------
         AUDIO_OUT   : out std_logic;
@@ -158,6 +161,7 @@ architecture RTL of TOP is
             RAM_h_add       : in  std_logic_vector(15 downto 0);
             RGB_out         : out std_logic_vector(7 downto 0);
             RAM_read_audio  : in  std_logic;
+            sw              : in  std_logic_vector(3 downto 0);
             VU_dout         : in  std_logic_vector(C_FIR_MAX*5+4 downto 0);
             RAM_dout        : in  std_logic_vector(7 downto 0)
             );
@@ -202,7 +206,7 @@ architecture RTL of TOP is
     signal VGA_new_frame    : std_logic;
     signal FIR_dout         : std_logic_vector(C_FIR_MAX*8+7 downto 0);
     signal VU_dout          : std_logic_vector(C_FIR_MAX*5+4 downto 0);
-    signal FIR_0            : std_logic_vector(7 downto 0);
+    signal SW_out           : std_logic_vector(7 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -273,7 +277,7 @@ begin
         clk             => clk,
         reset_n         => reset_n,
         Audio_out       => AUDIO_OUT,
-        RAM_dout        => RAM_dout,
+        RAM_dout        => SW_out,
         RAM_read        => RAM_read);
 
     ----------------------------------------------------------------
@@ -309,10 +313,9 @@ begin
         RAM_h_add       => RAM_h_add,
         RGB_out         => RGB_VGA,
         RAM_read_audio  => RAM_read,
+        sw              => SW,
         VU_dout         => VU_dout,
-        RAM_dout        => FIR_0);
-
-    FIR_0   <= FIR_dout(7 downto 0);
+        RAM_dout        => SW_out);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_FIR_interface
@@ -335,6 +338,19 @@ begin
         VU_en   => RAM_read,
         VU_din  => FIR_dout,
         VU_dout => VU_dout);
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Audio selection
+    --------------------------------------------------------------------------------
+    SW_out   <= RAM_dout                    when(SW="0000") else
+                FIR_dout(7 downto 0)        when(SW="0001") else
+                FIR_dout(15 downto 8)       when(SW="0010") else
+                FIR_dout(23 downto 16)      when(SW="0011") else
+                FIR_dout(31 downto 24)      when(SW="0100") else
+                FIR_dout(39 downto 32)      when(SW="0101") else
+                FIR_dout(47 downto 40)      when(SW="0110") else
+                RAM_dout;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

@@ -25,7 +25,7 @@ use IEEE.numeric_std.all;
 package TYPE_Pkg is
 
     constant C_FIR_MIN : integer := 0;
-    constant C_FIR_MAX : integer := 19;
+    constant C_FIR_MAX : integer := 5;
     type FIR_tab is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(7 downto 0);
     type VU_tab is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(4 downto 0);
 

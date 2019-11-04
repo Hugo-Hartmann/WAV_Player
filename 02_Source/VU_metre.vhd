@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-10-31
+-- Last update: 2019-11-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -132,7 +132,7 @@ begin
     -- COMBINATORY :
     -- Description : SRAM_in
     --------------------------------------------------------------------------------
-    process(SRAM_clr, VU_din)
+    process(SRAM_clr, din_conv)
     begin
         if(SRAM_clr='1') then
             for i in C_FIR_MIN to C_FIR_MAX loop
@@ -209,70 +209,68 @@ begin
     process(accu)
     begin
         for i in C_FIR_MIN to C_FIR_MAX loop
-            if(accu(i)>440871) then
+            if(accu(i)>65536) then
                 VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(31, 5));
-            elsif(accu(i)>370727) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(30, 5));
-            elsif(accu(i)>311743) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(29, 5));
-            elsif(accu(i)>262143) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(28, 5));
-            elsif(accu(i)>220435) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(27, 5));
-            elsif(accu(i)>185363) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(26, 5));
-            elsif(accu(i)>155871) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(25, 5));
-            elsif(accu(i)>131071) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(24, 5));
-            elsif(accu(i)>110217) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(23, 5));
-            elsif(accu(i)>92681) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(22, 5));
-            elsif(accu(i)>77935) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(21, 5));
-            elsif(accu(i)>65535) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(20, 5));
             elsif(accu(i)>55108) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(19, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(30, 5));
             elsif(accu(i)>46340) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(18, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(29, 5));
             elsif(accu(i)>38967) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(17, 5));
-            elsif(accu(i)>32554) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(16, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(28, 5));
+            elsif(accu(i)>32768) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(27, 5));
             elsif(accu(i)>27554) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(15, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(26, 5));
             elsif(accu(i)>23170) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(14, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(25, 5));
             elsif(accu(i)>19483) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(13, 5));
-            elsif(accu(i)>16383) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(12, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(24, 5));
+            elsif(accu(i)>16384) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(23, 5));
             elsif(accu(i)>13777) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(11, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(22, 5));
             elsif(accu(i)>11585) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(10, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(21, 5));
             elsif(accu(i)>9741) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(9, 5));
-            elsif(accu(i)>8191) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(8, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(20, 5));
+            elsif(accu(i)>8192) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(19, 5));
             elsif(accu(i)>6888) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(7, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(18, 5));
             elsif(accu(i)>5792) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(6, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(17, 5));
             elsif(accu(i)>4870) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(5, 5));
-            elsif(accu(i)>4095) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(4, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(16, 5));
+            elsif(accu(i)>4096) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(15, 5));
             elsif(accu(i)>3444) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(3, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(14, 5));
             elsif(accu(i)>2896) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(2, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(13, 5));
             elsif(accu(i)>2435) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(1, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(12, 5));
             elsif(accu(i)>2048) then
-                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(0, 5));
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(11, 5));
+            elsif(accu(i)>1722) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(10, 5));
+            elsif(accu(i)>1448) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(9, 5));
+            elsif(accu(i)>1217) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(8, 5));
+            elsif(accu(i)>1024) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(7, 5));
+            elsif(accu(i)>861) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(6, 5));
+            elsif(accu(i)>724) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(5, 5));
+            elsif(accu(i)>608) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(4, 5));
+            elsif(accu(i)>512) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(3, 5));
+            elsif(accu(i)>430) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(2, 5));
+            elsif(accu(i)>362) then
+                VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(1, 5));
             else
                 VU_dout(i*5+4 downto i*5)   <= std_logic_vector(to_unsigned(0, 5));
             end if;
