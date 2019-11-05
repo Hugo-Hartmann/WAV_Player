@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-11-04
+-- Last update: 2019-11-05
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -42,6 +42,10 @@ entity TOP is
         ------- Clock and reset -----------------
         CLK12MHZ    : in  std_logic;
         RESET       : in  std_logic;
+
+        ------- Buttons -------------------------
+        VOL_UP      : in  std_logic;
+        VOL_DOWN    : in  std_logic;
 
         ------- Switches ------------------------
         SW          : in  std_logic_vector(3 downto 0);
@@ -150,7 +154,7 @@ architecture RTL of TOP is
             );
     end component;
 
-    component VGA_RAM_interface is
+    component VGA_interface is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -162,8 +166,9 @@ architecture RTL of TOP is
             RGB_out         : out std_logic_vector(7 downto 0);
             RAM_read_audio  : in  std_logic;
             sw              : in  std_logic_vector(3 downto 0);
-            VU_dout         : in  std_logic_vector(C_FIR_MAX*5+4 downto 0);
-            RAM_dout        : in  std_logic_vector(7 downto 0)
+            EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
+            VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0)
             );
     end component;
 
@@ -182,8 +187,23 @@ architecture RTL of TOP is
             clk     : in  std_logic;
             reset_n : in  std_logic;
             VU_en   : in  std_logic;
-            VU_din  : in  std_logic_vector(C_FIR_MAX*8+7 downto 0);
-            VU_dout : out std_logic_vector(C_FIR_MAX*5+4 downto 0)
+            VU_din  : in  std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
+            VU_dout : out std_logic_vector((C_FIR_MAX+2)*6+5 downto 0)
+            );
+    end component;
+
+    component EQ_wrapper is
+        port(
+            clk             : in  std_logic;
+            reset_n         : in  std_logic;
+            EQ_en           : in  std_logic;
+            sw              : in  std_logic_vector(3 downto 0);
+            EQ_vol_up       : in  std_logic;
+            EQ_vol_down     : in  std_logic;
+            FIR_dout        : in  std_logic_vector(C_FIR_MAX*8+7 downto 0);
+            RAM_dout        : in  std_logic_vector(7 downto 0);
+            EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
+            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*6+5 downto 0)
             );
     end component;
 
@@ -205,8 +225,10 @@ architecture RTL of TOP is
     signal RGB_VGA          : std_logic_vector(7 downto 0);
     signal VGA_new_frame    : std_logic;
     signal FIR_dout         : std_logic_vector(C_FIR_MAX*8+7 downto 0);
-    signal VU_dout          : std_logic_vector(C_FIR_MAX*5+4 downto 0);
+    signal VU_dout          : std_logic_vector((C_FIR_MAX+2)*6+5 downto 0);
     signal SW_out           : std_logic_vector(7 downto 0);
+    signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal EQ_dout          : std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -300,10 +322,10 @@ begin
         vga_b           => BLUE_OUT);
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_VGA_RAM_interface
+    -- INSTANCE : U_VGA_interface
     -- Description: VGA controller, fetch image from memory and outputs VGA format
     ----------------------------------------------------------------
-    U_VGA_RAM_interface : VGA_RAM_interface port map(
+    U_VGA_interface : VGA_interface port map(
         clk             => clk,
         reset_n         => reset_n,
         VGA_new_frame   => VGA_new_frame,
@@ -315,7 +337,8 @@ begin
         RAM_read_audio  => RAM_read,
         sw              => SW,
         VU_dout         => VU_dout,
-        RAM_dout        => SW_out);
+        EQ_dout         => EQ_dout,
+        EQ_level_dout   => EQ_level_dout);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_FIR_interface
@@ -336,21 +359,37 @@ begin
         clk     => clk,
         reset_n => reset_n,
         VU_en   => RAM_read,
-        VU_din  => FIR_dout,
+        VU_din  => EQ_dout,
         VU_dout => VU_dout);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_EQ_stage
+    -- Description: 6 Channel audio equalizer
+    ----------------------------------------------------------------
+    U_EQ_stage : EQ_wrapper port map(
+        clk             => clk,
+        reset_n         => reset_n,
+        EQ_en           => RAM_read,
+        sw              => SW,
+        EQ_vol_up       => VOL_UP,
+        EQ_vol_down     => VOL_DOWN,
+        FIR_dout        => FIR_dout,
+        RAM_dout        => RAM_dout,
+        EQ_dout         => EQ_dout,
+        EQ_level_dout   => EQ_level_dout);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
     -- Description : Audio selection
     --------------------------------------------------------------------------------
-    SW_out   <= RAM_dout                    when(SW="0000") else
-                FIR_dout(7 downto 0)        when(SW="0001") else
-                FIR_dout(15 downto 8)       when(SW="0010") else
-                FIR_dout(23 downto 16)      when(SW="0011") else
-                FIR_dout(31 downto 24)      when(SW="0100") else
-                FIR_dout(39 downto 32)      when(SW="0101") else
-                FIR_dout(47 downto 40)      when(SW="0110") else
-                RAM_dout;
+    SW_out   <= EQ_dout(7 downto 0)        when(SW(2 downto 0)="000") else
+                EQ_dout(15 downto 8)       when(SW(2 downto 0)="001") else
+                EQ_dout(23 downto 16)      when(SW(2 downto 0)="010") else
+                EQ_dout(31 downto 24)      when(SW(2 downto 0)="011") else
+                EQ_dout(39 downto 32)      when(SW(2 downto 0)="100") else
+                EQ_dout(47 downto 40)      when(SW(2 downto 0)="101") else
+                EQ_dout(55 downto 48)      when(SW(2 downto 0)="110") else
+                EQ_dout(63 downto 56);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

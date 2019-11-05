@@ -8,7 +8,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-30
--- Last update: 2019-10-31
+-- Last update: 2019-11-05
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -26,7 +26,5 @@ package TYPE_Pkg is
 
     constant C_FIR_MIN : integer := 0;
     constant C_FIR_MAX : integer := 5;
-    type FIR_tab is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(7 downto 0);
-    type VU_tab is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(4 downto 0);
 
 end TYPE_Pkg;

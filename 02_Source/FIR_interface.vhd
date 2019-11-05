@@ -64,6 +64,7 @@ architecture RTL of FIR_interface is
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
+    type FIR_tab is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(7 downto 0);
     type FIR_STATE is (FIR_RESET, FIR_IDLE, FIR_START, FIR_LOAD,
                        FIR_ACC1, FIR_ACC2, FIR_END1, FIR_END2, FIR_STORE);
 
