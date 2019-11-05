@@ -39,7 +39,7 @@ while(flag):
         if(b1==100 and b2==97 and b3==116 and b4==97):
             flag=False
     except:
-        print("Wrong file format.")
+        print("Wrong file format (1).")
 
 b1, b2, b3, b4 = b2, b3, b4, int(bytearray(f.read(1))[0])
 b1, b2, b3, b4 = b2, b3, b4, int(bytearray(f.read(1))[0])
@@ -50,11 +50,11 @@ bin = f.read()
 f.close()
 
 ## Check file size
-if(len(bin)==file_size):
-    print("Correct file format.")
-else:
-    print("Wrong file format.")
-    sys.exit(0)
+#if(len(bin)==file_size):
+#    print("Correct file format.")
+#else:
+#    print("Wrong file format (2).")
+#    sys.exit(0)
 
 ## Open the serial
 ser = serial.Serial(
