@@ -39,12 +39,14 @@ entity WAV_Player is
         clk         : in  std_logic;                               -- clock
         reset_n     : in  std_logic;                               -- reset_n
 
-        ------- Output ---------------------------
-        Audio_out   : out std_logic;
+        ------- WAV out --------------------------
+        WAV_dout    : out std_logic;
 
-        ------- Interface with RAM ---------------
-        RAM_dout    : in  std_logic_vector(7 downto 0);
-        RAM_read    : out std_logic
+        ------- WAV in ---------------------------
+        WAV_din     : in  std_logic_vector(7 downto 0);
+
+        ------- WAV control ----------------------
+        WAV_read    : out std_logic
         );
 end WAV_Player;
 
@@ -118,7 +120,7 @@ begin
     --------------------------------------------------------------------------------
     cnt_sample_end  <= '1' when(sample_counter=4898) else '0';
     load_sample     <= cnt_sample_end;
-    RAM_read        <= cnt_sample_end;
+    WAV_read        <= cnt_sample_end;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_sample
@@ -130,7 +132,7 @@ begin
             PWM_threshold    <= (others => '0');
         elsif(rising_edge(clk)) then
             if(load_sample='1') then
-                PWM_threshold   <= RAM_dout;
+                PWM_threshold   <= WAV_din;
             end if;
         end if;
     end process;
@@ -149,17 +151,17 @@ begin
     P_out : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            Audio_out    <= '0';
+            WAV_dout    <= '0';
         elsif(rising_edge(clk)) then
             if(PWM_end='1') then
                 if(PWM_thresh_zero='1') then
-                    Audio_out <= '0';
+                    WAV_dout    <= '0';
                 else
-                    Audio_out <= '1';
+                    WAV_dout    <= '1';
                 end if;
             else
                 if(PWM_thresh_eq='1') then
-                    Audio_out <= '0';
+                    WAV_dout    <= '0';
                 end if;
             end if;
         end if;

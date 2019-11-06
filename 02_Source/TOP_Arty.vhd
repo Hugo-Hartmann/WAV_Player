@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-11-05
+-- Last update: 2019-11-06
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -111,7 +111,7 @@ architecture RTL of TOP is
             );
     end component;
 
-    component SRAM_Wrapper is
+    component RAM_Wrapper is
         generic(
             G_BEHAVIOURAL   : boolean := false
             );
@@ -130,9 +130,9 @@ architecture RTL of TOP is
         port(
             clk         : in  std_logic;
             reset_n     : in  std_logic;
-            Audio_out   : out std_logic;
-            RAM_dout    : in  std_logic_vector(7 downto 0);
-            RAM_read    : out std_logic
+            WAV_dout    : out std_logic;
+            WAV_din     : in  std_logic_vector(7 downto 0);
+            WAV_read    : out std_logic
             );
     end component;
 
@@ -141,16 +141,16 @@ architecture RTL of TOP is
             clk             : in  std_logic;
             reset_n         : in  std_logic;
             VGA_new_frame   : out std_logic;
-            RAM_read        : out std_logic;
-            RAM_address     : out std_logic_vector(31 downto 0);
-            RAM_v_add       : out std_logic_vector(15 downto 0);
-            RAM_h_add       : out std_logic_vector(15 downto 0);
-            RGB_in          : in  std_logic_vector(7 downto 0);
-            vga_hsync       : out std_logic;
-            vga_vsync       : out std_logic;
-            vga_r           : out std_logic_vector(2 downto 0);
-            vga_g           : out std_logic_vector(2 downto 0);
-            vga_b           : out std_logic_vector(1 downto 0)
+            VGA_read        : out std_logic;
+            VGA_address     : out std_logic_vector(31 downto 0);
+            VGA_v_add       : out std_logic_vector(15 downto 0);
+            VGA_h_add       : out std_logic_vector(15 downto 0);
+            VGA_din         : in  std_logic_vector(7 downto 0);
+            VGA_hsync       : out std_logic;
+            VGA_vsync       : out std_logic;
+            VGA_r           : out std_logic_vector(2 downto 0);
+            VGA_g           : out std_logic_vector(2 downto 0);
+            VGA_b           : out std_logic_vector(1 downto 0)
             );
     end component;
 
@@ -159,13 +159,13 @@ architecture RTL of TOP is
             clk             : in  std_logic;
             reset_n         : in  std_logic;
             VGA_new_frame   : in  std_logic;
-            RAM_read_video  : in  std_logic;
-            RAM_address     : in  std_logic_vector(31 downto 0);
-            RAM_v_add       : in  std_logic_vector(15 downto 0);
-            RAM_h_add       : in  std_logic_vector(15 downto 0);
-            RGB_out         : out std_logic_vector(7 downto 0);
-            RAM_read_audio  : in  std_logic;
-            sw              : in  std_logic_vector(3 downto 0);
+            VGA_read        : in  std_logic;
+            VGA_address     : in  std_logic_vector(31 downto 0);
+            VGA_v_add       : in  std_logic_vector(15 downto 0);
+            VGA_h_add       : in  std_logic_vector(15 downto 0);
+            VGA_din         : out std_logic_vector(7 downto 0);
+            WAV_read        : in  std_logic;
+            VGA_select      : in  std_logic_vector(3 downto 0);
             EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
             EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
             VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0)
@@ -177,8 +177,8 @@ architecture RTL of TOP is
             clk             : in  std_logic;
             reset_n         : in  std_logic;
             FIR_dout        : out std_logic_vector(C_FIR_MAX*8+7 downto 0);
-            RAM_read_audio  : in  std_logic;
-            RAM_dout        : in  std_logic_vector(7 downto 0)
+            FIR_start       : in  std_logic;
+            FIR_din         : in  std_logic_vector(7 downto 0)
             );
     end component;
 
@@ -197,13 +197,13 @@ architecture RTL of TOP is
             clk             : in  std_logic;
             reset_n         : in  std_logic;
             EQ_en           : in  std_logic;
-            sw              : in  std_logic_vector(3 downto 0);
+            EQ_select       : in  std_logic_vector(3 downto 0);
             EQ_vol_up       : in  std_logic;
             EQ_vol_down     : in  std_logic;
-            FIR_dout        : in  std_logic_vector(C_FIR_MAX*8+7 downto 0);
-            RAM_dout        : in  std_logic_vector(7 downto 0);
+            EQ_din_band     : in  std_logic_vector(C_FIR_MAX*8+7 downto 0);
+            EQ_din          : in  std_logic_vector(7 downto 0);
             EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
-            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*6+5 downto 0)
+            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
             );
     end component;
 
@@ -213,16 +213,17 @@ architecture RTL of TOP is
     signal clk              : std_logic;
     signal reset_n          : std_logic;
     signal locked           : std_logic;
+    signal RAM_dout         : std_logic_vector(7 downto 0);
     signal UART_dout        : std_logic_vector(7 downto 0);
     signal UART_read        : std_logic;
     signal UART_write       : std_logic;
-    signal RAM_read         : std_logic;
-    signal RAM_read_video   : std_logic;
-    signal RAM_dout         : std_logic_vector(7 downto 0);
-    signal RAM_address      : std_logic_vector(31 downto 0);
-    signal RAM_v_add        : std_logic_vector(15 downto 0);
-    signal RAM_h_add        : std_logic_vector(15 downto 0);
-    signal RGB_VGA          : std_logic_vector(7 downto 0);
+    signal WAV_read         : std_logic;
+    signal VGA_read         : std_logic;
+    signal VGA_dout         : std_logic_vector(7 downto 0);
+    signal VGA_address      : std_logic_vector(31 downto 0);
+    signal VGA_v_add        : std_logic_vector(15 downto 0);
+    signal VGA_h_add        : std_logic_vector(15 downto 0);
+    signal VGA_din          : std_logic_vector(7 downto 0);
     signal VGA_new_frame    : std_logic;
     signal FIR_dout         : std_logic_vector(C_FIR_MAX*8+7 downto 0);
     signal VU_dout          : std_logic_vector((C_FIR_MAX+2)*6+5 downto 0);
@@ -279,17 +280,17 @@ begin
         UART_read       => UART_read);
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_SRAM_Wrapper
-    -- Description: SRAM wrapper
+    -- INSTANCE : U_RAM_Wrapper
+    -- Description: RAM wrapper
     ----------------------------------------------------------------
-    U_SRAM_Wrapper : SRAM_Wrapper port map(
+    U_RAM_Wrapper : RAM_Wrapper port map(
         clk             => clk,
         reset_n         => reset_n,
         UART_dout       => UART_dout,
         UART_write      => UART_write,
         UART_read       => UART_read,
         RAM_dout        => RAM_dout,
-        RAM_read        => RAM_read);
+        RAM_read        => WAV_read);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_WAV_Player
@@ -298,9 +299,9 @@ begin
     U_WAV_Player : WAV_Player port map(
         clk             => clk,
         reset_n         => reset_n,
-        Audio_out       => AUDIO_OUT,
-        RAM_dout        => SW_out,
-        RAM_read        => RAM_read);
+        WAV_dout        => AUDIO_OUT,
+        WAV_din         => SW_out,
+        WAV_read        => WAV_read);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_VGA_controller
@@ -310,16 +311,16 @@ begin
         clk             => clk,
         reset_n         => reset_n,
         VGA_new_frame   => VGA_new_frame,
-        RAM_read        => RAM_read_video,
-        RAM_address     => RAM_address,
-        RAM_v_add       => RAM_v_add,
-        RAM_h_add       => RAM_h_add,
-        RGB_in          => RGB_VGA,
-        vga_hsync       => HSYNC_OUT,
-        vga_vsync       => VSYNC_OUT,
-        vga_r           => RED_OUT,
-        vga_g           => GREEN_OUT,
-        vga_b           => BLUE_OUT);
+        VGA_read        => VGA_read,
+        VGA_address     => VGA_address,
+        VGA_v_add       => VGA_v_add,
+        VGA_h_add       => VGA_h_add,
+        VGA_din         => VGA_din,
+        VGA_hsync       => HSYNC_OUT,
+        VGA_vsync       => VSYNC_OUT,
+        VGA_r           => RED_OUT,
+        VGA_g           => GREEN_OUT,
+        VGA_b           => BLUE_OUT);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_VGA_interface
@@ -329,13 +330,13 @@ begin
         clk             => clk,
         reset_n         => reset_n,
         VGA_new_frame   => VGA_new_frame,
-        RAM_read_video  => RAM_read_video,
-        RAM_address     => RAM_address,
-        RAM_v_add       => RAM_v_add,
-        RAM_h_add       => RAM_h_add,
-        RGB_out         => RGB_VGA,
-        RAM_read_audio  => RAM_read,
-        sw              => SW,
+        VGA_read        => VGA_read,
+        VGA_address     => VGA_address,
+        VGA_v_add       => VGA_v_add,
+        VGA_h_add       => VGA_h_add,
+        VGA_din         => VGA_din,
+        WAV_read        => WAV_read,
+        VGA_select      => SW,
         VU_dout         => VU_dout,
         EQ_dout         => EQ_dout,
         EQ_level_dout   => EQ_level_dout);
@@ -348,8 +349,8 @@ begin
         clk             => clk,
         reset_n         => reset_n,
         FIR_dout        => FIR_dout,
-        RAM_read_audio  => RAM_read,
-        RAM_dout        => RAM_dout);
+        FIR_start       => WAV_read,
+        FIR_din         => RAM_dout);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_VU_metre
@@ -358,7 +359,7 @@ begin
     U_VU_metre : VU_metre port map(
         clk     => clk,
         reset_n => reset_n,
-        VU_en   => RAM_read,
+        VU_en   => WAV_read,
         VU_din  => EQ_dout,
         VU_dout => VU_dout);
 
@@ -369,12 +370,12 @@ begin
     U_EQ_stage : EQ_wrapper port map(
         clk             => clk,
         reset_n         => reset_n,
-        EQ_en           => RAM_read,
-        sw              => SW,
+        EQ_en           => WAV_read,
+        EQ_select       => SW,
         EQ_vol_up       => VOL_UP,
         EQ_vol_down     => VOL_DOWN,
-        FIR_dout        => FIR_dout,
-        RAM_dout        => RAM_dout,
+        EQ_din_band     => FIR_dout,
+        EQ_din          => RAM_dout,
         EQ_dout         => EQ_dout,
         EQ_level_dout   => EQ_level_dout);
 
@@ -382,13 +383,13 @@ begin
     -- COMBINATORY :
     -- Description : Audio selection
     --------------------------------------------------------------------------------
-    SW_out   <= EQ_dout(7 downto 0)        when(SW(2 downto 0)="000") else
-                EQ_dout(15 downto 8)       when(SW(2 downto 0)="001") else
-                EQ_dout(23 downto 16)      when(SW(2 downto 0)="010") else
-                EQ_dout(31 downto 24)      when(SW(2 downto 0)="011") else
-                EQ_dout(39 downto 32)      when(SW(2 downto 0)="100") else
-                EQ_dout(47 downto 40)      when(SW(2 downto 0)="101") else
-                EQ_dout(55 downto 48)      when(SW(2 downto 0)="110") else
+    SW_out   <= EQ_dout(7 downto 0)        when(SW="0000") else
+                EQ_dout(15 downto 8)       when(SW="0001") else
+                EQ_dout(23 downto 16)      when(SW="0010") else
+                EQ_dout(31 downto 24)      when(SW="0011") else
+                EQ_dout(39 downto 32)      when(SW="0100") else
+                EQ_dout(47 downto 40)      when(SW="0101") else
+                EQ_dout(55 downto 48)      when(SW="0110") else
                 EQ_dout(63 downto 56);
 
     --------------------------------------------------------------------------------

@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-11-04
+-- Last update: 2019-11-06
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -145,6 +145,7 @@ architecture RTL of FIR_filter is
     signal mult_opA     : std_logic_vector(7 downto 0);
     signal mult_opB     : std_logic_vector(15 downto 0);
     signal mult_out     : std_logic_vector(23 downto 0);
+    signal mult_out_d   : std_logic_vector(23 downto 0);
     signal sat_out      : unsigned(7 downto 0);
 
 --------------------------------------------------------------------------------
@@ -222,21 +223,24 @@ begin
         mult_out    => mult_out);
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_RAM
+    -- SEQ PROCESS : P_ROM
     -- Description : Register rom data
     --------------------------------------------------------------------------------
-    P_RAM : process(clk, reset_n)
+    P_ROM : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            mult_opA    <= (others => '0');
-            mult_opB    <= (others => '0');
+            -- mult_opA    <= (others => '0'); -- Merge reg with DSP block
+            -- mult_opB    <= (others => '0');
+            -- mult_out_d  <= (others => '0');
         elsif(rising_edge(clk)) then
             if(FIR_clr='1') then
                 mult_opA    <= (others => '0');
                 mult_opB    <= (others => '0');
+                mult_out_d  <= (others => '0');
             elsif(FIR_en='1') then
                 mult_opA    <= std_logic_vector(unsigned(FIR_din) - 128);
                 mult_opB    <= ROM_out;
+                mult_out_d  <= mult_out;
             end if;
         end if;
     end process;
@@ -245,7 +249,7 @@ begin
     -- COMBINATORY :
     -- Description : Accumulator
     --------------------------------------------------------------------------------
-    accu_din    <= (34 downto 24 => mult_out(23)) & unsigned(mult_out);
+    accu_din    <= (34 downto 24 => mult_out_d(23)) & unsigned(mult_out_d);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_acc
@@ -254,7 +258,7 @@ begin
     P_acc : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            accu    <= to_unsigned(0, accu'length);
+            -- accu    <= to_unsigned(0, accu'length); -- Merge reg with DSP block
         elsif(rising_edge(clk)) then
             if(FIR_clr='1') then
                 accu    <= to_unsigned(0, accu'length);

@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-04
--- Last update: 2019-11-05
+-- Last update: 2019-11-06
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ entity EQ_volume_ctrl is
         reset_n         : in  std_logic;                        -- reset_n
 
         ------- EQ control ----------------------
-        sw              : in  std_logic_vector(3 downto 0);
+        EQ_select       : in  std_logic_vector(3 downto 0);
         EQ_vol_up       : in  std_logic;
         EQ_vol_down     : in  std_logic;
 
@@ -91,7 +91,7 @@ begin
     -- COMBINATORY :
     -- Description : Volume selecter
     --------------------------------------------------------------------------------
-    vol_select  <= sw(2 downto 0);
+    vol_select  <= EQ_select(2 downto 0);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
@@ -167,7 +167,7 @@ begin
     -- COMBINATORY :
     -- Description : cnt_wait_end
     --------------------------------------------------------------------------------
-    cnt_wait_end    <= '1' when(counter_wait=21600000) else '0';
+    cnt_wait_end    <= '1' when(counter_wait=10800000) else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_FSM_EQ_sync

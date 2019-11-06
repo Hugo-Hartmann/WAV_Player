@@ -69,7 +69,7 @@ architecture RTL of VU_metre is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component SRAM_2048_8bit
+    component RAM_2048_8bit
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
@@ -85,16 +85,16 @@ architecture RTL of VU_metre is
     --------------------------------------------------------------------------------
     signal current_state    : VU_STATE;
     signal next_state       : VU_STATE;
-    signal SRAM_out         : DAT_tab;
-    signal SRAM_in          : DAT_tab;
+    signal RAM_out          : DAT_tab;
+    signal RAM_in           : DAT_tab;
     signal din_conv         : DAT_tab;
     signal accu             : accu_tab;
-    signal SRAM_counter     : unsigned(10 downto 0);
-    signal SRAM_write       : std_logic_vector(0 downto 0);
-    signal SRAM_addr        : std_logic_vector(10 downto 0);
-    signal SRAM_counter_clr : unsigned(10 downto 0);
+    signal RAM_counter      : unsigned(10 downto 0);
+    signal RAM_write        : std_logic_vector(0 downto 0);
+    signal RAM_addr         : std_logic_vector(10 downto 0);
+    signal RAM_counter_clr  : unsigned(10 downto 0);
     signal cnt_clr_end      : std_logic;
-    signal SRAM_clr         : std_logic;
+    signal RAM_clr          : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -105,15 +105,15 @@ begin
     -- INSTANCE : U_SRAM
     -- Description : Contains the 2048 last samples read
     ----------------------------------------------------------------
-    GEN_SRAM : for i in C_FIR_MIN to C_FIR_MAX+2 generate
-        U_SRAM : SRAM_2048_8bit port map(
+    GEN_RAM : for i in C_FIR_MIN to C_FIR_MAX+2 generate
+        U_RAM : RAM_2048_8bit port map(
             clka    => clk,
-            addra   => SRAM_addr,
-            wea     => SRAM_write,
+            addra   => RAM_addr,
+            wea     => RAM_write,
             ena     => '1',
-            dina    => SRAM_in(i),
-            douta   => SRAM_out(i));
-    end generate GEN_SRAM;
+            dina    => RAM_in(i),
+            douta   => RAM_out(i));
+    end generate GEN_RAM;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
@@ -134,56 +134,56 @@ begin
     -- COMBINATORY :
     -- Description : SRAM_in
     --------------------------------------------------------------------------------
-    process(SRAM_clr, din_conv)
+    process(RAM_clr, din_conv)
     begin
-        if(SRAM_clr='1') then
+        if(RAM_clr='1') then
             for i in C_FIR_MIN to C_FIR_MAX+2 loop
-                SRAM_in(i)  <= (others => '0');
+                RAM_in(i)   <= (others => '0');
             end loop;
         else
             for i in C_FIR_MIN to C_FIR_MAX+2 loop
-                SRAM_in(i)  <= din_conv(i);
+                RAM_in(i)   <= din_conv(i);
             end loop;
         end if;
     end process;
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_SRAM_counter
-    -- Description : Manage SRAM address
+    -- SEQ PROCESS : P_RAM_counter
+    -- Description : Manage RAM address
     --------------------------------------------------------------------------------
-    P_SRAM_counter : process(clk, reset_n)
+    P_RAM_counter : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            SRAM_counter <= to_unsigned(0, SRAM_counter'length);
+            RAM_counter  <= to_unsigned(0, RAM_counter'length);
         elsif(rising_edge(clk)) then
-            if(VU_en='1' and SRAM_clr='0') then
-                SRAM_counter <= SRAM_counter + 1;
+            if(VU_en='1' and RAM_clr='0') then
+                RAM_counter  <= RAM_counter + 1;
             end if;
         end if;
     end process;
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_SRAM_counter_clr
-    -- Description : Manage SRAM address for clearing SRAM
+    -- SEQ PROCESS : P_RAM_counter_clr
+    -- Description : Manage RAM address for clearing RAM
     --------------------------------------------------------------------------------
-    P_SRAM_counter_clr : process(clk, reset_n)
+    P_RAM_counter_clr : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            SRAM_counter_clr <= (others => '1');
+            RAM_counter_clr  <= (others => '1');
         elsif(rising_edge(clk)) then
-            if(SRAM_clr='1') then
-                SRAM_counter_clr <= SRAM_counter_clr - 1;
+            if(RAM_clr='1') then
+                RAM_counter_clr  <= RAM_counter_clr - 1;
             end if;
         end if;
     end process;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
-    -- Description : Write to SRAM
+    -- Description : Write to RAM
     --------------------------------------------------------------------------------
-    SRAM_write      <= (others => VU_en OR SRAM_clr);
-    SRAM_addr       <= std_logic_vector(SRAM_counter) when(SRAM_clr='0') else std_logic_vector(SRAM_counter_clr);
-    cnt_clr_end     <= '1' when(SRAM_counter_clr=0) else '0';
+    RAM_write       <= (others => VU_en OR RAM_clr);
+    RAM_addr        <= std_logic_vector(RAM_counter) when(RAM_clr='0') else std_logic_vector(RAM_counter_clr);
+    cnt_clr_end     <= '1' when(RAM_counter_clr=0) else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_Accu
@@ -196,9 +196,9 @@ begin
                 accu(i) <= to_unsigned(0, accu(i)'length);
             end loop;
         elsif(rising_edge(clk)) then
-            if(VU_en='1' and SRAM_clr='0') then
+            if(VU_en='1' and RAM_clr='0') then
                 for i in C_FIR_MIN to C_FIR_MAX+2 loop
-                    accu(i) <= accu(i) + resize(unsigned(din_conv(i)), accu(i)'length) - resize(unsigned(SRAM_out(i)), accu(i)'length);
+                    accu(i) <= accu(i) + resize(unsigned(din_conv(i)), accu(i)'length) - resize(unsigned(RAM_out(i)), accu(i)'length);
                 end loop;
             end if;
         end if;
@@ -362,14 +362,14 @@ begin
     --------------------------------------------------------------------------------
     P_FSM_VU_comb : process(current_state, cnt_clr_end)
     begin
-    SRAM_clr    <= '0';
+    RAM_clr <= '0';
 
         case current_state is
             when VU_RESET =>
                 next_state  <= VU_CLEAN;
 
             when VU_CLEAN =>
-                SRAM_clr    <= '1';
+                RAM_clr <= '1';
                 if(cnt_clr_end='1') then
                     next_state  <= VU_IDLE;
                 else

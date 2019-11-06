@@ -7,19 +7,19 @@
 -- Title      : 
 -- Project    : 
 -------------------------------------------------------------------------------
--- File       : FIR_interface.vhd
+-- File       : FIR_Single.vhd
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
--- Created    : 2019-10-28
+-- Created    : 2019-11-06
 -- Last update: 2019-11-06
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
--- Description: FIR interface for multiple FIR filters working on same data
+-- Description: Single FIR filter
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
--- 2019-10-28  1.0      Hugo HARTMANN   Creation
+-- 2019-11-06  1.0      Hugo HARTMANN   Creation
 -------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
@@ -28,13 +28,11 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-library lib_VHDL;
-use lib_VHDL.TYPE_Pkg.all;
 
 --------------------------------------------------------------------------------
 -- ENTITY DECLARATION
 --------------------------------------------------------------------------------
-entity FIR_interface is
+entity FIR_Single is
     generic(
         G_BEHAVIOURAL   : boolean := false
         );
@@ -45,48 +43,31 @@ entity FIR_interface is
         reset_n         : in  std_logic;                        -- reset_n
 
         ------- FIR out --------------------------
-        FIR_dout        : out std_logic_vector(C_FIR_MAX*8+7 downto 0);
+        FIR_dout        : out std_logic_vector(7 downto 0);
 
         ------- FIR control ----------------------
-        FIR_start       : in  std_logic;
+        FIR_en          : in  std_logic;
 
         ------- FIR in ---------------------------
         FIR_din         : in  std_logic_vector(7 downto 0)
 
         );
-end FIR_interface;
+end FIR_Single;
 
 --------------------------------------------------------------------------------
 -- ARCHITECTURE DECLARATION
 --------------------------------------------------------------------------------
-architecture RTL of FIR_interface is
+architecture RTL of FIR_Single is
 
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
-    type FIR_tab is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(7 downto 0);
-    type FIR_STATE is (FIR_RESET, FIR_IDLE, FIR_BEGIN, FIR_LOAD,
+    type FIR_STATE is (FIR_RESET, FIR_IDLE, FIR_START, FIR_LOAD,
                        FIR_ACC1, FIR_ACC2, FIR_END1, FIR_END2, FIR_END3, FIR_STORE);
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component FIR_filter is
-        generic(
-            G_BEHAVIOURAL   : boolean := false;
-            G_SELECT        : integer := 0
-            );
-        port(
-            clk             : in  std_logic;
-            reset_n         : in  std_logic;
-            FIR_clr         : in  std_logic;
-            FIR_en          : in  std_logic;
-            FIR_din         : in  std_logic_vector(7 downto 0);
-            FIR_addr        : in  std_logic_vector(9 downto 0);
-            FIR_dout        : out std_logic_vector(7 downto 0)
-            );
-    end component;
-
     component RAM_2048_8bit
         port (
             clka    : in  std_logic;
@@ -95,6 +76,31 @@ architecture RTL of FIR_interface is
             addra   : in  std_logic_vector(10 downto 0);
             dina    : in  std_logic_vector(7 downto 0);
             douta   : out std_logic_vector(7 downto 0)
+            );
+    end component;
+
+    component ROM_1024_16bit
+        port (
+            clka    : in  std_logic;
+            ena     : in  std_logic;
+            addra   : in  std_logic_vector(9 downto 0);
+            douta   : out std_logic_vector(15 downto 0)
+            );
+    end component;
+
+    component Multiplier is
+        generic(
+            G_OPERAND_A_SIZE    : INTEGER := 5;
+            G_OPERAND_B_SIZE    : INTEGER := 5;
+            G_MULT_OUT_SIZE     : INTEGER := 10
+            );
+        port(
+            clk          : in  std_logic;
+            reset_n      : in  std_logic;
+            enable       : in  std_logic;
+            opA          : in  std_logic_vector(G_OPERAND_A_SIZE-1 downto 0);
+            opB          : in  std_logic_vector(G_OPERAND_B_SIZE-1 downto 0);
+            mult_out     : out std_logic_vector(G_MULT_OUT_SIZE-1 downto 0)
             );
     end component;
 
@@ -126,12 +132,32 @@ architecture RTL of FIR_interface is
     signal FIR_addr         : std_logic_vector(9 downto 0);
     signal addr_select      : std_logic;
     signal dout_store       : std_logic;
-    signal FIR_out_tab      : FIR_tab;
+    signal FIR_out          : std_logic_vector(7 downto 0);
+    signal ROM_out          : std_logic_vector(15 downto 0);
+    signal accu_din         : unsigned(34 downto 0);
+    signal accu             : unsigned(34 downto 0);
+    signal mult_opA         : std_logic_vector(7 downto 0);
+    signal mult_opB         : std_logic_vector(15 downto 0);
+    signal mult_out         : std_logic_vector(23 downto 0);
+    signal mult_out_d       : std_logic_vector(23 downto 0);
+    signal sat_out          : unsigned(7 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_ROM
+    -- Description : Contains coefficient for filtering
+    ----------------------------------------------------------------
+    ROM : if G_BEHAVIOURAL=false generate
+        U_ROM : ROM_1024_16bit port map(
+            clka    => clk,
+            addra   => FIR_addr,
+            ena     => '1',
+            douta   => ROM_out);
+    end generate;
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM
@@ -148,23 +174,88 @@ begin
     end generate;
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_FIR_filter
-    -- Description : 2047-tap FIR filter
-    --               16-bit coefficients, 8-bit data
+    -- INSTANCE : U_Mult
+    -- Description : 8x16 Signed multiplier
     ----------------------------------------------------------------
-    GEN_FILTER : for i in C_FIR_MIN to C_FIR_MAX generate
-        U_FIR_filter : FIR_filter generic map(
-            G_BEHAVIOURAL   => G_BEHAVIOURAL,
-            G_SELECT        => i)
-        port map(
-            clk         => clk,
-            reset_n     => reset_n,
-            FIR_clr     => FIR_clr,
-            FIR_en      => FIR_en,
-            FIR_din     => FIR_din_d,
-            FIR_addr    => FIR_addr,
-            FIR_dout    => FIR_out_tab(i));
-    end generate GEN_FILTER;
+    U_Mult : Multiplier generic map(
+        G_OPERAND_A_SIZE    => 8,
+        G_OPERAND_B_SIZE    => 16,
+        G_MULT_OUT_SIZE     => 24)
+    port map(
+        clk         => clk,
+        reset_n     => reset_n,
+        enable      => '1',
+        opA         => mult_opA,
+        opB         => mult_opB,
+        mult_out    => mult_out);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_ROM
+    -- Description : Register rom data
+    --------------------------------------------------------------------------------
+    P_ROM : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            -- mult_opA    <= (others => '0'); -- Merge reg with DSP block
+            -- mult_opB    <= (others => '0');
+            -- mult_out_d  <= (others => '0');
+        elsif(rising_edge(clk)) then
+            if(FIR_clr='1') then
+                mult_opA    <= (others => '0');
+                mult_opB    <= (others => '0');
+                mult_out_d  <= (others => '0');
+            elsif(FIR_en='1') then
+                mult_opA    <= std_logic_vector(unsigned(FIR_din_d) - 128);
+                mult_opB    <= ROM_out;
+                mult_out_d  <= mult_out;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Accumulator
+    --------------------------------------------------------------------------------
+    accu_din    <= (34 downto 24 => mult_out_d(23)) & unsigned(mult_out_d);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_acc
+    -- Description : Enable accumulation
+    --------------------------------------------------------------------------------
+    P_acc : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            -- accu    <= to_unsigned(0, accu'length); -- Merge reg with DSP block
+        elsif(rising_edge(clk)) then
+            if(FIR_clr='1') then
+                accu    <= to_unsigned(0, accu'length);
+            elsif(FIR_en='1') then
+                accu    <= accu + accu_din;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Saturation
+    --------------------------------------------------------------------------------
+    process(accu)
+    begin
+        if(accu(34 downto 32)="000" or accu(34 downto 32)="111") then
+            sat_out <= accu(32 downto 25);
+        elsif(accu(32)='0') then
+            sat_out <= X"7F";
+        else
+            sat_out <= X"80";
+        end if;
+    end process;
+
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Output
+    --------------------------------------------------------------------------------
+    FIR_out <= std_logic_vector(sat_out + 128);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY : 
@@ -358,9 +449,7 @@ begin
             FIR_dout    <= (others => '0');
         elsif(rising_edge(clk)) then
             if(dout_store='1') then
-                for i in C_FIR_MIN to C_FIR_MAX loop
-                    FIR_dout(i*8+7 downto i*8) <= FIR_out_tab(i);
-                end loop;
+                FIR_dout <= FIR_out;
             end if;
         end if;
     end process;
