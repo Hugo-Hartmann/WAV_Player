@@ -11,11 +11,11 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-11-06
+-- Last update: 2019-11-25
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
--- Description: SRAM wrapper
+-- Description: RAM wrapper
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
@@ -86,13 +86,13 @@ architecture RTL of RAM_Wrapper is
     signal cnt_read_end     : std_logic;
     signal counter_write    : unsigned(14 downto 0);
     signal cnt_write_end    : std_logic;
-    signal RAM0_addr       : std_logic_vector(14 downto 0);
-    signal RAM0_write      : std_logic_vector(0 downto 0);
-    signal RAM0_dout       : std_logic_vector(7 downto 0);
-    signal RAM1_addr       : std_logic_vector(14 downto 0);
-    signal RAM1_write      : std_logic_vector(0 downto 0);
-    signal RAM1_dout       : std_logic_vector(7 downto 0);
-    signal RAM_select      : std_logic;
+    signal RAM0_addr        : std_logic_vector(14 downto 0);
+    signal RAM0_write       : std_logic_vector(0 downto 0);
+    signal RAM0_dout        : std_logic_vector(7 downto 0);
+    signal RAM1_addr        : std_logic_vector(14 downto 0);
+    signal RAM1_write       : std_logic_vector(0 downto 0);
+    signal RAM1_dout        : std_logic_vector(7 downto 0);
+    signal RAM_select       : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -101,7 +101,7 @@ begin
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM0
-    -- Description : Contains 5 seconds of 8-bit audio
+    -- Description : Contains 1 second of 8-bit audio
     ----------------------------------------------------------------
     RAM0 : if G_BEHAVIOURAL=false generate
         U_RAM0 : RAM_22050_8bit port map(
@@ -115,7 +115,7 @@ begin
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM1
-    -- Description : Contains 5 seconds of 8-bit audio
+    -- Description : Contains 1 second of 8-bit audio
     ----------------------------------------------------------------
     RAM1 : if G_BEHAVIOURAL=false generate
         U_RAM1 : RAM_22050_8bit port map(

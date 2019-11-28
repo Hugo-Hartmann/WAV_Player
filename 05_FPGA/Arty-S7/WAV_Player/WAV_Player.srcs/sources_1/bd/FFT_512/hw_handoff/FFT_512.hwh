@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 28 11:14:50 2019" VIVADOVERSION="2018.3">
+
+  <SYSTEMINFO ARCH="spartan7" BOARD="digilentinc.com:arty-s7-50:part0:1.0" DEVICE="7s50" NAME="FFT_512" PACKAGE="csga324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT CLKFREQUENCY="108000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="FFT_Wrapper_0" PORT="clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="reset_n" SIGIS="rst" SIGNAME="External_Ports_reset_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="FFT_Wrapper_0" PORT="reset_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="FFT_din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_FFT_din">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="FFT_Wrapper_0" PORT="FFT_din"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="8" NAME="FFT_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_FFT_addr">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="FFT_Wrapper_0" PORT="FFT_addr"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="FFT_new_sample" SIGIS="undef" SIGNAME="External_Ports_FFT_new_sample">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="FFT_Wrapper_0" PORT="FFT_new_sample"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="FFT_start" SIGIS="undef" SIGNAME="External_Ports_FFT_start">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="FFT_Wrapper_0" PORT="FFT_start"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="FFT_read" SIGIS="undef" SIGNAME="External_Ports_FFT_read">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="FFT_Wrapper_0" PORT="FFT_read"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="FFT_dout" RIGHT="0" SIGIS="undef" SIGNAME="FFT_Wrapper_0_FFT_dout">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="FFT_Wrapper_0" PORT="FFT_dout"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/FFT_Wrapper_0" HWVERSION="1.0" INSTANCE="FFT_Wrapper_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="FFT_Wrapper" VLNV="xilinx.com:module_ref:FFT_Wrapper:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="G_BEHAVIOURAL" VALUE="false"/>
+        <PARAMETER NAME="Component_Name" VALUE="FFT_512_FFT_Wrapper_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset_n" SIGIS="rst" SIGNAME="External_Ports_reset_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="FFT_din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_FFT_din">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FFT_din"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="FFT_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_FFT_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FFT_addr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="FFT_new_sample" SIGIS="undef" SIGNAME="External_Ports_FFT_new_sample">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FFT_new_sample"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="FFT_start" SIGIS="undef" SIGNAME="External_Ports_FFT_start">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FFT_start"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="FFT_read" SIGIS="undef" SIGNAME="External_Ports_FFT_read">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FFT_read"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="FFT_dout" RIGHT="0" SIGIS="undef" SIGNAME="FFT_Wrapper_0_FFT_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="FFT_dout"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

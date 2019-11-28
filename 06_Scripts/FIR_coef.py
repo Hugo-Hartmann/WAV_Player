@@ -1,12 +1,12 @@
 import numpy as np
 import scipy.signal as fir
 
-FMIN = 7000
+FMIN = 0
 FMAX = 11024
 
 fichier = "FIR_" + str(FMIN) + "_" + str(FMAX) + ".coe"
 
-filtre = np.array(fir.firwin(2047, [FMIN/11025, FMAX/11025], pass_zero=False))
+filtre = np.array(fir.firwin(2047, FMAX/11025, pass_zero=False))
 cmax = max(filtre)
 cmin = abs(min(filtre))
 if(cmin>cmax):

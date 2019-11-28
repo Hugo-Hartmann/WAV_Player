@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-11-06
+-- Last update: 2019-11-27
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -81,14 +81,17 @@ architecture RTL of VGA_Controller is
     signal v_blank          : std_logic;
     signal v_sync           : std_logic;
     signal v_sync_d         : std_logic;
+    signal v_sync_dd        : std_logic;
     signal v_inc            : std_logic;
     signal h_counter        : unsigned(15 downto 0);
     signal h_addr_counter   : unsigned(15 downto 0);
     signal h_blank          : std_logic;
     signal h_sync           : std_logic;
     signal h_sync_d         : std_logic;
+    signal h_sync_dd        : std_logic;
     signal RGB_blank        : std_logic;
     signal RGB_blank_d      : std_logic;
+    signal RGB_blank_dd     : std_logic;
     signal mem_read         : std_logic;
     signal mem_add_inc      : std_logic;
     signal mem_add_clr      : std_logic;
@@ -255,10 +258,13 @@ begin
             RGB_blank_d     <= '1';
         elsif(rising_edge(clk)) then
             h_sync_d        <= h_sync;
-            VGA_hsync       <= h_sync_d;
+            h_sync_dd       <= h_sync_d;
+            VGA_hsync       <= h_sync_dd;
             v_sync_d        <= v_sync;
-            VGA_vsync       <= v_sync_d;
+            v_sync_dd       <= v_sync_d;
+            VGA_vsync       <= v_sync_dd;
             RGB_blank_d     <= RGB_blank;
+            RGB_blank_dd    <= RGB_blank_d;
         end if;
     end process;
 
@@ -279,7 +285,7 @@ begin
             VGA_g       <= (others => '0');
             VGA_b       <= (others => '0');
         elsif(rising_edge(clk)) then
-            if(RGB_blank_d='1') then
+            if(RGB_blank_dd='1') then
                 VGA_r       <= (others => '0');
                 VGA_g       <= (others => '0');
                 VGA_b       <= (others => '0');

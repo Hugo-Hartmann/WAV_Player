@@ -1,0 +1,181 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x9D35982545CE1E17",
+      "device": "xc7s50csga324-1",
+      "name": "FFT_512",
+      "synth_flow_mode": "Singular",
+      "tool_version": "2018.3",
+      "validated": "true"
+    },
+    "design_tree": {
+      "FFT_Wrapper_0": ""
+    },
+    "ports": {
+      "clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "FFT_512_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "108000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "reset_n": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "FFT_din": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "FFT_addr": {
+        "direction": "I",
+        "left": "8",
+        "right": "0"
+      },
+      "FFT_new_sample": {
+        "direction": "I"
+      },
+      "FFT_start": {
+        "direction": "I"
+      },
+      "FFT_read": {
+        "direction": "I"
+      },
+      "FFT_dout": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      }
+    },
+    "components": {
+      "FFT_Wrapper_0": {
+        "vlnv": "xilinx.com:module_ref:FFT_Wrapper:1.0",
+        "xci_name": "FFT_512_FFT_Wrapper_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FFT_Wrapper",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "FFT_512_clk",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "108000000",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "FFT_din": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "FFT_addr": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "FFT_new_sample": {
+            "direction": "I"
+          },
+          "FFT_start": {
+            "direction": "I"
+          },
+          "FFT_read": {
+            "direction": "I"
+          },
+          "FFT_dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_1": {
+        "ports": [
+          "clk",
+          "FFT_Wrapper_0/clk"
+        ]
+      },
+      "reset_n_1": {
+        "ports": [
+          "reset_n",
+          "FFT_Wrapper_0/reset_n"
+        ]
+      },
+      "FFT_din_1": {
+        "ports": [
+          "FFT_din",
+          "FFT_Wrapper_0/FFT_din"
+        ]
+      },
+      "FFT_addr_1": {
+        "ports": [
+          "FFT_addr",
+          "FFT_Wrapper_0/FFT_addr"
+        ]
+      },
+      "FFT_new_sample_1": {
+        "ports": [
+          "FFT_new_sample",
+          "FFT_Wrapper_0/FFT_new_sample"
+        ]
+      },
+      "FFT_start_1": {
+        "ports": [
+          "FFT_start",
+          "FFT_Wrapper_0/FFT_start"
+        ]
+      },
+      "FFT_read_1": {
+        "ports": [
+          "FFT_read",
+          "FFT_Wrapper_0/FFT_read"
+        ]
+      },
+      "FFT_Wrapper_0_FFT_dout": {
+        "ports": [
+          "FFT_Wrapper_0/FFT_dout",
+          "FFT_dout"
+        ]
+      }
+    }
+  }
+}

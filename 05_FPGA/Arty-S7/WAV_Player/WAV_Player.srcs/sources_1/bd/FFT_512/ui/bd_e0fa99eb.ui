@@ -1,0 +1,25 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port FFT_read -pg 1 -y 180 -defaultsOSRD
+preplace port FFT_start -pg 1 -y 160 -defaultsOSRD
+preplace port reset_n -pg 1 -y 80 -defaultsOSRD
+preplace port FFT_new_sample -pg 1 -y 140 -defaultsOSRD
+preplace port clk -pg 1 -y 60 -defaultsOSRD
+preplace portBus FFT_addr -pg 1 -y 120 -defaultsOSRD
+preplace portBus FFT_din -pg 1 -y 100 -defaultsOSRD
+preplace portBus FFT_dout -pg 1 -y 120 -defaultsOSRD
+preplace inst FFT_Wrapper_0 -pg 1 -lvl 1 -y 120 -defaultsOSRD
+preplace netloc FFT_addr_1 1 0 1 NJ
+preplace netloc FFT_read_1 1 0 1 NJ
+preplace netloc FFT_din_1 1 0 1 NJ
+preplace netloc FFT_start_1 1 0 1 NJ
+preplace netloc clk_1 1 0 1 NJ
+preplace netloc FFT_new_sample_1 1 0 1 NJ
+preplace netloc FFT_Wrapper_0_FFT_dout 1 1 1 N
+preplace netloc reset_n_1 1 0 1 NJ
+levelinfo -pg 1 0 180 360 -top 0 -bot 240
+"
+}
+

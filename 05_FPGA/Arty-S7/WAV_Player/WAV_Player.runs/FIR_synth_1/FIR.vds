@@ -1,0 +1,1264 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Nov  6 16:21:57 2019
+# Process ID: 4432
+# Current directory: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1
+# Command line: vivado.exe -log FIR.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FIR.tcl
+# Log file: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1/FIR.vds
+# Journal file: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1\vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-1460] Use of init.tcl in C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl is deprecated. Please use Vivado_init.tcl 
+Sourcing tcl script 'C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl'
+source FIR.tcl -notrace
+Command: synth_design -top FIR -part xc7s50csga324-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 824 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 422.848 ; gain = 107.738
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'FIR' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/synth/FIR.vhd:28]
+INFO: [Synth 8-3491] module 'FIR_FIR_interface_0_0' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/ip/FIR_FIR_interface_0_0_1/synth/FIR_FIR_interface_0_0.vhd:56' bound to instance 'FIR_interface_0' of component 'FIR_FIR_interface_0_0' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/synth/FIR.vhd:55]
+INFO: [Synth 8-638] synthesizing module 'FIR_FIR_interface_0_0' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/ip/FIR_FIR_interface_0_0_1/synth/FIR_FIR_interface_0_0.vhd:66]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'FIR_interface' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:37' bound to instance 'U0' of component 'FIR_interface' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/ip/FIR_FIR_interface_0_0_1/synth/FIR_FIR_interface_0_0.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:62]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:141]
+INFO: [Synth 8-638] synthesizing module 'RAM_2048_8bit' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:70]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 0 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
+	Parameter C_INIT_FILE bound to: RAM_2048_8bit.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 2048 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 2048 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 11 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 2048 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 2048 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 11 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3396 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:236]
+INFO: [Synth 8-256] done synthesizing module 'RAM_2048_8bit' (9#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:70]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_0' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_0' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:161]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_0' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:68]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: ROM_1024_16bit_0.mif - type: string 
+	Parameter C_INIT_FILE bound to: ROM_1024_16bit_0.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_0' (11#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:68]
+	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
+	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
+	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
+INFO: [Synth 8-638] synthesizing module 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:59]
+	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
+	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
+	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Multiplier' (12#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:59]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter' (13#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized1' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_1' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_1' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:169]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_1' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:68]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: ROM_1024_16bit_1.mif - type: string 
+	Parameter C_INIT_FILE bound to: ROM_1024_16bit_1.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_1' (14#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:68]
+	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
+	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
+	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized1' (14#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized3' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_2' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:177]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:68]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: ROM_1024_16bit_2.mif - type: string 
+	Parameter C_INIT_FILE bound to: ROM_1024_16bit_2.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_2' (15#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:68]
+	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
+	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
+	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized3' (15#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 3 - type: integer 
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized5' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 3 - type: integer 
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_3' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_3' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:185]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_3' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:68]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: ROM_1024_16bit_3.mif - type: string 
+	Parameter C_INIT_FILE bound to: ROM_1024_16bit_3.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_3' (16#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:68]
+	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
+	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
+	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized5' (16#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized7' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_4' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_4' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:193]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_4' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:68]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: ROM_1024_16bit_4.mif - type: string 
+	Parameter C_INIT_FILE bound to: ROM_1024_16bit_4.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_4' (17#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:68]
+	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
+	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
+	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized7' (17#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 5 - type: integer 
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized9' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+	Parameter G_SELECT bound to: 5 - type: integer 
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_5' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_5' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:201]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_5' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:68]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: ROM_1024_16bit_5.mif - type: string 
+	Parameter C_INIT_FILE bound to: ROM_1024_16bit_5.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_5' (18#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:68]
+	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
+	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
+	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized9' (18#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-256] done synthesizing module 'FIR_interface' (19#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:62]
+INFO: [Synth 8-256] done synthesizing module 'FIR_FIR_interface_0_0' (20#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/ip/FIR_FIR_interface_0_0_1/synth/FIR_FIR_interface_0_0.vhd:66]
+INFO: [Synth 8-256] done synthesizing module 'FIR' (21#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/synth/FIR.vhd:28]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port SSRA
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port SSRB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ADDRB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[17]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[16]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port DINB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port SLEEP
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ECCPIPECE
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ram_rstram_b
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port ram_rstreg_b
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized5 has unconnected port REGCEA[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized5 has unconnected port WEA[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized5 has unconnected port REGCEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized5 has unconnected port WEB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized5 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized5 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[15]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[14]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[13]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[12]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[11]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[10]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[0]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port SBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port WEA[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[15]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[14]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[13]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[12]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[11]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[10]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[9]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[8]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[7]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[6]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[5]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[4]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[3]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[2]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[1]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port DINA[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ADDRB[9]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:08:03 ; elapsed = 00:08:19 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:08:04 ; elapsed = 00:08:19 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:08:04 ; elapsed = 00:08:19 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/FIR_ooc.xdc]
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/FIR_ooc.xdc]
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.559 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1110.559 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.071 . Memory (MB): peak = 1110.559 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:08:22 ; elapsed = 00:08:39 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:08:22 ; elapsed = 00:08:39 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for FIR_interface_0/U0/\GEN_FILTER[4].U_FIR_filter /\ROM4.U_ROM . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for FIR_interface_0/U0/\GEN_FILTER[3].U_FIR_filter /\ROM3.U_ROM . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for FIR_interface_0/U0/\GEN_FILTER[2].U_FIR_filter /\ROM2.U_ROM . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for FIR_interface_0/U0/\GEN_FILTER[1].U_FIR_filter /\ROM1.U_ROM . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for FIR_interface_0/U0/\GEN_FILTER[0].U_FIR_filter /\ROM0.U_ROM . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for FIR_interface_0/U0/\GEN_FILTER[5].U_FIR_filter /\ROM5.U_ROM . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for FIR_interface_0/U0/\RAM.U_RAM . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for FIR_interface_0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:08:22 ; elapsed = 00:08:39 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:236]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:213]
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'FIR_interface'
+INFO: [Synth 8-5546] ROM "cnt_coef_zero" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_coef_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               fir_reset |                       0000000001 |                             0000
+                fir_idle |                       0000000010 |                             0001
+               fir_begin |                       0000000100 |                             0010
+                fir_load |                       0000001000 |                             0011
+                fir_acc1 |                       0000010000 |                             0100
+                fir_acc2 |                       0000100000 |                             0101
+                fir_end1 |                       0001000000 |                             0110
+                fir_end2 |                       0010000000 |                             0111
+                fir_end3 |                       0100000000 |                             1000
+               fir_store |                       1000000000 |                             1001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'FIR_interface'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:08:23 ; elapsed = 00:08:41 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 12    
++---Registers : 
+	               48 Bit    Registers := 1     
+	               24 Bit    Registers := 6     
+	               16 Bit    Registers := 6     
+	               11 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 4     
+	  10 Input     10 Bit        Muxes := 1     
+	   3 Input      8 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 5     
+	  10 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module FIR_filter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               24 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      8 Bit        Muxes := 1     
+Module FIR_filter__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               24 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      8 Bit        Muxes := 1     
+Module FIR_filter__parameterized3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               24 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      8 Bit        Muxes := 1     
+Module FIR_filter__parameterized5 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               24 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      8 Bit        Muxes := 1     
+Module FIR_filter__parameterized7 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               24 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      8 Bit        Muxes := 1     
+Module FIR_filter__parameterized9 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               24 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      8 Bit        Muxes := 1     
+Module FIR_interface 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               48 Bit    Registers := 1     
+	               11 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 4     
+	  10 Input     10 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+	  10 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[1].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[2].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[3].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[4].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[5].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
+INFO: [Synth 8-5546] ROM "cnt_coef_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_coef_zero" won't be mapped to RAM because it is too sparse
+DSP Report: Generating DSP U0/GEN_FILTER[0].U_FIR_filter/accu_reg, operation Mode is: (P+(A2*B2)')'.
+DSP Report: register U0/GEN_FILTER[0].U_FIR_filter/mult_opA_reg is absorbed into DSP U0/GEN_FILTER[0].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[0].U_FIR_filter/mult_opB_reg is absorbed into DSP U0/GEN_FILTER[0].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[0].U_FIR_filter/accu_reg is absorbed into DSP U0/GEN_FILTER[0].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[0].U_FIR_filter/mult_out_d_reg is absorbed into DSP U0/GEN_FILTER[0].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[0].U_FIR_filter/accu0 is absorbed into DSP U0/GEN_FILTER[0].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[0].U_FIR_filter/U_Mult/mult_out is absorbed into DSP U0/GEN_FILTER[0].U_FIR_filter/accu_reg.
+DSP Report: Generating DSP U0/GEN_FILTER[1].U_FIR_filter/accu_reg, operation Mode is: (P+(A2*B2)')'.
+DSP Report: register U0/GEN_FILTER[0].U_FIR_filter/mult_opA_reg is absorbed into DSP U0/GEN_FILTER[1].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[1].U_FIR_filter/mult_opB_reg is absorbed into DSP U0/GEN_FILTER[1].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[1].U_FIR_filter/accu_reg is absorbed into DSP U0/GEN_FILTER[1].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[1].U_FIR_filter/mult_out_d_reg is absorbed into DSP U0/GEN_FILTER[1].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[1].U_FIR_filter/accu0 is absorbed into DSP U0/GEN_FILTER[1].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[1].U_FIR_filter/U_Mult/mult_out is absorbed into DSP U0/GEN_FILTER[1].U_FIR_filter/accu_reg.
+DSP Report: Generating DSP U0/GEN_FILTER[2].U_FIR_filter/accu_reg, operation Mode is: (P+(A2*B2)')'.
+DSP Report: register U0/GEN_FILTER[2].U_FIR_filter/mult_opB_reg is absorbed into DSP U0/GEN_FILTER[2].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[0].U_FIR_filter/mult_opA_reg is absorbed into DSP U0/GEN_FILTER[2].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[2].U_FIR_filter/accu_reg is absorbed into DSP U0/GEN_FILTER[2].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[2].U_FIR_filter/mult_out_d_reg is absorbed into DSP U0/GEN_FILTER[2].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[2].U_FIR_filter/accu0 is absorbed into DSP U0/GEN_FILTER[2].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[2].U_FIR_filter/U_Mult/mult_out is absorbed into DSP U0/GEN_FILTER[2].U_FIR_filter/accu_reg.
+DSP Report: Generating DSP U0/GEN_FILTER[3].U_FIR_filter/accu_reg, operation Mode is: (P+(A2*B2)')'.
+DSP Report: register U0/GEN_FILTER[3].U_FIR_filter/mult_opB_reg is absorbed into DSP U0/GEN_FILTER[3].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[0].U_FIR_filter/mult_opA_reg is absorbed into DSP U0/GEN_FILTER[3].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[3].U_FIR_filter/accu_reg is absorbed into DSP U0/GEN_FILTER[3].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[3].U_FIR_filter/mult_out_d_reg is absorbed into DSP U0/GEN_FILTER[3].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[3].U_FIR_filter/accu0 is absorbed into DSP U0/GEN_FILTER[3].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[3].U_FIR_filter/U_Mult/mult_out is absorbed into DSP U0/GEN_FILTER[3].U_FIR_filter/accu_reg.
+DSP Report: Generating DSP U0/GEN_FILTER[4].U_FIR_filter/accu_reg, operation Mode is: (P+(A2*B2)')'.
+DSP Report: register U0/GEN_FILTER[4].U_FIR_filter/mult_opB_reg is absorbed into DSP U0/GEN_FILTER[4].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[0].U_FIR_filter/mult_opA_reg is absorbed into DSP U0/GEN_FILTER[4].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[4].U_FIR_filter/accu_reg is absorbed into DSP U0/GEN_FILTER[4].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[4].U_FIR_filter/mult_out_d_reg is absorbed into DSP U0/GEN_FILTER[4].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[4].U_FIR_filter/accu0 is absorbed into DSP U0/GEN_FILTER[4].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[4].U_FIR_filter/U_Mult/mult_out is absorbed into DSP U0/GEN_FILTER[4].U_FIR_filter/accu_reg.
+DSP Report: Generating DSP U0/GEN_FILTER[5].U_FIR_filter/accu_reg, operation Mode is: (P+(A2*B2)')'.
+DSP Report: register U0/GEN_FILTER[5].U_FIR_filter/mult_opB_reg is absorbed into DSP U0/GEN_FILTER[5].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[0].U_FIR_filter/mult_opA_reg is absorbed into DSP U0/GEN_FILTER[5].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[5].U_FIR_filter/accu_reg is absorbed into DSP U0/GEN_FILTER[5].U_FIR_filter/accu_reg.
+DSP Report: register U0/GEN_FILTER[5].U_FIR_filter/mult_out_d_reg is absorbed into DSP U0/GEN_FILTER[5].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[5].U_FIR_filter/accu0 is absorbed into DSP U0/GEN_FILTER[5].U_FIR_filter/accu_reg.
+DSP Report: operator U0/GEN_FILTER[5].U_FIR_filter/U_Mult/mult_out is absorbed into DSP U0/GEN_FILTER[5].U_FIR_filter/accu_reg.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:08:25 ; elapsed = 00:08:44 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++----------------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name           | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|FIR_FIR_interface_0_0 | (P+(A2*B2)')' | 16     | 8      | -      | -      | 35     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|FIR_FIR_interface_0_0 | (P+(A2*B2)')' | 16     | 8      | -      | -      | 35     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|FIR_FIR_interface_0_0 | (P+(A2*B2)')' | 16     | 8      | -      | -      | 35     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|FIR_FIR_interface_0_0 | (P+(A2*B2)')' | 16     | 8      | -      | -      | 35     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|FIR_FIR_interface_0_0 | (P+(A2*B2)')' | 16     | 8      | -      | -      | 35     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|FIR_FIR_interface_0_0 | (P+(A2*B2)')' | 16     | 8      | -      | -      | 35     | 1    | 1    | -    | -    | -     | 1    | 1    | 
++----------------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:08:44 ; elapsed = 00:09:03 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:08:44 ; elapsed = 00:09:03 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:08:45 ; elapsed = 00:09:04 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6064] Net minusOp[7] is driving 66 big block pins (URAM, BRAM and DSP loads). Created 7 replicas of its driver. 
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |CARRY4     |     3|
+|2     |DSP48E1    |     6|
+|3     |LUT1       |     8|
+|4     |LUT2       |    23|
+|5     |LUT3       |    21|
+|6     |LUT4       |    24|
+|7     |LUT5       |    24|
+|8     |LUT6       |    54|
+|9     |RAMB18E1   |     1|
+|10    |RAMB18E1_1 |     1|
+|11    |RAMB18E1_2 |     1|
+|12    |RAMB18E1_3 |     1|
+|13    |RAMB18E1_4 |     1|
+|14    |RAMB18E1_5 |     1|
+|15    |RAMB18E1_6 |     1|
+|16    |FDCE       |    89|
+|17    |FDPE       |     1|
++------+-----------+------+
+
+Report Instance Areas: 
++------+-----------------------------------------------------+----------------------------------------------+------+
+|      |Instance                                             |Module                                        |Cells |
++------+-----------------------------------------------------+----------------------------------------------+------+
+|1     |top                                                  |                                              |   260|
+|2     |  FIR_interface_0                                    |FIR_FIR_interface_0_0                         |   260|
+|3     |    U0                                               |FIR_interface                                 |   260|
+|4     |      \RAM.U_RAM                                     |RAM_2048_8bit                                 |     1|
+|5     |        U0                                           |blk_mem_gen_v8_4_2                            |     1|
+|6     |          inst_blk_mem_gen                           |blk_mem_gen_v8_4_2_synth                      |     1|
+|7     |            \gnbram.gnativebmg.native_blk_mem_gen    |blk_mem_gen_top                               |     1|
+|8     |              \valid.cstr                            |blk_mem_gen_generic_cstr                      |     1|
+|9     |                \ramloop[0].ram.r                    |blk_mem_gen_prim_width                        |     1|
+|10    |                  \prim_noinit.ram                   |blk_mem_gen_prim_wrapper                      |     1|
+|11    |      \GEN_FILTER[0].U_FIR_filter                    |FIR_filter                                    |    12|
+|12    |        \ROM0.U_ROM                                  |ROM_1024_16bit_0                              |     1|
+|13    |          U0                                         |blk_mem_gen_v8_4_2__parameterized1            |     1|
+|14    |            inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth__parameterized0      |     1|
+|15    |              \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0               |     1|
+|16    |                \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0      |     1|
+|17    |                  \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized0        |     1|
+|18    |                    \prim_init.ram                   |blk_mem_gen_prim_wrapper_init                 |     1|
+|19    |      \GEN_FILTER[1].U_FIR_filter                    |FIR_filter__parameterized1                    |    13|
+|20    |        \ROM1.U_ROM                                  |ROM_1024_16bit_1                              |     1|
+|21    |          U0                                         |blk_mem_gen_v8_4_2__parameterized3            |     1|
+|22    |            inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth__parameterized1      |     1|
+|23    |              \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized1               |     1|
+|24    |                \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized1      |     1|
+|25    |                  \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized1        |     1|
+|26    |                    \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized0 |     1|
+|27    |      \GEN_FILTER[2].U_FIR_filter                    |FIR_filter__parameterized3                    |    14|
+|28    |        \ROM2.U_ROM                                  |ROM_1024_16bit_2                              |     1|
+|29    |          U0                                         |blk_mem_gen_v8_4_2__parameterized5            |     1|
+|30    |            inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth__parameterized2      |     1|
+|31    |              \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized2               |     1|
+|32    |                \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized2      |     1|
+|33    |                  \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized2        |     1|
+|34    |                    \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized1 |     1|
+|35    |      \GEN_FILTER[3].U_FIR_filter                    |FIR_filter__parameterized5                    |    15|
+|36    |        \ROM3.U_ROM                                  |ROM_1024_16bit_3                              |     1|
+|37    |          U0                                         |blk_mem_gen_v8_4_2__parameterized7            |     1|
+|38    |            inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth__parameterized3      |     1|
+|39    |              \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized3               |     1|
+|40    |                \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized3      |     1|
+|41    |                  \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized3        |     1|
+|42    |                    \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized2 |     1|
+|43    |      \GEN_FILTER[4].U_FIR_filter                    |FIR_filter__parameterized7                    |    15|
+|44    |        \ROM4.U_ROM                                  |ROM_1024_16bit_4                              |     1|
+|45    |          U0                                         |blk_mem_gen_v8_4_2__parameterized9            |     1|
+|46    |            inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth__parameterized4      |     1|
+|47    |              \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized4               |     1|
+|48    |                \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized4      |     1|
+|49    |                  \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized4        |     1|
+|50    |                    \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized3 |     1|
+|51    |      \GEN_FILTER[5].U_FIR_filter                    |FIR_filter__parameterized9                    |    24|
+|52    |        \ROM5.U_ROM                                  |ROM_1024_16bit_5                              |     1|
+|53    |          U0                                         |blk_mem_gen_v8_4_2__parameterized11           |     1|
+|54    |            inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth__parameterized5      |     1|
+|55    |              \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized5               |     1|
+|56    |                \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized5      |     1|
+|57    |                  \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized5        |     1|
+|58    |                    \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized4 |     1|
++------+-----------------------------------------------------+----------------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1235 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:08:49 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Synthesis Optimization Complete : Time (s): cpu = 00:08:46 ; elapsed = 00:09:06 . Memory (MB): peak = 1110.559 ; gain = 795.449
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.559 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+93 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:08:52 ; elapsed = 00:09:12 . Memory (MB): peak = 1110.559 ; gain = 804.063
+INFO: [Coretcl 2-1174] Renamed 57 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.559 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1/FIR.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file FIR_utilization_synth.rpt -pb FIR_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Nov  6 16:31:31 2019...

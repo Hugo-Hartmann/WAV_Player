@@ -1,0 +1,761 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Nov 28 13:24:15 2019
+# Process ID: 636
+# Current directory: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1
+# Command line: vivado.exe -log TOP.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP.tcl
+# Log file: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/TOP.vds
+# Journal file: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-1460] Use of init.tcl in C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl is deprecated. Please use Vivado_init.tcl 
+Sourcing tcl script 'C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl'
+source TOP.tcl -notrace
+Command: synth_design -top TOP -part xc7s50csga324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 7720 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 425.184 ; gain = 106.066
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'TOP' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:75]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'MMCM_108MHZ' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/MMCM_108MHZ_stub.vhdl:5' bound to instance 'U_MMCM' of component 'MMCM_108MHZ' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:266]
+INFO: [Synth 8-638] synthesizing module 'MMCM_108MHZ' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/MMCM_108MHZ_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'Hearbeat' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Heartbeat.vhd:35' bound to instance 'U_Hearbeat' of component 'Hearbeat' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:282]
+INFO: [Synth 8-638] synthesizing module 'Hearbeat' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Heartbeat.vhd:53]
+	Parameter G_HALF_PERIOD bound to: 54000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'Hearbeat' (1#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Heartbeat.vhd:53]
+	Parameter G_SPEED bound to: 3686400 - type: integer 
+	Parameter G_PARITY_BIT bound to: 1 - type: integer 
+	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'UART_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Wrapper.vhd:35' bound to instance 'U_UART_Wrapper' of component 'UART_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:291]
+INFO: [Synth 8-638] synthesizing module 'UART_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Wrapper.vhd:61]
+	Parameter G_SPEED bound to: 3686400 - type: integer 
+	Parameter G_PARITY_BIT bound to: 1 - type: integer 
+	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
+	Parameter G_SPEED bound to: 3686400 - type: integer 
+	Parameter G_N_BITS bound to: 8 - type: integer 
+	Parameter G_PARITY_BIT bound to: 1 - type: integer 
+	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'UART_Rx' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Rx.vhd:35' bound to instance 'U_Rx' of component 'UART_Rx' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Wrapper.vhd:117]
+INFO: [Synth 8-638] synthesizing module 'UART_Rx' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Rx.vhd:62]
+	Parameter G_SPEED bound to: 3686400 - type: integer 
+	Parameter G_N_BITS bound to: 8 - type: integer 
+	Parameter G_PARITY_BIT bound to: 1 - type: integer 
+	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'UART_Rx' (2#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Rx.vhd:62]
+	Parameter G_SPEED bound to: 3686400 - type: integer 
+	Parameter G_N_BITS bound to: 8 - type: integer 
+	Parameter G_PARITY_BIT bound to: 1 - type: integer 
+	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'UART_Tx' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Tx.vhd:35' bound to instance 'U_Tx' of component 'UART_Tx' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Wrapper.vhd:133]
+INFO: [Synth 8-638] synthesizing module 'UART_Tx' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Tx.vhd:63]
+	Parameter G_SPEED bound to: 3686400 - type: integer 
+	Parameter G_N_BITS bound to: 8 - type: integer 
+	Parameter G_PARITY_BIT bound to: 1 - type: integer 
+	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'UART_Tx' (3#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Tx.vhd:63]
+INFO: [Synth 8-256] done synthesizing module 'UART_Wrapper' (4#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Wrapper.vhd:61]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'RAM_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/RAM_Wrapper.vhd:36' bound to instance 'U_RAM_Wrapper' of component 'RAM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:308]
+INFO: [Synth 8-638] synthesizing module 'RAM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/RAM_Wrapper.vhd:61]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'RAM_22050_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_22050_8bit/synth/RAM_22050_8bit.vhd:59' bound to instance 'U_RAM0' of component 'RAM_22050_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/RAM_Wrapper.vhd:107]
+INFO: [Synth 8-638] synthesizing module 'RAM_22050_8bit' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_22050_8bit/synth/RAM_22050_8bit.vhd:70]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 0 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
+	Parameter C_INIT_FILE bound to: RAM_22050_8bit.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 22050 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 22050 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 15 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 22050 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 22050 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 15 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 5 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.450535 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_22050_8bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_22050_8bit/synth/RAM_22050_8bit.vhd:236]
+INFO: [Synth 8-256] done synthesizing module 'RAM_22050_8bit' (15#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_22050_8bit/synth/RAM_22050_8bit.vhd:70]
+INFO: [Synth 8-3491] module 'RAM_22050_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_22050_8bit/synth/RAM_22050_8bit.vhd:59' bound to instance 'U_RAM1' of component 'RAM_22050_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/RAM_Wrapper.vhd:121]
+INFO: [Synth 8-256] done synthesizing module 'RAM_Wrapper' (16#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/RAM_Wrapper.vhd:61]
+INFO: [Synth 8-3491] module 'WAV_Player' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/WAV_Player_stub.vhdl:5' bound to instance 'U_WAV_Player' of component 'WAV_Player' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:321]
+INFO: [Synth 8-638] synthesizing module 'WAV_Player' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/WAV_Player_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'VGA_Controller' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/VGA_Controller_stub.vhdl:5' bound to instance 'U_VGA_controller' of component 'VGA_controller' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:332]
+INFO: [Synth 8-638] synthesizing module 'VGA_Controller' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/VGA_Controller_stub.vhdl:24]
+INFO: [Synth 8-3491] module 'VGA_interface' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/VGA_interface_stub.vhdl:5' bound to instance 'U_VGA_interface' of component 'VGA_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:351]
+INFO: [Synth 8-638] synthesizing module 'VGA_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/VGA_interface_stub.vhdl:27]
+INFO: [Synth 8-3491] module 'FIR_wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/hdl/FIR_wrapper.vhd:14' bound to instance 'U_FIR_interface' of component 'FIR_wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:373]
+INFO: [Synth 8-638] synthesizing module 'FIR_wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/hdl/FIR_wrapper.vhd:24]
+INFO: [Synth 8-3491] module 'FIR' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/FIR_stub.vhdl:5' bound to instance 'FIR_i' of component 'FIR' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/hdl/FIR_wrapper.vhd:35]
+INFO: [Synth 8-638] synthesizing module 'FIR' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/FIR_stub.vhdl:16]
+INFO: [Synth 8-256] done synthesizing module 'FIR_wrapper' (17#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/hdl/FIR_wrapper.vhd:24]
+INFO: [Synth 8-3491] module 'VU_metre' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/VU_metre_stub.vhdl:5' bound to instance 'U_VU_metre' of component 'VU_metre' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:384]
+INFO: [Synth 8-638] synthesizing module 'VU_metre' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/VU_metre_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'EQ_wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/hdl/EQ_wrapper.vhd:14' bound to instance 'U_EQ_stage' of component 'EQ_wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:395]
+INFO: [Synth 8-638] synthesizing module 'EQ_wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/hdl/EQ_wrapper.vhd:29]
+INFO: [Synth 8-3491] module 'EQ' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/EQ_stub.vhdl:5' bound to instance 'EQ_i' of component 'EQ' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/hdl/EQ_wrapper.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'EQ' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/EQ_stub.vhdl:21]
+INFO: [Synth 8-256] done synthesizing module 'EQ_wrapper' (18#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/hdl/EQ_wrapper.vhd:29]
+	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'FFT_512_wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FFT_512/hdl/FFT_512_wrapper.vhd:14' bound to instance 'U_FFT_512_Wrapper' of component 'FFT_512_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:424]
+INFO: [Synth 8-638] synthesizing module 'FFT_512_wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FFT_512/hdl/FFT_512_wrapper.vhd:27]
+INFO: [Synth 8-3491] module 'FFT_512' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/FFT_512_stub.vhdl:5' bound to instance 'FFT_512_i' of component 'FFT_512' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FFT_512/hdl/FFT_512_wrapper.vhd:41]
+INFO: [Synth 8-638] synthesizing module 'FFT_512' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-636-L-1V1ZTY1/realtime/FFT_512_stub.vhdl:19]
+INFO: [Synth 8-256] done synthesizing module 'FFT_512_wrapper' (19#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FFT_512/hdl/FFT_512_wrapper.vhd:27]
+INFO: [Synth 8-256] done synthesizing module 'TOP' (20#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:75]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MUX_RST[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MEM_LAT_RST
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MEM_REG_RST
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MUX_REGCE[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MEM_REGCE
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port WE
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port DBITERRIN[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ECCPIPECE
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port MUX_RST[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port MEM_LAT_RST
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port MEM_REG_RST
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port MUX_REGCE[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port MEM_REGCE
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port WE
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port ADDR_IN[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port SBITERRIN[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port DBITERRIN[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port DBITERRIN[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port DBITERRIN[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port DBITERRIN[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port DBITERRIN[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port DBITERRIN[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port DBITERRIN[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port DBITERRIN[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux has unconnected port DBITERRIN[7]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:01:15 ; elapsed = 00:01:18 . Memory (MB): peak = 674.676 ; gain = 355.559
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:15 ; elapsed = 00:01:18 . Memory (MB): peak = 674.676 ; gain = 355.559
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:15 ; elapsed = 00:01:18 . Memory (MB): peak = 674.676 ; gain = 355.559
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7s50csga324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_Controller_synth_1/VGA_Controller/VGA_Controller_in_context.xdc] for cell 'U_VGA_controller'
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_Controller_synth_1/VGA_Controller/VGA_Controller_in_context.xdc] for cell 'U_VGA_controller'
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/WAV_Player_synth_1/WAV_Player/WAV_Player_in_context.xdc] for cell 'U_WAV_Player'
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/WAV_Player_synth_1/WAV_Player/WAV_Player_in_context.xdc] for cell 'U_WAV_Player'
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_VGA_interface'
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_VGA_interface'
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_VU_metre'
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_VU_metre'
+Parsing XDC File [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM_108MHZ/MMCM_108MHZ/MMCM_108MHZ_in_context.xdc] for cell 'MMCM.U_MMCM'
+Finished Parsing XDC File [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM_108MHZ/MMCM_108MHZ/MMCM_108MHZ_in_context.xdc] for cell 'MMCM.U_MMCM'
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/EQ/EQ_in_context.xdc] for cell 'U_EQ_stage/EQ_i'
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/EQ/EQ_in_context.xdc] for cell 'U_EQ_stage/EQ_i'
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/FIR/FIR_in_context.xdc] for cell 'U_FIR_interface/FIR_i'
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/FIR/FIR_in_context.xdc] for cell 'U_FIR_interface/FIR_i'
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FFT_512/FFT_512/FFT_512_in_context.xdc] for cell 'U_FFT_512_Wrapper/FFT_512_i'
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FFT_512/FFT_512/FFT_512_in_context.xdc] for cell 'U_FFT_512_Wrapper/FFT_512_i'
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Contraintes_Arty.xdc]
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Contraintes_Arty.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Contraintes_Arty.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/dont_touch.xdc]
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 791.766 ; gain = 0.000
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 791.766 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 791.766 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 791.766 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 791.766 ; gain = 472.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s50csga324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 791.766 ; gain = 472.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for CLK12MHZ. (constraint file  c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM_108MHZ/MMCM_108MHZ/MMCM_108MHZ_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK12MHZ. (constraint file  c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM_108MHZ/MMCM_108MHZ/MMCM_108MHZ_in_context.xdc, line 4).
+Applied set_property DONT_TOUCH = true for U_RAM_Wrapper/\RAM0.U_RAM0 . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_RAM_Wrapper/\RAM1.U_RAM1 . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for \MMCM.U_MMCM . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_EQ_stage/EQ_i. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FIR_interface/FIR_i. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FFT_512_Wrapper/FFT_512_i. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 791.766 ; gain = 472.648
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "LED_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'UART_Rx'
+INFO: [Synth 8-5546] ROM "end_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "end_bit_count" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'UART_Tx'
+INFO: [Synth 8-5546] ROM "end_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "end_bit_count" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "data_load" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "Tx_busy" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "cnt_read_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_write_end" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              uart_reset |                              000 |                              000
+               uart_idle |                              001 |                              001
+              uart_start |                              010 |                              010
+               uart_wait |                              011 |                              011
+             uart_parity |                              100 |                              100
+                uart_end |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'UART_Rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              uart_reset |                               00 |                               00
+               uart_idle |                               01 |                               01
+              uart_start |                               10 |                               10
+               uart_wait |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'UART_Tx'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:28 ; elapsed = 00:01:32 . Memory (MB): peak = 791.766 ; gain = 472.648
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     19 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 2     
++---XORs : 
+	   9 Input      1 Bit         XORs := 1     
+	   8 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               19 Bit    Registers := 2     
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 6     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     19 Bit        Muxes := 4     
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 71    
+	   6 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module TOP 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+Module Hearbeat 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module UART_Rx 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     19 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---XORs : 
+	   9 Input      1 Bit         XORs := 1     
++---Registers : 
+	               19 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     19 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 3     
+	   6 Input      1 Bit        Muxes := 2     
+Module UART_Tx 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     19 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---XORs : 
+	   8 Input      1 Bit         XORs := 1     
++---Registers : 
+	               19 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     19 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+Module bindec 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 16    
+Module blk_mem_gen_mux 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
+Module blk_mem_gen_mux__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
+Module RAM_Wrapper 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 120 (col length:60)
+BRAMs: 150 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5545] ROM "U_Hearbeat/counter" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "U_Hearbeat/LED_state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "U_UART_Wrapper/U_Rx/end_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_RAM_Wrapper/cnt_read_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_RAM_Wrapper/cnt_write_end" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:35 . Memory (MB): peak = 791.766 ; gain = 472.648
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'MMCM.U_MMCM/clk' to pin 'MMCM.U_MMCM/bbstub_clk/O'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:42 ; elapsed = 00:01:47 . Memory (MB): peak = 791.766 ; gain = 472.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:42 ; elapsed = 00:01:47 . Memory (MB): peak = 806.949 ; gain = 487.832
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:43 ; elapsed = 00:01:47 . Memory (MB): peak = 808.730 ; gain = 489.613
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 808.730 ; gain = 489.613
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 808.730 ; gain = 489.613
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 808.730 ; gain = 489.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 808.730 ; gain = 489.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 808.730 ; gain = 489.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 808.730 ; gain = 489.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+---------------+----------+
+|      |BlackBox name  |Instances |
++------+---------------+----------+
+|1     |WAV_Player     |         1|
+|2     |VGA_Controller |         1|
+|3     |VGA_interface  |         1|
+|4     |VU_metre       |         1|
+|5     |MMCM_108MHZ    |         1|
+|6     |EQ             |         1|
+|7     |FFT_512        |         1|
+|8     |FIR            |         1|
++------+---------------+----------+
+
+Report Cell Usage: 
++------+----------------------+------+
+|      |Cell                  |Count |
++------+----------------------+------+
+|1     |EQ_bbox_6             |     1|
+|2     |FFT_512_bbox_7        |     1|
+|3     |FIR_bbox_4            |     1|
+|4     |MMCM_108MHZ_bbox_0    |     1|
+|5     |VGA_Controller_bbox_2 |     1|
+|6     |VGA_interface_bbox_3  |     1|
+|7     |VU_metre_bbox_5       |     1|
+|8     |WAV_Player_bbox_1     |     1|
+|9     |CARRY4                |    26|
+|10    |LUT1                  |    68|
+|11    |LUT2                  |    36|
+|12    |LUT3                  |    55|
+|13    |LUT4                  |    53|
+|14    |LUT5                  |    89|
+|15    |LUT6                  |    39|
+|16    |MUXF7                 |    16|
+|17    |RAMB18E1              |     2|
+|18    |RAMB36E1              |    10|
+|19    |FDCE                  |   118|
+|20    |FDPE                  |    30|
+|21    |FDRE                  |     8|
+|22    |IBUF                  |     8|
+|23    |OBUF                  |    13|
++------+----------------------+------+
+
+Report Instance Areas: 
++------+-------------------------------------------------+--------------------------------------------+------+
+|      |Instance                                         |Module                                      |Cells |
++------+-------------------------------------------------+--------------------------------------------+------+
+|1     |top                                              |                                            |   885|
+|2     |  U_EQ_stage                                     |EQ_wrapper                                  |   128|
+|3     |  U_FFT_512_Wrapper                              |FFT_512_wrapper                             |    16|
+|4     |  U_FIR_interface                                |FIR_wrapper                                 |    48|
+|5     |  U_Hearbeat                                     |Hearbeat                                    |   113|
+|6     |  U_RAM_Wrapper                                  |RAM_Wrapper                                 |   201|
+|7     |    \RAM0.U_RAM0                                 |RAM_22050_8bit__1                           |    40|
+|8     |      U0                                         |blk_mem_gen_v8_4_2__1                       |    40|
+|9     |        inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth_0                  |    40|
+|10    |          \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top_1                           |    40|
+|11    |            \valid.cstr                          |blk_mem_gen_generic_cstr_2                  |    40|
+|12    |              \bindec_a.bindec_inst_a            |bindec_3                                    |     1|
+|13    |              \has_mux_a.A                       |blk_mem_gen_mux_4                           |    28|
+|14    |              \ramloop[0].ram.r                  |blk_mem_gen_prim_width_5                    |     2|
+|15    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper_16                 |     2|
+|16    |              \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized0_6    |     2|
+|17    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized0_15 |     2|
+|18    |              \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized1_7    |     2|
+|19    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized1_14 |     2|
+|20    |              \ramloop[3].ram.r                  |blk_mem_gen_prim_width__parameterized2_8    |     2|
+|21    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized2_13 |     2|
+|22    |              \ramloop[4].ram.r                  |blk_mem_gen_prim_width__parameterized3_9    |     2|
+|23    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized3_12 |     2|
+|24    |              \ramloop[5].ram.r                  |blk_mem_gen_prim_width__parameterized4_10   |     1|
+|25    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized4_11 |     1|
+|26    |    \RAM1.U_RAM1                                 |RAM_22050_8bit                              |    40|
+|27    |      U0                                         |blk_mem_gen_v8_4_2                          |    40|
+|28    |        inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth                    |    40|
+|29    |          \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top                             |    40|
+|30    |            \valid.cstr                          |blk_mem_gen_generic_cstr                    |    40|
+|31    |              \bindec_a.bindec_inst_a            |bindec                                      |     1|
+|32    |              \has_mux_a.A                       |blk_mem_gen_mux                             |    28|
+|33    |              \ramloop[0].ram.r                  |blk_mem_gen_prim_width                      |     2|
+|34    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper                    |     2|
+|35    |              \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized0      |     2|
+|36    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized0    |     2|
+|37    |              \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized1      |     2|
+|38    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized1    |     2|
+|39    |              \ramloop[3].ram.r                  |blk_mem_gen_prim_width__parameterized2      |     2|
+|40    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized2    |     2|
+|41    |              \ramloop[4].ram.r                  |blk_mem_gen_prim_width__parameterized3      |     2|
+|42    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized3    |     2|
+|43    |              \ramloop[5].ram.r                  |blk_mem_gen_prim_width__parameterized4      |     1|
+|44    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized4    |     1|
+|45    |  U_UART_Wrapper                                 |UART_Wrapper                                |   212|
+|46    |    U_Rx                                         |UART_Rx                                     |   111|
+|47    |    U_Tx                                         |UART_Tx                                     |   101|
++------+-------------------------------------------------+--------------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 808.730 ; gain = 489.613
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 152 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:01:39 . Memory (MB): peak = 808.730 ; gain = 372.523
+Synthesis Optimization Complete : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 808.730 ; gain = 489.613
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 54 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 808.730 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+88 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:47 ; elapsed = 00:01:53 . Memory (MB): peak = 808.730 ; gain = 498.758
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 808.730 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/TOP.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 28 13:26:24 2019...

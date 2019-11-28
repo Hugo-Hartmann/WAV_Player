@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-11-06
+-- Last update: 2019-11-27
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -168,7 +168,10 @@ architecture RTL of TOP is
             VGA_select      : in  std_logic_vector(3 downto 0);
             EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
             EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
-            VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0)
+            VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0);
+            FFT_addr        : out std_logic_vector(8 downto 0);
+            FFT_read        : out std_logic;
+            FFT_dout        : in  std_logic_vector(15 downto 0)
             );
     end component;
 
@@ -207,6 +210,22 @@ architecture RTL of TOP is
             );
     end component;
 
+    component FFT_512_Wrapper is
+        generic(
+            G_BEHAVIOURAL   : boolean := false
+            );
+        port(
+            clk             : in  std_logic;
+            reset_n         : in  std_logic;
+            FFT_din         : in  std_logic_vector(7 downto 0);
+            FFT_addr        : in  std_logic_vector(8 downto 0);
+            FFT_new_sample  : in  std_logic;
+            FFT_start       : in  std_logic;
+            FFT_read        : in  std_logic;
+            FFT_dout        : out std_logic_vector(15 downto 0)
+            );
+    end component;
+
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
@@ -230,6 +249,9 @@ architecture RTL of TOP is
     signal SW_out           : std_logic_vector(7 downto 0);
     signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal EQ_dout          : std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
+    signal FFT_addr         : std_logic_vector(8 downto 0);
+    signal FFT_read         : std_logic;
+    signal FFT_dout         : std_logic_vector(15 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -339,7 +361,10 @@ begin
         VGA_select      => SW,
         VU_dout         => VU_dout,
         EQ_dout         => EQ_dout,
-        EQ_level_dout   => EQ_level_dout);
+        EQ_level_dout   => EQ_level_dout,
+        FFT_addr        => FFT_addr,
+        FFT_read        => FFT_read,
+        FFT_dout        => FFT_dout);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_FIR_interface
@@ -391,6 +416,21 @@ begin
                 EQ_dout(47 downto 40)      when(SW="0101") else
                 EQ_dout(55 downto 48)      when(SW="0110") else
                 EQ_dout(63 downto 56);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_FFT_512_Wrapper
+    -- Description: 6 Channel audio equalizer
+    ----------------------------------------------------------------
+    U_FFT_512_Wrapper : FFT_512_Wrapper port map(
+        clk             => clk,
+        reset_n         => reset_n,
+        FFT_din         => RAM_dout,
+        FFT_addr        => FFT_addr,
+        FFT_new_sample  => WAV_read,
+        FFT_start       => VGA_new_frame,
+        FFT_read        => FFT_read,
+        FFT_dout        => FFT_dout);
+
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

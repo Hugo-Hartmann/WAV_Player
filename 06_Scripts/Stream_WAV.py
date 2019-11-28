@@ -40,6 +40,7 @@ while(flag):
             flag=False
     except:
         print("Wrong file format (1).")
+        sys.exit()
 
 b1, b2, b3, b4 = b2, b3, b4, int(bytearray(f.read(1))[0])
 b1, b2, b3, b4 = b2, b3, b4, int(bytearray(f.read(1))[0])
@@ -68,19 +69,42 @@ ser = serial.Serial(
 
 i=0
 cmd = 0
-while(True):
-    cmd = ser.read()
-    if(cmd):
-        #print("Sending packet.")
-        k = (i+PACKET_BURST_SIZE)%file_size
-        if(k!=i+PACKET_BURST_SIZE):
-            print("\nEnd of song ! (Looping...)")
-            ser.write(bytearray(bin[i:file_size]))
-            ser.write(bytearray(bin[0:k]))
-            i = k
-        else:
-            ser.write(bytearray(bin[i:i+PACKET_BURST_SIZE]))
-            i = i+PACKET_BURST_SIZE
-        progress_bar(i, file_size)
-        #print("Done.")
-        cmd = 0
+try:
+    while(True):
+        cmd = ser.read()
+        if(cmd):
+            #print("Sending packet.")
+            k = (i+PACKET_BURST_SIZE)%file_size
+            if(k!=i+PACKET_BURST_SIZE):
+                print("\nEnd of song ! (Looping...)")
+                ser.write(bytearray(bin[i:file_size]))
+                ser.write(bytearray(bin[0:k]))
+                i = k
+            else:
+                ser.write(bytearray(bin[i:i+PACKET_BURST_SIZE]))
+                i = i+PACKET_BURST_SIZE
+            progress_bar(i, file_size)
+            #print("Done.")
+            cmd = 0
+
+except:
+    bin = [128 for i in range(file_size)]
+    sent = 0
+    while(sent<2):
+        cmd = ser.read()
+        if(cmd):
+            #print("Sending packet.")
+            k = (i+PACKET_BURST_SIZE)%file_size
+            if(k!=i+PACKET_BURST_SIZE):
+                print("\nEnd of song ! (Looping...)")
+                ser.write(bytearray(bin[i:file_size]))
+                ser.write(bytearray(bin[0:k]))
+                sent += 1
+                i = k
+            else:
+                ser.write(bytearray(bin[i:i+PACKET_BURST_SIZE]))
+                sent += 1
+                i = i+PACKET_BURST_SIZE
+            progress_bar(i, file_size)
+            #print("Done.")
+            cmd = 0

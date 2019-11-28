@@ -1,0 +1,14 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../../../02_Source/FFT_Adder.vhd" \
+"../../../../../../../02_Source/FFT_FIFO.vhd" \
+"../../../../../../../02_Source/FFT_Multiplier.vhd" \
+
+vhdl lib_VHDL  \
+"../../../../../../../02_Source/Multiplier.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../../../../02_Source/FFT_UAL.vhd" \
+
+# Do not sort compile order
+nosort

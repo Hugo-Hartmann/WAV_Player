@@ -1,0 +1,213 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x7A41F5D13CE93BDE",
+      "device": "xc7s50csga324-1",
+      "name": "EQ",
+      "synth_flow_mode": "Singular",
+      "tool_version": "2018.3",
+      "validated": "true"
+    },
+    "design_tree": {
+      "EQ_stage_0": ""
+    },
+    "ports": {
+      "clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "EQ_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "108000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "reset_n": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "EQ_en": {
+        "direction": "I"
+      },
+      "EQ_dout": {
+        "direction": "O",
+        "left": "63",
+        "right": "0"
+      },
+      "EQ_vol_up": {
+        "direction": "I"
+      },
+      "EQ_vol_down": {
+        "direction": "I"
+      },
+      "EQ_level_dout": {
+        "direction": "O",
+        "left": "39",
+        "right": "0"
+      },
+      "EQ_select": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "EQ_din_band": {
+        "direction": "I",
+        "left": "47",
+        "right": "0"
+      },
+      "EQ_din": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      }
+    },
+    "components": {
+      "EQ_stage_0": {
+        "vlnv": "xilinx.com:module_ref:EQ_stage:1.0",
+        "xci_name": "EQ_EQ_stage_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "EQ_stage",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "EQ_clk",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "108000000",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "EQ_en": {
+            "direction": "I"
+          },
+          "EQ_select": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "EQ_vol_up": {
+            "direction": "I"
+          },
+          "EQ_vol_down": {
+            "direction": "I"
+          },
+          "EQ_din_band": {
+            "direction": "I",
+            "left": "47",
+            "right": "0"
+          },
+          "EQ_din": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "EQ_dout": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "EQ_level_dout": {
+            "direction": "O",
+            "left": "39",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_1": {
+        "ports": [
+          "clk",
+          "EQ_stage_0/clk"
+        ]
+      },
+      "reset_n_1": {
+        "ports": [
+          "reset_n",
+          "EQ_stage_0/reset_n"
+        ]
+      },
+      "EQ_en_1": {
+        "ports": [
+          "EQ_en",
+          "EQ_stage_0/EQ_en"
+        ]
+      },
+      "EQ_stage_0_EQ_dout": {
+        "ports": [
+          "EQ_stage_0/EQ_dout",
+          "EQ_dout"
+        ]
+      },
+      "EQ_vol_up_1": {
+        "ports": [
+          "EQ_vol_up",
+          "EQ_stage_0/EQ_vol_up"
+        ]
+      },
+      "EQ_vol_down_1": {
+        "ports": [
+          "EQ_vol_down",
+          "EQ_stage_0/EQ_vol_down"
+        ]
+      },
+      "EQ_stage_0_EQ_level_dout": {
+        "ports": [
+          "EQ_stage_0/EQ_level_dout",
+          "EQ_level_dout"
+        ]
+      },
+      "EQ_select_1": {
+        "ports": [
+          "EQ_select",
+          "EQ_stage_0/EQ_select"
+        ]
+      },
+      "EQ_din_band_1": {
+        "ports": [
+          "EQ_din_band",
+          "EQ_stage_0/EQ_din_band"
+        ]
+      },
+      "EQ_din_1": {
+        "ports": [
+          "EQ_din",
+          "EQ_stage_0/EQ_din"
+        ]
+      }
+    }
+  }
+}

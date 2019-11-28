@@ -1,0 +1,3 @@
+EQ_EQ_stage_0_0.vhd,vhdl,xil_defaultlib,../../../bd/EQ/ip/EQ_EQ_stage_0_0/sim/EQ_EQ_stage_0_0.vhd,
+EQ.vhd,vhdl,xil_defaultlib,../../../bd/EQ/sim/EQ.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

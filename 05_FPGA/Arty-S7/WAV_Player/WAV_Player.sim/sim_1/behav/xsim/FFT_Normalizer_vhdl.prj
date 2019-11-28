@@ -1,0 +1,12 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../WAV_Player.srcs/sources_1/ip/FFT_SQRT/sim/FFT_SQRT.vhd" \
+
+vhdl lib_VHDL  \
+"../../../../../../../02_Source/Multiplier.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../../../../02_Source/FFT_Normalizer.vhd" \
+
+# Do not sort compile order
+nosort

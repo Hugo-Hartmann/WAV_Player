@@ -11,7 +11,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-11-06
+-- Last update: 2019-11-28
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -63,7 +63,12 @@ entity VGA_interface is
         EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
 
         ------- VU interface --------------------
-        VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0)
+        VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0);
+
+        ------- FFT interface -------------------
+        FFT_addr        : out std_logic_vector(8 downto 0);
+        FFT_read        : out std_logic;
+        FFT_dout        : in  std_logic_vector(15 downto 0)
 
         );
 end VGA_interface;
@@ -106,24 +111,41 @@ architecture RTL of VGA_interface is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal addr_write   : unsigned(10 downto 0);
-    signal addr_bottom  : unsigned(10 downto 0);
-    signal addr_read    : unsigned(10 downto 0);
-    signal addr_portA   : std_logic_vector(10 downto 0);
-    signal addr_portB   : std_logic_vector(10 downto 0);
-    signal dout_portB   : std_logic_vector(7 downto 0);
-    signal pixel        : std_logic_vector(15 downto 0);
-    signal din_portB    : std_logic_vector(7 downto 0);
-    signal write_portA  : std_logic_vector(0 downto 0);
-    signal write_portB  : std_logic_vector(0 downto 0);
-    signal VU_data      : VU_tab;
-    signal VU_inbound   : std_logic;
-    signal red_color    : std_logic;
-    signal yellow_color : std_logic;
-    signal green_color  : std_logic;
-    signal draw_box     : std_logic;
-    signal draw_vol     : std_logic;
-    signal Wave_in      : std_logic_vector(7 downto 0);
+    signal addr_write       : unsigned(10 downto 0);
+    signal addr_bottom      : unsigned(10 downto 0);
+    signal addr_read        : unsigned(10 downto 0);
+    signal addr_portA       : std_logic_vector(10 downto 0);
+    signal addr_portB       : std_logic_vector(10 downto 0);
+    signal dout_portB       : std_logic_vector(7 downto 0);
+    signal pixel            : std_logic_vector(15 downto 0);
+    signal din_portB        : std_logic_vector(7 downto 0);
+    signal write_portA      : std_logic_vector(0 downto 0);
+    signal write_portB      : std_logic_vector(0 downto 0);
+    signal VU_data          : VU_tab;
+    signal VU_inbound       : std_logic;
+    signal VU_inbound_d     : std_logic;
+    signal red_color        : std_logic;
+    signal red_color_d      : std_logic;
+    signal yellow_color     : std_logic;
+    signal yellow_color_d   : std_logic;
+    signal green_color      : std_logic;
+    signal green_color_d    : std_logic;
+    signal draw_box         : std_logic;
+    signal draw_box_d       : std_logic;
+    signal draw_vol         : std_logic;
+    signal draw_vol_d       : std_logic;
+    signal display_fft      : std_logic;
+    signal display_fft_d    : std_logic;
+    signal Wave_in          : std_logic_vector(7 downto 0);
+    signal FFT_data         : std_logic_vector(15 downto 0);
+    signal pixel_ok         : std_logic;
+    signal pixel_ok_d       : std_logic;
+    signal draw_red_line    : std_logic;
+    signal draw_red_line_d  : std_logic;
+    signal fft_box          : std_logic;
+    signal fft_box_d        : std_logic;
+    signal fft_addr_map     : unsigned(15 downto 0);
+
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -171,7 +193,7 @@ begin
     write_portB <= (others => '0');
     addr_portA  <= std_logic_vector(addr_write);
     addr_portB  <= std_logic_vector(addr_read);
-    pixel       <= X"00" & (NOT dout_portB); -- extend pixels size to match VGA_v_add and invert y-axis
+    pixel       <= X"00" & (NOT dout_portB); -- extend pixels size to match VGA_v_add size and invert y-axis
     write_portA <= (0 downto 0 => WAV_read);
 
     --------------------------------------------------------------------------------
@@ -211,6 +233,80 @@ begin
     addr_read   <= addr_bottom + unsigned(VGA_h_add(10 downto 0));
 
     --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_reg_FFT
+    -- Description : register FFT data for timing
+    --------------------------------------------------------------------------------
+    P_reg_FFT : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            FFT_data    <= (others => '0');
+        elsif(rising_edge(clk)) then
+            FFT_data    <= FFT_dout;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Display the FFT
+    --------------------------------------------------------------------------------
+    FFT_read        <= VGA_read when(unsigned(VGA_v_add)>200) else '0';
+    fft_addr_map    <= unsigned(VGA_h_add) - 126;
+    FFT_addr        <= std_logic_vector(fft_addr_map(10 downto 2));
+    process(FFT_data, VGA_v_add, VGA_h_add)
+    
+    variable hadd   : integer := 0;
+    variable vadd   : integer := 0;
+    variable data   : integer := 0;
+    variable ceil   : integer := 0;
+
+    begin
+
+        hadd := to_integer(unsigned(VGA_h_add));
+        vadd := to_integer(unsigned(VGA_v_add));
+        data := to_integer(unsigned(FFT_data(15 downto 3)));
+        if(data>255) then
+            ceil := 255;
+        else
+            ceil := data;
+        end if;
+
+        display_fft <= '0';
+        if(hadd>127 and hadd<1153) then
+            if(vadd>256 and vadd<512) then
+                if(data>512-vadd) then
+                    display_fft <= '1';
+                end if;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Display a box around the FFT
+    --------------------------------------------------------------------------------
+    process(VGA_v_add, VGA_h_add)
+    
+    variable hadd   : integer := 0;
+    variable vadd   : integer := 0;
+
+    begin
+    
+        hadd := to_integer(unsigned(VGA_h_add));
+        vadd := to_integer(unsigned(VGA_v_add));
+
+        fft_box <= '0';
+        if(hadd>127 and hadd<1153) then
+            if(vadd=256 or vadd=512) then
+                fft_box <= '1';
+            end if;
+        elsif(vadd>255 and vadd<513) then
+            if(hadd=127 or hadd=1153) then
+                fft_box <= '1';
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_VU_metre
     -- Description : Register VU_metre data for display
     --------------------------------------------------------------------------------
@@ -231,7 +327,7 @@ begin
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
-    -- Description : Display a 20-segment VU_metre
+    -- Description : Display a multi-segment VU_metre
     --------------------------------------------------------------------------------
     process(VU_data, VGA_v_add, VGA_h_add)
     
@@ -340,13 +436,57 @@ begin
     green_color     <= '1' when(unsigned(VGA_v_add)>895) else '0';
     yellow_color    <= '1' when(unsigned(VGA_v_add)>639) else '0';
     red_color       <= '1' when(unsigned(VGA_v_add)>511) else '0';
-    VGA_din         <= "11100000"   when(VGA_v_add=X"007F") else
-                       "00000010"   when(draw_vol='1') else
-                       "11111111"   when(pixel=VGA_v_add) else
-                       "00011100"   when(green_color='1' and VU_inbound='1') else
-                       "11111100"   when(yellow_color='1' and VU_inbound='1') else
-                       "11100000"   when(red_color='1' and VU_inbound='1') else
-                       "01001001"   when(draw_box='1') else
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Others
+    --------------------------------------------------------------------------------
+    draw_red_line   <= '1' when(VGA_v_add=X"007F") else '0';
+    pixel_ok        <= '1' when(pixel=VGA_v_add) else '0'; -- Oscilloscope
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_reg_signal
+    -- Description : register signals for timing
+    --------------------------------------------------------------------------------
+    P_reg_signal : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            draw_red_line_d <= '0';
+            display_fft_d   <= '0';
+            draw_vol_d      <= '0';
+            pixel_ok_d      <= '0';
+            VU_inbound_d    <= '0';
+            green_color_d   <= '0';
+            yellow_color_d  <= '0';
+            red_color_d     <= '0';
+            draw_box_d      <= '0';
+            fft_box_d       <= '0';
+        elsif(rising_edge(clk)) then
+            draw_red_line_d <= draw_red_line;
+            display_fft_d   <= display_fft;
+            draw_vol_d      <= draw_vol;
+            pixel_ok_d      <= pixel_ok;
+            VU_inbound_d    <= VU_inbound;
+            green_color_d   <= green_color;
+            yellow_color_d  <= yellow_color;
+            red_color_d     <= red_color_d;
+            draw_box_d      <= draw_box_d;
+            fft_box_d       <= fft_box;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Final pixel mapping
+    --------------------------------------------------------------------------------
+    VGA_din         <= "11100000"   when(draw_red_line_d='1' or fft_box_d='1') else
+                       "11111111"   when(display_fft_d='1') else
+                       "00000010"   when(draw_vol_d='1') else
+                       "11111111"   when(pixel_ok_d='1') else
+                       "00011100"   when(green_color_d='1' and VU_inbound_d='1') else
+                       "11111100"   when(yellow_color_d='1' and VU_inbound_d='1') else
+                       "11100000"   when(red_color_d='1' and VU_inbound_d='1') else
+                       "01001001"   when(draw_box_d='1') else
                        "00000000";
 
 end RTL;

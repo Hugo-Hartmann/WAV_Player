@@ -8,26 +8,26 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/04_Simulation/Modelsim
-Evga_controller
-Z1 w1571919275
-Z2 DPx8 lib_vhdl 32 vga_pkg_1280x1024_60hz_108_00mhz 0 22 VYSn=JGK0dn7Z<l[gXD^33
+Eeq_stage
+Z1 w1573050144
+Z2 DPx8 lib_vhdl 8 type_pkg 0 22 >fceCZ:HCUO12i1jC0V@03
 Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z6 8./../../02_Source/VGA_controller.vhd
-Z7 F./../../02_Source/VGA_controller.vhd
+Z6 8./../../02_Source/EQ_stage.vhd
+Z7 F./../../02_Source/EQ_stage.vhd
 l0
-L43
-V;g?IOhMz0]oi`B8j^=iXc2
-!s100 k_kdoTJg2@O:[lZka233V2
+L37
+VchAV0>b_aOmUM5bIH^<2n0
+!s100 <h?VcYlfBcQHoRD<ZnGFi3
 Z8 OP;C;10.4a;61
 32
-Z9 !s110 1571994414
+Z9 !s110 1574778265
 !i10b 1
-Z10 !s108 1571994414.000000
-Z11 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VGA_controller.vhd|
-Z12 !s107 ./../../02_Source/VGA_controller.vhd|
+Z10 !s108 1574778265.000000
+Z11 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/EQ_stage.vhd|
+Z12 !s107 ./../../02_Source/EQ_stage.vhd|
 !i113 1
 Z13 o-work lib_VHDL -O0
 Z14 tExplicit 1
@@ -36,11 +36,11 @@ R2
 R3
 R4
 R5
-DEx4 work 14 vga_controller 0 22 ;g?IOhMz0]oi`B8j^=iXc2
-l103
-L74
-VGYd8E[RV?XJ^jnE9]aU1[1
-!s100 _RI1m:`RQ6SLKa7DXa2eB1
+DEx4 work 8 eq_stage 0 22 chAV0>b_aOmUM5bIH^<2n0
+l143
+L67
+V^8;Oj6[N^K0NBMF_BO5PI0
+!s100 EMl]`]z;DfnC6e?224@401
 R8
 32
 R9
@@ -51,11 +51,574 @@ R12
 !i113 1
 R13
 R14
-Pvga_pkg_1024x768_60hz_65_00mhz
-Z15 w1571919268
+Eeq_volume_ctrl
+Z15 w1573050118
+R2
+R3
+R4
+R5
 R0
-Z16 8./../../02_Source/VGA_Pkg.vhd
-Z17 F./../../02_Source/VGA_Pkg.vhd
+Z16 8./../../02_Source/EQ_volume_ctrl.vhd
+Z17 F./../../02_Source/EQ_volume_ctrl.vhd
+l0
+L37
+VZN3ljL@Mi<KIzWe4@m78a0
+!s100 K29BAb1Tfi6_dS^OWiC0l2
+R8
+32
+R9
+!i10b 1
+R10
+Z18 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/EQ_volume_ctrl.vhd|
+Z19 !s107 ./../../02_Source/EQ_volume_ctrl.vhd|
+!i113 1
+R13
+R14
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 14 eq_volume_ctrl 0 22 ZN3ljL@Mi<KIzWe4@m78a0
+l88
+L58
+VWMM5^2;aEKE[F3B1[Mdo>2
+!s100 JVP0C<?gXcn90_oHcJ<oY3
+R8
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Efft_adder
+Z20 w1574339670
+R3
+R4
+R5
+R0
+Z21 8./../../02_Source/FFT_Adder.vhd
+Z22 F./../../02_Source/FFT_Adder.vhd
+l0
+L35
+V[E[@>=9ad<NL=Sm4N;B8R0
+!s100 k0<]I=90k4DD]2lknNPBF0
+R8
+32
+Z23 !s110 1574778266
+!i10b 1
+Z24 !s108 1574778266.000000
+Z25 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/FFT_Adder.vhd|
+Z26 !s107 ./../../02_Source/FFT_Adder.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 9 fft_adder 0 22 [E[@>=9ad<NL=Sm4N;B8R0
+l89
+L66
+VaP2K7c<EXo6LC8alnA;=U3
+!s100 2j[0<lfhd;hBQ9GQkToG;1
+R8
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R13
+R14
+Efft_fifo
+Z27 w1574340540
+R3
+R4
+R5
+R0
+Z28 8./../../02_Source/FFT_FIFO.vhd
+Z29 F./../../02_Source/FFT_FIFO.vhd
+l0
+L35
+V[<jkQTOcd3DCKF<7@4Z<23
+!s100 _FAnBdD6^>B1fO3P^z0OD1
+R8
+32
+R9
+!i10b 1
+R10
+Z30 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/FFT_FIFO.vhd|
+Z31 !s107 ./../../02_Source/FFT_FIFO.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 8 fft_fifo 0 22 [<jkQTOcd3DCKF<7@4Z<23
+l78
+L58
+ViD3`K8gIDc]OW>HNFhQY:3
+!s100 HQh7z@Ifd@V@Y^FR6m`g]3
+R8
+32
+R9
+!i10b 1
+R10
+R30
+R31
+!i113 1
+R13
+R14
+Efft_fsm
+Z32 w1574772500
+R3
+R4
+R5
+R0
+Z33 8./../../02_Source/FFT_FSM.vhd
+Z34 F./../../02_Source/FFT_FSM.vhd
+l0
+L35
+V[iP2KFIdlD>GeVFQdF<3]2
+!s100 >XGe3MHlWES`h5aLTnXfi1
+R8
+32
+R23
+!i10b 1
+R24
+Z35 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/FFT_FSM.vhd|
+Z36 !s107 ./../../02_Source/FFT_FSM.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 7 fft_fsm 0 22 [iP2KFIdlD>GeVFQdF<3]2
+l95
+L60
+VW6=_RcD_JMhUU?eakVB7i1
+!s100 ih[9`O[GkKETH41T?mggB0
+R8
+32
+R23
+!i10b 1
+R24
+R35
+R36
+!i113 1
+R13
+R14
+Efft_multiplier
+Z37 w1574342313
+R3
+R4
+R5
+R0
+Z38 8./../../02_Source/FFT_Multiplier.vhd
+Z39 F./../../02_Source/FFT_Multiplier.vhd
+l0
+L35
+VRNZ6aP1CF@if>O]jh[:;C2
+!s100 _fCBHPI3JAXjRoAK[5BH10
+R8
+32
+R23
+!i10b 1
+R24
+Z40 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/FFT_Multiplier.vhd|
+Z41 !s107 ./../../02_Source/FFT_Multiplier.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 14 fft_multiplier 0 22 RNZ6aP1CF@if>O]jh[:;C2
+l119
+L65
+VTk3=:>A9Z:n66KBJd4k2M3
+!s100 `hMQN`KcC^[mFWF>z?OBc0
+R8
+32
+R23
+!i10b 1
+R24
+R40
+R41
+!i113 1
+R13
+R14
+Efft_normalizer
+Z42 w1574769487
+R3
+R4
+R5
+R0
+Z43 8./../../02_Source/FFT_Normalizer.vhd
+Z44 F./../../02_Source/FFT_Normalizer.vhd
+l0
+L35
+VBd963ZKedPEg=A4`@F?9U0
+!s100 M_b8cH3W3GV9h2zKGJWC31
+R8
+32
+R23
+!i10b 1
+R24
+Z45 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/FFT_Normalizer.vhd|
+Z46 !s107 ./../../02_Source/FFT_Normalizer.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 14 fft_normalizer 0 22 Bd963ZKedPEg=A4`@F?9U0
+l117
+L62
+Vf@HZ@alVSYb]b4:amg=:U0
+!s100 CL3Q24J]Q2dfnRM9STQTH0
+R8
+32
+R23
+!i10b 1
+R24
+R45
+R46
+!i113 1
+R13
+R14
+Efft_ual
+Z47 w1574771010
+R3
+R4
+R5
+R0
+Z48 8./../../02_Source/FFT_UAL.vhd
+Z49 F./../../02_Source/FFT_UAL.vhd
+l0
+L35
+V_7T?A5QfYzhHN39g^fhB<0
+!s100 JcEL[S3co?c0XAJXWTV@U1
+R8
+32
+R23
+!i10b 1
+R24
+Z50 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/FFT_UAL.vhd|
+Z51 !s107 ./../../02_Source/FFT_UAL.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 7 fft_ual 0 22 _7T?A5QfYzhHN39g^fhB<0
+l164
+L71
+V5LiVaD]:[A`@k_hob<2HO0
+!s100 Db3@YIWG:kBHiZ]D>9^5K0
+R8
+32
+R23
+!i10b 1
+R24
+R50
+R51
+!i113 1
+R13
+R14
+Efft_wrapper
+Z52 w1574777166
+R3
+R4
+R5
+R0
+Z53 8./../../02_Source/FFT_Wrapper.vhd
+Z54 F./../../02_Source/FFT_Wrapper.vhd
+l0
+L36
+V?J0cUk^EE;LiJ40Eb5JXk2
+!s100 ;35611TK;b42Ak^_`;EEJ2
+R8
+32
+R23
+!i10b 1
+R24
+Z55 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/FFT_Wrapper.vhd|
+Z56 !s107 ./../../02_Source/FFT_Wrapper.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 11 fft_wrapper 0 22 ?J0cUk^EE;LiJ40Eb5JXk2
+l180
+L59
+V3Df3@QI`_=?I<;3NLzVaL2
+!s100 HQj9A>>3;38F_?lkfD7nl0
+R8
+32
+R23
+!i10b 1
+R24
+R55
+R56
+!i113 1
+R13
+R14
+Efir_filter
+Z57 w1573052611
+R3
+R4
+R5
+R0
+Z58 8./../../02_Source/FIR_filter.vhd
+Z59 F./../../02_Source/FIR_filter.vhd
+l0
+L36
+VW<bCS;i7@jizjEjTLS^221
+!s100 HKU<1LV=CBYPnlLUeISc_0
+R8
+32
+R9
+!i10b 1
+R10
+Z60 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/FIR_filter.vhd|
+Z61 !s107 ./../../02_Source/FIR_filter.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 10 fir_filter 0 22 W<bCS;i7@jizjEjTLS^221
+l154
+L64
+V=ZjUc;:0WaS@kOSmG=>oR0
+!s100 JbG495YgafcJ>G^TU4oW<0
+R8
+32
+R9
+!i10b 1
+R10
+R60
+R61
+!i113 1
+R13
+R14
+Efir_interface
+Z62 w1573052491
+R2
+R3
+R4
+R5
+R0
+Z63 8./../../02_Source/FIR_interface.vhd
+Z64 F./../../02_Source/FIR_interface.vhd
+l0
+L37
+V;QiWKGD`;zfFA`iJ@;k9V1
+!s100 JH2mGm0VPD^lfbIkShkKo1
+R8
+32
+R9
+!i10b 1
+R10
+Z65 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/FIR_interface.vhd|
+Z66 !s107 ./../../02_Source/FIR_interface.vhd|
+!i113 1
+R13
+R14
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 13 fir_interface 0 22 ;QiWKGD`;zfFA`iJ@;k9V1
+l134
+L62
+VRB1AaWn;N5ABzoUUUe3OK1
+!s100 i=0[=n^=VFjc]P7iEKTM22
+R8
+32
+R9
+!i10b 1
+R10
+R65
+R66
+!i113 1
+R13
+R14
+Emultiplier
+Z67 w1572270335
+R3
+R4
+R5
+R0
+Z68 8./../../02_Source/Multiplier.vhd
+Z69 F./../../02_Source/Multiplier.vhd
+l0
+L35
+VH28oWmmib:oCl:f9V7kkC0
+!s100 eQ2]5M5iIZa43YM9RL[dl0
+R8
+32
+Z70 !s110 1574778264
+!i10b 1
+Z71 !s108 1574778264.000000
+Z72 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/Multiplier.vhd|
+Z73 !s107 ./../../02_Source/Multiplier.vhd|
+!i113 1
+R13
+R14
+Artl
+R3
+R4
+R5
+DEx4 work 10 multiplier 0 22 H28oWmmib:oCl:f9V7kkC0
+l64
+L59
+ViB9==_7?]2TIRChXh@fB_2
+!s100 Cd0k8lJE>GzEWSnRV]z8E3
+R8
+32
+R70
+!i10b 1
+R71
+R72
+R73
+!i113 1
+R13
+R14
+Ptype_pkg
+R3
+R4
+R5
+w1572965032
+R0
+8./../../02_Source/TYPE_Pkg.vhd
+F./../../02_Source/TYPE_Pkg.vhd
+l0
+L25
+V>fceCZ:HCUO12i1jC0V@03
+!s100 7diN@Tz>7@SA@7<heTnM12
+R8
+32
+R70
+!i10b 1
+R71
+!s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/TYPE_Pkg.vhd|
+!s107 ./../../02_Source/TYPE_Pkg.vhd|
+!i113 1
+R13
+R14
+Evga_controller
+Z74 w1573050439
+Z75 DPx8 lib_vhdl 32 vga_pkg_1280x1024_60hz_108_00mhz 0 22 VYSn=JGK0dn7Z<l[gXD^33
+R3
+R4
+R5
+R0
+Z76 8./../../02_Source/VGA_controller.vhd
+Z77 F./../../02_Source/VGA_controller.vhd
+l0
+L43
+VzQUa8bVaXTLl^T?Se[PAz2
+!s100 GDIQFogCH]F0aMOS79M7^0
+R8
+32
+R9
+!i10b 1
+R10
+Z78 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VGA_controller.vhd|
+Z79 !s107 ./../../02_Source/VGA_controller.vhd|
+!i113 1
+R13
+R14
+Artl
+R75
+R3
+R4
+R5
+DEx4 work 14 vga_controller 0 22 zQUa8bVaXTLl^T?Se[PAz2
+l103
+L74
+VXRV4W[mdBhd5W?<ed@3]Q1
+!s100 [fgj@:ZIlXk65XK8;7FTn3
+R8
+32
+R9
+!i10b 1
+R10
+R78
+R79
+!i113 1
+R13
+R14
+Evga_interface
+Z80 w1574760351
+R2
+R3
+R4
+R5
+R0
+Z81 8./../../02_Source/VGA_interface.vhd
+Z82 F./../../02_Source/VGA_interface.vhd
+l0
+L37
+VlLQ:DcCKIMF8A@iPTCU:80
+!s100 f1dzfHVNJF_bLkJA;a9LV3
+R8
+32
+R9
+!i10b 1
+R10
+Z83 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VGA_interface.vhd|
+Z84 !s107 ./../../02_Source/VGA_interface.vhd|
+!i113 1
+R13
+R14
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 13 vga_interface 0 22 lLQ:DcCKIMF8A@iPTCU:80
+l131
+L74
+VbMNjne`4NS]zm:UYf_7o:1
+!s100 ?im5k^DJ4l330DMT[QViR3
+R8
+32
+R9
+!i10b 1
+R10
+R83
+R84
+!i113 1
+R13
+R14
+Pvga_pkg_1024x768_60hz_65_00mhz
+Z85 w1571915668
+R0
+Z86 8./../../02_Source/VGA_Pkg.vhd
+Z87 F./../../02_Source/VGA_Pkg.vhd
 l0
 L58
 VRK<D`mlzeU9T031MOcbZM0
@@ -64,17 +627,17 @@ R8
 32
 R9
 !i10b 1
-R10
-Z18 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VGA_Pkg.vhd|
-Z19 !s107 ./../../02_Source/VGA_Pkg.vhd|
+R71
+Z88 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VGA_Pkg.vhd|
+Z89 !s107 ./../../02_Source/VGA_Pkg.vhd|
 !i113 1
 R13
 R14
 Pvga_pkg_1152x864_75hz_108_00mhz
-R15
+R85
 R0
-R16
-R17
+R86
+R87
 l0
 L71
 V01E?XCMVWjUP]J;LQSU`50
@@ -83,17 +646,17 @@ R8
 32
 R9
 !i10b 1
-R10
-R18
-R19
+R71
+R88
+R89
 !i113 1
 R13
 R14
 Pvga_pkg_1280x1024_60hz_108_00mhz
-R15
+R85
 R0
-R16
-R17
+R86
+R87
 l0
 L84
 VVYSn=JGK0dn7Z<l[gXD^33
@@ -102,17 +665,17 @@ R8
 32
 R9
 !i10b 1
-R10
-R18
-R19
+R71
+R88
+R89
 !i113 1
 R13
 R14
 Pvga_pkg_1600x1200_60hz_162_00mhz
-R15
+R85
 R0
-R16
-R17
+R86
+R87
 l0
 L97
 VT22J9S0k4e423Ti:MH_e81
@@ -121,17 +684,17 @@ R8
 32
 R9
 !i10b 1
-R10
-R18
-R19
+R71
+R88
+R89
 !i113 1
 R13
 R14
 Pvga_pkg_1920x1200_60hz_193_16mhz
-R15
+R85
 R0
-R16
-R17
+R86
+R87
 l0
 L110
 V>ej<ElQd2l`;0Ga4]8K[]0
@@ -140,17 +703,17 @@ R8
 32
 R9
 !i10b 1
-R10
-R18
-R19
+R71
+R88
+R89
 !i113 1
 R13
 R14
 Pvga_pkg_1920x1440_60hz_234_00mhz
-R15
+R85
 R0
-R16
-R17
+R86
+R87
 l0
 L123
 V3`6B_>Y;jDzMW?]WP:@3R2
@@ -159,17 +722,17 @@ R8
 32
 R9
 !i10b 1
-R10
-R18
-R19
+R71
+R88
+R89
 !i113 1
 R13
 R14
 Pvga_pkg_640x480_60hz_25_175mhz
-R15
+R85
 R0
-R16
-R17
+R86
+R87
 l0
 L32
 V4?eog=kBJ6OFlc<HJaK>k2
@@ -178,17 +741,17 @@ R8
 32
 R9
 !i10b 1
-R10
-R18
-R19
+R71
+R88
+R89
 !i113 1
 R13
 R14
 Pvga_pkg_800x600_60hz_40_00mhz
-R15
+R85
 R0
-R16
-R17
+R86
+R87
 l0
 L45
 V4ET45TcaWNXFE3jelJhhc0
@@ -197,50 +760,52 @@ R8
 32
 R9
 !i10b 1
-R10
-R18
-R19
+R71
+R88
+R89
 !i113 1
 R13
 R14
-Evga_ram_interface
-Z20 w1571994398
+Evu_metre
+Z90 w1573053905
+R2
 R3
 R4
 R5
 R0
-Z21 8./../../02_Source/VGA_RAM_interface.vhd
-Z22 F./../../02_Source/VGA_RAM_interface.vhd
+Z91 8./../../02_Source/VU_metre.vhd
+Z92 F./../../02_Source/VU_metre.vhd
 l0
-L36
-VEzh5eX6eTF?XhBF8jFCom3
-!s100 9ldRoF[mZ:Td3lAilCEPC3
+L37
+V:1D61;[G0F`d3Ao=F5=8^2
+!s100 T0D>GzzYe^ozFfU=l^n=L1
 R8
 32
 R9
 !i10b 1
 R10
-Z23 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VGA_RAM_interface.vhd|
-Z24 !s107 ./../../02_Source/VGA_RAM_interface.vhd|
+Z93 !s90 -reportprogress|300|-work|lib_VHDL|./../../02_Source/VU_metre.vhd|
+Z94 !s107 ./../../02_Source/VU_metre.vhd|
 !i113 1
 R13
 R14
 Artl
+R2
 R3
 R4
 R5
-DEx4 work 17 vga_ram_interface 0 22 Ezh5eX6eTF?XhBF8jFCom3
-l105
-L66
-VoEaOF<igLnC=_6[2kzga40
-!s100 njEQQ=n`DgZegk=fD6SRo1
+DEx4 work 8 vu_metre 0 22 :1D61;[G0F`d3Ao=F5=8^2
+l102
+L59
+VTe[a:Y9z^23ai@19@<f;O2
+!s100 Snbadgja1NE2mYLUAJ:F;0
 R8
 32
 R9
 !i10b 1
 R10
-R23
-R24
+R93
+R94
 !i113 1
 R13
 R14

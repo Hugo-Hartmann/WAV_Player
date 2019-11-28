@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"FFT_512": {
+			"proto_instances": {
+			}
+		}
+	}
+}

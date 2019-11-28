@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\hhartmann\Desktop\svn_fpga\trunk\01_Projects\WAV_Player\05_FPGA\Elbert_Spartan3A\TOP.ncd
+OUTFILE=C:\Users\hhartmann\Desktop\svn_fpga\trunk\01_Projects\WAV_Player\05_FPGA\Elbert_Spartan3A\TOP.bit
+FAMILY=Spartan3A and Spartan3AN
+PART=xc3s50a-4tq144
+WORKINGDIR=C:\Users\hhartmann\Desktop\svn_fpga\trunk\01_Projects\WAV_Player\05_FPGA\Elbert_Spartan3A
+LICENSE=WebPack
+USER_INFO=211710352_0_0_437
