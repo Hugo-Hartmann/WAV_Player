@@ -1,5 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../bd/EQ/ip/EQ_EQ_stage_0_0/sim/EQ_EQ_stage_0_0.vhd" \
-"../../../bd/EQ/sim/EQ.vhd" \
-
-nosort

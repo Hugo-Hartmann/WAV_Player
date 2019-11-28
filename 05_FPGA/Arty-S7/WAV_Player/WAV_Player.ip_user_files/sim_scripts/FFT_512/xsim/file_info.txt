@@ -1,3 +1,0 @@
-FFT_512_FFT_Wrapper_0_0.vhd,vhdl,xil_defaultlib,../../../bd/FFT_512/ip/FFT_512_FFT_Wrapper_0_0/sim/FFT_512_FFT_Wrapper_0_0.vhd,
-FFT_512.vhd,vhdl,xil_defaultlib,../../../bd/FFT_512/sim/FFT_512.vhd,
-glbl.v,Verilog,xil_defaultlib,glbl.v

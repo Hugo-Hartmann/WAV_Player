@@ -1,5 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../bd/FIR/ip/FIR_FIR_interface_0_0_1/sim/FIR_FIR_interface_0_0.vhd" \
-"../../../bd/FIR/sim/FIR.vhd" \
-
-nosort

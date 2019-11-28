@@ -90,11 +90,6 @@ architecture RTL of TOP is
     end component;
 
     component UART_Wrapper is
-        generic(
-            G_SPEED         : INTEGER := 115200;
-            G_PARITY_BIT    : INTEGER := 1;
-            G_PARIY_EVEN    : INTEGER := 1
-            );
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -107,9 +102,6 @@ architecture RTL of TOP is
     end component;
 
     component RAM_Wrapper is
-        generic(
-            G_BEHAVIOURAL   : boolean := false
-            );
         port(
             clk         : in  std_logic;
             reset_n     : in  std_logic;
@@ -170,7 +162,7 @@ architecture RTL of TOP is
             );
     end component;
 
-    component FIR_wrapper is
+    component FIR_interface is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -190,7 +182,7 @@ architecture RTL of TOP is
             );
     end component;
 
-    component EQ_wrapper is
+    component EQ_stage is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -205,10 +197,7 @@ architecture RTL of TOP is
             );
     end component;
 
-    component FFT_512_Wrapper is
-        generic(
-            G_BEHAVIOURAL   : boolean := false
-            );
+    component FFT_Wrapper is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -283,11 +272,7 @@ begin
     -- INSTANCE : U_UART_Wrapper
     -- Description: Wrapper of an UART clocked at 108 MHz
     ----------------------------------------------------------------
-    U_UART_Wrapper : UART_Wrapper generic map(
-        G_SPEED         => 3686400,
-        G_PARITY_BIT    => 1,
-        G_PARIY_EVEN    => 1)
-    port map(
+    U_UART_Wrapper : UART_Wrapper port map(
         clk             => clk,
         reset_n         => reset_n,
         Tx              => TX,
@@ -365,7 +350,7 @@ begin
     -- INSTANCE : U_FIR_interface
     -- Description: FIR wrapper for multiple FIR filters working on same data
     ----------------------------------------------------------------
-    U_FIR_interface : FIR_wrapper port map(
+    U_FIR_interface : FIR_interface port map(
         clk             => clk,
         reset_n         => reset_n,
         FIR_dout        => FIR_dout,
@@ -387,7 +372,7 @@ begin
     -- INSTANCE : U_EQ_stage
     -- Description: 6 Channel audio equalizer
     ----------------------------------------------------------------
-    U_EQ_stage : EQ_wrapper port map(
+    U_EQ_stage : EQ_stage port map(
         clk             => clk,
         reset_n         => reset_n,
         EQ_en           => WAV_read,
@@ -413,10 +398,10 @@ begin
                 EQ_dout(63 downto 56);
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_FFT_512_Wrapper
-    -- Description: 6 Channel audio equalizer
+    -- INSTANCE : U_FFT_Wrapper
+    -- Description: FFT_Wrapper for custom FFT module
     ----------------------------------------------------------------
-    U_FFT_512_Wrapper : FFT_512_Wrapper port map(
+    U_FFT_Wrapper : FFT_Wrapper port map(
         clk             => clk,
         reset_n         => reset_n,
         FFT_din         => RAM_dout,
@@ -425,7 +410,6 @@ begin
         FFT_start       => VGA_new_frame,
         FFT_read        => FFT_read,
         FFT_dout        => FFT_dout);
-
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

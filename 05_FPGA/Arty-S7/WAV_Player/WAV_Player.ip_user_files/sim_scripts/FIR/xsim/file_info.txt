@@ -1,3 +1,0 @@
-FIR_FIR_interface_0_0.vhd,vhdl,xil_defaultlib,../../../bd/FIR/ip/FIR_FIR_interface_0_0_1/sim/FIR_FIR_interface_0_0.vhd,
-FIR.vhd,vhdl,xil_defaultlib,../../../bd/FIR/sim/FIR.vhd,
-glbl.v,Verilog,xil_defaultlib,glbl.v

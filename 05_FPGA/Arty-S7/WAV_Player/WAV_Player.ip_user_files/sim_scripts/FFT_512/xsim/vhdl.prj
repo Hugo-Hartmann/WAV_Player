@@ -1,5 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../bd/FFT_512/ip/FFT_512_FFT_Wrapper_0_0/sim/FFT_512_FFT_Wrapper_0_0.vhd" \
-"../../../bd/FFT_512/sim/FFT_512.vhd" \
-
-nosort

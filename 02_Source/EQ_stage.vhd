@@ -179,7 +179,7 @@ begin
     -- COMBINATORY :
     -- Description : EQ_addr generation and data selection
     --------------------------------------------------------------------------------
-    process(counter_channel, EQ_level_dout_net, data_in)
+    process(counter_channel, EQ_level_dout_net, data_in, accu_sat)
     
     variable index : integer := 0;
     
@@ -401,7 +401,7 @@ begin
     -- SEQ PROCESS : P_store
     -- Description : Store results
     --------------------------------------------------------------------------------
-    P_store : process(clk, reset_n)
+    P_store : process(clk, reset_n, counter_channel)
     
     variable index : integer := 0;
     
