@@ -16,22 +16,22 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3380 
+INFO: Helper process launched with PID 8048 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 421.211 ; gain = 105.719
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 419.301 ; gain = 105.938
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'EQ' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/synth/EQ.vhd:33]
 INFO: [Synth 8-3491] module 'EQ_EQ_stage_0_0' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/ip/EQ_EQ_stage_0_0/synth/EQ_EQ_stage_0_0.vhd:56' bound to instance 'EQ_stage_0' of component 'EQ_EQ_stage_0_0' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/synth/EQ.vhd:75]
 INFO: [Synth 8-638] synthesizing module 'EQ_EQ_stage_0_0' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/ip/EQ_EQ_stage_0_0/synth/EQ_EQ_stage_0_0.vhd:71]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'EQ_stage' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:37' bound to instance 'U0' of component 'EQ_stage' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/ip/EQ_EQ_stage_0_0/synth/EQ_EQ_stage_0_0.vhd:106]
-INFO: [Synth 8-638] synthesizing module 'EQ_stage' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:67]
+INFO: [Synth 8-3491] module 'EQ_stage' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:32' bound to instance 'U0' of component 'EQ_stage' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/ip/EQ_EQ_stage_0_0/synth/EQ_EQ_stage_0_0.vhd:106]
+INFO: [Synth 8-638] synthesizing module 'EQ_stage' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:62]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'EQ_volume_ctrl' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_volume_ctrl.vhd:37' bound to instance 'U_EQ_volume_ctrl' of component 'EQ_volume_ctrl' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:149]
-INFO: [Synth 8-638] synthesizing module 'EQ_volume_ctrl' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_volume_ctrl.vhd:58]
-INFO: [Synth 8-256] done synthesizing module 'EQ_volume_ctrl' (1#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_volume_ctrl.vhd:58]
-WARNING: [Synth 8-614] signal 'accu_sat' is read in the process but is not in the sensitivity list [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:187]
-INFO: [Synth 8-3491] module 'ROM_32_16bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_32_16bit/synth/ROM_32_16bit.vhd:59' bound to instance 'U_ROM' of component 'ROM_32_16bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:226]
+INFO: [Synth 8-3491] module 'EQ_volume_ctrl' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_volume_ctrl.vhd:32' bound to instance 'U_EQ_volume_ctrl' of component 'EQ_volume_ctrl' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:144]
+INFO: [Synth 8-638] synthesizing module 'EQ_volume_ctrl' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_volume_ctrl.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'EQ_volume_ctrl' (1#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_volume_ctrl.vhd:53]
+WARNING: [Synth 8-614] signal 'accu_sat' is read in the process but is not in the sensitivity list [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:182]
+INFO: [Synth 8-3491] module 'ROM_32_16bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_32_16bit/synth/ROM_32_16bit.vhd:59' bound to instance 'U_ROM' of component 'ROM_32_16bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:221]
 INFO: [Synth 8-638] synthesizing module 'ROM_32_16bit' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_32_16bit/synth/ROM_32_16bit.vhd:66]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_ADDR_WIDTH bound to: 5 - type: integer 
@@ -70,14 +70,14 @@ INFO: [Synth 8-256] done synthesizing module 'ROM_32_16bit' (5#1) [c:/Users/hhar
 	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
 	Parameter G_OPERAND_B_SIZE bound to: 17 - type: integer 
 	Parameter G_MULT_OUT_SIZE bound to: 25 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:252]
-INFO: [Synth 8-638] synthesizing module 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:59]
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:247]
+INFO: [Synth 8-638] synthesizing module 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:54]
 	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
 	Parameter G_OPERAND_B_SIZE bound to: 17 - type: integer 
 	Parameter G_MULT_OUT_SIZE bound to: 25 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'Multiplier' (6#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:59]
-WARNING: [Synth 8-614] signal 'counter_channel' is read in the process but is not in the sensitivity list [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:409]
-INFO: [Synth 8-256] done synthesizing module 'EQ_stage' (7#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'Multiplier' (6#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:54]
+WARNING: [Synth 8-614] signal 'counter_channel' is read in the process but is not in the sensitivity list [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:404]
+INFO: [Synth 8-256] done synthesizing module 'EQ_stage' (7#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:62]
 INFO: [Synth 8-256] done synthesizing module 'EQ_EQ_stage_0_0' (8#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/ip/EQ_EQ_stage_0_0/synth/EQ_EQ_stage_0_0.vhd:71]
 INFO: [Synth 8-256] done synthesizing module 'EQ' (9#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/EQ/synth/EQ.vhd:33]
 WARNING: [Synth 8-3331] design rom has unconnected port qspo[15]
@@ -182,7 +182,7 @@ WARNING: [Synth 8-3331] design dist_mem_gen_v8_0_12 has unconnected port dpra[1]
 WARNING: [Synth 8-3331] design dist_mem_gen_v8_0_12 has unconnected port dpra[0]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 475.652 ; gain = 160.160
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 474.211 ; gain = 160.848
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -195,10 +195,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 475.652 ; gain = 160.160
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 474.211 ; gain = 160.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 475.652 ; gain = 160.160
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 474.211 ; gain = 160.848
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -211,21 +211,21 @@ Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Play
 Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 793.465 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 792.262 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 793.465 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.061 . Memory (MB): peak = 795.027 ; gain = 1.563
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 792.262 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.665 . Memory (MB): peak = 793.824 ; gain = 1.563
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 795.027 ; gain = 479.535
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 793.824 ; gain = 480.461
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 795.027 ; gain = 479.535
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:27 ; elapsed = 00:00:35 . Memory (MB): peak = 793.824 ; gain = 480.461
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -233,9 +233,9 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for EQ_stage_0/U0/\ROM0.U_ROM . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for EQ_stage_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 795.027 ; gain = 479.535
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:35 . Memory (MB): peak = 793.824 ; gain = 480.461
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_volume_ctrl.vhd:118]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_volume_ctrl.vhd:113]
 INFO: [Synth 8-5544] ROM "vol_data_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "vol_data_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "vol_data_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
@@ -261,7 +261,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in modul
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'EQ_stage'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 795.027 ; gain = 479.535
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:36 . Memory (MB): peak = 793.824 ; gain = 480.461
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -372,7 +372,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (EQ_stage_
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (EQ_stage_0/\U0/data_in_reg[57] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (EQ_stage_0/\U0/data_in_reg[56] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 795.027 ; gain = 479.535
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:41 . Memory (MB): peak = 793.824 ; gain = 480.461
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -407,13 +407,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:52 ; elapsed = 00:00:55 . Memory (MB): peak = 832.660 ; gain = 517.168
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:05 ; elapsed = 00:01:24 . Memory (MB): peak = 830.879 ; gain = 517.516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 833.855 ; gain = 518.363
+Finished Timing Optimization : Time (s): cpu = 00:01:06 ; elapsed = 00:01:25 . Memory (MB): peak = 831.918 ; gain = 518.555
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -424,10 +424,10 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:273]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:215]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:268]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_stage.vhd:210]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 858.020 ; gain = 542.527
+Finished Technology Mapping : Time (s): cpu = 00:01:06 ; elapsed = 00:01:28 . Memory (MB): peak = 855.672 ; gain = 542.309
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -451,7 +451,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 858.020 ; gain = 542.527
+Finished IO Insertion : Time (s): cpu = 00:01:09 ; elapsed = 00:01:30 . Memory (MB): peak = 855.672 ; gain = 542.309
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -464,7 +464,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 858.020 ; gain = 542.527
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:09 ; elapsed = 00:01:30 . Memory (MB): peak = 855.672 ; gain = 542.309
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -476,25 +476,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 858.020 ; gain = 542.527
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:09 ; elapsed = 00:01:31 . Memory (MB): peak = 855.672 ; gain = 542.309
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 858.020 ; gain = 542.527
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:09 ; elapsed = 00:01:31 . Memory (MB): peak = 855.672 ; gain = 542.309
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 858.020 ; gain = 542.527
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:09 ; elapsed = 00:01:31 . Memory (MB): peak = 855.672 ; gain = 542.309
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 858.020 ; gain = 542.527
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:09 ; elapsed = 00:01:31 . Memory (MB): peak = 855.672 ; gain = 542.309
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -536,28 +536,28 @@ Report Instance Areas:
 |7     |      U_Mult           |Multiplier           |   174|
 +------+-----------------------+---------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 858.020 ; gain = 542.527
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:09 ; elapsed = 00:01:31 . Memory (MB): peak = 855.672 ; gain = 542.309
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 80 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:50 . Memory (MB): peak = 858.020 ; gain = 223.152
-Synthesis Optimization Complete : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 858.020 ; gain = 542.527
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:47 ; elapsed = 00:01:16 . Memory (MB): peak = 855.672 ; gain = 222.695
+Synthesis Optimization Complete : Time (s): cpu = 00:01:09 ; elapsed = 00:01:31 . Memory (MB): peak = 855.672 ; gain = 542.309
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 37 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 858.020 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 855.672 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 60 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:58 ; elapsed = 00:01:03 . Memory (MB): peak = 858.020 ; gain = 551.910
+synth_design: Time (s): cpu = 00:01:12 ; elapsed = 00:01:36 . Memory (MB): peak = 855.672 ; gain = 549.797
 INFO: [Coretcl 2-1174] Renamed 6 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 858.020 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 855.672 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_synth_1/EQ.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file EQ_utilization_synth.rpt -pb EQ_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Nov  6 15:29:36 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 28 14:01:09 2019...

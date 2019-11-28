@@ -1,8 +1,6 @@
---  © Propriété de ELSYS DESIGN
---  Reproduction et divulgation interdites / DiSCLosure and copy prohibited.
 -------------------------------------------------------------------------------
 -- Title      : 
--- Project    : 
+-- Project    : WAV_Player
 -------------------------------------------------------------------------------
 -- File       : VGA_Pkg.vhd
 -- Author     : Hugo HARTMANN

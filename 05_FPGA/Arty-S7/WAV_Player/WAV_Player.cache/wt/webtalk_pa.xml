@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Thu Nov 28 13:22:19 2019">
+<application name="pa" timeStamp="Thu Nov 28 13:59:05 2019">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="e29b4326a45b40f69da61644bef53bba" type="ProjectID"/>
-<property name="ProjectIteration" value="83" type="ProjectIteration"/>
+<property name="ProjectIteration" value="84" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -30,20 +30,20 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="DisconnectRSBPin" value="5" type="JavaHandler"/>
 <property name="EditDelete" value="36" type="JavaHandler"/>
 <property name="EditUndo" value="1" type="JavaHandler"/>
-<property name="LaunchProgramFpga" value="43" type="JavaHandler"/>
+<property name="LaunchProgramFpga" value="44" type="JavaHandler"/>
 <property name="ManageCompositeTargets" value="7" type="JavaHandler"/>
 <property name="NewExportHardware" value="2" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
-<property name="OpenHardwareManager" value="61" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="62" type="JavaHandler"/>
 <property name="OpenRecentTarget" value="9" type="JavaHandler"/>
 <property name="ProgramCfgMem" value="9" type="JavaHandler"/>
-<property name="ProgramDevice" value="45" type="JavaHandler"/>
+<property name="ProgramDevice" value="46" type="JavaHandler"/>
 <property name="RecustomizeCore" value="11" type="JavaHandler"/>
 <property name="RefreshRSBBlock" value="1" type="JavaHandler"/>
 <property name="RegenerateRSBLayout" value="10" type="JavaHandler"/>
 <property name="ReportMethodology" value="1" type="JavaHandler"/>
 <property name="ReportTimingSummary" value="1" type="JavaHandler"/>
-<property name="RunBitgen" value="86" type="JavaHandler"/>
+<property name="RunBitgen" value="87" type="JavaHandler"/>
 <property name="RunSynthesis" value="1" type="JavaHandler"/>
 <property name="SaveRSBDesign" value="7" type="JavaHandler"/>
 <property name="SetTopNode" value="12" type="JavaHandler"/>
@@ -56,7 +56,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ViewInstTempl" value="1" type="JavaHandler"/>
 <property name="ViewTaskIPIntegrator" value="1" type="JavaHandler"/>
 <property name="ViewTaskImplementation" value="6" type="JavaHandler"/>
-<property name="ViewTaskProjectManager" value="40" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="41" type="JavaHandler"/>
 <property name="ViewTaskSynthesis" value="1" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
@@ -64,9 +64,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AddSrcWizard_SPECIFY_HDL_NETLIST_BLOCK_DESIGN" value="1" type="GuiHandlerData"/>
 <property name="AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES" value="2" type="GuiHandlerData"/>
 <property name="BaseDialog_APPLY" value="1" type="GuiHandlerData"/>
-<property name="BaseDialog_CANCEL" value="72" type="GuiHandlerData"/>
+<property name="BaseDialog_CANCEL" value="73" type="GuiHandlerData"/>
 <property name="BaseDialog_CLOSE" value="1" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="336" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="337" type="GuiHandlerData"/>
 <property name="BaseDialog_YES" value="2" type="GuiHandlerData"/>
 <property name="BoardChooser_BOARD_TABLE" value="1" type="GuiHandlerData"/>
 <property name="CfgMemPartChooser_TABLE" value="1" type="GuiHandlerData"/>
@@ -87,7 +87,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="FileSetPanel_MESSAGES" value="3" type="GuiHandlerData"/>
 <property name="FloatingTopDialog_SELECT_TOP_MODULE_OF_YOUR_DESIGN" value="2" type="GuiHandlerData"/>
 <property name="FloatingTopDialog_SPECIFY_NEW_TOP_MODULE" value="2" type="GuiHandlerData"/>
-<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="273" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="276" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="1" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_FIT" value="16" type="GuiHandlerData"/>
 <property name="HACGCCoeFileWidget_BROWSE" value="29" type="GuiHandlerData"/>
@@ -140,11 +140,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PAViews_CODE" value="12" type="GuiHandlerData"/>
 <property name="PAViews_DEVICE" value="1" type="GuiHandlerData"/>
 <property name="PAViews_IP_CATALOG" value="5" type="GuiHandlerData"/>
-<property name="PAViews_PROJECT_SUMMARY" value="84" type="GuiHandlerData"/>
+<property name="PAViews_PROJECT_SUMMARY" value="85" type="GuiHandlerData"/>
 <property name="PAViews_SYSTEM" value="1" type="GuiHandlerData"/>
-<property name="PlanAheadTab_REFRESH_CHANGED_MODULES" value="36" type="GuiHandlerData"/>
+<property name="PlanAheadTab_REFRESH_CHANGED_MODULES" value="37" type="GuiHandlerData"/>
 <property name="ProgramCfgMemDialog_CONTENTS_OF_CONFIGURATION_FILE" value="1" type="GuiHandlerData"/>
-<property name="ProgramFpgaDialog_PROGRAM" value="40" type="GuiHandlerData"/>
+<property name="ProgramFpgaDialog_PROGRAM" value="41" type="GuiHandlerData"/>
 <property name="ProgramFpgaDialog_SPECIFY_BITSTREAM_FILE" value="8" type="GuiHandlerData"/>
 <property name="ProgressDialog_CANCEL" value="7" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_PROJECT_NAME" value="1" type="GuiHandlerData"/>
@@ -192,7 +192,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="SystemBuilderView_ORIENTATION" value="3" type="GuiHandlerData"/>
 <property name="SystemBuilderView_PINNING" value="10" type="GuiHandlerData"/>
 <property name="SystemTreeView_SYSTEM_TREE" value="7" type="GuiHandlerData"/>
-<property name="TaskBanner_CLOSE" value="36" type="GuiHandlerData"/>
+<property name="TaskBanner_CLOSE" value="37" type="GuiHandlerData"/>
 <property name="TclConsoleView_COPY" value="1" type="GuiHandlerData"/>
 <property name="TimingItemFlatTablePanel_TABLE" value="7" type="GuiHandlerData"/>
 <property name="VioTreeTablePanel_VIO_TREE_TABLE" value="8" type="GuiHandlerData"/>

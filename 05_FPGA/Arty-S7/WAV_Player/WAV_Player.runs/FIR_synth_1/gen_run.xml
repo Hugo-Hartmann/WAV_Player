@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="FIR_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1573053707">
+<GenRun Id="FIR_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1574945934">
   <File Type="PA-TCL" Name="FIR.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="FIR_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="FIR_reports.tcl"/>
   <File Type="RDS-RDS" Name="FIR.vds"/>
   <File Type="RDS-UTIL" Name="FIR_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="FIR_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="FIR.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="FIR_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="FIR_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FIR">
     <File Path="$PSRCDIR/sources_1/bd/FIR/FIR.bd">
       <FileInfo>

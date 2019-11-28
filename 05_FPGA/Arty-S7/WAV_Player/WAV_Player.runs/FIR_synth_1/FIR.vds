@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Wed Nov  6 16:21:57 2019
-# Process ID: 4432
+# Start of session at: Thu Nov 28 14:00:25 2019
+# Process ID: 2836
 # Current directory: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1
 # Command line: vivado.exe -log FIR.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FIR.tcl
 # Log file: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1/FIR.vds
@@ -17,18 +17,18 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 824 
+INFO: Helper process launched with PID 8384 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 422.848 ; gain = 107.738
+Starting RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:26 . Memory (MB): peak = 422.617 ; gain = 106.738
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'FIR' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/synth/FIR.vhd:28]
 INFO: [Synth 8-3491] module 'FIR_FIR_interface_0_0' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/ip/FIR_FIR_interface_0_0_1/synth/FIR_FIR_interface_0_0.vhd:56' bound to instance 'FIR_interface_0' of component 'FIR_FIR_interface_0_0' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/synth/FIR.vhd:55]
 INFO: [Synth 8-638] synthesizing module 'FIR_FIR_interface_0_0' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/ip/FIR_FIR_interface_0_0_1/synth/FIR_FIR_interface_0_0.vhd:66]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'FIR_interface' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:37' bound to instance 'U0' of component 'FIR_interface' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/ip/FIR_FIR_interface_0_0_1/synth/FIR_FIR_interface_0_0.vhd:96]
-INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:62]
+INFO: [Synth 8-3491] module 'FIR_interface' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:32' bound to instance 'U0' of component 'FIR_interface' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/ip/FIR_FIR_interface_0_0_1/synth/FIR_FIR_interface_0_0.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:57]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:141]
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:136]
 INFO: [Synth 8-638] synthesizing module 'RAM_2048_8bit' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:70]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -109,11 +109,11 @@ INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann
 INFO: [Synth 8-256] done synthesizing module 'RAM_2048_8bit' (9#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:70]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:151]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_0' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_0' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:161]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_0' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_0' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:156]
 INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_0' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -195,20 +195,20 @@ INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_0' (11#1) [c:/Users
 	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
 	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
 	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
-INFO: [Synth 8-638] synthesizing module 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:59]
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:208]
+INFO: [Synth 8-638] synthesizing module 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:54]
 	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
 	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
 	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'Multiplier' (12#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:59]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter' (13#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-256] done synthesizing module 'Multiplier' (12#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:54]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter' (13#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized1' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:151]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized1' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_1' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_1' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:169]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_1' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_1' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:164]
 INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_1' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -290,15 +290,15 @@ INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_1' (14#1) [c:/Users
 	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
 	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
 	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized1' (14#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:208]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized1' (14#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 2 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized3' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:151]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized3' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 2 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_2' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:177]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_2' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:172]
 INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -380,15 +380,15 @@ INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_2' (15#1) [c:/Users
 	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
 	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
 	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized3' (15#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:208]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized3' (15#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized5' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:151]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized5' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_3' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_3' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:185]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_3' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_3' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:180]
 INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_3' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -470,15 +470,15 @@ INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_3' (16#1) [c:/Users
 	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
 	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
 	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized5' (16#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:208]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized5' (16#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized7' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:151]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized7' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_4' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_4' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:193]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_4' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_4' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:188]
 INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_4' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -560,15 +560,15 @@ INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_4' (17#1) [c:/Users
 	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
 	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
 	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized7' (17#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:208]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized7' (17#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:36' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:156]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized9' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:151]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized9' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_5' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_5' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:201]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_5' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_5' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:196]
 INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_5' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -650,9 +650,9 @@ INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_5' (18#1) [c:/Users
 	Parameter G_OPERAND_A_SIZE bound to: 8 - type: integer 
 	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
 	Parameter G_MULT_OUT_SIZE bound to: 24 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:35' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:213]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized9' (18#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:64]
-INFO: [Synth 8-256] done synthesizing module 'FIR_interface' (19#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:62]
+INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:208]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized9' (18#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:59]
+INFO: [Synth 8-256] done synthesizing module 'FIR_interface' (19#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:57]
 INFO: [Synth 8-256] done synthesizing module 'FIR_FIR_interface_0_0' (20#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/ip/FIR_FIR_interface_0_0_1/synth/FIR_FIR_interface_0_0.vhd:66]
 INFO: [Synth 8-256] done synthesizing module 'FIR' (21#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/bd/FIR/synth/FIR.vhd:28]
 WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized4 has unconnected port SSRA
@@ -757,7 +757,7 @@ WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnect
 WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ADDRB[9]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:08:03 ; elapsed = 00:08:19 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished RTL Elaboration : Time (s): cpu = 00:08:46 ; elapsed = 00:09:51 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -770,10 +770,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:08:04 ; elapsed = 00:08:19 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Handling Custom Attributes : Time (s): cpu = 00:08:46 ; elapsed = 00:09:51 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:08:04 ; elapsed = 00:08:19 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:08:46 ; elapsed = 00:09:51 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -788,21 +788,21 @@ Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Play
 Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.559 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.961 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1110.559 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.071 . Memory (MB): peak = 1110.559 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.961 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.054 . Memory (MB): peak = 1110.961 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:08:22 ; elapsed = 00:08:39 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Constraint Validation : Time (s): cpu = 00:09:04 ; elapsed = 00:10:10 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:08:22 ; elapsed = 00:08:39 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Loading Part and Timing Information : Time (s): cpu = 00:09:04 ; elapsed = 00:10:10 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -816,10 +816,10 @@ Applied set_property DONT_TOUCH = true for FIR_interface_0/U0/\GEN_FILTER[5].U_F
 Applied set_property DONT_TOUCH = true for FIR_interface_0/U0/\RAM.U_RAM . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for FIR_interface_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:08:22 ; elapsed = 00:08:39 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:09:04 ; elapsed = 00:10:10 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:236]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:213]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:231]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_interface.vhd:208]
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'FIR_interface'
 INFO: [Synth 8-5546] ROM "cnt_coef_zero" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cnt_coef_end" won't be mapped to RAM because it is too sparse
@@ -842,7 +842,7 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'FIR_interface'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:08:23 ; elapsed = 00:08:41 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:09:05 ; elapsed = 00:10:12 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -970,11 +970,11 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[1].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[2].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[3].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[4].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[5].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:221]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[1].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:216]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[2].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:216]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[3].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:216]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[4].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:216]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[5].U_FIR_filter/mult_opA_reg[7:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[7:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FIR_filter.vhd:216]
 INFO: [Synth 8-5546] ROM "cnt_coef_end" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cnt_coef_zero" won't be mapped to RAM because it is too sparse
 DSP Report: Generating DSP U0/GEN_FILTER[0].U_FIR_filter/accu_reg, operation Mode is: (P+(A2*B2)')'.
@@ -1020,7 +1020,7 @@ DSP Report: register U0/GEN_FILTER[5].U_FIR_filter/mult_out_d_reg is absorbed in
 DSP Report: operator U0/GEN_FILTER[5].U_FIR_filter/accu0 is absorbed into DSP U0/GEN_FILTER[5].U_FIR_filter/accu_reg.
 DSP Report: operator U0/GEN_FILTER[5].U_FIR_filter/U_Mult/mult_out is absorbed into DSP U0/GEN_FILTER[5].U_FIR_filter/accu_reg.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:08:25 ; elapsed = 00:08:44 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:09:07 ; elapsed = 00:10:14 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1052,13 +1052,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:08:44 ; elapsed = 00:09:03 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:09:24 ; elapsed = 00:10:31 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:08:44 ; elapsed = 00:09:03 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Timing Optimization : Time (s): cpu = 00:09:25 ; elapsed = 00:10:32 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1070,7 +1070,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:08:45 ; elapsed = 00:09:04 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Technology Mapping : Time (s): cpu = 00:09:25 ; elapsed = 00:10:32 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1095,7 +1095,7 @@ INFO: [Synth 8-6064] Net minusOp[7] is driving 66 big block pins (URAM, BRAM and
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished IO Insertion : Time (s): cpu = 00:09:26 ; elapsed = 00:10:33 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1108,7 +1108,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Renaming Generated Instances : Time (s): cpu = 00:09:26 ; elapsed = 00:10:33 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1120,25 +1120,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:09:26 ; elapsed = 00:10:34 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Renaming Generated Ports : Time (s): cpu = 00:09:26 ; elapsed = 00:10:34 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Handling Custom Attributes : Time (s): cpu = 00:09:26 ; elapsed = 00:10:34 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Renaming Generated Nets : Time (s): cpu = 00:09:26 ; elapsed = 00:10:34 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1237,28 +1237,28 @@ Report Instance Areas:
 |58    |                    \prim_init.ram                   |blk_mem_gen_prim_wrapper_init__parameterized4 |     1|
 +------+-----------------------------------------------------+----------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:08:46 ; elapsed = 00:09:05 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Finished Writing Synthesis Report : Time (s): cpu = 00:09:26 ; elapsed = 00:10:34 . Memory (MB): peak = 1110.961 ; gain = 795.082
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1235 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:08:49 . Memory (MB): peak = 1110.559 ; gain = 795.449
-Synthesis Optimization Complete : Time (s): cpu = 00:08:46 ; elapsed = 00:09:06 . Memory (MB): peak = 1110.559 ; gain = 795.449
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:10:18 . Memory (MB): peak = 1110.961 ; gain = 795.082
+Synthesis Optimization Complete : Time (s): cpu = 00:09:26 ; elapsed = 00:10:34 . Memory (MB): peak = 1110.961 ; gain = 795.082
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.559 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1110.961 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 93 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:08:52 ; elapsed = 00:09:12 . Memory (MB): peak = 1110.559 ; gain = 804.063
+synth_design: Time (s): cpu = 00:09:31 ; elapsed = 00:10:47 . Memory (MB): peak = 1110.961 ; gain = 804.078
 INFO: [Coretcl 2-1174] Renamed 57 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.559 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.961 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_synth_1/FIR.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FIR_utilization_synth.rpt -pb FIR_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Nov  6 16:31:31 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 28 14:11:40 2019...

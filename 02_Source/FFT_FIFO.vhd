@@ -1,11 +1,6 @@
 -------------------------------------------------------------------------------
---  This entire design, which includes all of the components and related files,
---  has been created and owned by : ELSYS DESIGN
---  © Propriété de ELSYS DESIGN
---  Reproduction et divulgation interdites / DiSCLosure and copy prohibited.
--------------------------------------------------------------------------------
 -- Title      : 
--- Project    : 
+-- Project    : WAV_Player
 -------------------------------------------------------------------------------
 -- File       : FFT_FIFO.vhd
 -- Author     : Hugo HARTMANN

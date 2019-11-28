@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="FFT_512_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1574936093">
+<GenRun Id="FFT_512_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1574945937">
   <File Type="PA-TCL" Name="FFT_512.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="FFT_512_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="FFT_512_reports.tcl"/>
