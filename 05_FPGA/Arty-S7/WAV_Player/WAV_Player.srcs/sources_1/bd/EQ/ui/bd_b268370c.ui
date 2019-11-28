@@ -23,7 +23,7 @@ preplace netloc clk_1 1 0 1 NJ
 preplace netloc EQ_din_1 1 0 1 NJ
 preplace netloc EQ_select_1 1 0 1 NJ
 preplace netloc reset_n_1 1 0 1 NJ
-levelinfo -pg 1 0 190 380 -top 0 -bot 260
+levelinfo -pg 1 -10 190 390 -top 0 -bot 260
 "
 }
 0

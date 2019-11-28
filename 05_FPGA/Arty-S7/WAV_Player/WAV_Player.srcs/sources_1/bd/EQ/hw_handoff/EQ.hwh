@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov  6 15:26:31 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 28 13:58:47 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="spartan7" BOARD="digilentinc.com:arty-s7-50:part0:1.0" DEVICE="7s50" NAME="EQ" PACKAGE="csga324" SPEEDGRADE="-1"/>
 

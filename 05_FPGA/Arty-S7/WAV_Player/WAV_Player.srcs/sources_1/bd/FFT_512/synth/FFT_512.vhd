@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
---Date        : Thu Nov 28 11:14:50 2019
+--Date        : Thu Nov 28 13:58:55 2019
 --Host        : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 --Command     : generate_target FFT_512.bd
 --Design      : FFT_512

@@ -2,35 +2,35 @@
 <Root MajorVersion="0" MinorVersion="36">
   <CompositeFile CompositeFileTopName="EQ" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1573050391"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1573050391"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1574783675"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1574783675"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1574945928"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1574945928"/>
+    <Generation Name="SIMULATION" State="STALE" Timestamp="1574945928"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1574945928"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="EQ_sim_netlist.vhdl" Type="VHDL">
-        <Properties IsEditable="true" IsVisible="true" Timestamp="1573050576" IsTrackable="true" IsStatusTracked="false"/>
+        <Properties IsEditable="true" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
         <UsedIn Val="SINGLE_LANGUAGE"/>
       </File>
       <File Name="EQ_sim_netlist.v" Type="Verilog">
-        <Properties IsEditable="true" IsVisible="true" Timestamp="1573050576" IsTrackable="true" IsStatusTracked="false"/>
+        <Properties IsEditable="true" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
         <UsedIn Val="SINGLE_LANGUAGE"/>
       </File>
       <File Name="EQ_stub.vhdl" Type="VHDL">
-        <Properties IsEditable="true" IsVisible="true" Timestamp="1573050576" IsTrackable="true" IsStatusTracked="false"/>
+        <Properties IsEditable="true" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTH_BLACKBOX_STUB"/>
       </File>
       <File Name="EQ_stub.v" Type="Verilog">
-        <Properties IsEditable="true" IsVisible="true" Timestamp="1573050576" IsTrackable="true" IsStatusTracked="false"/>
+        <Properties IsEditable="true" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTH_BLACKBOX_STUB"/>
       </File>
       <File Name="EQ.dcp" Type="DCP">
-        <Properties IsEditable="true" IsVisible="true" Timestamp="1573050575" IsTrackable="true" IsStatusTracked="false"/>
+        <Properties IsEditable="true" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
