@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-11-28
+-- Last update: 2019-11-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -464,8 +464,8 @@ begin
             VU_inbound_d    <= VU_inbound;
             green_color_d   <= green_color;
             yellow_color_d  <= yellow_color;
-            red_color_d     <= red_color_d;
-            draw_box_d      <= draw_box_d;
+            red_color_d     <= red_color;
+            draw_box_d      <= draw_box;
             fft_box_d       <= fft_box;
         end if;
     end process;

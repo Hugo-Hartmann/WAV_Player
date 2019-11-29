@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="RAM_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1574953578">
   <File Type="PA-TCL" Name="RAM_Wrapper.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="RAM_Wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="RAM_Wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="RAM_Wrapper.vds"/>
   <File Type="RDS-UTIL" Name="RAM_Wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="RAM_Wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="RAM_Wrapper.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="RAM_Wrapper_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="RAM_Wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/RAM_Wrapper">
     <File Path="$PSRCDIR/sources_1/ip/RAM_22050_8bit/RAM_22050_8bit.xci">
       <FileInfo>
@@ -56,9 +53,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

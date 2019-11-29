@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Thu Nov 28 16:31:51 2019
+| Date             : Fri Nov 29 10:47:22 2019
 | Host             : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command          : report_power -file TOP_power_routed.rpt -pb TOP_power_summary_routed.pb -rpx TOP_power_routed.rpx
 | Design           : TOP
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.258        |
+| Total On-Chip Power (W)  | 0.259        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.185        |
@@ -52,21 +52,21 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.010 |        5 |       --- |             --- |
-| Slice Logic             |     0.017 |     7370 |       --- |             --- |
-|   LUT as Logic          |     0.014 |     4175 |     32600 |           12.81 |
-|   CARRY4                |     0.001 |      330 |      8150 |            4.05 |
-|   Register              |    <0.001 |     1599 |     65200 |            2.45 |
-|   LUT as Shift Register |    <0.001 |       43 |      9600 |            0.45 |
+| Clocks                  |     0.011 |        5 |       --- |             --- |
+| Slice Logic             |     0.017 |     7411 |       --- |             --- |
+|   LUT as Logic          |     0.014 |     4195 |     32600 |           12.87 |
+|   CARRY4                |     0.001 |      334 |      8150 |            4.10 |
+|   Register              |    <0.001 |     1601 |     65200 |            2.46 |
+|   LUT as Shift Register |    <0.001 |       44 |      9600 |            0.46 |
 |   F7/F8 Muxes           |    <0.001 |      157 |     32600 |            0.48 |
 |   Others                |     0.000 |      342 |       --- |             --- |
-| Signals                 |     0.020 |     5772 |       --- |             --- |
+| Signals                 |     0.019 |     5784 |       --- |             --- |
 | Block RAM               |     0.031 |       22 |        75 |           29.33 |
 | MMCM                    |     0.092 |        1 |         5 |           20.00 |
 | DSPs                    |     0.014 |       13 |       120 |           10.83 |
 | I/O                     |     0.001 |       22 |       210 |           10.48 |
 | Static Power            |     0.073 |          |           |                 |
-| Total                   |     0.258 |          |           |                 |
+| Total                   |     0.259 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.100 |       0.090 |      0.011 |
+| Vccint    |       1.000 |     0.101 |       0.090 |      0.011 |
 | Vccaux    |       1.800 |     0.064 |       0.051 |      0.013 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -148,13 +148,13 @@ Table of Contents
 | TOP                            |     0.185 |
 |   MMCM.U_MMCM                  |     0.092 |
 |     inst                       |     0.092 |
-|   U_EQ_stage                   |     0.004 |
+|   U_EQ_stage                   |     0.005 |
 |     U_EQ_volume_ctrl           |     0.002 |
 |     U_Mult                     |     0.002 |
 |   U_FFT_Wrapper                |     0.050 |
 |     U_FFT_FSM                  |     0.002 |
 |     U_FFT_RAM_Wrapper          |     0.016 |
-|       RAM0.U_RAM_Sample        |     0.003 |
+|       RAM0.U_RAM_Sample        |     0.002 |
 |       RAM1.U_RAM_FFTA          |     0.005 |
 |       RAM2.U_RAM_FFTB          |     0.005 |
 |       RAM3.U_RAM_COEF          |     0.002 |
@@ -162,7 +162,6 @@ Table of Contents
 |       U_Adder                  |     0.003 |
 |       U_Multiplier             |     0.008 |
 |       U_Normalizer             |     0.016 |
-|       U_Sub                    |     0.001 |
 |   U_FIR_interface              |     0.014 |
 |     GEN_FILTER[0].U_FIR_filter |     0.002 |
 |     GEN_FILTER[1].U_FIR_filter |     0.002 |
