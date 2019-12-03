@@ -16,37 +16,37 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6124 
+INFO: Helper process launched with PID 6636 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 429.277 ; gain = 99.383
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 429.902 ; gain = 100.266
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'TOP' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:71]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'MMCM_108MHZ' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/MMCM_108MHZ_stub.vhdl:5' bound to instance 'U_MMCM' of component 'MMCM_108MHZ' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:255]
-INFO: [Synth 8-638] synthesizing module 'MMCM_108MHZ' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/MMCM_108MHZ_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'Hearbeat' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/Hearbeat_stub.vhdl:5' bound to instance 'U_Hearbeat' of component 'Hearbeat' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:271]
-INFO: [Synth 8-638] synthesizing module 'Hearbeat' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/Hearbeat_stub.vhdl:14]
-INFO: [Synth 8-3491] module 'UART_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/UART_Wrapper_stub.vhdl:5' bound to instance 'U_UART_Wrapper' of component 'UART_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:280]
-INFO: [Synth 8-638] synthesizing module 'UART_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/UART_Wrapper_stub.vhdl:18]
-INFO: [Synth 8-3491] module 'RAM_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/RAM_Wrapper_stub.vhdl:5' bound to instance 'U_RAM_Wrapper' of component 'RAM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:293]
-INFO: [Synth 8-638] synthesizing module 'RAM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/RAM_Wrapper_stub.vhdl:18]
-INFO: [Synth 8-3491] module 'WAV_Player' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/WAV_Player_stub.vhdl:5' bound to instance 'U_WAV_Player' of component 'WAV_Player' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:306]
-INFO: [Synth 8-638] synthesizing module 'WAV_Player' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/WAV_Player_stub.vhdl:16]
-INFO: [Synth 8-3491] module 'VGA_Controller' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/VGA_Controller_stub.vhdl:5' bound to instance 'U_VGA_controller' of component 'VGA_controller' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:317]
-INFO: [Synth 8-638] synthesizing module 'VGA_Controller' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/VGA_Controller_stub.vhdl:24]
-INFO: [Synth 8-3491] module 'VGA_interface' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/VGA_interface_stub.vhdl:5' bound to instance 'U_VGA_interface' of component 'VGA_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:336]
-INFO: [Synth 8-638] synthesizing module 'VGA_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/VGA_interface_stub.vhdl:28]
-INFO: [Synth 8-3491] module 'FIR_interface' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/FIR_interface_stub.vhdl:5' bound to instance 'U_FIR_interface' of component 'FIR_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:359]
-INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/FIR_interface_stub.vhdl:16]
-INFO: [Synth 8-3491] module 'VU_metre' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/VU_metre_stub.vhdl:5' bound to instance 'U_VU_metre' of component 'VU_metre' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:370]
-INFO: [Synth 8-638] synthesizing module 'VU_metre' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/VU_metre_stub.vhdl:16]
-INFO: [Synth 8-3491] module 'EQ_stage' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/EQ_stage_stub.vhdl:5' bound to instance 'U_EQ_stage' of component 'EQ_stage' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:381]
-INFO: [Synth 8-638] synthesizing module 'EQ_stage' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/EQ_stage_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'FFT_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/FFT_Wrapper_stub.vhdl:5' bound to instance 'U_FFT_Wrapper' of component 'FFT_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:410]
-INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-1560-L-1V1ZTY1/realtime/FFT_Wrapper_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'MMCM_108MHZ' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/MMCM_108MHZ_stub.vhdl:5' bound to instance 'U_MMCM' of component 'MMCM_108MHZ' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:255]
+INFO: [Synth 8-638] synthesizing module 'MMCM_108MHZ' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/MMCM_108MHZ_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'Hearbeat' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/Hearbeat_stub.vhdl:5' bound to instance 'U_Hearbeat' of component 'Hearbeat' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:271]
+INFO: [Synth 8-638] synthesizing module 'Hearbeat' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/Hearbeat_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'UART_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/UART_Wrapper_stub.vhdl:5' bound to instance 'U_UART_Wrapper' of component 'UART_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:280]
+INFO: [Synth 8-638] synthesizing module 'UART_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/UART_Wrapper_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'RAM_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/RAM_Wrapper_stub.vhdl:5' bound to instance 'U_RAM_Wrapper' of component 'RAM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:293]
+INFO: [Synth 8-638] synthesizing module 'RAM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/RAM_Wrapper_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'WAV_Player' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/WAV_Player_stub.vhdl:5' bound to instance 'U_WAV_Player' of component 'WAV_Player' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:306]
+INFO: [Synth 8-638] synthesizing module 'WAV_Player' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/WAV_Player_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'VGA_Controller' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/VGA_Controller_stub.vhdl:5' bound to instance 'U_VGA_controller' of component 'VGA_controller' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:317]
+INFO: [Synth 8-638] synthesizing module 'VGA_Controller' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/VGA_Controller_stub.vhdl:24]
+INFO: [Synth 8-3491] module 'VGA_interface' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/VGA_interface_stub.vhdl:5' bound to instance 'U_VGA_interface' of component 'VGA_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:336]
+INFO: [Synth 8-638] synthesizing module 'VGA_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/VGA_interface_stub.vhdl:28]
+INFO: [Synth 8-3491] module 'FIR_interface' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/FIR_interface_stub.vhdl:5' bound to instance 'U_FIR_interface' of component 'FIR_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:359]
+INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/FIR_interface_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'VU_metre' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/VU_metre_stub.vhdl:5' bound to instance 'U_VU_metre' of component 'VU_metre' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:370]
+INFO: [Synth 8-638] synthesizing module 'VU_metre' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/VU_metre_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'EQ_stage' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/EQ_stage_stub.vhdl:5' bound to instance 'U_EQ_stage' of component 'EQ_stage' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:381]
+INFO: [Synth 8-638] synthesizing module 'EQ_stage' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/EQ_stage_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'FFT_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/FFT_Wrapper_stub.vhdl:5' bound to instance 'U_FFT_Wrapper' of component 'FFT_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:410]
+INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4188-L-1V1ZTY1/realtime/FFT_Wrapper_stub.vhdl:21]
 INFO: [Synth 8-256] done synthesizing module 'TOP' (1#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Arty.vhd:71]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 588.234 ; gain = 258.340
+Finished RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 588.414 ; gain = 258.777
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -59,10 +59,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 588.234 ; gain = 258.340
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 588.414 ; gain = 258.777
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 588.234 ; gain = 258.340
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 588.414 ; gain = 258.777
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -95,24 +95,24 @@ Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Play
 Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Contraintes_Arty.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Contraintes_Arty.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 754.211 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 753.961 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 754.211 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 753.961 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 754.211 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 754.211 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 753.961 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 753.961 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 754.211 ; gain = 424.316
+Finished Constraint Validation : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 753.961 ; gain = 424.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 754.211 ; gain = 424.316
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 753.961 ; gain = 424.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -121,10 +121,10 @@ Applied set_property IO_BUFFER_TYPE = NONE for CLK12MHZ. (constraint file  c:/Us
 Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK12MHZ. (constraint file  c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM_108MHZ/MMCM_108MHZ/MMCM_108MHZ_in_context.xdc, line 4).
 Applied set_property DONT_TOUCH = true for \MMCM.U_MMCM . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 754.211 ; gain = 424.316
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 753.961 ; gain = 424.324
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 754.211 ; gain = 424.316
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 753.961 ; gain = 424.324
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -166,7 +166,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 754.211 ; gain = 424.316
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 753.961 ; gain = 424.324
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -180,13 +180,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'MMCM.U_MMCM/clk' to pin 'MMCM.U_MMCM/bbstub_clk/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 797.184 ; gain = 467.289
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:50 ; elapsed = 00:00:55 . Memory (MB): peak = 798.449 ; gain = 468.813
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 797.246 ; gain = 467.352
+Finished Timing Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:00:55 . Memory (MB): peak = 798.512 ; gain = 468.875
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -198,7 +198,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 807.246 ; gain = 477.352
+Finished Technology Mapping : Time (s): cpu = 00:00:50 ; elapsed = 00:00:55 . Memory (MB): peak = 808.543 ; gain = 478.906
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -222,7 +222,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 807.246 ; gain = 477.352
+Finished IO Insertion : Time (s): cpu = 00:00:52 ; elapsed = 00:00:57 . Memory (MB): peak = 808.543 ; gain = 478.906
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -235,7 +235,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 807.246 ; gain = 477.352
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:52 ; elapsed = 00:00:57 . Memory (MB): peak = 808.543 ; gain = 478.906
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -247,25 +247,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 807.246 ; gain = 477.352
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:52 ; elapsed = 00:00:57 . Memory (MB): peak = 808.543 ; gain = 478.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 807.246 ; gain = 477.352
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:52 ; elapsed = 00:00:57 . Memory (MB): peak = 808.543 ; gain = 478.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 807.246 ; gain = 477.352
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:52 ; elapsed = 00:00:57 . Memory (MB): peak = 808.543 ; gain = 478.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 807.246 ; gain = 477.352
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:52 ; elapsed = 00:00:57 . Memory (MB): peak = 808.543 ; gain = 478.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -316,23 +316,23 @@ Report Instance Areas:
 |1     |top      |       |   384|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:49 . Memory (MB): peak = 807.246 ; gain = 477.352
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:52 ; elapsed = 00:00:57 . Memory (MB): peak = 808.543 ; gain = 478.906
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:38 . Memory (MB): peak = 807.246 ; gain = 311.375
-Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 807.246 ; gain = 477.352
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:44 . Memory (MB): peak = 808.543 ; gain = 313.359
+Synthesis Optimization Complete : Time (s): cpu = 00:00:52 ; elapsed = 00:00:57 . Memory (MB): peak = 808.543 ; gain = 478.906
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 815.840 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 817.547 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 36 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:55 . Memory (MB): peak = 815.840 ; gain = 497.461
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 815.840 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:57 ; elapsed = 00:01:04 . Memory (MB): peak = 817.547 ; gain = 499.523
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 817.547 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/TOP.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Dec  3 10:57:57 2019...
+INFO: [Common 17-206] Exiting Vivado at Tue Dec  3 13:07:32 2019...

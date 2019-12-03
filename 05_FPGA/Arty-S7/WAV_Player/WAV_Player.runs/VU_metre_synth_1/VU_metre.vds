@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Thu Nov 28 16:06:26 2019
-# Process ID: 8524
+# Start of session at: Tue Dec  3 13:04:13 2019
+# Process ID: 7160
 # Current directory: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1
 # Command line: vivado.exe -log VU_metre.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source VU_metre.tcl
 # Log file: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.vds
@@ -17,12 +17,12 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10012 
+INFO: Helper process launched with PID 7436 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 418.996 ; gain = 104.008
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 418.746 ; gain = 103.762
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'VU_metre' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:54]
-INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:104]
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:109]
 INFO: [Synth 8-638] synthesizing module 'RAM_2048_8bit' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:70]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -101,117 +101,18 @@ INFO: [Synth 8-638] synthesizing module 'RAM_2048_8bit' [c:/Users/hhartmann/Desk
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3396 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:236]
 INFO: [Synth 8-256] done synthesizing module 'RAM_2048_8bit' (9#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:70]
-INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:104]
-INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:104]
-INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:104]
-INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:104]
-INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:104]
-INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:104]
-INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:104]
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:109]
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:109]
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:109]
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:109]
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:109]
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:109]
+INFO: [Synth 8-3491] module 'RAM_2048_8bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/synth/RAM_2048_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_8bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:109]
+WARNING: [Synth 8-614] signal 'conv_in' is read in the process but is not in the sensitivity list [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:251]
+WARNING: [Synth 8-614] signal 'counter_select_d' is read in the process but is not in the sensitivity list [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:390]
 INFO: [Synth 8-256] done synthesizing module 'VU_metre' (10#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/VU_metre.vhd:54]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port SSRA
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port CLKB
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port SSRB
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ENB
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port REGCEB
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port WEB[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[10]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[9]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[8]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[7]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[6]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[5]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[4]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ADDRB[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[8]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[7]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[6]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[5]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[4]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port DINB[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port SLEEP
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ECCPIPECE
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ram_rstram_b
-WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper has unconnected port ram_rstreg_b
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port REGCEA[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port REGCEB[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port CLKB
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[7]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[6]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[5]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[4]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[3]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[2]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[1]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[0]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port SBITERR_I
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DBITERR_I
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[10]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[9]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[8]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[7]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[6]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[5]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[4]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[3]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[2]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[1]
-WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTA
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEA
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port CLKB
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTB
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ENB
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEB
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port WEB[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[10]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[9]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[8]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[7]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[6]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[5]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[4]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[3]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[2]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[1]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[7]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[6]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[5]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[4]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[3]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[2]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[1]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINB[0]
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AClk
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_ARESETN
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWID[3]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWID[2]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWID[1]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWID[0]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWADDR[31]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWADDR[30]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWADDR[29]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWADDR[28]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWADDR[27]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWADDR[26]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWADDR[25]
-WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_2_synth has unconnected port S_AXI_AWADDR[24]
-INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:57 ; elapsed = 00:02:09 . Memory (MB): peak = 666.980 ; gain = 351.992
+Finished RTL Elaboration : Time (s): cpu = 00:01:10 ; elapsed = 00:01:13 . Memory (MB): peak = 667.664 ; gain = 352.680
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -224,10 +125,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:58 ; elapsed = 00:02:10 . Memory (MB): peak = 666.980 ; gain = 351.992
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:10 ; elapsed = 00:01:13 . Memory (MB): peak = 667.664 ; gain = 352.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:58 ; elapsed = 00:02:10 . Memory (MB): peak = 666.980 ; gain = 351.992
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:10 ; elapsed = 00:01:13 . Memory (MB): peak = 667.664 ; gain = 352.680
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -240,21 +141,21 @@ Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Play
 Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 806.699 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 788.902 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 806.699 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.298 . Memory (MB): peak = 807.262 ; gain = 0.563
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 788.902 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 788.902 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:02:18 ; elapsed = 00:02:32 . Memory (MB): peak = 807.262 ; gain = 492.273
+Finished Constraint Validation : Time (s): cpu = 00:01:21 ; elapsed = 00:01:25 . Memory (MB): peak = 788.902 ; gain = 473.918
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:02:18 ; elapsed = 00:02:32 . Memory (MB): peak = 807.262 ; gain = 492.273
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:21 ; elapsed = 00:01:25 . Memory (MB): peak = 788.902 ; gain = 473.918
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -268,23 +169,15 @@ Applied set_property DONT_TOUCH = true for \GEN_RAM[5].U_RAM . (constraint file 
 Applied set_property DONT_TOUCH = true for \GEN_RAM[6].U_RAM . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for \GEN_RAM[7].U_RAM . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:18 ; elapsed = 00:02:33 . Memory (MB): peak = 807.262 ; gain = 492.273
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:21 ; elapsed = 00:01:25 . Memory (MB): peak = 788.902 ; gain = 473.918
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'VU_metre'
+INFO: [Synth 8-5544] ROM "cnt_select_clr" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "cnt_clr_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "cnt_select_clr" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "cnt_clr_end" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "cnt_clr_end" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                vu_reset |                               00 |                               00
-                vu_clean |                               01 |                               10
-                 vu_idle |                               10 |                               01
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'VU_metre'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:23 ; elapsed = 00:02:37 . Memory (MB): peak = 807.262 ; gain = 492.273
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:22 ; elapsed = 00:01:26 . Memory (MB): peak = 788.902 ; gain = 473.918
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -300,17 +193,19 @@ Detailed RTL Component Info :
 	   4 Input     20 Bit       Adders := 8     
 	   2 Input     11 Bit       Adders := 2     
 	   2 Input      8 Bit       Adders := 16    
+	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
-	               20 Bit    Registers := 8     
+	               48 Bit    Registers := 1     
+	               20 Bit    Registers := 9     
 	               11 Bit    Registers := 2     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input     11 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 16    
-	  64 Input      6 Bit        Muxes := 8     
-	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
-	   3 Input      1 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -324,17 +219,19 @@ Detailed RTL Component Info :
 	   4 Input     20 Bit       Adders := 8     
 	   2 Input     11 Bit       Adders := 2     
 	   2 Input      8 Bit       Adders := 16    
+	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
-	               20 Bit    Registers := 8     
+	               48 Bit    Registers := 1     
+	               20 Bit    Registers := 9     
 	               11 Bit    Registers := 2     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input     11 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 16    
-	  64 Input      6 Bit        Muxes := 8     
-	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
-	   3 Input      1 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -353,7 +250,7 @@ Start Cross Boundary and Area Optimization
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-5546] ROM "cnt_clr_end" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:10 ; elapsed = 00:03:26 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:29 ; elapsed = 00:01:34 . Memory (MB): peak = 788.902 ; gain = 473.918
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -365,13 +262,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:26 ; elapsed = 00:03:43 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:41 ; elapsed = 00:01:46 . Memory (MB): peak = 801.055 ; gain = 486.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:27 ; elapsed = 00:03:44 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Timing Optimization : Time (s): cpu = 00:01:42 ; elapsed = 00:01:47 . Memory (MB): peak = 801.945 ; gain = 486.961
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -383,7 +280,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:29 ; elapsed = 00:03:46 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Technology Mapping : Time (s): cpu = 00:01:42 ; elapsed = 00:01:47 . Memory (MB): peak = 830.203 ; gain = 515.219
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -407,7 +304,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:31 ; elapsed = 00:03:48 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished IO Insertion : Time (s): cpu = 00:01:43 ; elapsed = 00:01:49 . Memory (MB): peak = 830.203 ; gain = 515.219
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -420,7 +317,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:31 ; elapsed = 00:03:48 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:43 ; elapsed = 00:01:49 . Memory (MB): peak = 830.203 ; gain = 515.219
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -432,25 +329,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:31 ; elapsed = 00:03:48 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:43 ; elapsed = 00:01:49 . Memory (MB): peak = 830.203 ; gain = 515.219
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:31 ; elapsed = 00:03:48 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:43 ; elapsed = 00:01:49 . Memory (MB): peak = 830.203 ; gain = 515.219
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:31 ; elapsed = 00:03:48 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:43 ; elapsed = 00:01:49 . Memory (MB): peak = 830.203 ; gain = 515.219
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:31 ; elapsed = 00:03:48 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 830.203 ; gain = 515.219
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -467,16 +364,16 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |CARRY4   |    40|
-|2     |LUT1     |    11|
-|3     |LUT2     |   157|
-|4     |LUT3     |   173|
-|5     |LUT4     |   169|
-|6     |LUT5     |   318|
-|7     |LUT6     |  1229|
-|8     |MUXF7    |   104|
-|9     |MUXF8    |    16|
+|2     |LUT1     |     5|
+|3     |LUT2     |   139|
+|4     |LUT3     |    70|
+|5     |LUT4     |   108|
+|6     |LUT5     |    98|
+|7     |LUT6     |   248|
+|8     |MUXF7    |    34|
+|9     |MUXF8    |     1|
 |10    |RAMB18E1 |     8|
-|11    |FDCE     |   173|
+|11    |FDCE     |   247|
 |12    |FDPE     |    11|
 +------+---------+------+
 
@@ -484,7 +381,7 @@ Report Instance Areas:
 +------+-----------------------------------------------+----------------------------+------+
 |      |Instance                                       |Module                      |Cells |
 +------+-----------------------------------------------+----------------------------+------+
-|1     |top                                            |                            |  2409|
+|1     |top                                            |                            |  1009|
 |2     |  \GEN_RAM[0].U_RAM                            |RAM_2048_8bit__1            |     1|
 |3     |    U0                                         |blk_mem_gen_v8_4_2__1       |     1|
 |4     |      inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth_30 |     1|
@@ -543,29 +440,27 @@ Report Instance Areas:
 |57    |              \prim_noinit.ram                 |blk_mem_gen_prim_wrapper    |     1|
 +------+-----------------------------------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:31 ; elapsed = 00:03:48 . Memory (MB): peak = 853.379 ; gain = 538.391
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 830.203 ; gain = 515.219
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 149 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:18 ; elapsed = 00:03:32 . Memory (MB): peak = 853.379 ; gain = 398.109
-Synthesis Optimization Complete : Time (s): cpu = 00:03:31 ; elapsed = 00:03:48 . Memory (MB): peak = 853.379 ; gain = 538.391
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:01:40 . Memory (MB): peak = 830.203 ; gain = 393.980
+Synthesis Optimization Complete : Time (s): cpu = 00:01:44 ; elapsed = 00:01:49 . Memory (MB): peak = 830.203 ; gain = 515.219
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 168 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 83 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-101] Netlist 'VU_metre' is not ideal for floorplanning, since the cellview 'VU_metre' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 854.211 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 830.203 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-34 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
+32 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:35 ; elapsed = 00:03:54 . Memory (MB): peak = 854.211 ; gain = 548.211
+synth_design: Time (s): cpu = 00:01:46 ; elapsed = 00:01:52 . Memory (MB): peak = 830.203 ; gain = 523.949
 INFO: [Coretcl 2-1174] Renamed 56 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 854.211 ; gain = 0.000
-WARNING: [Constraints 18-5210] No constraints selected for write.
-Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 830.203 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file VU_metre_utilization_synth.rpt -pb VU_metre_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 28 16:10:43 2019...
+INFO: [Common 17-206] Exiting Vivado at Tue Dec  3 13:06:14 2019...
