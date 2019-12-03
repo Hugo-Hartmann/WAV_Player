@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-11-29
+-- Last update: 2019-12-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -61,6 +61,7 @@ entity VGA_interface is
         VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0);
 
         ------- FFT interface -------------------
+        FFT_zoom        : in  std_logic_vector(3 downto 0);
         FFT_addr        : out std_logic_vector(8 downto 0);
         FFT_read        : out std_logic;
         FFT_dout        : in  std_logic_vector(15 downto 0)
@@ -140,6 +141,8 @@ architecture RTL of VGA_interface is
     signal fft_box          : std_logic;
     signal fft_box_d        : std_logic;
     signal fft_addr_map     : unsigned(15 downto 0);
+    signal draw_zoom        : std_logic;
+    signal draw_zoom_d      : std_logic;
 
 
 --------------------------------------------------------------------------------
@@ -302,6 +305,36 @@ begin
     end process;
 
     --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Display current fft zoom level
+    --------------------------------------------------------------------------------
+    process(FFT_zoom, VGA_h_add, VGA_v_add)
+    
+    variable hadd       : integer := 0;
+    variable vadd       : integer := 0;
+    variable zoom       : integer := 0;
+    variable base_addr  : integer := 511;
+    variable step       : integer := 16;
+
+    begin
+    
+        hadd := to_integer(unsigned(VGA_h_add));
+        vadd := to_integer(unsigned(VGA_v_add));
+        zoom := to_integer(unsigned(FFT_zoom)+1);
+
+        draw_zoom   <= '0';
+
+        if(hadd>99 and hadd<120) then
+            if(VGA_v_add(3 downto 0)/="0000" and VGA_v_add(3 downto 0)/="0001") then
+                if(vadd>base_addr-step*zoom and vadd<512) then
+                    draw_zoom   <= '1';
+                end if;
+            end if;
+        end if;
+
+    end process;
+
+    --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_VU_metre
     -- Description : Register VU_metre data for display
     --------------------------------------------------------------------------------
@@ -456,6 +489,7 @@ begin
             red_color_d     <= '0';
             draw_box_d      <= '0';
             fft_box_d       <= '0';
+            draw_zoom_d     <= '0';
         elsif(rising_edge(clk)) then
             draw_red_line_d <= draw_red_line;
             display_fft_d   <= display_fft;
@@ -467,6 +501,7 @@ begin
             red_color_d     <= red_color;
             draw_box_d      <= draw_box;
             fft_box_d       <= fft_box;
+            draw_zoom_d     <= draw_zoom;
         end if;
     end process;
 
@@ -474,7 +509,7 @@ begin
     -- COMBINATORY :
     -- Description : Final pixel mapping
     --------------------------------------------------------------------------------
-    VGA_din         <= "11100000"   when(draw_red_line_d='1' or fft_box_d='1') else
+    VGA_din         <= "11100000"   when(draw_red_line_d='1' or fft_box_d='1' or draw_zoom_d='1') else
                        "11111111"   when(display_fft_d='1') else
                        "00000010"   when(draw_vol_d='1') else
                        "11111111"   when(pixel_ok_d='1') else

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2019-11-27
+-- Last update: 2019-12-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -33,12 +33,17 @@ entity FFT_Wrapper is
         G_BEHAVIOURAL   : boolean := false
         );
     port(
-    
+
         ------- Clock and RESET ------------------
         clk             : in  std_logic;                        -- clock
         reset_n         : in  std_logic;                        -- reset_n
 
+        ------- Zoom control ---------------------
+        btn             : in  std_logic;                        -- Zoom fft
+        FFT_zoom        : out std_logic_vector(3 downto 0);     -- Zoom level
+
         ------- FFT interface --------------------
+
         FFT_din         : in  std_logic_vector(7 downto 0);
         FFT_addr        : in  std_logic_vector(8 downto 0);
         FFT_new_sample  : in  std_logic;
@@ -169,11 +174,86 @@ architecture RTL of FFT_Wrapper is
     signal addrB_btfly      : std_logic_vector(8 downto 0);
     signal addrA_norm       : std_logic_vector(8 downto 0);
     signal addr_counter     : unsigned(8 downto 0);
+    signal btn_d            : std_logic;
+    signal btn_dd           : std_logic;
+    signal btn_ddd          : std_logic;
+    signal zoom_level       : unsigned(3 downto 0);
+    signal fft_counter      : unsigned(3 downto 0);
+    signal cnt_fft_clr      : std_logic;
+    signal FFT_under_sample : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_btn
+    -- Description : Register button input
+    --------------------------------------------------------------------------------
+    P_btn : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            btn_d   <= '0';
+            btn_dd  <= '0';
+            btn_ddd <= '0';
+        elsif(rising_edge(clk)) then
+            btn_d   <= btn;
+            btn_dd  <= btn_d;
+            btn_ddd <= btn_dd;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_zoom
+    -- Description : Generate zoom level of fft
+    --------------------------------------------------------------------------------
+    P_zoom : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            zoom_level  <= to_unsigned(0, zoom_level'length);
+        elsif(rising_edge(clk)) then
+            if(btn_ddd='0' and btn_dd='1') then
+                if(zoom_level=4) then
+                    zoom_level  <= to_unsigned(0, zoom_level'length);
+                else
+                    zoom_level  <= zoom_level + 1;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Zoom level assignation
+    --------------------------------------------------------------------------------
+    FFT_zoom    <= std_logic_vector(zoom_level);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_fft_counter
+    -- Description : Under sampling counter
+    --------------------------------------------------------------------------------
+    P_fft_counter : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            fft_counter <= to_unsigned(0, fft_counter'length);
+        elsif(rising_edge(clk)) then
+            if(FFT_new_sample='1') then
+                if(cnt_fft_clr='1') then
+                    fft_counter <= to_unsigned(0, fft_counter'length);
+                else
+                    fft_counter <= fft_counter + 1;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Compare counters
+    --------------------------------------------------------------------------------
+    cnt_fft_clr         <= '1' when(fft_counter=zoom_level) else '0';
+    FFT_under_sample    <= '1' when(fft_counter=0 and FFT_new_sample='1') else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_count
@@ -222,7 +302,7 @@ begin
         FFT_addrA_w     => FFT_addrA_w,
         FFT_addrB_w     => FFT_addrB_w,
         FFT_addr        => FFT_addr,
-        FFT_new_sample  => FFT_new_sample,
+        FFT_new_sample  => FFT_under_sample,
         FFT_start       => FFT_start,
         FFT_read        => FFT_read,
         RAM_doutA_r     => RAM_doutA_r,

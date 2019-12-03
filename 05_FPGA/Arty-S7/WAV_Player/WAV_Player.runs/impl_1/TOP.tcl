@@ -67,6 +67,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7s50csga324-1
   set_property board_part_repo_paths {C:/Users/hhartmann/Downloads/vivado-boards-master/vivado-boards-master/new/board_files} [current_project]
   set_property board_part digilentinc.com:arty-s7-50:part0:1.0 [current_project]

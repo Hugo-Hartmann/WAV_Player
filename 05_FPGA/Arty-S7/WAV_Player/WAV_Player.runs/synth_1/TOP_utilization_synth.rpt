@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Nov 29 10:45:08 2019
+| Date         : Tue Dec  3 10:57:57 2019
 | Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
 | Design       : TOP
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   21 |     0 |       210 | 10.00 |
+| Bonded IOB                  |   22 |     0 |       210 | 10.48 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         5 |  0.00 |
@@ -147,8 +147,8 @@ Table of Contents
 +----------+------+---------------------+
 | LUT6     |   16 |                 LUT |
 | OBUF     |   13 |                  IO |
+| IBUF     |    9 |                  IO |
 | LUT5     |    8 |                 LUT |
-| IBUF     |    8 |                  IO |
 +----------+------+---------------------+
 
 

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-11-27
+-- Last update: 2019-12-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -39,6 +39,7 @@ entity TOP is
         RESET       : in  std_logic;
 
         ------- Buttons -------------------------
+        FFT_SAMP    : in  std_logic;
         VOL_UP      : in  std_logic;
         VOL_DOWN    : in  std_logic;
 
@@ -156,6 +157,7 @@ architecture RTL of TOP is
             EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
             EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
             VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0);
+            FFT_zoom        : in  std_logic_vector(3 downto 0);
             FFT_addr        : out std_logic_vector(8 downto 0);
             FFT_read        : out std_logic;
             FFT_dout        : in  std_logic_vector(15 downto 0)
@@ -201,6 +203,8 @@ architecture RTL of TOP is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
+            btn             : in  std_logic;
+            FFT_zoom        : out std_logic_vector(3 downto 0);
             FFT_din         : in  std_logic_vector(7 downto 0);
             FFT_addr        : in  std_logic_vector(8 downto 0);
             FFT_new_sample  : in  std_logic;
@@ -236,6 +240,7 @@ architecture RTL of TOP is
     signal FFT_addr         : std_logic_vector(8 downto 0);
     signal FFT_read         : std_logic;
     signal FFT_dout         : std_logic_vector(15 downto 0);
+    signal FFT_zoom         : std_logic_vector(3 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -342,6 +347,7 @@ begin
         VU_dout         => VU_dout,
         EQ_dout         => EQ_dout,
         EQ_level_dout   => EQ_level_dout,
+        FFT_zoom        => FFT_zoom,
         FFT_addr        => FFT_addr,
         FFT_read        => FFT_read,
         FFT_dout        => FFT_dout);
@@ -404,7 +410,9 @@ begin
     U_FFT_Wrapper : FFT_Wrapper port map(
         clk             => clk,
         reset_n         => reset_n,
-        FFT_din         => RAM_dout,
+        btn             => FFT_SAMP,
+        FFT_zoom        => FFT_zoom,
+        FFT_din         => SW_out,
         FFT_addr        => FFT_addr,
         FFT_new_sample  => WAV_read,
         FFT_start       => VGA_new_frame,

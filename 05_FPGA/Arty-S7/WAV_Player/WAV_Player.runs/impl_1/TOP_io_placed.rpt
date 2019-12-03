@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date                      : Fri Nov 29 10:46:31 2019
+| Date                      : Tue Dec  3 10:59:27 2019
 | Host                      : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command                   : report_io -file TOP_io_placed.rpt
 | Design                    : TOP
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            22 |
+|            23 |
 +---------------+
 
 
@@ -212,7 +212,7 @@ Table of Contents
 | K13        |              | High Range | IO_25_15                     | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | K14        |              | High Range | IO_L23P_T3_15                | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | K15        |              |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |          |                  |              |                   |              |
-| K16        |              | High Range | IO_L19P_T3_15                | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
+| K16        | FFT_SAMP     | High Range | IO_L19P_T3_15                | INPUT       | LVCMOS33    |      15 |            |      |                     |                 NONE |         | FIXED      |           |          |          | NONE             |              |                   |              |
 | K17        |              | High Range | IO_L1P_T0_D00_MOSI_14        | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | K18        |              | High Range | IO_L1N_T0_D01_DIN_14         | User IO     |             |      14 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | L1         |              | High Range | IO_L3N_T0_DQS_34             | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
