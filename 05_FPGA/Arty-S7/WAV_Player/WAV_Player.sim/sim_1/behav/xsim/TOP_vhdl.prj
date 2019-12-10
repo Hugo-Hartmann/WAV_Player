@@ -23,21 +23,11 @@ vhdl xil_defaultlib  \
 "../../../../../../../02_Source/EQ_stage.vhd" \
 
 vhdl lib_VHDL  \
+"../../../../../../../02_Source/VU_metre.vhd" \
 "../../../../../../../02_Source/FIR_filter.vhd" \
 "../../../../../../../02_Source/FIR_interface.vhd" \
 
 vhdl xil_defaultlib  \
-"../../../../WAV_Player.ip_user_files/bd/FFT_512/ip/FFT_512_FFT_Wrapper_0_0/sim/FFT_512_FFT_Wrapper_0_0.vhd" \
-"../../../../WAV_Player.ip_user_files/bd/FFT_512/sim/FFT_512.vhd" \
-"../../../../WAV_Player.ip_user_files/bd/EQ/ip/EQ_EQ_stage_0_0/sim/EQ_EQ_stage_0_0.vhd" \
-"../../../../WAV_Player.ip_user_files/bd/EQ/sim/EQ.vhd" \
-
-vhdl lib_VHDL  \
-"../../../../../../../02_Source/VU_metre.vhd" \
-
-vhdl xil_defaultlib  \
-"../../../../WAV_Player.ip_user_files/bd/FIR/ip/FIR_FIR_interface_0_0_1/sim/FIR_FIR_interface_0_0.vhd" \
-"../../../../WAV_Player.ip_user_files/bd/FIR/sim/FIR.vhd" \
 "../../../../../../../02_Source/VGA_interface.vhd" \
 
 vhdl lib_VHDL  \
@@ -46,20 +36,13 @@ vhdl lib_VHDL  \
 "../../../../../../../02_Source/WAV_Player.vhd" \
 
 vhdl xil_defaultlib  \
-"../../../../WAV_Player.srcs/sources_1/bd/EQ/hdl/EQ_wrapper.vhd" \
-"../../../../WAV_Player.srcs/sources_1/bd/FFT_512/hdl/FFT_512_wrapper.vhd" \
-"../../../../WAV_Player.srcs/sources_1/bd/FIR/hdl/FIR_wrapper.vhd" \
-
-vhdl lib_VHDL  \
-"../../../../../../../02_Source/Heartbeat.vhd" \
-
-vhdl xil_defaultlib  \
 "../../../../../../../02_Source/RAM_Wrapper.vhd" \
 
 vhdl lib_VHDL  \
 "../../../../../../../02_Source/UART_Rx.vhd" \
 "../../../../../../../02_Source/UART_Tx.vhd" \
 "../../../../../../../02_Source/UART_Wrapper.vhd" \
+"../../../../../../../02_Source/Heartbeat.vhd" \
 "../../../../../../../02_Source/TOP_Arty.vhd" \
 
 # Do not sort compile order

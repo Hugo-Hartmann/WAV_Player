@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-12-03
+-- Last update: 2019-12-09
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -39,7 +39,6 @@ entity TOP is
         RESET       : in  std_logic;
 
         ------- Buttons -------------------------
-        FFT_SAMP    : in  std_logic;
         VOL_UP      : in  std_logic;
         VOL_DOWN    : in  std_logic;
 
@@ -157,10 +156,9 @@ architecture RTL of TOP is
             EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
             EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
             VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0);
-            FFT_zoom        : in  std_logic_vector(3 downto 0);
-            FFT_addr        : out std_logic_vector(8 downto 0);
-            FFT_read        : out std_logic;
-            FFT_dout        : in  std_logic_vector(15 downto 0)
+            NRM_addr        : out std_logic_vector(8 downto 0);
+            NRM_read        : out std_logic;
+            NRM_dout        : in  std_logic_vector(15 downto 0)
             );
     end component;
 
@@ -203,14 +201,35 @@ architecture RTL of TOP is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
-            btn             : in  std_logic;
-            FFT_zoom        : out std_logic_vector(3 downto 0);
             FFT_din         : in  std_logic_vector(7 downto 0);
-            FFT_addr        : in  std_logic_vector(8 downto 0);
             FFT_new_sample  : in  std_logic;
-            FFT_start       : in  std_logic;
-            FFT_read        : in  std_logic;
-            FFT_dout        : out std_logic_vector(15 downto 0)
+            FFT_addrA       : out std_logic_vector(8 downto 0);
+            FFT_addrB       : out std_logic_vector(8 downto 0);
+            FFT_doutA_r     : out std_logic_vector(15 downto 0);
+            FFT_doutA_i     : out std_logic_vector(15 downto 0);
+            FFT_doutB_r     : out std_logic_vector(15 downto 0);
+            FFT_doutB_i     : out std_logic_vector(15 downto 0);
+            FFT_write       : out std_logic;
+            FFT_done        : out std_logic
+            );
+    end component;
+
+    component NRM_Wrapper is
+        port(
+            clk             : in  std_logic;
+            reset_n         : in  std_logic;
+            NRM_addrA_w     : in  std_logic_vector(8 downto 0);
+            NRM_addrB_w     : in  std_logic_vector(8 downto 0);
+            NRM_dinA_r      : in  std_logic_vector(15 downto 0);
+            NRM_dinA_i      : in  std_logic_vector(15 downto 0);
+            NRM_dinB_r      : in  std_logic_vector(15 downto 0);
+            NRM_dinB_i      : in  std_logic_vector(15 downto 0);
+            NRM_write       : in  std_logic;
+            NRM_new_sample  : in  std_logic;
+            NRM_start       : in  std_logic;
+            NRM_read        : in  std_logic;
+            NRM_addr_r      : in  std_logic_vector(8 downto 0);
+            NRM_dout        : out std_logic_vector(15 downto 0)
             );
     end component;
 
@@ -237,10 +256,17 @@ architecture RTL of TOP is
     signal SW_out           : std_logic_vector(7 downto 0);
     signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal EQ_dout          : std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
-    signal FFT_addr         : std_logic_vector(8 downto 0);
-    signal FFT_read         : std_logic;
-    signal FFT_dout         : std_logic_vector(15 downto 0);
-    signal FFT_zoom         : std_logic_vector(3 downto 0);
+    signal FFT_addrA        : std_logic_vector(8 downto 0);
+    signal FFT_addrB        : std_logic_vector(8 downto 0);
+    signal FFT_doutA_r      : std_logic_vector(15 downto 0);
+    signal FFT_doutA_i      : std_logic_vector(15 downto 0);
+    signal FFT_doutB_r      : std_logic_vector(15 downto 0);
+    signal FFT_doutB_i      : std_logic_vector(15 downto 0);
+    signal FFT_write        : std_logic;
+    signal FFT_done         : std_logic;
+    signal NRM_read         : std_logic;
+    signal NRM_addr_r       : std_logic_vector(8 downto 0);
+    signal NRM_dout         : std_logic_vector(15 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -347,10 +373,9 @@ begin
         VU_dout         => VU_dout,
         EQ_dout         => EQ_dout,
         EQ_level_dout   => EQ_level_dout,
-        FFT_zoom        => FFT_zoom,
-        FFT_addr        => FFT_addr,
-        FFT_read        => FFT_read,
-        FFT_dout        => FFT_dout);
+        NRM_addr        => NRM_addr_r,
+        NRM_read        => NRM_read,
+        NRM_dout        => NRM_dout);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_FIR_interface
@@ -410,14 +435,36 @@ begin
     U_FFT_Wrapper : FFT_Wrapper port map(
         clk             => clk,
         reset_n         => reset_n,
-        btn             => FFT_SAMP,
-        FFT_zoom        => FFT_zoom,
         FFT_din         => SW_out,
-        FFT_addr        => FFT_addr,
         FFT_new_sample  => WAV_read,
-        FFT_start       => VGA_new_frame,
-        FFT_read        => FFT_read,
-        FFT_dout        => FFT_dout);
+        FFT_addrA       => FFT_addrA,
+        FFT_addrB       => FFT_addrB,
+        FFT_doutA_r     => FFT_doutA_r,
+        FFT_doutA_i     => FFT_doutA_i,
+        FFT_doutB_r     => FFT_doutB_r,
+        FFT_doutB_i     => FFT_doutB_i,
+        FFT_write       => FFT_write,
+        FFT_done        => FFT_done);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_NRM_Wrapper
+    -- Description: NRM_Wrapper for custom NRM module
+    ----------------------------------------------------------------
+    U_NRM_Wrapper : NRM_Wrapper port map(
+        clk             => clk,
+        reset_n         => reset_n,
+        NRM_addrA_w     => FFT_addrA,
+        NRM_addrB_w     => FFT_addrB,
+        NRM_dinA_r      => FFT_doutA_r,
+        NRM_dinA_i      => FFT_doutA_i,
+        NRM_dinB_r      => FFT_doutB_r,
+        NRM_dinB_i      => FFT_doutB_i,
+        NRM_write       => FFT_write,
+        NRM_new_sample  => WAV_read,
+        NRM_start       => VGA_new_frame,
+        NRM_read        => NRM_read,
+        NRM_addr_r      => NRM_addr_r,
+        NRM_dout        => NRM_dout);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

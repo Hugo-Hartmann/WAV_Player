@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-21
--- Last update: 2019-11-26
+-- Last update: 2019-12-09
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -44,10 +44,8 @@ entity FFT_UAL is
         FFT_doutB_i     : out std_logic_vector(G_OPERAND_SIZE-1 downto 0);
 
         ------- FFT control ----------------------
-        FFT_en_btfly    : in  std_logic;
-        FFT_en_norm     : in  std_logic;
-        FFT_btfly_done  : out std_logic;
-        FFT_norm_done   : out std_logic;
+        FFT_en          : in  std_logic;
+        FFT_done        : out std_logic;
 
         ------- FFT in ---------------------------
         FFT_dinA_r      : in  std_logic_vector(G_OPERAND_SIZE-1 downto 0);
@@ -123,21 +121,6 @@ architecture RTL of FFT_UAL is
             );
     end component;
 
-    component FFT_Normalizer is
-        generic(
-            G_OPERAND_SIZE  : integer := 16
-            );
-        port(
-            clk             : in  std_logic;
-            reset_n         : in  std_logic;
-            FFT_dout        : out std_logic_vector(G_OPERAND_SIZE-1 downto 0);
-            FFT_en          : in  std_logic;
-            FFT_done        : out std_logic;
-            FFT_din_r       : in  std_logic_vector(G_OPERAND_SIZE-1 downto 0);
-            FFT_din_i       : in  std_logic_vector(G_OPERAND_SIZE-1 downto 0)
-            );
-    end component;
-
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
@@ -150,7 +133,6 @@ architecture RTL of FFT_UAL is
     signal Mult_coef_i  : std_logic_vector(G_OPERAND_SIZE-1 downto 0);
     signal Btfly_out_r  : std_logic_vector(G_OPERAND_SIZE-1 downto 0);
     signal Btfly_out_i  : std_logic_vector(G_OPERAND_SIZE-1 downto 0);
-    signal Norm_out_r   : std_logic_vector(G_OPERAND_SIZE-1 downto 0);
     signal Mult_done    : std_logic;
 
 --------------------------------------------------------------------------------
@@ -170,7 +152,7 @@ begin
         reset_n     => reset_n,
         FFT_dout_r  => Adder_out_r,
         FFT_dout_i  => Adder_out_i,
-        FFT_en      => FFT_en_btfly,
+        FFT_en      => FFT_en,
         --FFT_done    => FFT_done,
         FFT_dinA_r  => FFT_dinA_r,
         FFT_dinA_i  => FFT_dinA_i,
@@ -215,7 +197,7 @@ begin
         reset_n     => reset_n,
         FFT_dout_r  => Sub_out_r,
         FFT_dout_i  => Sub_out_i,
-        FFT_en      => FFT_en_btfly,
+        FFT_en      => FFT_en,
         FFT_done    => Sub_done,
         FFT_dinA_r  => FFT_dinA_r,
         FFT_dinA_i  => FFT_dinA_i,
@@ -266,28 +248,14 @@ begin
         FFT_coef_r  => Mult_coef_r,
         FFT_coef_i  => Mult_coef_i);
 
-    ----------------------------------------------------------------
-    -- INSTANCE : U_Normalizer
-    -- Description : Computation of the module of a complex number
-    ----------------------------------------------------------------
-    U_Normalizer : FFT_Normalizer generic map(
-        G_OPERAND_SIZE  => G_OPERAND_SIZE)
-    port map(
-        clk         => clk,
-        reset_n     => reset_n,
-        FFT_dout    => Norm_out_r,
-        FFT_en      => FFT_en_norm,
-        FFT_done    => FFT_norm_done,
-        FFT_din_r   => FFT_dinA_r,
-        FFT_din_i   => FFT_dinA_i);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
     -- Description : Output multiplexing
     --------------------------------------------------------------------------------
-    FFT_doutA_r     <= Btfly_out_r when(Mult_done='1') else Norm_out_r;
-    FFT_doutA_i     <= Btfly_out_i;
-    FFT_btfly_done  <= Mult_done;
+    FFT_doutA_r <= Btfly_out_r;
+    FFT_doutA_i <= Btfly_out_i;
+    FFT_done    <= Mult_done;
 
 end RTL;
 --------------------------------------------------------------------------------

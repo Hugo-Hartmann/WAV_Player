@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1575374650">
+<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1575971385">
   <File Type="BITSTR-BMM" Name="TOP_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="TOP_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="TOP_timing_summary_init.rpt"/>
@@ -179,6 +179,7 @@
   <BlockFileSet Type="BlockSrcs" Name="UART_Wrapper"/>
   <BlockFileSet Type="BlockSrcs" Name="VGA_interface"/>
   <BlockFileSet Type="BlockSrcs" Name="VU_metre"/>
-  <BlockFileSet Type="BlockSrcs" Name="FFT_Wrapper"/>
   <BlockFileSet Type="BlockSrcs" Name="FIR_interface"/>
+  <BlockFileSet Type="BlockSrcs" Name="FFT_Wrapper"/>
+  <BlockFileSet Type="BlockSrcs" Name="NRM_Wrapper"/>
 </GenRun>

@@ -108,3 +108,5 @@ except:
             progress_bar(i, file_size)
             #print("Done.")
             cmd = 0
+
+ser.close()

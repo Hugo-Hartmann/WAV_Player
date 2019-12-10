@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-21
--- Last update: 2019-11-27
+-- Last update: 2019-12-09
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -41,10 +41,9 @@ entity FFT_FSM is
 
         ------- FFT control ----------------------
         FFT_start       : in  std_logic;
-        FFT_new_sample  : in  std_logic;
         FFT_stage_busy  : in  std_logic;
-        FFT_en_btfly    : out std_logic;
-        FFT_en_norm     : out std_logic
+        FFT_en          : out std_logic;
+        FFT_done        : out std_logic
 
         );
 end FFT_FSM;
@@ -57,9 +56,8 @@ architecture RTL of FFT_FSM is
     --------------------------------------------------------------------------------
     -- TYPE DECLARATIONS
     --------------------------------------------------------------------------------
-    type FFT_STATE is (FFT_RESET, FFT_IDLE, FFT_WAIT_SAMPLE, FFT_NEW_STAGE, FFT_ADDR_START1,
-                       FFT_ADDR_START2, FFT_ADDR_LOOP, FFT_ADDR_END, FFT_PIPE_UNLOAD, FFT_END_BTFLY,
-                       FFT_NORM_START1, FFT_NORM_START2, FFT_NORM_LOOP, FFT_NORM_LAST, FFT_NORM_END);
+    type FFT_STATE is (FFT_RESET, FFT_IDLE, FFT_NEW_STAGE, FFT_ADDR_START1,
+                       FFT_ADDR_START2, FFT_ADDR_LOOP, FFT_ADDR_END, FFT_PIPE_UNLOAD, FFT_END);
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
@@ -81,7 +79,6 @@ architecture RTL of FFT_FSM is
     signal addrA_d          : std_logic_vector(8 downto 0);
     signal addrB_d          : std_logic_vector(8 downto 0);
     signal addrC_d          : std_logic_vector(7 downto 0);
-    signal invert_addr      : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -164,8 +161,6 @@ begin
                 elsif(counter_stage=0) then
                     counter_coef    <= to_unsigned(0, counter_coef'length);
                     counter_addr    <= counter_addr + 2;
-                else     -- case for normalization
-                    counter_addr    <= counter_addr + 1;
                 end if;
             end if;
         end if;
@@ -209,17 +204,7 @@ begin
     -- COMBINATORY :
     -- Description : Output address assignation
     --------------------------------------------------------------------------------
-    P_invert : process(AddrA_d, invert_addr)
-    begin
-        if(invert_addr='0') then
-            FFT_addr_A  <= AddrA_d;
-        else
-            for i in AddrA_d'range loop
-                FFT_addr_A(i)   <= AddrA_d(AddrA_d'high - i);
-            end loop;
-        end if;
-    end process;
-
+    FFT_addr_A      <= AddrA_d;
     FFT_addr_B      <= AddrB_d;
     FFT_addr_coef   <= AddrC_d;
 
@@ -233,7 +218,7 @@ begin
     -- SEQ PROCESS : P_counter_stage
     -- Description : Counter for current stage
     --------------------------------------------------------------------------------
-    P_v : process(clk, reset_n)
+    P_counter_stage : process(clk, reset_n)
     begin
         if(reset_n='0') then
             counter_stage   <= to_unsigned(8+1, counter_stage'length);
@@ -269,33 +254,25 @@ begin
     -- COMB PROCESS : P_FSM_FFT_comb
     -- Description : FSM_FFT combinatorial part (next_state logic)
     --------------------------------------------------------------------------------
-    P_FSM_FFT_comb : process(current_state, FFT_start, FFT_new_sample, cnt_addr_end, cnt_stage_end, FFT_stage_busy)
+    P_FSM_FFT_comb : process(current_state, FFT_start, cnt_addr_end, cnt_stage_end, FFT_stage_busy)
     begin
-        FFT_en_btfly    <= '0';
-        FFT_en_norm     <= '0';
+        FFT_en          <= '0';
         cnt_addr_clr    <= '0';
         cnt_addr_inc    <= '0';
         cnt_stage_set   <= '0';
         cnt_stage_dec   <= '0';
-        invert_addr     <= '0';
+        FFT_done        <= '0';
 
         case current_state is
             when FFT_RESET =>
                 next_state  <= FFT_IDLE;
 
             when FFT_IDLE =>
-                if(FFT_start='1') then
-                    next_state  <= FFT_WAIT_SAMPLE;
-                else
-                    next_state  <= FFT_IDLE;
-                end if;
-
-            when FFT_WAIT_SAMPLE =>
                 cnt_stage_set   <= '1';
-                if(FFT_new_sample='1') then
+                if(FFT_start='1') then
                     next_state  <= FFT_NEW_STAGE;
                 else
-                    next_state  <= FFT_WAIT_SAMPLE;
+                    next_state  <= FFT_IDLE;
                 end if;
 
             when FFT_NEW_STAGE =>
@@ -313,7 +290,7 @@ begin
 
             when FFT_ADDR_LOOP =>
                 cnt_addr_inc    <= '1';
-                FFT_en_btfly    <= '1';
+                FFT_en          <= '1';
                 if(cnt_addr_end='1') then
                     next_state  <= FFT_ADDR_END;
                 else
@@ -321,52 +298,21 @@ begin
                 end if;
 
             when FFT_ADDR_END =>
-                FFT_en_btfly    <= '1';
-                next_state      <= FFT_PIPE_UNLOAD;
+                FFT_en      <= '1';
+                next_state  <= FFT_PIPE_UNLOAD;
 
             when FFT_PIPE_UNLOAD =>
                 if(FFT_stage_busy='0' and cnt_stage_end='1') then
-                    next_state  <= FFT_END_BTFLY;
+                    next_state  <= FFT_END;
                 elsif(FFT_stage_busy='0') then
                     next_state  <= FFT_NEW_STAGE;
                 else
                     next_state  <= FFT_PIPE_UNLOAD;
                 end if;
 
-            when FFT_END_BTFLY =>
-                cnt_addr_clr    <= '1';
-                cnt_stage_set   <= '1';
-                next_state      <= FFT_NORM_START1;
-
-            when FFT_NORM_START1 =>
-                invert_addr     <= '1';
-                cnt_addr_inc    <= '1';
-                next_state      <= FFT_NORM_START2;
-
-            when FFT_NORM_START2 =>
-                invert_addr     <= '1';
-                cnt_addr_inc    <= '1';
-                next_state      <= FFT_NORM_LOOP;
-
-            when FFT_NORM_LOOP =>
-                invert_addr     <= '1';
-                cnt_addr_inc    <= '1';
-                FFT_en_norm     <= '1';
-                if(cnt_addr_end='1') then
-                    next_state  <= FFT_NORM_LAST;
-                else
-                    next_state  <= FFT_NORM_LOOP;
-                end if;
-
-            when FFT_NORM_LAST =>
-                invert_addr     <= '1';
-                cnt_addr_inc    <= '1';
-                FFT_en_norm     <= '1';
-                next_state      <= FFT_NORM_END;
-
-            when FFT_NORM_END =>
-                FFT_en_norm     <= '1';
-                next_state      <= FFT_IDLE;
+            when FFT_END =>
+                FFT_done    <= '1';
+                next_state  <= FFT_IDLE;
 
         end case;
     end process;

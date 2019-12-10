@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-25
--- Last update: 2019-11-28
+-- Last update: 2019-12-09
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -46,17 +46,13 @@ entity FFT_RAM_Wrapper is
         RAM_dinB_i      : in  std_logic_vector(15 downto 0);
 
         ------- RAM control ----------------------
-        FFT_btfly_done  : in  std_logic;
-        FFT_norm_done   : in  std_logic;
+        FFT_done        : in  std_logic;
         FFT_addrA_r     : in  std_logic_vector(8 downto 0);
         FFT_addrB_r     : in  std_logic_vector(8 downto 0);
         FFT_addrC_r     : in  std_logic_vector(7 downto 0);
         FFT_addrA_w     : in  std_logic_vector(8 downto 0);
         FFT_addrB_w     : in  std_logic_vector(8 downto 0);
-        FFT_addr        : in  std_logic_vector(8 downto 0);
         FFT_new_sample  : in  std_logic;
-        FFT_start       : in  std_logic;
-        FFT_read        : in  std_logic;
 
         ------- RAM out --------------------------
         RAM_doutA_r     : out std_logic_vector(15 downto 0);
@@ -249,7 +245,7 @@ begin
     -- COMBINATORY :
     -- Description : Generate write signal
     --------------------------------------------------------------------------------
-    FFT_write   <= FFT_norm_done OR FFT_btfly_done;
+    FFT_write   <= FFT_done;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_select
@@ -262,7 +258,7 @@ begin
             RAM_select  <= "10";
         elsif(rising_edge(clk)) then
             FFT_write_d <= FFT_write;
-            if(FFT_start='1') then
+            if(FFT_new_sample='1') then
                 RAM_select  <= "10";
             elsif(FFT_write_d='1' and FFT_write='0') then
                 RAM_select  <= '0' & (NOT RAM_select(0));
@@ -277,30 +273,22 @@ begin
     
     --- Port A - FFTA
     RAM_FFTA_wrA    <= "0"          when(RAM_select(0)='1') else (others => FFT_write);
-    RAM_FFTA_addrA  <= FFT_addr     when(FFT_read='1') else
-                       FFT_addrA_r  when(RAM_select(0)='1') else
-                       FFT_addrA_w;
+    RAM_FFTA_addrA  <= FFT_addrA_r  when(RAM_select(0)='1') else FFT_addrA_w;
     RAM_FFTA_dinA   <= RAM_dinA_r & RAM_dinA_i;
 
     --- Port B - FFTA
-    RAM_FFTA_wrB    <= "0"          when(RAM_select(0)='1' or FFT_norm_done='1') else (others => FFT_write); -- do not use portB for nomalization
-    RAM_FFTA_addrB  <= FFT_addr     when(FFT_read='1') else
-                       FFT_addrB_r  when(RAM_select(0)='1') else
-                       FFT_addrB_w;
+    RAM_FFTA_wrB    <= "0"          when(RAM_select(0)='1') else (others => FFT_write);
+    RAM_FFTA_addrB  <= FFT_addrB_r  when(RAM_select(0)='1') else FFT_addrB_w;
     RAM_FFTA_dinB   <= RAM_dinB_r & RAM_dinB_i;
 
     --- Port A - FFTB
     RAM_FFTB_wrA    <= "0"          when(RAM_select(0)='0') else (others => FFT_write);
-    RAM_FFTB_addrA  <= FFT_addr     when(FFT_read='1') else
-                       FFT_addrA_r  when(RAM_select(0)='0') else
-                       FFT_addrA_w;
+    RAM_FFTB_addrA  <= FFT_addrA_r  when(RAM_select(0)='0') else FFT_addrA_w;
     RAM_FFTB_dinA   <= RAM_dinA_r & RAM_dinA_i;
 
     --- Port B - FFTB
-    RAM_FFTB_wrB    <= "0"          when(RAM_select(0)='0' or FFT_norm_done='1') else (others => FFT_write); -- do not use portB for nomalization
-    RAM_FFTB_addrB  <= FFT_addr     when(FFT_read='1') else
-                       FFT_addrB_r  when(RAM_select(0)='0') else
-                       FFT_addrB_w;
+    RAM_FFTB_wrB    <= "0"          when(RAM_select(0)='0') else (others => FFT_write);
+    RAM_FFTB_addrB  <= FFT_addrB_r  when(RAM_select(0)='0') else FFT_addrB_w;
     RAM_FFTB_dinB   <= RAM_dinB_r & RAM_dinB_i;
 
     --- Outputs

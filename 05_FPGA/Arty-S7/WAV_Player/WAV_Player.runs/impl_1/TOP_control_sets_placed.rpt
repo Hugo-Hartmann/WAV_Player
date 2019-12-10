@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Dec  3 13:08:57 2019
+| Date         : Tue Dec 10 10:54:08 2019
 | Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_control_sets -verbose -file TOP_control_sets_placed.rpt
 | Design       : TOP
@@ -23,7 +23,7 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    68 |
+| Number of unique control sets                            |    65 |
 | Unused register locations in slices containing registers |   169 |
 +----------------------------------------------------------+-------+
 
@@ -35,16 +35,16 @@ Table of Contents
 | Fanout | Control Sets |
 +--------+--------------+
 |      2 |            1 |
-|      4 |            3 |
+|      4 |            1 |
 |      5 |            8 |
 |      6 |            8 |
-|      8 |           14 |
-|      9 |            3 |
+|      8 |           13 |
+|      9 |            2 |
 |     10 |            3 |
 |     11 |            4 |
 |     14 |            1 |
 |     15 |            2 |
-|    16+ |           21 |
+|    16+ |           22 |
 +--------+--------------+
 
 
@@ -54,11 +54,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             248 |          107 |
-| No           | No                    | Yes                    |             690 |          220 |
+| No           | No                    | No                     |             248 |          106 |
+| No           | No                    | Yes                    |             738 |          217 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |              16 |            5 |
-| Yes          | No                    | Yes                    |             733 |          251 |
+| Yes          | No                    | Yes                    |             725 |          234 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -66,77 +66,74 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------+----------------------------------------------------------------------------------------------------+----------------------------------------------------------+------------------+----------------+
-|      Clock Signal     |                                            Enable Signal                                           |                     Set/Reset Signal                     | Slice Load Count | Bel Load Count |
-+-----------------------+----------------------------------------------------------------------------------------------------+----------------------------------------------------------+------------------+----------------+
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_RAM_Wrapper/UART_read_i_2_n_0                          |                2 |              2 |
-|  MMCM.U_MMCM/inst/clk | U_FFT_Wrapper/zoom_level0                                                                          | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                        |                2 |              4 |
-|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Rx/bit_counter[3]_i_1_n_0                                                         | U_UART_Wrapper/U_Rx/reset_n_0                            |                1 |              4 |
-|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                              | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                        |                1 |              4 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[3][4]_i_1_n_0                                                 | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0       |                4 |              5 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[2][4]_i_1_n_0                                                 | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0       |                3 |              5 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[1][4]_i_1_n_0                                                 | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0       |                2 |              5 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[0][4]_i_1_n_0                                                 | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0       |                1 |              5 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[6][4]_i_1_n_0                                                 | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0       |                2 |              5 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_1_n_0                                                 | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0       |                2 |              5 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[5][4]_i_1_n_0                                                 | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0       |                2 |              5 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[4][4]_i_1_n_0                                                 | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0       |                3 |              5 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[41]_i_1_n_0                                                                     | U_VU_metre/VU_dout[47]_i_3_n_0                           |                3 |              6 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[23]_i_1_n_0                                                                     | U_VU_metre/VU_dout[47]_i_3_n_0                           |                4 |              6 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[29]_i_1_n_0                                                                     | U_VU_metre/VU_dout[47]_i_3_n_0                           |                3 |              6 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[11]_i_1_n_0                                                                     | U_VU_metre/VU_dout[47]_i_3_n_0                           |                4 |              6 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[35]_i_1_n_0                                                                     | U_VU_metre/VU_dout[47]_i_3_n_0                           |                3 |              6 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[47]_i_1_n_0                                                                     | U_VU_metre/VU_dout[47]_i_3_n_0                           |                2 |              6 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[17]_i_1_n_0                                                                     | U_VU_metre/VU_dout[47]_i_3_n_0                           |                3 |              6 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[5]_i_1_n_0                                                                      | U_VU_metre/VU_dout[47]_i_3_n_0                           |                3 |              6 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/counter_channel[7]_i_1_n_0                                                              | U_EQ_stage/FSM_onehot_current_state[5]_i_1_n_0           |                3 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[31]_i_1_n_0                                                                     | U_EQ_stage/EQ_dout[63]_i_3_n_0                           |                3 |              8 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_VU_metre/current_state[1]_i_2_n_0                      |                2 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_FFT_Wrapper/U_FFT_FSM/counter_stage[7]_i_1_n_0                                                   | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                        |                4 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[7]_i_1_n_0                                                                      | U_EQ_stage/EQ_dout[63]_i_3_n_0                           |                5 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[47]_i_1_n_0                                                                     | U_EQ_stage/EQ_dout[63]_i_3_n_0                           |                2 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[63]_i_1_n_0                                                                     | U_EQ_stage/EQ_dout[63]_i_3_n_0                           |                5 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[55]_i_1_n_0                                                                     | U_EQ_stage/EQ_dout[63]_i_3_n_0                           |                3 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[39]_i_1_n_0                                                                     | U_EQ_stage/EQ_dout[63]_i_3_n_0                           |                3 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[23]_i_1_n_0                                                                     | U_EQ_stage/EQ_dout[63]_i_3_n_0                           |                5 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[15]_i_1_n_0                                                                     | U_EQ_stage/EQ_dout[63]_i_3_n_0                           |                2 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                              | U_WAV_Player/WAV_dout_i_2_n_0                            |                3 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_FFT_Wrapper/U_FFT_FSM/counter_coef[7]_i_1_n_0                                                    | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                        |                7 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Rx/store_data                                                                     | U_UART_Wrapper/U_Rx/reset_n_0                            |                1 |              8 |
-|  MMCM.U_MMCM/inst/clk | U_FFT_Wrapper/U_FFT_RAM_Wrapper/E[0]                                                               | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                        |                2 |              9 |
-|  MMCM.U_MMCM/inst/clk | U_FFT_Wrapper/U_FFT_FSM/counter_addr[8]_i_1_n_0                                                    | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                        |                7 |              9 |
-|  MMCM.U_MMCM/inst/clk | U_FFT_Wrapper/U_FFT_FSM/E[0]                                                                       | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                        |                3 |              9 |
-|  MMCM.U_MMCM/inst/clk | U_FIR_interface/coef_counter0                                                                      | U_FIR_interface/FIR_dout[47]_i_2_n_0                     |                3 |             10 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_FIR_interface/FIR_dout[47]_i_2_n_0                     |                5 |             10 |
-|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Rx/end_count                                                                      | U_UART_Wrapper/U_Rx/reset_n_0                            |                2 |             10 |
-|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                              | U_FIR_interface/FIR_dout[47]_i_2_n_0                     |                3 |             11 |
-|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                              | U_VGA_interface/VU_data[0][5]_i_1_n_0                    |                3 |             11 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/current_state[1]                                                                        | U_VU_metre/current_state[1]_i_2_n_0                      |                4 |             11 |
-|  MMCM.U_MMCM/inst/clk | U_FIR_interface/sel                                                                                | U_FIR_interface/FIR_dout[47]_i_2_n_0                     |                7 |             11 |
-|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Tx/Tx0                                                                            | U_UART_Wrapper/U_Rx/reset_n_0                            |                2 |             14 |
-|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                              | U_RAM_Wrapper/UART_read_i_2_n_0                          |                4 |             15 |
-|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Rx/UART_write                                                                     | U_RAM_Wrapper/UART_read_i_2_n_0                          |                4 |             15 |
-|  MMCM.U_MMCM/inst/clk | U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/CE |                                                          |                5 |             16 |
-|  MMCM.U_MMCM/inst/clk | U_VGA_controller/v_addr_counter[15]_i_1_n_0                                                        | U_VGA_controller/mem_counter[31]_i_3_n_0                 |                4 |             16 |
-|  MMCM.U_MMCM/inst/clk | U_VGA_controller/v_inc                                                                             | U_VGA_controller/mem_counter[31]_i_3_n_0                 |                6 |             16 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_VU_metre/VU_dout[47]_i_3_n_0                           |               18 |             20 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_EQ_stage/FSM_onehot_current_state[5]_i_1_n_0           |                5 |             23 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_VGA_interface/VU_data[0][5]_i_1_n_0                    |               11 |             24 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_WAV_Player/WAV_dout_i_2_n_0                            |                8 |             25 |
-|  MMCM.U_MMCM/inst/clk | U_EQ_stage/accu[0]_i_1_n_0                                                                         | U_EQ_stage/FSM_onehot_current_state[5]_i_1_n_0           |                7 |             28 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/sqrt_in[31]_i_2_n_0 |                8 |             32 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_Hearbeat/LED_state_i_2_n_0                             |               14 |             33 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_VGA_controller/mem_counter[31]_i_3_n_0                 |               14 |             45 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_UART_Wrapper/U_Rx/reset_n_0                            |               18 |             47 |
-|  MMCM.U_MMCM/inst/clk | U_FIR_interface/dout_store                                                                         | U_FIR_interface/FIR_dout[47]_i_2_n_0                     |               12 |             48 |
-|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                              | U_EQ_stage/FSM_onehot_current_state[5]_i_1_n_0           |               20 |             56 |
-|  MMCM.U_MMCM/inst/clk | U_VGA_controller/VGA_new_frame                                                                     | U_VGA_interface/VU_data[0][5]_i_1_n_0                    |               20 |             59 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0       |               19 |             70 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_FFT_Wrapper/U_FFT_UAL/U_Multiplier/reset_n_0           |               19 |             80 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                        |               34 |            110 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    | U_FFT_Wrapper/U_FFT_UAL/U_Adder/reset_n_0                |               43 |            161 |
-|  MMCM.U_MMCM/inst/clk | U_VU_metre/accu[0][19]_i_1_n_0                                                                     | U_VU_metre/current_state[1]_i_2_n_0                      |               44 |            171 |
-|  MMCM.U_MMCM/inst/clk |                                                                                                    |                                                          |              107 |            292 |
-+-----------------------+----------------------------------------------------------------------------------------------------+----------------------------------------------------------+------------------+----------------+
++-----------------------+----------------------------------------------------------------------------------------------+----------------------------------------------------+------------------+----------------+
+|      Clock Signal     |                                         Enable Signal                                        |                  Set/Reset Signal                  | Slice Load Count | Bel Load Count |
++-----------------------+----------------------------------------------------------------------------------------------+----------------------------------------------------+------------------+----------------+
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_RAM_Wrapper/UART_read_i_2_n_0                    |                2 |              2 |
+|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Rx/bit_counter[3]_i_1_n_0                                                   | U_UART_Wrapper/U_Rx/reset_n_0                      |                1 |              4 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[3][4]_i_1_n_0                                           | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0 |                2 |              5 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_1_n_0                                           | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0 |                2 |              5 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[1][4]_i_1_n_0                                           | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0 |                2 |              5 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[5][4]_i_1_n_0                                           | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0 |                3 |              5 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[6][4]_i_1_n_0                                           | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0 |                2 |              5 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[4][4]_i_1_n_0                                           | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0 |                3 |              5 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[2][4]_i_1_n_0                                           | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0 |                3 |              5 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/U_EQ_volume_ctrl/vol_data[0][4]_i_1_n_0                                           | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0 |                3 |              5 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[41]_i_1_n_0                                                               | U_VU_metre/VU_dout[47]_i_3_n_0                     |                2 |              6 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[17]_i_1_n_0                                                               | U_VU_metre/VU_dout[47]_i_3_n_0                     |                1 |              6 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[35]_i_1_n_0                                                               | U_VU_metre/VU_dout[47]_i_3_n_0                     |                2 |              6 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[29]_i_1_n_0                                                               | U_VU_metre/VU_dout[47]_i_3_n_0                     |                3 |              6 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[5]_i_1_n_0                                                                | U_VU_metre/VU_dout[47]_i_3_n_0                     |                2 |              6 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[11]_i_1_n_0                                                               | U_VU_metre/VU_dout[47]_i_3_n_0                     |                2 |              6 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[47]_i_1_n_0                                                               | U_VU_metre/VU_dout[47]_i_3_n_0                     |                1 |              6 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/VU_dout[23]_i_1_n_0                                                               | U_VU_metre/VU_dout[47]_i_3_n_0                     |                2 |              6 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[15]_i_1_n_0                                                               | U_EQ_stage/EQ_dout[63]_i_3_n_0                     |                3 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[31]_i_1_n_0                                                               | U_EQ_stage/EQ_dout[63]_i_3_n_0                     |                3 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_FFT_Wrapper/U_FFT_FSM/counter_stage[7]_i_1_n_0                                             | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                  |                4 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Rx/store_data                                                               | U_UART_Wrapper/U_Rx/reset_n_0                      |                3 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                        | U_WAV_Player/WAV_dout_i_2_n_0                      |                2 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/counter_channel[7]_i_1_n_0                                                        | U_EQ_stage/FSM_onehot_current_state[5]_i_1_n_0     |                3 |              8 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_VU_metre/current_state[1]_i_2_n_0                |                3 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[7]_i_1_n_0                                                                | U_EQ_stage/EQ_dout[63]_i_3_n_0                     |                4 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[39]_i_1_n_0                                                               | U_EQ_stage/EQ_dout[63]_i_3_n_0                     |                2 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[63]_i_1_n_0                                                               | U_EQ_stage/EQ_dout[63]_i_3_n_0                     |                5 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[47]_i_1_n_0                                                               | U_EQ_stage/EQ_dout[63]_i_3_n_0                     |                2 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[55]_i_1_n_0                                                               | U_EQ_stage/EQ_dout[63]_i_3_n_0                     |                4 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/EQ_dout[23]_i_1_n_0                                                               | U_EQ_stage/EQ_dout[63]_i_3_n_0                     |                4 |              8 |
+|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                        | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                  |                2 |              9 |
+|  MMCM.U_MMCM/inst/clk | U_NRM_Wrapper/U_NRM_FSM/counter_addr[8]_i_1_n_0                                              | U_NRM_Wrapper/U_NRM_Normalizer/reset_n_0           |                3 |              9 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_FIR_interface/FIR_dout[47]_i_2_n_0               |                3 |             10 |
+|  MMCM.U_MMCM/inst/clk | U_FIR_interface/coef_counter0                                                                | U_FIR_interface/FIR_dout[47]_i_2_n_0               |                2 |             10 |
+|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Rx/end_count                                                                | U_UART_Wrapper/U_Rx/reset_n_0                      |                3 |             10 |
+|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                        | U_VGA_interface/VU_data[0][5]_i_1_n_0              |                3 |             11 |
+|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                        | U_FIR_interface/FIR_dout[47]_i_2_n_0               |                4 |             11 |
+|  MMCM.U_MMCM/inst/clk | U_FIR_interface/sel                                                                          | U_FIR_interface/FIR_dout[47]_i_2_n_0               |                6 |             11 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/current_state[1]                                                                  | U_VU_metre/current_state[1]_i_2_n_0                |                4 |             11 |
+|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Tx/Tx0                                                                      | U_UART_Wrapper/U_Rx/reset_n_0                      |                4 |             14 |
+|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                        | U_RAM_Wrapper/UART_read_i_2_n_0                    |                4 |             15 |
+|  MMCM.U_MMCM/inst/clk | U_UART_Wrapper/U_Rx/UART_write                                                               | U_RAM_Wrapper/UART_read_i_2_n_0                    |                4 |             15 |
+|  MMCM.U_MMCM/inst/clk | U_NRM_Wrapper/U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/CE |                                                    |                5 |             16 |
+|  MMCM.U_MMCM/inst/clk | U_VGA_controller/v_inc                                                                       | U_VGA_controller/mem_counter[31]_i_3_n_0           |                5 |             16 |
+|  MMCM.U_MMCM/inst/clk | U_VGA_controller/v_addr_counter[15]_i_1_n_0                                                  | U_VGA_controller/mem_counter[31]_i_3_n_0           |                4 |             16 |
+|  MMCM.U_MMCM/inst/clk | U_FFT_Wrapper/U_FFT_FSM/counter_addr[8]_i_1_n_0                                              | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                  |               15 |             17 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_VU_metre/VU_dout[47]_i_3_n_0                     |               12 |             20 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_EQ_stage/FSM_onehot_current_state[5]_i_1_n_0     |                7 |             23 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_VGA_interface/VU_data[0][5]_i_1_n_0              |               13 |             23 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_WAV_Player/WAV_dout_i_2_n_0                      |                7 |             25 |
+|  MMCM.U_MMCM/inst/clk | U_EQ_stage/accu[0]_i_1_n_0                                                                   | U_EQ_stage/FSM_onehot_current_state[5]_i_1_n_0     |                7 |             28 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_Hearbeat/LED_state_i_2_n_0                       |               12 |             33 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_VGA_controller/mem_counter[31]_i_3_n_0           |               15 |             45 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_UART_Wrapper/U_Rx/reset_n_0                      |               17 |             47 |
+|  MMCM.U_MMCM/inst/clk | U_FIR_interface/dout_store                                                                   | U_FIR_interface/FIR_dout[47]_i_2_n_0               |               11 |             48 |
+|  MMCM.U_MMCM/inst/clk | U_WAV_Player/WAV_read                                                                        | U_EQ_stage/FSM_onehot_current_state[5]_i_1_n_0     |               18 |             56 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_FFT_Wrapper/U_FFT_FSM/reset_n_0                  |               30 |             57 |
+|  MMCM.U_MMCM/inst/clk | U_VGA_controller/VGA_new_frame                                                               | U_VGA_interface/VU_data[0][5]_i_1_n_0              |               17 |             59 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_EQ_stage/U_EQ_volume_ctrl/vol_data[7][4]_i_3_n_0 |               19 |             70 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_NRM_Wrapper/U_NRM_Normalizer/reset_n_0           |               19 |             89 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_FFT_Wrapper/U_FFT_UAL/U_Multiplier/reset_n_0     |               21 |            128 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              | U_FFT_Wrapper/U_FFT_UAL/U_Adder/reset_n_0          |               37 |            158 |
+|  MMCM.U_MMCM/inst/clk | U_VU_metre/accu[0][19]_i_1_n_0                                                               | U_VU_metre/current_state[1]_i_2_n_0                |               43 |            171 |
+|  MMCM.U_MMCM/inst/clk |                                                                                              |                                                    |              106 |            292 |
++-----------------------+----------------------------------------------------------------------------------------------+----------------------------------------------------+------------------+----------------+
 
 

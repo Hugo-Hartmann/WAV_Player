@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Dec  3 13:09:46 2019
+| Date         : Tue Dec 10 10:54:58 2019
 | Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_methodology -file TOP_methodology_drc_routed.rpt -pb TOP_methodology_drc_routed.pb -rpx TOP_methodology_drc_routed.rpx
 | Design       : TOP
@@ -994,482 +994,482 @@ Related violations: <none>
 
 DPIR-1#193 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#194 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#195 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#196 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#197 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#198 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#199 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#200 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#201 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#202 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[18] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[18] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#203 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[19] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[19] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#204 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#205 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[20] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[20] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#206 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[21] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[21] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#207 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[22] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[22] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#208 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[23] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[23] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#209 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[24] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[24] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#210 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[25] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[25] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#211 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[26] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[26] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#212 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[27] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[27] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#213 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[28] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[28] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#214 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[29] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[29] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#215 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#216 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#217 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#218 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#219 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#220 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#221 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#222 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#223 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#224 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#225 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#226 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#227 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#228 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#229 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#230 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#231 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#232 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#233 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#234 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#235 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#236 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#237 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#238 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#239 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#240 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult1/mult_out/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult1/mult_out/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#241 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#242 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#243 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#244 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#245 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#246 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#247 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#248 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#249 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#250 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[18] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[18] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#251 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[19] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[19] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#252 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#253 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[20] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[20] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#254 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[21] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[21] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#255 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[22] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[22] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#256 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[23] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[23] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#257 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[24] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[24] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#258 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[25] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[25] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#259 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[26] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[26] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#260 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[27] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[27] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#261 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[28] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[28] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#262 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[29] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[29] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#263 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#264 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#265 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#266 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#267 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#268 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#269 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#270 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/A[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#271 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[0] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#272 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#273 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#274 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#275 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[13] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#276 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[14] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#277 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[15] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#278 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[16] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#279 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[17] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#280 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[1] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#281 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[2] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#282 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[3] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#283 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[4] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#284 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[5] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#285 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[6] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#286 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[7] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#287 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[8] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 DPIR-1#288 Warning
 Asynchronous driver check  
-DSP U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out input pin U_FFT_Wrapper/U_FFT_UAL/U_Normalizer/U_Mult2/mult_out/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+DSP U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out input pin U_NRM_Wrapper/U_NRM_Normalizer/U_Mult2/mult_out/B[9] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 Related violations: <none>
 
 

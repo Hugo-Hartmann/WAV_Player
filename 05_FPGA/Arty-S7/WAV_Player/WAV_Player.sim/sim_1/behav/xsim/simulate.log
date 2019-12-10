@@ -1,2 +1,39 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
+Block Memory Generator module TOP.U_RAM_Wrapper.ram0.U_RAM0.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_RAM_Wrapper.ram1.U_RAM1.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_VGA_interface.bram.U_BRAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_FIR_interface.ram.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module TOP.U_FIR_interface.\GEN_FILTER(0)\.U_FIR_filter.rom0.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module TOP.U_FIR_interface.\GEN_FILTER(1)\.U_FIR_filter.rom1.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module TOP.U_FIR_interface.\GEN_FILTER(2)\.U_FIR_filter.rom2.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module TOP.U_FIR_interface.\GEN_FILTER(3)\.U_FIR_filter.rom3.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module TOP.U_FIR_interface.\GEN_FILTER(4)\.U_FIR_filter.rom4.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module TOP.U_FIR_interface.\GEN_FILTER(5)\.U_FIR_filter.rom5.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_VU_metre.\GEN_RAM(0)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_VU_metre.\GEN_RAM(1)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_VU_metre.\GEN_RAM(2)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_VU_metre.\GEN_RAM(3)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_VU_metre.\GEN_RAM(4)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_VU_metre.\GEN_RAM(5)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_VU_metre.\GEN_RAM(6)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_VU_metre.\GEN_RAM(7)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+Block Memory Generator module TOP.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram1.U_RAM_FFTA.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module TOP.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram2.U_RAM_FFTB.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module TOP.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram3.U_RAM_COEF.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.

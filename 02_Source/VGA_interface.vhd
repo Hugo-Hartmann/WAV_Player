@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-12-03
+-- Last update: 2019-12-10
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -60,11 +60,10 @@ entity VGA_interface is
         ------- VU interface --------------------
         VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0);
 
-        ------- FFT interface -------------------
-        FFT_zoom        : in  std_logic_vector(3 downto 0);
-        FFT_addr        : out std_logic_vector(8 downto 0);
-        FFT_read        : out std_logic;
-        FFT_dout        : in  std_logic_vector(15 downto 0)
+        ------- NRM interface -------------------
+        NRM_addr        : out std_logic_vector(8 downto 0);
+        NRM_read        : out std_logic;
+        NRM_dout        : in  std_logic_vector(15 downto 0)
 
         );
 end VGA_interface;
@@ -130,20 +129,18 @@ architecture RTL of VGA_interface is
     signal draw_box_d       : std_logic;
     signal draw_vol         : std_logic;
     signal draw_vol_d       : std_logic;
-    signal display_fft      : std_logic;
-    signal display_fft_d    : std_logic;
+    signal display_nrm      : std_logic;
+    signal display_nrm_d    : std_logic;
     signal Wave_in          : std_logic_vector(7 downto 0);
-    signal FFT_data         : std_logic_vector(15 downto 0);
+    signal NRM_data         : std_logic_vector(15 downto 0);
     signal pixel_ok         : std_logic;
     signal pixel_ok_d       : std_logic;
     signal draw_red_line    : std_logic;
     signal draw_red_line_d  : std_logic;
-    signal fft_box          : std_logic;
-    signal fft_box_d        : std_logic;
-    signal fft_addr_map     : unsigned(15 downto 0);
-    signal draw_zoom        : std_logic;
-    signal draw_zoom_d      : std_logic;
-
+    signal nrm_box          : std_logic;
+    signal nrm_box_d        : std_logic;
+    signal nrm_addr_map     : unsigned(15 downto 0);
+    signal nrm_addr_final   : std_logic_vector(8 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -231,26 +228,35 @@ begin
     addr_read   <= addr_bottom + unsigned(VGA_h_add(10 downto 0));
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_reg_FFT
-    -- Description : register FFT data for timing
+    -- SEQ PROCESS : P_reg_NRM
+    -- Description : register NRM data for timing
     --------------------------------------------------------------------------------
-    P_reg_FFT : process(clk, reset_n)
+    P_reg_NRM : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            FFT_data    <= (others => '0');
+            NRM_data    <= (others => '0');
         elsif(rising_edge(clk)) then
-            FFT_data    <= FFT_dout;
+            NRM_data    <= NRM_dout;
         end if;
     end process;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
-    -- Description : Display the FFT
+    -- Description : Display the FFT (normalized)
     --------------------------------------------------------------------------------
-    FFT_read        <= VGA_read when(unsigned(VGA_v_add)>200) else '0';
-    fft_addr_map    <= unsigned(VGA_h_add) - 126;
-    FFT_addr        <= std_logic_vector(fft_addr_map(10 downto 2));
-    process(FFT_data, VGA_v_add, VGA_h_add)
+    NRM_read        <= VGA_read when(unsigned(VGA_v_add)>200 and unsigned(VGA_v_add)<800) else '0';
+    nrm_addr_map    <= unsigned(VGA_h_add) - 126;
+    nrm_addr_final  <= std_logic_vector(nrm_addr_map(10 downto 2));
+    
+    process(nrm_addr_final)
+    -- Invert address to fetch correct samples
+    begin
+        for i in nrm_addr_final'range loop
+            NRM_addr(i) <= nrm_addr_final(nrm_addr_final'high-i);
+        end loop;
+    end process;
+
+    process(NRM_data, VGA_v_add, VGA_h_add)
     
     variable hadd   : integer := 0;
     variable vadd   : integer := 0;
@@ -261,18 +267,18 @@ begin
 
         hadd := to_integer(unsigned(VGA_h_add));
         vadd := to_integer(unsigned(VGA_v_add));
-        data := to_integer(unsigned(FFT_data(15 downto 3)));
+        data := to_integer(unsigned(NRM_data(15 downto 3)));
         if(data>255) then
             ceil := 255;
         else
             ceil := data;
         end if;
 
-        display_fft <= '0';
+        display_nrm <= '0';
         if(hadd>127 and hadd<1153) then
             if(vadd>256 and vadd<512) then
                 if(data>512-vadd) then
-                    display_fft <= '1';
+                    display_nrm <= '1';
                 end if;
             end if;
         end if;
@@ -292,46 +298,16 @@ begin
         hadd := to_integer(unsigned(VGA_h_add));
         vadd := to_integer(unsigned(VGA_v_add));
 
-        fft_box <= '0';
+        nrm_box <= '0';
         if(hadd>127 and hadd<1153) then
             if(vadd=256 or vadd=512) then
-                fft_box <= '1';
+                nrm_box <= '1';
             end if;
         elsif(vadd>255 and vadd<513) then
             if(hadd=127 or hadd=1153) then
-                fft_box <= '1';
+                nrm_box <= '1';
             end if;
         end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : Display current fft zoom level
-    --------------------------------------------------------------------------------
-    process(FFT_zoom, VGA_h_add, VGA_v_add)
-    
-    variable hadd       : integer := 0;
-    variable vadd       : integer := 0;
-    variable zoom       : integer := 0;
-    variable base_addr  : integer := 511;
-    variable step       : integer := 16;
-
-    begin
-    
-        hadd := to_integer(unsigned(VGA_h_add));
-        vadd := to_integer(unsigned(VGA_v_add));
-        zoom := to_integer(unsigned(FFT_zoom)+1);
-
-        draw_zoom   <= '0';
-
-        if(hadd>99 and hadd<120) then
-            if(VGA_v_add(3 downto 0)/="0000" and VGA_v_add(3 downto 0)/="0001") then
-                if(vadd>base_addr-step*zoom and vadd<512) then
-                    draw_zoom   <= '1';
-                end if;
-            end if;
-        end if;
-
     end process;
 
     --------------------------------------------------------------------------------
@@ -480,7 +456,7 @@ begin
     begin
         if(reset_n='0') then
             draw_red_line_d <= '0';
-            display_fft_d   <= '0';
+            display_nrm_d   <= '0';
             draw_vol_d      <= '0';
             pixel_ok_d      <= '0';
             VU_inbound_d    <= '0';
@@ -488,11 +464,10 @@ begin
             yellow_color_d  <= '0';
             red_color_d     <= '0';
             draw_box_d      <= '0';
-            fft_box_d       <= '0';
-            draw_zoom_d     <= '0';
+            nrm_box_d       <= '0';
         elsif(rising_edge(clk)) then
             draw_red_line_d <= draw_red_line;
-            display_fft_d   <= display_fft;
+            display_nrm_d   <= display_nrm;
             draw_vol_d      <= draw_vol;
             pixel_ok_d      <= pixel_ok;
             VU_inbound_d    <= VU_inbound;
@@ -500,8 +475,7 @@ begin
             yellow_color_d  <= yellow_color;
             red_color_d     <= red_color;
             draw_box_d      <= draw_box;
-            fft_box_d       <= fft_box;
-            draw_zoom_d     <= draw_zoom;
+            nrm_box_d       <= nrm_box;
         end if;
     end process;
 
@@ -509,8 +483,8 @@ begin
     -- COMBINATORY :
     -- Description : Final pixel mapping
     --------------------------------------------------------------------------------
-    VGA_din         <= "11100000"   when(draw_red_line_d='1' or fft_box_d='1' or draw_zoom_d='1') else
-                       "11111111"   when(display_fft_d='1') else
+    VGA_din         <= "11100000"   when(draw_red_line_d='1' or nrm_box_d='1') else
+                       "11111111"   when(display_nrm_d='1') else
                        "00000010"   when(draw_vol_d='1') else
                        "11111111"   when(pixel_ok_d='1') else
                        "00011100"   when(green_color_d='1' and VU_inbound_d='1') else

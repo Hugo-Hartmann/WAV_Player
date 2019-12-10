@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-27
--- Last update: 2019-11-27
+-- Last update: 2019-12-09
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -52,11 +52,15 @@ architecture A of FFT_Wrapper_tb is
             clk             : in  std_logic;
             reset_n         : in  std_logic;
             FFT_din         : in  std_logic_vector(7 downto 0);
-            FFT_addr        : in  std_logic_vector(8 downto 0);
             FFT_new_sample  : in  std_logic;
-            FFT_start       : in  std_logic;
-            FFT_read        : in  std_logic;
-            FFT_dout        : out std_logic_vector(15 downto 0)
+            FFT_addrA       : out std_logic_vector(8 downto 0);
+            FFT_addrB       : out std_logic_vector(8 downto 0);
+            FFT_doutA_r     : out std_logic_vector(15 downto 0);
+            FFT_doutA_i     : out std_logic_vector(15 downto 0);
+            FFT_doutB_r     : out std_logic_vector(15 downto 0);
+            FFT_doutB_i     : out std_logic_vector(15 downto 0);
+            FFT_write       : out std_logic;
+            FFT_done        : out std_logic
             );
     end component;
 
@@ -66,11 +70,15 @@ architecture A of FFT_Wrapper_tb is
     signal clk              : std_logic := '0';
     signal reset_n          : std_logic;
     signal FFT_din          : std_logic_vector(7 downto 0);
-    signal FFT_addr         : std_logic_vector(8 downto 0);
     signal FFT_new_sample   : std_logic;
-    signal FFT_start        : std_logic;
-    signal FFT_read         : std_logic;
-    signal FFT_dout         : std_logic_vector(15 downto 0);
+    signal FFT_addrA        : std_logic_vector(8 downto 0);
+    signal FFT_addrB        : std_logic_vector(8 downto 0);
+    signal FFT_doutA_r      : std_logic_vector(15 downto 0);
+    signal FFT_doutA_i      : std_logic_vector(15 downto 0);
+    signal FFT_doutB_r      : std_logic_vector(15 downto 0);
+    signal FFT_doutB_i      : std_logic_vector(15 downto 0);
+    signal FFT_write        : std_logic;
+    signal FFT_done         : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -85,11 +93,16 @@ begin
         clk             => clk,
         reset_n         => reset_n,
         FFT_din         => FFT_din,
-        FFT_addr        => FFT_addr,
         FFT_new_sample  => FFT_new_sample,
-        FFT_start       => FFT_start,
-        FFT_read        => FFT_read,
-        FFT_dout        => FFT_dout);
+        FFT_addrA       => FFT_addrA,
+        FFT_addrB       => FFT_addrB,
+        FFT_doutA_r     => FFT_doutA_r,
+        FFT_doutA_i     => FFT_doutA_i,
+        FFT_doutB_r     => FFT_doutB_r,
+        FFT_doutB_i     => FFT_doutB_i,
+        FFT_write       => FFT_write,
+        FFT_done        => FFT_done);
+
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_clock_gen
@@ -109,27 +122,14 @@ begin
     process
     begin
         FFT_din         <= (others => '0');
-        FFT_addr        <= (others => '0');
-        FFT_start       <= '0';
-        FFT_read        <= '0';
         FFT_new_sample  <= '0';
         wait for (11*C_DEMI_CLK);
 
-        FFT_start       <= '1';
-        wait for (2*C_DEMI_CLK);
-
-        FFT_start       <= '0';
         FFT_new_sample  <= '1';
         wait for (2*C_DEMI_CLK);
 
         FFT_new_sample  <= '0';
-        wait for (10000*C_DEMI_CLK);
-
-        FFT_read    <= '1';
-        for i in 0 to 256 loop
-            FFT_addr    <= std_logic_vector(to_unsigned(i, FFT_addr'length));
-            wait for (2*C_DEMI_CLK);
-        end loop;
+        wait for (5500*C_DEMI_CLK);
 
         wait for (15*C_DEMI_CLK);
 
