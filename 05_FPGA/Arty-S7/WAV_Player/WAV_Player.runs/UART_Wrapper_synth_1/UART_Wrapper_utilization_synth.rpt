@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Thu Nov 28 16:00:15 2019
+| Date         : Thu Dec 19 11:26:40 2019
 | Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file UART_Wrapper_utilization_synth.rpt -pb UART_Wrapper_utilization_synth.pb
 | Design       : UART_Wrapper
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   98 |     0 |     32600 |  0.30 |
-|   LUT as Logic          |   98 |     0 |     32600 |  0.30 |
+| Slice LUTs*             |   56 |     0 |     32600 |  0.17 |
+|   LUT as Logic          |   56 |     0 |     32600 |  0.17 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |   83 |     0 |     65200 |  0.13 |
-|   Register as Flip Flop |   83 |     0 |     65200 |  0.13 |
+| Slice Registers         |   46 |     0 |     65200 |  0.07 |
+|   Register as Flip Flop |   46 |     0 |     65200 |  0.07 |
 |   Register as Latch     |    0 |     0 |     65200 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -54,8 +54,8 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 16    |          Yes |           - |          Set |
-| 67    |          Yes |           - |        Reset |
+| 13    |          Yes |           - |          Set |
+| 33    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -145,15 +145,15 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     |   67 |        Flop & Latch |
-| LUT1     |   38 |                 LUT |
-| LUT5     |   24 |                 LUT |
+| FDCE     |   33 |        Flop & Latch |
 | LUT2     |   19 |                 LUT |
-| LUT3     |   17 |                 LUT |
-| FDPE     |   16 |        Flop & Latch |
-| LUT4     |   14 |                 LUT |
-| CARRY4   |   10 |          CarryLogic |
-| LUT6     |    7 |                 LUT |
+| LUT1     |   19 |                 LUT |
+| LUT4     |   16 |                 LUT |
+| FDPE     |   13 |        Flop & Latch |
+| LUT3     |   12 |                 LUT |
+| LUT6     |    5 |                 LUT |
+| CARRY4   |    5 |          CarryLogic |
+| LUT5     |    4 |                 LUT |
 +----------+------+---------------------+
 
 

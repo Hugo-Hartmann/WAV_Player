@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-11-06
+-- Last update: 2019-12-20
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -40,13 +40,13 @@ entity FIR_interface is
         reset_n         : in  std_logic;                        -- reset_n
 
         ------- FIR out --------------------------
-        FIR_dout        : out std_logic_vector(C_FIR_MAX*8+7 downto 0);
+        FIR_dout        : out std_logic_vector(C_FIR_MAX*16+15 downto 0);
 
         ------- FIR control ----------------------
         FIR_start       : in  std_logic;
 
         ------- FIR in ---------------------------
-        FIR_din         : in  std_logic_vector(7 downto 0)
+        FIR_din         : in  std_logic_vector(15 downto 0)
 
         );
 end FIR_interface;
@@ -59,9 +59,10 @@ architecture RTL of FIR_interface is
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
-    type FIR_tab is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(7 downto 0);
-    type FIR_STATE is (FIR_RESET, FIR_IDLE, FIR_BEGIN, FIR_LOAD,
-                       FIR_ACC1, FIR_ACC2, FIR_END1, FIR_END2, FIR_END3, FIR_STORE);
+    type FIR_tab is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(15 downto 0);
+    type FIR_STATE is (FIR_RESET, FIR_IDLE, FIR_BEGIN, FIR_LOAD, FIR_PIPE,
+                       FIR_ACC1, FIR_ACC2, FIR_END, FIR_STORE);
+    type T_done is array (C_FIR_MIN to C_FIR_MAX) of std_logic;
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
@@ -76,20 +77,21 @@ architecture RTL of FIR_interface is
             reset_n         : in  std_logic;
             FIR_clr         : in  std_logic;
             FIR_en          : in  std_logic;
-            FIR_din         : in  std_logic_vector(7 downto 0);
+            FIR_done        : out std_logic;
+            FIR_din         : in  std_logic_vector(15 downto 0);
             FIR_addr        : in  std_logic_vector(9 downto 0);
-            FIR_dout        : out std_logic_vector(7 downto 0)
+            FIR_dout        : out std_logic_vector(15 downto 0)
             );
     end component;
 
-    component RAM_2048_8bit
+    component RAM_2048_16bit
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
             addra   : in  std_logic_vector(10 downto 0);
-            dina    : in  std_logic_vector(7 downto 0);
-            douta   : out std_logic_vector(7 downto 0)
+            dina    : in  std_logic_vector(15 downto 0);
+            douta   : out std_logic_vector(15 downto 0)
             );
     end component;
 
@@ -98,14 +100,14 @@ architecture RTL of FIR_interface is
     --------------------------------------------------------------------------------
     signal current_state    : FIR_STATE;
     signal next_state       : FIR_STATE;
-    signal RAM_out          : std_logic_vector(7 downto 0);
-    signal RAM_write        : std_logic_vector(0 downto 0);
+    signal RAM_out          : std_logic_vector(15 downto 0);
+    signal RAM_wea          : std_logic_vector(0 downto 0);
+    signal RAM_write        : std_logic;
     signal RAM_enable       : std_logic;
     signal RAM_read         : std_logic;
     signal RAM_addr         : std_logic_vector(10 downto 0);
     signal RAM_addr_rd      : std_logic_vector(10 downto 0);
     signal RAM_addr_wr      : std_logic_vector(10 downto 0);
-    signal FIR_din_d        : std_logic_vector(7 downto 0);
     signal FIR_clr          : std_logic;
     signal FIR_en           : std_logic;
     signal RAM_counter_wr   : unsigned(10 downto 0);
@@ -122,6 +124,8 @@ architecture RTL of FIR_interface is
     signal addr_select      : std_logic;
     signal dout_store       : std_logic;
     signal FIR_out_tab      : FIR_tab;
+    signal FIR_done_tab     : T_done;
+    signal FIR_done         : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -133,10 +137,10 @@ begin
     -- Description : Contains the 2048 last samples read
     ----------------------------------------------------------------
     RAM : if G_BEHAVIOURAL=false generate
-        U_RAM : RAM_2048_8bit port map(
+        U_RAM : RAM_2048_16bit port map(
             clka    => clk,
             addra   => RAM_addr,
-            wea     => RAM_write,
+            wea     => RAM_wea,
             ena     => RAM_enable,
             dina    => FIR_din,
             douta   => RAM_out);
@@ -156,23 +160,24 @@ begin
             reset_n     => reset_n,
             FIR_clr     => FIR_clr,
             FIR_en      => FIR_en,
-            FIR_din     => FIR_din_d,
+            FIR_done    => FIR_done_tab(i),
+            FIR_din     => RAM_out,
             FIR_addr    => FIR_addr,
             FIR_dout    => FIR_out_tab(i));
     end generate GEN_FILTER;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY : 
-    -- Description : Address selection for RAM
+    -- Description : FIR_done
     --------------------------------------------------------------------------------
-    RAM_addr    <= RAM_addr_wr when(addr_select='0') else RAM_addr_rd;
-    RAM_enable  <= RAM_read OR FIR_start;
+    FIR_done    <= FIR_done_tab(0);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY : 
-    -- Description : FIR input data
+    -- Description : Address selection for RAM
     --------------------------------------------------------------------------------
-    FIR_din_d   <= RAM_out when(FIR_en='1') else (others => '0');
+    RAM_addr    <= RAM_addr_wr when(addr_select='0') else RAM_addr_rd;
+    RAM_enable  <= RAM_read or RAM_write;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_RAM_counter_wr
@@ -193,7 +198,7 @@ begin
     -- COMBINATORY :
     -- Description : Write to RAM
     --------------------------------------------------------------------------------
-    RAM_write   <= (others => FIR_start);
+    RAM_wea     <= (0 downto 0 => RAM_write);
     RAM_addr_wr <= std_logic_vector(RAM_counter_wr);
 
     --------------------------------------------------------------------------------
@@ -263,7 +268,7 @@ begin
     -- COMB PROCESS : P_FSM_FIR_comb
     -- Description : FSM_FIR combinatorial part (next_state logic)
     --------------------------------------------------------------------------------
-    P_FSM_FIR_comb : process(current_state, cnt_coef_zero, cnt_coef_end, FIR_start)
+    P_FSM_FIR_comb : process(current_state, cnt_coef_zero, cnt_coef_end, FIR_start, FIR_done)
     begin
         cnt_coef_clr    <= '0';
         cnt_coef_inc    <= '0';
@@ -275,6 +280,7 @@ begin
         FIR_clr         <= '0';
         RAM_read        <= '0';
         dout_store      <= '0';
+        RAM_write       <= '0';
 
         case current_state is
             when FIR_RESET =>
@@ -288,6 +294,7 @@ begin
                 end if;
 
             when FIR_BEGIN =>
+                RAM_write       <= '1';
                 FIR_clr         <= '1';
                 cnt_rd_load     <= '1';
                 cnt_coef_clr    <= '1';
@@ -319,22 +326,21 @@ begin
                 addr_select     <= '1';
                 FIR_en          <= '1';
                 if(cnt_coef_zero='1') then
-                    next_state  <= FIR_END1;
+                    next_state  <= FIR_PIPE;
                 else
                     next_state  <= FIR_ACC2;
                 end if;
 
-            when FIR_END1 =>
+            when FIR_PIPE =>
                 FIR_en          <= '1';
-                next_state      <= FIR_END2;
+                next_state      <= FIR_END;
 
-            when FIR_END2 =>
-                FIR_en          <= '1';
-                next_state      <= FIR_END3;
-
-            when FIR_END3 =>
-                FIR_en          <= '1';
-                next_state      <= FIR_STORE;
+            when FIR_END =>
+                if(FIR_done='1') then
+                    next_state      <= FIR_END;
+                else
+                    next_state      <= FIR_STORE;
+                end if;
 
             when FIR_STORE =>
                 dout_store      <= '1';
@@ -354,7 +360,7 @@ begin
         elsif(rising_edge(clk)) then
             if(dout_store='1') then
                 for i in C_FIR_MIN to C_FIR_MAX loop
-                    FIR_dout(i*8+7 downto i*8) <= FIR_out_tab(i);
+                    FIR_dout(i*16+15 downto i*16) <= FIR_out_tab(i);
                 end loop;
             end if;
         end if;

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-12-10
+-- Last update: 2019-12-20
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -36,7 +36,8 @@ entity VGA_interface is
     port(
     
         ------- Clock and RESET ------------------
-        clk             : in  std_logic;                        -- clock
+        clk_108         : in  std_logic;                        -- clock 108 MHz
+        clk_216         : in  std_logic;                        -- clock 216 MHz
         reset_n         : in  std_logic;                        -- reset_n
 
         ------- Switch selection -----------------
@@ -48,17 +49,17 @@ entity VGA_interface is
         VGA_address     : in  std_logic_vector(31 downto 0);
         VGA_v_add       : in  std_logic_vector(15 downto 0);
         VGA_h_add       : in  std_logic_vector(15 downto 0);
-        VGA_din         : out std_logic_vector(7 downto 0);     -- 3-bit Red and Green, 2-bit Blue
+        VGA_din         : out std_logic_vector(11 downto 0);
 
         ------- WAV control ----------------------
         WAV_read        : in  std_logic;
 
         ------- EQ interface --------------------
         EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-        EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
+        EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
 
         ------- VU interface --------------------
-        VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*6+5 downto 0);
+        VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
 
         ------- NRM interface -------------------
         NRM_addr        : out std_logic_vector(8 downto 0);
@@ -76,7 +77,7 @@ architecture RTL of VGA_interface is
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
-    type VU_tab is array (C_FIR_MIN to C_FIR_MAX+2) of std_logic_vector(5 downto 0);
+    type VU_tab is array (C_FIR_MIN to C_FIR_MAX+2) of std_logic_vector(4 downto 0);
 
     --------------------------------------------------------------------------------
     -- CONSTANTS DECLARATIONS
@@ -131,7 +132,8 @@ architecture RTL of VGA_interface is
     signal draw_vol_d       : std_logic;
     signal display_nrm      : std_logic;
     signal display_nrm_d    : std_logic;
-    signal Wave_in          : std_logic_vector(7 downto 0);
+    signal WAV_din          : std_logic_vector(7 downto 0);
+    signal WAV_din_map      : std_logic_vector(7 downto 0);
     signal NRM_data         : std_logic_vector(15 downto 0);
     signal pixel_ok         : std_logic;
     signal pixel_ok_d       : std_logic;
@@ -141,6 +143,10 @@ architecture RTL of VGA_interface is
     signal nrm_box_d        : std_logic;
     signal nrm_addr_map     : unsigned(15 downto 0);
     signal nrm_addr_final   : std_logic_vector(8 downto 0);
+    signal WAV_read_d1      : std_logic;
+    signal WAV_read_d2      : std_logic;
+    signal EQ_level_dout_d1 : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal EQ_level_dout_d2 : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -148,17 +154,32 @@ architecture RTL of VGA_interface is
 begin
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : Samples to display
+    -- SEQ PROCESS : P_select
+    -- Description : Select input data
     --------------------------------------------------------------------------------
-    Wave_in <= EQ_dout(7 downto 0)        when(VGA_select(2 downto 0)="000") else
-               EQ_dout(15 downto 8)       when(VGA_select(2 downto 0)="001") else
-               EQ_dout(23 downto 16)      when(VGA_select(2 downto 0)="010") else
-               EQ_dout(31 downto 24)      when(VGA_select(2 downto 0)="011") else
-               EQ_dout(39 downto 32)      when(VGA_select(2 downto 0)="100") else
-               EQ_dout(47 downto 40)      when(VGA_select(2 downto 0)="101") else
-               EQ_dout(55 downto 48)      when(VGA_select(2 downto 0)="110") else
-               EQ_dout(63 downto 56);
+    P_select : process(clk_216, reset_n)
+    begin
+        if(reset_n='0') then
+            WAV_din <= (others => '0');
+            WAV_din_map <= (others => '0');
+            WAV_read_d1 <= '0';
+            WAV_read_d2 <= '0';
+        elsif(rising_edge(clk_216)) then
+            case VGA_select(2 downto 0) is
+                when "000" => WAV_din <= EQ_dout(15 downto 8);
+                when "001" => WAV_din <= EQ_dout(31 downto 24);
+                when "010" => WAV_din <= EQ_dout(47 downto 40);
+                when "011" => WAV_din <= EQ_dout(63 downto 56);
+                when "100" => WAV_din <= EQ_dout(79 downto 72);
+                when "101" => WAV_din <= EQ_dout(95 downto 88);
+                when "110" => WAV_din <= EQ_dout(111 downto 104);
+                when others => WAV_din <= EQ_dout(127 downto 120);
+            end case;
+            WAV_din_map <= std_logic_vector(unsigned(WAV_din)+128);
+            WAV_read_d1 <= WAV_read;
+            WAV_read_d2 <= WAV_read_d1;
+        end if;
+    end process;
 
     ----------------------------------------------------------------
     -- INSTANCE : U_BRAM
@@ -166,13 +187,13 @@ begin
     ----------------------------------------------------------------
     BRAM : if G_BEHAVIOURAL=false generate
         U_BRAM : BRAM_2048_8bit port map(
-            clka    => clk,
+            clka    => clk_216,
             ena     => '1',
             wea     => write_portA,
             addra   => addr_portA,
-            dina    => Wave_in,
+            dina    => WAV_din_map,
           --douta   => 
-            clkb    => clk,
+            clkb    => clk_108,
             enb     => VGA_read,
             web     => write_portB, -- always 0
             addrb   => addr_portB,
@@ -189,18 +210,18 @@ begin
     addr_portA  <= std_logic_vector(addr_write);
     addr_portB  <= std_logic_vector(addr_read);
     pixel       <= X"00" & (NOT dout_portB); -- extend pixels size to match VGA_v_add size and invert y-axis
-    write_portA <= (0 downto 0 => WAV_read);
+    write_portA <= (0 downto 0 => WAV_read_d2);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_write
     -- Description : Generate address to write in BRAM
     --------------------------------------------------------------------------------
-    P_write : process(clk, reset_n)
+    P_write : process(clk_216, reset_n)
     begin
         if(reset_n='0') then
             addr_write  <= (others => '0');
-        elsif(rising_edge(clk)) then
-            if(WAV_read='1') then
+        elsif(rising_edge(clk_216)) then
+            if(WAV_read_d2='1') then
                 addr_write  <= addr_write + 1;
             end if;
         end if;
@@ -210,11 +231,11 @@ begin
     -- SEQ PROCESS : P_bottom
     -- Description : keep bottom and address fixed while displaying
     --------------------------------------------------------------------------------
-    P_bottom : process(clk, reset_n)
+    P_bottom : process(clk_108, reset_n)
     begin
         if(reset_n='0') then
             addr_bottom <= (others => '0');
-        elsif(rising_edge(clk)) then
+        elsif(rising_edge(clk_108)) then
             if(VGA_new_frame='1') then
                 addr_bottom <= addr_write - to_unsigned(C_VGA_HMAX, addr_write'length);
             end if;
@@ -231,11 +252,11 @@ begin
     -- SEQ PROCESS : P_reg_NRM
     -- Description : register NRM data for timing
     --------------------------------------------------------------------------------
-    P_reg_NRM : process(clk, reset_n)
+    P_reg_NRM : process(clk_108, reset_n)
     begin
         if(reset_n='0') then
             NRM_data    <= (others => '0');
-        elsif(rising_edge(clk)) then
+        elsif(rising_edge(clk_108)) then
             NRM_data    <= NRM_dout;
         end if;
     end process;
@@ -245,7 +266,7 @@ begin
     -- Description : Display the FFT (normalized)
     --------------------------------------------------------------------------------
     NRM_read        <= VGA_read when(unsigned(VGA_v_add)>200 and unsigned(VGA_v_add)<800) else '0';
-    nrm_addr_map    <= unsigned(VGA_h_add) - 126;
+    nrm_addr_map    <= unsigned(VGA_h_add) - 14;
     nrm_addr_final  <= std_logic_vector(nrm_addr_map(10 downto 2));
     
     process(nrm_addr_final)
@@ -275,7 +296,7 @@ begin
         end if;
 
         display_nrm <= '0';
-        if(hadd>127 and hadd<1153) then
+        if(hadd>15 and hadd<785) then
             if(vadd>256 and vadd<512) then
                 if(data>512-vadd) then
                     display_nrm <= '1';
@@ -299,12 +320,12 @@ begin
         vadd := to_integer(unsigned(VGA_v_add));
 
         nrm_box <= '0';
-        if(hadd>127 and hadd<1153) then
+        if(hadd>15 and hadd<785) then
             if(vadd=256 or vadd=512) then
                 nrm_box <= '1';
             end if;
         elsif(vadd>255 and vadd<513) then
-            if(hadd=127 or hadd=1153) then
+            if(hadd=15 or hadd=785) then
                 nrm_box <= '1';
             end if;
         end if;
@@ -314,16 +335,16 @@ begin
     -- SEQ PROCESS : P_VU_metre
     -- Description : Register VU_metre data for display
     --------------------------------------------------------------------------------
-    P_VU_metre : process(clk, reset_n)
+    P_VU_metre : process(clk_108, reset_n)
     begin
         if(reset_n='0') then
             for i in C_FIR_MIN to C_FIR_MAX+2 loop
                 VU_data(i) <= (others => '0');
             end loop;
-        elsif(rising_edge(clk)) then
+        elsif(rising_edge(clk_108)) then
             if(VGA_new_frame='1') then
                 for i in C_FIR_MIN to C_FIR_MAX+2 loop
-                    VU_data(i) <= VU_dout(i*6+5 downto i*6);
+                    VU_data(i) <= VU_dout(i*5+4 downto i*5);
                 end loop;
             end if;
         end if;
@@ -335,9 +356,9 @@ begin
     --------------------------------------------------------------------------------
     process(VU_data, VGA_v_add, VGA_h_add)
     
-    constant base_min   : integer := 272;
-    constant base_max   : integer := 333;
-    constant step       : integer := 75;
+    constant base_min   : integer := 800;
+    constant base_max   : integer := 840;
+    constant step       : integer := 48;
     variable k          : integer := 0;
     
     begin
@@ -352,7 +373,7 @@ begin
             end if;
 
             if(unsigned(VGA_h_add)>base_min+k*step and unsigned(VGA_h_add)<base_max+k*step) then
-                if(8*unsigned(VU_data(i))>1023-unsigned(VGA_v_add)) then
+                if(8*unsigned(VU_data(i))>512-unsigned(VGA_v_add) and unsigned(VGA_v_add)<512) then
                     if(VGA_v_add(2 downto 0)/="000" and VGA_v_add(2 downto 0)/="111") then
                         VU_inbound  <= '1';
                     end if;
@@ -365,13 +386,24 @@ begin
     -- COMBINATORY :
     -- Description : Display a box for each volume bar
     --------------------------------------------------------------------------------
-    process(EQ_level_dout, VGA_v_add, VGA_h_add)
+    process(reset_n, clk_108)
+    begin
+        if(reset_n='0') then
+            EQ_level_dout_d1    <= (others => '0');
+            EQ_level_dout_d2    <= (others => '0');
+        elsif(rising_edge(clk_108)) then
+            EQ_level_dout_d1    <= EQ_level_dout;
+            EQ_level_dout_d2    <= EQ_level_dout_d1;
+        end if;
+    end process;
+    
+    process(EQ_level_dout_d2, VGA_v_add, VGA_h_add)
     
     variable h_min      : integer := 0;
     variable h_max      : integer := 0;
-    constant base_min   : integer := 272-5;
-    constant base_max   : integer := 333+5;
-    constant step       : integer := 75;
+    constant base_min   : integer := 800-2;
+    constant base_max   : integer := 840+2;
+    constant step       : integer := 48;
     variable level      : integer := 0;
     
     begin
@@ -388,9 +420,9 @@ begin
                 h_max := base_max+(i+1)*step;
             end if;
 
-            level := to_integer(unsigned(EQ_level_dout(i*5+4 downto i*5)));
+            level := to_integer(unsigned(EQ_level_dout_d2(i*5+4 downto i*5)));
 
-            if(1023-unsigned(VGA_v_add)>21*to_unsigned(level, 16) and 1023-unsigned(VGA_v_add)<21*to_unsigned(level, 16)+5) then
+            if(512-unsigned(VGA_v_add)>10*to_unsigned(level, 16) and 512-unsigned(VGA_v_add)<10*to_unsigned(level, 16)+5 and unsigned(VGA_v_add)<512) then
                 if(unsigned(VGA_h_add)>to_unsigned(h_min, 16) and unsigned(VGA_h_add)<to_unsigned(h_max, 16)) then
                     draw_vol    <= '1';
                 end if;
@@ -407,9 +439,9 @@ begin
     
     variable h_min      : integer := 0;
     variable h_max      : integer := 0;
-    constant base_min   : integer := 272-7;
-    constant base_max   : integer := 333+7;
-    constant step       : integer := 75;
+    constant base_min   : integer := 800-5;
+    constant base_max   : integer := 840+5;
+    constant step       : integer := 48;
     
     begin
         draw_box    <= '0';
@@ -425,7 +457,7 @@ begin
             when others => h_min := base_min+0*step; h_max := base_max+0*step;
         end case;
 
-        if(unsigned(VGA_v_add)>511) then
+        if(unsigned(VGA_v_add)<512 and unsigned(VGA_v_add)>256) then
             if(unsigned(VGA_h_add)>to_unsigned(h_min, 16) and unsigned(VGA_h_add)<to_unsigned(h_max, 16)) then
                 draw_box    <= '1';
             end if;
@@ -452,7 +484,7 @@ begin
     -- SEQ PROCESS : P_reg_signal
     -- Description : register signals for timing
     --------------------------------------------------------------------------------
-    P_reg_signal : process(clk, reset_n)
+    P_reg_signal : process(clk_108, reset_n)
     begin
         if(reset_n='0') then
             draw_red_line_d <= '0';
@@ -465,7 +497,7 @@ begin
             red_color_d     <= '0';
             draw_box_d      <= '0';
             nrm_box_d       <= '0';
-        elsif(rising_edge(clk)) then
+        elsif(rising_edge(clk_108)) then
             draw_red_line_d <= draw_red_line;
             display_nrm_d   <= display_nrm;
             draw_vol_d      <= draw_vol;
@@ -483,15 +515,15 @@ begin
     -- COMBINATORY :
     -- Description : Final pixel mapping
     --------------------------------------------------------------------------------
-    VGA_din         <= "11100000"   when(draw_red_line_d='1' or nrm_box_d='1') else
-                       "11111111"   when(display_nrm_d='1') else
-                       "00000010"   when(draw_vol_d='1') else
-                       "11111111"   when(pixel_ok_d='1') else
-                       "00011100"   when(green_color_d='1' and VU_inbound_d='1') else
-                       "11111100"   when(yellow_color_d='1' and VU_inbound_d='1') else
-                       "11100000"   when(red_color_d='1' and VU_inbound_d='1') else
-                       "01001001"   when(draw_box_d='1') else
-                       "00000000";
+    VGA_din         <= X"F00"   when(draw_red_line_d='1' or nrm_box_d='1') else
+                       X"FFF"   when(display_nrm_d='1') else
+                       X"00A"   when(draw_vol_d='1') else
+                       X"FFF"   when(pixel_ok_d='1') else
+                       X"0F0"   when(green_color_d='1' and VU_inbound_d='1') else
+                       X"FF0"   when(yellow_color_d='1' and VU_inbound_d='1') else
+                       X"F00"   when(red_color_d='1' and VU_inbound_d='1') else
+                       X"888"   when(draw_box_d='1') else
+                       X"000";
 
 end RTL;
 --------------------------------------------------------------------------------

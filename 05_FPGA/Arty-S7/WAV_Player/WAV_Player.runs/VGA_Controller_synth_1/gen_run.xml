@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="VGA_Controller_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1574945926">
+<GenRun Id="VGA_Controller_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1576759573">
   <File Type="PA-TCL" Name="VGA_Controller.tcl"/>
   <File Type="REPORTS-TCL" Name="VGA_Controller_reports.tcl"/>
   <File Type="RDS-RDS" Name="VGA_Controller.vds"/>
@@ -21,6 +21,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/VGA_Controller/new/VGA_Controller_ooc.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopModule" Val="VGA_Controller"/>
       <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/VGA_controller.vhd"/>
@@ -40,6 +47,13 @@
         <Attr Name="Library" Val="lib_VHDL"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/VGA_Controller/new/VGA_Controller_ooc.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
       </FileInfo>
     </File>
     <Config>

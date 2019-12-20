@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-11-06
+-- Last update: 2019-12-20
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -42,13 +42,14 @@ entity FIR_filter is
         ------- FIR control ----------------------
         FIR_clr         : in  std_logic;
         FIR_en          : in  std_logic;
+        FIR_done        : out std_logic;
 
         ------- FIR in ---------------------------
-        FIR_din         : in  std_logic_vector(7 downto 0);
+        FIR_din         : in  std_logic_vector(15 downto 0);
         FIR_addr        : in  std_logic_vector(9 downto 0);
 
         ------- FIR out --------------------------
-        FIR_dout        : out std_logic_vector(7 downto 0)
+        FIR_dout        : out std_logic_vector(15 downto 0)
 
         );
 end FIR_filter;
@@ -57,6 +58,11 @@ end FIR_filter;
 -- ARCHITECTURE DECLARATION
 --------------------------------------------------------------------------------
 architecture RTL of FIR_filter is
+
+--------------------------------------------------------------------------------
+    -- TYPE DECLARATIONS
+    --------------------------------------------------------------------------------
+    type T_EN is array (0 to 5) of std_logic;
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
@@ -115,33 +121,36 @@ architecture RTL of FIR_filter is
             );
     end component;
 
-    component Multiplier is
-        generic(
-            G_OPERAND_A_SIZE    : INTEGER := 5;
-            G_OPERAND_B_SIZE    : INTEGER := 5;
-            G_MULT_OUT_SIZE     : INTEGER := 10
-            );
+    component Multiplier_s16_s16
         port(
-            clk          : in  std_logic;
-            reset_n      : in  std_logic;
-            enable       : in  std_logic;
-            opA          : in  std_logic_vector(G_OPERAND_A_SIZE-1 downto 0);
-            opB          : in  std_logic_vector(G_OPERAND_B_SIZE-1 downto 0);
-            mult_out     : out std_logic_vector(G_MULT_OUT_SIZE-1 downto 0)
+            clk : in  std_logic;
+            a   : in  std_logic_vector(15 downto 0);
+            b   : in  std_logic_vector(15 downto 0);
+            p   : out std_logic_vector(31 downto 0)
+            );
+    end component;
+
+    component Accu_s43
+        port(
+            b       : in  std_logic_vector(31 downto 0);
+            clk     : in  std_logic;
+            ce      : in  std_logic;
+            sclr    : in  std_logic;
+            q       : out std_logic_vector(42 downto 0)
             );
     end component;
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal ROM_out      : std_logic_vector(15 downto 0);
-    signal accu_din     : unsigned(34 downto 0);
-    signal accu         : unsigned(34 downto 0);
-    signal mult_opA     : std_logic_vector(7 downto 0);
-    signal mult_opB     : std_logic_vector(15 downto 0);
-    signal mult_out     : std_logic_vector(23 downto 0);
-    signal mult_out_d   : std_logic_vector(23 downto 0);
-    signal sat_out      : unsigned(7 downto 0);
+    signal FIR_en_d         : T_EN;
+    signal ROM_out          : std_logic_vector(15 downto 0);
+    signal accu             : std_logic_vector(42 downto 0);
+    signal mult_opA         : std_logic_vector(15 downto 0);
+    signal mult_opB         : std_logic_vector(15 downto 0);
+    signal mult_out         : std_logic_vector(31 downto 0);
+    signal mult_out_d       : std_logic_vector(31 downto 0);
+    signal sat_out          : std_logic_vector(15 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -203,19 +212,13 @@ begin
 
     ----------------------------------------------------------------
     -- INSTANCE : U_Mult
-    -- Description : 8x16 Signed multiplier
+    -- Description : 16x16 multiplier
     ----------------------------------------------------------------
-    U_Mult : Multiplier generic map(
-        G_OPERAND_A_SIZE    => 8,
-        G_OPERAND_B_SIZE    => 16,
-        G_MULT_OUT_SIZE     => 24)
-    port map(
-        clk         => clk,
-        reset_n     => reset_n,
-        enable      => '1',
-        opA         => mult_opA,
-        opB         => mult_opB,
-        mult_out    => mult_out);
+    U_Mult : Multiplier_s16_s16 port map(
+        clk => clk,
+        a   => mult_opA,
+        b   => mult_opB,
+        p   => mult_out);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_ROM
@@ -228,38 +231,56 @@ begin
             -- mult_opB    <= (others => '0');
             -- mult_out_d  <= (others => '0');
         elsif(rising_edge(clk)) then
-            if(FIR_clr='1') then
-                mult_opA    <= (others => '0');
-                mult_opB    <= (others => '0');
-                mult_out_d  <= (others => '0');
-            elsif(FIR_en='1') then
-                mult_opA    <= std_logic_vector(unsigned(FIR_din) - 128);
-                mult_opB    <= ROM_out;
-                mult_out_d  <= mult_out;
-            end if;
+            mult_opA    <= FIR_din;
+            mult_opB    <= ROM_out;
+            mult_out_d  <= mult_out;
         end if;
     end process;
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : Accumulator
+    -- SEQ PROCESS : P_delay
+    -- Description : Register delay
     --------------------------------------------------------------------------------
-    accu_din    <= (34 downto 24 => mult_out_d(23)) & unsigned(mult_out_d);
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_acc
-    -- Description : Enable accumulation
-    --------------------------------------------------------------------------------
-    P_acc : process(clk, reset_n)
+    P_delay : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            -- accu    <= to_unsigned(0, accu'length); -- Merge reg with DSP block
+            FIR_en_d(0) <= '0';
+            FIR_en_d(1) <= '0';
+            FIR_en_d(2) <= '0';
+            FIR_en_d(3) <= '0';
+            FIR_en_d(4) <= '0';
         elsif(rising_edge(clk)) then
-            if(FIR_clr='1') then
-                accu    <= to_unsigned(0, accu'length);
-            elsif(FIR_en='1') then
-                accu    <= accu + accu_din;
-            end if;
+            FIR_en_d(0) <= FIR_en;
+            FIR_en_d(1) <= FIR_en_d(0);
+            FIR_en_d(2) <= FIR_en_d(1);
+            FIR_en_d(3) <= FIR_en_d(2);
+            FIR_en_d(4) <= FIR_en_d(3);
+        end if;
+    end process;
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_Accu
+    -- Description : 43 bit accumulator
+    ----------------------------------------------------------------
+    U_Accu : Accu_s43 port map(
+        clk     => clk,
+        b       => mult_out_d,
+        ce      => FIR_en_d(4) OR FIR_en_d(5),
+        sclr    => FIR_clr,
+        q       => accu);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_delay_add
+    -- Description : Register delay
+    --------------------------------------------------------------------------------
+    P_delay_add : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            FIR_en_d(5) <= '0';
+            FIR_done    <= '0';
+        elsif(rising_edge(clk)) then
+            FIR_en_d(5) <= FIR_en_d(4);
+            FIR_done    <= FIR_en_d(5);
         end if;
     end process;
 
@@ -270,12 +291,12 @@ begin
     SAT0 : if G_SELECT=0 generate
         process(accu)
         begin
-            if(accu(34 downto 30)="00000" or accu(34 downto 30)="11111") then
-                sat_out <= accu(30 downto 23);
-            elsif(accu(34)='0') then
-                sat_out <= X"7F";
+            if(accu(42 downto 38)="00000" or accu(42 downto 28)="11111") then
+                sat_out <= accu(38 downto 23);
+            elsif(accu(42)='0') then
+                sat_out <= X"7FFF";
             else
-                sat_out <= X"80";
+                sat_out <= X"8000";
             end if;
         end process;
     end generate;
@@ -283,12 +304,12 @@ begin
     SAT1 : if G_SELECT=1 generate
         process(accu)
         begin
-            if(accu(34 downto 27)="00000000" or accu(34 downto 27)="11111111") then
-                sat_out <= accu(27 downto 20);
-            elsif(accu(34)='0') then
-                sat_out <= X"7F";
+            if(accu(42 downto 36)="0000000" or accu(42 downto 36)="1111111") then
+                sat_out <= accu(36 downto 21);
+            elsif(accu(42)='0') then
+                sat_out <= X"7FFF";
             else
-                sat_out <= X"80";
+                sat_out <= X"8000";
             end if;
         end process;
     end generate;
@@ -296,12 +317,12 @@ begin
     SAT2 : if G_SELECT=2 generate
         process(accu)
         begin
-            if(accu(34 downto 25)="0000000000" or accu(34 downto 25)="1111111111") then
-                sat_out <= accu(25 downto 18);
-            elsif(accu(34)='0') then
-                sat_out <= X"7F";
+            if(accu(42 downto 34)="000000000" or accu(42 downto 34)="111111111") then
+                sat_out <= accu(34 downto 19);
+            elsif(accu(42)='0') then
+                sat_out <= X"7FFF";
             else
-                sat_out <= X"80";
+                sat_out <= X"8000";
             end if;
         end process;
     end generate;
@@ -309,12 +330,12 @@ begin
     SAT3 : if G_SELECT=3 generate
         process(accu)
         begin
-            if(accu(34 downto 24)="00000000000" or accu(34 downto 24)="11111111111") then
-                sat_out <= accu(24 downto 17);
-            elsif(accu(34)='0') then
-                sat_out <= X"7F";
+            if(accu(42 downto 33)="0000000000" or accu(42 downto 33)="1111111111") then
+                sat_out <= accu(33 downto 18);
+            elsif(accu(42)='0') then
+                sat_out <= X"7FFF";
             else
-                sat_out <= X"80";
+                sat_out <= X"8000";
             end if;
         end process;
     end generate;
@@ -322,12 +343,12 @@ begin
     SAT4 : if G_SELECT=4 generate
         process(accu)
         begin
-            if(accu(34 downto 23)="000000000000" or accu(34 downto 23)="111111111111") then
-                sat_out <= accu(23 downto 16);
-            elsif(accu(34)='0') then
-                sat_out <= X"7F";
+            if(accu(42 downto 32)="00000000000" or accu(42 downto 32)="11111111111") then
+                sat_out <= accu(32 downto 17);
+            elsif(accu(42)='0') then
+                sat_out <= X"7FFF";
             else
-                sat_out <= X"80";
+                sat_out <= X"8000";
             end if;
         end process;
     end generate;
@@ -335,12 +356,12 @@ begin
     SAT5 : if G_SELECT=5 generate
         process(accu)
         begin
-            if(accu(34 downto 23)="000000000000" or accu(34 downto 23)="111111111111") then
-                sat_out <= accu(23 downto 16);
-            elsif(accu(34)='0') then
-                sat_out <= X"7F";
+            if(accu(42 downto 31)="000000000000" or accu(42 downto 31)="111111111111") then
+                sat_out <= accu(31 downto 16);
+            elsif(accu(42)='0') then
+                sat_out <= X"7FFF";
             else
-                sat_out <= X"80";
+                sat_out <= X"8000";
             end if;
         end process;
     end generate;
@@ -349,7 +370,7 @@ begin
     -- COMBINATORY :
     -- Description : Output
     --------------------------------------------------------------------------------
-    FIR_dout <= std_logic_vector(sat_out + 128);
+    FIR_dout <= sat_out;
 
 end RTL;
 --------------------------------------------------------------------------------

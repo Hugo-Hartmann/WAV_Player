@@ -36,7 +36,11 @@ vcom -work lib_VHDL ./../../02_Source/EQ_stage.vhd
 vcom -work lib_VHDL ./../../02_Source/FFT_FIFO.vhd
 vcom -work lib_VHDL ./../../02_Source/FFT_Adder.vhd
 vcom -work lib_VHDL ./../../02_Source/FFT_Multiplier.vhd
-vcom -work lib_VHDL ./../../02_Source/FFT_Normalizer.vhd
 vcom -work lib_VHDL ./../../02_Source/FFT_UAL.vhd
 vcom -work lib_VHDL ./../../02_Source/FFT_FSM.vhd
 vcom -work lib_VHDL ./../../02_Source/FFT_Wrapper.vhd
+
+# I2S
+vcom -work lib_VHDL ./../../02_Source/I2S_Emitter.vhd
+vcom -work lib_VHDL ./../../02_Source/I2S_Receiver.vhd
+vcom -work lib_VHDL ./../../02_Source/I2S_Wrapper.vhd

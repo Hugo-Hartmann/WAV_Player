@@ -1,126 +1,62 @@
-if(conv_in>262143) then
-    conv_out    <= std_logic_vector(to_unsigned(63, 6));
-elsif(conv_in>240386) then
-    conv_out    <= std_logic_vector(to_unsigned(62, 6));
-elsif(conv_in>220435) then
-    conv_out    <= std_logic_vector(to_unsigned(61, 6));
-elsif(conv_in>202139) then
-    conv_out    <= std_logic_vector(to_unsigned(60, 6));
-elsif(conv_in>185363) then
-    conv_out    <= std_logic_vector(to_unsigned(59, 6));
-elsif(conv_in>169978) then
-    conv_out    <= std_logic_vector(to_unsigned(58, 6));
-elsif(conv_in>155871) then
-    conv_out    <= std_logic_vector(to_unsigned(57, 6));
-elsif(conv_in>142934) then
-    conv_out    <= std_logic_vector(to_unsigned(56, 6));
-elsif(conv_in>131071) then
-    conv_out    <= std_logic_vector(to_unsigned(55, 6));
-elsif(conv_in>120193) then
-    conv_out    <= std_logic_vector(to_unsigned(54, 6));
-elsif(conv_in>110217) then
-    conv_out    <= std_logic_vector(to_unsigned(53, 6));
-elsif(conv_in>101069) then
-    conv_out    <= std_logic_vector(to_unsigned(52, 6));
-elsif(conv_in>92681) then
-    conv_out    <= std_logic_vector(to_unsigned(51, 6));
-elsif(conv_in>84989) then
-    conv_out    <= std_logic_vector(to_unsigned(50, 6));
-elsif(conv_in>77935) then
-    conv_out    <= std_logic_vector(to_unsigned(49, 6));
-elsif(conv_in>71467) then
-    conv_out    <= std_logic_vector(to_unsigned(48, 6));
-elsif(conv_in>65535) then
-    conv_out    <= std_logic_vector(to_unsigned(47, 6));
-elsif(conv_in>60096) then
-    conv_out    <= std_logic_vector(to_unsigned(46, 6));
-elsif(conv_in>55108) then
-    conv_out    <= std_logic_vector(to_unsigned(45, 6));
-elsif(conv_in>50534) then
-    conv_out    <= std_logic_vector(to_unsigned(44, 6));
-elsif(conv_in>46340) then
-    conv_out    <= std_logic_vector(to_unsigned(43, 6));
-elsif(conv_in>42494) then
-    conv_out    <= std_logic_vector(to_unsigned(42, 6));
-elsif(conv_in>38967) then
-    conv_out    <= std_logic_vector(to_unsigned(41, 6));
-elsif(conv_in>35733) then
-    conv_out    <= std_logic_vector(to_unsigned(40, 6));
-elsif(conv_in>32767) then
-    conv_out    <= std_logic_vector(to_unsigned(39, 6));
-elsif(conv_in>30048) then
-    conv_out    <= std_logic_vector(to_unsigned(38, 6));
-elsif(conv_in>27554) then
-    conv_out    <= std_logic_vector(to_unsigned(37, 6));
-elsif(conv_in>25267) then
-    conv_out    <= std_logic_vector(to_unsigned(36, 6));
-elsif(conv_in>23170) then
-    conv_out    <= std_logic_vector(to_unsigned(35, 6));
-elsif(conv_in>21247) then
-    conv_out    <= std_logic_vector(to_unsigned(34, 6));
-elsif(conv_in>19483) then
-    conv_out    <= std_logic_vector(to_unsigned(33, 6));
-elsif(conv_in>17866) then
-    conv_out    <= std_logic_vector(to_unsigned(32, 6));
-elsif(conv_in>16383) then
-    conv_out    <= std_logic_vector(to_unsigned(31, 6));
-elsif(conv_in>15024) then
-    conv_out    <= std_logic_vector(to_unsigned(30, 6));
-elsif(conv_in>13777) then
-    conv_out    <= std_logic_vector(to_unsigned(29, 6));
-elsif(conv_in>12633) then
-    conv_out    <= std_logic_vector(to_unsigned(28, 6));
-elsif(conv_in>11585) then
-    conv_out    <= std_logic_vector(to_unsigned(27, 6));
-elsif(conv_in>10623) then
-    conv_out    <= std_logic_vector(to_unsigned(26, 6));
-elsif(conv_in>9741) then
-    conv_out    <= std_logic_vector(to_unsigned(25, 6));
-elsif(conv_in>8933) then
-    conv_out    <= std_logic_vector(to_unsigned(24, 6));
-elsif(conv_in>8191) then
-    conv_out    <= std_logic_vector(to_unsigned(23, 6));
-elsif(conv_in>7512) then
-    conv_out    <= std_logic_vector(to_unsigned(22, 6));
-elsif(conv_in>6888) then
-    conv_out    <= std_logic_vector(to_unsigned(21, 6));
-elsif(conv_in>6316) then
-    conv_out    <= std_logic_vector(to_unsigned(20, 6));
-elsif(conv_in>5792) then
-    conv_out    <= std_logic_vector(to_unsigned(19, 6));
-elsif(conv_in>5311) then
-    conv_out    <= std_logic_vector(to_unsigned(18, 6));
-elsif(conv_in>4870) then
-    conv_out    <= std_logic_vector(to_unsigned(17, 6));
-elsif(conv_in>4466) then
-    conv_out    <= std_logic_vector(to_unsigned(16, 6));
-elsif(conv_in>4095) then
-    conv_out    <= std_logic_vector(to_unsigned(15, 6));
-elsif(conv_in>3756) then
-    conv_out    <= std_logic_vector(to_unsigned(14, 6));
-elsif(conv_in>3444) then
-    conv_out    <= std_logic_vector(to_unsigned(13, 6));
-elsif(conv_in>3158) then
-    conv_out    <= std_logic_vector(to_unsigned(12, 6));
-elsif(conv_in>2896) then
-    conv_out    <= std_logic_vector(to_unsigned(11, 6));
-elsif(conv_in>2655) then
-    conv_out    <= std_logic_vector(to_unsigned(10, 6));
-elsif(conv_in>2435) then
-    conv_out    <= std_logic_vector(to_unsigned(9, 6));
-elsif(conv_in>2233) then
-    conv_out    <= std_logic_vector(to_unsigned(8, 6));
-elsif(conv_in>2047) then
-    conv_out    <= std_logic_vector(to_unsigned(7, 6));
-elsif(conv_in>1878) then
-    conv_out    <= std_logic_vector(to_unsigned(6, 6));
-elsif(conv_in>1722) then
-    conv_out    <= std_logic_vector(to_unsigned(5, 6));
-elsif(conv_in>1579) then
-    conv_out    <= std_logic_vector(to_unsigned(4, 6));
-elsif(conv_in>1448) then
-    conv_out    <= std_logic_vector(to_unsigned(3, 6));
-elsif(conv_in>1327) then
-    conv_out    <= std_logic_vector(to_unsigned(2, 6));
-elsif(conv_in>1217) then
-    conv_out    <= std_logic_vector(to_unsigned(1, 6));
+if(accu_map>65535) then
+    VU_level(31) <= '1';
+elsif(accu_map>46340) then
+    VU_level(30) <= '1';
+elsif(accu_map>32767) then
+    VU_level(29) <= '1';
+elsif(accu_map>23170) then
+    VU_level(28) <= '1';
+elsif(accu_map>16383) then
+    VU_level(27) <= '1';
+elsif(accu_map>11585) then
+    VU_level(26) <= '1';
+elsif(accu_map>8191) then
+    VU_level(25) <= '1';
+elsif(accu_map>5792) then
+    VU_level(24) <= '1';
+elsif(accu_map>4095) then
+    VU_level(23) <= '1';
+elsif(accu_map>2896) then
+    VU_level(22) <= '1';
+elsif(accu_map>2047) then
+    VU_level(21) <= '1';
+elsif(accu_map>1448) then
+    VU_level(20) <= '1';
+elsif(accu_map>1023) then
+    VU_level(19) <= '1';
+elsif(accu_map>724) then
+    VU_level(18) <= '1';
+elsif(accu_map>511) then
+    VU_level(17) <= '1';
+elsif(accu_map>362) then
+    VU_level(16) <= '1';
+elsif(accu_map>255) then
+    VU_level(15) <= '1';
+elsif(accu_map>181) then
+    VU_level(14) <= '1';
+elsif(accu_map>127) then
+    VU_level(13) <= '1';
+elsif(accu_map>90) then
+    VU_level(12) <= '1';
+elsif(accu_map>63) then
+    VU_level(11) <= '1';
+elsif(accu_map>45) then
+    VU_level(10) <= '1';
+elsif(accu_map>31) then
+    VU_level(9) <= '1';
+elsif(accu_map>22) then
+    VU_level(8) <= '1';
+elsif(accu_map>15) then
+    VU_level(7) <= '1';
+elsif(accu_map>11) then
+    VU_level(6) <= '1';
+elsif(accu_map>7) then
+    VU_level(5) <= '1';
+elsif(accu_map>5) then
+    VU_level(4) <= '1';
+elsif(accu_map>3) then
+    VU_level(3) <= '1';
+elsif(accu_map>2) then
+    VU_level(2) <= '1';
+elsif(accu_map>1) then
+    VU_level(1) <= '1';

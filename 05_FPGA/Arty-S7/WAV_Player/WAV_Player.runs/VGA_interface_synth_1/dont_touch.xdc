@@ -6,7 +6,11 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_8bit 
 
 # XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit_ooc.xdc
 
+# XDC: new/VGA_interface_ooc.xdc
+
 # IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_8bit || ORIG_REF_NAME==BRAM_2048_8bit} -quiet] -quiet
 
 # XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit_ooc.xdc
+
+# XDC: new/VGA_interface_ooc.xdc

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="VGA_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1575971385">
+<GenRun Id="VGA_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1576850572">
   <File Type="PA-TCL" Name="VGA_interface.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="VGA_interface_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="VGA_interface_reports.tcl"/>
@@ -17,6 +17,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../02_Source/VGA_interface.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
       <FileInfo>
         <Attr Name="Library" Val="lib_VHDL"/>
@@ -24,10 +30,11 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/VGA_interface.vhd">
+    <File Path="$PSRCDIR/VGA_interface/new/VGA_interface_ooc.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
       </FileInfo>
     </File>
     <Config>
@@ -44,6 +51,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../02_Source/VGA_interface.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
       <FileInfo>
         <Attr Name="Library" Val="lib_VHDL"/>
@@ -51,10 +64,11 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/VGA_interface.vhd">
+    <File Path="$PSRCDIR/VGA_interface/new/VGA_interface_ooc.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
       </FileInfo>
     </File>
     <Config>

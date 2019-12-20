@@ -1,0 +1,7 @@
+Running: xsim.dir/EQ_volume_behav/xsimk.exe -simmode gui -wdb EQ_volume_behav.wdb -simrunnum 0 -socket 58836
+Design successfully loaded
+Design Loading Memory Usage: 6092 KB (Peak: 6092 KB)
+Design Loading CPU Usage: 61 ms
+Simulation completed
+Simulation Memory Usage: 7660 KB (Peak: 7660 KB)
+Simulation CPU Usage: 248 ms

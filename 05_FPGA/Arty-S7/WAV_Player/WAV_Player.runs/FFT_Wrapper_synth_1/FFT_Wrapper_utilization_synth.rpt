@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Mon Dec  9 15:05:55 2019
+| Date         : Thu Dec 19 15:29:40 2019
 | Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file FFT_Wrapper_utilization_synth.rpt -pb FFT_Wrapper_utilization_synth.pb
 | Design       : FFT_Wrapper
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  477 |     0 |     32600 |  1.46 |
-|   LUT as Logic             |  458 |     0 |     32600 |  1.40 |
-|   LUT as Memory            |   19 |     0 |      9600 |  0.20 |
+| Slice LUTs*                |  515 |     0 |     32600 |  1.58 |
+|   LUT as Logic             |  464 |     0 |     32600 |  1.42 |
+|   LUT as Memory            |   51 |     0 |      9600 |  0.53 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
-|     LUT as Shift Register  |   19 |     0 |           |       |
-| Slice Registers            |  396 |     0 |     65200 |  0.61 |
-|   Register as Flip Flop    |  396 |     0 |     65200 |  0.61 |
+|     LUT as Shift Register  |   51 |     0 |           |       |
+| Slice Registers            |  665 |     0 |     65200 |  1.02 |
+|   Register as Flip Flop    |  665 |     0 |     65200 |  1.02 |
 |   Register as Latch        |    0 |     0 |     65200 |  0.00 |
-| F7 Muxes                   |    4 |     0 |     16300 |  0.02 |
+| F7 Muxes                   |    1 |     0 |     16300 | <0.01 |
 | F8 Muxes                   |    0 |     0 |      8150 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -56,10 +56,10 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 3     |          Yes |           - |          Set |
-| 374   |          Yes |           - |        Reset |
+| 4     |          Yes |           - |          Set |
+| 546   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 19    |          Yes |       Reset |            - |
+| 115   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -150,21 +150,21 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     |  374 |        Flop & Latch |
-| LUT2     |  171 |                 LUT |
-| LUT3     |  156 |                 LUT |
-| LUT6     |  130 |                 LUT |
-| LUT4     |  109 |                 LUT |
-| LUT5     |   60 |                 LUT |
+| FDCE     |  546 |        Flop & Latch |
+| LUT2     |  204 |                 LUT |
+| FDRE     |  115 |        Flop & Latch |
+| LUT6     |  113 |                 LUT |
+| LUT4     |  106 |                 LUT |
+| LUT3     |   97 |                 LUT |
+| LUT5     |   69 |                 LUT |
+| SRL16E   |   51 |  Distributed Memory |
 | CARRY4   |   48 |          CarryLogic |
-| SRL16E   |   19 |  Distributed Memory |
-| FDRE     |   19 |        Flop & Latch |
-| LUT1     |    7 |                 LUT |
-| MUXF7    |    4 |               MuxFx |
+| LUT1     |    5 |                 LUT |
+| FDPE     |    4 |        Flop & Latch |
 | DSP48E1  |    4 |    Block Arithmetic |
-| FDPE     |    3 |        Flop & Latch |
 | RAMB36E1 |    2 |        Block Memory |
 | RAMB18E1 |    2 |        Block Memory |
+| MUXF7    |    1 |               MuxFx |
 +----------+------+---------------------+
 
 

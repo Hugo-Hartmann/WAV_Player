@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-06
--- Last update: 2019-11-06
+-- Last update: 2019-12-17
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -38,13 +38,13 @@ entity FIR_Single is
         reset_n         : in  std_logic;                        -- reset_n
 
         ------- FIR out --------------------------
-        FIR_dout        : out std_logic_vector(7 downto 0);
+        FIR_dout        : out std_logic_vector(15 downto 0);
 
         ------- FIR control ----------------------
         FIR_en          : in  std_logic;
 
         ------- FIR in ---------------------------
-        FIR_din         : in  std_logic_vector(7 downto 0)
+        FIR_din         : in  std_logic_vector(15 downto 0)
 
         );
 end FIR_Single;
@@ -63,18 +63,18 @@ architecture RTL of FIR_Single is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component RAM_2048_8bit
+    component RAM_2048_16bit
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
             addra   : in  std_logic_vector(10 downto 0);
-            dina    : in  std_logic_vector(7 downto 0);
-            douta   : out std_logic_vector(7 downto 0)
+            dina    : in  std_logic_vector(15 downto 0);
+            douta   : out std_logic_vector(15 downto 0)
             );
     end component;
 
-    component ROM_1024_16bit
+    component ROM_1024_16bit_LP
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
@@ -104,14 +104,14 @@ architecture RTL of FIR_Single is
     --------------------------------------------------------------------------------
     signal current_state    : FIR_STATE;
     signal next_state       : FIR_STATE;
-    signal RAM_out          : std_logic_vector(7 downto 0);
+    signal RAM_out          : std_logic_vector(15 downto 0);
     signal RAM_write        : std_logic_vector(0 downto 0);
     signal RAM_enable       : std_logic;
     signal RAM_read         : std_logic;
     signal RAM_addr         : std_logic_vector(10 downto 0);
     signal RAM_addr_rd      : std_logic_vector(10 downto 0);
     signal RAM_addr_wr      : std_logic_vector(10 downto 0);
-    signal FIR_din_d        : std_logic_vector(7 downto 0);
+    signal FIR_din_d        : std_logic_vector(15 downto 0);
     signal FIR_clr          : std_logic;
     signal FIR_en           : std_logic;
     signal RAM_counter_wr   : unsigned(10 downto 0);
@@ -127,15 +127,15 @@ architecture RTL of FIR_Single is
     signal FIR_addr         : std_logic_vector(9 downto 0);
     signal addr_select      : std_logic;
     signal dout_store       : std_logic;
-    signal FIR_out          : std_logic_vector(7 downto 0);
+    signal FIR_out          : std_logic_vector(15 downto 0);
     signal ROM_out          : std_logic_vector(15 downto 0);
-    signal accu_din         : unsigned(34 downto 0);
-    signal accu             : unsigned(34 downto 0);
-    signal mult_opA         : std_logic_vector(7 downto 0);
+    signal accu_din         : unsigned(42 downto 0);
+    signal accu             : unsigned(42 downto 0);
+    signal mult_opA         : std_logic_vector(15 downto 0);
     signal mult_opB         : std_logic_vector(15 downto 0);
-    signal mult_out         : std_logic_vector(23 downto 0);
-    signal mult_out_d       : std_logic_vector(23 downto 0);
-    signal sat_out          : unsigned(7 downto 0);
+    signal mult_out         : std_logic_vector(31 downto 0);
+    signal mult_out_d       : std_logic_vector(31 downto 0);
+    signal sat_out          : unsigned(15 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -147,7 +147,7 @@ begin
     -- Description : Contains coefficient for filtering
     ----------------------------------------------------------------
     ROM : if G_BEHAVIOURAL=false generate
-        U_ROM : ROM_1024_16bit port map(
+        U_ROM : ROM_1024_16bit_LP port map(
             clka    => clk,
             addra   => FIR_addr,
             ena     => '1',
@@ -159,7 +159,7 @@ begin
     -- Description : Contains the 2048 last samples read
     ----------------------------------------------------------------
     RAM : if G_BEHAVIOURAL=false generate
-        U_RAM : RAM_2048_8bit port map(
+        U_RAM : RAM_2048_16bit port map(
             clka    => clk,
             addra   => RAM_addr,
             wea     => RAM_write,
@@ -173,9 +173,9 @@ begin
     -- Description : 8x16 Signed multiplier
     ----------------------------------------------------------------
     U_Mult : Multiplier generic map(
-        G_OPERAND_A_SIZE    => 8,
+        G_OPERAND_A_SIZE    => 16,
         G_OPERAND_B_SIZE    => 16,
-        G_MULT_OUT_SIZE     => 24)
+        G_MULT_OUT_SIZE     => 32)
     port map(
         clk         => clk,
         reset_n     => reset_n,
@@ -200,7 +200,7 @@ begin
                 mult_opB    <= (others => '0');
                 mult_out_d  <= (others => '0');
             elsif(FIR_en='1') then
-                mult_opA    <= std_logic_vector(unsigned(FIR_din_d) - 128);
+                mult_opA    <= FIR_din_d;
                 mult_opB    <= ROM_out;
                 mult_out_d  <= mult_out;
             end if;
@@ -211,7 +211,7 @@ begin
     -- COMBINATORY :
     -- Description : Accumulator
     --------------------------------------------------------------------------------
-    accu_din    <= (34 downto 24 => mult_out_d(23)) & unsigned(mult_out_d);
+    accu_din    <= (42 downto 32 => mult_out_d(31)) & unsigned(mult_out_d);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_acc
@@ -236,9 +236,9 @@ begin
     --------------------------------------------------------------------------------
     process(accu)
     begin
-        if(accu(34 downto 32)="000" or accu(34 downto 32)="111") then
-            sat_out <= accu(32 downto 25);
-        elsif(accu(32)='0') then
+        if(accu(42 downto 40)="000" or accu(42 downto 40)="111") then
+            sat_out <= accu(40 downto 25);
+        elsif(accu(42)='0') then
             sat_out <= X"7F";
         else
             sat_out <= X"80";
@@ -250,7 +250,7 @@ begin
     -- COMBINATORY :
     -- Description : Output
     --------------------------------------------------------------------------------
-    FIR_out <= std_logic_vector(sat_out + 128);
+    FIR_out <= std_logic_vector(sat_out);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY : 

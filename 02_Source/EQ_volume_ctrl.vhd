@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-04
--- Last update: 2019-11-06
+-- Last update: 2019-12-18
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -69,13 +69,20 @@ architecture RTL of EQ_volume_ctrl is
     signal vol_up           : std_logic;
     signal vol_down         : std_logic;
     signal vol_select       : std_logic_vector(2 downto 0);
+    signal vol_select_d     : std_logic_vector(2 downto 0);
+    signal vol_select_dd    : std_logic_vector(2 downto 0);
     signal vol_data         : vol_tab;
-    signal counter_hold     : unsigned(31 downto 0);
+    signal counter_hold     : unsigned(27 downto 0);
     signal cnt_hold_clr     : std_logic;
     signal cnt_hold_end     : std_logic;
-    signal counter_wait     : unsigned(31 downto 0);
+    signal counter_wait     : unsigned(27 downto 0);
     signal cnt_wait_clr     : std_logic;
     signal cnt_wait_end     : std_logic;
+    signal vol_max          : std_logic;
+    signal vol_min          : std_logic;
+    signal vol_data_in      : unsigned(4 downto 0);
+    signal vol_data_out     : unsigned(4 downto 0);
+    signal vol_update       : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -83,10 +90,17 @@ architecture RTL of EQ_volume_ctrl is
 begin
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : Volume selecter
+    -- SEQ PROCESS : P_select
+    -- Description : vol_select
     --------------------------------------------------------------------------------
-    vol_select  <= EQ_select(2 downto 0);
+    P_select : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            vol_select  <= (others => '0');
+        elsif(rising_edge(clk)) then
+            vol_select  <= EQ_select(2 downto 0);
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
@@ -100,6 +114,34 @@ begin
     end process;
 
     --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_fetch
+    -- Description : Control volume levels
+    --------------------------------------------------------------------------------
+    P_fetch : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            vol_data_in     <= (others => '0');
+            vol_data_out    <= (others => '0');
+            vol_select_d    <= (others => '0');
+            vol_select_dd   <= (others => '0');
+            vol_update      <= '0';
+        elsif(rising_edge(clk)) then
+            vol_data_in     <= vol_data(to_integer(unsigned(vol_select)));
+            vol_select_d    <= vol_select;
+            vol_select_dd   <= vol_select_d;
+            if(vol_up='1' and vol_max='0') then
+                vol_data_out    <= vol_data_in + 1;
+                vol_update      <= '1';
+            elsif(vol_down='1' and vol_min='0') then
+                vol_data_out    <= vol_data_in - 1;
+                vol_update      <= '1';
+            else
+                vol_update      <= '0';
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_Volume
     -- Description : Control volume levels
     --------------------------------------------------------------------------------
@@ -110,14 +152,35 @@ begin
                 vol_data(i)  <= to_unsigned(12, vol_data(i)'length);
             end loop;
         elsif(rising_edge(clk)) then
-            if(vol_up='1' and vol_data(to_integer(unsigned(vol_select)))<24) then
-                vol_data(to_integer(unsigned(vol_select)))   <= vol_data(to_integer(unsigned(vol_select))) + 1;
-            elsif(vol_down='1' and vol_data(to_integer(unsigned(vol_select)))>0) then
-                vol_data(to_integer(unsigned(vol_select)))   <= vol_data(to_integer(unsigned(vol_select))) - 1;
+            if(vol_update='1') then
+                vol_data(to_integer(unsigned(vol_select_dd)))   <= vol_data_out;
             end if;
         end if;
     end process;
 
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_min_max
+    -- Description : Control if volume is at maximum or minimum
+    --------------------------------------------------------------------------------
+    P_min_max : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            vol_min <= '0';
+            vol_max <= '0';
+        elsif(rising_edge(clk)) then
+            if(vol_data(to_integer(unsigned(vol_select)))=24) then
+                vol_max <= '1';
+            else
+                vol_max <= '0';
+            end if;
+            
+            if(vol_data(to_integer(unsigned(vol_select)))=0) then
+                vol_min <= '1';
+            else
+                vol_min <= '0';
+            end if;
+        end if;
+    end process;
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_Counter_hold
     -- Description : Timer to trigger multiple volume up/down series
@@ -139,7 +202,7 @@ begin
     -- COMBINATORY :
     -- Description : cnt_hold_end
     --------------------------------------------------------------------------------
-    cnt_hold_end    <= '1' when(counter_hold=108000000) else '0';
+    cnt_hold_end    <= '1' when(counter_hold=216000000) else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_Counter_wait
@@ -162,7 +225,7 @@ begin
     -- COMBINATORY :
     -- Description : cnt_wait_end
     --------------------------------------------------------------------------------
-    cnt_wait_end    <= '1' when(counter_wait=10800000) else '0';
+    cnt_wait_end    <= '1' when(counter_wait=21600000) else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_FSM_EQ_sync

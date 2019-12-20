@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-12-03
+-- Last update: 2019-12-20
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -40,10 +40,10 @@ entity VU_metre is
         VU_en   : in  std_logic;
 
         ------- VU in ---------------------------
-        VU_din  : in  std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
+        VU_din  : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
 
         ------- VU out --------------------------
-        VU_dout : out std_logic_vector((C_FIR_MAX+2)*6+5 downto 0)
+        VU_dout : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
 
         );
 end VU_metre;
@@ -56,45 +56,57 @@ architecture RTL of VU_metre is
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
-    type accu_tab is array (C_FIR_MIN to C_FIR_MAX+2) of unsigned(19 downto 0);
-    type VU_tab is array (C_FIR_MIN to C_FIR_MAX+2) of std_logic_vector(5 downto 0);
-    type DAT_tab is array (C_FIR_MIN to C_FIR_MAX+2) of std_logic_vector(7 downto 0);
-    type VU_STATE is (VU_RESET, VU_IDLE, VU_CLEAN);
+    type accu_tab is array (C_FIR_MIN to C_FIR_MAX+2) of unsigned(27 downto 0);
+    type conv_tab is array (C_FIR_MIN to C_FIR_MAX+2) of unsigned(16 downto 0);
+    type VU_tab is array (C_FIR_MIN to C_FIR_MAX+2) of std_logic_vector(4 downto 0);
+    type DAT_tab is array (C_FIR_MIN to C_FIR_MAX+2) of std_logic_vector(15 downto 0);
+    type VU_STATE is (VU_RESET, VU_IDLE, VU_CLEAN, VU_STORE, VU_ACCU);
+    type T_en is array(C_FIR_MIN to C_FIR_MAX+2) of std_logic;
+    type T_level
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component RAM_2048_8bit
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            wea     : in  std_logic_vector(0 downto 0);
-            addra   : in  std_logic_vector(10 downto 0);
-            dina    : in  std_logic_vector(7 downto 0);
-            douta   : out std_logic_vector(7 downto 0)
+    component VU_stage is
+        port(
+            clk         : in  std_logic;
+            reset_n     : in  std_logic;
+            VU_clr      : in  std_logic;
+            VU_en       : in  std_logic;
+            VU_done     : out std_logic;
+            VU_write    : in  std_logic;
+            VU_addr     : in  std_logic_vector(10 downto 0);
+            VU_din      : in  std_logic_vector(15 downto 0);
+            VU_dout     : out std_logic_vector(4 downto 0)
             );
     end component;
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal current_state    : VU_STATE;
-    signal next_state       : VU_STATE;
-    signal RAM_out          : DAT_tab;
-    signal RAM_in           : DAT_tab;
-    signal din_conv         : DAT_tab;
-    signal accu             : accu_tab;
-    signal RAM_counter      : unsigned(10 downto 0);
-    signal RAM_write        : std_logic_vector(0 downto 0);
-    signal RAM_addr         : std_logic_vector(10 downto 0);
-    signal RAM_counter_clr  : unsigned(10 downto 0);
-    signal cnt_clr_end      : std_logic;
-    signal RAM_clr          : std_logic;
-    signal counter_select   : unsigned(3 downto 0);
-    signal counter_select_d : unsigned(3 downto 0);
-    signal cnt_select_clr   : std_logic;
-    signal conv_in          : unsigned(19 downto 0);
-    signal conv_out         : std_logic_vector(5 downto 0);
+    signal current_state        : VU_STATE;
+    signal next_state           : VU_STATE;
+    signal RAM_out              : DAT_tab;
+    signal RAM_out_d            : DAT_tab;
+    signal RAM_in               : DAT_tab;
+    signal RAM_in_d             : DAT_tab;
+    signal din_conv             : DAT_tab;
+    signal accu                 : accu_tab;
+    signal RAM_counter          : unsigned(10 downto 0);
+    signal RAM_write            : std_logic_vector(0 downto 0);
+    signal RAM_write_d          : std_logic_vector(0 downto 0);
+    signal RAM_addr             : std_logic_vector(10 downto 0);
+    signal RAM_addr_d           : std_logic_vector(10 downto 0);
+    signal RAM_counter_clr      : unsigned(10 downto 0);
+    signal cnt_clr_end          : std_logic;
+    signal RAM_clr              : std_logic;
+    signal conv_in              : conv_tab;
+    signal conv_out             : VU_tab;
+    signal VU_write             : std_logic;
+    signal cnt_RAM_inc          : std_logic;
+    signal diff                 : accu_tab;
+    signal diff_en              : T_en;
+    signal accu_en              : T_en;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -106,28 +118,50 @@ begin
     -- Description : Contains the 2048 last samples read
     ----------------------------------------------------------------
     GEN_RAM : for i in C_FIR_MIN to C_FIR_MAX+2 generate
-        U_RAM : RAM_2048_8bit port map(
+        U_RAM : RAM_2048_16bit port map(
             clka    => clk,
-            addra   => RAM_addr,
-            wea     => RAM_write,
+            addra   => RAM_addr_d,
+            wea     => RAM_write_d,
             ena     => '1',
-            dina    => RAM_in(i),
+            dina    => RAM_in_d(i),
             douta   => RAM_out(i));
     end generate GEN_RAM;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_RAM_reg
+    -- Description : Register RAM input and outputs
+    --------------------------------------------------------------------------------
+    P_RAM_reg : process(clk, reset_n)
+    begin
+        if(rising_edge(clk)) then
+            RAM_addr_d  <= RAM_addr;
+            RAM_write_d <= RAM_write;
+            for i in C_FIR_MIN to C_FIR_MAX+2 loop
+                RAM_in_d(i)     <= RAM_in(i);
+                RAM_out_d(i)    <= RAM_out(i);
+            end loop;
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
     -- Description : din_conv
     --------------------------------------------------------------------------------
-    process(VU_din)
+    process(reset_n, clk)
     begin
-        for i in C_FIR_MIN to C_FIR_MAX+2 loop
-            if(unsigned(VU_din(i*8+7 downto i*8))>128) then
-                din_conv(i)  <= std_logic_vector(unsigned(VU_din(i*8+7 downto i*8)) - 128);
-            else
-                din_conv(i)  <= std_logic_vector(128 - unsigned(VU_din(i*8+7 downto i*8)));
-            end if;
-        end loop;
+        if(reset_n='0') then
+            for i in C_FIR_MIN to C_FIR_MAX+2 loop
+                din_conv(i)  <= (others => '0');
+            end loop;
+        elsif(rising_edge(clk)) then
+            for i in C_FIR_MIN to C_FIR_MAX+2 loop
+                if(VU_din(i*16+15)='0') then
+                    din_conv(i)  <= VU_din(i*16+15 downto i*16);
+                else
+                    din_conv(i)  <= std_logic_vector(0 - unsigned(VU_din(i*16+15 downto i*16)));
+                end if;
+            end loop;
+        end if;
     end process;
 
     --------------------------------------------------------------------------------
@@ -156,7 +190,7 @@ begin
         if(reset_n='0') then
             RAM_counter  <= to_unsigned(0, RAM_counter'length);
         elsif(rising_edge(clk)) then
-            if(VU_en='1' and RAM_clr='0') then
+            if(cnt_RAM_inc='1') then
                 RAM_counter  <= RAM_counter + 1;
             end if;
         end if;
@@ -181,9 +215,27 @@ begin
     -- COMBINATORY :
     -- Description : Write to RAM
     --------------------------------------------------------------------------------
-    RAM_write       <= (others => VU_en OR RAM_clr);
-    RAM_addr        <= std_logic_vector(RAM_counter) when(RAM_clr='0') else std_logic_vector(RAM_counter_clr);
-    cnt_clr_end     <= '1' when(RAM_counter_clr=0) else '0';
+    cnt_clr_end <= '1' when(RAM_counter_clr=0) else '0';
+    RAM_addr    <= std_logic_vector(RAM_counter_clr) when(RAM_clr='1') else std_logic_vector(RAM_counter);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_diff
+    -- Description : Compute diffence of RAM input and output
+    --------------------------------------------------------------------------------
+    P_diff : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            for i in C_FIR_MIN to C_FIR_MAX+2 loop
+                diff(i) <= to_unsigned(0, diff(i)'length);
+            end loop;
+        elsif(rising_edge(clk)) then
+            for i in C_FIR_MIN to C_FIR_MAX+2 loop
+                if(diff_en(i)='1') then
+                    diff(i) <= resize(unsigned(din_conv(i)), diff(i)'length) - resize(unsigned(RAM_out_d(i)), diff(i)'length);
+                end if;
+            end loop;
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_Accu
@@ -196,40 +248,13 @@ begin
                 accu(i) <= to_unsigned(0, accu(i)'length);
             end loop;
         elsif(rising_edge(clk)) then
-            if(VU_en='1' and RAM_clr='0') then
-                for i in C_FIR_MIN to C_FIR_MAX+2 loop
-                    accu(i) <= accu(i) + resize(unsigned(din_conv(i)), accu(i)'length) - resize(unsigned(RAM_out(i)), accu(i)'length);
-                end loop;
-            end if;
+            for i in C_FIR_MIN to C_FIR_MAX+2 loop
+                if(accu_en(i)='1') then
+                    accu(i) <= accu(i) + diff(i);
+                end if;
+            end loop;
         end if;
     end process;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_counter_select
-    -- Description : Create rotation for VU-level mapping hardware
-    --------------------------------------------------------------------------------
-    P_counter_select : process(clk, reset_n)
-    begin
-        if(reset_n='0') then
-            counter_select      <= to_unsigned(0, counter_select'length);
-            counter_select_d    <= to_unsigned(0, counter_select_d'length);
-        elsif(rising_edge(clk)) then
-
-            counter_select_d    <= counter_select;
-
-            if(cnt_select_clr='1') then
-                counter_select  <= to_unsigned(0, counter_select'length);
-            else
-                counter_select  <= counter_select + 1;
-            end if;
-        end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : cnt_select_clr
-    --------------------------------------------------------------------------------
-    cnt_select_clr  <= '1' when(counter_select=C_FIR_MAX+2) else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_conv_in
@@ -238,9 +263,13 @@ begin
     P_conv_in : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            conv_in <= (others => '0');
+            for i in conv_in'range loop
+                conv_in(i)  <= (others => '0');
+            end loop;
         elsif(rising_edge(clk)) then
-            conv_in <= accu(to_integer(counter_select));
+            for i in conv_in'range loop
+                conv_in(i)  <= accu(i)(26 downto 10);
+            end loop;
         end if;
     end process;
 
@@ -248,159 +277,97 @@ begin
     -- COMBINATORY :
     -- Description : VU_metre out
     --------------------------------------------------------------------------------
-    process(conv_in)
+    process(reset_n, clk)
     begin
-        for i in C_FIR_MIN to C_FIR_MAX+2 loop
-            if(conv_in>262143) then
-                conv_out    <= std_logic_vector(to_unsigned(63, 6));
-            elsif(conv_in>240386) then
-                conv_out    <= std_logic_vector(to_unsigned(62, 6));
-            elsif(conv_in>220435) then
-                conv_out    <= std_logic_vector(to_unsigned(61, 6));
-            elsif(conv_in>202139) then
-                conv_out    <= std_logic_vector(to_unsigned(60, 6));
-            elsif(conv_in>185363) then
-                conv_out    <= std_logic_vector(to_unsigned(59, 6));
-            elsif(conv_in>169978) then
-                conv_out    <= std_logic_vector(to_unsigned(58, 6));
-            elsif(conv_in>155871) then
-                conv_out    <= std_logic_vector(to_unsigned(57, 6));
-            elsif(conv_in>142934) then
-                conv_out    <= std_logic_vector(to_unsigned(56, 6));
-            elsif(conv_in>131071) then
-                conv_out    <= std_logic_vector(to_unsigned(55, 6));
-            elsif(conv_in>120193) then
-                conv_out    <= std_logic_vector(to_unsigned(54, 6));
-            elsif(conv_in>110217) then
-                conv_out    <= std_logic_vector(to_unsigned(53, 6));
-            elsif(conv_in>101069) then
-                conv_out    <= std_logic_vector(to_unsigned(52, 6));
-            elsif(conv_in>92681) then
-                conv_out    <= std_logic_vector(to_unsigned(51, 6));
-            elsif(conv_in>84989) then
-                conv_out    <= std_logic_vector(to_unsigned(50, 6));
-            elsif(conv_in>77935) then
-                conv_out    <= std_logic_vector(to_unsigned(49, 6));
-            elsif(conv_in>71467) then
-                conv_out    <= std_logic_vector(to_unsigned(48, 6));
-            elsif(conv_in>65535) then
-                conv_out    <= std_logic_vector(to_unsigned(47, 6));
-            elsif(conv_in>60096) then
-                conv_out    <= std_logic_vector(to_unsigned(46, 6));
-            elsif(conv_in>55108) then
-                conv_out    <= std_logic_vector(to_unsigned(45, 6));
-            elsif(conv_in>50534) then
-                conv_out    <= std_logic_vector(to_unsigned(44, 6));
-            elsif(conv_in>46340) then
-                conv_out    <= std_logic_vector(to_unsigned(43, 6));
-            elsif(conv_in>42494) then
-                conv_out    <= std_logic_vector(to_unsigned(42, 6));
-            elsif(conv_in>38967) then
-                conv_out    <= std_logic_vector(to_unsigned(41, 6));
-            elsif(conv_in>35733) then
-                conv_out    <= std_logic_vector(to_unsigned(40, 6));
-            elsif(conv_in>32767) then
-                conv_out    <= std_logic_vector(to_unsigned(39, 6));
-            elsif(conv_in>30048) then
-                conv_out    <= std_logic_vector(to_unsigned(38, 6));
-            elsif(conv_in>27554) then
-                conv_out    <= std_logic_vector(to_unsigned(37, 6));
-            elsif(conv_in>25267) then
-                conv_out    <= std_logic_vector(to_unsigned(36, 6));
-            elsif(conv_in>23170) then
-                conv_out    <= std_logic_vector(to_unsigned(35, 6));
-            elsif(conv_in>21247) then
-                conv_out    <= std_logic_vector(to_unsigned(34, 6));
-            elsif(conv_in>19483) then
-                conv_out    <= std_logic_vector(to_unsigned(33, 6));
-            elsif(conv_in>17866) then
-                conv_out    <= std_logic_vector(to_unsigned(32, 6));
-            elsif(conv_in>16383) then
-                conv_out    <= std_logic_vector(to_unsigned(31, 6));
-            elsif(conv_in>15024) then
-                conv_out    <= std_logic_vector(to_unsigned(30, 6));
-            elsif(conv_in>13777) then
-                conv_out    <= std_logic_vector(to_unsigned(29, 6));
-            elsif(conv_in>12633) then
-                conv_out    <= std_logic_vector(to_unsigned(28, 6));
-            elsif(conv_in>11585) then
-                conv_out    <= std_logic_vector(to_unsigned(27, 6));
-            elsif(conv_in>10623) then
-                conv_out    <= std_logic_vector(to_unsigned(26, 6));
-            elsif(conv_in>9741) then
-                conv_out    <= std_logic_vector(to_unsigned(25, 6));
-            elsif(conv_in>8933) then
-                conv_out    <= std_logic_vector(to_unsigned(24, 6));
-            elsif(conv_in>8191) then
-                conv_out    <= std_logic_vector(to_unsigned(23, 6));
-            elsif(conv_in>7512) then
-                conv_out    <= std_logic_vector(to_unsigned(22, 6));
-            elsif(conv_in>6888) then
-                conv_out    <= std_logic_vector(to_unsigned(21, 6));
-            elsif(conv_in>6316) then
-                conv_out    <= std_logic_vector(to_unsigned(20, 6));
-            elsif(conv_in>5792) then
-                conv_out    <= std_logic_vector(to_unsigned(19, 6));
-            elsif(conv_in>5311) then
-                conv_out    <= std_logic_vector(to_unsigned(18, 6));
-            elsif(conv_in>4870) then
-                conv_out    <= std_logic_vector(to_unsigned(17, 6));
-            elsif(conv_in>4466) then
-                conv_out    <= std_logic_vector(to_unsigned(16, 6));
-            elsif(conv_in>4095) then
-                conv_out    <= std_logic_vector(to_unsigned(15, 6));
-            elsif(conv_in>3756) then
-                conv_out    <= std_logic_vector(to_unsigned(14, 6));
-            elsif(conv_in>3444) then
-                conv_out    <= std_logic_vector(to_unsigned(13, 6));
-            elsif(conv_in>3158) then
-                conv_out    <= std_logic_vector(to_unsigned(12, 6));
-            elsif(conv_in>2896) then
-                conv_out    <= std_logic_vector(to_unsigned(11, 6));
-            elsif(conv_in>2655) then
-                conv_out    <= std_logic_vector(to_unsigned(10, 6));
-            elsif(conv_in>2435) then
-                conv_out    <= std_logic_vector(to_unsigned(9, 6));
-            elsif(conv_in>2233) then
-                conv_out    <= std_logic_vector(to_unsigned(8, 6));
-            elsif(conv_in>2047) then
-                conv_out    <= std_logic_vector(to_unsigned(7, 6));
-            elsif(conv_in>1878) then
-                conv_out    <= std_logic_vector(to_unsigned(6, 6));
-            elsif(conv_in>1722) then
-                conv_out    <= std_logic_vector(to_unsigned(5, 6));
-            elsif(conv_in>1579) then
-                conv_out    <= std_logic_vector(to_unsigned(4, 6));
-            elsif(conv_in>1448) then
-                conv_out    <= std_logic_vector(to_unsigned(3, 6));
-            elsif(conv_in>1327) then
-                conv_out    <= std_logic_vector(to_unsigned(2, 6));
-            elsif(conv_in>1217) then
-                conv_out    <= std_logic_vector(to_unsigned(1, 6));
-            else
-                conv_out    <= std_logic_vector(to_unsigned(0, 6));
-            end if;
-        end loop;
+        if(reset_n='0') then
+            for i in conv_out'range loop
+                conv_out(i) <= (others => '0');
+            end loop;
+        elsif(rising_edge(clk)) then
+            for i in conv_out'range loop
+                if(conv_in(i)>65535) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(31, 5));
+                elsif(conv_in(i)>46340) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(30, 5));
+                elsif(conv_in(i)>32767) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(29, 5));
+                elsif(conv_in(i)>23170) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(28, 5));
+                elsif(conv_in(i)>16383) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(27, 5));
+                elsif(conv_in(i)>11585) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(26, 5));
+                elsif(conv_in(i)>8191) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(25, 5));
+                elsif(conv_in(i)>5792) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(24, 5));
+                elsif(conv_in(i)>4095) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(23, 5));
+                elsif(conv_in(i)>2896) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(22, 5));
+                elsif(conv_in(i)>2047) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(21, 5));
+                elsif(conv_in(i)>1448) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(20, 5));
+                elsif(conv_in(i)>1023) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(19, 5));
+                elsif(conv_in(i)>724) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(18, 5));
+                elsif(conv_in(i)>511) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(17, 5));
+                elsif(conv_in(i)>362) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(16, 5));
+                elsif(conv_in(i)>255) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(15, 5));
+                elsif(conv_in(i)>181) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(14, 5));
+                elsif(conv_in(i)>127) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(13, 5));
+                elsif(conv_in(i)>90) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(12, 5));
+                elsif(conv_in(i)>63) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(11, 5));
+                elsif(conv_in(i)>45) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(10, 5));
+                elsif(conv_in(i)>31) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(9, 5));
+                elsif(conv_in(i)>22) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(8, 5));
+                elsif(conv_in(i)>15) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(7, 5));
+                elsif(conv_in(i)>11) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(6, 5));
+                elsif(conv_in(i)>7) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(5, 5));
+                elsif(conv_in(i)>5) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(4, 5));
+                elsif(conv_in(i)>3) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(3, 5));
+                elsif(conv_in(i)>2) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(2, 5));
+                elsif(conv_in(i)>1) then
+                    conv_out(i) <= std_logic_vector(to_unsigned(1, 5));
+                else
+                    conv_out(i) <= std_logic_vector(to_unsigned(0, 5));
+                end if;
+            end loop;
+        end if;
     end process;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_reg_map
     -- Description : Register VU levels on output
     --------------------------------------------------------------------------------
-    P_reg_map : process(clk, reset_n, counter_select_d)
-    
-    variable index : integer := 0;
-    
+    P_reg_map : process(clk, reset_n)
     begin
-    
-        index   := to_integer(counter_select_d);
-    
         if(reset_n='0') then
             for i in C_FIR_MIN to C_FIR_MAX+2 loop
-                VU_dout(i*6+5 downto i*6)  <= (others => '0');
+                VU_dout(i*5+4 downto i*5)  <= (others => '0');
             end loop;
         elsif(rising_edge(clk)) then
-            VU_dout(index*6+5 downto index*6) <= conv_out;
+            for i in C_FIR_MIN to C_FIR_MAX+2 loop
+                VU_dout(i*5+4 downto i*5) <= conv_out(i);
+            end loop;
         end if;
     end process;
 
@@ -423,14 +390,21 @@ begin
     --------------------------------------------------------------------------------
     P_FSM_VU_comb : process(current_state, cnt_clr_end)
     begin
-    RAM_clr <= '0';
+    RAM_clr     <= '0';
+    RAM_write   <= "0";
+    cnt_RAM_inc <= '0';
+    for i in C_FIR_MIN to C_FIR_MAX+2 loop
+        diff_en(i)  <= '0';
+        accu_en(i)  <= '0';
+    end loop;
 
         case current_state is
             when VU_RESET =>
                 next_state  <= VU_CLEAN;
 
             when VU_CLEAN =>
-                RAM_clr <= '1';
+                RAM_clr     <= '1';
+                RAM_write   <= "1";
                 if(cnt_clr_end='1') then
                     next_state  <= VU_IDLE;
                 else
@@ -438,6 +412,24 @@ begin
                 end if;
 
             when VU_IDLE =>
+                if(VU_en='1') then
+                    next_state  <= VU_STORE;
+                else
+                    next_state  <= VU_IDLE;
+                end if;
+
+            when VU_STORE =>
+                RAM_write   <= "1";
+                cnt_RAM_inc <= '1';
+                for i in C_FIR_MIN to C_FIR_MAX+2 loop
+                    diff_en(i)  <= '1';
+                end loop;
+                next_state  <= VU_ACCU;
+
+            when VU_ACCU =>
+                for i in C_FIR_MIN to C_FIR_MAX+2 loop
+                    accu_en(i)  <= '1';
+                end loop;
                 next_state  <= VU_IDLE;
 
         end case;

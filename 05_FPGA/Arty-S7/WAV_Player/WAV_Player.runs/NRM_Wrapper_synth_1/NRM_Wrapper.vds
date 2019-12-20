@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Tue Dec 10 10:46:11 2019
-# Process ID: 6784
+# Start of session at: Thu Dec 19 11:35:08 2019
+# Process ID: 2884
 # Current directory: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1
 # Command line: vivado.exe -log NRM_Wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source NRM_Wrapper.tcl
 # Log file: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper.vds
@@ -17,9 +17,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7048 
+INFO: Helper process launched with PID 6720 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 420.543 ; gain = 105.516
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 420.742 ; gain = 105.691
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'NRM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Wrapper.vhd:65]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
@@ -114,20 +114,35 @@ INFO: [Synth 8-256] done synthesizing module 'NRM_FSM' (11#1) [C:/Users/hhartman
 INFO: [Synth 8-3491] module 'NRM_Normalizer' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:30' bound to instance 'U_NRM_Normalizer' of component 'NRM_Normalizer' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Wrapper.vhd:237]
 INFO: [Synth 8-638] synthesizing module 'NRM_Normalizer' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:57]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_A_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
-	Parameter G_MULT_OUT_SIZE bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult1' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:135]
-INFO: [Synth 8-638] synthesizing module 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:54]
-	Parameter G_OPERAND_A_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
-	Parameter G_MULT_OUT_SIZE bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'Multiplier' (12#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:54]
-	Parameter G_OPERAND_A_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
-	Parameter G_MULT_OUT_SIZE bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult2' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:151]
-INFO: [Synth 8-3491] module 'NRM_SQRT' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/synth/NRM_SQRT.vhd:59' bound to instance 'U_Sqrt' of component 'NRM_SQRT' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:205]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult1' of component 'Multiplier_s16_s16' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:131]
+INFO: [Synth 8-638] synthesizing module 'Multiplier_s16_s16' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:68]
+WARNING: [Synth 8-5640] Port 'zero_detect' is missing in component declaration [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:71]
+WARNING: [Synth 8-5640] Port 'pcasc' is missing in component declaration [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:71]
+	Parameter C_VERBOSITY bound to: 0 - type: integer 
+	Parameter C_MODEL_TYPE bound to: 0 - type: integer 
+	Parameter C_OPTIMIZE_GOAL bound to: 1 - type: integer 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_HAS_CE bound to: 0 - type: integer 
+	Parameter C_HAS_SCLR bound to: 0 - type: integer 
+	Parameter C_LATENCY bound to: 3 - type: integer 
+	Parameter C_A_WIDTH bound to: 16 - type: integer 
+	Parameter C_A_TYPE bound to: 0 - type: integer 
+	Parameter C_B_WIDTH bound to: 16 - type: integer 
+	Parameter C_B_TYPE bound to: 0 - type: integer 
+	Parameter C_OUT_HIGH bound to: 31 - type: integer 
+	Parameter C_OUT_LOW bound to: 0 - type: integer 
+	Parameter C_MULT_TYPE bound to: 1 - type: integer 
+	Parameter C_CE_OVERRIDES_SCLR bound to: 0 - type: integer 
+	Parameter C_CCM_IMP bound to: 0 - type: integer 
+	Parameter C_B_VALUE bound to: 10000001 - type: string 
+	Parameter C_HAS_ZERO_DETECT bound to: 0 - type: integer 
+	Parameter C_ROUND_OUTPUT bound to: 0 - type: integer 
+	Parameter C_ROUND_PT bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'mult_gen_v12_0_14' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/hdl/mult_gen_v12_0_vh_rfs.vhd:21013' bound to instance 'U0' of component 'mult_gen_v12_0_14' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:120]
+WARNING: [Synth 8-5974] attribute "use_dsp48" has been deprecated, please use "use_dsp" instead 
+INFO: [Synth 8-256] done synthesizing module 'Multiplier_s16_s16' (17#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:68]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult2' of component 'Multiplier_s16_s16' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:141]
+INFO: [Synth 8-3491] module 'NRM_SQRT' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/synth/NRM_SQRT.vhd:59' bound to instance 'U_Sqrt' of component 'NRM_SQRT' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:206]
 INFO: [Synth 8-638] synthesizing module 'NRM_SQRT' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/synth/NRM_SQRT.vhd:69]
 	Parameter C_ARCHITECTURE bound to: 2 - type: integer 
 	Parameter C_CORDIC_FUNCTION bound to: 6 - type: integer 
@@ -143,7 +158,7 @@ INFO: [Synth 8-638] synthesizing module 'NRM_SQRT' [c:/Users/hhartmann/Desktop/s
 	Parameter C_ITERATIONS bound to: 0 - type: integer 
 	Parameter C_OUTPUT_WIDTH bound to: 17 - type: integer 
 	Parameter C_PHASE_FORMAT bound to: 0 - type: integer 
-	Parameter C_PIPELINE_MODE bound to: -1 - type: integer 
+	Parameter C_PIPELINE_MODE bound to: -2 - type: integer 
 	Parameter C_PRECISION bound to: 0 - type: integer 
 	Parameter C_ROUND_MODE bound to: 3 - type: integer 
 	Parameter C_SCALE_COMP bound to: 0 - type: integer 
@@ -160,11 +175,11 @@ INFO: [Synth 8-638] synthesizing module 'NRM_SQRT' [c:/Users/hhartmann/Desktop/s
 	Parameter C_M_AXIS_DOUT_TDATA_WIDTH bound to: 24 - type: integer 
 	Parameter C_M_AXIS_DOUT_TUSER_WIDTH bound to: 1 - type: integer 
 INFO: [Synth 8-3491] module 'cordic_v6_0_14' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/hdl/cordic_v6_0_vh_rfs.vhd:10135' bound to instance 'U0' of component 'cordic_v6_0_14' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/synth/NRM_SQRT.vhd:144]
-INFO: [Synth 8-256] done synthesizing module 'NRM_SQRT' (27#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/synth/NRM_SQRT.vhd:69]
-INFO: [Synth 8-256] done synthesizing module 'NRM_Normalizer' (28#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:57]
-INFO: [Synth 8-256] done synthesizing module 'NRM_Wrapper' (29#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Wrapper.vhd:65]
+INFO: [Synth 8-256] done synthesizing module 'NRM_SQRT' (32#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/synth/NRM_SQRT.vhd:69]
+INFO: [Synth 8-256] done synthesizing module 'NRM_Normalizer' (33#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'NRM_Wrapper' (34#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Wrapper.vhd:65]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:40 ; elapsed = 00:01:43 . Memory (MB): peak = 793.336 ; gain = 478.309
+Finished RTL Elaboration : Time (s): cpu = 00:02:17 ; elapsed = 00:02:28 . Memory (MB): peak = 808.156 ; gain = 493.105
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -177,47 +192,49 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:41 ; elapsed = 00:01:44 . Memory (MB): peak = 793.336 ; gain = 478.309
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:17 ; elapsed = 00:02:29 . Memory (MB): peak = 808.156 ; gain = 493.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:41 ; elapsed = 00:01:44 . Memory (MB): peak = 793.336 ; gain = 478.309
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:17 ; elapsed = 00:02:29 . Memory (MB): peak = 808.156 ; gain = 493.105
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 533 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/108_MHz.xdc]
-Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/108_MHz.xdc]
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/NRM_Wrapper/new/NRM_Wrapper_ooc.xdc]
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/NRM_Wrapper/new/NRM_Wrapper_ooc.xdc]
 Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 799.715 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 808.156 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 799.715 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 801.027 ; gain = 1.313
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 808.156 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.077 . Memory (MB): peak = 808.156 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:51 ; elapsed = 00:01:55 . Memory (MB): peak = 801.027 ; gain = 486.000
+Finished Constraint Validation : Time (s): cpu = 00:02:29 ; elapsed = 00:02:41 . Memory (MB): peak = 808.156 ; gain = 493.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:51 ; elapsed = 00:01:55 . Memory (MB): peak = 801.027 ; gain = 486.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:02:29 ; elapsed = 00:02:41 . Memory (MB): peak = 808.156 ; gain = 493.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for U_NRM_Normalizer/U_Sqrt. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_NRM_Normalizer/U_Mult1. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_NRM_Normalizer/U_Mult2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_NRM_RAM_Wrapper/\RAM.U_RAM_NRM . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:51 ; elapsed = 00:01:55 . Memory (MB): peak = 801.027 ; gain = 486.000
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:29 ; elapsed = 00:02:41 . Memory (MB): peak = 808.156 ; gain = 493.105
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'NRM_FSM'
 INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
@@ -242,7 +259,7 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'NRM_FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:53 ; elapsed = 00:01:58 . Memory (MB): peak = 801.027 ; gain = 486.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:31 ; elapsed = 00:02:45 . Memory (MB): peak = 808.156 ; gain = 493.105
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -276,41 +293,71 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-5546] ROM "U_NRM_FSM/cnt_addr_end" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_nd_int/gen_rtl.gen_reg.d_reg_reg' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[2]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[0]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[0]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[17].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][1]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[16].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[4]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[1]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[16].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[4]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[2][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[2][1]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[2][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[2][1]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[2][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[2][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[14].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[6]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[2]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[15].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[5]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[3][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[3][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[3][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[3][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[3][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[3][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[12].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[8]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[3]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[14].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[6]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[4][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[4][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[4][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[4][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[4][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[4][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[11].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[10]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[4]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[13].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[7]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[5][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[5][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[5][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[5][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[5][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[5][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[13].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[12]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[5]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[12].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[8]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[6][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[6][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[6][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[6][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[6][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[6][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[15].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[14]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[6]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[6]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[11].gen_pre_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[9]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[7][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[7][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[7][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[7][0]'
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[7][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[7][1]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[17].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[16]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[7]'
-INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[18]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[8]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[7]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[11].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[10]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[8][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[8][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[8][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[8][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[8]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[12].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[11]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[9][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[9][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[9][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[9][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[9][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[9][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[9]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[13].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[12]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[10][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[10][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[10][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[10][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[10][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[10][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[10]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[14].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[13]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[11][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[11][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[11][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[11][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[11][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[11][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[11]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[15].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[14]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[12][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[12][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[12][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[12][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[12][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[12][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[12]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[16].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[15]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[13][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[13][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[13][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[13][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[13][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[13][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[13]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[17].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[16]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[14][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[14][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[14][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[14][0]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[14][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[14][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[14]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[17]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[15][0]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[15][1]'
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_rdy_int/gen_rtl.gen_dly.gen_regs.delay_bus_reg[15]' (FDRE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_inv_sqrt_out/gen_rtl.gen_reg.d_reg_reg[18]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[2][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
@@ -324,13 +371,25 @@ INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synt
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[7][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[8][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[9][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[10][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[11][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[12][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[13][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[14][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
+INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[15][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:55 ; elapsed = 00:02:01 . Memory (MB): peak = 801.027 ; gain = 486.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:35 ; elapsed = 00:02:48 . Memory (MB): peak = 808.156 ; gain = 493.105
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:122]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:122]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:121]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:121]
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -341,13 +400,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:12 ; elapsed = 00:02:18 . Memory (MB): peak = 855.426 ; gain = 540.398
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:53 ; elapsed = 00:03:07 . Memory (MB): peak = 852.719 ; gain = 537.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:12 ; elapsed = 00:02:18 . Memory (MB): peak = 857.566 ; gain = 542.539
+Finished Timing Optimization : Time (s): cpu = 00:02:53 ; elapsed = 00:03:07 . Memory (MB): peak = 853.895 ; gain = 538.844
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -358,15 +417,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:171]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:170]
-INFO: [Synth 8-3886] merging instance 'i_210' (FDC) to 'i_243'
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:122]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:122]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:121]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/NRM_Normalizer.vhd:121]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:13 ; elapsed = 00:02:19 . Memory (MB): peak = 876.742 ; gain = 561.715
+Finished Technology Mapping : Time (s): cpu = 00:02:53 ; elapsed = 00:03:07 . Memory (MB): peak = 873.387 ; gain = 558.336
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -390,7 +442,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:14 ; elapsed = 00:02:20 . Memory (MB): peak = 876.742 ; gain = 561.715
+Finished IO Insertion : Time (s): cpu = 00:02:55 ; elapsed = 00:03:09 . Memory (MB): peak = 873.387 ; gain = 558.336
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -403,7 +455,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:14 ; elapsed = 00:02:20 . Memory (MB): peak = 876.742 ; gain = 561.715
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:55 ; elapsed = 00:03:09 . Memory (MB): peak = 873.387 ; gain = 558.336
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -415,25 +467,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:15 ; elapsed = 00:02:21 . Memory (MB): peak = 876.742 ; gain = 561.715
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:55 ; elapsed = 00:03:09 . Memory (MB): peak = 873.387 ; gain = 558.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:15 ; elapsed = 00:02:21 . Memory (MB): peak = 876.742 ; gain = 561.715
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:55 ; elapsed = 00:03:09 . Memory (MB): peak = 873.387 ; gain = 558.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:15 ; elapsed = 00:02:21 . Memory (MB): peak = 876.742 ; gain = 561.715
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:55 ; elapsed = 00:03:09 . Memory (MB): peak = 873.387 ; gain = 558.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:15 ; elapsed = 00:02:21 . Memory (MB): peak = 876.742 ; gain = 561.715
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:55 ; elapsed = 00:03:09 . Memory (MB): peak = 873.387 ; gain = 558.336
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -452,40 +504,41 @@ Report Cell Usage:
 |1     |CARRY4   |     8|
 |2     |DSP48E1  |     2|
 |3     |LUT1     |    68|
-|4     |LUT2     |   205|
-|5     |LUT3     |   146|
+|4     |LUT2     |   207|
+|5     |LUT3     |   185|
 |6     |LUT4     |     7|
-|7     |LUT5     |    96|
-|8     |LUT6     |    27|
+|7     |LUT5     |    28|
+|8     |LUT6     |    25|
 |9     |MUXCY    |   239|
 |10    |RAMB36E1 |     1|
-|11    |SRL16E   |    25|
-|12    |XORCY    |   217|
-|13    |FDCE     |    98|
-|14    |FDRE     |   234|
+|11    |SRL16E   |    26|
+|12    |SRLC32E  |     1|
+|13    |XORCY    |   217|
+|14    |FDCE     |   164|
+|15    |FDRE     |   451|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:15 ; elapsed = 00:02:21 . Memory (MB): peak = 876.742 ; gain = 561.715
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:55 ; elapsed = 00:03:09 . Memory (MB): peak = 873.387 ; gain = 558.336
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 334 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:02:12 . Memory (MB): peak = 876.742 ; gain = 554.023
-Synthesis Optimization Complete : Time (s): cpu = 00:02:15 ; elapsed = 00:02:21 . Memory (MB): peak = 876.742 ; gain = 561.715
+Synthesis finished with 0 errors, 0 critical warnings and 336 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:02:59 . Memory (MB): peak = 873.387 ; gain = 558.336
+Synthesis Optimization Complete : Time (s): cpu = 00:02:55 ; elapsed = 00:03:09 . Memory (MB): peak = 873.387 ; gain = 558.336
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 467 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 876.742 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 873.387 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 71 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 71 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-106 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+142 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:18 ; elapsed = 00:02:24 . Memory (MB): peak = 876.742 ; gain = 569.875
-INFO: [Coretcl 2-1174] Renamed 158 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 876.742 ; gain = 0.000
+synth_design: Time (s): cpu = 00:02:58 ; elapsed = 00:03:13 . Memory (MB): peak = 873.387 ; gain = 565.758
+INFO: [Coretcl 2-1174] Renamed 181 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 873.387 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file NRM_Wrapper_utilization_synth.rpt -pb NRM_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Dec 10 10:48:45 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 19 11:38:35 2019...

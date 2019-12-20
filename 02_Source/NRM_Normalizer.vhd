@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-09
--- Last update: 2019-12-09
+-- Last update: 2019-12-19
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -57,6 +57,11 @@ end NRM_Normalizer;
 architecture RTL of NRM_Normalizer is
 
     --------------------------------------------------------------------------------
+    -- TYPE DECLARATIONS
+    --------------------------------------------------------------------------------
+    type T_EN is array (0 to 5) of std_logic;
+
+    --------------------------------------------------------------------------------
     -- CONSTANT DECLARATIONS
     --------------------------------------------------------------------------------
     constant C_SIZE : integer   := G_OPERAND_SIZE;
@@ -64,19 +69,12 @@ architecture RTL of NRM_Normalizer is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component Multiplier is
-        generic(
-            G_OPERAND_A_SIZE    : INTEGER := 5;
-            G_OPERAND_B_SIZE    : INTEGER := 5;
-            G_MULT_OUT_SIZE     : INTEGER := 10
-            );
+    component Multiplier_s16_s16
         port(
-            clk          : in  std_logic;
-            reset_n      : in  std_logic;
-            enable       : in  std_logic;
-            opA          : in  std_logic_vector(G_OPERAND_A_SIZE-1 downto 0);
-            opB          : in  std_logic_vector(G_OPERAND_B_SIZE-1 downto 0);
-            mult_out     : out std_logic_vector(G_MULT_OUT_SIZE-1 downto 0)
+            clk : in  std_logic;
+            a   : in  std_logic_vector(15 downto 0);
+            b   : in  std_logic_vector(15 downto 0);
+            p   : out std_logic_vector(31 downto 0)
             );
     end component;
 
@@ -93,17 +91,15 @@ architecture RTL of NRM_Normalizer is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
+    signal NRM_en_d         : T_EN;
     signal din_r_d          : std_logic_vector(C_SIZE-1 downto 0);
     signal din_i_d          : std_logic_vector(C_SIZE-1 downto 0);
-    signal NRM_en_d         : std_logic;
     signal p_real           : std_logic_vector(2*C_SIZE-1 downto 0);
     signal p_imag           : std_logic_vector(2*C_SIZE-1 downto 0);
     signal p_real_d         : std_logic_vector(2*C_SIZE-1 downto 0);
     signal p_imag_d         : std_logic_vector(2*C_SIZE-1 downto 0);
     signal sum_real         : unsigned(2*C_SIZE-1 downto 0);
-    signal NRM_en_dd        : std_logic;
     signal sqrt_in          : std_logic_vector(31 downto 0);
-    signal NRM_en_ddd       : std_logic;
     signal sqrt_out         : std_logic_vector(23 downto 0);
 
 --------------------------------------------------------------------------------
@@ -118,13 +114,13 @@ begin
     P_mult_input : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            din_r_d     <= (others => '0');
+            din_r_d     <= (others => '0'); -- Merge register with DSP block by commenting
             din_i_d     <= (others => '0');
-            NRM_en_d    <= '0';
+            NRM_en_d(0) <= '0';
         elsif(rising_edge(clk)) then
             din_r_d     <= NRM_din_r;
             din_i_d     <= NRM_din_i;
-            NRM_en_d    <= NRM_en;
+            NRM_en_d(0) <= NRM_en;
         end if;
     end process;
 
@@ -132,33 +128,38 @@ begin
     -- INSTANCE : U_Mult1
     -- Description : Signed multiplier (real x real parts)
     ----------------------------------------------------------------
-    U_Mult1 : Multiplier generic map(
-        G_OPERAND_A_SIZE    => C_SIZE,
-        G_OPERAND_B_SIZE    => C_SIZE,
-        G_MULT_OUT_SIZE     => 2*C_SIZE)
-    port map(
-        clk         => clk,
-        reset_n     => reset_n,
-        enable      => '1',
-        opA         => din_r_d,
-        opB         => din_r_d,
-        mult_out    => p_real);
+    U_Mult1 : Multiplier_s16_s16 port map(
+        clk => clk,
+        a   => din_r_d,
+        b   => din_r_d,
+        p   => p_real);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_Mult2 
     -- Description : Signed multiplier (imag x imag parts)
     ----------------------------------------------------------------
-    U_Mult2 : Multiplier generic map(
-        G_OPERAND_A_SIZE    => C_SIZE,
-        G_OPERAND_B_SIZE    => C_SIZE,
-        G_MULT_OUT_SIZE     => 2*C_SIZE)
-    port map(
-        clk         => clk,
-        reset_n     => reset_n,
-        enable      => '1',
-        opA         => din_i_d,
-        opB         => din_i_d,
-        mult_out    => p_imag);
+    U_Mult2 : Multiplier_s16_s16 port map(
+        clk => clk,
+        a   => din_i_d,
+        b   => din_i_d,
+        p   => p_imag);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_delay
+    -- Description : Register delay
+    --------------------------------------------------------------------------------
+    P_delay : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            NRM_en_d(1) <= '0';
+            NRM_en_d(2) <= '0';
+            NRM_en_d(3) <= '0';
+        elsif(rising_edge(clk)) then
+            NRM_en_d(1) <= NRM_en_d(0);
+            NRM_en_d(2) <= NRM_en_d(1);
+            NRM_en_d(3) <= NRM_en_d(2);
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_mult_output
@@ -167,13 +168,13 @@ begin
     P_mult_output : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            p_real_d        <= (others => '0');
-            p_imag_d        <= (others => '0');
-            NRM_en_dd       <= '0';
+            p_real_d    <= (others => '0');
+            p_imag_d    <= (others => '0');
+            NRM_en_d(4) <= '0';
         elsif(rising_edge(clk)) then
-            p_real_d        <= p_real;
-            p_imag_d        <= p_imag;
-            NRM_en_dd       <= NRM_en_d;
+            p_real_d    <= p_real;
+            p_imag_d    <= p_imag;
+            NRM_en_d(4) <= NRM_en_d(3);
         end if;
     end process;
 
@@ -191,10 +192,10 @@ begin
     begin
         if(reset_n='0') then
             sqrt_in     <= (others => '0');
-            NRM_en_ddd  <= '0';
+            NRM_en_d(5) <= '0';
         elsif(rising_edge(clk)) then
             sqrt_in     <= std_logic_vector(sum_real);
-            NRM_en_ddd  <= NRM_en_dd;
+            NRM_en_d(5) <= NRM_en_d(4);
         end if;
     end process;
 
@@ -204,7 +205,7 @@ begin
     ----------------------------------------------------------------
     U_Sqrt : NRM_SQRT port map(
         aclk                    => clk,
-        s_axis_cartesian_tvalid => NRM_en_ddd,
+        s_axis_cartesian_tvalid => NRM_en_d(5),
         s_axis_cartesian_tdata  => sqrt_in,
         m_axis_dout_tvalid      => NRM_done,
         m_axis_dout_tdata       => sqrt_out);

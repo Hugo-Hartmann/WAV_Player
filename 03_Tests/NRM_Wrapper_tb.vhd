@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-27
--- Last update: 2019-12-09
+-- Last update: 2019-12-19
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ architecture A of NRM_Wrapper_tb is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
-            FFT_din         : in  std_logic_vector(7 downto 0);
+            FFT_din         : in  std_logic_vector(15 downto 0);
             FFT_new_sample  : in  std_logic;
             FFT_addrA       : out std_logic_vector(8 downto 0);
             FFT_addrB       : out std_logic_vector(8 downto 0);
@@ -88,7 +88,7 @@ architecture A of NRM_Wrapper_tb is
     --------------------------------------------------------------------------------
     signal clk              : std_logic := '0';
     signal reset_n          : std_logic;
-    signal FFT_din          : std_logic_vector(7 downto 0);
+    signal FFT_din          : std_logic_vector(15 downto 0);
     signal FFT_new_sample   : std_logic;
     signal FFT_addrA        : std_logic_vector(8 downto 0);
     signal FFT_addrB        : std_logic_vector(8 downto 0);
@@ -101,6 +101,7 @@ architecture A of NRM_Wrapper_tb is
     signal NRM_start        : std_logic;
     signal NRM_read         : std_logic;
     signal NRM_addr         : std_logic_vector(8 downto 0);
+    signal nrm_addr_final   : std_logic_vector(8 downto 0);
     signal NRM_dout         : std_logic_vector(15 downto 0);
     signal NRM_new_sample   : std_logic;
 
@@ -128,6 +129,14 @@ begin
         NRM_read        => NRM_read,
         NRM_addr_r      => NRM_addr,
         NRM_dout        => NRM_dout);
+
+    -- Get correct sample order
+    process(nrm_addr_final)
+    begin
+        for i in nrm_addr_final'range loop
+            NRM_addr(i) <= nrm_addr_final(nrm_addr_final'high-i);
+        end loop;
+    end process;
 
 
     ----------------------------------------------------------------
@@ -170,7 +179,7 @@ begin
         NRM_new_sample  <= '0';
         NRM_start       <= '0';
         NRM_read        <= '0';
-        NRM_addr        <= (others => '0');
+        nrm_addr_final  <= (others => '0');
         wait for (11*C_DEMI_CLK);
 
         NRM_start       <= '1';
@@ -198,7 +207,7 @@ begin
 
         NRM_read    <= '1';
         for i in 0 to 256 loop
-            NRM_addr    <= std_logic_vector(to_unsigned(i, NRM_addr'length));
+            nrm_addr_final  <= std_logic_vector(to_unsigned(i, nrm_addr_final'length));
             wait for (2*C_DEMI_CLK);
         end loop;
 

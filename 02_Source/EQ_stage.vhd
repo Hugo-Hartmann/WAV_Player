@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-05
--- Last update: 2019-11-06
+-- Last update: 2019-12-19
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -46,11 +46,11 @@ entity EQ_stage is
         EQ_vol_down     : in  std_logic;
 
         ------- EQ in --------------------------
-        EQ_din_band     : in  std_logic_vector(C_FIR_MAX*8+7 downto 0);
-        EQ_din          : in  std_logic_vector(7 downto 0);
+        EQ_din_band     : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
+        EQ_din          : in  std_logic_vector(15 downto 0);
         
         ------- EQ out --------------------------
-        EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
+        EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
         EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
 
         );
@@ -64,19 +64,16 @@ architecture RTL of EQ_stage is
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
-    type EQ_STATE is (EQ_RESET, EQ_IDLE, EQ_STORE,
-                      EQ_PIPE1, EQ_PIPE2, EQ_PIPE3);
+    type T_EQ_sum is array (C_FIR_MIN to C_FIR_MAX+1) of std_logic_vector(18 downto 0);
+    type T_EQ_din is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(15 downto 0);
+    type T_EQ_dout is array (C_FIR_MIN to C_FIR_MAX+2) of std_logic_vector(15 downto 0);
+    type T_EQ_level is array (C_FIR_MIN to C_FIR_MAX+2) of std_logic_vector(4 downto 0);
+    type T_EQ_done is array (C_FIR_MIN to C_FIR_MAX) of std_logic;
+    type T_EQ_sum_done is array (C_FIR_MIN to C_FIR_MAX+1) of std_logic;
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component ROM_32_16bit
-        port (
-            a   : in std_logic_vector(4 downto 0);
-            spo : out std_logic_vector(15 downto 0)
-            );
-    end component;
-
     component EQ_volume_ctrl is
         port(
             clk             : in  std_logic;
@@ -88,54 +85,54 @@ architecture RTL of EQ_stage is
             );
     end component;
 
-    component Multiplier is
-        generic(
-            G_OPERAND_A_SIZE    : INTEGER := 5;
-            G_OPERAND_B_SIZE    : INTEGER := 5;
-            G_MULT_OUT_SIZE     : INTEGER := 10
-            );
+    component EQ_volume is
         port(
-            clk          : in  std_logic;
-            reset_n      : in  std_logic;
-            enable       : in  std_logic;
-            opA          : in  std_logic_vector(G_OPERAND_A_SIZE-1 downto 0);
-            opB          : in  std_logic_vector(G_OPERAND_B_SIZE-1 downto 0);
-            mult_out     : out std_logic_vector(G_MULT_OUT_SIZE-1 downto 0)
+            clk         : in  std_logic;
+            reset_n     : in  std_logic;
+            EQ_en       : in  std_logic;
+            EQ_sum_en   : in  std_logic;
+            EQ_level    : in  std_logic_vector(4 downto 0);
+            EQ_done     : out std_logic;
+            EQ_sum_done : out std_logic;
+            EQ_din      : in  std_logic_vector(15 downto 0);
+            EQ_sum_din  : in  std_logic_vector(18 downto 0);
+            EQ_dout     : out std_logic_vector(15 downto 0);
+            EQ_sum_dout : out std_logic_vector(18 downto 0)
             );
     end component;
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal current_state        : EQ_STATE;
-    signal next_state           : EQ_STATE;
-    signal counter_channel      : unsigned(7 downto 0);
-    signal cnt_channel_end      : std_logic;
-    signal cnt_channel_zero     : std_logic;
-    signal cnt_channel_inc      : std_logic;
-    signal cnt_channel_clr      : std_logic;
     signal EQ_level_dout_net    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-    signal ROM_out              : std_logic_vector(15 downto 0);
-    signal Volume_coef          : std_logic_vector(16 downto 0);
-    signal Volume_data          : std_logic_vector(7 downto 0);
-    signal EQ_addr              : std_logic_vector(4 downto 0);
-    signal mult_opA             : std_logic_vector(7 downto 0);
-    signal mult_opB             : std_logic_vector(16 downto 0);
-    signal mult_out             : std_logic_vector(24 downto 0);
-    signal mult_out_d           : std_logic_vector(24 downto 0);
-    signal data_in              : std_logic_vector((C_FIR_MAX+2)*8+7 downto 0);
-    signal data_store           : std_logic;
-    signal sat_out              : std_logic_vector(7 downto 0);
-    signal accu_din             : unsigned(27 downto 0);
-    signal accu                 : unsigned(27 downto 0);
-    signal accu_clr             : std_logic;
-    signal data_acc             : std_logic;
-    signal accu_sat             : unsigned(7 downto 0);
+    signal EQ_level_tab         : T_EQ_level;
+    signal EQ_din_tab           : T_EQ_din;
+    signal EQ_sum_tab           : T_EQ_sum;
+    signal EQ_dout_tab          : T_EQ_dout;
+    signal EQ_done_tab          : T_EQ_done;
+    signal EQ_sum_done_tab      : T_EQ_sum_done;
+    signal EQ_sum_out           : std_logic_vector(18 downto 0);
+    signal EQ_sum_sat           : std_logic_vector(15 downto 0);
+    signal EQ_sum_en            : std_logic;
+    signal EQ_en_d              : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS :
+    -- Description : EQ_en reg
+    --------------------------------------------------------------------------------
+    process(reset_n, clk)
+    begin
+        if(reset_n='0') then
+            EQ_en_d <= '0';
+        elsif(rising_edge(clk)) then
+            EQ_en_d <= EQ_en;
+        end if;
+    end process;
 
     ----------------------------------------------------------------
     -- INSTANCE : EQ_volume_ctrl
@@ -150,276 +147,130 @@ begin
         EQ_level_dout   => EQ_level_dout_net);
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : EQ_level_dout_net
+    -- SEQ PROCESS : P_EQ_level_dout
+    -- Description : EQ_level_dout
     --------------------------------------------------------------------------------
-    EQ_level_dout   <= EQ_level_dout_net;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_reg
-    -- Description : Register inputs
-    --------------------------------------------------------------------------------
-    P_reg : process(clk, reset_n)
+    P_EQ_level_dout : process(reset_n, clk)
     begin
         if(reset_n='0') then
-            for i in data_in'range loop
-                data_in <= (others => '0');
-            end loop;
+            EQ_level_dout   <= (others => '0');
         elsif(rising_edge(clk)) then
-            if(EQ_en='1') then
-                data_in(7 downto 0) <= EQ_din;
-                for i in C_FIR_MIN to C_FIR_MAX loop
-                    data_in((i+1)*8+7 downto (i+1)*8)  <= EQ_din_band(i*8+7 downto i*8);
-                end loop;
-            end if;
-        end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : EQ_addr generation and data selection
-    --------------------------------------------------------------------------------
-    process(counter_channel, EQ_level_dout_net, data_in, accu_sat)
-    
-    variable index : integer := 0;
-    
-    begin
-        if(unsigned(counter_channel)>C_FIR_MAX+2) then
-            index := 0;
-        else
-            index := to_integer(unsigned(counter_channel));
-        end if;
-
-        EQ_addr     <= EQ_level_dout_net(index*5+4 downto index*5);
-
-        if(index<C_FIR_MAX+2) then
-            Volume_data <= data_in(index*8+7 downto index*8);
-        else
-            Volume_data <= std_logic_vector(accu_sat);
-        end if;
-
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_fetch
-    -- Description : Fetch coefficient from ROM
-    --------------------------------------------------------------------------------
-    P_fetch : process(clk, reset_n)
-    begin
-        if(reset_n='0') then
-            Volume_coef <= (others => '0');
-        elsif(rising_edge(clk)) then
-            Volume_coef <= '0' & ROM_out;
+            EQ_level_dout   <= EQ_level_dout_net;
         end if;
     end process;
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_ROM
-    -- Description : Contains coefficient for volume control
+    -- INSTANCE : EQ_volume_input
+    -- Description : 1 Channel audio volume controller
     ----------------------------------------------------------------
-    ROM0 : if G_BEHAVIOURAL=false generate
-        U_ROM : ROM_32_16bit port map(
-            a   => EQ_addr,
-            spo => ROM_out);
-    end generate;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_counter_channel
-    -- Description : Counter for keeping track of channels in FSM
-    --------------------------------------------------------------------------------
-    P_counter_channel : process(clk, reset_n)
-    begin
-        if(reset_n='0') then
-            counter_channel <= to_unsigned(0, counter_channel'length);
-        elsif(rising_edge(clk)) then
-            if(cnt_channel_clr='1') then
-                counter_channel <= to_unsigned(0, counter_channel'length);
-            elsif(cnt_channel_inc='1') then
-                counter_channel <= counter_channel + 1;
-            end if;
-        end if;
-    end process;
-
-    ----------------------------------------------------------------
-    -- INSTANCE : U_Mult
-    -- Description : 8x17 Signed multiplier
-    ----------------------------------------------------------------
-    U_Mult : Multiplier generic map(
-        G_OPERAND_A_SIZE    => 8,
-        G_OPERAND_B_SIZE    => 17,
-        G_MULT_OUT_SIZE     => 25)
-    port map(
+    U_EQ_volume_input : EQ_volume port map(
         clk         => clk,
         reset_n     => reset_n,
-        enable      => '1',
-        opA         => mult_opA,
-        opB         => mult_opB,
-        mult_out    => mult_out);
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_Mult_reg
-    -- Description : Register Multiplier inputs and outputs
-    --------------------------------------------------------------------------------
-    P_Mult_reg : process(clk, reset_n)
-    begin
-        if(reset_n='0') then
-            --mult_opA    <= (others => '0'); -- Merge reg with DSP block when commented
-            --mult_opB    <= (others => '0');
-            mult_out_d  <= (others => '0');
-        elsif(rising_edge(clk)) then
-            if(cnt_channel_end='0') then
-                mult_opA    <= std_logic_vector(unsigned(Volume_data)-128);
-            else
-                mult_opA    <= Volume_data; -- Take accu which is already centered on 0
-            end if;
-            mult_opB    <= Volume_coef;
-            mult_out_d  <= mult_out;
-        end if;
-    end process;
+        EQ_en       => EQ_en_d,
+        EQ_sum_en   => '0',
+        EQ_level    => EQ_level_tab(0),
+        EQ_done     => open,
+        EQ_sum_done => open,
+        EQ_din      => EQ_din,
+        EQ_sum_din  => (others => '0'),
+        EQ_dout     => EQ_dout_tab(0),
+        EQ_sum_dout => open);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
+    -- Description : Tab generation
+    --------------------------------------------------------------------------------
+    process(EQ_din_band)
+    begin
+        for i in C_FIR_MIN to C_FIR_MAX loop
+            EQ_din_tab(i)   <= EQ_din_band(i*16+15 downto i*16);
+        end loop;
+    end process;
+
+    process(EQ_level_dout_net)
+    begin
+        for i in C_FIR_MIN to C_FIR_MAX+2 loop
+            EQ_level_tab(i)   <= EQ_level_dout_net(i*5+4 downto i*5);
+        end loop;
+    end process;
+
+    EQ_sum_tab(0)       <= (others => '0');
+    EQ_sum_done_tab(0)  <= EQ_done_tab(0);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : EQ_volume
+    -- Description : 6 Channel audio volume controller
+    ----------------------------------------------------------------
+    GEN_EQ : for i in C_FIR_MIN to C_FIR_MAX generate
+        U_EQ_volume : EQ_volume port map(
+            clk         => clk,
+            reset_n     => reset_n,
+            EQ_en       => EQ_en_d,
+            EQ_sum_en   => EQ_sum_done_tab(i),
+            EQ_level    => EQ_level_tab(i+1),
+            EQ_done     => EQ_done_tab(i),
+            EQ_sum_done => EQ_sum_done_tab(i+1),
+            EQ_din      => EQ_din_tab(i),
+            EQ_sum_din  => EQ_sum_tab(i),
+            EQ_dout     => EQ_dout_tab(i+1),
+            EQ_sum_dout => EQ_sum_tab(i+1));
+    end generate GEN_EQ;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Sum mapping
+    --------------------------------------------------------------------------------
+    EQ_sum_out  <= EQ_sum_tab(C_FIR_MAX+1);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS :
     -- Description : Saturation
     --------------------------------------------------------------------------------
-    process(mult_out_d)
-    begin
-        if(mult_out_d(24 downto 19)="000000" or mult_out_d(24 downto 19)="111111") then
-            sat_out <= mult_out_d(19 downto 12);
-        elsif(mult_out_d(24)='0') then
-            sat_out <= X"7F";
-        else
-            sat_out <= X"80";
-        end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : cnt_channel control signals
-    --------------------------------------------------------------------------------
-    cnt_channel_end     <= '1' when(counter_channel=C_FIR_MAX+2) else '0';
-    cnt_channel_zero    <= '1' when(counter_channel=0) else '0';
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_FSM_EQ_sync
-    -- Description : FSM_EQ sequential part (current_state logic)
-    --------------------------------------------------------------------------------
-    P_FSM_EQ_sync : process(clk, reset_n)
+    process(reset_n, clk)
     begin
         if(reset_n='0') then
-            current_state   <= EQ_RESET;
+            EQ_sum_sat  <= (others => '0');
+            EQ_sum_en   <= '0';
         elsif(rising_edge(clk)) then
-            current_state   <= next_state;
-        end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- COMB PROCESS : P_FSM_EQ_comb
-    -- Description : FSM_EQ combinatorial part (next_state logic)
-    --------------------------------------------------------------------------------
-    P_FSM_EQ_comb : process(current_state, cnt_channel_end, EQ_en)
-    begin
-    cnt_channel_clr <= '0';
-    cnt_channel_inc <= '0';
-    data_store      <= '0';
-    accu_clr        <= '0';
-    data_acc        <= '0';
-
-        case current_state is
-            when EQ_RESET =>
-                next_state  <= EQ_IDLE;
-
-            when EQ_IDLE =>
-                accu_clr        <= '1';
-                cnt_channel_clr <= '1';
-                if(EQ_en='1') then
-                    next_state  <= EQ_PIPE1;
-                else
-                    next_state  <= EQ_IDLE;
-                end if;
-
-            when EQ_PIPE1 =>
-                next_state      <= EQ_PIPE2;
-
-            when EQ_PIPE2 =>
-                next_state      <= EQ_PIPE3;
-
-            when EQ_PIPE3 =>
-                next_state      <= EQ_STORE;
-
-            when EQ_STORE =>
-                cnt_channel_inc <= '1';
-                data_store      <= '1';
-                data_acc        <= '1';
-                if(cnt_channel_end='1') then
-                    next_state  <= EQ_IDLE;
-                else
-                    next_state  <= EQ_PIPE1;
-                end if;
-
-        end case;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_accu
-    -- Description : Store results
-    --------------------------------------------------------------------------------
-    P_accu : process(clk, reset_n)
-    begin
-        if(reset_n='0') then
-            accu    <= to_unsigned(0, accu'length);
-        elsif(rising_edge(clk)) then
-            if(accu_clr='1') then
-                accu    <= to_unsigned(0, accu'length);
-            elsif(data_acc='1' and cnt_channel_zero='0') then
-                accu    <= accu + accu_din;
+            if(EQ_sum_out(18 downto 15)="0000" or EQ_sum_out(18 downto 15)="1111") then
+                EQ_sum_sat  <= EQ_sum_out(15 downto 0);
+            elsif(EQ_sum_out(18)='0') then
+                EQ_sum_sat  <= X"7FFF";
+            else
+                EQ_sum_sat  <= X"8000";
             end if;
+
+            EQ_sum_en   <= EQ_sum_done_tab(C_FIR_MAX+1);
+
         end if;
     end process;
 
-    --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : Accumulator data
-    --------------------------------------------------------------------------------
-    accu_din    <= (27 downto 25 => mult_out_d(24)) & unsigned(mult_out_d);
+    ----------------------------------------------------------------
+    -- INSTANCE : EQ_volume_output
+    -- Description : 1 Channel audio volume controller
+    ----------------------------------------------------------------
+    U_EQ_volume_output : EQ_volume port map(
+        clk         => clk,
+        reset_n     => reset_n,
+        EQ_en       => EQ_sum_en,
+        EQ_sum_en   => '0',
+        EQ_level    => EQ_level_tab(C_FIR_MAX+2),
+        EQ_done     => open,
+        EQ_sum_done => open,
+        EQ_din      => EQ_sum_sat,
+        EQ_sum_din  => (others => '0'),
+        EQ_dout     => EQ_dout_tab(C_FIR_MAX+2),
+        EQ_sum_dout => open);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
-    -- Description : Saturation (accu)
+    -- Description : Output mapping
     --------------------------------------------------------------------------------
-    process(accu)
+    process(EQ_dout_tab)
     begin
-        if(accu(27 downto 19)="000000000" or accu(27 downto 19)="111111111") then
-            accu_sat    <= accu(19 downto 12);
-        elsif(accu(27)='0') then
-            accu_sat    <= X"7F";
-        else
-            accu_sat    <= X"80";
-        end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_store
-    -- Description : Store results
-    --------------------------------------------------------------------------------
-    P_store : process(clk, reset_n, counter_channel)
-    
-    variable index : integer := 0;
-    
-    begin
-
-        if(unsigned(counter_channel)>C_FIR_MAX+2) then
-            index := 0;
-        else
-            index := to_integer(unsigned(counter_channel));
-        end if;
-
-        if(reset_n='0') then
-            EQ_dout <= (others => '0');
-        elsif(rising_edge(clk)) then
-            if(data_store='1') then
-                EQ_dout(index*8+7 downto index*8)   <= std_logic_vector(unsigned(sat_out)+128);
-            end if;
-        end if;
+        for i in C_FIR_MIN to C_FIR_MAX+2 loop
+            EQ_dout(i*16+15 downto i*16)    <= EQ_dout_tab(i);
+        end loop;
     end process;
 
 end RTL;

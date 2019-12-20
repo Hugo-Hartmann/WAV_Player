@@ -15,3 +15,6 @@ vcom -work lib_BENCH ./../../03_Tests/VGA_RAM_wrapper.vhd
 
 # Stimuli for FFT_UAL
 vcom -work lib_BENCH ./../../03_Tests/FFT_UAL_tb.vhd
+
+# Stimuli for I2S_Wrapper
+vcom -work lib_BENCH ./../../03_Tests/I2S_Wrapper_tb.vhd

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2019-12-03
+-- Last update: 2019-12-19
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ entity FFT_Wrapper is
         reset_n         : in  std_logic;                        -- reset_n
 
         ------- Audio interface ------------------
-        FFT_din         : in  std_logic_vector(7 downto 0);
+        FFT_din         : in  std_logic_vector(15 downto 0);
         FFT_new_sample  : in  std_logic;
 
         ------- FFT interface --------------------
@@ -85,7 +85,7 @@ architecture RTL of FFT_Wrapper is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
-            FFT_din         : in  std_logic_vector(7 downto 0);
+            FFT_din         : in  std_logic_vector(15 downto 0);
             RAM_dinA_r      : in  std_logic_vector(15 downto 0);
             RAM_dinA_i      : in  std_logic_vector(15 downto 0);
             RAM_dinB_r      : in  std_logic_vector(15 downto 0);
@@ -164,12 +164,28 @@ architecture RTL of FFT_Wrapper is
     signal FFT_stage_busy   : std_logic;
     signal addrA_btfly      : std_logic_vector(8 downto 0);
     signal addrB_btfly      : std_logic_vector(8 downto 0);
-    signal addr_counter     : unsigned(8 downto 0);
+    signal FFT_din_d        : std_logic_vector(15 downto 0);
+    signal FFT_new_sample_d : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS :
+    -- Description : Register inputs
+    --------------------------------------------------------------------------------
+    process(reset_n, clk)
+    begin
+        if(reset_n='0') then
+            FFT_din_d           <= (others => '0');
+            FFT_new_sample_d    <= '0';
+        elsif(rising_edge(clk)) then
+            FFT_din_d           <= FFT_din;
+            FFT_new_sample_d    <= FFT_new_sample;
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
@@ -187,7 +203,7 @@ begin
     port map(
         clk             => clk,
         reset_n         => reset_n,
-        FFT_din         => FFT_din,
+        FFT_din         => FFT_din_d,
         RAM_dinA_r      => RAM_dinA_r,
         RAM_dinA_i      => RAM_dinA_i,
         RAM_dinB_r      => RAM_dinB_r,
@@ -198,7 +214,7 @@ begin
         FFT_addrC_r     => FFT_addrC_r,
         FFT_addrA_w     => FFT_addrA_w,
         FFT_addrB_w     => FFT_addrB_w,
-        FFT_new_sample  => FFT_new_sample,
+        FFT_new_sample  => FFT_new_sample_d,
         RAM_doutA_r     => RAM_doutA_r,
         RAM_doutA_i     => RAM_doutA_i,
         RAM_doutB_r     => RAM_doutB_r,
@@ -216,7 +232,7 @@ begin
         FFT_addr_A      => FFT_addrA_r,
         FFT_addr_B      => FFT_addrB_r,
         FFT_addr_coef   => FFT_addrC_r,
-        FFT_start       => FFT_new_sample,
+        FFT_start       => FFT_new_sample_d,
         FFT_stage_busy  => FFT_stage_busy,
         FFT_en          => FFT_en,
         FFT_done        => FFT_done);
@@ -255,7 +271,7 @@ begin
     ----------------------------------------------------------------
     U_FIFO_addrA : FFT_FIFO generic map(
         G_OPERAND_SIZE  => 9,
-        G_FIFO_SIZE     => 5)
+        G_FIFO_SIZE     => 11)
     port map(
         clk         => clk,
         reset_n     => reset_n,
@@ -268,7 +284,7 @@ begin
     ----------------------------------------------------------------
     U_FIFO_addrB : FFT_FIFO generic map(
         G_OPERAND_SIZE  => 9,
-        G_FIFO_SIZE     => 5)
+        G_FIFO_SIZE     => 11)
     port map(
         clk         => clk,
         reset_n     => reset_n,

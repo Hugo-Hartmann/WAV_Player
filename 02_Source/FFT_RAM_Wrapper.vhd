@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-25
--- Last update: 2019-12-09
+-- Last update: 2019-12-16
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ entity FFT_RAM_Wrapper is
         reset_n         : in  std_logic;                        -- reset_n
 
         ------- RAM in ---------------------------
-        FFT_din         : in  std_logic_vector(7 downto 0);
+        FFT_din         : in  std_logic_vector(15 downto 0);
         RAM_dinA_r      : in  std_logic_vector(15 downto 0);
         RAM_dinA_i      : in  std_logic_vector(15 downto 0);
         RAM_dinB_r      : in  std_logic_vector(15 downto 0);
@@ -114,7 +114,6 @@ architecture RTL of FFT_RAM_Wrapper is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal din_map          : unsigned(7 downto 0);
     signal addrA_map        : unsigned(8 downto 0);
     signal addrB_map        : unsigned(8 downto 0);
     signal RAM_smple_wrA    : std_logic_vector(0 downto 0);
@@ -199,8 +198,7 @@ begin
     --------------------------------------------------------------------------------
     RAM_smple_wrA   <= (0 downto 0 => FFT_new_sample);
     RAM_smple_addrA <= std_logic_vector(addrA_map)  when(FFT_new_sample='0') else std_logic_vector(addr_counter);
-    din_map         <= unsigned(FFT_din) - 128;
-    RAM_smple_dinA  <= std_logic_vector(din_map) & X"00";
+    RAM_smple_dinA  <= FFT_din;
     RAM_smple_wrB   <= "0";
     RAM_smple_addrB <= std_logic_vector(addrB_map);
     RAM_smple_dinB  <= X"0000";

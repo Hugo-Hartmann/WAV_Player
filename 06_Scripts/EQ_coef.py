@@ -15,7 +15,9 @@ for i in range(7):
     power += 1
 
 for i in range(len(coefs)):
-    coefs[i] = int(round(coefs[i]*32768/8, 0))
+    coefs[i] = int(round(coefs[i]*32768/4, 0))
+    if(coefs[i]==65536):
+        coefs[i] = 65535
 
 f=open(fichier, 'w')
 

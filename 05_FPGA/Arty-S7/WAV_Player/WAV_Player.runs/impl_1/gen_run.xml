@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1575971385">
+<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1576850636">
   <File Type="BITSTR-BMM" Name="TOP_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="TOP_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="TOP_timing_summary_init.rpt"/>
@@ -115,12 +115,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/FIR_coe/FIR_7000_11024.coe">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../02_Source/EQ_coef.coe">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -128,6 +122,18 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../02_Source/FFT_512.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/FIR_coe/FIR_7000_15000.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/Audio_Interface.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -147,6 +153,7 @@
       </FileInfo>
     </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PPRDIR/../../../02_Source/Contraintes_Arty.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
@@ -170,16 +177,17 @@
       <Option Id="BinFile">1</Option>
     </Step>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="VGA_interface"/>
+  <BlockFileSet Type="BlockSrcs" Name="UART_Wrapper"/>
+  <BlockFileSet Type="BlockSrcs" Name="MMCM"/>
+  <BlockFileSet Type="BlockSrcs" Name="NRM_Wrapper"/>
+  <BlockFileSet Type="BlockSrcs" Name="MMCM_112"/>
+  <BlockFileSet Type="BlockSrcs" Name="Hearbeat"/>
   <BlockFileSet Type="BlockSrcs" Name="VGA_Controller"/>
   <BlockFileSet Type="BlockSrcs" Name="EQ_stage"/>
-  <BlockFileSet Type="BlockSrcs" Name="MMCM_108MHZ"/>
-  <BlockFileSet Type="BlockSrcs" Name="Hearbeat"/>
-  <BlockFileSet Type="BlockSrcs" Name="WAV_Player"/>
-  <BlockFileSet Type="BlockSrcs" Name="RAM_Wrapper"/>
-  <BlockFileSet Type="BlockSrcs" Name="UART_Wrapper"/>
-  <BlockFileSet Type="BlockSrcs" Name="VGA_interface"/>
-  <BlockFileSet Type="BlockSrcs" Name="VU_metre"/>
-  <BlockFileSet Type="BlockSrcs" Name="FIR_interface"/>
   <BlockFileSet Type="BlockSrcs" Name="FFT_Wrapper"/>
-  <BlockFileSet Type="BlockSrcs" Name="NRM_Wrapper"/>
+  <BlockFileSet Type="BlockSrcs" Name="I2S_Wrapper"/>
+  <BlockFileSet Type="BlockSrcs" Name="FIFO_32bit"/>
+  <BlockFileSet Type="BlockSrcs" Name="FIR_interface"/>
+  <BlockFileSet Type="BlockSrcs" Name="VU_metre"/>
 </GenRun>

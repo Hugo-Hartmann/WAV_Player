@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-21
--- Last update: 2019-12-09
+-- Last update: 2019-12-19
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -56,7 +56,8 @@ architecture RTL of FFT_FSM is
     --------------------------------------------------------------------------------
     -- TYPE DECLARATIONS
     --------------------------------------------------------------------------------
-    type FFT_STATE is (FFT_RESET, FFT_IDLE, FFT_NEW_STAGE, FFT_ADDR_START1,
+    type T_EN is array (0 to 8) of std_logic;
+    type FFT_STATE is (FFT_RESET, FFT_IDLE, FFT_NEW_STAGE, FFT_WAIT_PIPE, FFT_ADDR_START1,
                        FFT_ADDR_START2, FFT_ADDR_LOOP, FFT_ADDR_END, FFT_PIPE_UNLOAD, FFT_END);
 
     --------------------------------------------------------------------------------
@@ -79,6 +80,7 @@ architecture RTL of FFT_FSM is
     signal addrA_d          : std_logic_vector(8 downto 0);
     signal addrB_d          : std_logic_vector(8 downto 0);
     signal addrC_d          : std_logic_vector(7 downto 0);
+    signal counter_stage_d  : T_EN;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -99,10 +101,10 @@ begin
                 counter_addr    <= to_unsigned(0, counter_addr'length);
                 counter_coef    <= to_unsigned(0, counter_coef'length);
             elsif(cnt_addr_inc='1') then
-                if(counter_stage=8) then
+                if(counter_stage_d(8)='1') then
                     counter_addr    <= counter_addr + 1;
                     counter_coef    <= counter_coef + 1;
-                elsif(counter_stage=7) then
+                elsif(counter_stage_d(7)='1') then
                     if(counter_addr(6 downto 0)=127) then
                         counter_addr    <= counter_addr + 129;
                         counter_coef    <= to_unsigned(0, counter_coef'length);
@@ -110,7 +112,7 @@ begin
                         counter_coef    <= counter_coef + 2;
                         counter_addr    <= counter_addr + 1;
                     end if;
-                elsif(counter_stage=6) then
+                elsif(counter_stage_d(6)='1') then
                     if(counter_addr(5 downto 0)=63) then
                         counter_addr    <= counter_addr + 65;
                         counter_coef    <= to_unsigned(0, counter_coef'length);
@@ -118,7 +120,7 @@ begin
                         counter_coef    <= counter_coef + 4;
                         counter_addr    <= counter_addr + 1;
                     end if;
-                elsif(counter_stage=5) then
+                elsif(counter_stage_d(5)='1') then
                     if(counter_addr(4 downto 0)=31) then
                         counter_addr    <= counter_addr + 33;
                         counter_coef    <= to_unsigned(0, counter_coef'length);
@@ -126,7 +128,7 @@ begin
                         counter_coef    <= counter_coef + 8;
                         counter_addr    <= counter_addr + 1;
                     end if;
-                elsif(counter_stage=4) then
+                elsif(counter_stage_d(4)='1') then
                     if(counter_addr(3 downto 0)=15) then
                         counter_addr    <= counter_addr + 17;
                         counter_coef    <= to_unsigned(0, counter_coef'length);
@@ -134,7 +136,7 @@ begin
                         counter_coef    <= counter_coef + 16;
                         counter_addr    <= counter_addr + 1;
                     end if;
-                elsif(counter_stage=3) then
+                elsif(counter_stage_d(3)='1') then
                     if(counter_addr(2 downto 0)=7) then
                         counter_addr    <= counter_addr + 9;
                         counter_coef    <= to_unsigned(0, counter_coef'length);
@@ -142,7 +144,7 @@ begin
                         counter_coef    <= counter_coef + 32;
                         counter_addr    <= counter_addr + 1;
                     end if;
-                elsif(counter_stage=2) then
+                elsif(counter_stage_d(2)='1') then
                     if(counter_addr(1 downto 0)=3) then
                         counter_addr    <= counter_addr + 5;
                         counter_coef    <= to_unsigned(0, counter_coef'length);
@@ -150,7 +152,7 @@ begin
                         counter_coef    <= counter_coef + 64;
                         counter_addr    <= counter_addr + 1;
                     end if;
-                elsif(counter_stage=1) then
+                elsif(counter_stage_d(1)='1') then
                     if(counter_addr(0 downto 0)=1) then
                         counter_addr    <= counter_addr + 3;
                         counter_coef    <= to_unsigned(0, counter_coef'length);
@@ -158,7 +160,7 @@ begin
                         counter_coef    <= counter_coef + 128;
                         counter_addr    <= counter_addr + 1;
                     end if;
-                elsif(counter_stage=0) then
+                elsif(counter_stage_d(0)='1') then
                     counter_coef    <= to_unsigned(0, counter_coef'length);
                     counter_addr    <= counter_addr + 2;
                 end if;
@@ -232,6 +234,27 @@ begin
     end process;
 
     --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_counter_stage_d
+    -- Description : Counter to generate addresses
+    --------------------------------------------------------------------------------
+    P_counter_stage_d : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            for i in counter_stage_d'range loop
+                counter_stage_d(i)  <= '0';
+            end loop;
+        elsif(rising_edge(clk)) then
+            for i in counter_stage_d'range loop
+                if(to_integer(counter_stage)=i) then
+                    counter_stage_d(i)  <= '1';
+                else
+                    counter_stage_d(i)  <= '0';
+                end if;
+            end loop;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
     -- COMBINATORY :
     -- Description : End stage signaling
     --------------------------------------------------------------------------------
@@ -278,6 +301,9 @@ begin
             when FFT_NEW_STAGE =>
                 cnt_addr_clr    <= '1';
                 cnt_stage_dec   <= '1';
+                next_state      <= FFT_WAIT_PIPE;
+
+            when FFT_WAIT_PIPE =>
                 next_state      <= FFT_ADDR_START1;
 
             when FFT_ADDR_START1 =>

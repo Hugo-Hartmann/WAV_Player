@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2019-11-27
+-- Last update: 2019-12-19
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -52,14 +52,14 @@ entity VGA_Controller is
         VGA_h_add       : out std_logic_vector(15 downto 0);
 
         ------- Pixel data -----------------------
-        VGA_din         : in  std_logic_vector(7 downto 0);     -- 3-bit Red and Green, 2-bit Blue
+        VGA_din         : in  std_logic_vector(11 downto 0);
 
         ------- Output signals VGA--------------------
         VGA_hsync       : out std_logic;
         VGA_vsync       : out std_logic;
-        VGA_r           : out std_logic_vector(2 downto 0);
-        VGA_g           : out std_logic_vector(2 downto 0);
-        VGA_b           : out std_logic_vector(1 downto 0)
+        VGA_r           : out std_logic_vector(3 downto 0);
+        VGA_g           : out std_logic_vector(3 downto 0);
+        VGA_b           : out std_logic_vector(3 downto 0)
         );
 end VGA_Controller;
 
@@ -154,10 +154,21 @@ begin
     v_sync          <= '1' when(to_unsigned(C_VSYNC_THRES, v_counter'length)<v_counter) else '0';
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : Custom new frame signal
+    -- SEQ PROCESS : P_new_frame
+    -- Description : Generate signal for new frame
     --------------------------------------------------------------------------------
-    VGA_new_frame   <= '1' when(v_counter=0 and h_counter=0) else '0';
+    P_new_frame : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            VGA_new_frame   <= '0';
+        elsif(rising_edge(clk)) then
+            if(v_counter=0 and h_counter=0) then
+                VGA_new_frame   <= '1';
+            else
+                VGA_new_frame   <= '0';
+            end if;
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
@@ -183,7 +194,7 @@ begin
                 mem_counter   <= (others => '0');
             elsif(mem_add_inc='1') then
                 mem_counter   <= mem_counter+1;
-            end if;
+                end if;
         end if;
     end process;
 
@@ -285,9 +296,9 @@ begin
                 VGA_g       <= (others => '0');
                 VGA_b       <= (others => '0');
             else
-                VGA_r   <= VGA_din(7 downto 5);
-                VGA_g   <= VGA_din(4 downto 2);
-                VGA_b   <= VGA_din(1 downto 0);
+                VGA_r   <= VGA_din(11 downto 8);
+                VGA_g   <= VGA_din(7 downto 4);
+                VGA_b   <= VGA_din(3 downto 0);
             end if;
         end if;
     end process;

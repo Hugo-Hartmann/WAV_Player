@@ -16,11 +16,17 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ROM_1024_16bit_
 # IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/ROM_1024_16bit_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ROM_1024_16bit_0 || ORIG_REF_NAME==ROM_1024_16bit_0} -quiet] -quiet
 
+# IP: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/Accu_s43.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Accu_s43 || ORIG_REF_NAME==Accu_s43} -quiet] -quiet
+
+# IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Multiplier_s16_s16 || ORIG_REF_NAME==Multiplier_s16_s16} -quiet] -quiet
+
 # IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ROM_1024_16bit_5 || ORIG_REF_NAME==ROM_1024_16bit_5} -quiet] -quiet
 
-# IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/RAM_2048_8bit.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_8bit || ORIG_REF_NAME==RAM_2048_8bit} -quiet] -quiet
+# IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_16bit || ORIG_REF_NAME==RAM_2048_16bit} -quiet] -quiet
 
 # XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/ROM_1024_16bit_4_ooc.xdc
 
@@ -34,7 +40,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_8bit |
 
 # XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5_ooc.xdc
 
-# XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/RAM_2048_8bit_ooc.xdc
+# XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit_ooc.xdc
+
+# XDC: new/FIR_interface_ooc.xdc
 
 # IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/ROM_1024_16bit_4.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ROM_1024_16bit_4 || ORIG_REF_NAME==ROM_1024_16bit_4} -quiet] -quiet
@@ -51,11 +59,17 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_8bit |
 # IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/ROM_1024_16bit_0.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ROM_1024_16bit_0 || ORIG_REF_NAME==ROM_1024_16bit_0} -quiet] -quiet
 
+# IP: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/Accu_s43.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Accu_s43 || ORIG_REF_NAME==Accu_s43} -quiet] -quiet
+
+# IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Multiplier_s16_s16 || ORIG_REF_NAME==Multiplier_s16_s16} -quiet] -quiet
+
 # IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ROM_1024_16bit_5 || ORIG_REF_NAME==ROM_1024_16bit_5} -quiet] -quiet
 
-# IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/RAM_2048_8bit.xci
-#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_8bit || ORIG_REF_NAME==RAM_2048_8bit} -quiet] -quiet
+# IP: C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_16bit || ORIG_REF_NAME==RAM_2048_16bit} -quiet] -quiet
 
 # XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/ROM_1024_16bit_4_ooc.xdc
 
@@ -69,4 +83,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_8bit |
 
 # XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5_ooc.xdc
 
-# XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_8bit/RAM_2048_8bit_ooc.xdc
+# XDC: c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit_ooc.xdc
+
+# XDC: new/FIR_interface_ooc.xdc

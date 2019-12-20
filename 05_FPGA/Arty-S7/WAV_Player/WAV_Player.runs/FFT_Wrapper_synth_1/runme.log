@@ -16,17 +16,17 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7548 
+INFO: Helper process launched with PID 1860 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 420.609 ; gain = 105.941
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 421.301 ; gain = 106.285
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:61]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'FFT_RAM_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:31' bound to instance 'U_FFT_RAM_Wrapper' of component 'FFT_RAM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:185]
+INFO: [Synth 8-3491] module 'FFT_RAM_Wrapper' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:31' bound to instance 'U_FFT_RAM_Wrapper' of component 'FFT_RAM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:201]
 INFO: [Synth 8-638] synthesizing module 'FFT_RAM_Wrapper' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:71]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'BRAM_512_16bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_16bit/synth/BRAM_512_16bit.vhd:59' bound to instance 'U_RAM_Sample' of component 'BRAM_512_16bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:183]
+INFO: [Synth 8-3491] module 'BRAM_512_16bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_16bit/synth/BRAM_512_16bit.vhd:59' bound to instance 'U_RAM_Sample' of component 'BRAM_512_16bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:182]
 INFO: [Synth 8-638] synthesizing module 'BRAM_512_16bit' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_16bit/synth/BRAM_512_16bit.vhd:74]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -105,7 +105,7 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_512_16bit' [c:/Users/hhartmann/Des
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     3.0361 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_16bit/synth/BRAM_512_16bit.vhd:245]
 INFO: [Synth 8-256] done synthesizing module 'BRAM_512_16bit' (9#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_16bit/synth/BRAM_512_16bit.vhd:74]
-INFO: [Synth 8-3491] module 'BRAM_512_32bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:59' bound to instance 'U_RAM_FFTA' of component 'BRAM_512_32bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:213]
+INFO: [Synth 8-3491] module 'BRAM_512_32bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:59' bound to instance 'U_RAM_FFTA' of component 'BRAM_512_32bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:211]
 INFO: [Synth 8-638] synthesizing module 'BRAM_512_32bit' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:74]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -184,8 +184,8 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_512_32bit' [c:/Users/hhartmann/Des
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     5.9043 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:245]
 INFO: [Synth 8-256] done synthesizing module 'BRAM_512_32bit' (10#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:74]
-INFO: [Synth 8-3491] module 'BRAM_512_32bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:59' bound to instance 'U_RAM_FFTB' of component 'BRAM_512_32bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:231]
-INFO: [Synth 8-3491] module 'ROM_256_32bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/synth/ROM_256_32bit.vhd:59' bound to instance 'U_RAM_COEF' of component 'ROM_256_32bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:322]
+INFO: [Synth 8-3491] module 'BRAM_512_32bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:59' bound to instance 'U_RAM_FFTB' of component 'BRAM_512_32bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:229]
+INFO: [Synth 8-3491] module 'ROM_256_32bit' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/synth/ROM_256_32bit.vhd:59' bound to instance 'U_RAM_COEF' of component 'ROM_256_32bit' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:320]
 INFO: [Synth 8-638] synthesizing module 'ROM_256_32bit' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/synth/ROM_256_32bit.vhd:67]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -265,11 +265,11 @@ INFO: [Synth 8-638] synthesizing module 'ROM_256_32bit' [c:/Users/hhartmann/Desk
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/synth/ROM_256_32bit.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'ROM_256_32bit' (12#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/synth/ROM_256_32bit.vhd:67]
 INFO: [Synth 8-256] done synthesizing module 'FFT_RAM_Wrapper' (13#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:71]
-INFO: [Synth 8-3491] module 'FFT_FSM' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FSM.vhd:30' bound to instance 'U_FFT_FSM' of component 'FFT_FSM' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:213]
+INFO: [Synth 8-3491] module 'FFT_FSM' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FSM.vhd:30' bound to instance 'U_FFT_FSM' of component 'FFT_FSM' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:229]
 INFO: [Synth 8-638] synthesizing module 'FFT_FSM' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FSM.vhd:54]
 INFO: [Synth 8-256] done synthesizing module 'FFT_FSM' (14#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FSM.vhd:54]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'FFT_UAL' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:30' bound to instance 'U_FFT_UAL' of component 'FFT_UAL' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:234]
+INFO: [Synth 8-3491] module 'FFT_UAL' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:30' bound to instance 'U_FFT_UAL' of component 'FFT_UAL' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:250]
 INFO: [Synth 8-638] synthesizing module 'FFT_UAL' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:64]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
@@ -280,14 +280,14 @@ INFO: [Synth 8-638] synthesizing module 'FFT_Adder' [C:/Users/hhartmann/Desktop/
 	Parameter G_SUB_EN bound to: 0 - type: bool 
 INFO: [Synth 8-256] done synthesizing module 'FFT_Adder' (15#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:61]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
-	Parameter G_FIFO_SIZE bound to: 2 - type: integer 
+	Parameter G_FIFO_SIZE bound to: 8 - type: integer 
 INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_A_r' of component 'FFT_FIFO' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:166]
 INFO: [Synth 8-638] synthesizing module 'FFT_FIFO' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:53]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
-	Parameter G_FIFO_SIZE bound to: 2 - type: integer 
+	Parameter G_FIFO_SIZE bound to: 8 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'FFT_FIFO' (16#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:53]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
-	Parameter G_FIFO_SIZE bound to: 2 - type: integer 
+	Parameter G_FIFO_SIZE bound to: 8 - type: integer 
 INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_A_i' of component 'FFT_FIFO' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:179]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
 	Parameter G_SUB_EN bound to: 1 - type: bool 
@@ -299,6 +299,10 @@ INFO: [Synth 8-256] done synthesizing module 'FFT_Adder__parameterized1' (16#1) 
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
 	Parameter G_FIFO_SIZE bound to: 2 - type: integer 
 INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_coef_r' of component 'FFT_FIFO' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:211]
+INFO: [Synth 8-638] synthesizing module 'FFT_FIFO__parameterized2' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:53]
+	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
+	Parameter G_FIFO_SIZE bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'FFT_FIFO__parameterized2' (16#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:53]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
 	Parameter G_FIFO_SIZE bound to: 2 - type: integer 
 INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_coef_i' of component 'FFT_FIFO' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:224]
@@ -306,42 +310,51 @@ INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Desktop/s
 INFO: [Synth 8-3491] module 'FFT_Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:30' bound to instance 'U_Multiplier' of component 'FFT_Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:237]
 INFO: [Synth 8-638] synthesizing module 'FFT_Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:60]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_A_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
-	Parameter G_MULT_OUT_SIZE bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult1' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:129]
-INFO: [Synth 8-638] synthesizing module 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:54]
-	Parameter G_OPERAND_A_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
-	Parameter G_MULT_OUT_SIZE bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'Multiplier' (17#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:54]
-	Parameter G_OPERAND_A_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
-	Parameter G_MULT_OUT_SIZE bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult2' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:145]
-	Parameter G_OPERAND_A_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
-	Parameter G_MULT_OUT_SIZE bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult3' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:161]
-	Parameter G_OPERAND_A_SIZE bound to: 16 - type: integer 
-	Parameter G_OPERAND_B_SIZE bound to: 16 - type: integer 
-	Parameter G_MULT_OUT_SIZE bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'Multiplier' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/Multiplier.vhd:30' bound to instance 'U_Mult4' of component 'Multiplier' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:177]
-INFO: [Synth 8-256] done synthesizing module 'FFT_Multiplier' (18#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:60]
-INFO: [Synth 8-256] done synthesizing module 'FFT_UAL' (19#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:64]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult1' of component 'Multiplier_s16_s16' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:140]
+INFO: [Synth 8-638] synthesizing module 'Multiplier_s16_s16' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:68]
+WARNING: [Synth 8-5640] Port 'zero_detect' is missing in component declaration [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:71]
+WARNING: [Synth 8-5640] Port 'pcasc' is missing in component declaration [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:71]
+	Parameter C_VERBOSITY bound to: 0 - type: integer 
+	Parameter C_MODEL_TYPE bound to: 0 - type: integer 
+	Parameter C_OPTIMIZE_GOAL bound to: 1 - type: integer 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_HAS_CE bound to: 0 - type: integer 
+	Parameter C_HAS_SCLR bound to: 0 - type: integer 
+	Parameter C_LATENCY bound to: 3 - type: integer 
+	Parameter C_A_WIDTH bound to: 16 - type: integer 
+	Parameter C_A_TYPE bound to: 0 - type: integer 
+	Parameter C_B_WIDTH bound to: 16 - type: integer 
+	Parameter C_B_TYPE bound to: 0 - type: integer 
+	Parameter C_OUT_HIGH bound to: 31 - type: integer 
+	Parameter C_OUT_LOW bound to: 0 - type: integer 
+	Parameter C_MULT_TYPE bound to: 1 - type: integer 
+	Parameter C_CE_OVERRIDES_SCLR bound to: 0 - type: integer 
+	Parameter C_CCM_IMP bound to: 0 - type: integer 
+	Parameter C_B_VALUE bound to: 10000001 - type: string 
+	Parameter C_HAS_ZERO_DETECT bound to: 0 - type: integer 
+	Parameter C_ROUND_OUTPUT bound to: 0 - type: integer 
+	Parameter C_ROUND_PT bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'mult_gen_v12_0_14' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/hdl/mult_gen_v12_0_vh_rfs.vhd:21013' bound to instance 'U0' of component 'mult_gen_v12_0_14' [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:120]
+WARNING: [Synth 8-5974] attribute "use_dsp48" has been deprecated, please use "use_dsp" instead 
+INFO: [Synth 8-256] done synthesizing module 'Multiplier_s16_s16' (22#1) [c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:68]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult2' of component 'Multiplier_s16_s16' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:150]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult3' of component 'Multiplier_s16_s16' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:160]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult4' of component 'Multiplier_s16_s16' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:170]
+INFO: [Synth 8-256] done synthesizing module 'FFT_Multiplier' (23#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:60]
+INFO: [Synth 8-256] done synthesizing module 'FFT_UAL' (24#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_UAL.vhd:64]
 	Parameter G_OPERAND_SIZE bound to: 9 - type: integer 
-	Parameter G_FIFO_SIZE bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_addrA' of component 'FFT_FIFO' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:256]
-INFO: [Synth 8-638] synthesizing module 'FFT_FIFO__parameterized2' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:53]
+	Parameter G_FIFO_SIZE bound to: 11 - type: integer 
+INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_addrA' of component 'FFT_FIFO' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:272]
+INFO: [Synth 8-638] synthesizing module 'FFT_FIFO__parameterized4' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:53]
 	Parameter G_OPERAND_SIZE bound to: 9 - type: integer 
-	Parameter G_FIFO_SIZE bound to: 5 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'FFT_FIFO__parameterized2' (19#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:53]
+	Parameter G_FIFO_SIZE bound to: 11 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'FFT_FIFO__parameterized4' (24#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:53]
 	Parameter G_OPERAND_SIZE bound to: 9 - type: integer 
-	Parameter G_FIFO_SIZE bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_addrB' of component 'FFT_FIFO' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:269]
-INFO: [Synth 8-256] done synthesizing module 'FFT_Wrapper' (20#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:61]
+	Parameter G_FIFO_SIZE bound to: 11 - type: integer 
+INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_addrB' of component 'FFT_FIFO' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:285]
+INFO: [Synth 8-256] done synthesizing module 'FFT_Wrapper' (25#1) [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Wrapper.vhd:61]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:03:27 ; elapsed = 00:03:31 . Memory (MB): peak = 805.621 ; gain = 490.953
+Finished RTL Elaboration : Time (s): cpu = 00:03:08 ; elapsed = 00:03:12 . Memory (MB): peak = 819.293 ; gain = 504.277
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -354,10 +367,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:27 ; elapsed = 00:03:31 . Memory (MB): peak = 805.621 ; gain = 490.953
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:08 ; elapsed = 00:03:12 . Memory (MB): peak = 819.293 ; gain = 504.277
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:03:27 ; elapsed = 00:03:31 . Memory (MB): peak = 805.621 ; gain = 490.953
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:03:08 ; elapsed = 00:03:12 . Memory (MB): peak = 819.293 ; gain = 504.277
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -366,58 +379,88 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/FFT_Wrapper/new/FFT_Wrapper_ooc.xdc]
+Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/FFT_Wrapper/new/FFT_Wrapper_ooc.xdc]
 Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 805.621 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 819.293 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 805.621 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 805.621 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 819.293 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.122 . Memory (MB): peak = 819.293 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:03:39 ; elapsed = 00:03:44 . Memory (MB): peak = 805.621 ; gain = 490.953
+Finished Constraint Validation : Time (s): cpu = 00:03:24 ; elapsed = 00:03:30 . Memory (MB): peak = 819.293 ; gain = 504.277
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:03:39 ; elapsed = 00:03:45 . Memory (MB): peak = 805.621 ; gain = 490.953
+Finished Loading Part and Timing Information : Time (s): cpu = 00:03:24 ; elapsed = 00:03:30 . Memory (MB): peak = 819.293 ; gain = 504.277
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM3.U_RAM_COEF . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM0.U_RAM_Sample . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FFT_UAL/U_Multiplier/U_Mult1. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FFT_UAL/U_Multiplier/U_Mult2. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FFT_UAL/U_Multiplier/U_Mult3. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FFT_UAL/U_Multiplier/U_Mult4. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM1.U_RAM_FFTA . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM2.U_RAM_FFTB . (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM0.U_RAM_Sample . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:39 ; elapsed = 00:03:45 . Memory (MB): peak = 805.621 ; gain = 490.953
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:24 ; elapsed = 00:03:30 . Memory (MB): peak = 819.293 ; gain = 504.277
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'FFT_FSM'
-INFO: [Synth 8-5546] ROM "counter_addr" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_stage_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_stage_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-               fft_reset |                             0000 |                             0000
-                fft_idle |                             0001 |                             0001
-           fft_new_stage |                             0010 |                             0010
-         fft_addr_start1 |                             0011 |                             0011
-         fft_addr_start2 |                             0100 |                             0100
-           fft_addr_loop |                             0101 |                             0101
-            fft_addr_end |                             0110 |                             0110
-         fft_pipe_unload |                             0111 |                             0111
-                 fft_end |                             1000 |                             1000
+               fft_reset |                       0000000001 |                             0000
+                fft_idle |                       0000000010 |                             0001
+           fft_new_stage |                       0000000100 |                             0010
+           fft_wait_pipe |                       0000001000 |                             0011
+         fft_addr_start1 |                       0000010000 |                             0100
+         fft_addr_start2 |                       0000100000 |                             0101
+           fft_addr_loop |                       0001000000 |                             0110
+            fft_addr_end |                       0010000000 |                             0111
+         fft_pipe_unload |                       0100000000 |                             1000
+                 fft_end |                       1000000000 |                             1001
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'FFT_FSM'
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'FFT_FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:40 ; elapsed = 00:03:46 . Memory (MB): peak = 805.621 ; gain = 490.953
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:25 ; elapsed = 00:03:32 . Memory (MB): peak = 819.293 ; gain = 504.277
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -428,102 +471,12 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
-Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     32 Bit       Adders := 1     
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input     17 Bit       Adders := 2     
-	   3 Input     16 Bit       Adders := 2     
-	   4 Input     16 Bit       Adders := 2     
-	   2 Input      9 Bit       Adders := 19    
-	   2 Input      8 Bit       Adders := 10    
-+---Registers : 
-	               32 Bit    Registers := 4     
-	               16 Bit    Registers := 26    
-	                9 Bit    Registers := 14    
-	                8 Bit    Registers := 3     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 7     
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 8     
-	   3 Input     16 Bit        Muxes := 2     
-	   2 Input      9 Bit        Muxes := 13    
-	   2 Input      8 Bit        Muxes := 9     
-	   9 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 4     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 7     
-	   9 Input      1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
-Hierarchical RTL Component report 
-Module FFT_RAM_Wrapper 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      9 Bit       Adders := 3     
-	   2 Input      8 Bit       Adders := 1     
-+---Registers : 
-	                9 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 8     
-	   2 Input      9 Bit        Muxes := 5     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
-Module FFT_FSM 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      9 Bit       Adders := 16    
-	   2 Input      8 Bit       Adders := 9     
-+---Registers : 
-	                9 Bit    Registers := 3     
-	                8 Bit    Registers := 3     
-+---Muxes : 
-	   2 Input      9 Bit        Muxes := 8     
-	   2 Input      8 Bit        Muxes := 9     
-	   9 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 5     
-	   9 Input      1 Bit        Muxes := 6     
-Module FFT_Adder 
-Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     16 Bit       Adders := 2     
-+---Registers : 
-	               16 Bit    Registers := 8     
-	                1 Bit    Registers := 2     
-Module FFT_FIFO 
-Detailed RTL Component Info : 
-+---Registers : 
-	               16 Bit    Registers := 2     
-Module FFT_Adder__parameterized1 
-Detailed RTL Component Info : 
-+---Adders : 
-	   4 Input     16 Bit       Adders := 2     
-+---Registers : 
-	               16 Bit    Registers := 8     
-	                1 Bit    Registers := 2     
-Module FFT_Multiplier 
-Detailed RTL Component Info : 
-+---Adders : 
-	   3 Input     32 Bit       Adders := 1     
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input     17 Bit       Adders := 2     
-+---Registers : 
-	               32 Bit    Registers := 4     
-	               16 Bit    Registers := 2     
-	                1 Bit    Registers := 2     
-+---Muxes : 
-	   3 Input     16 Bit        Muxes := 2     
-Module FFT_FIFO__parameterized2 
-Detailed RTL Component Info : 
-+---Registers : 
-	                9 Bit    Registers := 5     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -548,78 +501,85 @@ INFO: [Synth 8-4471] merging register 'U_Sub/opA_r_reg[15:0]' into 'U_Adder/opA_
 INFO: [Synth 8-4471] merging register 'U_Sub/opB_i_reg[15:0]' into 'U_Adder/opB_i_reg[15:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:97]
 INFO: [Synth 8-4471] merging register 'U_Sub/opA_i_reg[15:0]' into 'U_Adder/opA_i_reg[15:0]' [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:95]
 INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "counter_addr" won't be mapped to RAM because it is too sparse
-DSP Report: Generating DSP U_Multiplier/U_Mult2/mult_out, operation Mode is: A*B.
-DSP Report: operator U_Multiplier/U_Mult2/mult_out is absorbed into DSP U_Multiplier/U_Mult2/mult_out.
-DSP Report: Generating DSP U_Multiplier/U_Mult1/mult_out, operation Mode is: A*B.
-DSP Report: operator U_Multiplier/U_Mult1/mult_out is absorbed into DSP U_Multiplier/U_Mult1/mult_out.
-DSP Report: Generating DSP U_Multiplier/U_Mult4/mult_out, operation Mode is: A*B.
-DSP Report: operator U_Multiplier/U_Mult4/mult_out is absorbed into DSP U_Multiplier/U_Mult4/mult_out.
-DSP Report: Generating DSP U_Multiplier/U_Mult3/mult_out, operation Mode is: A*B.
-DSP Report: operator U_Multiplier/U_Mult3/mult_out is absorbed into DSP U_Multiplier/U_Mult3/mult_out.
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[1]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[2]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[3]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[4]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[5]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[6]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[7]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[8]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[9]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[10]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[11]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[12]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[13]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opA_i_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opA_i_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opB_i_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opB_i_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[15]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[1]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[2]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[3]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[4]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[5]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[6]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[6]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[7]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[7]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[8]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[8]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[9]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[9]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[10]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[10]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[11]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[11]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[12]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[12]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[13]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[13]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[14]'
+INFO: [Synth 8-5546] ROM "cnt_stage_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "counter_stage_d" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[13] )
 INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opA_r_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opA_r_reg[15]'
 INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opB_r_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opB_r_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[15]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[14] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[13] )
+INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opA_i_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opA_i_reg[15]'
+INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opB_i_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opB_i_reg[15]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[16] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:44 ; elapsed = 00:03:50 . Memory (MB): peak = 805.621 ; gain = 490.953
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:30 ; elapsed = 00:03:37 . Memory (MB): peak = 819.293 ; gain = 504.277
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-DSP: Preliminary Mapping  Report (see note below)
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Multiplier  | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|Multiplier  | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|Multiplier  | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|Multiplier  | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:133]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:83]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:132]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:83]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:133]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:83]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:132]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:83]
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -630,13 +590,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:04:01 ; elapsed = 00:04:07 . Memory (MB): peak = 851.590 ; gain = 536.922
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:52 ; elapsed = 00:04:00 . Memory (MB): peak = 853.000 ; gain = 537.984
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:04:01 ; elapsed = 00:04:07 . Memory (MB): peak = 852.453 ; gain = 537.785
+Finished Timing Optimization : Time (s): cpu = 00:03:52 ; elapsed = 00:04:00 . Memory (MB): peak = 854.078 ; gain = 539.063
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -647,23 +607,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:197]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:196]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:199]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Multiplier.vhd:198]
-INFO: [Synth 8-3886] merging instance 'i_1120' (FDC) to 'i_1153'
-INFO: [Synth 8-3886] merging instance 'i_1153' (FDC) to 'i_1087'
-INFO: [Synth 8-3886] merging instance 'i_1054' (FDC) to 'i_1087'
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:133]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:83]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:132]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:83]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:133]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:83]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_Adder.vhd:132]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/FFT_FIFO.vhd:83]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:04:02 ; elapsed = 00:04:08 . Memory (MB): peak = 876.215 ; gain = 561.547
+Finished Technology Mapping : Time (s): cpu = 00:03:52 ; elapsed = 00:04:01 . Memory (MB): peak = 879.457 ; gain = 564.441
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -687,7 +632,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:04:03 ; elapsed = 00:04:09 . Memory (MB): peak = 876.215 ; gain = 561.547
+Finished IO Insertion : Time (s): cpu = 00:03:54 ; elapsed = 00:04:02 . Memory (MB): peak = 879.457 ; gain = 564.441
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -700,7 +645,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:04:03 ; elapsed = 00:04:09 . Memory (MB): peak = 876.215 ; gain = 561.547
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:54 ; elapsed = 00:04:02 . Memory (MB): peak = 879.457 ; gain = 564.441
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -712,41 +657,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:03 ; elapsed = 00:04:09 . Memory (MB): peak = 876.215 ; gain = 561.547
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:54 ; elapsed = 00:04:02 . Memory (MB): peak = 879.457 ; gain = 564.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:04:03 ; elapsed = 00:04:09 . Memory (MB): peak = 876.215 ; gain = 561.547
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:54 ; elapsed = 00:04:02 . Memory (MB): peak = 879.457 ; gain = 564.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:03 ; elapsed = 00:04:09 . Memory (MB): peak = 876.215 ; gain = 561.547
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:54 ; elapsed = 00:04:02 . Memory (MB): peak = 879.457 ; gain = 564.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:04:03 ; elapsed = 00:04:09 . Memory (MB): peak = 876.215 ; gain = 561.547
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Static Shift Register Report:
-+------------+-------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|Module Name | RTL Name                            | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
-+------------+-------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|FFT_Wrapper | U_FFT_UAL/U_Multiplier/FFT_done_reg | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
-|FFT_Wrapper | U_FIFO_addrA/shift_reg_reg[5][8]    | 5      | 9     | YES          | NO                 | YES               | 9      | 0       | 
-|FFT_Wrapper | U_FIFO_addrB/shift_reg_reg[5][8]    | 5      | 9     | YES          | NO                 | YES               | 9      | 0       | 
-+------------+-------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:54 ; elapsed = 00:04:02 . Memory (MB): peak = 879.457 ; gain = 564.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -764,93 +693,42 @@ Report Cell Usage:
 +------+-----------+------+
 |1     |CARRY4     |    48|
 |2     |DSP48E1    |     4|
-|3     |LUT1       |     7|
-|4     |LUT2       |   171|
-|5     |LUT3       |   156|
-|6     |LUT4       |   109|
-|7     |LUT5       |    60|
-|8     |LUT6       |   130|
-|9     |MUXF7      |     4|
+|3     |LUT1       |     5|
+|4     |LUT2       |   204|
+|5     |LUT3       |    97|
+|6     |LUT4       |   106|
+|7     |LUT5       |    69|
+|8     |LUT6       |   113|
+|9     |MUXF7      |     1|
 |10    |RAMB18E1   |     1|
 |11    |RAMB18E1_1 |     1|
 |12    |RAMB36E1   |     2|
-|13    |SRL16E     |    19|
-|14    |FDCE       |   374|
-|15    |FDPE       |     3|
-|16    |FDRE       |    19|
+|13    |SRL16E     |    51|
+|14    |FDCE       |   546|
+|15    |FDPE       |     4|
+|16    |FDRE       |   115|
 +------+-----------+------+
-
-Report Instance Areas: 
-+------+-------------------------------------------------+--------------------------------------------+------+
-|      |Instance                                         |Module                                      |Cells |
-+------+-------------------------------------------------+--------------------------------------------+------+
-|1     |top                                              |                                            |  1108|
-|2     |  U_FFT_FSM                                      |FFT_FSM                                     |   293|
-|3     |  U_FFT_RAM_Wrapper                              |FFT_RAM_Wrapper                             |   100|
-|4     |    \RAM0.U_RAM_Sample                           |BRAM_512_16bit                              |     1|
-|5     |      U0                                         |blk_mem_gen_v8_4_2                          |     1|
-|6     |        inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth                    |     1|
-|7     |          \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top                             |     1|
-|8     |            \valid.cstr                          |blk_mem_gen_generic_cstr                    |     1|
-|9     |              \ramloop[0].ram.r                  |blk_mem_gen_prim_width                      |     1|
-|10    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper                    |     1|
-|11    |    \RAM1.U_RAM_FFTA                             |BRAM_512_32bit__1                           |     1|
-|12    |      U0                                         |blk_mem_gen_v8_4_2__parameterized1__1       |     1|
-|13    |        inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth__parameterized0_7  |     1|
-|14    |          \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0_8           |     1|
-|15    |            \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0_9  |     1|
-|16    |              \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized0_10   |     1|
-|17    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized0_11 |     1|
-|18    |    \RAM2.U_RAM_FFTB                             |BRAM_512_32bit                              |     1|
-|19    |      U0                                         |blk_mem_gen_v8_4_2__parameterized1          |     1|
-|20    |        inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth__parameterized0    |     1|
-|21    |          \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized0             |     1|
-|22    |            \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized0    |     1|
-|23    |              \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized0      |     1|
-|24    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized0    |     1|
-|25    |    \RAM3.U_RAM_COEF                             |ROM_256_32bit                               |     1|
-|26    |      U0                                         |blk_mem_gen_v8_4_2__parameterized3          |     1|
-|27    |        inst_blk_mem_gen                         |blk_mem_gen_v8_4_2_synth__parameterized1    |     1|
-|28    |          \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top__parameterized1             |     1|
-|29    |            \valid.cstr                          |blk_mem_gen_generic_cstr__parameterized1    |     1|
-|30    |              \ramloop[0].ram.r                  |blk_mem_gen_prim_width__parameterized1      |     1|
-|31    |                \prim_init.ram                   |blk_mem_gen_prim_wrapper_init               |     1|
-|32    |  U_FFT_UAL                                      |FFT_UAL                                     |   620|
-|33    |    U_Adder                                      |FFT_Adder                                   |   223|
-|34    |    U_FIFO_A_i                                   |FFT_FIFO                                    |    32|
-|35    |    U_FIFO_A_r                                   |FFT_FIFO_1                                  |    32|
-|36    |    U_FIFO_coef_i                                |FFT_FIFO_2                                  |    32|
-|37    |    U_FIFO_coef_r                                |FFT_FIFO_3                                  |    32|
-|38    |    U_Multiplier                                 |FFT_Multiplier                              |   228|
-|39    |      U_Mult1                                    |Multiplier                                  |    64|
-|40    |      U_Mult2                                    |Multiplier_4                                |     1|
-|41    |      U_Mult3                                    |Multiplier_5                                |    64|
-|42    |      U_Mult4                                    |Multiplier_6                                |     1|
-|43    |    U_Sub                                        |FFT_Adder__parameterized1                   |    41|
-|44    |  U_FIFO_addrA                                   |FFT_FIFO__parameterized2                    |    49|
-|45    |  U_FIFO_addrB                                   |FFT_FIFO__parameterized2_0                  |    45|
-+------+-------------------------------------------------+--------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:04:03 ; elapsed = 00:04:09 . Memory (MB): peak = 876.215 ; gain = 561.547
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:54 ; elapsed = 00:04:02 . Memory (MB): peak = 879.457 ; gain = 564.441
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 518 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:03:59 . Memory (MB): peak = 876.215 ; gain = 561.547
-Synthesis Optimization Complete : Time (s): cpu = 00:04:03 ; elapsed = 00:04:09 . Memory (MB): peak = 876.215 ; gain = 561.547
+Synthesis finished with 0 errors, 0 critical warnings and 520 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:03:48 . Memory (MB): peak = 879.457 ; gain = 564.441
+Synthesis Optimization Complete : Time (s): cpu = 00:03:54 ; elapsed = 00:04:02 . Memory (MB): peak = 879.457 ; gain = 564.441
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 60 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 57 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 876.215 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 879.457 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-135 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+179 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:07 ; elapsed = 00:04:13 . Memory (MB): peak = 876.215 ; gain = 570.898
-INFO: [Coretcl 2-1174] Renamed 44 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 876.215 ; gain = 0.000
+synth_design: Time (s): cpu = 00:03:58 ; elapsed = 00:04:07 . Memory (MB): peak = 879.457 ; gain = 571.859
+INFO: [Coretcl 2-1174] Renamed 56 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 879.457 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FFT_Wrapper_utilization_synth.rpt -pb FFT_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Dec  9 15:05:55 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 19 15:29:40 2019...
