@@ -291,7 +291,7 @@ begin
     SAT0 : if G_SELECT=0 generate
         process(accu)
         begin
-            if(accu(42 downto 38)="00000" or accu(42 downto 28)="11111") then
+            if(accu(42 downto 38)="00000" or accu(42 downto 38)="11111") then
                 sat_out <= accu(38 downto 23);
             elsif(accu(42)='0') then
                 sat_out <= X"7FFF";

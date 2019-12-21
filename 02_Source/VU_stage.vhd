@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-20
--- Last update: 2019-12-20
+-- Last update: 2019-12-21
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ architecture RTL of VU_stage is
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
-    type T_ENABLE is array(0 to 2) of std_logic;
+    type T_ENABLE is array(0 to 5) of std_logic;
     type T_LEVEL is array(0 to 31) of std_logic;
 
     --------------------------------------------------------------------------------
@@ -90,10 +90,17 @@ architecture RTL of VU_stage is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal VU_en_d  : T_ENABLE;
-    signal VU_level : T_LEVEL;
-    signal accu     : std_logic_vector(26 downto 0);
-    signal accu_map : unsigned(18 downto 0);
+    signal RAM_in       : std_logic_vector(15 downto 0);
+    signal RAM_out      : std_logic_vector(15 downto 0);
+    signal RAM_write    : std_logic_vector(0 downto 0);
+    signal RAM_addr     : std_logic_vector(10 downto 0);
+    signal VU_en_d      : T_ENABLE;
+    signal VU_level     : T_LEVEL;
+    signal VU_din_map   : std_logic_vector(15 downto 0);
+    signal accu_din     : std_logic_vector(15 downto 0);
+    signal accu         : std_logic_vector(26 downto 0);
+    signal accu_sat     : std_logic_vector(9 downto 0);
+    signal accu_map     : unsigned(9 downto 0);
 
 
 --------------------------------------------------------------------------------
@@ -114,34 +121,16 @@ begin
         douta   => RAM_out);
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_RAM
-    -- Description : Register RAM signals
+    -- COMBINATORY :
+    -- Description : VU_din_map
     --------------------------------------------------------------------------------
-    P_RAM : process(clk, reset_n)
-    begin
-        if(rising_edge(clk)) then
-            RAM_addr    <= VU_addr;
-            RAM_write   <= VU_write;
-            RAM_in      <= VU_din;
-        end if;
-    end process;
-
-    ----------------------------------------------------------------
-    -- INSTANCE : U_Accu
-    -- Description : 27 bit accumulator
-    ----------------------------------------------------------------
-    U_Accu : Accu_u27 port map(
-        clk     => clk,
-        b       => RAM_out,
-        ce      => VU_en OR VU_en_d(0),
-        sclr    => VU_clr,
-        q       => accu);
+    VU_din_map  <= VU_din when(VU_din(VU_din'high)='0') else (NOT VU_din);
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_delay_accu
+    -- SEQ PROCESS : P_delay_RAM
     -- Description : Register delay
     --------------------------------------------------------------------------------
-    P_delay_accu : process(clk, reset_n)
+    P_delay_RAM : process(clk, reset_n)
     begin
         if(reset_n='0') then
             VU_en_d(0)  <= '0';
@@ -153,10 +142,66 @@ begin
     end process;
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : accu_map
+    -- SEQ PROCESS : P_RAM
+    -- Description : Register RAM signals
     --------------------------------------------------------------------------------
-    accu_map    <= unsigned(accu(26 downto 8));
+    P_RAM : process(clk, reset_n)
+    begin
+        if(rising_edge(clk)) then
+            RAM_addr    <= VU_addr;
+            RAM_write   <= (0 downto 0 => VU_write);
+            RAM_in      <= VU_din_map;
+            Accu_din    <= RAM_out;
+        end if;
+    end process;
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_Accu
+    -- Description : 27 bit accumulator
+    ----------------------------------------------------------------
+    U_Accu : Accu_u27 port map(
+        clk     => clk,
+        b       => Accu_din,
+        ce      => VU_en_d(1) OR VU_en_d(2),
+        sclr    => VU_clr,
+        q       => accu);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_delay_accu
+    -- Description : Register delay
+    --------------------------------------------------------------------------------
+    P_delay_accu : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            VU_en_d(2)  <= '0';
+            VU_en_d(3)  <= '0';
+        elsif(rising_edge(clk)) then
+            VU_en_d(2)  <= VU_en_d(1);
+            VU_en_d(3)  <= VU_en_d(2);
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_sat
+    -- Description : Saturation
+    --------------------------------------------------------------------------------
+    P_sat : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            VU_en_d(4)  <= '0';
+            accu_sat    <= (others => '0');
+        elsif(rising_edge(clk)) then
+            if(accu(26 downto 25)="00") then
+                accu_sat    <= accu(24 downto 15);
+            else
+                accu_sat    <= std_logic_vector(to_unsigned(1023, accu_sat'length));
+            end if;
+
+            VU_en_d(4)  <= VU_en_d(3);
+        end if;
+    end process;
+
+    accu_map    <= unsigned(accu_sat);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
@@ -165,7 +210,7 @@ begin
     process(reset_n, clk)
     begin
         if(reset_n='0') then
-            VU_en_d(2)  <= '0';
+            VU_en_d(5)  <= '0';
             for i in VU_level'range loop
                 VU_level(i) <= '0';
             end loop;
@@ -174,69 +219,69 @@ begin
                 VU_level(i) <= '0';
             end loop;
 
-            VU_en_d(2)  <= VU_en_d(1);
+            VU_en_d(5)  <= VU_en_d(4);
 
-            if(accu_map>65535) then
+            if(accu_map=1023) then
                 VU_level(31) <= '1';
-            elsif(accu_map>46340) then
+            elsif(accu_map>861) then
                 VU_level(30) <= '1';
-            elsif(accu_map>32767) then
-                VU_level(29) <= '1';
-            elsif(accu_map>23170) then
-                VU_level(28) <= '1';
-            elsif(accu_map>16383) then
-                VU_level(27) <= '1';
-            elsif(accu_map>11585) then
-                VU_level(26) <= '1';
-            elsif(accu_map>8191) then
-                VU_level(25) <= '1';
-            elsif(accu_map>5792) then
-                VU_level(24) <= '1';
-            elsif(accu_map>4095) then
-                VU_level(23) <= '1';
-            elsif(accu_map>2896) then
-                VU_level(22) <= '1';
-            elsif(accu_map>2047) then
-                VU_level(21) <= '1';
-            elsif(accu_map>1448) then
-                VU_level(20) <= '1';
-            elsif(accu_map>1023) then
-                VU_level(19) <= '1';
             elsif(accu_map>724) then
-                VU_level(18) <= '1';
-            elsif(accu_map>511) then
-                VU_level(17) <= '1';
+                VU_level(29) <= '1';
+            elsif(accu_map>608) then
+                VU_level(28) <= '1';
+            elsif(accu_map>512) then
+                VU_level(27) <= '1';
+            elsif(accu_map>430) then
+                VU_level(26) <= '1';
             elsif(accu_map>362) then
-                VU_level(16) <= '1';
-            elsif(accu_map>255) then
-                VU_level(15) <= '1';
+                VU_level(25) <= '1';
+            elsif(accu_map>304) then
+                VU_level(24) <= '1';
+            elsif(accu_map>256) then
+                VU_level(23) <= '1';
+            elsif(accu_map>215) then
+                VU_level(22) <= '1';
             elsif(accu_map>181) then
-                VU_level(14) <= '1';
-            elsif(accu_map>127) then
-                VU_level(13) <= '1';
+                VU_level(21) <= '1';
+            elsif(accu_map>152) then
+                VU_level(20) <= '1';
+            elsif(accu_map>128) then
+                VU_level(19) <= '1';
+            elsif(accu_map>107) then
+                VU_level(18) <= '1';
             elsif(accu_map>90) then
-                VU_level(12) <= '1';
-            elsif(accu_map>63) then
-                VU_level(11) <= '1';
+                VU_level(17) <= '1';
+            elsif(accu_map>76) then
+                VU_level(16) <= '1';
+            elsif(accu_map>64) then
+                VU_level(15) <= '1';
+            elsif(accu_map>53) then
+                VU_level(14) <= '1';
             elsif(accu_map>45) then
+                VU_level(13) <= '1';
+            elsif(accu_map>38) then
+                VU_level(12) <= '1';
+            elsif(accu_map>32) then
+                VU_level(11) <= '1';
+            elsif(accu_map>26) then
                 VU_level(10) <= '1';
-            elsif(accu_map>31) then
-                VU_level(9) <= '1';
             elsif(accu_map>22) then
+                VU_level(9) <= '1';
+            elsif(accu_map>19) then
                 VU_level(8) <= '1';
-            elsif(accu_map>15) then
+            elsif(accu_map>16) then
                 VU_level(7) <= '1';
-            elsif(accu_map>11) then
+            elsif(accu_map>13) then
                 VU_level(6) <= '1';
-            elsif(accu_map>7) then
+            elsif(accu_map>11) then
                 VU_level(5) <= '1';
-            elsif(accu_map>5) then
+            elsif(accu_map>9) then
                 VU_level(4) <= '1';
-            elsif(accu_map>3) then
+            elsif(accu_map>8) then
                 VU_level(3) <= '1';
-            elsif(accu_map>2) then
+            elsif(accu_map>6) then
                 VU_level(2) <= '1';
-            elsif(accu_map>1) then
+            elsif(accu_map>5) then
                 VU_level(1) <= '1';
             else
                 VU_level(0) <= '1';
@@ -262,7 +307,7 @@ begin
                 end if;
             end loop;
 
-            VU_done <= VU_en_d(2);
+            VU_done <= VU_en_d(5);
         end if;
     end process;
 

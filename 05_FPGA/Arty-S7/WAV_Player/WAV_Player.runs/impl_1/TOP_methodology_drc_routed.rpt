@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Dec 20 15:09:36 2019
-| Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
+| Date         : Sat Dec 21 19:28:10 2019
+| Host         : Hugo running 64-bit major release  (build 9200)
 | Command      : report_methodology -file TOP_methodology_drc_routed.rpt -pb TOP_methodology_drc_routed.pb -rpx TOP_methodology_drc_routed.rpx
 | Design       : TOP
 | Device       : xc7s50csga324-1
@@ -23,15 +23,21 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 2
+             Violations found: 3
 +-----------+----------+-------------------------------------------+------------+
 | Rule      | Severity | Description                               | Violations |
 +-----------+----------+-------------------------------------------+------------+
+| LUTAR-1   | Warning  | LUT drives async reset alert              | 1          |
 | TIMING-27 | Warning  | Invalid primary clock on hierarchical pin | 2          |
 +-----------+----------+-------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/New_sample_d_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/Audio_din_d_reg[0]/CLR, U_Audio_channel_left/Audio_din_d_reg[10]/CLR, U_Audio_channel_left/Audio_din_d_reg[11]/CLR, U_Audio_channel_left/Audio_din_d_reg[12]/CLR, U_Audio_channel_left/Audio_din_d_reg[13]/CLR, U_Audio_channel_left/Audio_din_d_reg[14]/CLR, U_Audio_channel_left/Audio_din_d_reg[15]/CLR, U_Audio_channel_left/Audio_din_d_reg[1]/CLR, U_Audio_channel_left/Audio_din_d_reg[2]/CLR, U_Audio_channel_left/Audio_din_d_reg[3]/CLR, U_Audio_channel_left/Audio_din_d_reg[4]/CLR, U_Audio_channel_left/Audio_din_d_reg[5]/CLR, U_Audio_channel_left/Audio_din_d_reg[6]/CLR, U_Audio_channel_left/Audio_din_d_reg[7]/CLR, U_Audio_channel_left/Audio_din_d_reg[8]/CLR (the first 15 of 33 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
 TIMING-27#1 Warning
 Invalid primary clock on hierarchical pin  
 A primary clock MMCM_GEN.U_MMCM/inst/CLK12MHZ is created on an inappropriate internal pin MMCM_GEN.U_MMCM/inst/CLK12MHZ. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins

@@ -1,2 +1,4 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/EQ_volume_ctrl.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'EQ_volume_ctrl'
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hugoh/Documents/GitHub/WAV_Player/03_Tests/VGA_RAM_wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'VGA_RAM_wrapper'

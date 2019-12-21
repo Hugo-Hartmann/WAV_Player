@@ -1,6 +1,6 @@
 Vivado Simulator 2018.3
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx2/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 37fd109b609d49cfb97f45bdce1df4bf --incr --debug typical --relax --mt 2 -L lib_VHDL -L blk_mem_gen_v8_4_2 -L xil_defaultlib -L xbip_utils_v3_0_9 -L xbip_pipe_v3_0_5 -L xbip_bram18k_v3_0_5 -L mult_gen_v12_0_14 -L dist_mem_gen_v8_0_12 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot EQ_stage_behav xil_defaultlib.EQ_stage xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 37fd109b609d49cfb97f45bdce1df4bf --incr --debug typical --relax --mt 2 -L xil_defaultlib -L lib_VHDL -L blk_mem_gen_v8_4_2 -L xbip_utils_v3_0_9 -L xbip_pipe_v3_0_5 -L xbip_bram18k_v3_0_5 -L mult_gen_v12_0_14 -L dist_mem_gen_v8_0_12 -L fifo_generator_v13_2_3 -L c_reg_fd_v12_0_5 -L xbip_dsp48_wrapper_v3_0_4 -L xbip_dsp48_addsub_v3_0_5 -L xbip_addsub_v3_0_5 -L c_addsub_v12_0_12 -L xbip_dsp48_acc_v3_0_5 -L xbip_accum_v3_0_5 -L c_accum_v12_0_12 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot VGA_RAM_wrapper_behav xil_defaultlib.VGA_RAM_wrapper xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -11,25 +11,16 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
+Compiling package lib_vhdl.vga_pkg_1280x1024_60hz_108_00mhz
 Compiling package lib_vhdl.type_pkg
-Compiling package mult_gen_v12_0_14.mult_gen_v12_0_14_viv_comp
-Compiling package xbip_utils_v3_0_9.xbip_utils_v3_0_9_pkg
-Compiling package mult_gen_v12_0_14.mult_gen_v12_0_14_pkg
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_signed
-Compiling package unisim.vcomponents
-Compiling package mult_gen_v12_0_14.dsp_pkg
 Compiling package vl.vl_types
 Compiling module xil_defaultlib.glbl
-Compiling architecture rtl of entity xil_defaultlib.EQ_volume_ctrl [eq_volume_ctrl_default]
-Compiling module dist_mem_gen_v8_0_12.dist_mem_gen_v8_0_12(C_FAMILY="s...
-Compiling module xil_defaultlib.ROM_32_16bit
-Compiling architecture xilinx of entity mult_gen_v12_0_14.delay_line [\delay_line(c_xdevicefamily="spa...]
-Compiling architecture xilinx of entity mult_gen_v12_0_14.op_resize [\op_resize(ai_type=1,ao_width=25...]
-Compiling architecture xilinx of entity mult_gen_v12_0_14.dsp [\dsp(c_xdevicefamily="spartan7",...]
-Compiling architecture xilinx of entity mult_gen_v12_0_14.mult_gen_v12_0_14_viv [\mult_gen_v12_0_14_viv(c_verbosi...]
-Compiling architecture xilinx of entity mult_gen_v12_0_14.mult_gen_v12_0_14 [\mult_gen_v12_0_14(c_xdevicefami...]
-Compiling architecture multiplier_u16_s16_arch of entity xil_defaultlib.Multiplier_u16_s16 [multiplier_u16_s16_default]
-Compiling architecture rtl of entity xil_defaultlib.EQ_volume [eq_volume_default]
-Compiling architecture rtl of entity xil_defaultlib.eq_stage
-Built simulation snapshot EQ_stage_behav
+Compiling architecture rtl of entity lib_vhdl.VGA_Controller [vga_controller_default]
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_output_stage(...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_2.blk_mem_gen_v8_4_2(C_FAMILY="spa...
+Compiling module xil_defaultlib.BRAM_2048_8bit
+Compiling architecture rtl of entity xil_defaultlib.VGA_interface [vga_interface_default]
+Compiling architecture a of entity xil_defaultlib.vga_ram_wrapper
+Built simulation snapshot VGA_RAM_wrapper_behav

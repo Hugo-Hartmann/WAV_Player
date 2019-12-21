@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-12-20
+-- Last update: 2019-12-21
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -137,7 +137,7 @@ architecture RTL of TOP is
             );
     end component;
 
-    component VGA_interface is
+    component VGA_interface_top is
         port(
             clk_108         : in  std_logic;
             clk_216         : in  std_logic;
@@ -159,74 +159,25 @@ architecture RTL of TOP is
             );
     end component;
 
-    component FIR_interface is
+    component VGA_interface_bottom is
         port(
-            clk             : in  std_logic;
+            clk_108         : in  std_logic;
+            clk_216         : in  std_logic;
             reset_n         : in  std_logic;
-            FIR_dout        : out std_logic_vector(C_FIR_MAX*16+15 downto 0);
-            FIR_start       : in  std_logic;
-            FIR_din         : in  std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component VU_metre is
-        port(
-            clk     : in  std_logic;
-            reset_n : in  std_logic;
-            VU_en   : in  std_logic;
-            VU_din  : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            VU_dout : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
-            );
-    end component;
-
-    component EQ_stage is
-        port(
-            clk             : in  std_logic;
-            reset_n         : in  std_logic;
-            EQ_en           : in  std_logic;
-            EQ_select       : in  std_logic_vector(3 downto 0);
-            EQ_vol_up       : in  std_logic;
-            EQ_vol_down     : in  std_logic;
-            EQ_din_band     : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
-            EQ_din          : in  std_logic_vector(15 downto 0);
-            EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
-            );
-    end component;
-
-    component FFT_Wrapper is
-        port(
-            clk             : in  std_logic;
-            reset_n         : in  std_logic;
-            FFT_din         : in  std_logic_vector(15 downto 0);
-            FFT_new_sample  : in  std_logic;
-            FFT_addrA       : out std_logic_vector(8 downto 0);
-            FFT_addrB       : out std_logic_vector(8 downto 0);
-            FFT_doutA_r     : out std_logic_vector(15 downto 0);
-            FFT_doutA_i     : out std_logic_vector(15 downto 0);
-            FFT_doutB_r     : out std_logic_vector(15 downto 0);
-            FFT_doutB_i     : out std_logic_vector(15 downto 0);
-            FFT_write       : out std_logic;
-            FFT_done        : out std_logic
-            );
-    end component;
-
-    component NRM_Wrapper is
-        port(
-            clk             : in  std_logic;
-            reset_n         : in  std_logic;
-            NRM_addrA_w     : in  std_logic_vector(8 downto 0);
-            NRM_addrB_w     : in  std_logic_vector(8 downto 0);
-            NRM_dinA_r      : in  std_logic_vector(15 downto 0);
-            NRM_dinA_i      : in  std_logic_vector(15 downto 0);
-            NRM_dinB_r      : in  std_logic_vector(15 downto 0);
-            NRM_dinB_i      : in  std_logic_vector(15 downto 0);
-            NRM_write       : in  std_logic;
-            NRM_new_sample  : in  std_logic;
-            NRM_start       : in  std_logic;
-            NRM_read        : in  std_logic;
-            NRM_addr_r      : in  std_logic_vector(8 downto 0);
-            NRM_dout        : out std_logic_vector(15 downto 0)
+            VGA_new_frame   : in  std_logic;
+            VGA_read        : in  std_logic;
+            VGA_address     : in  std_logic_vector(31 downto 0);
+            VGA_v_add       : in  std_logic_vector(15 downto 0);
+            VGA_h_add       : in  std_logic_vector(15 downto 0);
+            VGA_din         : out std_logic_vector(11 downto 0);
+            WAV_read        : in  std_logic;
+            VGA_select      : in  std_logic_vector(3 downto 0);
+            EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
+            VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            NRM_addr        : out std_logic_vector(8 downto 0);
+            NRM_read        : out std_logic;
+            NRM_dout        : in  std_logic_vector(15 downto 0)
             );
     end component;
 
@@ -265,13 +216,30 @@ architecture RTL of TOP is
             );
     end component;
 
+    component Audio_channel is
+        port(
+            clk             : in  std_logic;
+            reset_n         : in  std_logic;
+            VOL_UP          : in  std_logic;
+            VOL_DOWN        : in  std_logic;
+            SW              : in  std_logic_vector(3 downto 0);
+            New_sample      : in  std_logic;
+            Audio_din       : in  std_logic_vector(15 downto 0);
+            Audio_out       : out std_logic_vector(15 downto 0);
+            EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
+            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            VU_dout         : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            VGA_new_frame   : in  std_logic;
+            NRM_read        : in  std_logic;
+            NRM_addr_r      : in  std_logic_vector(8 downto 0);
+            NRM_dout        : out std_logic_vector(15 downto 0)
+            );
+    end component;
+
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    attribute keep : string;
-    signal reset_n : std_logic;
-    attribute keep of reset_n : signal is "true";
-
+    signal reset_n          : std_logic;
     signal RCLK12MHZ        : std_logic;
     signal clk_112          : std_logic;
     signal clk_108          : std_logic;
@@ -287,23 +255,19 @@ architecture RTL of TOP is
     signal VGA_v_add        : std_logic_vector(15 downto 0);
     signal VGA_h_add        : std_logic_vector(15 downto 0);
     signal VGA_din          : std_logic_vector(11 downto 0);
+    signal VGA_din_top      : std_logic_vector(11 downto 0);
+    signal VGA_din_bottom   : std_logic_vector(11 downto 0);
     signal VGA_new_frame    : std_logic;
-    signal FIR_dout         : std_logic_vector(C_FIR_MAX*16+15 downto 0);
-    signal VU_dout          : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-    signal SW_out           : std_logic_vector(15 downto 0);
-    signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-    signal EQ_dout          : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-    signal FFT_addrA        : std_logic_vector(8 downto 0);
-    signal FFT_addrB        : std_logic_vector(8 downto 0);
-    signal FFT_doutA_r      : std_logic_vector(15 downto 0);
-    signal FFT_doutA_i      : std_logic_vector(15 downto 0);
-    signal FFT_doutB_r      : std_logic_vector(15 downto 0);
-    signal FFT_doutB_i      : std_logic_vector(15 downto 0);
-    signal FFT_write        : std_logic;
-    signal FFT_done         : std_logic;
+    signal VU_dout_r        : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal VU_dout_l        : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal EQ_level_dout_r  : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal EQ_level_dout_l  : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal EQ_dout_r        : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
+    signal EQ_dout_l        : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
     signal NRM_read         : std_logic;
     signal NRM_addr_r       : std_logic_vector(8 downto 0);
-    signal NRM_dout         : std_logic_vector(15 downto 0);
+    signal NRM_dout_r       : std_logic_vector(15 downto 0);
+    signal NRM_dout_l       : std_logic_vector(15 downto 0);
     signal MISO_right_in    : std_logic_vector(15 downto 0);
     signal MISO_left_in     : std_logic_vector(15 downto 0);
     signal MISO_right_out   : std_logic_vector(15 downto 0);
@@ -408,11 +372,17 @@ begin
         VGA_g           => GREEN_OUT,
         VGA_b           => BLUE_OUT);
 
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : VGA_din
+    --------------------------------------------------------------------------------
+    VGA_din <= VGA_din_bottom OR VGA_din_top;
+
     ----------------------------------------------------------------
-    -- INSTANCE : U_VGA_interface
+    -- INSTANCE : U_VGA_interface_top
     -- Description: VGA controller, fetch image from memory and outputs VGA format
     ----------------------------------------------------------------
-    U_VGA_interface : VGA_interface port map(
+    U_VGA_interface_top : VGA_interface_top port map(
         clk_108         => clk_108,
         clk_216         => clk_216,
         reset_n         => reset_n,
@@ -421,104 +391,80 @@ begin
         VGA_address     => VGA_address,
         VGA_v_add       => VGA_v_add,
         VGA_h_add       => VGA_h_add,
-        VGA_din         => VGA_din,
+        VGA_din         => VGA_din_top,
         WAV_read        => New_sample_216,
         VGA_select      => SW,
-        VU_dout         => VU_dout,
-        EQ_dout         => EQ_dout,
-        EQ_level_dout   => EQ_level_dout,
+        VU_dout         => VU_dout_r,
+        EQ_dout         => EQ_dout_r,
+        EQ_level_dout   => EQ_level_dout_r,
         NRM_addr        => NRM_addr_r,
         NRM_read        => NRM_read,
-        NRM_dout        => NRM_dout);
+        NRM_dout        => NRM_dout_r);
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_FIR_interface
-    -- Description: FIR wrapper for multiple FIR filters working on same data
+    -- INSTANCE : U_VGA_interface_bottom
+    -- Description: VGA controller, fetch image from memory and outputs VGA format
     ----------------------------------------------------------------
-    U_FIR_interface : FIR_interface port map(
+    U_VGA_interface_bottom : VGA_interface_bottom port map(
+        clk_108         => clk_108,
+        clk_216         => clk_216,
+        reset_n         => reset_n,
+        VGA_new_frame   => VGA_new_frame,
+        VGA_read        => VGA_read,
+        VGA_address     => VGA_address,
+        VGA_v_add       => VGA_v_add,
+        VGA_h_add       => VGA_h_add,
+        VGA_din         => VGA_din_bottom,
+        WAV_read        => New_sample_216,
+        VGA_select      => SW,
+        VU_dout         => VU_dout_l,
+        EQ_dout         => EQ_dout_l,
+        EQ_level_dout   => EQ_level_dout_l,
+        NRM_addr        => open,
+        NRM_read        => open,
+        NRM_dout        => NRM_dout_l);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_Audio_channel_right
+    -- Description: Audio channel full treatment chain
+    ----------------------------------------------------------------
+    U_Audio_channel_right : Audio_channel port map(
         clk             => clk_216,
         reset_n         => reset_n,
-        FIR_dout        => FIR_dout,
-        FIR_start       => New_sample_216,
-        FIR_din         => MOSI_right_out);
-
-    ----------------------------------------------------------------
-    -- INSTANCE : U_VU_metre
-    -- Description: 2048 element VU-metre
-    ----------------------------------------------------------------
-    U_VU_metre : VU_metre port map(
-        clk     => clk_216,
-        reset_n => reset_n,
-        VU_en   => New_sample_216,
-        VU_din  => EQ_dout,
-        VU_dout => VU_dout);
-
-    ----------------------------------------------------------------
-    -- INSTANCE : U_EQ_stage
-    -- Description: 6 Channel audio equalizer
-    ----------------------------------------------------------------
-    U_EQ_stage : EQ_stage port map(
-        clk             => clk_216,
-        reset_n         => reset_n,
-        EQ_en           => New_sample_216,
-        EQ_select       => SW,
-        EQ_vol_up       => VOL_UP,
-        EQ_vol_down     => VOL_DOWN,
-        EQ_din_band     => FIR_dout,
-        EQ_din          => MOSI_right_out,
-        EQ_dout         => EQ_dout,
-        EQ_level_dout   => EQ_level_dout);
-
-    --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : Audio selection
-    --------------------------------------------------------------------------------
-    SW_out   <= EQ_dout(15 downto 0)    when(SW="0000") else
-                EQ_dout(31 downto 16)   when(SW="0001") else
-                EQ_dout(47 downto 32)   when(SW="0010") else
-                EQ_dout(63 downto 48)   when(SW="0011") else
-                EQ_dout(79 downto 64)   when(SW="0100") else
-                EQ_dout(95 downto 80)   when(SW="0101") else
-                EQ_dout(111 downto 96)  when(SW="0110") else
-                EQ_dout(127 downto 112);
-
-    ----------------------------------------------------------------
-    -- INSTANCE : U_FFT_Wrapper
-    -- Description: FFT_Wrapper for custom FFT module
-    ----------------------------------------------------------------
-    U_FFT_Wrapper : FFT_Wrapper port map(
-        clk             => clk_216,
-        reset_n         => reset_n,
-        FFT_din         => SW_out,
-        FFT_new_sample  => New_sample_216,
-        FFT_addrA       => FFT_addrA,
-        FFT_addrB       => FFT_addrB,
-        FFT_doutA_r     => FFT_doutA_r,
-        FFT_doutA_i     => FFT_doutA_i,
-        FFT_doutB_r     => FFT_doutB_r,
-        FFT_doutB_i     => FFT_doutB_i,
-        FFT_write       => FFT_write,
-        FFT_done        => FFT_done);
-
-    ----------------------------------------------------------------
-    -- INSTANCE : U_NRM_Wrapper
-    -- Description: NRM_Wrapper for custom NRM module
-    ----------------------------------------------------------------
-    U_NRM_Wrapper : NRM_Wrapper port map(
-        clk             => clk_216,
-        reset_n         => reset_n,
-        NRM_addrA_w     => FFT_addrA,
-        NRM_addrB_w     => FFT_addrB,
-        NRM_dinA_r      => FFT_doutA_r,
-        NRM_dinA_i      => FFT_doutA_i,
-        NRM_dinB_r      => FFT_doutB_r,
-        NRM_dinB_i      => FFT_doutB_i,
-        NRM_write       => FFT_write,
-        NRM_new_sample  => New_sample_216,
-        NRM_start       => VGA_new_frame,
+        VOL_UP          => VOL_UP,
+        VOL_DOWN        => VOL_DOWN,
+        SW              => SW,
+        New_sample      => New_sample_216,
+        Audio_din       => MOSI_right_out,
+        Audio_out       => MISO_right_in,
+        EQ_dout         => EQ_dout_r,
+        EQ_level_dout   => EQ_level_dout_r,
+        VU_dout         => VU_dout_r,
+        VGA_new_frame   => VGA_new_frame,
         NRM_read        => NRM_read,
         NRM_addr_r      => NRM_addr_r,
-        NRM_dout        => NRM_dout);
+        NRM_dout        => NRM_dout_r);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_Audio_channel_left
+    -- Description: Audio channel full treatment chain
+    ----------------------------------------------------------------
+    U_Audio_channel_left : Audio_channel port map(
+        clk             => clk_216,
+        reset_n         => reset_n,
+        VOL_UP          => VOL_UP,
+        VOL_DOWN        => VOL_DOWN,
+        SW              => SW,
+        New_sample      => New_sample_216,
+        Audio_din       => MOSI_left_out,
+        Audio_out       => MISO_left_in,
+        EQ_dout         => EQ_dout_l,
+        EQ_level_dout   => EQ_level_dout_l,
+        VU_dout         => VU_dout_l,
+        VGA_new_frame   => VGA_new_frame,
+        NRM_read        => NRM_read,
+        NRM_addr_r      => NRM_addr_r,
+        NRM_dout        => NRM_dout_l);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_I2S_Wrapper
@@ -560,8 +506,8 @@ begin
         reset_n         => reset_n,
         New_sample_112  => New_sample_112,
         New_sample_216  => New_sample_216,
-        MISO_right_in   => SW_out,
-        MISO_left_in    => SW_out,
+        MISO_right_in   => MISO_right_in,
+        MISO_left_in    => MISO_left_in,
         MISO_right_out  => MISO_right_out,
         MISO_left_out   => MISO_left_out,
         MOSI_right_in   => MOSI_right_in,

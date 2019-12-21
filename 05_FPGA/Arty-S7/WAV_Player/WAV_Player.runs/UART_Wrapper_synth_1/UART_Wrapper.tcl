@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 set_msg_config  -id {Synth 8-3331}  -suppress 
 set_msg_config  -id {Constraints 18-5210}  -suppress 
 set_param project.vivado.isBlockSynthRun true
@@ -26,19 +25,18 @@ create_project -in_memory -part xc7s50csga324-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.cache/wt [current_project]
-set_property parent.project_path C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.cache/wt [current_project]
+set_property parent.project_path C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part_repo_paths {C:/Users/hhartmann/Downloads/vivado-boards-master/vivado-boards-master/new/board_files} [current_project]
 set_property board_part digilentinc.com:arty-s7-50:part0:1.0 [current_project]
-set_property ip_output_repo c:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.cache/ip [current_project]
+set_property ip_output_repo c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library lib_VHDL {
-  C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Rx.vhd
-  C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Tx.vhd
-  C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/UART_Wrapper.vhd
+  C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd
+  C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd
+  C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -48,8 +46,8 @@ read_vhdl -library lib_VHDL {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc -mode out_of_context C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/UART_Wrapper/new/UART_Wrapper_ooc.xdc
-set_property used_in_implementation false [get_files C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/UART_Wrapper/new/UART_Wrapper_ooc.xdc]
+read_xdc -mode out_of_context C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/UART_Wrapper/new/UART_Wrapper_ooc.xdc
+set_property used_in_implementation false [get_files C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/UART_Wrapper/new/UART_Wrapper_ooc.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

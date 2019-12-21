@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1576850636">
+<GenRun Id="impl_1" LaunchPart="xc7s50csga324-1" LaunchTime="1576952592">
   <File Type="BITSTR-BMM" Name="TOP_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="TOP_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="TOP_timing_summary_init.rpt"/>
@@ -139,6 +139,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../02_Source/Audio_channel.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/VGA_interface/new/VGA_interface_ooc.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="TOP"/>
@@ -177,7 +190,6 @@
       <Option Id="BinFile">1</Option>
     </Step>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="VGA_interface"/>
   <BlockFileSet Type="BlockSrcs" Name="UART_Wrapper"/>
   <BlockFileSet Type="BlockSrcs" Name="MMCM"/>
   <BlockFileSet Type="BlockSrcs" Name="NRM_Wrapper"/>
@@ -190,4 +202,6 @@
   <BlockFileSet Type="BlockSrcs" Name="FIFO_32bit"/>
   <BlockFileSet Type="BlockSrcs" Name="FIR_interface"/>
   <BlockFileSet Type="BlockSrcs" Name="VU_metre"/>
+  <BlockFileSet Type="BlockSrcs" Name="VGA_interface_top"/>
+  <BlockFileSet Type="BlockSrcs" Name="VGA_interface_bottom"/>
 </GenRun>

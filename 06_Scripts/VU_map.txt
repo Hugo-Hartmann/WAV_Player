@@ -1,62 +1,62 @@
-if(accu_map>65535) then
+if(accu_map>1024) then
     VU_level(31) <= '1';
-elsif(accu_map>46340) then
+elsif(accu_map>861) then
     VU_level(30) <= '1';
-elsif(accu_map>32767) then
-    VU_level(29) <= '1';
-elsif(accu_map>23170) then
-    VU_level(28) <= '1';
-elsif(accu_map>16383) then
-    VU_level(27) <= '1';
-elsif(accu_map>11585) then
-    VU_level(26) <= '1';
-elsif(accu_map>8191) then
-    VU_level(25) <= '1';
-elsif(accu_map>5792) then
-    VU_level(24) <= '1';
-elsif(accu_map>4095) then
-    VU_level(23) <= '1';
-elsif(accu_map>2896) then
-    VU_level(22) <= '1';
-elsif(accu_map>2047) then
-    VU_level(21) <= '1';
-elsif(accu_map>1448) then
-    VU_level(20) <= '1';
-elsif(accu_map>1023) then
-    VU_level(19) <= '1';
 elsif(accu_map>724) then
-    VU_level(18) <= '1';
-elsif(accu_map>511) then
-    VU_level(17) <= '1';
+    VU_level(29) <= '1';
+elsif(accu_map>608) then
+    VU_level(28) <= '1';
+elsif(accu_map>512) then
+    VU_level(27) <= '1';
+elsif(accu_map>430) then
+    VU_level(26) <= '1';
 elsif(accu_map>362) then
-    VU_level(16) <= '1';
-elsif(accu_map>255) then
-    VU_level(15) <= '1';
+    VU_level(25) <= '1';
+elsif(accu_map>304) then
+    VU_level(24) <= '1';
+elsif(accu_map>256) then
+    VU_level(23) <= '1';
+elsif(accu_map>215) then
+    VU_level(22) <= '1';
 elsif(accu_map>181) then
-    VU_level(14) <= '1';
-elsif(accu_map>127) then
-    VU_level(13) <= '1';
+    VU_level(21) <= '1';
+elsif(accu_map>152) then
+    VU_level(20) <= '1';
+elsif(accu_map>128) then
+    VU_level(19) <= '1';
+elsif(accu_map>107) then
+    VU_level(18) <= '1';
 elsif(accu_map>90) then
-    VU_level(12) <= '1';
-elsif(accu_map>63) then
-    VU_level(11) <= '1';
+    VU_level(17) <= '1';
+elsif(accu_map>76) then
+    VU_level(16) <= '1';
+elsif(accu_map>64) then
+    VU_level(15) <= '1';
+elsif(accu_map>53) then
+    VU_level(14) <= '1';
 elsif(accu_map>45) then
+    VU_level(13) <= '1';
+elsif(accu_map>38) then
+    VU_level(12) <= '1';
+elsif(accu_map>32) then
+    VU_level(11) <= '1';
+elsif(accu_map>26) then
     VU_level(10) <= '1';
-elsif(accu_map>31) then
-    VU_level(9) <= '1';
 elsif(accu_map>22) then
+    VU_level(9) <= '1';
+elsif(accu_map>19) then
     VU_level(8) <= '1';
-elsif(accu_map>15) then
+elsif(accu_map>16) then
     VU_level(7) <= '1';
-elsif(accu_map>11) then
+elsif(accu_map>13) then
     VU_level(6) <= '1';
-elsif(accu_map>7) then
+elsif(accu_map>11) then
     VU_level(5) <= '1';
-elsif(accu_map>5) then
+elsif(accu_map>9) then
     VU_level(4) <= '1';
-elsif(accu_map>3) then
+elsif(accu_map>8) then
     VU_level(3) <= '1';
-elsif(accu_map>2) then
+elsif(accu_map>6) then
     VU_level(2) <= '1';
-elsif(accu_map>1) then
+elsif(accu_map>5) then
     VU_level(1) <= '1';
