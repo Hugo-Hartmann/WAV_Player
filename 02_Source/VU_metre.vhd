@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-12-21
+-- Last update: 2019-12-28
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -69,7 +69,7 @@ architecture RTL of VU_metre is
             VU_en       : in  std_logic;
             VU_done     : out std_logic;
             VU_write    : in  std_logic;
-            VU_addr     : in  std_logic_vector(10 downto 0);
+            VU_addr     : in  std_logic_vector(11 downto 0);
             VU_din      : in  std_logic_vector(15 downto 0);
             VU_dout     : out std_logic_vector(4 downto 0)
             );
@@ -80,17 +80,17 @@ architecture RTL of VU_metre is
     --------------------------------------------------------------------------------
     signal current_state    : VU_STATE;
     signal next_state       : VU_STATE;
-    signal counter_write    : unsigned(10 downto 0);
+    signal counter_write    : unsigned(11 downto 0);
     signal cnt_write_dec    : std_logic;
     signal cnt_write_end    : std_logic;
-    signal counter_read     : unsigned(10 downto 0);
+    signal counter_read     : unsigned(11 downto 0);
     signal cnt_read_dec     : std_logic;
     signal cnt_read_end     : std_logic;
     signal VU_din_d         : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
     signal VU_clr           : std_logic;
     signal VU_en            : std_logic;
     signal VU_write         : std_logic;
-    signal VU_addr          : std_logic_vector(10 downto 0);
+    signal VU_addr          : std_logic_vector(11 downto 0);
     signal VU_dout_d        : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
 
 --------------------------------------------------------------------------------

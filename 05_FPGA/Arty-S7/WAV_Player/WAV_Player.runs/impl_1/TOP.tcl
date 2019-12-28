@@ -60,7 +60,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config  -id {Synth 8-3331}  -suppress 
 set_msg_config  -id {Constraints 18-5210}  -suppress 
 
@@ -79,6 +78,7 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/TOP.dcp
+  read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci
   read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM/MMCM.xci
   read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM_112/MMCM_112.xci
   read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/ROM_256_32bit.xci
@@ -100,10 +100,10 @@ set rc [catch {
   read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
   read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5.xci
   read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci
+  read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit.xci
+  read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit.xci
   read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u27/Accu_u27.xci
-  read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci
-  read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit.xci
-  read_ip -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit.xci
+  read_ip -quiet c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/RAM_4096_16bit.xci
   add_files -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Hearbeat_synth_1/Hearbeat.dcp
   set_property netlist_only true [get_files C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Hearbeat_synth_1/Hearbeat.dcp]
   add_files -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/UART_Wrapper_synth_1/UART_Wrapper.dcp
@@ -120,12 +120,12 @@ set rc [catch {
   set_property netlist_only true [get_files C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1/I2S_Wrapper.dcp]
   add_files -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.dcp
   set_property netlist_only true [get_files C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.dcp]
-  add_files -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.dcp
-  set_property netlist_only true [get_files C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.dcp]
   add_files -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_bottom_synth_1/VGA_interface_bottom.dcp
   set_property netlist_only true [get_files C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_bottom_synth_1/VGA_interface_bottom.dcp]
   add_files -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_top_synth_1/VGA_interface_top.dcp
   set_property netlist_only true [get_files C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_top_synth_1/VGA_interface_top.dcp]
+  add_files -quiet C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.dcp
+  set_property netlist_only true [get_files C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.dcp]
   read_xdc -mode out_of_context C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VGA_interface/new/VGA_interface_ooc.xdc
   read_xdc C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/Contraintes_Arty.xdc
   read_xdc -mode out_of_context -ref Hearbeat C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/Hearbeat/new/Hearbeat_ooc.xdc
@@ -136,9 +136,9 @@ set rc [catch {
   read_xdc -mode out_of_context -ref NRM_Wrapper C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/NRM_Wrapper/new/NRM_Wrapper_ooc.xdc
   read_xdc -mode out_of_context -ref I2S_Wrapper C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/I2S_Wrapper/new/I2S_Wrapper_ooc.xdc
   read_xdc -mode out_of_context -ref FIR_interface C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/FIR_interface/new/FIR_interface_ooc.xdc
-  read_xdc -mode out_of_context -ref VU_metre C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VU_metre/new/VU_metre_ooc.xdc
   read_xdc -mode out_of_context -ref VGA_interface_bottom C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VGA_interface_bottom/new/VGA_interface_bottom_ooc.xdc
   read_xdc -mode out_of_context -ref VGA_interface_top C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VGA_interface_top/new/VGA_interface_top_ooc.xdc
+  read_xdc -mode out_of_context -ref VU_metre C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VU_metre/new/VU_metre_ooc.xdc
   link_design -top TOP -part xc7s50csga324-1
   close_msg_db -file init_design.pb
 } RESULT]

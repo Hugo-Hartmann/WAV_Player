@@ -14,16 +14,16 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 4704 
+INFO: Helper process launched with PID 7740 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 413.703 ; gain = 105.633
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 413.465 ; gain = 105.793
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-1565] actual for formal port ce is neither a static name nor a globally static expression [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:165]
 INFO: [Synth 8-638] synthesizing module 'VU_metre' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:54]
 INFO: [Synth 8-3491] module 'VU_stage' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:32' bound to instance 'U_VU_stage' of component 'VU_stage' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:106]
 INFO: [Synth 8-638] synthesizing module 'VU_stage' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:58]
-INFO: [Synth 8-3491] module 'RAM_2048_16bit' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_16bit' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:115]
-INFO: [Synth 8-638] synthesizing module 'RAM_2048_16bit' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:70]
+INFO: [Synth 8-3491] module 'RAM_4096_16bit' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/synth/RAM_4096_16bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_16bit' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:115]
+INFO: [Synth 8-638] synthesizing module 'RAM_4096_16bit' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/synth/RAM_4096_16bit.vhd:70]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -41,7 +41,7 @@ INFO: [Synth 8-638] synthesizing module 'RAM_2048_16bit' [c:/Users/hugoh/Documen
 	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
 	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
 	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
-	Parameter C_INIT_FILE bound to: RAM_2048_16bit.mem - type: string 
+	Parameter C_INIT_FILE bound to: RAM_4096_16bit.mem - type: string 
 	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
 	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
 	Parameter C_HAS_RSTA bound to: 0 - type: integer 
@@ -55,9 +55,9 @@ INFO: [Synth 8-638] synthesizing module 'RAM_2048_16bit' [c:/Users/hugoh/Documen
 	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
 	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
 	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
-	Parameter C_WRITE_DEPTH_A bound to: 2048 - type: integer 
-	Parameter C_READ_DEPTH_A bound to: 2048 - type: integer 
-	Parameter C_ADDRA_WIDTH bound to: 11 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 4096 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 4096 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 12 - type: integer 
 	Parameter C_HAS_RSTB bound to: 0 - type: integer 
 	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
 	Parameter C_RSTRAM_B bound to: 0 - type: integer 
@@ -69,9 +69,9 @@ INFO: [Synth 8-638] synthesizing module 'RAM_2048_16bit' [c:/Users/hugoh/Documen
 	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
 	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
 	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
-	Parameter C_WRITE_DEPTH_B bound to: 2048 - type: integer 
-	Parameter C_READ_DEPTH_B bound to: 2048 - type: integer 
-	Parameter C_ADDRB_WIDTH bound to: 11 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 4096 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 4096 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 12 - type: integer 
 	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
 	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
 	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
@@ -96,11 +96,11 @@ INFO: [Synth 8-638] synthesizing module 'RAM_2048_16bit' [c:/Users/hugoh/Documen
 	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
 	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
 	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
+	Parameter C_COUNT_36K_BRAM bound to: 2 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.6745 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:236]
-INFO: [Synth 8-256] done synthesizing module 'RAM_2048_16bit' (9#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:70]
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     5.071399 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/synth/RAM_4096_16bit.vhd:236]
+INFO: [Synth 8-256] done synthesizing module 'RAM_4096_16bit' (9#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/synth/RAM_4096_16bit.vhd:70]
 INFO: [Synth 8-3491] module 'Accu_u27' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u27/synth/Accu_u27.vhd:59' bound to instance 'U_Accu' of component 'Accu_u27' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:162]
 INFO: [Synth 8-638] synthesizing module 'Accu_u27' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u27/synth/Accu_u27.vhd:69]
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -136,7 +136,7 @@ INFO: [Synth 8-3491] module 'VU_stage' declared at 'C:/Users/hugoh/Documents/Git
 INFO: [Synth 8-3491] module 'VU_stage' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:32' bound to instance 'U_VU_stage' of component 'VU_stage' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:106]
 INFO: [Synth 8-256] done synthesizing module 'VU_metre' (18#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:54]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 707.020 ; gain = 398.949
+Finished RTL Elaboration : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 713.719 ; gain = 406.047
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -149,12 +149,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 707.020 ; gain = 398.949
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 713.719 ; gain = 406.047
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 707.020 ; gain = 398.949
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 713.719 ; gain = 406.047
 ---------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -167,22 +167,22 @@ Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV
 Finished Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 770.180 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 771.453 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 8 instances were transformed.
   DSP48E => DSP48E1: 8 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 770.180 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 770.367 ; gain = 0.188
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 771.453 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.073 . Memory (MB): peak = 771.453 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:00 ; elapsed = 00:01:02 . Memory (MB): peak = 770.367 ; gain = 462.297
+Finished Constraint Validation : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 771.453 ; gain = 463.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:00 ; elapsed = 00:01:02 . Memory (MB): peak = 770.367 ; gain = 462.297
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 771.453 ; gain = 463.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -204,7 +204,7 @@ Applied set_property DONT_TOUCH = true for \GEN_VU[5].U_VU_stage /U_RAM. (constr
 Applied set_property DONT_TOUCH = true for \GEN_VU[6].U_VU_stage /U_RAM. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for \GEN_VU[7].U_VU_stage /U_RAM. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:00 ; elapsed = 00:01:02 . Memory (MB): peak = 770.367 ; gain = 462.297
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:06 ; elapsed = 00:01:08 . Memory (MB): peak = 771.453 ; gain = 463.781
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "VU_level" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "VU_level" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -231,7 +231,7 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'VU_metre'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:01 ; elapsed = 00:01:03 . Memory (MB): peak = 770.367 ; gain = 462.297
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:07 ; elapsed = 00:01:09 . Memory (MB): peak = 771.453 ; gain = 463.781
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -275,7 +275,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_VU[5
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_VU[6].U_VU_stage /\RAM_in_reg[15] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_VU[7].U_VU_stage /\RAM_in_reg[15] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:08 ; elapsed = 00:01:10 . Memory (MB): peak = 770.367 ; gain = 462.297
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:14 ; elapsed = 00:01:16 . Memory (MB): peak = 771.453 ; gain = 463.781
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -287,13 +287,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:14 ; elapsed = 00:01:16 . Memory (MB): peak = 801.996 ; gain = 493.926
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:21 ; elapsed = 00:01:23 . Memory (MB): peak = 806.492 ; gain = 498.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:14 ; elapsed = 00:01:17 . Memory (MB): peak = 803.719 ; gain = 495.648
+Finished Timing Optimization : Time (s): cpu = 00:01:21 ; elapsed = 00:01:24 . Memory (MB): peak = 808.086 ; gain = 500.414
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -315,7 +315,8 @@ INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/RAM_addr_reg[7]' (FD
 INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/RAM_addr_reg[8]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[8]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/RAM_addr_reg[9]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[9]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/RAM_addr_reg[10]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/RAM_write_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/RAM_addr_reg[11]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/RAM_write_reg[0]' (FDR) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_addr_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_addr_reg[1]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[1]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_addr_reg[2]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[2]'
@@ -327,7 +328,8 @@ INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_addr_reg[7]' (FD
 INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_addr_reg[8]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[8]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_addr_reg[9]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[9]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_addr_reg[10]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_write_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_addr_reg[11]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/RAM_write_reg[0]' (FDR) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_addr_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_addr_reg[1]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[1]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_addr_reg[2]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[2]'
@@ -339,7 +341,8 @@ INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_addr_reg[7]' (FD
 INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_addr_reg[8]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[8]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_addr_reg[9]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[9]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_addr_reg[10]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_write_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_addr_reg[11]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/RAM_write_reg[0]' (FDR) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_addr_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_addr_reg[1]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[1]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_addr_reg[2]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[2]'
@@ -351,7 +354,8 @@ INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_addr_reg[7]' (FD
 INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_addr_reg[8]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[8]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_addr_reg[9]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[9]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_addr_reg[10]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_write_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_addr_reg[11]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/RAM_write_reg[0]' (FDR) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_addr_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_addr_reg[1]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[1]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_addr_reg[2]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[2]'
@@ -363,7 +367,8 @@ INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_addr_reg[7]' (FD
 INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_addr_reg[8]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[8]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_addr_reg[9]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[9]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_addr_reg[10]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_write_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_addr_reg[11]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/RAM_write_reg[0]' (FDR) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_addr_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_addr_reg[1]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[1]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_addr_reg[2]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[2]'
@@ -375,7 +380,8 @@ INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_addr_reg[7]' (FD
 INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_addr_reg[8]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[8]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_addr_reg[9]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[9]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_addr_reg[10]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_write_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_addr_reg[11]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/RAM_write_reg[0]' (FDR) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_addr_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_addr_reg[1]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[1]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_addr_reg[2]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[2]'
@@ -387,7 +393,8 @@ INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_addr_reg[7]' (FD
 INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_addr_reg[8]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[8]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_addr_reg[9]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[9]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_addr_reg[10]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[10]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_write_reg[0]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_addr_reg[11]' (FD) to 'GEN_VU[7].U_VU_stage/RAM_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/RAM_write_reg[0]' (FDR) to 'GEN_VU[7].U_VU_stage/RAM_write_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/VU_en_d_reg[0]' (FDC) to 'GEN_VU[7].U_VU_stage/VU_en_d_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/VU_en_d_reg[0]' (FDC) to 'GEN_VU[7].U_VU_stage/VU_en_d_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/VU_en_d_reg[0]' (FDC) to 'GEN_VU[7].U_VU_stage/VU_en_d_reg[0]'
@@ -397,16 +404,9 @@ INFO: [Synth 8-3886] merging instance 'GEN_VU[5].U_VU_stage/VU_en_d_reg[0]' (FDC
 INFO: [Synth 8-3886] merging instance 'GEN_VU[6].U_VU_stage/VU_en_d_reg[0]' (FDC) to 'GEN_VU[7].U_VU_stage/VU_en_d_reg[0]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/VU_en_d_reg[1]' (FDC) to 'GEN_VU[6].U_VU_stage/VU_en_d_reg[1]'
 INFO: [Synth 8-3886] merging instance 'GEN_VU[0].U_VU_stage/VU_en_d_reg[2]' (FDC) to 'GEN_VU[6].U_VU_stage/VU_en_d_reg[2]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/VU_en_d_reg[1]' (FDC) to 'GEN_VU[6].U_VU_stage/VU_en_d_reg[1]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[1].U_VU_stage/VU_en_d_reg[2]' (FDC) to 'GEN_VU[6].U_VU_stage/VU_en_d_reg[2]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/VU_en_d_reg[1]' (FDC) to 'GEN_VU[6].U_VU_stage/VU_en_d_reg[1]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[2].U_VU_stage/VU_en_d_reg[2]' (FDC) to 'GEN_VU[6].U_VU_stage/VU_en_d_reg[2]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/VU_en_d_reg[1]' (FDC) to 'GEN_VU[6].U_VU_stage/VU_en_d_reg[1]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[3].U_VU_stage/VU_en_d_reg[2]' (FDC) to 'GEN_VU[6].U_VU_stage/VU_en_d_reg[2]'
-INFO: [Synth 8-3886] merging instance 'GEN_VU[4].U_VU_stage/VU_en_d_reg[1]' (FDC) to 'GEN_VU[6].U_VU_stage/VU_en_d_reg[1]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 834.617 ; gain = 526.547
+Finished Technology Mapping : Time (s): cpu = 00:01:21 ; elapsed = 00:01:24 . Memory (MB): peak = 838.578 ; gain = 530.906
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -430,7 +430,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 834.617 ; gain = 526.547
+Finished IO Insertion : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 838.578 ; gain = 530.906
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -443,7 +443,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 834.617 ; gain = 526.547
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 838.578 ; gain = 530.906
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -455,25 +455,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 834.617 ; gain = 526.547
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 838.578 ; gain = 530.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 834.617 ; gain = 526.547
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 838.578 ; gain = 530.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 834.617 ; gain = 526.547
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 838.578 ; gain = 530.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 834.617 ; gain = 526.547
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 838.578 ; gain = 530.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -498,29 +498,30 @@ Report Cell Usage:
 |6     |DSP48E_bbox_0__14 |     1|
 |7     |DSP48E_bbox_0__8  |     1|
 |8     |DSP48E_bbox_0__9  |     1|
-|9     |LUT1              |     6|
-|10    |LUT2              |   174|
-|11    |LUT3              |   174|
-|12    |LUT4              |   192|
-|13    |LUT5              |   190|
-|14    |LUT6              |   362|
-|15    |RAMB36E1          |     8|
-|16    |FDCE              |   544|
-|17    |FDPE              |    22|
-|18    |FDRE              |   260|
+|9     |CARRY4            |     6|
+|10    |LUT1              |    30|
+|11    |LUT2              |   250|
+|12    |LUT3              |    90|
+|13    |LUT4              |   193|
+|14    |LUT5              |   186|
+|15    |LUT6              |   354|
+|16    |RAMB36E1          |    16|
+|17    |FDCE              |   544|
+|18    |FDPE              |    24|
+|19    |FDRE              |   261|
 +------+------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 834.617 ; gain = 526.547
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:23 ; elapsed = 00:01:25 . Memory (MB): peak = 838.578 ; gain = 530.906
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 170 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:01:12 . Memory (MB): peak = 834.617 ; gain = 463.199
-Synthesis Optimization Complete : Time (s): cpu = 00:01:16 ; elapsed = 00:01:19 . Memory (MB): peak = 834.617 ; gain = 526.547
+Synthesis finished with 0 errors, 0 critical warnings and 171 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:01:19 . Memory (MB): peak = 838.578 ; gain = 473.172
+Synthesis Optimization Complete : Time (s): cpu = 00:01:23 ; elapsed = 00:01:26 . Memory (MB): peak = 838.578 ; gain = 530.906
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 30 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 837.680 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 841.613 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 8 instances were transformed.
   DSP48E => DSP48E1: 8 instances
@@ -528,9 +529,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 159 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:18 ; elapsed = 00:01:21 . Memory (MB): peak = 837.680 ; gain = 541.070
-INFO: [Coretcl 2-1174] Renamed 120 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 837.680 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:25 ; elapsed = 00:01:28 . Memory (MB): peak = 841.613 ; gain = 545.539
+INFO: [Coretcl 2-1174] Renamed 136 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 841.613 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file VU_metre_utilization_synth.rpt -pb VU_metre_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Dec 21 16:13:13 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat Dec 28 13:54:35 2019...

@@ -4,19 +4,19 @@
 # IP: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u27/Accu_u27.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Accu_u27 || ORIG_REF_NAME==Accu_u27} -quiet] -quiet
 
-# IP: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_16bit || ORIG_REF_NAME==RAM_2048_16bit} -quiet] -quiet
+# IP: c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/RAM_4096_16bit.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_4096_16bit || ORIG_REF_NAME==RAM_4096_16bit} -quiet] -quiet
 
-# XDC: c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit_ooc.xdc
+# XDC: c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/RAM_4096_16bit_ooc.xdc
 
 # XDC: new/VU_metre_ooc.xdc
 
 # IP: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u27/Accu_u27.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Accu_u27 || ORIG_REF_NAME==Accu_u27} -quiet] -quiet
 
-# IP: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci
-#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_16bit || ORIG_REF_NAME==RAM_2048_16bit} -quiet] -quiet
+# IP: c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/RAM_4096_16bit.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_4096_16bit || ORIG_REF_NAME==RAM_4096_16bit} -quiet] -quiet
 
-# XDC: c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit_ooc.xdc
+# XDC: c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_16bit/RAM_4096_16bit_ooc.xdc
 
 # XDC: new/VU_metre_ooc.xdc

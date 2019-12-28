@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-20
--- Last update: 2019-12-21
+-- Last update: 2019-12-28
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ entity VU_stage is
         VU_en       : in  std_logic;
         VU_done     : out std_logic;
         VU_write    : in  std_logic;
-        VU_addr     : in  std_logic_vector(10 downto 0);
+        VU_addr     : in  std_logic_vector(11 downto 0);
 
         ------- VU in ---------------------------
         VU_din      : in  std_logic_vector(15 downto 0);
@@ -66,12 +66,12 @@ architecture RTL of VU_stage is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component RAM_2048_16bit
+    component RAM_4096_16bit
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
-            addra   : in  std_logic_vector(10 downto 0);
+            addra   : in  std_logic_vector(11 downto 0);
             dina    : in  std_logic_vector(15 downto 0);
             douta   : out std_logic_vector(15 downto 0)
             );
@@ -93,7 +93,7 @@ architecture RTL of VU_stage is
     signal RAM_in       : std_logic_vector(15 downto 0);
     signal RAM_out      : std_logic_vector(15 downto 0);
     signal RAM_write    : std_logic_vector(0 downto 0);
-    signal RAM_addr     : std_logic_vector(10 downto 0);
+    signal RAM_addr     : std_logic_vector(11 downto 0);
     signal VU_en_d      : T_ENABLE;
     signal VU_level     : T_LEVEL;
     signal VU_din_map   : std_logic_vector(15 downto 0);
@@ -110,9 +110,9 @@ begin
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM
-    -- Description : Contains the 2048 last samples read
+    -- Description : Contains the 4096 last samples read
     ----------------------------------------------------------------
-    U_RAM : RAM_2048_16bit port map(
+    U_RAM : RAM_4096_16bit port map(
         clka    => clk,
         addra   => RAM_addr,
         wea     => RAM_write,
@@ -191,8 +191,8 @@ begin
             VU_en_d(4)  <= '0';
             accu_sat    <= (others => '0');
         elsif(rising_edge(clk)) then
-            if(accu(26 downto 25)="00") then
-                accu_sat    <= accu(24 downto 15);
+            if(accu(26)='0') then
+                accu_sat    <= accu(25 downto 16);
             else
                 accu_sat    <= std_logic_vector(to_unsigned(1023, accu_sat'length));
             end if;

@@ -144,6 +144,13 @@
           <Attr Name="UsedIn" Val="out_of_context"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="TOP"/>
@@ -634,54 +641,6 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="VU_metre" Type="BlockSrcs" RelSrcDir="$PSRCDIR/VU_metre">
-      <File Path="$PSRCDIR/sources_1/ip/Accu_u27/Accu_u27.xci">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../../../02_Source/VU_stage.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../../../02_Source/VU_metre.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="lib_VHDL"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="lib_VHDL"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/VU_metre/new/VU_metre_ooc.xdc">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="out_of_context"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="TopModule" Val="VU_metre"/>
-        <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/VU_metre.vhd"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="VGA_interface_bottom" Type="BlockSrcs" RelSrcDir="$PSRCDIR/VGA_interface_bottom">
       <File Path="$PPRDIR/../../../02_Source/VGA_interface_bottom.vhd">
         <FileInfo>
@@ -747,6 +706,54 @@
       <Config>
         <Option Name="TopModule" Val="VGA_interface_top"/>
         <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/VGA_interface_top.vhd"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="VU_metre" Type="BlockSrcs" RelSrcDir="$PSRCDIR/VU_metre">
+      <File Path="$PSRCDIR/sources_1/ip/Accu_u27/Accu_u27.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/ip/RAM_4096_16bit/RAM_4096_16bit.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../02_Source/VU_stage.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../02_Source/VU_metre.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="lib_VHDL"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="lib_VHDL"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/VU_metre/new/VU_metre_ooc.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="out_of_context"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="VU_metre"/>
+        <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/VU_metre.vhd"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -878,7 +885,7 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="VU_metre_synth_1" Type="Ft3:Synth" SrcSet="VU_metre" Part="xc7s50csga324-1" ConstrsSet="VU_metre" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/VU_metre_synth_1" IncludeInArchive="true">
+    <Run Id="VGA_interface_bottom_synth_1" Type="Ft3:Synth" SrcSet="VGA_interface_bottom" Part="xc7s50csga324-1" ConstrsSet="VGA_interface_bottom" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/VGA_interface_bottom_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
@@ -887,18 +894,16 @@
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="VGA_interface_bottom_synth_1" Type="Ft3:Synth" SrcSet="VGA_interface_bottom" Part="xc7s50csga324-1" ConstrsSet="VGA_interface_bottom" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/VGA_interface_bottom_synth_1" IncludeInArchive="true">
+    <Run Id="VGA_interface_top_synth_1" Type="Ft3:Synth" SrcSet="VGA_interface_top" Part="xc7s50csga324-1" ConstrsSet="VGA_interface_top" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/VGA_interface_top_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="VGA_interface_top_synth_1" Type="Ft3:Synth" SrcSet="VGA_interface_top" Part="xc7s50csga324-1" ConstrsSet="VGA_interface_top" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/VGA_interface_top_synth_1" IncludeInArchive="true">
+    <Run Id="VU_metre_synth_1" Type="Ft3:Synth" SrcSet="VU_metre" Part="xc7s50csga324-1" ConstrsSet="VU_metre" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/VU_metre_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -1104,7 +1109,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="VU_metre_impl_1" Type="Ft2:EntireDesign" Part="xc7s50csga324-1" ConstrsSet="VU_metre" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="VU_metre_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="VGA_interface_bottom_impl_1" Type="Ft2:EntireDesign" Part="xc7s50csga324-1" ConstrsSet="VGA_interface_bottom" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="VGA_interface_bottom_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
@@ -1120,11 +1125,9 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="VGA_interface_bottom_impl_1" Type="Ft2:EntireDesign" Part="xc7s50csga324-1" ConstrsSet="VGA_interface_bottom" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="VGA_interface_bottom_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="VGA_interface_top_impl_1" Type="Ft2:EntireDesign" Part="xc7s50csga324-1" ConstrsSet="VGA_interface_top" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="VGA_interface_top_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1138,7 +1141,7 @@
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="VGA_interface_top_impl_1" Type="Ft2:EntireDesign" Part="xc7s50csga324-1" ConstrsSet="VGA_interface_top" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="VGA_interface_top_synth_1" IncludeInArchive="false" GenFullBitstream="true">
+    <Run Id="VU_metre_impl_1" Type="Ft2:EntireDesign" Part="xc7s50csga324-1" ConstrsSet="VU_metre" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="VU_metre_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
           <Desc>Default settings for Implementation.</Desc>
