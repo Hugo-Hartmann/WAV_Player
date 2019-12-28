@@ -44,7 +44,7 @@ entity VU_stage is
         VU_addr     : in  std_logic_vector(11 downto 0);
 
         ------- VU in ---------------------------
-        VU_din      : in  std_logic_vector(15 downto 0);
+        VU_din      : in  std_logic_vector(7 downto 0);
 
         ------- VU out --------------------------
         VU_dout     : out std_logic_vector(4 downto 0)
@@ -66,39 +66,39 @@ architecture RTL of VU_stage is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component RAM_4096_16bit
+    component RAM_4096_8bit
         port (
             clka    : in  std_logic;
             ena     : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
             addra   : in  std_logic_vector(11 downto 0);
-            dina    : in  std_logic_vector(15 downto 0);
-            douta   : out std_logic_vector(15 downto 0)
+            dina    : in  std_logic_vector(7 downto 0);
+            douta   : out std_logic_vector(7 downto 0)
             );
     end component;
 
-    component Accu_u27
+    component Accu_u20
         port(
-            b       : in  std_logic_vector(15 downto 0);
+            b       : in  std_logic_vector(7 downto 0);
             clk     : in  std_logic;
             ce      : in  std_logic;
             sclr    : in  std_logic;
-            q       : out std_logic_vector(26 downto 0)
+            q       : out std_logic_vector(19 downto 0)
             );
     end component;
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal RAM_in       : std_logic_vector(15 downto 0);
-    signal RAM_out      : std_logic_vector(15 downto 0);
+    signal RAM_in       : std_logic_vector(7 downto 0);
+    signal RAM_out      : std_logic_vector(7 downto 0);
     signal RAM_write    : std_logic_vector(0 downto 0);
     signal RAM_addr     : std_logic_vector(11 downto 0);
     signal VU_en_d      : T_ENABLE;
     signal VU_level     : T_LEVEL;
-    signal VU_din_map   : std_logic_vector(15 downto 0);
-    signal accu_din     : std_logic_vector(15 downto 0);
-    signal accu         : std_logic_vector(26 downto 0);
+    signal VU_din_map   : std_logic_vector(7 downto 0);
+    signal accu_din     : std_logic_vector(7 downto 0);
+    signal accu         : std_logic_vector(19 downto 0);
     signal accu_sat     : std_logic_vector(9 downto 0);
     signal accu_map     : unsigned(9 downto 0);
 
@@ -112,7 +112,7 @@ begin
     -- INSTANCE : U_RAM
     -- Description : Contains the 4096 last samples read
     ----------------------------------------------------------------
-    U_RAM : RAM_4096_16bit port map(
+    U_RAM : RAM_4096_8bit port map(
         clka    => clk,
         addra   => RAM_addr,
         wea     => RAM_write,
@@ -159,7 +159,7 @@ begin
     -- INSTANCE : U_Accu
     -- Description : 27 bit accumulator
     ----------------------------------------------------------------
-    U_Accu : Accu_u27 port map(
+    U_Accu : Accu_u20 port map(
         clk     => clk,
         b       => Accu_din,
         ce      => VU_en_d(1) OR VU_en_d(2),
@@ -191,8 +191,8 @@ begin
             VU_en_d(4)  <= '0';
             accu_sat    <= (others => '0');
         elsif(rising_edge(clk)) then
-            if(accu(26)='0') then
-                accu_sat    <= accu(25 downto 16);
+            if(accu(19 downto 18)="00") then
+                accu_sat    <= accu(17 downto 8);
             else
                 accu_sat    <= std_logic_vector(to_unsigned(1023, accu_sat'length));
             end if;

@@ -70,7 +70,7 @@ architecture RTL of VU_metre is
             VU_done     : out std_logic;
             VU_write    : in  std_logic;
             VU_addr     : in  std_logic_vector(11 downto 0);
-            VU_din      : in  std_logic_vector(15 downto 0);
+            VU_din      : in  std_logic_vector(7 downto 0);
             VU_dout     : out std_logic_vector(4 downto 0)
             );
     end component;
@@ -111,7 +111,7 @@ begin
             VU_done     => open,
             VU_write    => VU_write,
             VU_addr     => VU_addr,
-            VU_din      => VU_din_d(i*16+15 downto i*16),
+            VU_din      => VU_din_d(i*16+15 downto i*16+8),
             VU_dout     => VU_dout_d(i*5+4 downto i*5));
     end generate GEN_VU;
 

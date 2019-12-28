@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Dec 28 13:58:53 2019
+| Date         : Sat Dec 28 19:22:59 2019
 | Host         : Hugo running 64-bit major release  (build 9200)
 | Command      : report_methodology -file TOP_methodology_drc_routed.rpt -pb TOP_methodology_drc_routed.pb -rpx TOP_methodology_drc_routed.rpx
 | Design       : TOP
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 3
+             Violations found: 11
 +-----------+----------+-------------------------------------------+------------+
 | Rule      | Severity | Description                               | Violations |
 +-----------+----------+-------------------------------------------+------------+
-| LUTAR-1   | Warning  | LUT drives async reset alert              | 1          |
+| LUTAR-1   | Warning  | LUT drives async reset alert              | 9          |
 | TIMING-27 | Warning  | Invalid primary clock on hierarchical pin | 2          |
 +-----------+----------+-------------------------------------------+------------+
 
@@ -35,7 +35,47 @@ Table of Contents
 -----------------
 LUTAR-1#1 Warning
 LUT drives async reset alert  
-LUT cell U_Audio_channel_right/New_sample_d_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/Audio_din_d_reg[0]/CLR, U_Audio_channel_left/Audio_din_d_reg[10]/CLR, U_Audio_channel_left/Audio_din_d_reg[11]/CLR, U_Audio_channel_left/Audio_din_d_reg[12]/CLR, U_Audio_channel_left/Audio_din_d_reg[13]/CLR, U_Audio_channel_left/Audio_din_d_reg[14]/CLR, U_Audio_channel_left/Audio_din_d_reg[15]/CLR, U_Audio_channel_left/Audio_din_d_reg[1]/CLR, U_Audio_channel_left/Audio_din_d_reg[2]/CLR, U_Audio_channel_left/Audio_din_d_reg[3]/CLR, U_Audio_channel_left/Audio_din_d_reg[4]/CLR, U_Audio_channel_left/Audio_din_d_reg[5]/CLR, U_Audio_channel_left/Audio_din_d_reg[6]/CLR, U_Audio_channel_left/Audio_din_d_reg[7]/CLR, U_Audio_channel_left/Audio_din_d_reg[8]/CLR (the first 15 of 33 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell U_Audio_channel_left/U_VU_metre/GEN_VU[0].U_VU_stage/accu_sat[9]_i_2__0, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[10]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[11]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[12]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[13]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[14]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[15]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[16]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[17]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[18]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[19]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[1]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[20]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[21]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[22]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[23]/CLR (the first 15 of 126 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_VU_metre/GEN_VU[4].U_VU_stage/VU_level[1]_i_2__1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/New_sample_d_reg/CLR, U_Audio_channel_right/U_VU_metre/FSM_sequential_current_state_reg[0]/CLR, U_Audio_channel_right/U_VU_metre/FSM_sequential_current_state_reg[1]/CLR, U_Audio_channel_right/U_VU_metre/FSM_sequential_current_state_reg[2]/CLR, U_Audio_channel_right/U_VU_metre/cnt_read_end_reg/CLR, U_Audio_channel_right/U_VU_metre/cnt_write_end_reg/CLR, U_Audio_channel_right/U_VU_metre/counter_read_reg[0]/PRE, U_Audio_channel_right/U_VU_metre/counter_read_reg[10]/PRE, U_Audio_channel_right/U_VU_metre/counter_read_reg[11]/PRE, U_Audio_channel_right/U_VU_metre/counter_read_reg[1]/PRE, U_Audio_channel_right/U_VU_metre/counter_read_reg[2]/PRE, U_Audio_channel_right/U_VU_metre/counter_read_reg[3]/PRE, U_Audio_channel_right/U_VU_metre/counter_read_reg[4]/PRE, U_Audio_channel_right/U_VU_metre/counter_read_reg[5]/PRE, U_Audio_channel_right/U_VU_metre/counter_read_reg[6]/PRE (the first 15 of 126 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#3 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_VU_metre/GEN_VU[5].U_VU_stage/accu_sat[9]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[10]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[11]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[12]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[13]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[14]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[15]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[16]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[17]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[18]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[19]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[1]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[20]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[21]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[22]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/VU_level_reg[23]/CLR (the first 15 of 126 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#4 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_VU_metre/GEN_VU[6].U_VU_stage/accu_sat[8]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/accu_sat_reg[0]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/accu_sat_reg[1]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/accu_sat_reg[2]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/accu_sat_reg[3]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/accu_sat_reg[4]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/accu_sat_reg[5]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/accu_sat_reg[6]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/accu_sat_reg[7]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/accu_sat_reg[8]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[4].U_VU_stage/VU_level_reg[10]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[4].U_VU_stage/VU_level_reg[11]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[4].U_VU_stage/VU_level_reg[12]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[4].U_VU_stage/VU_level_reg[13]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[4].U_VU_stage/VU_level_reg[14]/CLR, U_Audio_channel_left/U_VU_metre/GEN_VU[4].U_VU_stage/VU_level_reg[15]/CLR (the first 15 of 126 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#5 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_VU_metre/GEN_VU[7].U_VU_stage/VU_din_d[127]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_VU_metre/VU_din_d_reg[104]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[105]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[106]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[107]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[108]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[109]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[10]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[110]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[111]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[11]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[124]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[125]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[126]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[127]/CLR, U_Audio_channel_right/U_VU_metre/VU_din_d_reg[12]/CLR (the first 15 of 126 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#6 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_VU_metre/VU_din_d[15]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/Audio_din_d_reg[0]/CLR, U_Audio_channel_right/Audio_din_d_reg[10]/CLR, U_Audio_channel_right/Audio_din_d_reg[11]/CLR, U_Audio_channel_right/Audio_din_d_reg[12]/CLR, U_Audio_channel_right/Audio_din_d_reg[13]/CLR, U_Audio_channel_right/Audio_din_d_reg[14]/CLR, U_Audio_channel_right/Audio_din_d_reg[15]/CLR, U_Audio_channel_right/Audio_din_d_reg[1]/CLR, U_Audio_channel_right/Audio_din_d_reg[2]/CLR, U_Audio_channel_right/Audio_din_d_reg[3]/CLR, U_Audio_channel_right/Audio_din_d_reg[4]/CLR, U_Audio_channel_right/Audio_din_d_reg[5]/CLR, U_Audio_channel_right/Audio_din_d_reg[6]/CLR, U_Audio_channel_right/Audio_din_d_reg[7]/CLR, U_Audio_channel_right/Audio_din_d_reg[8]/CLR (the first 15 of 33 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#7 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_VU_metre/GEN_VU[3].U_VU_stage/accu_sat[9]_i_2__1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[24]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[25]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[0]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[1]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[2]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[3]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[4]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[5]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[6]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[7]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[8]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/accu_sat_reg[9]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[5].U_VU_stage/VU_level_reg[10]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[5].U_VU_stage/VU_level_reg[11]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[5].U_VU_stage/VU_level_reg[12]/CLR (the first 15 of 126 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#8 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_VU_metre/GEN_VU[4].U_VU_stage/VU_level[1]_i_2__0, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[10]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[11]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[12]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[13]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[14]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[15]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[16]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[17]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[18]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[19]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[1]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[20]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[21]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[22]/CLR, U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/VU_level_reg[23]/CLR (the first 15 of 126 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#9 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/VU_dout[4]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_VU_metre/VU_dout_reg[0]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[10]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[11]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[12]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[13]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[14]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[15]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[16]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[17]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[18]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[19]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[1]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[2]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[3]/CLR, U_Audio_channel_left/U_VU_metre/VU_dout_reg[4]/CLR (the first 15 of 126 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 TIMING-27#1 Warning

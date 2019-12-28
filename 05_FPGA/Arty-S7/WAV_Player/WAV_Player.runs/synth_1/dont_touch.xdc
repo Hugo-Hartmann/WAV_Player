@@ -3,9 +3,22 @@
 
 # XDC: C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/Contraintes_Arty.xdc
 
-# IP: ip/RAM_2048_16bit/RAM_2048_16bit.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_16bit || ORIG_REF_NAME==RAM_2048_16bit} -quiet] -quiet
+# IP: ip/Accu_u27/Accu_u27.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Accu_u27 || ORIG_REF_NAME==Accu_u27} -quiet] -quiet
+
+# IP: ip/RAM_4096_16bit/RAM_4096_16bit.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_4096_16bit || ORIG_REF_NAME==RAM_4096_16bit} -quiet] -quiet
+
+# IP: ip/RAM_4096_8bit/RAM_4096_8bit.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_4096_8bit || ORIG_REF_NAME==RAM_4096_8bit} -quiet] -quiet
+
+# IP: ip/Accu_u20/Accu_u20.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Accu_u20 || ORIG_REF_NAME==Accu_u20} -quiet] -quiet
 
 # XDC: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VGA_interface/new/VGA_interface_ooc.xdc
 
-# XDC: ip/RAM_2048_16bit/RAM_2048_16bit_ooc.xdc
+# XDC: ip/RAM_4096_16bit/RAM_4096_16bit_ooc.xdc
+
+# XDC: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VU_metre/new/VU_metre_ooc.xdc
+
+# XDC: ip/RAM_4096_8bit/RAM_4096_8bit_ooc.xdc
