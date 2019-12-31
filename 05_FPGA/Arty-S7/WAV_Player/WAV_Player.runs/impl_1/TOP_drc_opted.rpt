@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Dec 28 19:21:11 2019
+| Date         : Tue Dec 31 13:38:08 2019
 | Host         : Hugo running 64-bit major release  (build 9200)
 | Command      : report_drc -file TOP_drc_opted.rpt -pb TOP_drc_opted.pb -rpx TOP_drc_opted.rpx
 | Design       : TOP
@@ -24,7 +24,7 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 101
+             Violations found: 73
 +-----------+----------+-------------------------------------------------------------------+------------+
 | Rule      | Severity | Description                                                       | Violations |
 +-----------+----------+-------------------------------------------------------------------+------------+
@@ -32,8 +32,8 @@ Table of Contents
 | IOSR-1    | Warning  | IOB set reset sharing                                             | 3          |
 | REQP-1839 | Warning  | RAMB36 async control check                                        | 20         |
 | REQP-1840 | Warning  | RAMB18 async control check                                        | 20         |
-| AVAL-4    | Advisory | enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND | 28         |
-| AVAL-5    | Advisory | enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND   | 28         |
+| AVAL-4    | Advisory | enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND | 14         |
+| AVAL-5    | Advisory | enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND   | 14         |
 +-----------+----------+-------------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -165,7 +165,7 @@ Related violations: <none>
 
 REQP-1840#1 Warning
 RAMB18 async control check  
-The RAMB18E1 U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram has an input control pin U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram/ADDRARDADDR[11] (net: U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[7]) which is driven by a register (U_Audio_channel_left/U_FFT_Wrapper/U_FFT_FSM/addrA_d_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram has an input control pin U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram/ADDRARDADDR[11] (net: U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[7]) which is driven by a register (U_Audio_channel_left/U_FFT_Wrapper/U_FFT_FSM/addrA_d_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1840#2 Warning
@@ -295,112 +295,42 @@ Related violations: <none>
 
 AVAL-4#7 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[0].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_left/U_VU_metre/U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-4#8 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[0].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-4#9 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[2].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[1].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-4#10 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[3].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[2].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-4#11 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[4].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[3].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-4#12 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[5].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[4].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-4#13 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[6].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[5].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-4#14 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[7].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#15 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[0].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#16 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[1].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#17 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[2].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#18 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[3].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#19 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[4].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#20 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[5].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#21 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#22 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#23 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[2].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#24 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[3].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#25 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[4].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#26 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[5].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#27 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[6].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-4#28 Advisory
-enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_VU_metre/U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-5#1 Advisory
@@ -435,112 +365,42 @@ Related violations: <none>
 
 AVAL-5#7 Advisory
 enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[0].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_left/U_VU_metre/U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-5#8 Advisory
 enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[1].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[0].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-5#9 Advisory
 enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[2].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[1].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-5#10 Advisory
 enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[3].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[2].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-5#11 Advisory
 enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[4].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[3].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-5#12 Advisory
 enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[5].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[4].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-5#13 Advisory
 enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[6].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_FIR_interface/GEN_FILTER[5].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 AVAL-5#14 Advisory
 enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_left/U_VU_metre/GEN_VU[7].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#15 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[0].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#16 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[1].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#17 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[2].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#18 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[3].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#19 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[4].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#20 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_FIR_interface/GEN_FILTER[5].U_FIR_filter/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#21 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[0].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#22 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[1].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#23 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[2].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#24 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[3].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#25 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[4].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#26 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[5].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#27 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[6].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-AVAL-5#28 Advisory
-enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
-U_Audio_channel_right/U_VU_metre/GEN_VU[7].U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+U_Audio_channel_right/U_VU_metre/U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
 Related violations: <none>
 
 

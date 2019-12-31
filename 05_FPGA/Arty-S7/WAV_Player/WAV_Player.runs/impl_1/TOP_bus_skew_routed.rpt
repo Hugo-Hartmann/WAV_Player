@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Dec 28 19:23:05 2019
+| Date         : Tue Dec 31 13:39:57 2019
 | Host         : Hugo running 64-bit major release  (build 9200)
 | Command      : report_bus_skew -warn_on_violation -file TOP_bus_skew_routed.rpt -pb TOP_bus_skew_routed.pb -rpx TOP_bus_skew_routed.rpx
 | Design       : TOP
@@ -23,16 +23,16 @@ Id  Position  From                            To                              Co
 --  --------  ------------------------------  ------------------------------  ------  ---------------  ----------  ---------
 1   10        [get_cells [list {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[0]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[2]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[3]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[4]}]]
                                               [get_cells [list {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][3]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][4]}]]
-                                                                              Slow              4.630       2.002      2.628
+                                                                              Slow              4.630       2.065      2.565
 2   12        [get_cells [list {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[0]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[2]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[3]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[4]}]]
                                               [get_cells [list {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][3]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][4]}]]
-                                                                              Slow              4.630       2.041      2.589
+                                                                              Slow              4.630       1.991      2.639
 3   14        [get_cells [list {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[0]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[2]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[3]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]}]]
                                               [get_cells [list {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][0]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][2]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]} {U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]}]]
-                                                                              Slow              4.630       2.026      2.604
+                                                                              Slow              4.630       2.243      2.387
 4   16        [get_cells [list {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[0]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[2]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[3]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]}]]
                                               [get_cells [list {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][0]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][2]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]} {U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]}]]
-                                                                              Slow              4.630       2.107      2.523
+                                                                              Slow              4.630       2.224      2.406
 
 
 2. Bus Skew Report Per Constraint
@@ -45,27 +45,27 @@ Endpoints: 5
 
 From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
 --------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
-clk_112_MMCM_112      clk_216_MMCM          U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
-                                                                            U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]/D
-                                                                                                            Slow         2.002      2.628
+clk_112_MMCM_112      clk_216_MMCM          U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]/D
+                                                                            U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
+                                                                                                            Slow         2.065      2.565
 
 
-Slack (MET) :             2.628ns  (requirement - actual skew)
-  Endpoint Source:        U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]/C
+Slack (MET) :             2.565ns  (requirement - actual skew)
+  Endpoint Source:        U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by clk_112_MMCM_112)
-  Endpoint Destination:   U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
+  Endpoint Destination:   U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]/D
                             (rising edge-triggered cell FDRE clocked by clk_216_MMCM)
-  Reference Source:       U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[2]/C
+  Reference Source:       U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clk_112_MMCM_112)
-  Reference Destination:  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]/D
+  Reference Destination:  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
                             (rising edge-triggered cell FDRE clocked by clk_216_MMCM)
   Path Type:              Bus Skew (Max at Slow Process Corner)
   Requirement:            4.630ns
-  Endpoint Relative Delay:    9.258ns
-  Reference Relative Delay:   7.865ns
-  Relative CRPR:              0.804ns
+  Endpoint Relative Delay:    9.287ns
+  Reference Relative Delay:   7.846ns
+  Relative CRPR:              0.788ns
   Uncertainty:                1.413ns
-  Actual Bus Skew:            2.002ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR + Uncertainty)
+  Actual Bus Skew:            2.065ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR + Uncertainty)
 
 Endpoint path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -78,12 +78,12 @@ Endpoint path:
                                                       0.088     1.424 r  MMCM_GEN_112.U_MMCM_112/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.968     3.392    MMCM_GEN_112.U_MMCM_112/inst/clk_112_MMCM_112
     BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.096     3.488 r  MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O
-                         net (fo=415, routed)         1.555     5.044    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_clk
-    SLICE_X32Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]/C
+                         net (fo=415, routed)         1.557     5.046    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_clk
+    SLICE_X40Y31         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X32Y30         FDRE (Prop_fdre_C_Q)         0.419     5.463 r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]/Q
-                         net (fo=1, routed)           0.595     6.058    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/async_path[1]
-    SLICE_X33Y29         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
+    SLICE_X40Y31         FDRE (Prop_fdre_C_Q)         0.456     5.502 r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[2]/Q
+                         net (fo=1, routed)           0.763     6.264    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/async_path[2]
+    SLICE_X41Y31         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_216_MMCM rise edge)
@@ -94,15 +94,15 @@ Endpoint path:
                                                      -7.208    -6.046 r  MMCM_GEN.U_MMCM/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.587    -4.459    MMCM_GEN.U_MMCM/inst/clk_216_MMCM
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    -4.368 r  MMCM_GEN.U_MMCM/inst/clkout1_buf/O
-                         net (fo=7185, routed)        1.437    -2.930    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_clk
-    SLICE_X33Y29         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/C
-                         clock pessimism              0.000    -2.930    
-    SLICE_X33Y29         FDRE (Setup_fdre_C_D)       -0.270    -3.200    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]
+                         net (fo=6432, routed)        1.440    -2.927    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_clk
+    SLICE_X41Y31         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]/C
+                         clock pessimism              0.000    -2.927    
+    SLICE_X41Y31         FDRE (Setup_fdre_C_D)       -0.095    -3.022    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]
   -------------------------------------------------------------------
-                         data arrival                           6.058    
-                         clock arrival                         -3.200    
+                         data arrival                           6.264    
+                         clock arrival                         -3.022    
   -------------------------------------------------------------------
-                         relative delay                         9.258    
+                         relative delay                         9.287    
 
 Reference path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -115,12 +115,12 @@ Reference path:
                                                       0.083     1.344 r  MMCM_GEN_112.U_MMCM_112/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.874     3.218    MMCM_GEN_112.U_MMCM_112/inst/clk_112_MMCM_112
     BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.091     3.309 r  MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O
-                         net (fo=415, routed)         1.437     4.747    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_clk
-    SLICE_X32Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[2]/C
+                         net (fo=415, routed)         1.440     4.749    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_clk
+    SLICE_X40Y31         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X32Y30         FDRE (Prop_fdre_C_Q)         0.367     5.114 r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[2]/Q
-                         net (fo=1, routed)           0.521     5.634    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/async_path[2]
-    SLICE_X33Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]/D
+    SLICE_X40Y31         FDRE (Prop_fdre_C_Q)         0.337     5.086 r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]/Q
+                         net (fo=1, routed)           0.388     5.475    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/async_path[1]
+    SLICE_X39Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_216_MMCM rise edge)
@@ -131,15 +131,15 @@ Reference path:
                                                      -6.950    -5.717 r  MMCM_GEN.U_MMCM/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.666    -4.051    MMCM_GEN.U_MMCM/inst/clk_216_MMCM
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -3.955 r  MMCM_GEN.U_MMCM/inst/clkout1_buf/O
-                         net (fo=7185, routed)        1.555    -2.399    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_clk
-    SLICE_X33Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]/C
+                         net (fo=6432, routed)        1.555    -2.399    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_clk
+    SLICE_X39Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/C
                          clock pessimism              0.000    -2.399    
-    SLICE_X33Y30         FDRE (Hold_fdre_C_D)         0.169    -2.230    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][2]
+    SLICE_X39Y30         FDRE (Hold_fdre_C_D)         0.028    -2.371    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]
   -------------------------------------------------------------------
-                         data arrival                           5.634    
-                         clock arrival                         -2.230    
+                         data arrival                           5.475    
+                         clock arrival                         -2.371    
   -------------------------------------------------------------------
-                         relative delay                         7.865    
+                         relative delay                         7.846    
 
 
 
@@ -150,27 +150,27 @@ Endpoints: 5
 
 From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
 --------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
-clk_216_MMCM          clk_112_MMCM_112      U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
-                                                                            U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]/D
-                                                                                                            Slow         2.041      2.589
+clk_216_MMCM          clk_112_MMCM_112      U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]/D
+                                                                            U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/D
+                                                                                                            Slow         1.991      2.639
 
 
-Slack (MET) :             2.589ns  (requirement - actual skew)
-  Endpoint Source:        U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]/C
+Slack (MET) :             2.639ns  (requirement - actual skew)
+  Endpoint Source:        U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_216_MMCM)
-  Endpoint Destination:   U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
+  Endpoint Destination:   U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]/D
                             (rising edge-triggered cell FDRE clocked by clk_112_MMCM_112)
-  Reference Source:       U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[0]/C
+  Reference Source:       U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_216_MMCM)
-  Reference Destination:  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]/D
+  Reference Destination:  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/D
                             (rising edge-triggered cell FDRE clocked by clk_112_MMCM_112)
   Path Type:              Bus Skew (Max at Slow Process Corner)
   Requirement:            4.630ns
-  Endpoint Relative Delay:   -5.817ns
-  Reference Relative Delay:  -7.233ns
+  Endpoint Relative Delay:   -5.921ns
+  Reference Relative Delay:  -7.287ns
   Relative CRPR:              0.788ns
   Uncertainty:                1.413ns
-  Actual Bus Skew:            2.041ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR + Uncertainty)
+  Actual Bus Skew:            1.991ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR + Uncertainty)
 
 Endpoint path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -183,12 +183,12 @@ Endpoint path:
                                                      -6.950    -5.717 r  MMCM_GEN.U_MMCM/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.666    -4.051    MMCM_GEN.U_MMCM/inst/clk_216_MMCM
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -3.955 r  MMCM_GEN.U_MMCM/inst/clkout1_buf/O
-                         net (fo=7185, routed)        1.553    -2.402    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_clk
-    SLICE_X30Y21         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]/C
+                         net (fo=6432, routed)        1.562    -2.392    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_clk
+    SLICE_X45Y34         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y21         FDRE (Prop_fdre_C_Q)         0.478    -1.924 r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[1]/Q
-                         net (fo=1, routed)           0.586    -1.337    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/async_path[1]
-    SLICE_X32Y21         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
+    SLICE_X45Y34         FDRE (Prop_fdre_C_Q)         0.456    -1.936 r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[0]/Q
+                         net (fo=1, routed)           0.721    -1.215    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/async_path[0]
+    SLICE_X42Y33         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_112_MMCM_112 rise edge)
@@ -199,15 +199,15 @@ Endpoint path:
                                                       0.083     1.344 r  MMCM_GEN_112.U_MMCM_112/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.874     3.218    MMCM_GEN_112.U_MMCM_112/inst/clk_112_MMCM_112
     BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.091     3.309 r  MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O
-                         net (fo=415, routed)         1.436     4.746    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_clk
-    SLICE_X32Y21         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/C
-                         clock pessimism              0.000     4.746    
-    SLICE_X32Y21         FDRE (Setup_fdre_C_D)       -0.266     4.480    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][1]
+                         net (fo=415, routed)         1.443     4.753    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_clk
+    SLICE_X42Y33         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]/C
+                         clock pessimism              0.000     4.753    
+    SLICE_X42Y33         FDRE (Setup_fdre_C_D)       -0.047     4.706    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]
   -------------------------------------------------------------------
-                         data arrival                          -1.337    
-                         clock arrival                          4.480    
+                         data arrival                          -1.215    
+                         clock arrival                          4.706    
   -------------------------------------------------------------------
-                         relative delay                        -5.817    
+                         relative delay                        -5.921    
 
 Reference path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -220,12 +220,12 @@ Reference path:
                                                      -7.208    -6.046 r  MMCM_GEN.U_MMCM/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.587    -4.459    MMCM_GEN.U_MMCM/inst/clk_216_MMCM
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    -4.368 r  MMCM_GEN.U_MMCM/inst/clkout1_buf/O
-                         net (fo=7185, routed)        1.436    -2.931    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_clk
-    SLICE_X30Y21         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[0]/C
+                         net (fo=6432, routed)        1.445    -2.922    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_clk
+    SLICE_X45Y34         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y21         FDRE (Prop_fdre_C_Q)         0.418    -2.513 r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[0]/Q
-                         net (fo=1, routed)           0.493    -2.020    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/async_path[0]
-    SLICE_X29Y20         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]/D
+    SLICE_X45Y34         FDRE (Prop_fdre_C_Q)         0.337    -2.585 r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/src_gray_ff_reg[3]/Q
+                         net (fo=1, routed)           0.378    -2.207    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/async_path[3]
+    SLICE_X44Y33         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_112_MMCM_112 rise edge)
@@ -236,15 +236,15 @@ Reference path:
                                                       0.088     1.424 r  MMCM_GEN_112.U_MMCM_112/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.968     3.392    MMCM_GEN_112.U_MMCM_112/inst/clk_112_MMCM_112
     BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.096     3.488 r  MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O
-                         net (fo=415, routed)         1.555     5.044    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_clk
-    SLICE_X29Y20         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]/C
-                         clock pessimism              0.000     5.044    
-    SLICE_X29Y20         FDRE (Hold_fdre_C_D)         0.169     5.213    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][0]
+                         net (fo=415, routed)         1.561     5.050    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_clk
+    SLICE_X44Y33         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/C
+                         clock pessimism              0.000     5.050    
+    SLICE_X44Y33         FDRE (Hold_fdre_C_D)         0.030     5.080    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_cdc_inst/dest_graysync_ff_reg[0][3]
   -------------------------------------------------------------------
-                         data arrival                          -2.020    
-                         clock arrival                          5.213    
+                         data arrival                          -2.207    
+                         clock arrival                          5.080    
   -------------------------------------------------------------------
-                         relative delay                        -7.233    
+                         relative delay                        -7.287    
 
 
 
@@ -255,27 +255,27 @@ Endpoints: 5
 
 From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
 --------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
-clk_216_MMCM          clk_112_MMCM_112      U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/D
-                                                                            U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/D
-                                                                                                            Slow         2.026      2.604
+clk_216_MMCM          clk_112_MMCM_112      U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/D
+                                                                            U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
+                                                                                                            Slow         2.243      2.387
 
 
-Slack (MET) :             2.604ns  (requirement - actual skew)
-  Endpoint Source:        U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[3]/C
+Slack (MET) :             2.387ns  (requirement - actual skew)
+  Endpoint Source:        U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]/C
                             (rising edge-triggered cell FDRE clocked by clk_216_MMCM)
-  Endpoint Destination:   U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/D
+  Endpoint Destination:   U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/D
                             (rising edge-triggered cell FDRE clocked by clk_112_MMCM_112)
-  Reference Source:       U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]/C
+  Reference Source:       U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clk_216_MMCM)
-  Reference Destination:  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/D
+  Reference Destination:  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
                             (rising edge-triggered cell FDRE clocked by clk_112_MMCM_112)
   Path Type:              Bus Skew (Max at Slow Process Corner)
   Requirement:            4.630ns
-  Endpoint Relative Delay:   -5.861ns
-  Reference Relative Delay:  -7.278ns
-  Relative CRPR:              0.804ns
+  Endpoint Relative Delay:   -5.750ns
+  Reference Relative Delay:  -7.187ns
+  Relative CRPR:              0.606ns
   Uncertainty:                1.413ns
-  Actual Bus Skew:            2.026ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR + Uncertainty)
+  Actual Bus Skew:            2.243ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR + Uncertainty)
 
 Endpoint path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -288,12 +288,12 @@ Endpoint path:
                                                      -6.950    -5.717 r  MMCM_GEN.U_MMCM/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.666    -4.051    MMCM_GEN.U_MMCM/inst/clk_216_MMCM
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -3.955 r  MMCM_GEN.U_MMCM/inst/clkout1_buf/O
-                         net (fo=7185, routed)        1.557    -2.398    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_clk
-    SLICE_X29Y31         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[3]/C
+                         net (fo=6432, routed)        1.547    -2.408    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_clk
+    SLICE_X32Y25         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X29Y31         FDRE (Prop_fdre_C_Q)         0.419    -1.979 r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[3]/Q
-                         net (fo=1, routed)           0.599    -1.379    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/async_path[3]
-    SLICE_X28Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/D
+    SLICE_X32Y25         FDRE (Prop_fdre_C_Q)         0.456    -1.951 r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]/Q
+                         net (fo=1, routed)           0.847    -1.105    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/async_path[4]
+    SLICE_X32Y24         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_112_MMCM_112 rise edge)
@@ -304,15 +304,15 @@ Endpoint path:
                                                       0.083     1.344 r  MMCM_GEN_112.U_MMCM_112/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.874     3.218    MMCM_GEN_112.U_MMCM_112/inst/clk_112_MMCM_112
     BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.091     3.309 r  MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O
-                         net (fo=415, routed)         1.439     4.748    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_clk
-    SLICE_X28Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/C
-                         clock pessimism              0.000     4.748    
-    SLICE_X28Y30         FDRE (Setup_fdre_C_D)       -0.267     4.481    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]
+                         net (fo=415, routed)         1.431     4.740    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_clk
+    SLICE_X32Y24         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/C
+                         clock pessimism              0.000     4.740    
+    SLICE_X32Y24         FDRE (Setup_fdre_C_D)       -0.095     4.646    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]
   -------------------------------------------------------------------
-                         data arrival                          -1.379    
-                         clock arrival                          4.482    
+                         data arrival                          -1.105    
+                         clock arrival                          4.646    
   -------------------------------------------------------------------
-                         relative delay                        -5.861    
+                         relative delay                        -5.750    
 
 Reference path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -325,12 +325,12 @@ Reference path:
                                                      -7.208    -6.046 r  MMCM_GEN.U_MMCM/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.587    -4.459    MMCM_GEN.U_MMCM/inst/clk_216_MMCM
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    -4.368 r  MMCM_GEN.U_MMCM/inst/clkout1_buf/O
-                         net (fo=7185, routed)        1.440    -2.927    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_clk
-    SLICE_X29Y31         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]/C
+                         net (fo=6432, routed)        1.433    -2.934    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_clk
+    SLICE_X37Y26         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X29Y31         FDRE (Prop_fdre_C_Q)         0.367    -2.560 r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]/Q
-                         net (fo=1, routed)           0.496    -2.064    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/async_path[4]
-    SLICE_X29Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/D
+    SLICE_X37Y26         FDRE (Prop_fdre_C_Q)         0.337    -2.597 r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]/Q
+                         net (fo=1, routed)           0.475    -2.123    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/async_path[1]
+    SLICE_X37Y25         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_112_MMCM_112 rise edge)
@@ -341,15 +341,15 @@ Reference path:
                                                       0.088     1.424 r  MMCM_GEN_112.U_MMCM_112/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.968     3.392    MMCM_GEN_112.U_MMCM_112/inst/clk_112_MMCM_112
     BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.096     3.488 r  MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O
-                         net (fo=415, routed)         1.556     5.045    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_clk
-    SLICE_X29Y30         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/C
-                         clock pessimism              0.000     5.045    
-    SLICE_X29Y30         FDRE (Hold_fdre_C_D)         0.169     5.214    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]
+                         net (fo=415, routed)         1.547     5.036    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_clk
+    SLICE_X37Y25         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/C
+                         clock pessimism              0.000     5.036    
+    SLICE_X37Y25         FDRE (Hold_fdre_C_D)         0.028     5.064    U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]
   -------------------------------------------------------------------
-                         data arrival                          -2.064    
-                         clock arrival                          5.214    
+                         data arrival                          -2.123    
+                         clock arrival                          5.064    
   -------------------------------------------------------------------
-                         relative delay                        -7.278    
+                         relative delay                        -7.187    
 
 
 
@@ -361,26 +361,26 @@ Endpoints: 5
 From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
 --------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
 clk_112_MMCM_112      clk_216_MMCM          U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
-                                                                            U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/D
-                                                                                                            Slow         2.107      2.523
+                                                                            U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/D
+                                                                                                            Slow         2.224      2.406
 
 
-Slack (MET) :             2.523ns  (requirement - actual skew)
+Slack (MET) :             2.406ns  (requirement - actual skew)
   Endpoint Source:        U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clk_112_MMCM_112)
   Endpoint Destination:   U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
                             (rising edge-triggered cell FDRE clocked by clk_216_MMCM)
-  Reference Source:       U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]/C
+  Reference Source:       U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_112_MMCM_112)
-  Reference Destination:  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/D
+  Reference Destination:  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/D
                             (rising edge-triggered cell FDRE clocked by clk_216_MMCM)
   Path Type:              Bus Skew (Max at Slow Process Corner)
   Requirement:            4.630ns
-  Endpoint Relative Delay:    9.277ns
-  Reference Relative Delay:   7.795ns
-  Relative CRPR:              0.788ns
+  Endpoint Relative Delay:    9.413ns
+  Reference Relative Delay:   7.824ns
+  Relative CRPR:              0.778ns
   Uncertainty:                1.413ns
-  Actual Bus Skew:            2.107ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR + Uncertainty)
+  Actual Bus Skew:            2.224ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR + Uncertainty)
 
 Endpoint path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -393,12 +393,12 @@ Endpoint path:
                                                       0.088     1.424 r  MMCM_GEN_112.U_MMCM_112/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.968     3.392    MMCM_GEN_112.U_MMCM_112/inst/clk_112_MMCM_112
     BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.096     3.488 r  MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O
-                         net (fo=415, routed)         1.553     5.042    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_clk
-    SLICE_X33Y21         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]/C
+                         net (fo=415, routed)         1.561     5.050    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_clk
+    SLICE_X48Y31         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X33Y21         FDRE (Prop_fdre_C_Q)         0.419     5.461 r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]/Q
-                         net (fo=1, routed)           0.611     6.072    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/async_path[1]
-    SLICE_X33Y23         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
+    SLICE_X48Y31         FDRE (Prop_fdre_C_Q)         0.419     5.469 r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[1]/Q
+                         net (fo=1, routed)           0.751     6.220    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/async_path[1]
+    SLICE_X49Y31         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_216_MMCM rise edge)
@@ -409,15 +409,15 @@ Endpoint path:
                                                      -7.208    -6.046 r  MMCM_GEN.U_MMCM/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.587    -4.459    MMCM_GEN.U_MMCM/inst/clk_216_MMCM
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    -4.368 r  MMCM_GEN.U_MMCM/inst/clkout1_buf/O
-                         net (fo=7185, routed)        1.433    -2.934    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_clk
-    SLICE_X33Y23         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/C
-                         clock pessimism              0.000    -2.934    
-    SLICE_X33Y23         FDRE (Setup_fdre_C_D)       -0.270    -3.204    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]
+                         net (fo=6432, routed)        1.444    -2.923    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_clk
+    SLICE_X49Y31         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]/C
+                         clock pessimism              0.000    -2.923    
+    SLICE_X49Y31         FDRE (Setup_fdre_C_D)       -0.270    -3.193    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][1]
   -------------------------------------------------------------------
-                         data arrival                           6.072    
-                         clock arrival                         -3.204    
+                         data arrival                           6.220    
+                         clock arrival                         -3.193    
   -------------------------------------------------------------------
-                         relative delay                         9.277    
+                         relative delay                         9.413    
 
 Reference path:
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -430,12 +430,12 @@ Reference path:
                                                       0.083     1.344 r  MMCM_GEN_112.U_MMCM_112/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.874     3.218    MMCM_GEN_112.U_MMCM_112/inst/clk_112_MMCM_112
     BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.091     3.309 r  MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O
-                         net (fo=415, routed)         1.436     4.746    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_clk
-    SLICE_X33Y21         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]/C
+                         net (fo=415, routed)         1.449     4.759    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_clk
+    SLICE_X48Y36         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X33Y21         FDRE (Prop_fdre_C_Q)         0.367     5.113 r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[4]/Q
-                         net (fo=1, routed)           0.511     5.623    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/async_path[4]
-    SLICE_X34Y20         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/D
+    SLICE_X48Y36         FDRE (Prop_fdre_C_Q)         0.337     5.095 r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/src_gray_ff_reg[3]/Q
+                         net (fo=1, routed)           0.369     5.464    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/async_path[3]
+    SLICE_X49Y35         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_216_MMCM rise edge)
@@ -446,15 +446,15 @@ Reference path:
                                                      -6.950    -5.717 r  MMCM_GEN.U_MMCM/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           1.666    -4.051    MMCM_GEN.U_MMCM/inst/clk_216_MMCM
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -3.955 r  MMCM_GEN.U_MMCM/inst/clkout1_buf/O
-                         net (fo=7185, routed)        1.553    -2.402    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_clk
-    SLICE_X34Y20         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]/C
-                         clock pessimism              0.000    -2.402    
-    SLICE_X34Y20         FDRE (Hold_fdre_C_D)         0.230    -2.172    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][4]
+                         net (fo=6432, routed)        1.567    -2.388    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_clk
+    SLICE_X49Y35         FDRE                                         r  U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]/C
+                         clock pessimism              0.000    -2.388    
+    SLICE_X49Y35         FDRE (Hold_fdre_C_D)         0.028    -2.359    U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_cdc_inst/dest_graysync_ff_reg[0][3]
   -------------------------------------------------------------------
-                         data arrival                           5.623    
-                         clock arrival                         -2.171    
+                         data arrival                           5.464    
+                         clock arrival                         -2.359    
   -------------------------------------------------------------------
-                         relative delay                         7.795    
+                         relative delay                         7.824    
 
 
 

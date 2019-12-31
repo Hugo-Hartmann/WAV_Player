@@ -6,11 +6,11 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-20
--- Last update: 2019-12-28
+-- Last update: 2019-12-31
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
--- Description: 2048 element VU-metre
+-- Description: 4096 element VU-metre
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
@@ -40,8 +40,6 @@ entity VU_stage is
         VU_clr      : in  std_logic;
         VU_en       : in  std_logic;
         VU_done     : out std_logic;
-        VU_write    : in  std_logic;
-        VU_addr     : in  std_logic_vector(11 downto 0);
 
         ------- VU in ---------------------------
         VU_din      : in  std_logic_vector(7 downto 0);
@@ -60,23 +58,12 @@ architecture RTL of VU_stage is
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
-    type T_ENABLE is array(0 to 5) of std_logic;
+    type T_ENABLE is array(0 to 4) of std_logic;
     type T_LEVEL is array(0 to 31) of std_logic;
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component RAM_4096_8bit
-        port (
-            clka    : in  std_logic;
-            ena     : in  std_logic;
-            wea     : in  std_logic_vector(0 downto 0);
-            addra   : in  std_logic_vector(11 downto 0);
-            dina    : in  std_logic_vector(7 downto 0);
-            douta   : out std_logic_vector(7 downto 0)
-            );
-    end component;
-
     component Accu_u20
         port(
             b       : in  std_logic_vector(7 downto 0);
@@ -90,13 +77,8 @@ architecture RTL of VU_stage is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal RAM_in       : std_logic_vector(7 downto 0);
-    signal RAM_out      : std_logic_vector(7 downto 0);
-    signal RAM_write    : std_logic_vector(0 downto 0);
-    signal RAM_addr     : std_logic_vector(11 downto 0);
     signal VU_en_d      : T_ENABLE;
     signal VU_level     : T_LEVEL;
-    signal VU_din_map   : std_logic_vector(7 downto 0);
     signal accu_din     : std_logic_vector(7 downto 0);
     signal accu         : std_logic_vector(19 downto 0);
     signal accu_sat     : std_logic_vector(9 downto 0);
@@ -108,50 +90,31 @@ architecture RTL of VU_stage is
 --------------------------------------------------------------------------------
 begin
 
-    ----------------------------------------------------------------
-    -- INSTANCE : U_RAM
-    -- Description : Contains the 4096 last samples read
-    ----------------------------------------------------------------
-    U_RAM : RAM_4096_8bit port map(
-        clka    => clk,
-        addra   => RAM_addr,
-        wea     => RAM_write,
-        ena     => '1',
-        dina    => RAM_in,
-        douta   => RAM_out);
-
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : VU_din_map
+    -- SEQ PROCESS : P_delay_input
+    -- Description :
     --------------------------------------------------------------------------------
-    VU_din_map  <= VU_din when(VU_din(VU_din'high)='0') else (NOT VU_din);
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_delay_RAM
-    -- Description : Register delay
-    --------------------------------------------------------------------------------
-    P_delay_RAM : process(clk, reset_n)
+    P_delay_input : process(clk, reset_n)
     begin
         if(reset_n='0') then
             VU_en_d(0)  <= '0';
-            VU_en_d(1)  <= '0';
         elsif(rising_edge(clk)) then
             VU_en_d(0)  <= VU_en;
-            VU_en_d(1)  <= VU_en_d(0);
         end if;
     end process;
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_RAM
+    -- SEQ PROCESS : P_input
     -- Description : Register RAM signals
     --------------------------------------------------------------------------------
-    P_RAM : process(clk, reset_n)
+    P_input : process(clk, reset_n)
     begin
         if(rising_edge(clk)) then
-            RAM_addr    <= VU_addr;
-            RAM_write   <= (0 downto 0 => VU_write);
-            RAM_in      <= VU_din_map;
-            Accu_din    <= RAM_out;
+            if(VU_din(VU_din'high)='0') then
+                Accu_din    <= VU_din;
+            else
+                Accu_din    <= NOT VU_din;
+            end if;
         end if;
     end process;
 
@@ -162,7 +125,7 @@ begin
     U_Accu : Accu_u20 port map(
         clk     => clk,
         b       => Accu_din,
-        ce      => VU_en_d(1) OR VU_en_d(2),
+        ce      => VU_en_d(0) OR VU_en_d(1),
         sclr    => VU_clr,
         q       => accu);
 
@@ -173,11 +136,11 @@ begin
     P_delay_accu : process(clk, reset_n)
     begin
         if(reset_n='0') then
+            VU_en_d(1)  <= '0';
             VU_en_d(2)  <= '0';
-            VU_en_d(3)  <= '0';
         elsif(rising_edge(clk)) then
+            VU_en_d(1)  <= VU_en_d(0);
             VU_en_d(2)  <= VU_en_d(1);
-            VU_en_d(3)  <= VU_en_d(2);
         end if;
     end process;
 
@@ -188,7 +151,7 @@ begin
     P_sat : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            VU_en_d(4)  <= '0';
+            VU_en_d(3)  <= '0';
             accu_sat    <= (others => '0');
         elsif(rising_edge(clk)) then
             if(accu(19 downto 18)="00") then
@@ -197,7 +160,7 @@ begin
                 accu_sat    <= std_logic_vector(to_unsigned(1023, accu_sat'length));
             end if;
 
-            VU_en_d(4)  <= VU_en_d(3);
+            VU_en_d(3)  <= VU_en_d(2);
         end if;
     end process;
 
@@ -210,7 +173,7 @@ begin
     process(reset_n, clk)
     begin
         if(reset_n='0') then
-            VU_en_d(5)  <= '0';
+            VU_en_d(4)  <= '0';
             for i in VU_level'range loop
                 VU_level(i) <= '0';
             end loop;
@@ -219,7 +182,7 @@ begin
                 VU_level(i) <= '0';
             end loop;
 
-            VU_en_d(5)  <= VU_en_d(4);
+            VU_en_d(4)  <= VU_en_d(3);
 
             if(accu_map=1023) then
                 VU_level(31) <= '1';
@@ -307,7 +270,11 @@ begin
                 end if;
             end loop;
 
-            VU_done <= VU_en_d(5);
+            if(VU_en_d(4)='1' and VU_en_d(3)='0') then
+                VU_done <= '1';
+            else
+                VU_done <= '0';
+            end if;
         end if;
     end process;
 
