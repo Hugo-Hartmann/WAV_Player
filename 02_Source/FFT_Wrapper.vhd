@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2019-12-19
+-- Last update: 2020-01-01
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -271,7 +271,7 @@ begin
     ----------------------------------------------------------------
     U_FIFO_addrA : FFT_FIFO generic map(
         G_OPERAND_SIZE  => 9,
-        G_FIFO_SIZE     => 11)
+        G_FIFO_SIZE     => 13)
     port map(
         clk         => clk,
         reset_n     => reset_n,
@@ -284,7 +284,7 @@ begin
     ----------------------------------------------------------------
     U_FIFO_addrB : FFT_FIFO generic map(
         G_OPERAND_SIZE  => 9,
-        G_FIFO_SIZE     => 11)
+        G_FIFO_SIZE     => 13)
     port map(
         clk         => clk,
         reset_n     => reset_n,

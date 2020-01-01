@@ -1,2 +1,4 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd" into library lib_VHDL
-INFO: [VRFC 10-3107] analyzing entity 'VU_metre'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FFT_FSM.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'FFT_FSM'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'FFT_RAM_Wrapper'

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-21
--- Last update: 2019-12-19
+-- Last update: 2020-01-01
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -58,7 +58,8 @@ architecture RTL of FFT_FSM is
     --------------------------------------------------------------------------------
     type T_EN is array (0 to 8) of std_logic;
     type FFT_STATE is (FFT_RESET, FFT_IDLE, FFT_NEW_STAGE, FFT_WAIT_PIPE, FFT_ADDR_START1,
-                       FFT_ADDR_START2, FFT_ADDR_LOOP, FFT_ADDR_END, FFT_PIPE_UNLOAD, FFT_END);
+                       FFT_ADDR_START2, FFT_ADDR_START3, FFT_ADDR_START4, FFT_ADDR_LOOP,
+                       FFT_ADDR_END1, FFT_ADDR_END2, FFT_ADDR_END3, FFT_PIPE_UNLOAD, FFT_END);
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
@@ -312,18 +313,34 @@ begin
 
             when FFT_ADDR_START2 =>
                 cnt_addr_inc    <= '1';
+                next_state      <= FFT_ADDR_START3;
+
+            when FFT_ADDR_START3 =>
+                cnt_addr_inc    <= '1';
+                next_state      <= FFT_ADDR_START4;
+
+            when FFT_ADDR_START4 =>
+                cnt_addr_inc    <= '1';
                 next_state      <= FFT_ADDR_LOOP;
 
             when FFT_ADDR_LOOP =>
                 cnt_addr_inc    <= '1';
                 FFT_en          <= '1';
                 if(cnt_addr_end='1') then
-                    next_state  <= FFT_ADDR_END;
+                    next_state  <= FFT_ADDR_END1;
                 else
                     next_state  <= FFT_ADDR_LOOP;
                 end if;
 
-            when FFT_ADDR_END =>
+            when FFT_ADDR_END1 =>
+                FFT_en      <= '1';
+                next_state  <= FFT_ADDR_END2;
+
+            when FFT_ADDR_END2 =>
+                FFT_en      <= '1';
+                next_state  <= FFT_ADDR_END3;
+
+            when FFT_ADDR_END3 =>
                 FFT_en      <= '1';
                 next_state  <= FFT_PIPE_UNLOAD;
 

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-25
--- Last update: 2019-12-16
+-- Last update: 2020-01-01
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -265,52 +265,85 @@ begin
     end process;
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : RAM_FFT port multiplexing
+    -- SEQ PROCESS : P_RAM
+    -- Description : Register all RAM signals
     --------------------------------------------------------------------------------
-    
-    --- Port A - FFTA
-    RAM_FFTA_wrA    <= "0"          when(RAM_select(0)='1') else (others => FFT_write);
-    RAM_FFTA_addrA  <= FFT_addrA_r  when(RAM_select(0)='1') else FFT_addrA_w;
-    RAM_FFTA_dinA   <= RAM_dinA_r & RAM_dinA_i;
+    P_RAM : process(clk)
+    begin
+        if(rising_edge(clk)) then
+            --- Port A - FFTA
+            RAM_FFTA_dinA   <= RAM_dinA_r & RAM_dinA_i;
+            if(RAM_select(0)='1') then
+                RAM_FFTA_wrA    <= "0";
+                RAM_FFTA_addrA  <= FFT_addrA_r;
+            else
+                RAM_FFTA_wrA    <= (others => FFT_write);
+                RAM_FFTA_addrA  <= FFT_addrA_w;
+            end if;
 
-    --- Port B - FFTA
-    RAM_FFTA_wrB    <= "0"          when(RAM_select(0)='1') else (others => FFT_write);
-    RAM_FFTA_addrB  <= FFT_addrB_r  when(RAM_select(0)='1') else FFT_addrB_w;
-    RAM_FFTA_dinB   <= RAM_dinB_r & RAM_dinB_i;
+            --- Port B - FFTA
+            RAM_FFTA_dinB   <= RAM_dinB_r & RAM_dinB_i;
+            if(RAM_select(0)='1') then
+                RAM_FFTA_wrB    <= "0";
+                RAM_FFTA_addrB  <= FFT_addrB_r;
+            else
+                RAM_FFTA_wrB    <= (others => FFT_write);
+                RAM_FFTA_addrB  <= FFT_addrB_w;
+            end if;
 
-    --- Port A - FFTB
-    RAM_FFTB_wrA    <= "0"          when(RAM_select(0)='0') else (others => FFT_write);
-    RAM_FFTB_addrA  <= FFT_addrA_r  when(RAM_select(0)='0') else FFT_addrA_w;
-    RAM_FFTB_dinA   <= RAM_dinA_r & RAM_dinA_i;
+            --- Port A - FFTB
+            RAM_FFTB_dinA   <= RAM_dinA_r & RAM_dinA_i;
+            if(RAM_select(0)='0') then
+                RAM_FFTB_wrA    <= "0";
+                RAM_FFTB_addrA  <= FFT_addrA_r;
+            else
+                RAM_FFTB_wrA    <= (others => FFT_write);
+                RAM_FFTB_addrA  <= FFT_addrA_w;
+            end if;
 
-    --- Port B - FFTB
-    RAM_FFTB_wrB    <= "0"          when(RAM_select(0)='0') else (others => FFT_write);
-    RAM_FFTB_addrB  <= FFT_addrB_r  when(RAM_select(0)='0') else FFT_addrB_w;
-    RAM_FFTB_dinB   <= RAM_dinB_r & RAM_dinB_i;
+            --- Port B - FFTB
+            RAM_FFTB_dinB   <= RAM_dinB_r & RAM_dinB_i;
+            if(RAM_select(0)='0') then
+                RAM_FFTB_wrB    <= "0";
+                RAM_FFTB_addrB  <= FFT_addrB_r;
+            else
+                RAM_FFTB_wrB    <= (others => FFT_write);
+                RAM_FFTB_addrB  <= FFT_addrB_w;
+            end if;
 
-    --- Outputs
-    RAM_doutA_r     <= RAM_FFTA_doutA(31 downto 16) when(RAM_select="01") else
-                       RAM_FFTB_doutA(31 downto 16) when(RAM_select="00") else
-                       RAM_smple_doutA;
-    RAM_doutA_i     <= RAM_FFTA_doutA(15 downto 0) when(RAM_select="01") else
-                       RAM_FFTB_doutA(15 downto 0) when(RAM_select="00") else
-                       (others => '0');
+            --- Outputs
+            if(RAM_select="01") then
+                RAM_doutA_r <= RAM_FFTA_doutA(31 downto 16);
+                RAM_doutA_i <= RAM_FFTA_doutA(15 downto 0);
+                RAM_doutB_r <= RAM_FFTA_doutB(31 downto 16);
+                RAM_doutB_i <= RAM_FFTA_doutB(15 downto 0);
+            elsif(RAM_select="00") then
+                RAM_doutA_r <= RAM_FFTB_doutA(31 downto 16);
+                RAM_doutA_i <= RAM_FFTB_doutA(15 downto 0);
+                RAM_doutB_r <= RAM_FFTB_doutB(31 downto 16);
+                RAM_doutB_i <= RAM_FFTB_doutB(15 downto 0);
+            else
+                RAM_doutA_r <= RAM_smple_doutA;
+                RAM_doutA_i <= (others => '0');
+                RAM_doutB_r <= RAM_smple_doutB;
+                RAM_doutB_i <= (others => '0');
+            end if;
 
-    RAM_doutB_r     <= RAM_FFTA_doutB(31 downto 16) when(RAM_select="01") else
-                       RAM_FFTB_doutB(31 downto 16) when(RAM_select="00") else
-                       RAM_smple_doutB;
-    RAM_doutB_i     <= RAM_FFTA_doutB(15 downto 0) when(RAM_select="01") else
-                       RAM_FFTB_doutB(15 downto 0) when(RAM_select="00") else
-                       (others => '0');
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : ROM port mapping
+    -- SEQ PROCESS : P_ROM
+    -- Description : Register all ROM signals
     --------------------------------------------------------------------------------
-    ROM_addr    <= FFT_addrC_r;
-    RAM_doutC_r <= ROM_dout(31 downto 16);
-    RAM_doutC_i <= ROM_dout(15 downto 0);
+    P_ROM : process(clk)
+    begin
+        if(rising_edge(clk)) then
+            ROM_addr    <= FFT_addrC_r;
+            RAM_doutC_r <= ROM_dout(31 downto 16);
+            RAM_doutC_i <= ROM_dout(15 downto 0);
+        end if;
+    end process;
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM_COEF
