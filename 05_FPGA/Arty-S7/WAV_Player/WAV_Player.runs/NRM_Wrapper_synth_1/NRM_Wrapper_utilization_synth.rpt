@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Dec 21 11:15:13 2019
-| Host         : Hugo running 64-bit major release  (build 9200)
+| Date         : Tue Jan  7 09:30:07 2020
+| Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file NRM_Wrapper_utilization_synth.rpt -pb NRM_Wrapper_utilization_synth.pb
 | Design       : NRM_Wrapper
 | Device       : 7s50csga324-1
@@ -151,13 +151,13 @@ Table of Contents
 +----------+------+---------------------+
 | FDRE     |  451 |        Flop & Latch |
 | LUT2     |  207 |                 LUT |
-| LUT3     |  185 |                 LUT |
+| LUT3     |  184 |                 LUT |
 | FDCE     |  164 |        Flop & Latch |
 | CARRY4   |   79 |          CarryLogic |
 | LUT1     |   68 |                 LUT |
 | LUT5     |   28 |                 LUT |
 | SRL16E   |   26 |  Distributed Memory |
-| LUT6     |   25 |                 LUT |
+| LUT6     |   26 |                 LUT |
 | LUT4     |    7 |                 LUT |
 | DSP48E1  |    2 |    Block Arithmetic |
 | SRLC32E  |    1 |  Distributed Memory |

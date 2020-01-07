@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="FIR_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1577541011">
+<GenRun Id="FIR_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1578321991">
   <File Type="PA-TCL" Name="FIR_interface.tcl"/>
   <File Type="REPORTS-TCL" Name="FIR_interface_reports.tcl"/>
   <File Type="RDS-RDS" Name="FIR_interface.vds"/>

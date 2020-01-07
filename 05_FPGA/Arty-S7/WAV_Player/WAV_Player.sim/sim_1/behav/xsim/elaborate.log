@@ -1,12 +1,12 @@
 Vivado Simulator 2018.3
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 37fd109b609d49cfb97f45bdce1df4bf --incr --debug typical --relax --mt 2 -L xil_defaultlib -L lib_VHDL -L blk_mem_gen_v8_4_2 -L xbip_utils_v3_0_9 -L xbip_pipe_v3_0_5 -L xbip_bram18k_v3_0_5 -L mult_gen_v12_0_14 -L dist_mem_gen_v8_0_12 -L fifo_generator_v13_2_3 -L c_reg_fd_v12_0_5 -L xbip_dsp48_wrapper_v3_0_4 -L xbip_dsp48_addsub_v3_0_5 -L xbip_addsub_v3_0_5 -L c_addsub_v12_0_12 -L xbip_dsp48_acc_v3_0_5 -L xbip_accum_v3_0_5 -L c_accum_v12_0_12 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot FFT_Wrapper_tb_behav xil_defaultlib.FFT_Wrapper_tb xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx2/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto 37fd109b609d49cfb97f45bdce1df4bf --incr --debug typical --relax --mt 2 -L xil_defaultlib -L lib_VHDL -L blk_mem_gen_v8_4_2 -L xbip_utils_v3_0_9 -L xbip_pipe_v3_0_5 -L xbip_bram18k_v3_0_5 -L mult_gen_v12_0_14 -L dist_mem_gen_v8_0_12 -L fifo_generator_v13_2_3 -L c_reg_fd_v12_0_5 -L xbip_dsp48_wrapper_v3_0_4 -L xbip_dsp48_addsub_v3_0_5 -L xbip_addsub_v3_0_5 -L c_addsub_v12_0_12 -L xbip_dsp48_acc_v3_0_5 -L xbip_accum_v3_0_5 -L c_accum_v12_0_12 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot FFT_Wrapper_tb_behav xil_defaultlib.FFT_Wrapper_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-3009] 'multiplier_s16_s16' remains a black-box since it has no binding entity [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd:140]
-WARNING: [VRFC 10-3009] 'multiplier_s16_s16' remains a black-box since it has no binding entity [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd:150]
-WARNING: [VRFC 10-3009] 'multiplier_s16_s16' remains a black-box since it has no binding entity [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd:160]
-WARNING: [VRFC 10-3009] 'multiplier_s16_s16' remains a black-box since it has no binding entity [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd:170]
+WARNING: [VRFC 10-3009] 'multiplier_s16_s16' remains a black-box since it has no binding entity [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd:140]
+WARNING: [VRFC 10-3009] 'multiplier_s16_s16' remains a black-box since it has no binding entity [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd:150]
+WARNING: [VRFC 10-3009] 'multiplier_s16_s16' remains a black-box since it has no binding entity [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd:160]
+WARNING: [VRFC 10-3009] 'multiplier_s16_s16' remains a black-box since it has no binding entity [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd:170]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

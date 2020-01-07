@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/Contraintes_Arty.xdc rfile:../../../../../../02_Source/Contraintes_Arty.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/Contraintes_Arty.xdc rfile:../../../../../../02_Source/Contraintes_Arty.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN F14   IOSTANDARD LVCMOS33 } [get_ports { CLK12MHZ }]; #IO_L13P_T2_MRCC_15 Sch=uclk
 set_property src_info {type:XDC file:1 line:9 export:INPUT save:INPUT read:READ} [current_design]

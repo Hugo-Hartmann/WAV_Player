@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="EQ_stage_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1576923196">
+<GenRun Id="EQ_stage_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1578321978">
   <File Type="PA-TCL" Name="EQ_stage.tcl"/>
   <File Type="REPORTS-TCL" Name="EQ_stage_reports.tcl"/>
   <File Type="RDS-RDS" Name="EQ_stage.vds"/>

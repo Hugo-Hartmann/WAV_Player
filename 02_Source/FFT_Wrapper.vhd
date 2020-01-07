@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2020-01-01
+-- Last update: 2020-01-06
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -144,28 +144,32 @@ architecture RTL of FFT_Wrapper is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal RAM_dinA_r       : std_logic_vector(15 downto 0);
-    signal RAM_dinA_i       : std_logic_vector(15 downto 0);
-    signal RAM_dinB_r       : std_logic_vector(15 downto 0);
-    signal RAM_dinB_i       : std_logic_vector(15 downto 0);
-    signal FFT_btfly_done   : std_logic;
-    signal FFT_addrA_r      : std_logic_vector(8 downto 0);
-    signal FFT_addrB_r      : std_logic_vector(8 downto 0);
-    signal FFT_addrC_r      : std_logic_vector(7 downto 0);
-    signal FFT_addrA_w      : std_logic_vector(8 downto 0);
-    signal FFT_addrB_w      : std_logic_vector(8 downto 0);
-    signal RAM_doutA_r      : std_logic_vector(15 downto 0);
-    signal RAM_doutA_i      : std_logic_vector(15 downto 0);
-    signal RAM_doutB_r      : std_logic_vector(15 downto 0);
-    signal RAM_doutB_i      : std_logic_vector(15 downto 0);
-    signal RAM_doutC_r      : std_logic_vector(15 downto 0);
-    signal RAM_doutC_i      : std_logic_vector(15 downto 0);
-    signal FFT_en           : std_logic;
-    signal FFT_stage_busy   : std_logic;
-    signal addrA_btfly      : std_logic_vector(8 downto 0);
-    signal addrB_btfly      : std_logic_vector(8 downto 0);
-    signal FFT_din_d        : std_logic_vector(15 downto 0);
-    signal FFT_new_sample_d : std_logic;
+    signal RAM_dinA_r           : std_logic_vector(15 downto 0);
+    signal RAM_dinA_i           : std_logic_vector(15 downto 0);
+    signal RAM_dinB_r           : std_logic_vector(15 downto 0);
+    signal RAM_dinB_i           : std_logic_vector(15 downto 0);
+    signal FFT_btfly_done       : std_logic;
+    signal FFT_addrA_r          : std_logic_vector(8 downto 0);
+    signal FFT_addrB_r          : std_logic_vector(8 downto 0);
+    signal FFT_addrC_r          : std_logic_vector(7 downto 0);
+    signal FFT_addrA_w          : std_logic_vector(8 downto 0);
+    signal FFT_addrB_w          : std_logic_vector(8 downto 0);
+    signal RAM_doutA_r          : std_logic_vector(15 downto 0);
+    signal RAM_doutA_i          : std_logic_vector(15 downto 0);
+    signal RAM_doutB_r          : std_logic_vector(15 downto 0);
+    signal RAM_doutB_i          : std_logic_vector(15 downto 0);
+    signal RAM_doutC_r          : std_logic_vector(15 downto 0);
+    signal RAM_doutC_i          : std_logic_vector(15 downto 0);
+    signal FFT_en               : std_logic;
+    signal FFT_stage_busy       : std_logic;
+    signal addrA_btfly          : std_logic_vector(8 downto 0);
+    signal addrB_btfly          : std_logic_vector(8 downto 0);
+    signal FFT_din_d            : std_logic_vector(15 downto 0);
+    signal FFT_new_sample_d     : std_logic;
+    signal counter_sample       : unsigned(7 downto 0);
+    signal cnt_sample_zero      : std_logic;
+    signal FFT_din_dd           : std_logic_vector(15 downto 0);
+    signal FFT_new_sample_dd    : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -173,10 +177,10 @@ architecture RTL of FFT_Wrapper is
 begin
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS :
+    -- SEQ PROCESS : P_input
     -- Description : Register inputs
     --------------------------------------------------------------------------------
-    process(reset_n, clk)
+    P_input : process(reset_n, clk)
     begin
         if(reset_n='0') then
             FFT_din_d           <= (others => '0');
@@ -184,6 +188,62 @@ begin
         elsif(rising_edge(clk)) then
             FFT_din_d           <= FFT_din;
             FFT_new_sample_d    <= FFT_new_sample;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_divide
+    -- Description : Under sample input data
+    --------------------------------------------------------------------------------
+    P_divide : process(reset_n, clk)
+    begin
+        if(reset_n='0') then
+            counter_sample  <= to_unsigned(2, counter_sample'length);
+        elsif(rising_edge(clk)) then
+            if(FFT_new_sample_d='1') then
+                if(cnt_sample_zero='1') then
+                    counter_sample  <= to_unsigned(2, counter_sample'length);
+                else
+                    counter_sample  <= counter_sample - 1;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_zero
+    -- Description : Register counter zero indicator
+    --------------------------------------------------------------------------------
+    P_zero : process(reset_n, clk)
+    begin
+        if(reset_n='0') then
+            cnt_sample_zero <= '0';
+        elsif(rising_edge(clk)) then
+            if(counter_sample=0) then
+                cnt_sample_zero <= '1';
+            else
+                cnt_sample_zero <= '0';
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_select
+    -- Description : Select inputs
+    --------------------------------------------------------------------------------
+    P_select : process(reset_n, clk)
+    begin
+        if(reset_n='0') then
+            FFT_din_dd          <= (others => '0');
+            FFT_new_sample_dd   <= '0';
+        elsif(rising_edge(clk)) then
+            if(cnt_sample_zero='1') then
+                FFT_din_dd          <= FFT_din_d;
+                FFT_new_sample_dd   <= FFT_new_sample_d;
+            else
+                FFT_din_dd          <= (others => '0');
+                FFT_new_sample_dd   <= '0';
+            end if;
         end if;
     end process;
 
@@ -203,7 +263,7 @@ begin
     port map(
         clk             => clk,
         reset_n         => reset_n,
-        FFT_din         => FFT_din_d,
+        FFT_din         => FFT_din_dd,
         RAM_dinA_r      => RAM_dinA_r,
         RAM_dinA_i      => RAM_dinA_i,
         RAM_dinB_r      => RAM_dinB_r,
@@ -214,7 +274,7 @@ begin
         FFT_addrC_r     => FFT_addrC_r,
         FFT_addrA_w     => FFT_addrA_w,
         FFT_addrB_w     => FFT_addrB_w,
-        FFT_new_sample  => FFT_new_sample_d,
+        FFT_new_sample  => FFT_new_sample_dd,
         RAM_doutA_r     => RAM_doutA_r,
         RAM_doutA_i     => RAM_doutA_i,
         RAM_doutB_r     => RAM_doutB_r,
@@ -232,7 +292,7 @@ begin
         FFT_addr_A      => FFT_addrA_r,
         FFT_addr_B      => FFT_addrB_r,
         FFT_addr_coef   => FFT_addrC_r,
-        FFT_start       => FFT_new_sample_d,
+        FFT_start       => FFT_new_sample_dd,
         FFT_stage_busy  => FFT_stage_busy,
         FFT_en          => FFT_en,
         FFT_done        => FFT_done);

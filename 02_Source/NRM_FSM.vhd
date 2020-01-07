@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-09
--- Last update: 2019-12-10
+-- Last update: 2020-01-07
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -40,6 +40,7 @@ entity NRM_FSM is
         ------- NRM control ----------------------
         NRM_start       : in  std_logic;
         NRM_new_sample  : in  std_logic;
+        NRM_loaded      : in  std_logic;
         NRM_open        : out std_logic;
         NRM_read        : out std_logic;
         NRM_en          : out std_logic
@@ -140,7 +141,7 @@ begin
     -- COMB PROCESS : P_FSM_NRM_comb
     -- Description : FSM_NRM combinatorial part (next_state logic)
     --------------------------------------------------------------------------------
-    P_FSM_NRM_comb : process(current_state, NRM_start, NRM_new_sample, cnt_addr_end)
+    P_FSM_NRM_comb : process(current_state, NRM_start, NRM_new_sample, NRM_loaded, cnt_addr_end)
     begin
         NRM_en          <= '0';
         NRM_read        <= '0';
@@ -169,7 +170,7 @@ begin
             when NRM_LOAD_SAMPLE =>
                 NRM_open        <= '1';
                 cnt_addr_clr    <= '1';
-                if(NRM_new_sample='1') then
+                if(NRM_loaded='1') then
                     next_state  <= NRM_NORM_START1;
                 else
                     next_state  <= NRM_LOAD_SAMPLE;

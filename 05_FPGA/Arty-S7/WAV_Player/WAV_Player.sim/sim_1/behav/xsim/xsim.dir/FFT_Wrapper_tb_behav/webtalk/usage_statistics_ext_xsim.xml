@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<webTalkData  fileName='usage_statistics_ext_xsim.xml'  majorVersion='1' minorVersion='0' timeStamp='Wed Jan  1 15:19:20 2020'>
+<webTalkData  fileName='usage_statistics_ext_xsim.xml'  majorVersion='1' minorVersion='0' timeStamp='Mon Jan  6 16:37:13 2020'>
 <section name="__ROOT__" level="0" order="1" description="">
  <section name="software_version_and_target_device" level="1" order="1" description="">
   <keyValuePair key="beta" value="FALSE" description="" />
   <keyValuePair key="build_version" value="2405991" description="" />
-  <keyValuePair key="date_generated" value="Wed Jan  1 15:19:19 2020" description="" />
+  <keyValuePair key="date_generated" value="Mon Jan  6 16:37:12 2020" description="" />
   <keyValuePair key="os_platform" value="WIN64" description="" />
   <keyValuePair key="product_version" value="XSIM v2018.3 (64-bit)" description="" />
   <keyValuePair key="project_id" value="37fd109b609d49cfb97f45bdce1df4bf" description="" />
-  <keyValuePair key="project_iteration" value="2" description="" />
-  <keyValuePair key="random_id" value="3de6ecd8-5195-433b-8980-0f845181473f" description="" />
-  <keyValuePair key="registration_id" value="3de6ecd8-5195-433b-8980-0f845181473f" description="" />
+  <keyValuePair key="project_iteration" value="6" description="" />
+  <keyValuePair key="random_id" value="a38803bc-a70f-4828-ad50-d0d5bde8ebf6" description="" />
+  <keyValuePair key="registration_id" value="a38803bc-a70f-4828-ad50-d0d5bde8ebf6" description="" />
   <keyValuePair key="route_design" value="FALSE" description="" />
   <keyValuePair key="target_device" value="not_applicable" description="" />
   <keyValuePair key="target_family" value="not_applicable" description="" />
@@ -19,10 +19,10 @@
   <keyValuePair key="tool_flow" value="xsim_vivado" description="" />
  </section>
  <section name="user_environment" level="1" order="2" description="">
-  <keyValuePair key="cpu_name" value="Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz" description="" />
-  <keyValuePair key="cpu_speed" value="4000 MHz" description="" />
-  <keyValuePair key="os_name" value="Microsoft Windows 8 or later , 64-bit" description="" />
-  <keyValuePair key="os_release" value="major release  (build 9200)" description="" />
+  <keyValuePair key="cpu_name" value="Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz" description="" />
+  <keyValuePair key="cpu_speed" value="2591 MHz" description="" />
+  <keyValuePair key="os_name" value="Microsoft Windows 7 , 64-bit" description="" />
+  <keyValuePair key="os_release" value="Service Pack 1  (build 7601)" description="" />
   <keyValuePair key="system_ram" value="8.000 GB" description="" />
   <keyValuePair key="total_processors" value="1" description="" />
  </section>
@@ -35,9 +35,9 @@
   </section>
   <section name="usage" level="2" order="2" description="">
    <keyValuePair key="iteration" value="0" description="" />
-   <keyValuePair key="runtime" value="25594640 ps" description="" />
-   <keyValuePair key="simulation_memory" value="8876_KB" description="" />
-   <keyValuePair key="simulation_time" value="0.30_sec" description="" />
+   <keyValuePair key="runtime" value="153567840 ps" description="" />
+   <keyValuePair key="simulation_memory" value="10028_KB" description="" />
+   <keyValuePair key="simulation_time" value="1.12_sec" description="" />
    <keyValuePair key="trace_waveform" value="true" description="" />
   </section>
  </section>

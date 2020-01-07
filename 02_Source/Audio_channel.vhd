@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-21
--- Last update: 2019-12-21
+-- Last update: 2020-01-07
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -128,6 +128,7 @@ architecture RTL of Audio_channel is
             NRM_dinB_i      : in  std_logic_vector(15 downto 0);
             NRM_write       : in  std_logic;
             NRM_new_sample  : in  std_logic;
+            NRM_loaded      : in  std_logic;
             NRM_start       : in  std_logic;
             NRM_read        : in  std_logic;
             NRM_addr_r      : in  std_logic_vector(8 downto 0);
@@ -256,6 +257,7 @@ begin
         NRM_dinB_i      => FFT_doutB_i,
         NRM_write       => FFT_write,
         NRM_new_sample  => New_sample_d,
+        NRM_loaded      => FFT_done,
         NRM_start       => VGA_new_frame,
         NRM_read        => NRM_read,
         NRM_addr_r      => NRM_addr_r,

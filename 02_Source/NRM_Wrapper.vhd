@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-09
--- Last update: 2019-12-10
+-- Last update: 2020-01-07
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -53,6 +53,7 @@ entity NRM_Wrapper is
         ------- VGA interface --------------------
         NRM_start       : in  std_logic;
         NRM_read        : in  std_logic;
+        NRM_loaded      : in  std_logic;
         NRM_addr_r      : in  std_logic_vector(8 downto 0);
         NRM_dout        : out std_logic_vector(15 downto 0)
 
@@ -74,6 +75,7 @@ architecture RTL of NRM_Wrapper is
             NRM_addr        : out std_logic_vector(8 downto 0);
             NRM_start       : in  std_logic;
             NRM_new_sample  : in  std_logic;
+            NRM_loaded      : in  std_logic;
             NRM_open        : out std_logic;
             NRM_read        : out std_logic;
             NRM_en          : out std_logic
@@ -226,6 +228,7 @@ begin
         NRM_addr        => NRM_addr,
         NRM_start       => NRM_start,
         NRM_new_sample  => NRM_new_sample,
+        NRM_loaded      => NRM_loaded,
         NRM_read        => NRM_read_compute,
         NRM_open        => NRM_open,
         NRM_en          => NRM_en);

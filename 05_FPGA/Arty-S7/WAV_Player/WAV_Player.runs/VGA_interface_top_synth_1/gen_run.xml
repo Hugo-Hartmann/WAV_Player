@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="VGA_interface_top_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1576951819">
+<GenRun Id="VGA_interface_top_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1578321981">
   <File Type="PA-TCL" Name="VGA_interface_top.tcl"/>
   <File Type="REPORTS-TCL" Name="VGA_interface_top_reports.tcl"/>
   <File Type="RDS-RDS" Name="VGA_interface_top.vds"/>

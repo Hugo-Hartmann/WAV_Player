@@ -8,20 +8,22 @@
   **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
+INFO: [Common 17-1460] Use of init.tcl in C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl is deprecated. Please use Vivado_init.tcl 
+Sourcing tcl script 'C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl'
 source VGA_interface_bottom.tcl -notrace
 Command: synth_design -top VGA_interface_bottom -part xc7s50csga324-1 -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9176 
+INFO: Helper process launched with PID 8684 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 412.992 ; gain = 104.758
+Starting RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 419.695 ; gain = 104.707
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'VGA_interface_bottom' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VGA_interface_bottom.vhd:75]
+INFO: [Synth 8-638] synthesizing module 'VGA_interface_bottom' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VGA_interface_bottom.vhd:75]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'BRAM_2048_8bit' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/synth/BRAM_2048_8bit.vhd:59' bound to instance 'U_BRAM' of component 'BRAM_2048_8bit' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VGA_interface_bottom.vhd:187]
-INFO: [Synth 8-638] synthesizing module 'BRAM_2048_8bit' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/synth/BRAM_2048_8bit.vhd:76]
+INFO: [Synth 8-3491] module 'BRAM_2048_8bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/synth/BRAM_2048_8bit.vhd:59' bound to instance 'U_BRAM' of component 'BRAM_2048_8bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VGA_interface_bottom.vhd:187]
+INFO: [Synth 8-638] synthesizing module 'BRAM_2048_8bit' [c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/synth/BRAM_2048_8bit.vhd:76]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -97,12 +99,12 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_2048_8bit' [c:/Users/hugoh/Documen
 	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.6792 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/synth/BRAM_2048_8bit.vhd:249]
-INFO: [Synth 8-256] done synthesizing module 'BRAM_2048_8bit' (9#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/synth/BRAM_2048_8bit.vhd:76]
-INFO: [Synth 8-226] default block is never used [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VGA_interface_bottom.vhd:446]
-INFO: [Synth 8-256] done synthesizing module 'VGA_interface_bottom' (10#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/VGA_interface_bottom.vhd:75]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/synth/BRAM_2048_8bit.vhd:249]
+INFO: [Synth 8-256] done synthesizing module 'BRAM_2048_8bit' (9#1) [c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/synth/BRAM_2048_8bit.vhd:76]
+INFO: [Synth 8-226] default block is never used [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VGA_interface_bottom.vhd:446]
+INFO: [Synth 8-256] done synthesizing module 'VGA_interface_bottom' (10#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VGA_interface_bottom.vhd:75]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 678.082 ; gain = 369.848
+Finished RTL Elaboration : Time (s): cpu = 00:01:54 ; elapsed = 00:02:09 . Memory (MB): peak = 667.781 ; gain = 352.793
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -115,10 +117,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 678.082 ; gain = 369.848
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:55 ; elapsed = 00:02:10 . Memory (MB): peak = 667.781 ; gain = 352.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 678.082 ; gain = 369.848
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:55 ; elapsed = 00:02:10 . Memory (MB): peak = 667.781 ; gain = 352.793
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -127,39 +129,39 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VGA_interface_bottom/new/VGA_interface_bottom_ooc.xdc]
-Finished Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VGA_interface_bottom/new/VGA_interface_bottom_ooc.xdc]
-Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_bottom_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_bottom_synth_1/dont_touch.xdc]
+Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VGA_interface_bottom/new/VGA_interface_bottom_ooc.xdc]
+Finished Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VGA_interface_bottom/new/VGA_interface_bottom_ooc.xdc]
+Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_bottom_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_bottom_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 788.969 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 789.633 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 788.969 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 789.344 ; gain = 0.375
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 789.633 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.093 . Memory (MB): peak = 790.008 ; gain = 0.375
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 789.344 ; gain = 481.109
+Finished Constraint Validation : Time (s): cpu = 00:02:11 ; elapsed = 00:02:29 . Memory (MB): peak = 790.008 ; gain = 475.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 789.344 ; gain = 481.109
+Finished Loading Part and Timing Information : Time (s): cpu = 00:02:11 ; elapsed = 00:02:29 . Memory (MB): peak = 790.008 ; gain = 475.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for \BRAM.U_BRAM . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 789.344 ; gain = 481.109
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:11 ; elapsed = 00:02:29 . Memory (MB): peak = 790.008 ; gain = 475.020
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "h_min" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "h_max" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 789.344 ; gain = 481.109
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:12 ; elapsed = 00:02:31 . Memory (MB): peak = 790.008 ; gain = 475.020
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -229,7 +231,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 789.344 ; gain = 481.109
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:18 ; elapsed = 00:02:37 . Memory (MB): peak = 790.008 ; gain = 475.020
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -241,13 +243,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:04 ; elapsed = 00:01:07 . Memory (MB): peak = 789.344 ; gain = 481.109
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:38 ; elapsed = 00:02:59 . Memory (MB): peak = 795.375 ; gain = 480.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:04 ; elapsed = 00:01:07 . Memory (MB): peak = 789.344 ; gain = 481.109
+Finished Timing Optimization : Time (s): cpu = 00:02:38 ; elapsed = 00:02:59 . Memory (MB): peak = 795.844 ; gain = 480.855
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -259,7 +261,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:04 ; elapsed = 00:01:07 . Memory (MB): peak = 803.129 ; gain = 494.895
+Finished Technology Mapping : Time (s): cpu = 00:02:39 ; elapsed = 00:03:00 . Memory (MB): peak = 811.910 ; gain = 496.922
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -283,7 +285,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 803.129 ; gain = 494.895
+Finished IO Insertion : Time (s): cpu = 00:02:40 ; elapsed = 00:03:02 . Memory (MB): peak = 811.910 ; gain = 496.922
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -296,7 +298,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 803.129 ; gain = 494.895
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:40 ; elapsed = 00:03:02 . Memory (MB): peak = 811.910 ; gain = 496.922
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -308,25 +310,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 803.129 ; gain = 494.895
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:40 ; elapsed = 00:03:02 . Memory (MB): peak = 811.910 ; gain = 496.922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 803.129 ; gain = 494.895
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:40 ; elapsed = 00:03:02 . Memory (MB): peak = 811.910 ; gain = 496.922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 803.129 ; gain = 494.895
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:40 ; elapsed = 00:03:02 . Memory (MB): peak = 811.910 ; gain = 496.922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 803.129 ; gain = 494.895
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:40 ; elapsed = 00:03:02 . Memory (MB): peak = 811.910 ; gain = 496.922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -368,26 +370,26 @@ Report Instance Areas:
 |8     |              \prim_noinit.ram                 |blk_mem_gen_prim_wrapper |     1|
 +------+-----------------------------------------------+-------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 803.129 ; gain = 494.895
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:40 ; elapsed = 00:03:02 . Memory (MB): peak = 811.910 ; gain = 496.922
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 224 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:01:03 . Memory (MB): peak = 803.129 ; gain = 383.633
-Synthesis Optimization Complete : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 803.129 ; gain = 494.895
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:02:49 . Memory (MB): peak = 811.910 ; gain = 374.695
+Synthesis Optimization Complete : Time (s): cpu = 00:02:41 ; elapsed = 00:03:02 . Memory (MB): peak = 811.910 ; gain = 496.922
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 82 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 810.117 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 818.539 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 22 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:07 ; elapsed = 00:01:10 . Memory (MB): peak = 810.117 ; gain = 513.555
+synth_design: Time (s): cpu = 00:02:43 ; elapsed = 00:03:07 . Memory (MB): peak = 818.539 ; gain = 512.652
 INFO: [Coretcl 2-1174] Renamed 7 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 810.117 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_bottom_synth_1/VGA_interface_bottom.dcp' has been generated.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 818.539 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_bottom_synth_1/VGA_interface_bottom.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file VGA_interface_bottom_utilization_synth.rpt -pb VGA_interface_bottom_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Dec 21 19:24:29 2019...
+INFO: [Common 17-206] Exiting Vivado at Mon Jan  6 15:50:13 2020...
