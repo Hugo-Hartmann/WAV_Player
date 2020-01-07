@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-10-24
+-- Last update: 2020-01-07
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -29,10 +29,10 @@ use IEEE.numeric_std.all;
 --------------------------------------------------------------------------------
 entity UART_Tx is
     generic(
-        G_SPEED         : INTEGER := 115200;                        -- speed in baud
+        G_SPEED         : INTEGER := 3686400;                        -- speed in baud
         G_N_BITS        : INTEGER := 8;                             -- number of bits transmitted
-        G_PARITY_BIT    : INTEGER := 0;                             -- use parity bit
-        G_PARIY_EVEN    : INTEGER := 0                              -- select even/odd parity
+        G_PARITY_BIT    : INTEGER := 1;                             -- use parity bit
+        G_PARIY_EVEN    : INTEGER := 1                              -- select even/odd parity
         );
     port(
     
@@ -88,9 +88,9 @@ begin
     -- COMBINATORY : 
     -- Description : map generic to counter value ONLY true at clk=108MHz
     --------------------------------------------------------------------------------
-    mapped_speed    <= to_unsigned(938, mapped_speed'length) when (G_SPEED=115200) else
-                       to_unsigned(29 , mapped_speed'length) when (G_SPEED=3686400) else
-                       to_unsigned(938, mapped_speed'length);
+    mapped_speed    <= to_unsigned(1875, mapped_speed'length) when (G_SPEED=115200) else
+                       to_unsigned(59  , mapped_speed'length) when (G_SPEED=3686400) else
+                       to_unsigned(1875, mapped_speed'length);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_count

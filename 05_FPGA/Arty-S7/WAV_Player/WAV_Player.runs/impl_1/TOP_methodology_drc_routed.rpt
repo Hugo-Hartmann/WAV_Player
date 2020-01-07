@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Jan  7 09:37:57 2020
+| Date         : Tue Jan  7 15:12:33 2020
 | Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_methodology -file TOP_methodology_drc_routed.rpt -pb TOP_methodology_drc_routed.pb -rpx TOP_methodology_drc_routed.rpx
 | Design       : TOP
@@ -23,11 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 3
+             Violations found: 51
 +-----------+----------+-------------------------------------------+------------+
 | Rule      | Severity | Description                               | Violations |
 +-----------+----------+-------------------------------------------+------------+
-| LUTAR-1   | Warning  | LUT drives async reset alert              | 1          |
+| LUTAR-1   | Warning  | LUT drives async reset alert              | 33         |
+| TIMING-20 | Warning  | Non-clocked latch                         | 16         |
 | TIMING-27 | Warning  | Invalid primary clock on hierarchical pin | 2          |
 +-----------+----------+-------------------------------------------+------------+
 
@@ -35,7 +36,247 @@ Table of Contents
 -----------------
 LUTAR-1#1 Warning
 LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[0]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[0]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[0]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[0]_C/CLR, U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[0]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#3 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[1]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[1]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#4 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[1]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[1]_C/CLR, U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[1]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#5 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[2]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[2]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#6 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[2]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[2]_C/CLR, U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[2]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#7 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[3]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[3]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#8 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[3]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[3]_C/CLR, U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[3]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#9 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[4]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[4]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#10 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[4]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[4]_C/CLR, U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[4]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#11 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[5]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[5]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#12 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[5]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[5]_C/CLR, U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[5]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#13 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[6]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[6]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#14 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[6]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[6]_C/CLR, U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[6]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#15 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[7]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[7]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#16 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[7]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[7]_C/CLR, U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[7]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#17 Warning
+LUT drives async reset alert  
 LUT cell U_Audio_channel_right/New_sample_d_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_left/Audio_din_d_reg[0]/CLR, U_Audio_channel_left/Audio_din_d_reg[10]/CLR, U_Audio_channel_left/Audio_din_d_reg[11]/CLR, U_Audio_channel_left/Audio_din_d_reg[12]/CLR, U_Audio_channel_left/Audio_din_d_reg[13]/CLR, U_Audio_channel_left/Audio_din_d_reg[14]/CLR, U_Audio_channel_left/Audio_din_d_reg[15]/CLR, U_Audio_channel_left/Audio_din_d_reg[1]/CLR, U_Audio_channel_left/Audio_din_d_reg[2]/CLR, U_Audio_channel_left/Audio_din_d_reg[3]/CLR, U_Audio_channel_left/Audio_din_d_reg[4]/CLR, U_Audio_channel_left/Audio_din_d_reg[5]/CLR, U_Audio_channel_left/Audio_din_d_reg[6]/CLR, U_Audio_channel_left/Audio_din_d_reg[7]/CLR, U_Audio_channel_left/Audio_din_d_reg[8]/CLR (the first 15 of 33 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#18 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[0]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[0]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#19 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[0]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[0]_C/CLR, U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[0]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#20 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[1]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[1]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#21 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[1]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[1]_C/CLR, U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[1]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#22 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[2]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[2]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#23 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[2]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[2]_C/CLR, U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[2]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#24 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[3]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[3]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#25 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[3]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[3]_C/CLR, U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[3]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#26 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[4]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[4]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#27 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[4]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[4]_C/CLR, U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[4]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#28 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[5]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[5]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#29 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[5]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[5]_C/CLR, U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[5]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#30 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[6]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[6]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#31 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[6]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[6]_C/CLR, U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[6]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#32 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[7]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[7]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#33 Warning
+LUT drives async reset alert  
+LUT cell U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[7]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[7]_C/CLR, U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[7]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[0]_LDC cannot be properly analyzed as its control pin U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[0]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[1]_LDC cannot be properly analyzed as its control pin U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[1]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[2]_LDC cannot be properly analyzed as its control pin U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[2]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[3]_LDC cannot be properly analyzed as its control pin U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[3]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[4]_LDC cannot be properly analyzed as its control pin U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[4]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[5]_LDC cannot be properly analyzed as its control pin U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[5]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[6]_LDC cannot be properly analyzed as its control pin U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[6]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[7]_LDC cannot be properly analyzed as its control pin U_Audio_channel_left/U_FFT_Wrapper/counter_sample_reg[7]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[0]_LDC cannot be properly analyzed as its control pin U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[0]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[1]_LDC cannot be properly analyzed as its control pin U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[1]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[2]_LDC cannot be properly analyzed as its control pin U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[2]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[3]_LDC cannot be properly analyzed as its control pin U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[3]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[4]_LDC cannot be properly analyzed as its control pin U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[4]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[5]_LDC cannot be properly analyzed as its control pin U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[5]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[6]_LDC cannot be properly analyzed as its control pin U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[6]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[7]_LDC cannot be properly analyzed as its control pin U_Audio_channel_right/U_FFT_Wrapper/counter_sample_reg[7]_LDC/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-27#1 Warning

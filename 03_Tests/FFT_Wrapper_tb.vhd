@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-27
--- Last update: 2020-01-01
+-- Last update: 2020-01-07
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -53,6 +53,7 @@ architecture A of FFT_Wrapper_tb is
             reset_n         : in  std_logic;
             FFT_din         : in  std_logic_vector(15 downto 0);
             FFT_new_sample  : in  std_logic;
+            FFT_sample_rate : in  std_logic_vector(7 downto 0);
             FFT_addrA       : out std_logic_vector(8 downto 0);
             FFT_addrB       : out std_logic_vector(8 downto 0);
             FFT_doutA_r     : out std_logic_vector(15 downto 0);
@@ -71,6 +72,7 @@ architecture A of FFT_Wrapper_tb is
     signal reset_n          : std_logic;
     signal FFT_din          : std_logic_vector(15 downto 0);
     signal FFT_new_sample   : std_logic;
+    signal FFT_sample_rate  : std_logic_vector(7 downto 0);
     signal FFT_addrA        : std_logic_vector(8 downto 0);
     signal FFT_addrB        : std_logic_vector(8 downto 0);
     signal FFT_doutA_r      : std_logic_vector(15 downto 0);
@@ -94,6 +96,7 @@ begin
         reset_n         => reset_n,
         FFT_din         => FFT_din,
         FFT_new_sample  => FFT_new_sample,
+        FFT_sample_rate => FFT_sample_rate,
         FFT_addrA       => FFT_addrA,
         FFT_addrB       => FFT_addrB,
         FFT_doutA_r     => FFT_doutA_r,
@@ -123,6 +126,7 @@ begin
     begin
         FFT_din         <= (others => '0');
         FFT_new_sample  <= '0';
+        FFT_sample_rate <= X"02";
         wait for (11*C_DEMI_CLK);
 
         FFT_new_sample  <= '1';

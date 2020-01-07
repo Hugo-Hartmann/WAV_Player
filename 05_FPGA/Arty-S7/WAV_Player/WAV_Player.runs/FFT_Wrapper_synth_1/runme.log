@@ -16,14 +16,15 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3604 
+INFO: Helper process launched with PID 3704 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 419.840 ; gain = 105.680
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 420.375 ; gain = 105.078
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:61]
+INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:64]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
+WARNING: [Synth 8-614] signal 'FFT_rate' is read in the process but is not in the sensitivity list [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:215]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'FFT_RAM_Wrapper' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:31' bound to instance 'U_FFT_RAM_Wrapper' of component 'FFT_RAM_Wrapper' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:261]
+INFO: [Synth 8-3491] module 'FFT_RAM_Wrapper' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:31' bound to instance 'U_FFT_RAM_Wrapper' of component 'FFT_RAM_Wrapper' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:278]
 INFO: [Synth 8-638] synthesizing module 'FFT_RAM_Wrapper' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:71]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 INFO: [Synth 8-3491] module 'BRAM_512_16bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_16bit/synth/BRAM_512_16bit.vhd:59' bound to instance 'U_RAM_Sample' of component 'BRAM_512_16bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:182]
@@ -273,11 +274,11 @@ WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinA_reg was removed.
 WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinB_reg was removed.  [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:238]
 WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_wrB_reg was removed.  [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:236]
 INFO: [Synth 8-256] done synthesizing module 'FFT_RAM_Wrapper' (13#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:71]
-INFO: [Synth 8-3491] module 'FFT_FSM' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FSM.vhd:30' bound to instance 'U_FFT_FSM' of component 'FFT_FSM' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:289]
+INFO: [Synth 8-3491] module 'FFT_FSM' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FSM.vhd:30' bound to instance 'U_FFT_FSM' of component 'FFT_FSM' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:306]
 INFO: [Synth 8-638] synthesizing module 'FFT_FSM' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FSM.vhd:54]
 INFO: [Synth 8-256] done synthesizing module 'FFT_FSM' (14#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FSM.vhd:54]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'FFT_UAL' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_UAL.vhd:30' bound to instance 'U_FFT_UAL' of component 'FFT_UAL' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:310]
+INFO: [Synth 8-3491] module 'FFT_UAL' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_UAL.vhd:30' bound to instance 'U_FFT_UAL' of component 'FFT_UAL' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:327]
 INFO: [Synth 8-638] synthesizing module 'FFT_UAL' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_UAL.vhd:64]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
@@ -352,17 +353,17 @@ INFO: [Synth 8-256] done synthesizing module 'FFT_Multiplier' (23#1) [C:/Users/h
 INFO: [Synth 8-256] done synthesizing module 'FFT_UAL' (24#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_UAL.vhd:64]
 	Parameter G_OPERAND_SIZE bound to: 9 - type: integer 
 	Parameter G_FIFO_SIZE bound to: 13 - type: integer 
-INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_addrA' of component 'FFT_FIFO' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:332]
+INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_addrA' of component 'FFT_FIFO' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:349]
 INFO: [Synth 8-638] synthesizing module 'FFT_FIFO__parameterized4' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FIFO.vhd:53]
 	Parameter G_OPERAND_SIZE bound to: 9 - type: integer 
 	Parameter G_FIFO_SIZE bound to: 13 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'FFT_FIFO__parameterized4' (24#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FIFO.vhd:53]
 	Parameter G_OPERAND_SIZE bound to: 9 - type: integer 
 	Parameter G_FIFO_SIZE bound to: 13 - type: integer 
-INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_addrB' of component 'FFT_FIFO' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:345]
-INFO: [Synth 8-256] done synthesizing module 'FFT_Wrapper' (25#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:61]
+INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FIFO.vhd:30' bound to instance 'U_FIFO_addrB' of component 'FFT_FIFO' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:362]
+INFO: [Synth 8-256] done synthesizing module 'FFT_Wrapper' (25#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:64]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:03:35 ; elapsed = 00:03:41 . Memory (MB): peak = 817.910 ; gain = 503.750
+Finished RTL Elaboration : Time (s): cpu = 00:03:21 ; elapsed = 00:03:28 . Memory (MB): peak = 818.348 ; gain = 503.051
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -375,10 +376,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:36 ; elapsed = 00:03:42 . Memory (MB): peak = 817.910 ; gain = 503.750
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:21 ; elapsed = 00:03:28 . Memory (MB): peak = 818.348 ; gain = 503.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:03:36 ; elapsed = 00:03:42 . Memory (MB): peak = 817.910 ; gain = 503.750
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:03:21 ; elapsed = 00:03:28 . Memory (MB): peak = 818.348 ; gain = 503.051
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -393,21 +394,21 @@ Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7
 Finished Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 817.910 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 818.348 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 817.910 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.137 . Memory (MB): peak = 817.910 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 818.348 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.090 . Memory (MB): peak = 818.348 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:03:48 ; elapsed = 00:03:56 . Memory (MB): peak = 817.910 ; gain = 503.750
+Finished Constraint Validation : Time (s): cpu = 00:03:35 ; elapsed = 00:03:43 . Memory (MB): peak = 818.348 ; gain = 503.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:03:48 ; elapsed = 00:03:56 . Memory (MB): peak = 817.910 ; gain = 503.750
+Finished Loading Part and Timing Information : Time (s): cpu = 00:03:35 ; elapsed = 00:03:43 . Memory (MB): peak = 818.348 ; gain = 503.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -421,7 +422,7 @@ Applied set_property DONT_TOUCH = true for U_FFT_UAL/U_Multiplier/U_Mult4. (cons
 Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM1.U_RAM_FFTA . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM2.U_RAM_FFTB . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:49 ; elapsed = 00:03:56 . Memory (MB): peak = 817.910 ; gain = 503.750
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:35 ; elapsed = 00:03:43 . Memory (MB): peak = 818.348 ; gain = 503.051
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'FFT_FSM'
 INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
@@ -473,7 +474,7 @@ INFO: [Synth 8-5546] ROM "cnt_sample_zero" won't be mapped to RAM because it is 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'FFT_FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:50 ; elapsed = 00:03:58 . Memory (MB): peak = 817.910 ; gain = 503.750
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:36 ; elapsed = 00:03:45 . Memory (MB): peak = 818.348 ; gain = 503.051
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -592,7 +593,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UA
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[15] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[16] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:54 ; elapsed = 00:04:02 . Memory (MB): peak = 817.910 ; gain = 503.750
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:42 ; elapsed = 00:03:51 . Memory (MB): peak = 818.348 ; gain = 503.051
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -604,13 +605,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:04:12 ; elapsed = 00:04:20 . Memory (MB): peak = 853.000 ; gain = 538.840
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:04:04 ; elapsed = 00:04:14 . Memory (MB): peak = 854.547 ; gain = 539.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:04:12 ; elapsed = 00:04:21 . Memory (MB): peak = 854.203 ; gain = 540.043
+Finished Timing Optimization : Time (s): cpu = 00:04:04 ; elapsed = 00:04:14 . Memory (MB): peak = 855.750 ; gain = 540.453
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -622,7 +623,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:04:13 ; elapsed = 00:04:21 . Memory (MB): peak = 879.090 ; gain = 564.930
+Finished Technology Mapping : Time (s): cpu = 00:04:05 ; elapsed = 00:04:15 . Memory (MB): peak = 881.367 ; gain = 566.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -646,7 +647,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:04:14 ; elapsed = 00:04:23 . Memory (MB): peak = 879.090 ; gain = 564.930
+Finished IO Insertion : Time (s): cpu = 00:04:07 ; elapsed = 00:04:17 . Memory (MB): peak = 881.367 ; gain = 566.070
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -659,7 +660,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:04:14 ; elapsed = 00:04:23 . Memory (MB): peak = 879.090 ; gain = 564.930
+Finished Renaming Generated Instances : Time (s): cpu = 00:04:07 ; elapsed = 00:04:17 . Memory (MB): peak = 881.367 ; gain = 566.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -671,25 +672,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:14 ; elapsed = 00:04:23 . Memory (MB): peak = 879.090 ; gain = 564.930
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:07 ; elapsed = 00:04:17 . Memory (MB): peak = 881.367 ; gain = 566.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:04:14 ; elapsed = 00:04:23 . Memory (MB): peak = 879.090 ; gain = 564.930
+Finished Renaming Generated Ports : Time (s): cpu = 00:04:07 ; elapsed = 00:04:17 . Memory (MB): peak = 881.367 ; gain = 566.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:14 ; elapsed = 00:04:23 . Memory (MB): peak = 879.090 ; gain = 564.930
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:07 ; elapsed = 00:04:17 . Memory (MB): peak = 881.367 ; gain = 566.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:04:14 ; elapsed = 00:04:23 . Memory (MB): peak = 879.090 ; gain = 564.930
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:07 ; elapsed = 00:04:17 . Memory (MB): peak = 881.367 ; gain = 566.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -708,41 +709,43 @@ Report Cell Usage:
 |1     |CARRY4     |    48|
 |2     |DSP48E1    |     4|
 |3     |LUT1       |     6|
-|4     |LUT2       |   220|
-|5     |LUT3       |   132|
-|6     |LUT4       |    81|
-|7     |LUT5       |    72|
-|8     |LUT6       |   111|
-|9     |MUXF7      |     2|
+|4     |LUT2       |   239|
+|5     |LUT3       |   138|
+|6     |LUT4       |    78|
+|7     |LUT5       |    75|
+|8     |LUT6       |   121|
+|9     |MUXF7      |     1|
 |10    |RAMB18E1   |     1|
 |11    |RAMB18E1_1 |     1|
 |12    |RAMB36E1   |     2|
 |13    |SRL16E     |    51|
-|14    |FDCE       |   577|
-|15    |FDPE       |     5|
+|14    |FDCE       |   586|
+|15    |FDPE       |    12|
 |16    |FDRE       |   321|
+|17    |LDC        |     8|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:04:14 ; elapsed = 00:04:23 . Memory (MB): peak = 879.090 ; gain = 564.930
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:07 ; elapsed = 00:04:17 . Memory (MB): peak = 881.367 ; gain = 566.070
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 520 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:04:12 . Memory (MB): peak = 879.090 ; gain = 564.930
-Synthesis Optimization Complete : Time (s): cpu = 00:04:14 ; elapsed = 00:04:23 . Memory (MB): peak = 879.090 ; gain = 564.930
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:04:05 . Memory (MB): peak = 881.367 ; gain = 566.070
+Synthesis Optimization Complete : Time (s): cpu = 00:04:07 ; elapsed = 00:04:17 . Memory (MB): peak = 881.367 ; gain = 566.070
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 58 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 65 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 879.090 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 881.367 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 8 instances were transformed.
+  LDC => LDCE: 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-185 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
+185 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:19 ; elapsed = 00:04:27 . Memory (MB): peak = 879.090 ; gain = 573.578
+synth_design: Time (s): cpu = 00:04:11 ; elapsed = 00:04:21 . Memory (MB): peak = 881.367 ; gain = 574.418
 INFO: [Coretcl 2-1174] Renamed 56 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 879.090 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 881.367 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FFT_Wrapper_utilization_synth.rpt -pb FFT_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Jan  6 16:01:07 2020...
+INFO: [Common 17-206] Exiting Vivado at Tue Jan  7 14:47:41 2020...

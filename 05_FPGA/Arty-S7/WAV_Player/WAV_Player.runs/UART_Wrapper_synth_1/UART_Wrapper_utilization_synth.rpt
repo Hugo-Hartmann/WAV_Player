@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Dec 21 11:12:52 2019
-| Host         : Hugo running 64-bit major release  (build 9200)
+| Date         : Tue Jan  7 15:06:17 2020
+| Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file UART_Wrapper_utilization_synth.rpt -pb UART_Wrapper_utilization_synth.pb
 | Design       : UART_Wrapper
 | Device       : 7s50csga324-1
@@ -33,8 +33,8 @@ Table of Contents
 | Slice LUTs*             |   56 |     0 |     32600 |  0.17 |
 |   LUT as Logic          |   56 |     0 |     32600 |  0.17 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |   46 |     0 |     65200 |  0.07 |
-|   Register as Flip Flop |   46 |     0 |     65200 |  0.07 |
+| Slice Registers         |   56 |     0 |     65200 |  0.09 |
+|   Register as Flip Flop |   56 |     0 |     65200 |  0.09 |
 |   Register as Latch     |    0 |     0 |     65200 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -54,8 +54,8 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 13    |          Yes |           - |          Set |
-| 33    |          Yes |           - |        Reset |
+| 3     |          Yes |           - |          Set |
+| 53    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -145,15 +145,14 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     |   33 |        Flop & Latch |
-| LUT2     |   19 |                 LUT |
-| LUT1     |   19 |                 LUT |
-| LUT4     |   16 |                 LUT |
-| FDPE     |   13 |        Flop & Latch |
-| LUT3     |   12 |                 LUT |
+| FDCE     |   53 |        Flop & Latch |
+| LUT5     |   22 |                 LUT |
+| LUT1     |   20 |                 LUT |
+| LUT4     |    9 |                 LUT |
 | LUT6     |    5 |                 LUT |
 | CARRY4   |    5 |          CarryLogic |
-| LUT5     |    4 |                 LUT |
+| LUT3     |    3 |                 LUT |
+| FDPE     |    3 |        Flop & Latch |
 +----------+------+---------------------+
 
 

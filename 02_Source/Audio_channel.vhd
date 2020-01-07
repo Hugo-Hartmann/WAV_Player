@@ -42,6 +42,9 @@ entity Audio_channel is
         ------- Switches ------------------------
         SW              : in  std_logic_vector(3 downto 0);
 
+        ------- Config --------------------------
+        FFT_sample_rate : in  std_logic_vector(7 downto 0);
+
         ------- Audio interface -----------------
         New_sample      : in  std_logic;
         Audio_din       : in  std_logic_vector(15 downto 0);
@@ -111,6 +114,7 @@ architecture RTL of Audio_channel is
             FFT_doutA_i     : out std_logic_vector(15 downto 0);
             FFT_doutB_r     : out std_logic_vector(15 downto 0);
             FFT_doutB_i     : out std_logic_vector(15 downto 0);
+            FFT_sample_rate : in  std_logic_vector(7 downto 0);
             FFT_write       : out std_logic;
             FFT_done        : out std_logic
             );
@@ -239,6 +243,7 @@ begin
         FFT_doutA_i     => FFT_doutA_i,
         FFT_doutB_r     => FFT_doutB_r,
         FFT_doutB_i     => FFT_doutB_i,
+        FFT_sample_rate => FFT_sample_rate,
         FFT_write       => FFT_write,
         FFT_done        => FFT_done);
 

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2020-01-06
+-- Last update: 2020-01-07
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ entity FFT_Wrapper is
         ------- Audio interface ------------------
         FFT_din         : in  std_logic_vector(15 downto 0);
         FFT_new_sample  : in  std_logic;
+
+        ------- Config ---------------------------
+        FFT_sample_rate : in  std_logic_vector(7 downto 0);
 
         ------- FFT interface --------------------
         FFT_addrA       : out std_logic_vector(8 downto 0);
@@ -170,11 +173,25 @@ architecture RTL of FFT_Wrapper is
     signal cnt_sample_zero      : std_logic;
     signal FFT_din_dd           : std_logic_vector(15 downto 0);
     signal FFT_new_sample_dd    : std_logic;
+    signal FFT_rate             : unsigned(7 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_rate
+    -- Description : Register sampling rate
+    --------------------------------------------------------------------------------
+    P_rate : process(reset_n, clk)
+    begin
+        if(reset_n='0') then
+            FFT_rate    <= (others => '0');
+        elsif(rising_edge(clk)) then
+            FFT_rate    <= unsigned(FFT_sample_rate);
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_input
@@ -198,11 +215,11 @@ begin
     P_divide : process(reset_n, clk)
     begin
         if(reset_n='0') then
-            counter_sample  <= to_unsigned(2, counter_sample'length);
+            counter_sample  <= FFT_rate;
         elsif(rising_edge(clk)) then
             if(FFT_new_sample_d='1') then
                 if(cnt_sample_zero='1') then
-                    counter_sample  <= to_unsigned(2, counter_sample'length);
+                    counter_sample  <= FFT_rate;
                 else
                     counter_sample  <= counter_sample - 1;
                 end if;

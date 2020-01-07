@@ -1,76 +1,18 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/Heartbeat.vhd" into library lib_VHDL
-INFO: [VRFC 10-3107] analyzing entity 'Hearbeat'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd" into library lib_VHDL
 INFO: [VRFC 10-3107] analyzing entity 'UART_Rx'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd" into library lib_VHDL
 INFO: [VRFC 10-3107] analyzing entity 'UART_Tx'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd" into library lib_VHDL
 INFO: [VRFC 10-3107] analyzing entity 'UART_Wrapper'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VGA_Pkg.vhd" into library lib_VHDL
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VGA_controller.vhd" into library lib_VHDL
-INFO: [VRFC 10-3107] analyzing entity 'VGA_Controller'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Adder.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'FFT_Adder'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FIFO.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'FFT_FIFO'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_FSM.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'FFT_FSM'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'FFT_Multiplier'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'FFT_RAM_Wrapper'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_UAL.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'FFT_UAL'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'FFT_Wrapper'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_u16_s16/sim/Multiplier_u16_s16.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Multiplier_u16_s16'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/EQ_volume.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'EQ_volume'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/EQ_volume_ctrl.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'EQ_volume_ctrl'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/EQ_stage.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'EQ_stage'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/TYPE_Pkg.vhd" into library lib_VHDL
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/NRM_FSM.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'NRM_FSM'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/NRM_Normalizer.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'NRM_Normalizer'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/NRM_RAM_Wrapper.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'NRM_RAM_Wrapper'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'NRM_Wrapper'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/I2S_Emitter.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'I2S_Emitter'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/I2S_Receiver.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'I2S_Receiver'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/I2S_Wrapper.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'I2S_Wrapper'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VGA_interface_bottom.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'VGA_interface_bottom'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VGA_interface_top.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'VGA_interface_top'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd" into library lib_VHDL
-INFO: [VRFC 10-3107] analyzing entity 'FIR_filter'
-WARNING: [VRFC 10-3093] actual for formal port 'ce' is neither a static name nor a globally static expression [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:268]
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd" into library lib_VHDL
-INFO: [VRFC 10-3107] analyzing entity 'FIR_interface'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/sim/Accu_u20.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Accu_u20'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'VU_stage'
-WARNING: [VRFC 10-3093] actual for formal port 'ce' is neither a static name nor a globally static expression [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:128]
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd" into library lib_VHDL
-INFO: [VRFC 10-3107] analyzing entity 'VU_metre'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd" into library lib_VHDL
 INFO: [VRFC 10-3107] analyzing entity 'TOP'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/Audio_Interface.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Audio_Interface'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'Audio_channel'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/VGA_RAM_wrapper.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'VGA_RAM_wrapper'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/VU_wrapper.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'VU_wrapper'
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'FFT_Wrapper_tb'

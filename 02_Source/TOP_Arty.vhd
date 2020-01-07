@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2019-12-21
+-- Last update: 2020-01-07
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -115,7 +115,8 @@ architecture RTL of TOP is
             Tx              : out std_logic;
             Rx              : in  std_logic;
             UART_din        : in std_logic_vector(15 downto 0);
-            UART_write      : in std_logic
+            UART_write      : in std_logic;
+            UART_dout       : out std_logic_vector(7 downto 0)
             );
     end component;
 
@@ -223,6 +224,7 @@ architecture RTL of TOP is
             VOL_UP          : in  std_logic;
             VOL_DOWN        : in  std_logic;
             SW              : in  std_logic_vector(3 downto 0);
+            FFT_sample_rate : in  std_logic_vector(7 downto 0);
             New_sample      : in  std_logic;
             Audio_din       : in  std_logic_vector(15 downto 0);
             Audio_out       : out std_logic_vector(15 downto 0);
@@ -346,12 +348,13 @@ begin
     -- Description: Wrapper of an UART clocked at 216 MHz
     ----------------------------------------------------------------
     U_UART_Wrapper : UART_Wrapper port map(
-        clk             => clk_216,
-        reset_n         => reset_n,
-        Tx              => TX,
-        Rx              => RX,
-        UART_din        => MOSI_right_out,
-        UART_write      => New_sample_216);
+        clk         => clk_216,
+        reset_n     => reset_n,
+        Tx          => TX,
+        Rx          => RX,
+        UART_din    => (others => '0'),
+        UART_write  => '0',
+        UART_dout   => UART_dout);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_VGA_controller
@@ -434,6 +437,7 @@ begin
         VOL_UP          => VOL_UP,
         VOL_DOWN        => VOL_DOWN,
         SW              => SW,
+        FFT_sample_rate => UART_dout,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_right_out,
         Audio_out       => MISO_right_in,
@@ -455,6 +459,7 @@ begin
         VOL_UP          => VOL_UP,
         VOL_DOWN        => VOL_DOWN,
         SW              => SW,
+        FFT_sample_rate => UART_dout,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_left_out,
         Audio_out       => MISO_left_in,
