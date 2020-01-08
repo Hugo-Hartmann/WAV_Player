@@ -91,36 +91,46 @@ group_FFT.grid(column=0, row=1)
 # Configure FFT Zoom level
 def write_FFT_zoom():
 
-    global txt_FFT
+    global slider_FFT
     global ser
     global lbl_status_FFT
 
-    zoom = txt_FFT.get() # Get field value
+    zoom = slider_FFT.get() # Get field value
+    zoom = int(round(float(zoom), 0))
     fail = serial_wr_FFT_sampling(ser, zoom)
     
-    if(fail==1):
-        lbl_status_FFT.configure(text="Uncorrect value!", font=(FONT, 10), foreground="red")
-    elif(fail==2):
+    if(fail):
         lbl_status_FFT.configure(text="Serial not connected!", font=(FONT, 10), foreground="red")
     else:
         lbl_status_FFT.configure(text="Done.", font=(FONT, 10), foreground="green")
 
+def update_zoom_level(zoom):
+
+    global lbl_level_FFT
+
+    zoom = int(round(float(zoom), 0))
+
+    lbl_level_FFT.configure(text=str(zoom), font=(FONT, 10))
 
 # Label FFT Zoom selection
 lbl_title_FFT = Label(group_FFT, text="FFT Zoom", font=(FONT, 10))
 lbl_title_FFT.grid(column=0, row=0, columnspan=2)
 
+# Label FFT Zoom level
+lbl_level_FFT = Label(group_FFT, text="1", font=(FONT, 10))
+lbl_level_FFT.grid(column=0, row=1, columnspan=1)
+
 # Zoom text field
-txt_FFT = Entry(group_FFT, width=10, text="1")
-txt_FFT.grid(column=0, row=1, sticky=W)
+slider_FFT = Scale(group_FFT, from_=1, to=50, orient='horizontal', command=update_zoom_level)
+slider_FFT.grid(column=0, row=2, sticky=W)
 
 # Set Zoom level button
 btn_set_FFT = Button(group_FFT, text="Set", command=write_FFT_zoom, width=10)
-btn_set_FFT.grid(column=1, row=1, sticky=W)
+btn_set_FFT.grid(column=1, row=2, sticky=W)
 
 # Status text for Zoom
 lbl_status_FFT = Label(group_FFT, text="", font=(FONT, 10))
-lbl_status_FFT.grid(column=0, row=2, columnspan=2)
+lbl_status_FFT.grid(column=0, row=3, columnspan=2)
 
 
 ## Window mainloop
