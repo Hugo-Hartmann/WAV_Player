@@ -8,19 +8,17 @@
   **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-INFO: [Common 17-1460] Use of init.tcl in C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl is deprecated. Please use Vivado_init.tcl 
-Sourcing tcl script 'C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl'
 source UART_Wrapper.tcl -notrace
 Command: synth_design -top UART_Wrapper -part xc7s50csga324-1 -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9776 
+INFO: Helper process launched with PID 5280 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 389.863 ; gain = 103.633
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 382.977 ; gain = 101.980
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'UART_Wrapper' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:56]
+INFO: [Synth 8-638] synthesizing module 'UART_Wrapper' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:56]
 	Parameter G_SPEED bound to: 3686400 - type: integer 
 	Parameter G_PARITY_BIT bound to: 1 - type: integer 
 	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
@@ -28,29 +26,29 @@ INFO: [Synth 8-638] synthesizing module 'UART_Wrapper' [C:/Users/hhartmann/Docum
 	Parameter G_N_BITS bound to: 8 - type: integer 
 	Parameter G_PARITY_BIT bound to: 1 - type: integer 
 	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'UART_Rx' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd:30' bound to instance 'U_Rx' of component 'UART_Rx' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:116]
-INFO: [Synth 8-638] synthesizing module 'UART_Rx' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd:57]
+INFO: [Synth 8-3491] module 'UART_Rx' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd:30' bound to instance 'U_Rx' of component 'UART_Rx' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:116]
+INFO: [Synth 8-638] synthesizing module 'UART_Rx' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd:57]
 	Parameter G_SPEED bound to: 3686400 - type: integer 
 	Parameter G_N_BITS bound to: 8 - type: integer 
 	Parameter G_PARITY_BIT bound to: 1 - type: integer 
 	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'UART_Rx' (1#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'UART_Rx' (1#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd:57]
 	Parameter G_SPEED bound to: 3686400 - type: integer 
 	Parameter G_N_BITS bound to: 8 - type: integer 
 	Parameter G_PARITY_BIT bound to: 1 - type: integer 
 	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'UART_Tx' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd:30' bound to instance 'U_Tx' of component 'UART_Tx' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
-INFO: [Synth 8-638] synthesizing module 'UART_Tx' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd:58]
+INFO: [Synth 8-3491] module 'UART_Tx' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd:30' bound to instance 'U_Tx' of component 'UART_Tx' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+INFO: [Synth 8-638] synthesizing module 'UART_Tx' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd:58]
 	Parameter G_SPEED bound to: 3686400 - type: integer 
 	Parameter G_N_BITS bound to: 8 - type: integer 
 	Parameter G_PARITY_BIT bound to: 1 - type: integer 
 	Parameter G_PARIY_EVEN bound to: 1 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'UART_Tx' (2#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd:58]
-WARNING: [Synth 8-3848] Net Tx_send in module/entity UART_Wrapper does not have driver. [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:102]
-WARNING: [Synth 8-3848] Net Tx_in in module/entity UART_Wrapper does not have driver. [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:103]
-INFO: [Synth 8-256] done synthesizing module 'UART_Wrapper' (3#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:56]
+INFO: [Synth 8-256] done synthesizing module 'UART_Tx' (2#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd:58]
+WARNING: [Synth 8-3848] Net Tx_send in module/entity UART_Wrapper does not have driver. [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:102]
+WARNING: [Synth 8-3848] Net Tx_in in module/entity UART_Wrapper does not have driver. [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:103]
+INFO: [Synth 8-256] done synthesizing module 'UART_Wrapper' (3#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:56]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 441.723 ; gain = 155.492
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 439.242 ; gain = 158.246
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -59,54 +57,54 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_send to constant 0 [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
-WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[7] to constant 0 [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
-WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[6] to constant 0 [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
-WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[5] to constant 0 [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
-WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[4] to constant 0 [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
-WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[3] to constant 0 [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
-WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[2] to constant 0 [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
-WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[1] to constant 0 [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
-WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[0] to constant 0 [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_send to constant 0 [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[7] to constant 0 [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[6] to constant 0 [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[5] to constant 0 [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[4] to constant 0 [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[3] to constant 0 [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[2] to constant 0 [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[1] to constant 0 [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
+WARNING: [Synth 8-3295] tying undriven pin U_Tx:Tx_in[0] to constant 0 [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd:132]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 441.723 ; gain = 155.492
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 439.242 ; gain = 158.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 441.723 ; gain = 155.492
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 439.242 ; gain = 158.246
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/UART_Wrapper/new/UART_Wrapper_ooc.xdc]
-Finished Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/UART_Wrapper/new/UART_Wrapper_ooc.xdc]
+Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/UART_Wrapper/new/UART_Wrapper_ooc.xdc]
+Finished Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/UART_Wrapper/new/UART_Wrapper_ooc.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 751.035 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 750.809 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 751.035 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 752.363 ; gain = 1.328
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 750.809 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.119 . Memory (MB): peak = 751.961 ; gain = 1.152
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 752.363 ; gain = 466.133
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 751.961 ; gain = 470.965
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 752.363 ; gain = 466.133
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 751.961 ; gain = 470.965
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 752.363 ; gain = 466.133
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 751.961 ; gain = 470.965
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'UART_Rx'
 INFO: [Synth 8-5546] ROM "end_count" won't be mapped to RAM because it is too sparse
@@ -142,7 +140,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'UART_Tx'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 752.363 ; gain = 466.133
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:20 . Memory (MB): peak = 751.961 ; gain = 470.965
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -268,7 +266,7 @@ INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U_Tx/Tx_
 WARNING: [Synth 8-3332] Sequential element (U_Tx/FSM_sequential_current_state_reg[1]) is unused and will be removed from module UART_Wrapper.
 WARNING: [Synth 8-3332] Sequential element (U_Tx/FSM_sequential_current_state_reg[0]) is unused and will be removed from module UART_Wrapper.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 752.363 ; gain = 466.133
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 751.961 ; gain = 470.965
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -280,13 +278,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 761.766 ; gain = 475.535
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 751.961 ; gain = 470.965
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 761.922 ; gain = 475.691
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 751.961 ; gain = 470.965
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -298,7 +296,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 781.734 ; gain = 495.504
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 771.316 ; gain = 490.320
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -322,7 +320,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 781.734 ; gain = 495.504
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 771.316 ; gain = 490.320
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -335,7 +333,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 781.734 ; gain = 495.504
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 771.316 ; gain = 490.320
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -347,25 +345,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 781.734 ; gain = 495.504
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 771.316 ; gain = 490.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 781.734 ; gain = 495.504
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 771.316 ; gain = 490.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 781.734 ; gain = 495.504
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 771.316 ; gain = 490.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 781.734 ; gain = 495.504
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 771.316 ; gain = 490.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -399,25 +397,25 @@ Report Instance Areas:
 |2     |  U_Rx   |UART_Rx |   112|
 +------+---------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 781.734 ; gain = 495.504
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 771.316 ; gain = 490.320
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 19 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 781.734 ; gain = 184.863
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 781.734 ; gain = 495.504
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 771.316 ; gain = 177.602
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 771.316 ; gain = 490.320
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 783.414 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 771.316 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 54 Infos, 13 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 783.414 ; gain = 509.352
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 783.414 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/UART_Wrapper_synth_1/UART_Wrapper.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:38 . Memory (MB): peak = 771.316 ; gain = 502.203
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 771.316 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/UART_Wrapper_synth_1/UART_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file UART_Wrapper_utilization_synth.rpt -pb UART_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jan  7 15:06:17 2020...
+INFO: [Common 17-206] Exiting Vivado at Sat Jan 11 18:31:31 2020...

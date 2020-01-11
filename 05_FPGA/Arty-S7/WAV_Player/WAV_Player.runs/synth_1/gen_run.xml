@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1578405937">
+<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1578766912">
   <File Type="PA-TCL" Name="TOP.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="TOP_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="TOP_reports.tcl"/>
@@ -85,7 +85,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/VGA_interface/new/VGA_interface_ooc.xdc">
+    <File Path="$PSRCDIR/VGA_interface_bottom/new/VGA_interface_bottom_ooc.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/VGA_interface_top/new/VGA_interface_top_ooc.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -130,8 +137,7 @@
   <BlockFileSet Type="BlockSrcs" Name="FFT_Wrapper"/>
   <BlockFileSet Type="BlockSrcs" Name="I2S_Wrapper"/>
   <BlockFileSet Type="BlockSrcs" Name="FIFO_32bit"/>
-  <BlockFileSet Type="BlockSrcs" Name="VGA_interface_top"/>
-  <BlockFileSet Type="BlockSrcs" Name="VGA_interface_bottom"/>
   <BlockFileSet Type="BlockSrcs" Name="FIR_interface"/>
   <BlockFileSet Type="BlockSrcs" Name="VU_metre"/>
+  <BlockFileSet Type="BlockSrcs" Name="VGA_interface"/>
 </GenRun>

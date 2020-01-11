@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="NRM_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1578385646">
+<GenRun Id="NRM_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1578763865">
   <File Type="PA-TCL" Name="NRM_Wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="NRM_Wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="NRM_Wrapper_reports.tcl"/>

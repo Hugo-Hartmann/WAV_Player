@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-01-07
+-- Last update: 2020-01-11
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -138,50 +138,6 @@ architecture RTL of TOP is
             );
     end component;
 
-    component VGA_interface_top is
-        port(
-            clk_108         : in  std_logic;
-            clk_216         : in  std_logic;
-            reset_n         : in  std_logic;
-            VGA_new_frame   : in  std_logic;
-            VGA_read        : in  std_logic;
-            VGA_address     : in  std_logic_vector(31 downto 0);
-            VGA_v_add       : in  std_logic_vector(15 downto 0);
-            VGA_h_add       : in  std_logic_vector(15 downto 0);
-            VGA_din         : out std_logic_vector(11 downto 0);
-            WAV_read        : in  std_logic;
-            VGA_select      : in  std_logic_vector(3 downto 0);
-            EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-            EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-            NRM_addr        : out std_logic_vector(8 downto 0);
-            NRM_read        : out std_logic;
-            NRM_dout        : in  std_logic_vector(15 downto 0)
-            );
-    end component;
-
-    component VGA_interface_bottom is
-        port(
-            clk_108         : in  std_logic;
-            clk_216         : in  std_logic;
-            reset_n         : in  std_logic;
-            VGA_new_frame   : in  std_logic;
-            VGA_read        : in  std_logic;
-            VGA_address     : in  std_logic_vector(31 downto 0);
-            VGA_v_add       : in  std_logic_vector(15 downto 0);
-            VGA_h_add       : in  std_logic_vector(15 downto 0);
-            VGA_din         : out std_logic_vector(11 downto 0);
-            WAV_read        : in  std_logic;
-            VGA_select      : in  std_logic_vector(3 downto 0);
-            EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-            EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-            NRM_addr        : out std_logic_vector(8 downto 0);
-            NRM_read        : out std_logic;
-            NRM_dout        : in  std_logic_vector(15 downto 0)
-            );
-    end component;
-
     component I2S_Wrapper is
         port(
             clk             : in  std_logic;
@@ -218,8 +174,12 @@ architecture RTL of TOP is
     end component;
 
     component Audio_channel is
+        generic(
+            G_VGA_TOP       : boolean := true
+            );
         port(
-            clk             : in  std_logic;
+            clk_108         : in  std_logic;
+            clk_216         : in  std_logic;
             reset_n         : in  std_logic;
             VOL_UP          : in  std_logic;
             VOL_DOWN        : in  std_logic;
@@ -228,13 +188,12 @@ architecture RTL of TOP is
             New_sample      : in  std_logic;
             Audio_din       : in  std_logic_vector(15 downto 0);
             Audio_out       : out std_logic_vector(15 downto 0);
-            EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-            VU_dout         : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
             VGA_new_frame   : in  std_logic;
-            NRM_read        : in  std_logic;
-            NRM_addr_r      : in  std_logic_vector(8 downto 0);
-            NRM_dout        : out std_logic_vector(15 downto 0)
+            VGA_read        : in  std_logic;
+            VGA_address     : in  std_logic_vector(31 downto 0);
+            VGA_v_add       : in  std_logic_vector(15 downto 0);
+            VGA_h_add       : in  std_logic_vector(15 downto 0);
+            VGA_din         : out std_logic_vector(11 downto 0)
             );
     end component;
 
@@ -266,8 +225,10 @@ architecture RTL of TOP is
     signal EQ_level_dout_l  : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal EQ_dout_r        : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
     signal EQ_dout_l        : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-    signal NRM_read         : std_logic;
+    signal NRM_read_r       : std_logic;
+    signal NRM_read_l       : std_logic;
     signal NRM_addr_r       : std_logic_vector(8 downto 0);
+    signal NRM_addr_l       : std_logic_vector(8 downto 0);
     signal NRM_dout_r       : std_logic_vector(15 downto 0);
     signal NRM_dout_l       : std_logic_vector(15 downto 0);
     signal MISO_right_in    : std_logic_vector(15 downto 0);
@@ -382,57 +343,14 @@ begin
     VGA_din <= VGA_din_bottom OR VGA_din_top;
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_VGA_interface_top
-    -- Description: VGA controller, fetch image from memory and outputs VGA format
-    ----------------------------------------------------------------
-    U_VGA_interface_top : VGA_interface_top port map(
-        clk_108         => clk_108,
-        clk_216         => clk_216,
-        reset_n         => reset_n,
-        VGA_new_frame   => VGA_new_frame,
-        VGA_read        => VGA_read,
-        VGA_address     => VGA_address,
-        VGA_v_add       => VGA_v_add,
-        VGA_h_add       => VGA_h_add,
-        VGA_din         => VGA_din_top,
-        WAV_read        => New_sample_216,
-        VGA_select      => SW,
-        VU_dout         => VU_dout_r,
-        EQ_dout         => EQ_dout_r,
-        EQ_level_dout   => EQ_level_dout_r,
-        NRM_addr        => NRM_addr_r,
-        NRM_read        => NRM_read,
-        NRM_dout        => NRM_dout_r);
-
-    ----------------------------------------------------------------
-    -- INSTANCE : U_VGA_interface_bottom
-    -- Description: VGA controller, fetch image from memory and outputs VGA format
-    ----------------------------------------------------------------
-    U_VGA_interface_bottom : VGA_interface_bottom port map(
-        clk_108         => clk_108,
-        clk_216         => clk_216,
-        reset_n         => reset_n,
-        VGA_new_frame   => VGA_new_frame,
-        VGA_read        => VGA_read,
-        VGA_address     => VGA_address,
-        VGA_v_add       => VGA_v_add,
-        VGA_h_add       => VGA_h_add,
-        VGA_din         => VGA_din_bottom,
-        WAV_read        => New_sample_216,
-        VGA_select      => SW,
-        VU_dout         => VU_dout_l,
-        EQ_dout         => EQ_dout_l,
-        EQ_level_dout   => EQ_level_dout_l,
-        NRM_addr        => open,
-        NRM_read        => open,
-        NRM_dout        => NRM_dout_l);
-
-    ----------------------------------------------------------------
     -- INSTANCE : U_Audio_channel_right
     -- Description: Audio channel full treatment chain
     ----------------------------------------------------------------
-    U_Audio_channel_right : Audio_channel port map(
-        clk             => clk_216,
+    U_Audio_channel_right : Audio_channel generic map(
+        G_VGA_TOP   => false)
+    port map(
+        clk_108         => clk_108,
+        clk_216         => clk_216,
         reset_n         => reset_n,
         VOL_UP          => VOL_UP,
         VOL_DOWN        => VOL_DOWN,
@@ -441,20 +359,22 @@ begin
         New_sample      => New_sample_216,
         Audio_din       => MOSI_right_out,
         Audio_out       => MISO_right_in,
-        EQ_dout         => EQ_dout_r,
-        EQ_level_dout   => EQ_level_dout_r,
-        VU_dout         => VU_dout_r,
         VGA_new_frame   => VGA_new_frame,
-        NRM_read        => NRM_read,
-        NRM_addr_r      => NRM_addr_r,
-        NRM_dout        => NRM_dout_r);
+        VGA_read        => VGA_read,
+        VGA_address     => VGA_address,
+        VGA_v_add       => VGA_v_add,
+        VGA_h_add       => VGA_h_add,
+        VGA_din         => VGA_din_bottom);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_Audio_channel_left
     -- Description: Audio channel full treatment chain
     ----------------------------------------------------------------
-    U_Audio_channel_left : Audio_channel port map(
-        clk             => clk_216,
+    U_Audio_channel_left : Audio_channel generic map(
+        G_VGA_TOP   => true)
+    port map(
+        clk_108         => clk_108,
+        clk_216         => clk_216,
         reset_n         => reset_n,
         VOL_UP          => VOL_UP,
         VOL_DOWN        => VOL_DOWN,
@@ -463,13 +383,12 @@ begin
         New_sample      => New_sample_216,
         Audio_din       => MOSI_left_out,
         Audio_out       => MISO_left_in,
-        EQ_dout         => EQ_dout_l,
-        EQ_level_dout   => EQ_level_dout_l,
-        VU_dout         => VU_dout_l,
         VGA_new_frame   => VGA_new_frame,
-        NRM_read        => NRM_read,
-        NRM_addr_r      => NRM_addr_r,
-        NRM_dout        => NRM_dout_l);
+        VGA_read        => VGA_read,
+        VGA_address     => VGA_address,
+        VGA_v_add       => VGA_v_add,
+        VGA_h_add       => VGA_h_add,
+        VGA_din         => VGA_din_top);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_I2S_Wrapper

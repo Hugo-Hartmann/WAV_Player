@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Jan  7 15:09:15 2020
-| Host         : L-1V1ZTY1 running 64-bit Service Pack 1  (build 7601)
+| Date         : Sat Jan 11 19:25:07 2020
+| Host         : Hugo running 64-bit major release  (build 9200)
 | Command      : report_drc -file TOP_drc_opted.rpt -pb TOP_drc_opted.pb -rpx TOP_drc_opted.rpx
 | Design       : TOP
 | Device       : xc7s50csga324-1
@@ -50,17 +50,17 @@ Related violations: <none>
 
 IOSR-1#1 Warning
 IOB set reset sharing  
-IO SW[0] connects to flops which have these U_Audio_channel_left/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1, U_Audio_channel_right/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO SW[0] connects to flops which have these U_Audio_channel_right/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1, U_Audio_channel_left/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 IOSR-1#2 Warning
 IOB set reset sharing  
-IO SW[1] connects to flops which have these U_Audio_channel_left/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1, U_Audio_channel_right/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO SW[1] connects to flops which have these U_Audio_channel_right/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1, U_Audio_channel_left/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 IOSR-1#3 Warning
 IOB set reset sharing  
-IO SW[2] connects to flops which have these U_Audio_channel_left/U_EQ_stage/U_EQ_volume_ctrl/reset_n_0, U_Audio_channel_right/U_EQ_stage/U_EQ_volume_ctrl/reset_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+IO SW[2] connects to flops which have these U_Audio_channel_right/U_EQ_stage/U_EQ_volume_ctrl/reset_n_0, U_Audio_channel_left/U_EQ_stage/U_EQ_volume_ctrl/reset_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 REQP-1839#1 Warning
@@ -165,7 +165,7 @@ Related violations: <none>
 
 REQP-1840#1 Warning
 RAMB18 async control check  
-The RAMB18E1 U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram has an input control pin U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram/ADDRARDADDR[11] (net: U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[7]) which is driven by a register (U_Audio_channel_left/U_FFT_Wrapper/U_FFT_FSM/addrA_d_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram has an input control pin U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram/ADDRARDADDR[11] (net: U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[7]) which is driven by a register (U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/addr_counter_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1840#2 Warning
