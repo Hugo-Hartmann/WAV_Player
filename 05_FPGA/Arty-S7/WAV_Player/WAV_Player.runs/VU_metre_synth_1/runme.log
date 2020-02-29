@@ -8,22 +8,20 @@
   **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-INFO: [Common 17-1460] Use of init.tcl in C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl is deprecated. Please use Vivado_init.tcl 
-Sourcing tcl script 'C:/Users/hhartmann/AppData/Roaming/Xilinx/Vivado/init.tcl'
 source VU_metre.tcl -notrace
 Command: synth_design -top VU_metre -part xc7s50csga324-1 -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7020 
+INFO: Helper process launched with PID 11756 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 417.121 ; gain = 103.777
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 413.082 ; gain = 105.816
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-1565] actual for formal port ce is neither a static name nor a globally static expression [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:128]
-INFO: [Synth 8-638] synthesizing module 'VU_metre' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:54]
-INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
-INFO: [Synth 8-638] synthesizing module 'RAM_4096_8bit' [c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:70]
+WARNING: [Synth 8-1565] actual for formal port ce is neither a static name nor a globally static expression [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:128]
+INFO: [Synth 8-638] synthesizing module 'VU_metre' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:54]
+INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
+INFO: [Synth 8-638] synthesizing module 'RAM_4096_8bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:70]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -99,19 +97,19 @@ INFO: [Synth 8-638] synthesizing module 'RAM_4096_8bit' [c:/Users/hhartmann/Docu
 	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.535699 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:236]
-INFO: [Synth 8-256] done synthesizing module 'RAM_4096_8bit' (9#1) [c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:70]
-INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
-INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
-INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
-INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
-INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
-INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
-INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
-INFO: [Synth 8-3491] module 'VU_stage' declared at 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:32' bound to instance 'U_VU_stage' of component 'VU_stage' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:170]
-INFO: [Synth 8-638] synthesizing module 'VU_stage' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:56]
-INFO: [Synth 8-3491] module 'Accu_u20' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/synth/Accu_u20.vhd:59' bound to instance 'U_Accu' of component 'Accu_u20' [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:125]
-INFO: [Synth 8-638] synthesizing module 'Accu_u20' [c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/synth/Accu_u20.vhd:69]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:236]
+INFO: [Synth 8-256] done synthesizing module 'RAM_4096_8bit' (9#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:70]
+INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
+INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
+INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
+INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
+INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
+INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
+INFO: [Synth 8-3491] module 'RAM_4096_8bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_4096_8bit/synth/RAM_4096_8bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_4096_8bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:126]
+INFO: [Synth 8-3491] module 'VU_stage' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:32' bound to instance 'U_VU_stage' of component 'VU_stage' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:170]
+INFO: [Synth 8-638] synthesizing module 'VU_stage' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:56]
+INFO: [Synth 8-3491] module 'Accu_u20' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/synth/Accu_u20.vhd:59' bound to instance 'U_Accu' of component 'Accu_u20' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:125]
+INFO: [Synth 8-638] synthesizing module 'Accu_u20' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/synth/Accu_u20.vhd:69]
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_IMPLEMENTATION bound to: 1 - type: integer 
 	Parameter C_VERBOSITY bound to: 0 - type: integer 
@@ -132,13 +130,13 @@ INFO: [Synth 8-638] synthesizing module 'Accu_u20' [c:/Users/hhartmann/Documents
 	Parameter C_SCLR_OVERRIDES_SSET bound to: 1 - type: integer 
 	Parameter C_HAS_SSET bound to: 0 - type: integer 
 	Parameter C_HAS_SINIT bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'c_accum_v12_0_12' declared at 'c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/hdl/c_accum_v12_0_vh_rfs.vhd:2296' bound to instance 'U0' of component 'c_accum_v12_0_12' [c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/synth/Accu_u20.vhd:127]
-INFO: [Synth 8-256] done synthesizing module 'Accu_u20' (16#1) [c:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/synth/Accu_u20.vhd:69]
-WARNING: [Synth 8-3936] Found unconnected internal register 'VU_level_reg' and it is trimmed from '32' to '31' bits. [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:178]
-INFO: [Synth 8-256] done synthesizing module 'VU_stage' (17#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:56]
-INFO: [Synth 8-256] done synthesizing module 'VU_metre' (18#1) [C:/Users/hhartmann/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:54]
+INFO: [Synth 8-3491] module 'c_accum_v12_0_12' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/hdl/c_accum_v12_0_vh_rfs.vhd:2296' bound to instance 'U0' of component 'c_accum_v12_0_12' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/synth/Accu_u20.vhd:127]
+INFO: [Synth 8-256] done synthesizing module 'Accu_u20' (16#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_u20/synth/Accu_u20.vhd:69]
+WARNING: [Synth 8-3936] Found unconnected internal register 'VU_level_reg' and it is trimmed from '32' to '31' bits. [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:178]
+INFO: [Synth 8-256] done synthesizing module 'VU_stage' (17#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_stage.vhd:56]
+INFO: [Synth 8-256] done synthesizing module 'VU_metre' (18#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd:54]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:52 ; elapsed = 00:02:00 . Memory (MB): peak = 691.285 ; gain = 377.941
+Finished RTL Elaboration : Time (s): cpu = 00:00:53 ; elapsed = 00:00:59 . Memory (MB): peak = 694.164 ; gain = 386.898
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -151,10 +149,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:52 ; elapsed = 00:02:00 . Memory (MB): peak = 691.285 ; gain = 377.941
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:53 ; elapsed = 00:01:00 . Memory (MB): peak = 694.164 ; gain = 386.898
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:52 ; elapsed = 00:02:00 . Memory (MB): peak = 691.285 ; gain = 377.941
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:53 ; elapsed = 00:01:00 . Memory (MB): peak = 694.164 ; gain = 386.898
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -163,28 +161,28 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VU_metre/new/VU_metre_ooc.xdc]
-Finished Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VU_metre/new/VU_metre_ooc.xdc]
-Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/dont_touch.xdc]
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VU_metre/new/VU_metre_ooc.xdc]
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/VU_metre/new/VU_metre_ooc.xdc]
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 736.770 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 733.758 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   DSP48E => DSP48E1: 1 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 736.770 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.075 . Memory (MB): peak = 736.770 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 733.758 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 733.945 ; gain = 0.188
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:02:09 ; elapsed = 00:02:19 . Memory (MB): peak = 736.770 ; gain = 423.426
+Finished Constraint Validation : Time (s): cpu = 00:01:00 ; elapsed = 00:01:08 . Memory (MB): peak = 733.945 ; gain = 426.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:02:09 ; elapsed = 00:02:19 . Memory (MB): peak = 736.770 ; gain = 423.426
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:00 ; elapsed = 00:01:08 . Memory (MB): peak = 733.945 ; gain = 426.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -199,7 +197,7 @@ Applied set_property DONT_TOUCH = true for \GEN_RAM[6].U_RAM . (constraint file 
 Applied set_property DONT_TOUCH = true for \GEN_RAM[7].U_RAM . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_VU_stage/U_Accu. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:09 ; elapsed = 00:02:19 . Memory (MB): peak = 736.770 ; gain = 423.426
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:00 ; elapsed = 00:01:08 . Memory (MB): peak = 733.945 ; gain = 426.680
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "VU_level" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'VU_metre'
@@ -227,7 +225,7 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'VU_metre'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:10 ; elapsed = 00:02:20 . Memory (MB): peak = 736.770 ; gain = 423.426
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:01 ; elapsed = 00:01:08 . Memory (MB): peak = 733.945 ; gain = 426.680
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -272,7 +270,7 @@ INFO: [Synth 8-5546] ROM "cnt_write_end" won't be mapped to RAM because it is to
 INFO: [Synth 8-5546] ROM "cnt_read_end" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_VU_stage/accu_din_reg[7] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:14 ; elapsed = 00:02:24 . Memory (MB): peak = 736.770 ; gain = 423.426
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 733.945 ; gain = 426.680
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -284,13 +282,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:31 ; elapsed = 00:02:42 . Memory (MB): peak = 809.297 ; gain = 495.953
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:09 ; elapsed = 00:01:17 . Memory (MB): peak = 790.914 ; gain = 483.648
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:31 ; elapsed = 00:02:42 . Memory (MB): peak = 809.578 ; gain = 496.234
+Finished Timing Optimization : Time (s): cpu = 00:01:09 ; elapsed = 00:01:17 . Memory (MB): peak = 791.285 ; gain = 484.020
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -302,7 +300,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:31 ; elapsed = 00:02:43 . Memory (MB): peak = 831.188 ; gain = 517.844
+Finished Technology Mapping : Time (s): cpu = 00:01:09 ; elapsed = 00:01:17 . Memory (MB): peak = 813.262 ; gain = 505.996
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -326,7 +324,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:33 ; elapsed = 00:02:45 . Memory (MB): peak = 831.188 ; gain = 517.844
+Finished IO Insertion : Time (s): cpu = 00:01:10 ; elapsed = 00:01:18 . Memory (MB): peak = 813.262 ; gain = 505.996
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -339,7 +337,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:33 ; elapsed = 00:02:45 . Memory (MB): peak = 831.188 ; gain = 517.844
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:10 ; elapsed = 00:01:18 . Memory (MB): peak = 813.262 ; gain = 505.996
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -351,25 +349,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:33 ; elapsed = 00:02:45 . Memory (MB): peak = 831.188 ; gain = 517.844
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:10 ; elapsed = 00:01:18 . Memory (MB): peak = 813.262 ; gain = 505.996
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:33 ; elapsed = 00:02:45 . Memory (MB): peak = 831.188 ; gain = 517.844
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:10 ; elapsed = 00:01:18 . Memory (MB): peak = 813.262 ; gain = 505.996
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:33 ; elapsed = 00:02:45 . Memory (MB): peak = 831.188 ; gain = 517.844
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:10 ; elapsed = 00:01:18 . Memory (MB): peak = 813.262 ; gain = 505.996
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:33 ; elapsed = 00:02:45 . Memory (MB): peak = 831.188 ; gain = 517.844
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:10 ; elapsed = 00:01:18 . Memory (MB): peak = 813.262 ; gain = 505.996
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -401,17 +399,17 @@ Report Cell Usage:
 |13    |FDRE          |    28|
 +------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:33 ; elapsed = 00:02:45 . Memory (MB): peak = 831.188 ; gain = 517.844
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:10 ; elapsed = 00:01:18 . Memory (MB): peak = 813.262 ; gain = 505.996
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 155 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:02:31 . Memory (MB): peak = 831.188 ; gain = 472.359
-Synthesis Optimization Complete : Time (s): cpu = 00:02:33 ; elapsed = 00:02:45 . Memory (MB): peak = 831.188 ; gain = 517.844
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:01:12 . Memory (MB): peak = 813.262 ; gain = 466.215
+Synthesis Optimization Complete : Time (s): cpu = 00:01:10 ; elapsed = 00:01:18 . Memory (MB): peak = 813.262 ; gain = 505.996
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 23 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 831.188 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 815.105 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   DSP48E => DSP48E1: 1 instances
@@ -419,9 +417,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 60 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:36 ; elapsed = 00:02:48 . Memory (MB): peak = 831.188 ; gain = 525.570
+synth_design: Time (s): cpu = 00:01:12 ; elapsed = 00:01:20 . Memory (MB): peak = 815.105 ; gain = 519.313
 INFO: [Coretcl 2-1174] Renamed 64 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 831.188 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/hhartmann/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.dcp' has been generated.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 815.105 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file VU_metre_utilization_synth.rpt -pb VU_metre_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Jan  6 15:53:21 2020...
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 29 11:45:05 2020...

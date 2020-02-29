@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2020-01-11
+-- Last update: 2020-02-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -108,7 +108,7 @@ architecture RTL of VGA_interface is
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
     signal addr_write       : unsigned(10 downto 0);
-    signal addr_bottom      : unsigned(10 downto 0);
+    signal addr_base        : unsigned(10 downto 0);
     signal addr_read        : unsigned(10 downto 0);
     signal addr_portA       : std_logic_vector(10 downto 0);
     signal addr_portB       : std_logic_vector(10 downto 0);
@@ -227,15 +227,15 @@ begin
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_bottom
-    -- Description : keep bottom and address fixed while displaying
+    -- Description : keep base address fixed while displaying
     --------------------------------------------------------------------------------
     P_bottom : process(clk_108, reset_n)
     begin
         if(reset_n='0') then
-            addr_bottom <= (others => '0');
+            addr_base   <= (others => '0');
         elsif(rising_edge(clk_108)) then
             if(VGA_new_frame='1') then
-                addr_bottom <= addr_write - to_unsigned(C_VGA_HMAX, addr_write'length);
+                addr_base   <= addr_write - to_unsigned(C_VGA_HMAX, addr_write'length);
             end if;
         end if;
     end process;
@@ -244,7 +244,7 @@ begin
     -- COMBINATORY :
     -- Description : Generate read_addr
     --------------------------------------------------------------------------------
-    addr_read   <= addr_bottom + unsigned(VGA_h_add(10 downto 0));
+    addr_read   <= addr_base + unsigned(VGA_h_add(10 downto 0));
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_reg_NRM
@@ -265,7 +265,7 @@ begin
     --------------------------------------------------------------------------------
     NRM_read        <= VGA_read when(unsigned(VGA_v_add)>200) else '0';
     nrm_addr_map    <= unsigned(VGA_h_add) - 14;
-    nrm_addr_final  <= std_logic_vector(nrm_addr_map(10 downto 2));
+    nrm_addr_final  <= std_logic_vector(nrm_addr_map(8 downto 0));
     
     process(nrm_addr_final)
     -- Invert address to fetch correct samples

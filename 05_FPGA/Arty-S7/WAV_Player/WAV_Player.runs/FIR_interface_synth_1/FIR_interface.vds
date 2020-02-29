@@ -2,12 +2,12 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sat Jan 11 18:31:21 2020
-# Process ID: 424
-# Current directory: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1
+# Start of session at: Sat Feb 29 11:43:39 2020
+# Process ID: 9992
+# Current directory: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1
 # Command line: vivado.exe -log FIR_interface.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FIR_interface.tcl
-# Log file: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.vds
-# Journal file: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1\vivado.jou
+# Log file: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.vds
+# Journal file: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1\vivado.jou
 #-----------------------------------------------------------
 source FIR_interface.tcl -notrace
 Command: synth_design -top FIR_interface -part xc7s50csga324-1 -mode out_of_context
@@ -15,15 +15,15 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10180 
+INFO: Helper process launched with PID 11368 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 416.293 ; gain = 105.719
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 416.344 ; gain = 106.922
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-1565] actual for formal port ce is neither a static name nor a globally static expression [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:268]
-INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:57]
+WARNING: [Synth 8-1565] actual for formal port ce is neither a static name nor a globally static expression [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:268]
+INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:57]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'RAM_2048_16bit' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_16bit' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:140]
-INFO: [Synth 8-638] synthesizing module 'RAM_2048_16bit' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:70]
+INFO: [Synth 8-3491] module 'RAM_2048_16bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_2048_16bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:140]
+INFO: [Synth 8-638] synthesizing module 'RAM_2048_16bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:70]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -99,16 +99,16 @@ INFO: [Synth 8-638] synthesizing module 'RAM_2048_16bit' [c:/Users/hugoh/Documen
 	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.6745 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:236]
-INFO: [Synth 8-256] done synthesizing module 'RAM_2048_16bit' (9#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:70]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:236]
+INFO: [Synth 8-256] done synthesizing module 'RAM_2048_16bit' (9#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/synth/RAM_2048_16bit.vhd:70]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_0' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_0' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:165]
-INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_0' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:68]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_0' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_0' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:165]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_0' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -184,12 +184,12 @@ INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_0' [c:/Users/hugoh/Docum
 	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:232]
-INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_0' (11#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:68]
-INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
-INFO: [Synth 8-638] synthesizing module 'Multiplier_s16_s16' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:68]
-WARNING: [Synth 8-5640] Port 'zero_detect' is missing in component declaration [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:71]
-WARNING: [Synth 8-5640] Port 'pcasc' is missing in component declaration [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:71]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_0' (11#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_0/synth/ROM_1024_16bit_0.vhd:68]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
+INFO: [Synth 8-638] synthesizing module 'Multiplier_s16_s16' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:68]
+WARNING: [Synth 8-5640] Port 'zero_detect' is missing in component declaration [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:71]
+WARNING: [Synth 8-5640] Port 'pcasc' is missing in component declaration [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:71]
 	Parameter C_VERBOSITY bound to: 0 - type: integer 
 	Parameter C_MODEL_TYPE bound to: 0 - type: integer 
 	Parameter C_OPTIMIZE_GOAL bound to: 1 - type: integer 
@@ -210,11 +210,11 @@ WARNING: [Synth 8-5640] Port 'pcasc' is missing in component declaration [c:/Use
 	Parameter C_HAS_ZERO_DETECT bound to: 0 - type: integer 
 	Parameter C_ROUND_OUTPUT bound to: 0 - type: integer 
 	Parameter C_ROUND_PT bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'mult_gen_v12_0_14' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/hdl/mult_gen_v12_0_vh_rfs.vhd:21013' bound to instance 'U0' of component 'mult_gen_v12_0_14' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:120]
+INFO: [Synth 8-3491] module 'mult_gen_v12_0_14' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/hdl/mult_gen_v12_0_vh_rfs.vhd:21013' bound to instance 'U0' of component 'mult_gen_v12_0_14' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:120]
 WARNING: [Synth 8-5974] attribute "use_dsp48" has been deprecated, please use "use_dsp" instead 
-INFO: [Synth 8-256] done synthesizing module 'Multiplier_s16_s16' (17#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:68]
-INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
-INFO: [Synth 8-638] synthesizing module 'Accu_s43' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:69]
+INFO: [Synth 8-256] done synthesizing module 'Multiplier_s16_s16' (17#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:68]
+INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
+INFO: [Synth 8-638] synthesizing module 'Accu_s43' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:69]
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_IMPLEMENTATION bound to: 1 - type: integer 
 	Parameter C_VERBOSITY bound to: 0 - type: integer 
@@ -235,17 +235,17 @@ INFO: [Synth 8-638] synthesizing module 'Accu_s43' [c:/Users/hugoh/Documents/Git
 	Parameter C_SCLR_OVERRIDES_SSET bound to: 1 - type: integer 
 	Parameter C_HAS_SSET bound to: 0 - type: integer 
 	Parameter C_HAS_SINIT bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'c_accum_v12_0_12' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/hdl/c_accum_v12_0_vh_rfs.vhd:2296' bound to instance 'U0' of component 'c_accum_v12_0_12' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:127]
-INFO: [Synth 8-256] done synthesizing module 'Accu_s43' (24#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:69]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter' (25#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'c_accum_v12_0_12' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/hdl/c_accum_v12_0_vh_rfs.vhd:2296' bound to instance 'U0' of component 'c_accum_v12_0_12' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:127]
+INFO: [Synth 8-256] done synthesizing module 'Accu_s43' (24#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:69]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter' (25#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized1' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized1' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_1' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_1' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:173]
-INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_1' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:68]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_1' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_1' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:173]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_1' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -321,19 +321,19 @@ INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_1' [c:/Users/hugoh/Docum
 	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:232]
-INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_1' (26#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:68]
-INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
-INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized1' (26#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_1' (26#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_1/synth/ROM_1024_16bit_1.vhd:68]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
+INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized1' (26#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 2 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized3' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized3' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 2 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_2' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:181]
-INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:68]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_2' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:181]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -409,19 +409,19 @@ INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_2' [c:/Users/hugoh/Docum
 	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:232]
-INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_2' (27#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:68]
-INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
-INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized3' (27#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_2' (27#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_2/synth/ROM_1024_16bit_2.vhd:68]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
+INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized3' (27#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized5' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized5' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_3' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_3' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:189]
-INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_3' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:68]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_3' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_3' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:189]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_3' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -497,19 +497,19 @@ INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_3' [c:/Users/hugoh/Docum
 	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:232]
-INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_3' (28#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:68]
-INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
-INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized5' (28#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_3' (28#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_3/synth/ROM_1024_16bit_3.vhd:68]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
+INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized5' (28#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized7' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized7' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_4' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_4' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:197]
-INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_4' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:68]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_4' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_4' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:197]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_4' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -585,19 +585,19 @@ INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_4' [c:/Users/hugoh/Docum
 	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:232]
-INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_4' (29#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:68]
-INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
-INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized7' (29#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_4' (29#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/synth/ROM_1024_16bit_4.vhd:68]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
+INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized7' (29#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
-INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized9' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-3491] module 'FIR_filter' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:31' bound to instance 'U_FIR_filter' of component 'FIR_filter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:155]
+INFO: [Synth 8-638] synthesizing module 'FIR_filter__parameterized9' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_SELECT bound to: 5 - type: integer 
-INFO: [Synth 8-3491] module 'ROM_1024_16bit_5' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_5' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:205]
-INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_5' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:68]
+INFO: [Synth 8-3491] module 'ROM_1024_16bit_5' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:59' bound to instance 'U_ROM' of component 'ROM_1024_16bit_5' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:205]
+INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_5' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:68]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -673,14 +673,14 @@ INFO: [Synth 8-638] synthesizing module 'ROM_1024_16bit_5' [c:/Users/hugoh/Docum
 	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:232]
-INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_5' (30#1) [c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:68]
-INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
-INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
-INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized9' (30#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
-INFO: [Synth 8-256] done synthesizing module 'FIR_interface' (31#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:57]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_4/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_1024_16bit_5' (30#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/synth/ROM_1024_16bit_5.vhd:68]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:217]
+INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s43/synth/Accu_s43.vhd:59' bound to instance 'U_Accu' of component 'Accu_s43' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:265]
+INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized9' (30#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
+INFO: [Synth 8-256] done synthesizing module 'FIR_interface' (31#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:57]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:05:30 ; elapsed = 00:05:36 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished RTL Elaboration : Time (s): cpu = 00:04:34 ; elapsed = 00:04:43 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -693,10 +693,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:05:31 ; elapsed = 00:05:37 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:34 ; elapsed = 00:04:43 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:05:31 ; elapsed = 00:05:37 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:04:34 ; elapsed = 00:04:43 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -705,28 +705,28 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/FIR_interface/new/FIR_interface_ooc.xdc]
-Finished Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/FIR_interface/new/FIR_interface_ooc.xdc]
-Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/dont_touch.xdc]
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/FIR_interface/new/FIR_interface_ooc.xdc]
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/FIR_interface/new/FIR_interface_ooc.xdc]
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1242.883 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1242.449 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   DSP48E => DSP48E1: 6 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1242.883 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.055 . Memory (MB): peak = 1242.883 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1242.449 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1242.449 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:05:47 ; elapsed = 00:05:55 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Constraint Validation : Time (s): cpu = 00:04:47 ; elapsed = 00:04:57 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:05:47 ; elapsed = 00:05:55 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Loading Part and Timing Information : Time (s): cpu = 00:04:47 ; elapsed = 00:04:57 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -751,10 +751,10 @@ Applied set_property DONT_TOUCH = true for \GEN_FILTER[5].U_FIR_filter /U_Mult. 
 Applied set_property DONT_TOUCH = true for \GEN_FILTER[5].U_FIR_filter /\ROM5.U_ROM . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for \RAM.U_RAM . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:05:47 ; elapsed = 00:05:55 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:04:47 ; elapsed = 00:04:57 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:236]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:213]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:236]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:213]
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'FIR_interface'
 INFO: [Synth 8-5546] ROM "cnt_coef_zero" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cnt_coef_end" won't be mapped to RAM because it is too sparse
@@ -777,7 +777,7 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'FIR_interface'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:05:48 ; elapsed = 00:05:56 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:04:48 ; elapsed = 00:04:59 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -810,11 +810,11 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[1].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[2].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[3].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[4].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
-INFO: [Synth 8-4471] merging register 'GEN_FILTER[5].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[1].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[2].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[3].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[4].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
+INFO: [Synth 8-4471] merging register 'GEN_FILTER[5].U_FIR_filter/mult_opA_reg[15:0]' into 'GEN_FILTER[0].U_FIR_filter/mult_opA_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:219]
 INFO: [Synth 8-5546] ROM "cnt_coef_end" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cnt_coef_zero" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-3886] merging instance 'GEN_FILTER[0].U_FIR_filter/FIR_en_d_reg[0]' (FDC) to 'GEN_FILTER[5].U_FIR_filter/FIR_en_d_reg[0]'
@@ -848,7 +848,7 @@ INFO: [Synth 8-3886] merging instance 'GEN_FILTER[3].U_FIR_filter/FIR_en_d_reg[5
 INFO: [Synth 8-3886] merging instance 'GEN_FILTER[4].U_FIR_filter/FIR_en_d_reg[4]' (FDC) to 'GEN_FILTER[5].U_FIR_filter/FIR_en_d_reg[4]'
 INFO: [Synth 8-3886] merging instance 'GEN_FILTER[4].U_FIR_filter/FIR_en_d_reg[5]' (FDC) to 'GEN_FILTER[5].U_FIR_filter/FIR_en_d_reg[5]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:50 ; elapsed = 00:05:58 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:04:50 ; elapsed = 00:05:00 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -860,13 +860,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:02 ; elapsed = 00:06:10 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:00 ; elapsed = 00:05:10 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:06:02 ; elapsed = 00:06:10 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Timing Optimization : Time (s): cpu = 00:05:00 ; elapsed = 00:05:10 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -878,7 +878,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:06:02 ; elapsed = 00:06:10 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Technology Mapping : Time (s): cpu = 00:05:00 ; elapsed = 00:05:10 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -902,7 +902,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:06:03 ; elapsed = 00:06:11 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished IO Insertion : Time (s): cpu = 00:05:01 ; elapsed = 00:05:11 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -915,7 +915,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:06:03 ; elapsed = 00:06:11 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Renaming Generated Instances : Time (s): cpu = 00:05:01 ; elapsed = 00:05:11 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -927,25 +927,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:06:03 ; elapsed = 00:06:11 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:05:01 ; elapsed = 00:05:11 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:06:03 ; elapsed = 00:06:11 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Renaming Generated Ports : Time (s): cpu = 00:05:01 ; elapsed = 00:05:11 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:06:03 ; elapsed = 00:06:11 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Handling Custom Attributes : Time (s): cpu = 00:05:01 ; elapsed = 00:05:11 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:06:03 ; elapsed = 00:06:12 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Renaming Generated Nets : Time (s): cpu = 00:05:01 ; elapsed = 00:05:11 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -988,17 +988,17 @@ Report Cell Usage:
 |24    |FDRE             |   304|
 +------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:06:03 ; elapsed = 00:06:12 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Finished Writing Synthesis Report : Time (s): cpu = 00:05:01 ; elapsed = 00:05:11 . Memory (MB): peak = 1242.449 ; gain = 933.027
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1258 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:05:56 . Memory (MB): peak = 1242.883 ; gain = 932.309
-Synthesis Optimization Complete : Time (s): cpu = 00:06:03 ; elapsed = 00:06:12 . Memory (MB): peak = 1242.883 ; gain = 932.309
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:04:59 . Memory (MB): peak = 1242.449 ; gain = 933.027
+Synthesis Optimization Complete : Time (s): cpu = 00:05:01 ; elapsed = 00:05:12 . Memory (MB): peak = 1242.449 ; gain = 933.027
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 22 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1242.883 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1242.449 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   DSP48E => DSP48E1: 6 instances
@@ -1006,9 +1006,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 126 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:06:14 ; elapsed = 00:06:24 . Memory (MB): peak = 1242.883 ; gain = 944.984
+synth_design: Time (s): cpu = 00:05:09 ; elapsed = 00:05:21 . Memory (MB): peak = 1242.449 ; gain = 945.332
 INFO: [Coretcl 2-1174] Renamed 121 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1242.883 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.dcp' has been generated.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1242.449 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FIR_interface_utilization_synth.rpt -pb FIR_interface_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Jan 11 18:37:54 2020...
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 29 11:49:06 2020...

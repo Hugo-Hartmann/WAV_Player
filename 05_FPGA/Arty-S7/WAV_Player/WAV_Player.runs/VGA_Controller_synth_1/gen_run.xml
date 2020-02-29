@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="VGA_Controller_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1576923138">
+<GenRun Id="VGA_Controller_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1582972967">
   <File Type="PA-TCL" Name="VGA_Controller.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="VGA_Controller_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="VGA_Controller_reports.tcl"/>
   <File Type="RDS-RDS" Name="VGA_Controller.vds"/>
   <File Type="RDS-UTIL" Name="VGA_Controller_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="VGA_Controller_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="VGA_Controller.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="VGA_Controller_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="VGA_Controller_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/VGA_Controller">
     <File Path="$PPRDIR/../../../02_Source/VGA_Pkg.vhd">
       <FileInfo>

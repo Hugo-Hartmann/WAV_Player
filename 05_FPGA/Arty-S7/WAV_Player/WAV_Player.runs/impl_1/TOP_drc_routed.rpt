@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Jan 11 19:27:27 2020
-| Host         : Hugo running 64-bit major release  (build 9200)
+| Date         : Sat Feb 29 12:13:42 2020
+| Host         : DESKTOP-K3B0LAI running 64-bit major release  (build 9200)
 | Command      : report_drc -file TOP_drc_routed.rpt -pb TOP_drc_routed.pb -rpx TOP_drc_routed.rpx
 | Design       : TOP
 | Device       : xc7s50csga324-1
@@ -24,7 +24,7 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 92
+             Violations found: 90
 +-----------+----------+-------------------------------------------------------------------+------------+
 | Rule      | Severity | Description                                                       | Violations |
 +-----------+----------+-------------------------------------------------------------------+------------+
@@ -36,7 +36,6 @@ Table of Contents
 | RTSTAT-10 | Warning  | No routable loads                                                 | 1          |
 | AVAL-4    | Advisory | enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND | 14         |
 | AVAL-5    | Advisory | enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND   | 14         |
-| REQP-31   | Advisory | enum_PREG_0_connects_CEP_GND                                      | 2          |
 +-----------+----------+-------------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -248,7 +247,7 @@ Related violations: <none>
 
 REQP-1840#1 Warning
 RAMB18 async control check  
-The RAMB18E1 U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram has an input control pin U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram/ADDRARDADDR[11] (net: U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[7]) which is driven by a register (U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/addr_counter_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram has an input control pin U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM18.ram/ADDRARDADDR[11] (net: U_Audio_channel_left/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM0.U_RAM_Sample/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/addra[7]) which is driven by a register (U_Audio_channel_left/U_FFT_Wrapper/FFT_new_sample_dd_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1840#2 Warning
@@ -489,16 +488,6 @@ Related violations: <none>
 AVAL-5#14 Advisory
 enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
 U_Audio_channel_right/U_VU_metre/U_VU_stage/U_Accu/U0/i_synth/i_baseip.i_xbip_accum/dsp48_implementation.use_usecase.i_xbip_dsp48_acc/i_synth_option.i_synth_model/opt_vx5.i_uniwrap/i_primitive: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
-Related violations: <none>
-
-REQP-31#1 Advisory
-enum_PREG_0_connects_CEP_GND  
-U_Audio_channel_left/U_EQ_stage/GEN_EQ[5].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
-Related violations: <none>
-
-REQP-31#2 Advisory
-enum_PREG_0_connects_CEP_GND  
-U_Audio_channel_right/U_EQ_stage/GEN_EQ[4].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
 Related violations: <none>
 
 

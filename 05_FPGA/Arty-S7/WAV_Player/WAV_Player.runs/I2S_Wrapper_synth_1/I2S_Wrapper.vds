@@ -2,12 +2,12 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sat Dec 21 11:12:56 2019
-# Process ID: 1088
-# Current directory: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1
+# Start of session at: Sat Feb 29 11:43:39 2020
+# Process ID: 11616
+# Current directory: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1
 # Command line: vivado.exe -log I2S_Wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source I2S_Wrapper.tcl
-# Log file: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1/I2S_Wrapper.vds
-# Journal file: C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1\vivado.jou
+# Log file: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1/I2S_Wrapper.vds
+# Journal file: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1\vivado.jou
 #-----------------------------------------------------------
 source I2S_Wrapper.tcl -notrace
 Command: synth_design -top I2S_Wrapper -part xc7s50csga324-1 -mode out_of_context
@@ -15,20 +15,20 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 1100 
+INFO: Helper process launched with PID 11988 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 382.719 ; gain = 101.656
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 382.078 ; gain = 102.441
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'I2S_Wrapper' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Wrapper.vhd:61]
-INFO: [Synth 8-3491] module 'I2S_Emitter' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Emitter.vhd:30' bound to instance 'U_I2S_Emitter' of component 'I2S_Emitter' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Wrapper.vhd:119]
-INFO: [Synth 8-638] synthesizing module 'I2S_Emitter' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Emitter.vhd:54]
-INFO: [Synth 8-256] done synthesizing module 'I2S_Emitter' (1#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Emitter.vhd:54]
-INFO: [Synth 8-3491] module 'I2S_Receiver' declared at 'C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Receiver.vhd:30' bound to instance 'U_I2S_Receiver' of component 'I2S_Receiver' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Wrapper.vhd:132]
-INFO: [Synth 8-638] synthesizing module 'I2S_Receiver' [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Receiver.vhd:55]
-INFO: [Synth 8-256] done synthesizing module 'I2S_Receiver' (2#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Receiver.vhd:55]
-INFO: [Synth 8-256] done synthesizing module 'I2S_Wrapper' (3#1) [C:/Users/hugoh/Documents/GitHub/WAV_Player/02_Source/I2S_Wrapper.vhd:61]
+INFO: [Synth 8-638] synthesizing module 'I2S_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Wrapper.vhd:61]
+INFO: [Synth 8-3491] module 'I2S_Emitter' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Emitter.vhd:30' bound to instance 'U_I2S_Emitter' of component 'I2S_Emitter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Wrapper.vhd:119]
+INFO: [Synth 8-638] synthesizing module 'I2S_Emitter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Emitter.vhd:54]
+INFO: [Synth 8-256] done synthesizing module 'I2S_Emitter' (1#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Emitter.vhd:54]
+INFO: [Synth 8-3491] module 'I2S_Receiver' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Receiver.vhd:30' bound to instance 'U_I2S_Receiver' of component 'I2S_Receiver' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Wrapper.vhd:132]
+INFO: [Synth 8-638] synthesizing module 'I2S_Receiver' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Receiver.vhd:55]
+INFO: [Synth 8-256] done synthesizing module 'I2S_Receiver' (2#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Receiver.vhd:55]
+INFO: [Synth 8-256] done synthesizing module 'I2S_Wrapper' (3#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/I2S_Wrapper.vhd:61]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 439.340 ; gain = 158.277
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 438.828 ; gain = 159.191
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -41,41 +41,41 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 439.340 ; gain = 158.277
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 438.828 ; gain = 159.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 439.340 ; gain = 158.277
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 438.828 ; gain = 159.191
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/I2S_Wrapper/new/I2S_Wrapper_ooc.xdc]
-Finished Parsing XDC File [C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/I2S_Wrapper/new/I2S_Wrapper_ooc.xdc]
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/I2S_Wrapper/new/I2S_Wrapper_ooc.xdc]
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/I2S_Wrapper/new/I2S_Wrapper_ooc.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 751.613 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 749.547 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 751.613 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.115 . Memory (MB): peak = 752.758 ; gain = 1.145
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 749.547 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 750.891 ; gain = 1.344
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 752.758 ; gain = 471.695
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 750.891 ; gain = 471.254
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 752.758 ; gain = 471.695
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 750.891 ; gain = 471.254
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 752.758 ; gain = 471.695
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 750.891 ; gain = 471.254
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "cnt_end" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cnt_last" won't be mapped to RAM because it is too sparse
@@ -83,7 +83,7 @@ INFO: [Synth 8-5546] ROM "lrck_toggle" won't be mapped to RAM because it is too 
 INFO: [Synth 8-5546] ROM "sclk_toggle" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "mclk_toggle" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 752.758 ; gain = 471.695
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 750.891 ; gain = 471.254
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -165,7 +165,7 @@ INFO: [Synth 8-5546] ROM "mclk_toggle" won't be mapped to RAM because it is too 
 INFO: [Synth 8-5546] ROM "sclk_toggle" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_I2S_Emitter/dout_reg[0] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 752.758 ; gain = 471.695
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 750.891 ; gain = 471.254
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -177,13 +177,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 752.758 ; gain = 471.695
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 750.891 ; gain = 471.254
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 752.758 ; gain = 471.695
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 750.891 ; gain = 471.254
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -195,7 +195,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 772.117 ; gain = 491.055
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 769.172 ; gain = 489.535
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -219,7 +219,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 772.117 ; gain = 491.055
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 769.172 ; gain = 489.535
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -232,7 +232,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 772.117 ; gain = 491.055
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 769.172 ; gain = 489.535
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -244,25 +244,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 772.117 ; gain = 491.055
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 769.172 ; gain = 489.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 772.117 ; gain = 491.055
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 769.172 ; gain = 489.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 772.117 ; gain = 491.055
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 769.172 ; gain = 489.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 772.117 ; gain = 491.055
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 769.172 ; gain = 489.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -298,26 +298,26 @@ Report Instance Areas:
 |3     |  U_I2S_Receiver |I2S_Receiver |    61|
 +------+-----------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 772.117 ; gain = 491.055
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 769.172 ; gain = 489.535
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:27 . Memory (MB): peak = 772.117 ; gain = 177.637
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 772.117 ; gain = 491.055
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:16 . Memory (MB): peak = 769.172 ; gain = 177.473
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 769.172 ; gain = 489.535
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 775.551 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 773.355 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 30 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 775.551 ; gain = 506.801
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 773.355 ; gain = 505.789
 INFO: [Coretcl 2-1174] Renamed 2 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 775.551 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/hugoh/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1/I2S_Wrapper.dcp' has been generated.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 773.355 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1/I2S_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file I2S_Wrapper_utilization_synth.rpt -pb I2S_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Dec 21 11:13:38 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 29 11:44:06 2020...
