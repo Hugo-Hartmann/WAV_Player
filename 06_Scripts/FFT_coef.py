@@ -1,6 +1,6 @@
 import numpy as np
 
-N = 512
+N = 2048
 
 fichier = "FFT_" + str(N) + ".coe"
 
