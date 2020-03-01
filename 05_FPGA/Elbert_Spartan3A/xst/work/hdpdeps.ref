@@ -1,8 +1,0 @@
-V3 3
-FL C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Elbert.vhd 2019/10/24.14:28:32 P.20131013
-EN work/TOP 1571920121 \
-      FL C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Elbert.vhd \
-      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
-AR work/TOP/RTL 1571920122 \
-      FL C:/Users/hhartmann/Desktop/svn_fpga/trunk/01_Projects/WAV_Player/02_Source/TOP_Elbert.vhd \
-      EN work/TOP 1571920121
