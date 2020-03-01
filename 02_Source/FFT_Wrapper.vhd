@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2020-01-07
+-- Last update: 2020-03-01
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -42,12 +42,12 @@ entity FFT_Wrapper is
         FFT_din         : in  std_logic_vector(15 downto 0);
         FFT_new_sample  : in  std_logic;
 
-        ------- Config ---------------------------
-        FFT_sample_rate : in  std_logic_vector(7 downto 0);
+        ------- VGA interface --------------------
+        FFT_start       : in  std_logic;
 
         ------- FFT interface --------------------
-        FFT_addrA       : out std_logic_vector(8 downto 0);
-        FFT_addrB       : out std_logic_vector(8 downto 0);
+        FFT_addrA       : out std_logic_vector(10 downto 0);
+        FFT_addrB       : out std_logic_vector(10 downto 0);
         FFT_doutA_r     : out std_logic_vector(15 downto 0);
         FFT_doutA_i     : out std_logic_vector(15 downto 0);
         FFT_doutB_r     : out std_logic_vector(15 downto 0);
@@ -63,7 +63,6 @@ end FFT_Wrapper;
 --------------------------------------------------------------------------------
 architecture RTL of FFT_Wrapper is
 
-
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
@@ -71,9 +70,11 @@ architecture RTL of FFT_Wrapper is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
-            FFT_addr_A      : out std_logic_vector(8 downto 0);
-            FFT_addr_B      : out std_logic_vector(8 downto 0);
-            FFT_addr_coef   : out std_logic_vector(7 downto 0);
+            FFT_addr_A      : out std_logic_vector(10 downto 0);
+            FFT_addr_B      : out std_logic_vector(10 downto 0);
+            FFT_addr_coef   : out std_logic_vector(9 downto 0);
+            FFT_addr_valid  : out std_logic;
+            FFT_new_sample  : in  std_logic;
             FFT_start       : in  std_logic;
             FFT_stage_busy  : in  std_logic;
             FFT_en          : out std_logic;
@@ -94,12 +95,13 @@ architecture RTL of FFT_Wrapper is
             RAM_dinB_r      : in  std_logic_vector(15 downto 0);
             RAM_dinB_i      : in  std_logic_vector(15 downto 0);
             FFT_done        : in  std_logic;
-            FFT_addrA_r     : in  std_logic_vector(8 downto 0);
-            FFT_addrB_r     : in  std_logic_vector(8 downto 0);
-            FFT_addrC_r     : in  std_logic_vector(7 downto 0);
-            FFT_addrA_w     : in  std_logic_vector(8 downto 0);
-            FFT_addrB_w     : in  std_logic_vector(8 downto 0);
+            FFT_addrA_r     : in  std_logic_vector(10 downto 0);
+            FFT_addrB_r     : in  std_logic_vector(10 downto 0);
+            FFT_addrC_r     : in  std_logic_vector(9 downto 0);
+            FFT_addrA_w     : in  std_logic_vector(10 downto 0);
+            FFT_addrB_w     : in  std_logic_vector(10 downto 0);
             FFT_new_sample  : in  std_logic;
+            FFT_start       : in  std_logic;
             RAM_doutA_r     : out std_logic_vector(15 downto 0);
             RAM_doutA_i     : out std_logic_vector(15 downto 0);
             RAM_doutB_r     : out std_logic_vector(15 downto 0);
@@ -132,16 +134,16 @@ architecture RTL of FFT_Wrapper is
     end component;
 
     component FFT_FIFO is
-        generic(
-            G_OPERAND_SIZE  : integer := 16;
-            G_FIFO_SIZE     : integer := 2
-            );
         port(
-            clk             : in  std_logic;
-            reset_n         : in  std_logic;
-            FFT_dout        : out std_logic_vector(G_OPERAND_SIZE-1 downto 0);
-            FFT_din         : in  std_logic_vector(G_OPERAND_SIZE-1 downto 0)
-            );
+            clk     : in  std_logic;
+            rst     : in  std_logic;
+            din     : in  std_logic_vector(10 downto 0);
+            wr_en   : in  std_logic;
+            rd_en   : in  std_logic;
+            dout    : out std_logic_vector(10 downto 0);
+            full    : out std_logic;
+            empty   : out std_logic
+        );
     end component;
 
     --------------------------------------------------------------------------------
@@ -152,11 +154,11 @@ architecture RTL of FFT_Wrapper is
     signal RAM_dinB_r           : std_logic_vector(15 downto 0);
     signal RAM_dinB_i           : std_logic_vector(15 downto 0);
     signal FFT_btfly_done       : std_logic;
-    signal FFT_addrA_r          : std_logic_vector(8 downto 0);
-    signal FFT_addrB_r          : std_logic_vector(8 downto 0);
-    signal FFT_addrC_r          : std_logic_vector(7 downto 0);
-    signal FFT_addrA_w          : std_logic_vector(8 downto 0);
-    signal FFT_addrB_w          : std_logic_vector(8 downto 0);
+    signal FFT_addrA_r          : std_logic_vector(10 downto 0);
+    signal FFT_addrB_r          : std_logic_vector(10 downto 0);
+    signal FFT_addrC_r          : std_logic_vector(9 downto 0);
+    signal FFT_addrA_w          : std_logic_vector(10 downto 0);
+    signal FFT_addrB_w          : std_logic_vector(10 downto 0);
     signal RAM_doutA_r          : std_logic_vector(15 downto 0);
     signal RAM_doutA_i          : std_logic_vector(15 downto 0);
     signal RAM_doutB_r          : std_logic_vector(15 downto 0);
@@ -165,33 +167,19 @@ architecture RTL of FFT_Wrapper is
     signal RAM_doutC_i          : std_logic_vector(15 downto 0);
     signal FFT_en               : std_logic;
     signal FFT_stage_busy       : std_logic;
-    signal addrA_btfly          : std_logic_vector(8 downto 0);
-    signal addrB_btfly          : std_logic_vector(8 downto 0);
+    signal addrA_btfly          : std_logic_vector(10 downto 0);
+    signal addrB_btfly          : std_logic_vector(10 downto 0);
     signal FFT_din_d            : std_logic_vector(15 downto 0);
     signal FFT_new_sample_d     : std_logic;
-    signal counter_sample       : unsigned(7 downto 0);
-    signal cnt_sample_zero      : std_logic;
     signal FFT_din_dd           : std_logic_vector(15 downto 0);
     signal FFT_new_sample_dd    : std_logic;
-    signal FFT_rate             : unsigned(7 downto 0);
+    signal FFT_addr_valid       : std_logic;
+    signal reset                : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_rate
-    -- Description : Register sampling rate
-    --------------------------------------------------------------------------------
-    P_rate : process(reset_n, clk)
-    begin
-        if(reset_n='0') then
-            FFT_rate    <= (others => '0');
-        elsif(rising_edge(clk)) then
-            FFT_rate    <= unsigned(FFT_sample_rate);
-        end if;
-    end process;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_input
@@ -209,58 +197,17 @@ begin
     end process;
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_divide
-    -- Description : Under sample input data
-    --------------------------------------------------------------------------------
-    P_divide : process(reset_n, clk)
-    begin
-        if(reset_n='0') then
-            counter_sample  <= FFT_rate;
-        elsif(rising_edge(clk)) then
-            if(FFT_new_sample_d='1') then
-                if(cnt_sample_zero='1') then
-                    counter_sample  <= FFT_rate;
-                else
-                    counter_sample  <= counter_sample - 1;
-                end if;
-            end if;
-        end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_zero
-    -- Description : Register counter zero indicator
-    --------------------------------------------------------------------------------
-    P_zero : process(reset_n, clk)
-    begin
-        if(reset_n='0') then
-            cnt_sample_zero <= '0';
-        elsif(rising_edge(clk)) then
-            if(counter_sample=0) then
-                cnt_sample_zero <= '1';
-            else
-                cnt_sample_zero <= '0';
-            end if;
-        end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_select
+    -- SEQ PROCESS : P_input_last_stage
     -- Description : Select inputs
     --------------------------------------------------------------------------------
-    P_select : process(reset_n, clk)
+    P_input_last_stage : process(reset_n, clk)
     begin
         if(reset_n='0') then
             FFT_din_dd          <= (others => '0');
             FFT_new_sample_dd   <= '0';
         elsif(rising_edge(clk)) then
-            if(cnt_sample_zero='1') then
-                FFT_din_dd          <= FFT_din_d;
-                FFT_new_sample_dd   <= FFT_new_sample_d;
-            else
-                FFT_din_dd          <= (others => '0');
-                FFT_new_sample_dd   <= '0';
-            end if;
+            FFT_din_dd          <= FFT_din_d;
+            FFT_new_sample_dd   <= FFT_new_sample_d;
         end if;
     end process;
 
@@ -292,6 +239,7 @@ begin
         FFT_addrA_w     => FFT_addrA_w,
         FFT_addrB_w     => FFT_addrB_w,
         FFT_new_sample  => FFT_new_sample_dd,
+        FFT_start       => FFT_start,
         RAM_doutA_r     => RAM_doutA_r,
         RAM_doutA_i     => RAM_doutA_i,
         RAM_doutB_r     => RAM_doutB_r,
@@ -309,7 +257,9 @@ begin
         FFT_addr_A      => FFT_addrA_r,
         FFT_addr_B      => FFT_addrB_r,
         FFT_addr_coef   => FFT_addrC_r,
-        FFT_start       => FFT_new_sample_dd,
+        FFT_addr_valid  => FFT_addr_valid,
+        FFT_start       => FFT_start,
+        FFT_new_sample  => FFT_new_sample_dd,
         FFT_stage_busy  => FFT_stage_busy,
         FFT_en          => FFT_en,
         FFT_done        => FFT_done);
@@ -346,27 +296,35 @@ begin
     -- INSTANCE : U_FIFO_addrA
     -- Description : Simple FIFO
     ----------------------------------------------------------------
-    U_FIFO_addrA : FFT_FIFO generic map(
-        G_OPERAND_SIZE  => 9,
-        G_FIFO_SIZE     => 13)
-    port map(
-        clk         => clk,
-        reset_n     => reset_n,
-        FFT_dout    => addrA_btfly,
-        FFT_din     => FFT_addrA_r);
+    U_FIFO_addrA : FFT_FIFO port map(
+        clk     => clk,
+        rst     => reset,
+        din     => FFT_addrA_r,
+        wr_en   => FFT_addr_valid,
+        rd_en   => FFT_btfly_done,
+        dout    => addrA_btfly,
+        full    => open,
+        empty   => open);
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_FIFO_addrA
+    -- INSTANCE : U_FIFO_addrB
     -- Description : Simple FIFO
     ----------------------------------------------------------------
-    U_FIFO_addrB : FFT_FIFO generic map(
-        G_OPERAND_SIZE  => 9,
-        G_FIFO_SIZE     => 13)
-    port map(
-        clk         => clk,
-        reset_n     => reset_n,
-        FFT_dout    => addrB_btfly,
-        FFT_din     => FFT_addrB_r);
+    U_FIFO_addrB : FFT_FIFO port map(
+        clk     => clk,
+        rst     => reset,
+        din     => FFT_addrB_r,
+        wr_en   => FFT_addr_valid,
+        rd_en   => FFT_btfly_done,
+        dout    => addrB_btfly,
+        full    => open,
+        empty   => open);
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : reset
+    --------------------------------------------------------------------------------
+    reset   <= NOT reset_n;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

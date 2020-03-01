@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config  -id {Synth 8-3331}  -suppress 
 set_msg_config  -id {Constraints 18-5210}  -suppress 
 set_param project.vivado.isBlockSynthRun true
@@ -37,23 +36,30 @@ set_property ip_output_repo c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Ar
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_Adder.vhd
-  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_FIFO.vhd
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_FIFO_CUSTOM.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_FSM.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_Multiplier.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_UAL.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd
 }
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/ROM_256_32bit.xci
-set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_256_32bit/ROM_256_32bit_ooc.xdc]
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xdc]
 
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_16bit/BRAM_512_16bit.xci
-set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_16bit/BRAM_512_16bit_ooc.xdc]
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/Accu11.xci
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu10/Accu10.xci
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit_ooc.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit_ooc.xdc]
 
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
 
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/BRAM_512_32bit.xci
-set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/BRAM_512_32bit_ooc.xdc]
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-09
--- Last update: 2019-12-10
+-- Last update: 2019-02-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -45,10 +45,10 @@ entity NRM_RAM_Wrapper is
         RAM_dinB_i      : in  std_logic_vector(15 downto 0);
 
         ------- RAM control ----------------------
-        NRM_addrA_r     : in  std_logic_vector(8 downto 0);
-        NRM_addrB_r     : in  std_logic_vector(8 downto 0);
-        NRM_addrA_w     : in  std_logic_vector(8 downto 0);
-        NRM_addrB_w     : in  std_logic_vector(8 downto 0);
+        NRM_addrA_r     : in  std_logic_vector(10 downto 0);
+        NRM_addrB_r     : in  std_logic_vector(10 downto 0);
+        NRM_addrA_w     : in  std_logic_vector(10 downto 0);
+        NRM_addrB_w     : in  std_logic_vector(10 downto 0);
         NRM_write_A     : in  std_logic;
         NRM_write_B     : in  std_logic;
 
@@ -69,16 +69,16 @@ architecture RTL of NRM_RAM_Wrapper is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component BRAM_512_32bit
+    component BRAM_2048_32bit
         port(
             clka    : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
-            addra   : in  std_logic_vector(8 downto 0);
+            addra   : in  std_logic_vector(10 downto 0);
             dina    : in  std_logic_vector(31 downto 0);
             douta   : out std_logic_vector(31 downto 0);
             clkb    : in  std_logic;
             web     : in  std_logic_vector(0 downto 0);
-            addrb   : in  std_logic_vector(8 downto 0);
+            addrb   : in  std_logic_vector(10 downto 0);
             dinb    : in  std_logic_vector(31 downto 0);
             doutb   : out std_logic_vector(31 downto 0)
         );
@@ -88,11 +88,11 @@ architecture RTL of NRM_RAM_Wrapper is
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
     signal RAM_NRM_wrA      : std_logic_vector(0 downto 0);
-    signal RAM_NRM_addrA    : std_logic_vector(8 downto 0);
+    signal RAM_NRM_addrA    : std_logic_vector(10 downto 0);
     signal RAM_NRM_dinA     : std_logic_vector(31 downto 0);
     signal RAM_NRM_doutA    : std_logic_vector(31 downto 0);
     signal RAM_NRM_wrB      : std_logic_vector(0 downto 0);
-    signal RAM_NRM_addrB    : std_logic_vector(8 downto 0);
+    signal RAM_NRM_addrB    : std_logic_vector(10 downto 0);
     signal RAM_NRM_dinB     : std_logic_vector(31 downto 0);
     signal RAM_NRM_doutB    : std_logic_vector(31 downto 0);
 
@@ -103,10 +103,10 @@ begin
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM_NRM
-    -- Description : Contains 512 complex numbers from NRM computations
+    -- Description : Contains 2048 complex numbers from NRM computations
     ----------------------------------------------------------------
     RAM : if G_BEHAVIOURAL=false generate
-        U_RAM_NRM : BRAM_512_32bit port map(
+        U_RAM_NRM : BRAM_2048_32bit port map(
             clka    => clk,
             wea     => RAM_NRM_wrA,
             addra   => RAM_NRM_addrA,

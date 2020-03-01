@@ -1,7 +1,0 @@
-Running: xsim.dir/FFT_Normalizer_behav/xsimk.exe -simmode gui -wdb FFT_Normalizer_behav.wdb -simrunnum 0 -socket 52637
-Design successfully loaded
-Design Loading Memory Usage: 7212 KB (Peak: 7212 KB)
-Design Loading CPU Usage: 61 ms
-Simulation completed
-Simulation Memory Usage: 8120 KB (Peak: 8120 KB)
-Simulation CPU Usage: 404 ms

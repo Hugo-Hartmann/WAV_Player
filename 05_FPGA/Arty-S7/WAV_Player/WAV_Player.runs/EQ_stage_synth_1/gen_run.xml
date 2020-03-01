@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="EQ_stage_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1582972971">
   <File Type="PA-TCL" Name="EQ_stage.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="EQ_stage_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="EQ_stage_reports.tcl"/>
   <File Type="RDS-RDS" Name="EQ_stage.vds"/>
   <File Type="RDS-UTIL" Name="EQ_stage_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="EQ_stage_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="EQ_stage.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="EQ_stage_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="EQ_stage_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/EQ_stage">
     <File Path="$PSRCDIR/sources_1/ip/Multiplier_u16_s16/Multiplier_u16_s16.xci">
       <FileInfo>

@@ -1,44 +1,115 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
-Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram1.U_RAM_FFTA.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram2.U_RAM_FFTB.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.ram.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
-Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram3.U_RAM_COEF.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram1.U_RAM_FFTA.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram2.U_RAM_FFTB.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(0)\.U_FIR_filter.rom0.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
-Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram3.U_RAM_COEF.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(1)\.U_FIR_filter.rom1.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(2)\.U_FIR_filter.rom2.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(3)\.U_FIR_filter.rom3.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(4)\.U_FIR_filter.rom4.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(5)\.U_FIR_filter.rom5.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(0)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(1)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(2)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(3)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(4)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(5)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(6)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(7)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram1.U_RAM_FFTA.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram2.U_RAM_FFTB.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram3.U_RAM_COEF.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_NRM_Wrapper.U_NRM_RAM_Wrapper.ram.U_RAM_NRM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.ram.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(0)\.U_FIR_filter.rom0.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(1)\.U_FIR_filter.rom1.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(2)\.U_FIR_filter.rom2.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(3)\.U_FIR_filter.rom3.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(4)\.U_FIR_filter.rom4.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(5)\.U_FIR_filter.rom5.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(0)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(1)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(2)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(3)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(4)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(5)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(6)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(7)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram1.U_RAM_FFTA.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram2.U_RAM_FFTB.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram3.U_RAM_COEF.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_NRM_Wrapper.U_NRM_RAM_Wrapper.ram.U_RAM_NRM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+blk_mem_gen_v8_4_2 collision detected at time: 22698575, Instance: Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst, A write address: 0, B  read address: 0
 Failure: Assertion violation
-Time: 25594640 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 25594640 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
-Failure: Assertion violation
-Time: 51189280 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 51189280 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
-Failure: Assertion violation
-Time: 76783920 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 76783920 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
-Failure: Assertion violation
-Time: 102378560 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 102378560 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
-Failure: Assertion violation
-Time: 127973200 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 127973200 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
-Failure: Assertion violation
-Time: 153567840 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 153567840 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
-Failure: Assertion violation
-Time: 179162480 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 179162480 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
-Failure: Assertion violation
-Time: 204757120 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 204757120 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
-Failure: Assertion violation
-Time: 230351760 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 230351760 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
-Failure: Assertion violation
-Time: 255946400 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 255946400 ps : File "C:/Users/hhartmann/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 140
+Time: 4630020835 ps  Iteration: 0  Process: /Audio_channel_tb/line__180  File: C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/Audio_channel_tb.vhd
+$finish called at time : 4630020835 ps : File "C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/Audio_channel_tb.vhd" Line 199
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.ram.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(0)\.U_FIR_filter.rom0.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(1)\.U_FIR_filter.rom1.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(2)\.U_FIR_filter.rom2.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(3)\.U_FIR_filter.rom3.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(4)\.U_FIR_filter.rom4.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FIR_interface.\GEN_FILTER(5)\.U_FIR_filter.rom5.U_ROM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(0)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(1)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(2)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(3)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(4)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(5)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(6)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_VU_metre.\GEN_RAM(7)\.U_RAM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram1.U_RAM_FFTA.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram2.U_RAM_FFTB.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram3.U_RAM_COEF.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module Audio_channel_tb.U_Audio_channel.U_NRM_Wrapper.U_NRM_RAM_Wrapper.ram.U_RAM_NRM.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+blk_mem_gen_v8_4_2 collision detected at time: 22698575, Instance: Audio_channel_tb.U_Audio_channel.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst, A write address: 0, B  read address: 0

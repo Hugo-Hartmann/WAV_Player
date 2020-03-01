@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="VGA_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1582974572">
+<GenRun Id="VGA_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1583100161">
   <File Type="PA-TCL" Name="VGA_interface.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="VGA_interface_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="VGA_interface_reports.tcl"/>
   <File Type="RDS-RDS" Name="VGA_interface.vds"/>
   <File Type="RDS-UTIL" Name="VGA_interface_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="VGA_interface_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="VGA_interface.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="VGA_interface_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="VGA_interface_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/VGA_interface">
     <File Path="$PSRCDIR/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit.xci">
       <FileInfo>

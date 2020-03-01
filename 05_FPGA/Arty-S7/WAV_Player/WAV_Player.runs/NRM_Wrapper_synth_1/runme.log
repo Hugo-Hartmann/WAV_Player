@@ -14,18 +14,18 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11348 
+INFO: Helper process launched with PID 6804 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 413.777 ; gain = 105.547
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 414.137 ; gain = 105.402
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'NRM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:66]
+INFO: [Synth 8-638] synthesizing module 'NRM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:65]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'NRM_RAM_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_RAM_Wrapper.vhd:31' bound to instance 'U_NRM_RAM_Wrapper' of component 'NRM_RAM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:201]
+INFO: [Synth 8-3491] module 'NRM_RAM_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_RAM_Wrapper.vhd:31' bound to instance 'U_NRM_RAM_Wrapper' of component 'NRM_RAM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:198]
 INFO: [Synth 8-638] synthesizing module 'NRM_RAM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_RAM_Wrapper.vhd:67]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'BRAM_512_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:59' bound to instance 'U_RAM_NRM' of component 'BRAM_512_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_RAM_Wrapper.vhd:109]
-INFO: [Synth 8-638] synthesizing module 'BRAM_512_32bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:74]
+INFO: [Synth 8-3491] module 'BRAM_2048_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:59' bound to instance 'U_RAM_NRM' of component 'BRAM_2048_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_RAM_Wrapper.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'BRAM_2048_32bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:74]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -43,7 +43,7 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_512_32bit' [c:/Users/Hugo/Document
 	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
 	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
 	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
-	Parameter C_INIT_FILE bound to: BRAM_512_32bit.mem - type: string 
+	Parameter C_INIT_FILE bound to: BRAM_2048_32bit.mem - type: string 
 	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
 	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
 	Parameter C_HAS_RSTA bound to: 0 - type: integer 
@@ -57,9 +57,9 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_512_32bit' [c:/Users/Hugo/Document
 	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
 	Parameter C_WRITE_WIDTH_A bound to: 32 - type: integer 
 	Parameter C_READ_WIDTH_A bound to: 32 - type: integer 
-	Parameter C_WRITE_DEPTH_A bound to: 512 - type: integer 
-	Parameter C_READ_DEPTH_A bound to: 512 - type: integer 
-	Parameter C_ADDRA_WIDTH bound to: 9 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 2048 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 2048 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 11 - type: integer 
 	Parameter C_HAS_RSTB bound to: 0 - type: integer 
 	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
 	Parameter C_RSTRAM_B bound to: 0 - type: integer 
@@ -71,9 +71,9 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_512_32bit' [c:/Users/Hugo/Document
 	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
 	Parameter C_WRITE_WIDTH_B bound to: 32 - type: integer 
 	Parameter C_READ_WIDTH_B bound to: 32 - type: integer 
-	Parameter C_WRITE_DEPTH_B bound to: 512 - type: integer 
-	Parameter C_READ_DEPTH_B bound to: 512 - type: integer 
-	Parameter C_ADDRB_WIDTH bound to: 9 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 2048 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 2048 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 11 - type: integer 
 	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
 	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
 	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
@@ -98,17 +98,17 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_512_32bit' [c:/Users/Hugo/Document
 	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
 	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
 	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
-	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
+	Parameter C_COUNT_36K_BRAM bound to: 2 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
-	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     5.9043 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:245]
-INFO: [Synth 8-256] done synthesizing module 'BRAM_512_32bit' (9#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_512_32bit/synth/BRAM_512_32bit.vhd:74]
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     10.698 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:245]
+INFO: [Synth 8-256] done synthesizing module 'BRAM_2048_32bit' (9#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:74]
 INFO: [Synth 8-256] done synthesizing module 'NRM_RAM_Wrapper' (10#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_RAM_Wrapper.vhd:67]
-INFO: [Synth 8-3491] module 'NRM_FSM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_FSM.vhd:30' bound to instance 'U_NRM_FSM' of component 'NRM_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:225]
-INFO: [Synth 8-638] synthesizing module 'NRM_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_FSM.vhd:54]
-INFO: [Synth 8-256] done synthesizing module 'NRM_FSM' (11#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_FSM.vhd:54]
+INFO: [Synth 8-3491] module 'NRM_FSM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_FSM.vhd:30' bound to instance 'U_NRM_FSM' of component 'NRM_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:222]
+INFO: [Synth 8-638] synthesizing module 'NRM_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_FSM.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'NRM_FSM' (11#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_FSM.vhd:53]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'NRM_Normalizer' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Normalizer.vhd:30' bound to instance 'U_NRM_Normalizer' of component 'NRM_Normalizer' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:240]
+INFO: [Synth 8-3491] module 'NRM_Normalizer' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Normalizer.vhd:30' bound to instance 'U_NRM_Normalizer' of component 'NRM_Normalizer' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:236]
 INFO: [Synth 8-638] synthesizing module 'NRM_Normalizer' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Normalizer.vhd:57]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
 INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult1' of component 'Multiplier_s16_s16' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Normalizer.vhd:131]
@@ -174,9 +174,9 @@ INFO: [Synth 8-638] synthesizing module 'NRM_SQRT' [c:/Users/Hugo/Documents/GitH
 INFO: [Synth 8-3491] module 'cordic_v6_0_14' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/hdl/cordic_v6_0_vh_rfs.vhd:10135' bound to instance 'U0' of component 'cordic_v6_0_14' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/synth/NRM_SQRT.vhd:144]
 INFO: [Synth 8-256] done synthesizing module 'NRM_SQRT' (32#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/synth/NRM_SQRT.vhd:69]
 INFO: [Synth 8-256] done synthesizing module 'NRM_Normalizer' (33#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Normalizer.vhd:57]
-INFO: [Synth 8-256] done synthesizing module 'NRM_Wrapper' (34#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:66]
+INFO: [Synth 8-256] done synthesizing module 'NRM_Wrapper' (34#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM_Wrapper.vhd:65]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:08 ; elapsed = 00:01:21 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished RTL Elaboration : Time (s): cpu = 00:01:01 ; elapsed = 00:01:03 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -189,12 +189,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:08 ; elapsed = 00:01:22 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:01 ; elapsed = 00:01:04 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:08 ; elapsed = 00:01:22 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:01 ; elapsed = 00:01:04 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 533 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 534 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -207,21 +207,21 @@ Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 860.633 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 852.906 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 860.633 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 860.633 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 852.906 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 852.906 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:15 ; elapsed = 00:01:30 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished Constraint Validation : Time (s): cpu = 00:01:08 ; elapsed = 00:01:11 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:15 ; elapsed = 00:01:30 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:08 ; elapsed = 00:01:11 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -231,12 +231,12 @@ Applied set_property DONT_TOUCH = true for U_NRM_Normalizer/U_Mult1. (constraint
 Applied set_property DONT_TOUCH = true for U_NRM_Normalizer/U_Mult2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_NRM_RAM_Wrapper/\RAM.U_RAM_NRM . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:15 ; elapsed = 00:01:30 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:08 ; elapsed = 00:01:11 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'NRM_FSM'
 INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "cnt_addr_inc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "NRM_en" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "NRM_read" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "NRM_open" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -256,7 +256,7 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'NRM_FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:17 ; elapsed = 00:01:32 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:10 ; elapsed = 00:01:13 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -385,7 +385,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_No
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[15][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:19 ; elapsed = 00:01:34 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:12 ; elapsed = 00:01:15 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -397,13 +397,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:29 ; elapsed = 00:01:45 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:21 ; elapsed = 00:01:24 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:46 . Memory (MB): peak = 860.633 ; gain = 552.402
+Finished Timing Optimization : Time (s): cpu = 00:01:21 ; elapsed = 00:01:24 . Memory (MB): peak = 852.906 ; gain = 544.172
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -415,7 +415,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:30 ; elapsed = 00:01:46 . Memory (MB): peak = 865.117 ; gain = 556.887
+Finished Technology Mapping : Time (s): cpu = 00:01:21 ; elapsed = 00:01:24 . Memory (MB): peak = 863.094 ; gain = 554.359
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -439,7 +439,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:31 ; elapsed = 00:01:47 . Memory (MB): peak = 865.117 ; gain = 556.887
+Finished IO Insertion : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 863.094 ; gain = 554.359
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -452,7 +452,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:31 ; elapsed = 00:01:47 . Memory (MB): peak = 865.117 ; gain = 556.887
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 863.094 ; gain = 554.359
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -464,25 +464,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:31 ; elapsed = 00:01:47 . Memory (MB): peak = 865.117 ; gain = 556.887
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 863.094 ; gain = 554.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:31 ; elapsed = 00:01:47 . Memory (MB): peak = 865.117 ; gain = 556.887
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 863.094 ; gain = 554.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:31 ; elapsed = 00:01:47 . Memory (MB): peak = 865.117 ; gain = 556.887
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 863.094 ; gain = 554.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:31 ; elapsed = 00:01:47 . Memory (MB): peak = 865.117 ; gain = 556.887
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 863.094 ; gain = 554.359
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -502,30 +502,30 @@ Report Cell Usage:
 |2     |DSP48E1  |     2|
 |3     |LUT1     |    68|
 |4     |LUT2     |   207|
-|5     |LUT3     |   184|
-|6     |LUT4     |     7|
-|7     |LUT5     |    28|
-|8     |LUT6     |    26|
+|5     |LUT3     |   187|
+|6     |LUT4     |     8|
+|7     |LUT5     |    29|
+|8     |LUT6     |    33|
 |9     |MUXCY    |   239|
-|10    |RAMB36E1 |     1|
+|10    |RAMB36E1 |     2|
 |11    |SRL16E   |    26|
 |12    |SRLC32E  |     1|
 |13    |XORCY    |   217|
-|14    |FDCE     |   164|
+|14    |FDCE     |   170|
 |15    |FDRE     |   451|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:31 ; elapsed = 00:01:47 . Memory (MB): peak = 865.117 ; gain = 556.887
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 863.094 ; gain = 554.359
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 336 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:01:41 . Memory (MB): peak = 865.117 ; gain = 556.887
-Synthesis Optimization Complete : Time (s): cpu = 00:01:31 ; elapsed = 00:01:47 . Memory (MB): peak = 865.117 ; gain = 556.887
+Synthesis finished with 0 errors, 0 critical warnings and 335 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:01:20 . Memory (MB): peak = 863.094 ; gain = 554.359
+Synthesis Optimization Complete : Time (s): cpu = 00:01:22 ; elapsed = 00:01:26 . Memory (MB): peak = 863.094 ; gain = 554.359
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 467 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 468 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 865.117 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 863.094 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 71 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 71 instances
@@ -533,9 +533,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 142 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:33 ; elapsed = 00:01:50 . Memory (MB): peak = 865.117 ; gain = 568.246
-INFO: [Coretcl 2-1174] Renamed 181 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 865.117 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:25 ; elapsed = 00:01:28 . Memory (MB): peak = 863.094 ; gain = 566.215
+INFO: [Coretcl 2-1174] Renamed 183 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 863.094 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file NRM_Wrapper_utilization_synth.rpt -pb NRM_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Feb 29 11:45:02 2020...
+INFO: [Common 17-206] Exiting Vivado at Sun Mar  1 23:04:16 2020...

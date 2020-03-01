@@ -1,7 +1,0 @@
-Running: xsim.dir/VU_metre_behav/xsimk.exe -simmode gui -wdb VU_metre_behav.wdb -simrunnum 0 -socket 52299
-Design successfully loaded
-Design Loading Memory Usage: 7044 KB (Peak: 7044 KB)
-Design Loading CPU Usage: 30 ms
-Simulation completed
-Simulation Memory Usage: 11256 KB (Peak: 11256 KB)
-Simulation CPU Usage: 515 ms

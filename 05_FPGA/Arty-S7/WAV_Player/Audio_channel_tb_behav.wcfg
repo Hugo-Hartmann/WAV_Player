@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Audio_channel_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Audio_channel_tb" />
+            <top_module name="glbl" />
+            <top_module name="type_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="78571428572fs"></ZoomEndTime>
+      <Cursor1Time time="200000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="258"></NameColumnWidth>
+      <ValueColumnWidth column_width="134"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="5" />
+   <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="group627" type="group">
+      <obj_property name="label">FFT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_din" type="array">
+         <obj_property name="ElementShortName">FFT_din[15:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_din[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_new_sample" type="logic">
+         <obj_property name="ElementShortName">FFT_new_sample</obj_property>
+         <obj_property name="ObjectShortName">FFT_new_sample</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_start" type="logic">
+         <obj_property name="ElementShortName">FFT_start</obj_property>
+         <obj_property name="ObjectShortName">FFT_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_addrA" type="array">
+         <obj_property name="ElementShortName">FFT_addrA[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrA[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_addrB" type="array">
+         <obj_property name="ElementShortName">FFT_addrB[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrB[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_doutA_r" type="array">
+         <obj_property name="ElementShortName">FFT_doutA_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_doutA_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_doutA_i" type="array">
+         <obj_property name="ElementShortName">FFT_doutA_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_doutA_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_doutB_r" type="array">
+         <obj_property name="ElementShortName">FFT_doutB_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_doutB_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_doutB_i" type="array">
+         <obj_property name="ElementShortName">FFT_doutB_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_doutB_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_write" type="logic">
+         <obj_property name="ElementShortName">FFT_write</obj_property>
+         <obj_property name="ObjectShortName">FFT_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_done" type="logic">
+         <obj_property name="ElementShortName">FFT_done</obj_property>
+         <obj_property name="ObjectShortName">FFT_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_dinA_r" type="array">
+         <obj_property name="ElementShortName">RAM_dinA_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_dinA_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_dinA_i" type="array">
+         <obj_property name="ElementShortName">RAM_dinA_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_dinA_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_dinB_r" type="array">
+         <obj_property name="ElementShortName">RAM_dinB_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_dinB_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_dinB_i" type="array">
+         <obj_property name="ElementShortName">RAM_dinB_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_dinB_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_btfly_done" type="logic">
+         <obj_property name="ElementShortName">FFT_btfly_done</obj_property>
+         <obj_property name="ObjectShortName">FFT_btfly_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_addrA_r" type="array">
+         <obj_property name="ElementShortName">FFT_addrA_r[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrA_r[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_addrB_r" type="array">
+         <obj_property name="ElementShortName">FFT_addrB_r[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrB_r[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_addrC_r" type="array">
+         <obj_property name="ElementShortName">FFT_addrC_r[9:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrC_r[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_addrA_w" type="array">
+         <obj_property name="ElementShortName">FFT_addrA_w[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrA_w[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_addrB_w" type="array">
+         <obj_property name="ElementShortName">FFT_addrB_w[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrB_w[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_doutA_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutA_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutA_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_doutA_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutA_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutA_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_doutB_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_doutB_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_doutC_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutC_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutC_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/RAM_doutC_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutC_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutC_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_en" type="logic">
+         <obj_property name="ElementShortName">FFT_en</obj_property>
+         <obj_property name="ObjectShortName">FFT_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_stage_busy" type="logic">
+         <obj_property name="ElementShortName">FFT_stage_busy</obj_property>
+         <obj_property name="ObjectShortName">FFT_stage_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/addrA_btfly" type="array">
+         <obj_property name="ElementShortName">addrA_btfly[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addrA_btfly[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/addrB_btfly" type="array">
+         <obj_property name="ElementShortName">addrB_btfly[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addrB_btfly[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_din_d" type="array">
+         <obj_property name="ElementShortName">FFT_din_d[15:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_din_d[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_new_sample_d" type="logic">
+         <obj_property name="ElementShortName">FFT_new_sample_d</obj_property>
+         <obj_property name="ObjectShortName">FFT_new_sample_d</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_din_dd" type="array">
+         <obj_property name="ElementShortName">FFT_din_dd[15:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_din_dd[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_new_sample_dd" type="logic">
+         <obj_property name="ElementShortName">FFT_new_sample_dd</obj_property>
+         <obj_property name="ObjectShortName">FFT_new_sample_dd</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/FFT_addr_valid" type="logic">
+         <obj_property name="ElementShortName">FFT_addr_valid</obj_property>
+         <obj_property name="ObjectShortName">FFT_addr_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/reset" type="logic">
+         <obj_property name="ElementShortName">reset</obj_property>
+         <obj_property name="ObjectShortName">reset</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group661" type="group">
+      <obj_property name="label">NRM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_addrA_w" type="array">
+         <obj_property name="ElementShortName">NRM_addrA_w[10:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_addrA_w[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_addrB_w" type="array">
+         <obj_property name="ElementShortName">NRM_addrB_w[10:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_addrB_w[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_dinA_r" type="array">
+         <obj_property name="ElementShortName">NRM_dinA_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_dinA_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_dinA_i" type="array">
+         <obj_property name="ElementShortName">NRM_dinA_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_dinA_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_dinB_r" type="array">
+         <obj_property name="ElementShortName">NRM_dinB_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_dinB_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_dinB_i" type="array">
+         <obj_property name="ElementShortName">NRM_dinB_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_dinB_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_write" type="logic">
+         <obj_property name="ElementShortName">NRM_write</obj_property>
+         <obj_property name="ObjectShortName">NRM_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_loaded" type="logic">
+         <obj_property name="ElementShortName">NRM_loaded</obj_property>
+         <obj_property name="ObjectShortName">NRM_loaded</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_new_sample" type="logic">
+         <obj_property name="ElementShortName">NRM_new_sample</obj_property>
+         <obj_property name="ObjectShortName">NRM_new_sample</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_start" type="logic">
+         <obj_property name="ElementShortName">NRM_start</obj_property>
+         <obj_property name="ObjectShortName">NRM_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_addr_r" type="array">
+         <obj_property name="ElementShortName">NRM_addr_r[10:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_addr_r[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_dout" type="array">
+         <obj_property name="ElementShortName">NRM_dout[15:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_dout[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_dinA_r" type="array">
+         <obj_property name="ElementShortName">RAM_dinA_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_dinA_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_dinA_i" type="array">
+         <obj_property name="ElementShortName">RAM_dinA_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_dinA_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_dinB_r" type="array">
+         <obj_property name="ElementShortName">RAM_dinB_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_dinB_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_dinB_i" type="array">
+         <obj_property name="ElementShortName">RAM_dinB_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_dinB_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_addrA_r" type="array">
+         <obj_property name="ElementShortName">RAM_addrA_r[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_addrA_r[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_addrB_r" type="array">
+         <obj_property name="ElementShortName">RAM_addrB_r[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_addrB_r[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_addrA_w" type="array">
+         <obj_property name="ElementShortName">RAM_addrA_w[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_addrA_w[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_addrB_w" type="array">
+         <obj_property name="ElementShortName">RAM_addrB_w[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_addrB_w[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_write_A" type="logic">
+         <obj_property name="ElementShortName">RAM_write_A</obj_property>
+         <obj_property name="ObjectShortName">RAM_write_A</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_write_B" type="logic">
+         <obj_property name="ElementShortName">RAM_write_B</obj_property>
+         <obj_property name="ObjectShortName">RAM_write_B</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_doutA_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutA_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutA_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_doutA_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutA_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutA_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_doutB_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_r[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/RAM_doutB_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_i[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_addr" type="array">
+         <obj_property name="ElementShortName">NRM_addr[10:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_addr[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_open" type="logic">
+         <obj_property name="ElementShortName">NRM_open</obj_property>
+         <obj_property name="ObjectShortName">NRM_open</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_en" type="logic">
+         <obj_property name="ElementShortName">NRM_en</obj_property>
+         <obj_property name="ObjectShortName">NRM_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_done" type="logic">
+         <obj_property name="ElementShortName">NRM_done</obj_property>
+         <obj_property name="ObjectShortName">NRM_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/NRM_norm_dout" type="array">
+         <obj_property name="ElementShortName">NRM_norm_dout[15:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_norm_dout[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/addr_counter" type="array">
+         <obj_property name="ElementShortName">addr_counter[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addr_counter[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_NRM_Wrapper/addrA_norm" type="array">
+         <obj_property name="ElementShortName">addrA_norm[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addrA_norm[10:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group287" type="group">
+      <obj_property name="label">TOP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/Audio_channel_tb/clk_108" type="logic">
+         <obj_property name="ElementShortName">clk_108</obj_property>
+         <obj_property name="ObjectShortName">clk_108</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/clk_216" type="logic">
+         <obj_property name="ElementShortName">clk_216</obj_property>
+         <obj_property name="ObjectShortName">clk_216</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/VOL_UP" type="logic">
+         <obj_property name="ElementShortName">VOL_UP</obj_property>
+         <obj_property name="ObjectShortName">VOL_UP</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/VOL_DOWN" type="logic">
+         <obj_property name="ElementShortName">VOL_DOWN</obj_property>
+         <obj_property name="ObjectShortName">VOL_DOWN</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/SW" type="array">
+         <obj_property name="ElementShortName">SW[3:0]</obj_property>
+         <obj_property name="ObjectShortName">SW[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/New_sample" type="logic">
+         <obj_property name="ElementShortName">New_sample</obj_property>
+         <obj_property name="ObjectShortName">New_sample</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/Audio_din" type="array">
+         <obj_property name="ElementShortName">Audio_din[15:0]</obj_property>
+         <obj_property name="ObjectShortName">Audio_din[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/Audio_out" type="array">
+         <obj_property name="ElementShortName">Audio_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">Audio_out[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/VGA_new_frame" type="logic">
+         <obj_property name="ElementShortName">VGA_new_frame</obj_property>
+         <obj_property name="ObjectShortName">VGA_new_frame</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/VGA_read" type="logic">
+         <obj_property name="ElementShortName">VGA_read</obj_property>
+         <obj_property name="ObjectShortName">VGA_read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/VGA_address" type="array">
+         <obj_property name="ElementShortName">VGA_address[31:0]</obj_property>
+         <obj_property name="ObjectShortName">VGA_address[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/VGA_v_add" type="array">
+         <obj_property name="ElementShortName">VGA_v_add[15:0]</obj_property>
+         <obj_property name="ObjectShortName">VGA_v_add[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/VGA_h_add" type="array">
+         <obj_property name="ElementShortName">VGA_h_add[15:0]</obj_property>
+         <obj_property name="ObjectShortName">VGA_h_add[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/VGA_din" type="array">
+         <obj_property name="ElementShortName">VGA_din[11:0]</obj_property>
+         <obj_property name="ObjectShortName">VGA_din[11:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group320" type="group">
+      <obj_property name="label">FFT_RAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/addrA_map" type="array">
+         <obj_property name="ElementShortName">addrA_map[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addrA_map[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/addrB_map" type="array">
+         <obj_property name="ElementShortName">addrB_map[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addrB_map[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_wrA" type="array">
+         <obj_property name="ElementShortName">RAM_smple_wrA[0:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_wrA[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_addrA" type="array">
+         <obj_property name="ElementShortName">RAM_smple_addrA[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_addrA[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_dinA" type="array">
+         <obj_property name="ElementShortName">RAM_smple_dinA[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_dinA[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_doutA" type="array">
+         <obj_property name="ElementShortName">RAM_smple_doutA[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_doutA[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_wrB" type="array">
+         <obj_property name="ElementShortName">RAM_smple_wrB[0:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_wrB[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_addrB" type="array">
+         <obj_property name="ElementShortName">RAM_smple_addrB[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_addrB[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_dinB" type="array">
+         <obj_property name="ElementShortName">RAM_smple_dinB[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_dinB[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_doutB" type="array">
+         <obj_property name="ElementShortName">RAM_smple_doutB[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_doutB[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/addr_counter" type="array">
+         <obj_property name="ElementShortName">addr_counter[10:0]</obj_property>
+         <obj_property name="ObjectShortName">addr_counter[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_wrA" type="array">
+         <obj_property name="ElementShortName">RAM_FFTA_wrA[0:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_wrA[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_addrA" type="array">
+         <obj_property name="ElementShortName">RAM_FFTA_addrA[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_addrA[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_dinA" type="array">
+         <obj_property name="ElementShortName">RAM_FFTA_dinA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_dinA[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_doutA" type="array">
+         <obj_property name="ElementShortName">RAM_FFTA_doutA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_doutA[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_wrB" type="array">
+         <obj_property name="ElementShortName">RAM_FFTA_wrB[0:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_wrB[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_addrB" type="array">
+         <obj_property name="ElementShortName">RAM_FFTA_addrB[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_addrB[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_dinB" type="array">
+         <obj_property name="ElementShortName">RAM_FFTA_dinB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_dinB[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_doutB" type="array">
+         <obj_property name="ElementShortName">RAM_FFTA_doutB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_doutB[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_wrA" type="array">
+         <obj_property name="ElementShortName">RAM_FFTB_wrA[0:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_wrA[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_addrA" type="array">
+         <obj_property name="ElementShortName">RAM_FFTB_addrA[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_addrA[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_dinA" type="array">
+         <obj_property name="ElementShortName">RAM_FFTB_dinA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_dinA[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_doutA" type="array">
+         <obj_property name="ElementShortName">RAM_FFTB_doutA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_doutA[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_wrB" type="array">
+         <obj_property name="ElementShortName">RAM_FFTB_wrB[0:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_wrB[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_addrB" type="array">
+         <obj_property name="ElementShortName">RAM_FFTB_addrB[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_addrB[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_dinB" type="array">
+         <obj_property name="ElementShortName">RAM_FFTB_dinB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_dinB[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_doutB" type="array">
+         <obj_property name="ElementShortName">RAM_FFTB_doutB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_doutB[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_select" type="array">
+         <obj_property name="ElementShortName">RAM_select[1:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_select[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_write" type="logic">
+         <obj_property name="ElementShortName">FFT_write</obj_property>
+         <obj_property name="ObjectShortName">FFT_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_write_d" type="logic">
+         <obj_property name="ElementShortName">FFT_write_d</obj_property>
+         <obj_property name="ObjectShortName">FFT_write_d</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/ROM_addr" type="array">
+         <obj_property name="ElementShortName">ROM_addr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ROM_addr[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Audio_channel_tb/U_Audio_channel/U_FFT_Wrapper/U_FFT_RAM_Wrapper/ROM_dout" type="array">
+         <obj_property name="ElementShortName">ROM_dout[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ROM_dout[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

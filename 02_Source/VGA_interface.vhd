@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2020-02-29
+-- Last update: 2020-03-01
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -62,8 +62,7 @@ entity VGA_interface is
         VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
 
         ------- NRM interface -------------------
-        NRM_addr        : out std_logic_vector(8 downto 0);
-        NRM_read        : out std_logic;
+        NRM_addr        : out std_logic_vector(10 downto 0);
         NRM_dout        : in  std_logic_vector(15 downto 0)
 
         );
@@ -140,7 +139,7 @@ architecture RTL of VGA_interface is
     signal nrm_box          : std_logic;
     signal nrm_box_d        : std_logic;
     signal nrm_addr_map     : unsigned(15 downto 0);
-    signal nrm_addr_final   : std_logic_vector(8 downto 0);
+    signal nrm_addr_final   : std_logic_vector(10 downto 0);
     signal WAV_read_d1      : std_logic;
     signal WAV_read_d2      : std_logic;
     signal EQ_level_dout_d1 : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
@@ -263,9 +262,8 @@ begin
     -- COMBINATORY :
     -- Description : Display the FFT (normalized)
     --------------------------------------------------------------------------------
-    NRM_read        <= VGA_read when(unsigned(VGA_v_add)>200) else '0';
     nrm_addr_map    <= unsigned(VGA_h_add) - 14;
-    nrm_addr_final  <= std_logic_vector(nrm_addr_map(8 downto 0));
+    nrm_addr_final  <= std_logic_vector(nrm_addr_map(10 downto 0));
     
     process(nrm_addr_final)
     -- Invert address to fetch correct samples

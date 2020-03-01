@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-21
--- Last update: 2020-01-11
+-- Last update: 2020-03-01
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -45,9 +45,6 @@ entity Audio_channel is
 
         ------- Switches ------------------------
         SW              : in  std_logic_vector(3 downto 0);
-
-        ------- Config --------------------------
-        FFT_sample_rate : in  std_logic_vector(7 downto 0);
 
         ------- Audio interface -----------------
         New_sample      : in  std_logic;
@@ -111,13 +108,13 @@ architecture RTL of Audio_channel is
             reset_n         : in  std_logic;
             FFT_din         : in  std_logic_vector(15 downto 0);
             FFT_new_sample  : in  std_logic;
-            FFT_addrA       : out std_logic_vector(8 downto 0);
-            FFT_addrB       : out std_logic_vector(8 downto 0);
+            FFT_addrA       : out std_logic_vector(10 downto 0);
+            FFT_addrB       : out std_logic_vector(10 downto 0);
             FFT_doutA_r     : out std_logic_vector(15 downto 0);
             FFT_doutA_i     : out std_logic_vector(15 downto 0);
             FFT_doutB_r     : out std_logic_vector(15 downto 0);
             FFT_doutB_i     : out std_logic_vector(15 downto 0);
-            FFT_sample_rate : in  std_logic_vector(7 downto 0);
+            FFT_start       : in  std_logic;
             FFT_write       : out std_logic;
             FFT_done        : out std_logic
             );
@@ -127,8 +124,8 @@ architecture RTL of Audio_channel is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
-            NRM_addrA_w     : in  std_logic_vector(8 downto 0);
-            NRM_addrB_w     : in  std_logic_vector(8 downto 0);
+            NRM_addrA_w     : in  std_logic_vector(10 downto 0);
+            NRM_addrB_w     : in  std_logic_vector(10 downto 0);
             NRM_dinA_r      : in  std_logic_vector(15 downto 0);
             NRM_dinA_i      : in  std_logic_vector(15 downto 0);
             NRM_dinB_r      : in  std_logic_vector(15 downto 0);
@@ -137,8 +134,7 @@ architecture RTL of Audio_channel is
             NRM_new_sample  : in  std_logic;
             NRM_loaded      : in  std_logic;
             NRM_start       : in  std_logic;
-            NRM_read        : in  std_logic;
-            NRM_addr_r      : in  std_logic_vector(8 downto 0);
+            NRM_addr_r      : in  std_logic_vector(10 downto 0);
             NRM_dout        : out std_logic_vector(15 downto 0)
             );
     end component;
@@ -159,8 +155,7 @@ architecture RTL of Audio_channel is
             EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
             EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
             VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-            NRM_addr        : out std_logic_vector(8 downto 0);
-            NRM_read        : out std_logic;
+            NRM_addr        : out std_logic_vector(10 downto 0);
             NRM_dout        : in  std_logic_vector(15 downto 0)
             );
     end component;
@@ -173,8 +168,8 @@ architecture RTL of Audio_channel is
     signal FIR_dout         : std_logic_vector(C_FIR_MAX*16+15 downto 0);
     signal SW_out           : std_logic_vector(15 downto 0);
     signal EQ_dout          : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-    signal FFT_addrA        : std_logic_vector(8 downto 0);
-    signal FFT_addrB        : std_logic_vector(8 downto 0);
+    signal FFT_addrA        : std_logic_vector(10 downto 0);
+    signal FFT_addrB        : std_logic_vector(10 downto 0);
     signal FFT_doutA_r      : std_logic_vector(15 downto 0);
     signal FFT_doutA_i      : std_logic_vector(15 downto 0);
     signal FFT_doutB_r      : std_logic_vector(15 downto 0);
@@ -183,8 +178,7 @@ architecture RTL of Audio_channel is
     signal FFT_done         : std_logic;
     signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal VU_dout          : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-    signal NRM_addr_r       : std_logic_vector(8 downto 0);
-    signal NRM_read         : std_logic;
+    signal NRM_addr_r       : std_logic_vector(10 downto 0);
     signal NRM_dout         : std_logic_vector(15 downto 0);
     signal VGA_v_add_map    : std_logic_vector(15 downto 0);
 
@@ -274,7 +268,7 @@ begin
         FFT_doutA_i     => FFT_doutA_i,
         FFT_doutB_r     => FFT_doutB_r,
         FFT_doutB_i     => FFT_doutB_i,
-        FFT_sample_rate => FFT_sample_rate,
+        FFT_start       => VGA_new_frame,
         FFT_write       => FFT_write,
         FFT_done        => FFT_done);
 
@@ -295,7 +289,6 @@ begin
         NRM_new_sample  => New_sample_d,
         NRM_loaded      => FFT_done,
         NRM_start       => VGA_new_frame,
-        NRM_read        => NRM_read,
         NRM_addr_r      => NRM_addr_r,
         NRM_dout        => NRM_dout);
 
@@ -337,7 +330,6 @@ begin
         EQ_dout         => EQ_dout,
         EQ_level_dout   => EQ_level_dout,
         NRM_addr        => NRM_addr_r,
-        NRM_read        => NRM_read,
         NRM_dout        => NRM_dout);
 
     --------------------------------------------------------------------------------

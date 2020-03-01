@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="FFT_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1582972969">
+<GenRun Id="FFT_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1583101247">
   <File Type="PA-TCL" Name="FFT_Wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="FFT_Wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="FFT_Wrapper_reports.tcl"/>
@@ -10,14 +10,35 @@
   <File Type="VDS-TIMINGSUMMARY" Name="FFT_Wrapper_timing_summary_synth.rpt"/>
   <File Type="VDS-TIMING-PB" Name="FFT_Wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FFT_Wrapper">
-    <File Path="$PSRCDIR/sources_1/ip/ROM_256_32bit/ROM_256_32bit.xci">
+    <File Path="$PSRCDIR/sources_1/ip/FFT_FIFO/FFT_FIFO.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/BRAM_512_16bit/BRAM_512_16bit.xci">
+    <File Path="$PSRCDIR/sources_1/ip/Accu11/Accu11.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/Accu10/Accu10.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -30,7 +51,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/FFT_FIFO.vhd">
+    <File Path="$PPRDIR/../../../02_Source/FFT_FIFO_CUSTOM.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -73,7 +94,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/BRAM_512_32bit/BRAM_512_32bit.xci">
+    <File Path="$PSRCDIR/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -94,14 +115,35 @@
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FFT_Wrapper">
-    <File Path="$PSRCDIR/sources_1/ip/ROM_256_32bit/ROM_256_32bit.xci">
+    <File Path="$PSRCDIR/sources_1/ip/FFT_FIFO/FFT_FIFO.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/BRAM_512_16bit/BRAM_512_16bit.xci">
+    <File Path="$PSRCDIR/sources_1/ip/Accu11/Accu11.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/Accu10/Accu10.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -114,7 +156,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/FFT_FIFO.vhd">
+    <File Path="$PPRDIR/../../../02_Source/FFT_FIFO_CUSTOM.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -157,7 +199,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/BRAM_512_32bit/BRAM_512_32bit.xci">
+    <File Path="$PSRCDIR/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

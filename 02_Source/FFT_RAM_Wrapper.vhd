@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-25
--- Last update: 2020-01-01
+-- Last update: 2020-03-01
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -47,12 +47,13 @@ entity FFT_RAM_Wrapper is
 
         ------- RAM control ----------------------
         FFT_done        : in  std_logic;
-        FFT_addrA_r     : in  std_logic_vector(8 downto 0);
-        FFT_addrB_r     : in  std_logic_vector(8 downto 0);
-        FFT_addrC_r     : in  std_logic_vector(7 downto 0);
-        FFT_addrA_w     : in  std_logic_vector(8 downto 0);
-        FFT_addrB_w     : in  std_logic_vector(8 downto 0);
+        FFT_addrA_r     : in  std_logic_vector(10 downto 0);
+        FFT_addrB_r     : in  std_logic_vector(10 downto 0);
+        FFT_addrC_r     : in  std_logic_vector(9 downto 0);
+        FFT_addrA_w     : in  std_logic_vector(10 downto 0);
+        FFT_addrB_w     : in  std_logic_vector(10 downto 0);
         FFT_new_sample  : in  std_logic;
+        FFT_start       : in  std_logic;
 
         ------- RAM out --------------------------
         RAM_doutA_r     : out std_logic_vector(15 downto 0);
@@ -73,40 +74,40 @@ architecture RTL of FFT_RAM_Wrapper is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component BRAM_512_32bit
+    component BRAM_2048_32bit
         port(
             clka    : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
-            addra   : in  std_logic_vector(8 downto 0);
+            addra   : in  std_logic_vector(10 downto 0);
             dina    : in  std_logic_vector(31 downto 0);
             douta   : out std_logic_vector(31 downto 0);
             clkb    : in  std_logic;
             web     : in  std_logic_vector(0 downto 0);
-            addrb   : in  std_logic_vector(8 downto 0);
+            addrb   : in  std_logic_vector(10 downto 0);
             dinb    : in  std_logic_vector(31 downto 0);
             doutb   : out std_logic_vector(31 downto 0)
         );
     end component;
 
-    component BRAM_512_16bit
+    component BRAM_2048_16bit
         port(
             clka    : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
-            addra   : in  std_logic_vector(8 downto 0);
+            addra   : in  std_logic_vector(10 downto 0);
             dina    : in  std_logic_vector(15 downto 0);
             douta   : out std_logic_vector(15 downto 0);
             clkb    : in  std_logic;
             web     : in  std_logic_vector(0 downto 0);
-            addrb   : in  std_logic_vector(8 downto 0);
+            addrb   : in  std_logic_vector(10 downto 0);
             dinb    : in  std_logic_vector(15 downto 0);
             doutb   : out std_logic_vector(15 downto 0)
         );
     end component;
 
-    component ROM_256_32bit
+    component ROM_1024_32bit
     port(
         clka    : in  std_logic;
-        addra   : in  std_logic_vector(7 downto 0);
+        addra   : in  std_logic_vector(9 downto 0);
         douta   : out std_logic_vector(31 downto 0)
         );
     end component;
@@ -114,37 +115,37 @@ architecture RTL of FFT_RAM_Wrapper is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal addrA_map        : unsigned(8 downto 0);
-    signal addrB_map        : unsigned(8 downto 0);
+    signal addrA_map        : unsigned(10 downto 0);
+    signal addrB_map        : unsigned(10 downto 0);
     signal RAM_smple_wrA    : std_logic_vector(0 downto 0);
-    signal RAM_smple_addrA  : std_logic_vector(8 downto 0);
+    signal RAM_smple_addrA  : std_logic_vector(10 downto 0);
     signal RAM_smple_dinA   : std_logic_vector(15 downto 0);
     signal RAM_smple_doutA  : std_logic_vector(15 downto 0);
     signal RAM_smple_wrB    : std_logic_vector(0 downto 0);
-    signal RAM_smple_addrB  : std_logic_vector(8 downto 0);
+    signal RAM_smple_addrB  : std_logic_vector(10 downto 0);
     signal RAM_smple_dinB   : std_logic_vector(15 downto 0);
     signal RAM_smple_doutB  : std_logic_vector(15 downto 0);
-    signal addr_counter     : unsigned(8 downto 0);
+    signal addr_counter     : unsigned(10 downto 0);
     signal RAM_FFTA_wrA     : std_logic_vector(0 downto 0);
-    signal RAM_FFTA_addrA   : std_logic_vector(8 downto 0);
+    signal RAM_FFTA_addrA   : std_logic_vector(10 downto 0);
     signal RAM_FFTA_dinA    : std_logic_vector(31 downto 0);
     signal RAM_FFTA_doutA   : std_logic_vector(31 downto 0);
     signal RAM_FFTA_wrB     : std_logic_vector(0 downto 0);
-    signal RAM_FFTA_addrB   : std_logic_vector(8 downto 0);
+    signal RAM_FFTA_addrB   : std_logic_vector(10 downto 0);
     signal RAM_FFTA_dinB    : std_logic_vector(31 downto 0);
     signal RAM_FFTA_doutB   : std_logic_vector(31 downto 0);
     signal RAM_FFTB_wrA     : std_logic_vector(0 downto 0);
-    signal RAM_FFTB_addrA   : std_logic_vector(8 downto 0);
+    signal RAM_FFTB_addrA   : std_logic_vector(10 downto 0);
     signal RAM_FFTB_dinA    : std_logic_vector(31 downto 0);
     signal RAM_FFTB_doutA   : std_logic_vector(31 downto 0);
     signal RAM_FFTB_wrB     : std_logic_vector(0 downto 0);
-    signal RAM_FFTB_addrB   : std_logic_vector(8 downto 0);
+    signal RAM_FFTB_addrB   : std_logic_vector(10 downto 0);
     signal RAM_FFTB_dinB    : std_logic_vector(31 downto 0);
     signal RAM_FFTB_doutB   : std_logic_vector(31 downto 0);
     signal RAM_select       : std_logic_vector(1 downto 0);
     signal FFT_write        : std_logic;
     signal FFT_write_d      : std_logic;
-    signal ROM_addr         : std_logic_vector(7 downto 0);
+    signal ROM_addr         : std_logic_vector(9 downto 0);
     signal ROM_dout         : std_logic_vector(31 downto 0);
 
 --------------------------------------------------------------------------------
@@ -176,10 +177,10 @@ begin
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM_Sample
-    -- Description : Contains last 512 Audio samples (always up-to-date)
+    -- Description : Contains last 2048 Audio samples (always up-to-date)
     ----------------------------------------------------------------
     RAM0 : if G_BEHAVIOURAL=false generate
-        U_RAM_Sample : BRAM_512_16bit port map(
+        U_RAM_Sample : BRAM_2048_16bit port map(
             clka    => clk,
             wea     => RAM_smple_wrA,
             addra   => RAM_smple_addrA,
@@ -193,22 +194,31 @@ begin
     end generate;
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
+    -- SEQ PROCESS : P_sample
     -- Description : RAM_sample port multiplexing
     --------------------------------------------------------------------------------
-    RAM_smple_wrA   <= (0 downto 0 => FFT_new_sample);
-    RAM_smple_addrA <= std_logic_vector(addrA_map)  when(FFT_new_sample='0') else std_logic_vector(addr_counter);
-    RAM_smple_dinA  <= FFT_din;
-    RAM_smple_wrB   <= "0";
-    RAM_smple_addrB <= std_logic_vector(addrB_map);
-    RAM_smple_dinB  <= X"0000";
+    P_sample : process(clk, reset_n)
+    begin
+        if(rising_edge(clk)) then
+            RAM_smple_wrA   <= (0 downto 0 => FFT_new_sample);
+            RAM_smple_dinA  <= FFT_din;
+            RAM_smple_wrB   <= "0";
+            RAM_smple_addrB <= std_logic_vector(addrB_map);
+            RAM_smple_dinB  <= X"0000";
+            if(FFT_new_sample='0') then
+                RAM_smple_addrA <= std_logic_vector(addrA_map);
+            else
+                RAM_smple_addrA <= std_logic_vector(addr_counter);
+            end if;
+        end if;
+    end process;
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM_FFTA
-    -- Description : Contains 512 complex numbers from FFT computations
+    -- Description : Contains 2048 complex numbers from FFT computations
     ----------------------------------------------------------------
     RAM1 : if G_BEHAVIOURAL=false generate
-        U_RAM_FFTA : BRAM_512_32bit port map(
+        U_RAM_FFTA : BRAM_2048_32bit port map(
             clka    => clk,
             wea     => RAM_FFTA_wrA,
             addra   => RAM_FFTA_addrA,
@@ -223,10 +233,10 @@ begin
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM_FFTB
-    -- Description : Contains 512 complex numbers from FFT computations
+    -- Description : Contains 2048 complex numbers from FFT computations
     ----------------------------------------------------------------
     RAM2 : if G_BEHAVIOURAL=false generate
-        U_RAM_FFTB : BRAM_512_32bit port map(
+        U_RAM_FFTB : BRAM_2048_32bit port map(
             clka    => clk,
             wea     => RAM_FFTB_wrA,
             addra   => RAM_FFTB_addrA,
@@ -256,7 +266,7 @@ begin
             RAM_select  <= "10";
         elsif(rising_edge(clk)) then
             FFT_write_d <= FFT_write;
-            if(FFT_new_sample='1') then
+            if(FFT_start='1') then
                 RAM_select  <= "10";
             elsif(FFT_write_d='1' and FFT_write='0') then
                 RAM_select  <= '0' & (NOT RAM_select(0));
@@ -347,10 +357,10 @@ begin
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM_COEF
-    -- Description : Contains 512 complex numbers from FFT computations
+    -- Description : Contains 1024 complex numbers from FFT computations
     ----------------------------------------------------------------
     RAM3 : if G_BEHAVIOURAL=false generate
-        U_RAM_COEF : ROM_256_32bit port map(
+        U_RAM_COEF : ROM_1024_32bit port map(
             clka    => clk,
             addra   => ROM_addr,
             douta   => ROM_dout);

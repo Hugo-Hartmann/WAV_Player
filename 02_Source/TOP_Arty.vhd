@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-01-11
+-- Last update: 2020-02-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -184,7 +184,6 @@ architecture RTL of TOP is
             VOL_UP          : in  std_logic;
             VOL_DOWN        : in  std_logic;
             SW              : in  std_logic_vector(3 downto 0);
-            FFT_sample_rate : in  std_logic_vector(7 downto 0);
             New_sample      : in  std_logic;
             Audio_din       : in  std_logic_vector(15 downto 0);
             Audio_out       : out std_logic_vector(15 downto 0);
@@ -355,7 +354,6 @@ begin
         VOL_UP          => VOL_UP,
         VOL_DOWN        => VOL_DOWN,
         SW              => SW,
-        FFT_sample_rate => UART_dout,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_right_out,
         Audio_out       => MISO_right_in,
@@ -379,7 +377,6 @@ begin
         VOL_UP          => VOL_UP,
         VOL_DOWN        => VOL_DOWN,
         SW              => SW,
-        FFT_sample_rate => UART_dout,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_left_out,
         Audio_out       => MISO_left_in,

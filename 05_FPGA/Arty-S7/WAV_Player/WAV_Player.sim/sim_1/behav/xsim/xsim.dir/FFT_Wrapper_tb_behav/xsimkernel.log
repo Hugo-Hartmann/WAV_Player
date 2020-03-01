@@ -1,7 +1,7 @@
-Running: xsim.dir/FFT_Wrapper_tb_behav/xsimk.exe -simmode gui -wdb FFT_Wrapper_tb_behav.wdb -simrunnum 0 -socket 62339
+Running: xsim.dir/FFT_Wrapper_tb_behav/xsimk.exe -simmode gui -wdb FFT_Wrapper_tb_behav.wdb -simrunnum 0 -socket 55557
 Design successfully loaded
-Design Loading Memory Usage: 6628 KB (Peak: 6628 KB)
-Design Loading CPU Usage: 62 ms
+Design Loading Memory Usage: 6944 KB (Peak: 6944 KB)
+Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 11432 KB (Peak: 11432 KB)
-Simulation CPU Usage: 2183 ms
+Simulation Memory Usage: 16640 KB (Peak: 16640 KB)
+Simulation CPU Usage: 1140 ms

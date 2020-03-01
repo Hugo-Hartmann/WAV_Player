@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../WAV_Player.srcs/sources_1/ip/FFT_SQRT/sim/FFT_SQRT.vhd" \
-
-# Do not sort compile order
-nosort

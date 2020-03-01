@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-09
--- Last update: 2020-01-07
+-- Last update: 2020-03-01
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -39,22 +39,21 @@ entity NRM_Wrapper is
         reset_n         : in  std_logic;                        -- reset_n
 
         ------- FFT interface --------------------
-        NRM_addrA_w     : in  std_logic_vector(8 downto 0);
-        NRM_addrB_w     : in  std_logic_vector(8 downto 0);
+        NRM_addrA_w     : in  std_logic_vector(10 downto 0);
+        NRM_addrB_w     : in  std_logic_vector(10 downto 0);
         NRM_dinA_r      : in  std_logic_vector(15 downto 0);
         NRM_dinA_i      : in  std_logic_vector(15 downto 0);
         NRM_dinB_r      : in  std_logic_vector(15 downto 0);
         NRM_dinB_i      : in  std_logic_vector(15 downto 0);
         NRM_write       : in  std_logic;
+        NRM_loaded      : in  std_logic;
 
         ------- Audio interface ------------------
         NRM_new_sample  : in  std_logic;
 
         ------- VGA interface --------------------
         NRM_start       : in  std_logic;
-        NRM_read        : in  std_logic;
-        NRM_loaded      : in  std_logic;
-        NRM_addr_r      : in  std_logic_vector(8 downto 0);
+        NRM_addr_r      : in  std_logic_vector(10 downto 0);
         NRM_dout        : out std_logic_vector(15 downto 0)
 
         );
@@ -72,12 +71,11 @@ architecture RTL of NRM_Wrapper is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
-            NRM_addr        : out std_logic_vector(8 downto 0);
+            NRM_addr        : out std_logic_vector(10 downto 0);
             NRM_start       : in  std_logic;
             NRM_new_sample  : in  std_logic;
             NRM_loaded      : in  std_logic;
             NRM_open        : out std_logic;
-            NRM_read        : out std_logic;
             NRM_en          : out std_logic
             );
     end component;
@@ -93,10 +91,10 @@ architecture RTL of NRM_Wrapper is
             RAM_dinA_i      : in  std_logic_vector(15 downto 0);
             RAM_dinB_r      : in  std_logic_vector(15 downto 0);
             RAM_dinB_i      : in  std_logic_vector(15 downto 0);
-            NRM_addrA_r     : in  std_logic_vector(8 downto 0);
-            NRM_addrB_r     : in  std_logic_vector(8 downto 0);
-            NRM_addrA_w     : in  std_logic_vector(8 downto 0);
-            NRM_addrB_w     : in  std_logic_vector(8 downto 0);
+            NRM_addrA_r     : in  std_logic_vector(10 downto 0);
+            NRM_addrB_r     : in  std_logic_vector(10 downto 0);
+            NRM_addrA_w     : in  std_logic_vector(10 downto 0);
+            NRM_addrB_w     : in  std_logic_vector(10 downto 0);
             NRM_write_A     : in  std_logic;
             NRM_write_B     : in  std_logic;
             RAM_doutA_r     : out std_logic_vector(15 downto 0);
@@ -128,24 +126,23 @@ architecture RTL of NRM_Wrapper is
     signal RAM_dinA_i       : std_logic_vector(15 downto 0);
     signal RAM_dinB_r       : std_logic_vector(15 downto 0);
     signal RAM_dinB_i       : std_logic_vector(15 downto 0);
-    signal RAM_addrA_r      : std_logic_vector(8 downto 0);
-    signal RAM_addrB_r      : std_logic_vector(8 downto 0);
-    signal RAM_addrA_w      : std_logic_vector(8 downto 0);
-    signal RAM_addrB_w      : std_logic_vector(8 downto 0);
+    signal RAM_addrA_r      : std_logic_vector(10 downto 0);
+    signal RAM_addrB_r      : std_logic_vector(10 downto 0);
+    signal RAM_addrA_w      : std_logic_vector(10 downto 0);
+    signal RAM_addrB_w      : std_logic_vector(10 downto 0);
     signal RAM_write_A      : std_logic;
     signal RAM_write_B      : std_logic;
     signal RAM_doutA_r      : std_logic_vector(15 downto 0);
     signal RAM_doutA_i      : std_logic_vector(15 downto 0);
     signal RAM_doutB_r      : std_logic_vector(15 downto 0);
     signal RAM_doutB_i      : std_logic_vector(15 downto 0);
-    signal NRM_addr         : std_logic_vector(8 downto 0);
+    signal NRM_addr         : std_logic_vector(10 downto 0);
     signal NRM_open         : std_logic;
     signal NRM_en           : std_logic;
-    signal NRM_read_compute : std_logic;
     signal NRM_done         : std_logic;
     signal NRM_norm_dout    : std_logic_vector(15 downto 0);
-    signal addr_counter     : unsigned(8 downto 0);
-    signal addrA_norm       : std_logic_vector(8 downto 0);
+    signal addr_counter     : unsigned(10 downto 0);
+    signal addrA_norm       : std_logic_vector(10 downto 0);
 
 
 --------------------------------------------------------------------------------
@@ -229,7 +226,6 @@ begin
         NRM_start       => NRM_start,
         NRM_new_sample  => NRM_new_sample,
         NRM_loaded      => NRM_loaded,
-        NRM_read        => NRM_read_compute,
         NRM_open        => NRM_open,
         NRM_en          => NRM_en);
 

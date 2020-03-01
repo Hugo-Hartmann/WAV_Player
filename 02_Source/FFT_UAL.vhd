@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-21
--- Last update: 2019-12-19
+-- Last update: 2020-03-01
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -108,7 +108,7 @@ architecture RTL of FFT_UAL is
             );
     end component;
 
-    component FFT_FIFO is
+    component FFT_FIFO_CUSTOM is
         generic(
             G_OPERAND_SIZE  : integer := 16;
             G_FIFO_SIZE     : integer := 2
@@ -163,7 +163,7 @@ begin
     -- INSTANCE : U_FIFO_A_r
     -- Description : Simple FIFO
     ----------------------------------------------------------------
-    U_FIFO_A_r : FFT_FIFO generic map(
+    U_FIFO_A_r : FFT_FIFO_CUSTOM generic map(
         G_OPERAND_SIZE  => G_OPERAND_SIZE,
         G_FIFO_SIZE     => 8)
     port map(
@@ -176,7 +176,7 @@ begin
     -- INSTANCE : U_FIFO_A_i
     -- Description : Simple FIFO
     ----------------------------------------------------------------
-    U_FIFO_A_i : FFT_FIFO generic map(
+    U_FIFO_A_i : FFT_FIFO_CUSTOM generic map(
         G_OPERAND_SIZE  => G_OPERAND_SIZE,
         G_FIFO_SIZE     => 8)
     port map(
@@ -208,7 +208,7 @@ begin
     -- INSTANCE : U_FIFO_coef_r
     -- Description : Simple FIFO
     ----------------------------------------------------------------
-    U_FIFO_coef_r : FFT_FIFO generic map(
+    U_FIFO_coef_r : FFT_FIFO_CUSTOM generic map(
         G_OPERAND_SIZE  => G_OPERAND_SIZE,
         G_FIFO_SIZE     => 2)
     port map(
@@ -221,7 +221,7 @@ begin
     -- INSTANCE : U_FIFO_coef_i
     -- Description : Simple FIFO
     ----------------------------------------------------------------
-    U_FIFO_coef_i : FFT_FIFO generic map(
+    U_FIFO_coef_i : FFT_FIFO_CUSTOM generic map(
         G_OPERAND_SIZE  => G_OPERAND_SIZE,
         G_FIFO_SIZE     => 2)
     port map(

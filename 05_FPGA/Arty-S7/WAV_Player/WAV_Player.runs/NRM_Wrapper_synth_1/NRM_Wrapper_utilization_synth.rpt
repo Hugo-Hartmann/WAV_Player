@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sat Feb 29 11:45:02 2020
+| Date         : Sun Mar  1 23:04:16 2020
 | Host         : DESKTOP-K3B0LAI running 64-bit major release  (build 9200)
 | Command      : report_utilization -file NRM_Wrapper_utilization_synth.rpt -pb NRM_Wrapper_utilization_synth.pb
 | Design       : NRM_Wrapper
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  452 |     0 |     32600 |  1.39 |
-|   LUT as Logic             |  425 |     0 |     32600 |  1.30 |
+| Slice LUTs*                |  463 |     0 |     32600 |  1.42 |
+|   LUT as Logic             |  436 |     0 |     32600 |  1.34 |
 |   LUT as Memory            |   27 |     0 |      9600 |  0.28 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |   27 |     0 |           |       |
-| Slice Registers            |  615 |     0 |     65200 |  0.94 |
-|   Register as Flip Flop    |  615 |     0 |     65200 |  0.94 |
+| Slice Registers            |  621 |     0 |     65200 |  0.95 |
+|   Register as Flip Flop    |  621 |     0 |     65200 |  0.95 |
 |   Register as Latch        |    0 |     0 |     65200 |  0.00 |
 | F7 Muxes                   |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                   |    0 |     0 |      8150 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 164   |          Yes |           - |        Reset |
+| 170   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 451   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -69,9 +69,9 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Fixed | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |    1 |     0 |        75 |  1.33 |
-|   RAMB36/FIFO*    |    1 |     0 |        75 |  1.33 |
-|     RAMB36E1 only |    1 |       |           |       |
+| Block RAM Tile    |    2 |     0 |        75 |  2.67 |
+|   RAMB36/FIFO*    |    2 |     0 |        75 |  2.67 |
+|     RAMB36E1 only |    2 |       |           |       |
 |   RAMB18          |    0 |     0 |       150 |  0.00 |
 +-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
@@ -151,17 +151,17 @@ Table of Contents
 +----------+------+---------------------+
 | FDRE     |  451 |        Flop & Latch |
 | LUT2     |  207 |                 LUT |
-| LUT3     |  184 |                 LUT |
-| FDCE     |  164 |        Flop & Latch |
+| LUT3     |  187 |                 LUT |
+| FDCE     |  170 |        Flop & Latch |
 | CARRY4   |   79 |          CarryLogic |
 | LUT1     |   68 |                 LUT |
-| LUT5     |   28 |                 LUT |
+| LUT6     |   33 |                 LUT |
+| LUT5     |   29 |                 LUT |
 | SRL16E   |   26 |  Distributed Memory |
-| LUT6     |   26 |                 LUT |
-| LUT4     |    7 |                 LUT |
+| LUT4     |    8 |                 LUT |
+| RAMB36E1 |    2 |        Block Memory |
 | DSP48E1  |    2 |    Block Arithmetic |
 | SRLC32E  |    1 |  Distributed Memory |
-| RAMB36E1 |    1 |        Block Memory |
 +----------+------+---------------------+
 
 
