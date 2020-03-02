@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-12-20
+-- Last update: 2020-03-2
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -231,9 +231,11 @@ begin
             -- mult_opB    <= (others => '0');
             -- mult_out_d  <= (others => '0');
         elsif(rising_edge(clk)) then
-            mult_opA    <= FIR_din;
-            mult_opB    <= ROM_out;
-            mult_out_d  <= mult_out;
+            if(FIR_en='1') then -- virtually useless, test to improve routing during implementation
+                mult_opA    <= FIR_din;
+                mult_opB    <= ROM_out;
+                mult_out_d  <= mult_out;
+            end if;
         end if;
     end process;
 
