@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-02-29
+-- Last update: 2020-03-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -114,9 +114,9 @@ architecture RTL of TOP is
             reset_n         : in  std_logic;
             Tx              : out std_logic;
             Rx              : in  std_logic;
-            UART_din        : in std_logic_vector(15 downto 0);
-            UART_write      : in std_logic;
-            UART_dout       : out std_logic_vector(7 downto 0)
+            UART_addr       : out std_logic_vector(7 downto 0);
+            UART_write      : out std_logic;
+            UART_dout       : out std_logic_vector(15 downto 0)
             );
     end component;
 
@@ -206,8 +206,8 @@ architecture RTL of TOP is
     signal clk_216          : std_logic;
     signal locked_216       : std_logic;
     signal locked_112       : std_logic;
-    signal UART_dout        : std_logic_vector(7 downto 0);
-    signal UART_read        : std_logic;
+    signal UART_dout        : std_logic_vector(15 downto 0);
+    signal UART_addr        : std_logic_vector(7 downto 0);
     signal UART_write       : std_logic;
     signal I2S_new_sample   : std_logic;
     signal VGA_read         : std_logic;
@@ -312,9 +312,9 @@ begin
         reset_n     => reset_n,
         Tx          => TX,
         Rx          => RX,
-        UART_din    => (others => '0'),
-        UART_write  => '0',
-        UART_dout   => UART_dout);
+        UART_dout   => UART_dout,
+        UART_addr   => UART_addr,
+        UART_write  => UART_write);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_VGA_controller

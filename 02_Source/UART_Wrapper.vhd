@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-01-07
+-- Last update: 2020-03-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -44,9 +44,9 @@ entity UART_Wrapper is
         Rx              : in  std_logic;
 
         ------- Interface with WAV Player --------
-        UART_din        : in  std_logic_vector(15 downto 0);
-        UART_write      : in  std_logic;
-        UART_dout       : out std_logic_vector(7 downto 0)
+        UART_addr       : out std_logic_vector(7 downto 0);
+        UART_write      : out std_logic;
+        UART_dout       : out std_logic_vector(15 downto 0)
         );
 end UART_Wrapper;
 
@@ -58,6 +58,8 @@ architecture RTL of UART_Wrapper is
     --------------------------------------------------------------------------------
     -- TYPE DECLARATIONS
     --------------------------------------------------------------------------------
+    type UART_STATE is (UART_RESET, UART_IDLE, UART_SAMPLE, UART_SET_ADDR,
+                        UART_WRITE_DATA);
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATION
@@ -98,11 +100,17 @@ architecture RTL of UART_Wrapper is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
+    signal current_state    : UART_STATE;
+    signal next_state       : UART_STATE;
     signal Tx_busy          : std_logic;
     signal Tx_send          : std_logic;
     signal Tx_in            : std_logic_vector(7 downto 0);
     signal Rx_new           : std_logic;
     signal Rx_out           : std_logic_vector(7 downto 0);
+    signal data_buff        : std_logic_vector(15 downto 0);
+    signal cnt_byte         : unsigned(3 downto 0);
+    signal cnt_byte_end     : std_logic;
+    signal shift_data       : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -143,18 +151,125 @@ begin
         Tx_in   => Tx_in);
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_dout
-    -- Description : Register output data
+    -- SEQ PROCESS : P_addr
+    -- Description : Register address to register file
     --------------------------------------------------------------------------------
-    P_dout : process(clk, reset_n)
+    P_addr : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            UART_dout   <= (others => '0');
+            UART_addr   <= (others => '0');
         elsif(rising_edge(clk)) then
-            if(Rx_new='1') then
-                UART_dout   <= Rx_out;
+            if(Rx_new='1' and shift_data='0') then
+                UART_addr   <= Rx_out;
             end if;
         end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_data
+    -- Description : Register data to register file
+    --------------------------------------------------------------------------------
+    P_data : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            data_buff   <= (others => '0');
+        elsif(rising_edge(clk)) then
+            if(Rx_new='1') then
+                data_buff   <= data_buff(7 downto 0) & Rx_out;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Mapping
+    --------------------------------------------------------------------------------
+    UART_dout   <= data_buff;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_counter
+    -- Description : Count number of bytes received
+    --------------------------------------------------------------------------------
+    P_counter : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            cnt_byte    <= to_unsigned(2, cnt_byte'length);
+        elsif(rising_edge(clk)) then
+            if(shift_data='0') then
+                cnt_byte    <= to_unsigned(2, cnt_byte'length);
+            elsif(Rx_new='1') then
+                cnt_byte    <= cnt_byte - 1;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_counter_end
+    -- Description : End counter indicator
+    --------------------------------------------------------------------------------
+    P_counter_end : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            cnt_byte_end    <= '0';
+        elsif(rising_edge(clk)) then
+            if(cnt_byte=0) then
+                cnt_byte_end    <= '1';
+            else
+                cnt_byte_end    <= '0';
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_FSM_UART_sync
+    -- Description : FSM_UART sequential part (current_state logic)
+    --------------------------------------------------------------------------------
+    P_FSM_UART_sync : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            current_state <= UART_RESET;
+        elsif(rising_edge(clk)) then
+            current_state <= next_state;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMB PROCESS : P_FSM_UART_comb
+    -- Description : FSM_UART combinatorial part (next_state logic)
+    --               States :
+    --------------------------------------------------------------------------------
+    P_FSM_UART_comb : process(current_state, Rx_new, cnt_byte_end)
+    begin
+        UART_write  <= '0';
+        shift_data  <= '0';
+
+        case current_state is
+            when UART_RESET =>
+                next_state  <= UART_IDLE;
+                
+            when UART_IDLE =>
+                if(Rx_new='1') then
+                    next_state  <= UART_SET_ADDR;
+                else
+                    next_state  <= UART_IDLE;
+                end if;
+
+            when UART_SET_ADDR =>
+                    next_state  <= UART_SAMPLE;
+
+            when UART_SAMPLE =>
+                shift_data  <= '1';
+                if(cnt_byte_end='1') then
+                    next_state  <= UART_WRITE_DATA;
+                else
+                    next_state  <= UART_SAMPLE;
+                end if;
+
+            when UART_WRITE_DATA =>
+                UART_write  <= '1';
+                next_state  <= UART_IDLE;
+
+        end case;
     end process;
 
 end RTL;
