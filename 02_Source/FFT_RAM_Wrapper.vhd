@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-25
--- Last update: 2020-03-01
+-- Last update: 2020-03-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -115,38 +115,45 @@ architecture RTL of FFT_RAM_Wrapper is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal addrA_map        : unsigned(10 downto 0);
-    signal addrB_map        : unsigned(10 downto 0);
-    signal RAM_smple_wrA    : std_logic_vector(0 downto 0);
-    signal RAM_smple_addrA  : std_logic_vector(10 downto 0);
-    signal RAM_smple_dinA   : std_logic_vector(15 downto 0);
-    signal RAM_smple_doutA  : std_logic_vector(15 downto 0);
-    signal RAM_smple_wrB    : std_logic_vector(0 downto 0);
-    signal RAM_smple_addrB  : std_logic_vector(10 downto 0);
-    signal RAM_smple_dinB   : std_logic_vector(15 downto 0);
-    signal RAM_smple_doutB  : std_logic_vector(15 downto 0);
-    signal addr_counter     : unsigned(10 downto 0);
-    signal RAM_FFTA_wrA     : std_logic_vector(0 downto 0);
-    signal RAM_FFTA_addrA   : std_logic_vector(10 downto 0);
-    signal RAM_FFTA_dinA    : std_logic_vector(31 downto 0);
-    signal RAM_FFTA_doutA   : std_logic_vector(31 downto 0);
-    signal RAM_FFTA_wrB     : std_logic_vector(0 downto 0);
-    signal RAM_FFTA_addrB   : std_logic_vector(10 downto 0);
-    signal RAM_FFTA_dinB    : std_logic_vector(31 downto 0);
-    signal RAM_FFTA_doutB   : std_logic_vector(31 downto 0);
-    signal RAM_FFTB_wrA     : std_logic_vector(0 downto 0);
-    signal RAM_FFTB_addrA   : std_logic_vector(10 downto 0);
-    signal RAM_FFTB_dinA    : std_logic_vector(31 downto 0);
-    signal RAM_FFTB_doutA   : std_logic_vector(31 downto 0);
-    signal RAM_FFTB_wrB     : std_logic_vector(0 downto 0);
-    signal RAM_FFTB_addrB   : std_logic_vector(10 downto 0);
-    signal RAM_FFTB_dinB    : std_logic_vector(31 downto 0);
-    signal RAM_FFTB_doutB   : std_logic_vector(31 downto 0);
-    signal RAM_select       : std_logic_vector(1 downto 0);
-    signal FFT_write        : std_logic;
-    signal FFT_write_d      : std_logic;
-    signal ROM_addr         : std_logic_vector(9 downto 0);
-    signal ROM_dout         : std_logic_vector(31 downto 0);
+    signal addrA_map            : unsigned(10 downto 0);
+    signal addrB_map            : unsigned(10 downto 0);
+    signal RAM_smple_wrA        : std_logic_vector(0 downto 0);
+    signal RAM_smple_addrA      : std_logic_vector(10 downto 0);
+    signal RAM_smple_dinA       : std_logic_vector(15 downto 0);
+    signal RAM_smple_doutA      : std_logic_vector(15 downto 0);
+    signal RAM_smple_wrB        : std_logic_vector(0 downto 0);
+    signal RAM_smple_addrB      : std_logic_vector(10 downto 0);
+    signal RAM_smple_dinB       : std_logic_vector(15 downto 0);
+    signal RAM_smple_doutB      : std_logic_vector(15 downto 0);
+    signal addr_counter         : unsigned(10 downto 0);
+    signal RAM_FFTA_wrA         : std_logic_vector(0 downto 0);
+    signal RAM_FFTA_addrA       : std_logic_vector(10 downto 0);
+    signal RAM_FFTA_dinA        : std_logic_vector(31 downto 0);
+    signal RAM_FFTA_doutA       : std_logic_vector(31 downto 0);
+    signal RAM_FFTA_wrB         : std_logic_vector(0 downto 0);
+    signal RAM_FFTA_addrB       : std_logic_vector(10 downto 0);
+    signal RAM_FFTA_dinB        : std_logic_vector(31 downto 0);
+    signal RAM_FFTA_doutB       : std_logic_vector(31 downto 0);
+    signal RAM_FFTB_wrA         : std_logic_vector(0 downto 0);
+    signal RAM_FFTB_addrA       : std_logic_vector(10 downto 0);
+    signal RAM_FFTB_dinA        : std_logic_vector(31 downto 0);
+    signal RAM_FFTB_doutA       : std_logic_vector(31 downto 0);
+    signal RAM_FFTB_wrB         : std_logic_vector(0 downto 0);
+    signal RAM_FFTB_addrB       : std_logic_vector(10 downto 0);
+    signal RAM_FFTB_dinB        : std_logic_vector(31 downto 0);
+    signal RAM_FFTB_doutB       : std_logic_vector(31 downto 0);
+    signal RAM_select           : std_logic_vector(1 downto 0);
+    signal FFT_write            : std_logic;
+    signal FFT_write_d          : std_logic;
+    signal ROM_addr             : std_logic_vector(9 downto 0);
+    signal ROM_dout             : std_logic_vector(31 downto 0);
+    signal ROM_dout_d           : std_logic_vector(31 downto 0);
+    signal RAM_FFTA_doutA_d     : std_logic_vector(31 downto 0);
+    signal RAM_FFTA_doutB_d     : std_logic_vector(31 downto 0);
+    signal RAM_FFTB_doutA_d     : std_logic_vector(31 downto 0);
+    signal RAM_FFTB_doutB_d     : std_logic_vector(31 downto 0);
+    signal RAM_smple_doutA_d    : std_logic_vector(15 downto 0);
+    signal RAM_smple_doutB_d    : std_logic_vector(15 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -322,20 +329,37 @@ begin
             end if;
 
             --- Outputs
+            RAM_FFTA_doutA_d    <= RAM_FFTA_doutA;
+            RAM_FFTA_doutB_d    <= RAM_FFTA_doutB;
+            RAM_FFTB_doutA_d    <= RAM_FFTB_doutA;
+            RAM_FFTB_doutB_d    <= RAM_FFTB_doutB;
+            RAM_smple_doutA_d   <= RAM_smple_doutA;
+            RAM_smple_doutB_d   <= RAM_smple_doutB;
+
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_Select_out
+    -- Description : Select correct RAM output
+    --------------------------------------------------------------------------------
+    P_Select_out : process(clk)
+    begin
+        if(rising_edge(clk)) then
             if(RAM_select="01") then
-                RAM_doutA_r <= RAM_FFTA_doutA(31 downto 16);
-                RAM_doutA_i <= RAM_FFTA_doutA(15 downto 0);
-                RAM_doutB_r <= RAM_FFTA_doutB(31 downto 16);
-                RAM_doutB_i <= RAM_FFTA_doutB(15 downto 0);
+                RAM_doutA_r <= RAM_FFTA_doutA_d(31 downto 16);
+                RAM_doutA_i <= RAM_FFTA_doutA_d(15 downto 0);
+                RAM_doutB_r <= RAM_FFTA_doutB_d(31 downto 16);
+                RAM_doutB_i <= RAM_FFTA_doutB_d(15 downto 0);
             elsif(RAM_select="00") then
-                RAM_doutA_r <= RAM_FFTB_doutA(31 downto 16);
-                RAM_doutA_i <= RAM_FFTB_doutA(15 downto 0);
-                RAM_doutB_r <= RAM_FFTB_doutB(31 downto 16);
-                RAM_doutB_i <= RAM_FFTB_doutB(15 downto 0);
+                RAM_doutA_r <= RAM_FFTB_doutA_d(31 downto 16);
+                RAM_doutA_i <= RAM_FFTB_doutA_d(15 downto 0);
+                RAM_doutB_r <= RAM_FFTB_doutB_d(31 downto 16);
+                RAM_doutB_i <= RAM_FFTB_doutB_d(15 downto 0);
             else
-                RAM_doutA_r <= RAM_smple_doutA;
+                RAM_doutA_r <= RAM_smple_doutA_d;
                 RAM_doutA_i <= (others => '0');
-                RAM_doutB_r <= RAM_smple_doutB;
+                RAM_doutB_r <= RAM_smple_doutB_d;
                 RAM_doutB_i <= (others => '0');
             end if;
 
@@ -350,8 +374,9 @@ begin
     begin
         if(rising_edge(clk)) then
             ROM_addr    <= FFT_addrC_r;
-            RAM_doutC_r <= ROM_dout(31 downto 16);
-            RAM_doutC_i <= ROM_dout(15 downto 0);
+            ROM_dout_d  <= ROM_dout;
+            RAM_doutC_r <= ROM_dout_d(31 downto 16);
+            RAM_doutC_i <= ROM_dout_d(15 downto 0);
         end if;
     end process;
 

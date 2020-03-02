@@ -2,14 +2,14 @@
 2018.3
 Dec  7 2018
 00:33:28
-C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd,1582966169,vhdl,,,,fir_filter,,,,,,,,
+C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd,1583188124,vhdl,,,,fir_filter,,,,,,,,
 C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd,1582966169,vhdl,,,,fir_interface,,,,,,,,
 C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Heartbeat.vhd,1582966169,vhdl,,,,hearbeat,,,,,,,,
-C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd,1583100367,vhdl,,,,top,,,,,,,,
-C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TYPE_Pkg.vhd,1582966169,vhdl,C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd;C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd;C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VGA_interface.vhd,,,type_pkg,,,,,,,,
+C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd,1583186243,vhdl,,,,top,,,,,,,,
+C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TYPE_Pkg.vhd,1582966169,vhdl,C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd,,,type_pkg,,,,,,,,
 C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd,1582966169,vhdl,,,,uart_rx,,,,,,,,
 C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd,1582966169,vhdl,,,,uart_tx,,,,,,,,
-C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd,1582966169,vhdl,,,,uart_wrapper,,,,,,,,
+C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd,1583186163,vhdl,,,,uart_wrapper,,,,,,,,
 C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VGA_Pkg.vhd,1582966169,vhdl,C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VGA_controller.vhd,,,vga_pkg_1024x768_60hz_65_00mhz;vga_pkg_1152x864_75hz_108_00mhz;vga_pkg_1280x1024_60hz_108_00mhz;vga_pkg_1600x1200_60hz_162_00mhz;vga_pkg_1920x1200_60hz_193_16mhz;vga_pkg_1920x1440_60hz_234_00mhz;vga_pkg_640x480_60hz_25_175mhz;vga_pkg_800x600_60hz_40_00mhz,,,,,,,,
 C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VGA_controller.vhd,1582966169,vhdl,,,,vga_controller,,,,,,,,
 C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/VU_metre.vhd,1582966169,vhdl,,,,vu_metre,,,,,,,,

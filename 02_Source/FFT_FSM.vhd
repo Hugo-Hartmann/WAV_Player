@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-21
--- Last update: 2020-03-01
+-- Last update: 2020-03-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -59,7 +59,7 @@ architecture RTL of FFT_FSM is
     -- TYPE DECLARATIONS
     --------------------------------------------------------------------------------
     type FFT_STATE is (FFT_RESET, FFT_IDLE, FFT_WAIT_SAMPLE, FFT_NEW_STAGE, FFT_WAIT_PIPE, FFT_ADDR_START1,
-                       FFT_ADDR_START2, FFT_ADDR_START3, FFT_ADDR_START4, FFT_ADDR_LOOP,
+                       FFT_ADDR_START2, FFT_ADDR_START3, FFT_ADDR_START4, FFT_ADDR_START5, FFT_ADDR_LOOP,
                        FFT_ADDR_END1, FFT_ADDR_END2, FFT_ADDR_END3, FFT_PIPE_UNLOAD, FFT_END);
 
     --------------------------------------------------------------------------------
@@ -363,6 +363,11 @@ begin
                 next_state      <= FFT_ADDR_START4;
 
             when FFT_ADDR_START4 =>
+                FFT_addr_valid  <= '1';
+                cnt_addr_inc    <= '1';
+                next_state      <= FFT_ADDR_START5;
+
+            when FFT_ADDR_START5 =>
                 FFT_addr_valid  <= '1';
                 cnt_addr_inc    <= '1';
                 next_state      <= FFT_ADDR_LOOP;

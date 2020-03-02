@@ -14,9 +14,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9228 
+INFO: Helper process launched with PID 10656 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 416.074 ; gain = 105.184
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 416.273 ; gain = 106.117
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:64]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
@@ -24,7 +24,7 @@ INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/Hugo/Documents/G
 INFO: [Synth 8-3491] module 'FFT_RAM_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:31' bound to instance 'U_FFT_RAM_Wrapper' of component 'FFT_RAM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:225]
 INFO: [Synth 8-638] synthesizing module 'FFT_RAM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:72]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'BRAM_2048_16bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:59' bound to instance 'U_RAM_Sample' of component 'BRAM_2048_16bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:183]
+INFO: [Synth 8-3491] module 'BRAM_2048_16bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:59' bound to instance 'U_RAM_Sample' of component 'BRAM_2048_16bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:190]
 INFO: [Synth 8-638] synthesizing module 'BRAM_2048_16bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:74]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -103,7 +103,7 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_2048_16bit' [c:/Users/Hugo/Documen
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     5.349 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:245]
 INFO: [Synth 8-256] done synthesizing module 'BRAM_2048_16bit' (9#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:74]
-INFO: [Synth 8-3491] module 'BRAM_2048_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:59' bound to instance 'U_RAM_FFTA' of component 'BRAM_2048_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:221]
+INFO: [Synth 8-3491] module 'BRAM_2048_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:59' bound to instance 'U_RAM_FFTA' of component 'BRAM_2048_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:228]
 INFO: [Synth 8-638] synthesizing module 'BRAM_2048_32bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:74]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -182,8 +182,8 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_2048_32bit' [c:/Users/Hugo/Documen
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     10.698 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:245]
 INFO: [Synth 8-256] done synthesizing module 'BRAM_2048_32bit' (11#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:74]
-INFO: [Synth 8-3491] module 'BRAM_2048_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:59' bound to instance 'U_RAM_FFTB' of component 'BRAM_2048_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:239]
-INFO: [Synth 8-3491] module 'ROM_1024_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:59' bound to instance 'U_RAM_COEF' of component 'ROM_1024_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:363]
+INFO: [Synth 8-3491] module 'BRAM_2048_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:59' bound to instance 'U_RAM_FFTB' of component 'BRAM_2048_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:246]
+INFO: [Synth 8-3491] module 'ROM_1024_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:59' bound to instance 'U_RAM_COEF' of component 'ROM_1024_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:388]
 INFO: [Synth 8-638] synthesizing module 'ROM_1024_32bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:67]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -262,14 +262,14 @@ INFO: [Synth 8-638] synthesizing module 'ROM_1024_32bit' [c:/Users/Hugo/Document
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.622 mW - type: string 
 INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'ROM_1024_32bit' (12#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:67]
-INFO: [Synth 8-4471] merging register 'RAM_FFTA_wrB_reg[0:0]' into 'RAM_FFTA_wrA_reg[0:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:228]
-INFO: [Synth 8-4471] merging register 'RAM_FFTB_dinA_reg[31:0]' into 'RAM_FFTA_dinA_reg[31:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:243]
-INFO: [Synth 8-4471] merging register 'RAM_FFTB_dinB_reg[31:0]' into 'RAM_FFTA_dinB_reg[31:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:248]
-INFO: [Synth 8-4471] merging register 'RAM_FFTB_wrB_reg[0:0]' into 'RAM_FFTB_wrA_reg[0:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:246]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTA_wrB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:228]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinA_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:243]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:248]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_wrB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:246]
+INFO: [Synth 8-4471] merging register 'RAM_FFTA_wrB_reg[0:0]' into 'RAM_FFTA_wrA_reg[0:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:235]
+INFO: [Synth 8-4471] merging register 'RAM_FFTB_dinA_reg[31:0]' into 'RAM_FFTA_dinA_reg[31:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:250]
+INFO: [Synth 8-4471] merging register 'RAM_FFTB_dinB_reg[31:0]' into 'RAM_FFTA_dinB_reg[31:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:255]
+INFO: [Synth 8-4471] merging register 'RAM_FFTB_wrB_reg[0:0]' into 'RAM_FFTB_wrA_reg[0:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:253]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTA_wrB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:235]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinA_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:250]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:255]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_wrB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:253]
 INFO: [Synth 8-256] done synthesizing module 'FFT_RAM_Wrapper' (13#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_RAM_Wrapper.vhd:72]
 INFO: [Synth 8-3491] module 'FFT_FSM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_FSM.vhd:30' bound to instance 'U_FFT_FSM' of component 'FFT_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:254]
 INFO: [Synth 8-638] synthesizing module 'FFT_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_FSM.vhd:56]
@@ -608,7 +608,7 @@ INFO: [Synth 8-256] done synthesizing module 'FFT_FIFO' (53#1) [c:/Users/Hugo/Do
 INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/synth/FFT_FIFO.vhd:59' bound to instance 'U_FIFO_addrB' of component 'FFT_FIFO' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:313]
 INFO: [Synth 8-256] done synthesizing module 'FFT_Wrapper' (54#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT_Wrapper.vhd:64]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:02:02 ; elapsed = 00:02:04 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished RTL Elaboration : Time (s): cpu = 00:02:04 ; elapsed = 00:02:07 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -621,10 +621,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:02 ; elapsed = 00:02:04 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:04 ; elapsed = 00:02:07 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:02 ; elapsed = 00:02:04 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:04 ; elapsed = 00:02:07 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 46 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -643,31 +643,31 @@ Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/FFT_Wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/FFT_Wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 888.723 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 891.738 ; gain = 0.000
 Sourcing Tcl File [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 Sourcing Tcl File [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/FFT_Wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/FFT_Wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 888.723 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 891.738 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 888.723 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 891.738 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 888.723 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.055 . Memory (MB): peak = 888.723 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 891.738 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.058 . Memory (MB): peak = 891.738 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:02:10 ; elapsed = 00:02:13 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Constraint Validation : Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:02:10 ; elapsed = 00:02:13 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Loading Part and Timing Information : Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -689,12 +689,18 @@ Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM2.U_RAM_FFTB . 
 Applied set_property DONT_TOUCH = true for U_FIFO_addrA/U0/inst_fifo_gen/\gconvfifo.rf /\grf.rf /rstblk/\ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FIFO_addrB/U0/inst_fifo_gen/\gconvfifo.rf /\grf.rf /rstblk/\ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:10 ; elapsed = 00:02:13 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'FFT_FSM'
 INFO: [Synth 8-5544] ROM "addrA_acc_din" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "addrB_add_din" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "cnt_stage_set" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cnt_addr_clr" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cnt_addr_inc" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FFT_done" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FFT_en" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FFT_addr_valid" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -702,6 +708,12 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 INFO: [Synth 8-5544] ROM "addrA_acc_din" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "addrB_add_din" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "cnt_stage_set" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cnt_addr_clr" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cnt_addr_inc" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FFT_done" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FFT_en" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FFT_addr_valid" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -710,25 +722,26 @@ INFO: [Synth 8-5544] ROM "leaving_empty_fwft" won't be mapped to Block RAM becau
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-               fft_reset |                  000000000000001 |                             0000
-                fft_idle |                  000000000000010 |                             0001
-         fft_wait_sample |                  000000000000100 |                             0010
-           fft_new_stage |                  000000000001000 |                             0011
-           fft_wait_pipe |                  000000000010000 |                             0100
-         fft_addr_start1 |                  000000000100000 |                             0101
-         fft_addr_start2 |                  000000001000000 |                             0110
-         fft_addr_start3 |                  000000010000000 |                             0111
-         fft_addr_start4 |                  000000100000000 |                             1000
-           fft_addr_loop |                  000001000000000 |                             1001
-           fft_addr_end1 |                  000010000000000 |                             1010
-           fft_addr_end2 |                  000100000000000 |                             1011
-           fft_addr_end3 |                  001000000000000 |                             1100
-         fft_pipe_unload |                  010000000000000 |                             1101
-                 fft_end |                  100000000000000 |                             1110
+               fft_reset |                 0000000000000001 |                             0000
+                fft_idle |                 0000000000000010 |                             0001
+         fft_wait_sample |                 0000000000000100 |                             0010
+           fft_new_stage |                 0000000000001000 |                             0011
+           fft_wait_pipe |                 0000000000010000 |                             0100
+         fft_addr_start1 |                 0000000000100000 |                             0101
+         fft_addr_start2 |                 0000000001000000 |                             0110
+         fft_addr_start3 |                 0000000010000000 |                             0111
+         fft_addr_start4 |                 0000000100000000 |                             1000
+         fft_addr_start5 |                 0000001000000000 |                             1001
+           fft_addr_loop |                 0000010000000000 |                             1010
+           fft_addr_end1 |                 0000100000000000 |                             1011
+           fft_addr_end2 |                 0001000000000000 |                             1100
+           fft_addr_end3 |                 0010000000000000 |                             1101
+         fft_pipe_unload |                 0100000000000000 |                             1110
+                 fft_end |                 1000000000000000 |                             1111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'FFT_FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:11 ; elapsed = 00:02:15 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:14 ; elapsed = 00:02:17 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -870,7 +883,7 @@ INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrC_acc_din_d_reg[7]' (FDC) t
 INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrC_acc_din_d_reg[8]' (FDC) to 'U_FFT_FSM/addrB_add_din_d_reg[2]'
 INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrC_acc_din_d_reg[9]' (FDC) to 'U_FFT_FSM/addrB_add_din_d_reg[1]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:13 ; elapsed = 00:02:17 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:16 ; elapsed = 00:02:19 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -882,13 +895,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:23 ; elapsed = 00:02:26 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:25 ; elapsed = 00:02:29 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:23 ; elapsed = 00:02:26 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Timing Optimization : Time (s): cpu = 00:02:25 ; elapsed = 00:02:29 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -900,7 +913,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:23 ; elapsed = 00:02:27 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Technology Mapping : Time (s): cpu = 00:02:26 ; elapsed = 00:02:29 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -924,7 +937,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished IO Insertion : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -937,7 +950,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -949,25 +962,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:27 ; elapsed = 00:02:30 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:27 ; elapsed = 00:02:30 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:27 ; elapsed = 00:02:30 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:27 ; elapsed = 00:02:30 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -987,10 +1000,10 @@ Report Cell Usage:
 |2     |DSP48E1    |     4|
 |3     |LUT1       |    14|
 |4     |LUT2       |   218|
-|5     |LUT3       |   106|
-|6     |LUT4       |   130|
+|5     |LUT3       |   138|
+|6     |LUT4       |    97|
 |7     |LUT5       |    59|
-|8     |LUT6       |    15|
+|8     |LUT6       |    16|
 |9     |MUXCY      |    19|
 |10    |RAM32M     |     4|
 |11    |RAMB36E1   |     1|
@@ -998,33 +1011,33 @@ Report Cell Usage:
 |13    |RAMB36E1_2 |     1|
 |14    |SRL16E     |    33|
 |15    |XORCY      |    21|
-|16    |FDCE       |   629|
+|16    |FDCE       |   630|
 |17    |FDPE       |    29|
-|18    |FDRE       |   381|
+|18    |FDRE       |   573|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 888.723 ; gain = 577.832
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:27 ; elapsed = 00:02:30 . Memory (MB): peak = 891.738 ; gain = 581.582
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1410 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:02:21 . Memory (MB): peak = 888.723 ; gain = 577.832
-Synthesis Optimization Complete : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 888.723 ; gain = 577.832
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:02:24 . Memory (MB): peak = 891.738 ; gain = 581.582
+Synthesis Optimization Complete : Time (s): cpu = 00:02:27 ; elapsed = 00:02:31 . Memory (MB): peak = 891.738 ; gain = 581.582
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 105 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 888.723 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 891.738 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 10 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 6 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-208 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
+220 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:27 ; elapsed = 00:02:31 . Memory (MB): peak = 888.723 ; gain = 589.957
+synth_design: Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 891.738 ; gain = 593.887
 INFO: [Coretcl 2-1174] Renamed 108 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 888.723 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 891.738 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FFT_Wrapper_utilization_synth.rpt -pb FFT_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Mar  1 23:23:24 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon Mar  2 23:49:38 2020...

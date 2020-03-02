@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Mon Mar  2 23:16:56 2020
-# Process ID: 7696
+# Start of session at: Mon Mar  2 23:42:05 2020
+# Process ID: 6824
 # Current directory: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1
 # Command line: vivado.exe -log FIR_interface.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FIR_interface.tcl
 # Log file: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10008 
+INFO: Helper process launched with PID 1204 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 416.574 ; gain = 106.043
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 415.961 ; gain = 105.711
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-1565] actual for formal port ce is neither a static name nor a globally static expression [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:270]
 INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:57]
@@ -680,7 +680,7 @@ INFO: [Synth 8-3491] module 'Accu_s43' declared at 'c:/Users/Hugo/Documents/GitH
 INFO: [Synth 8-256] done synthesizing module 'FIR_filter__parameterized9' (30#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_filter.vhd:60]
 INFO: [Synth 8-256] done synthesizing module 'FIR_interface' (31#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:57]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:04:23 ; elapsed = 00:04:24 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished RTL Elaboration : Time (s): cpu = 00:04:24 ; elapsed = 00:04:29 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -693,10 +693,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:23 ; elapsed = 00:04:25 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:25 ; elapsed = 00:04:29 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:04:23 ; elapsed = 00:04:25 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:04:25 ; elapsed = 00:04:29 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -711,22 +711,22 @@ Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1247.086 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1241.043 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   DSP48E => DSP48E1: 6 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1247.086 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1247.086 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1241.043 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 1241.043 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:04:36 ; elapsed = 00:04:39 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Constraint Validation : Time (s): cpu = 00:04:39 ; elapsed = 00:04:45 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:04:36 ; elapsed = 00:04:39 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Loading Part and Timing Information : Time (s): cpu = 00:04:39 ; elapsed = 00:04:45 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -751,7 +751,7 @@ Applied set_property DONT_TOUCH = true for \GEN_FILTER[5].U_FIR_filter /U_Mult. 
 Applied set_property DONT_TOUCH = true for \GEN_FILTER[5].U_FIR_filter /\ROM5.U_ROM . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for \RAM.U_RAM . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:04:37 ; elapsed = 00:04:39 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:04:39 ; elapsed = 00:04:45 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:236]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR_interface.vhd:213]
@@ -777,7 +777,7 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'FIR_interface'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:04:37 ; elapsed = 00:04:40 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:04:40 ; elapsed = 00:04:46 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -848,7 +848,7 @@ INFO: [Synth 8-3886] merging instance 'GEN_FILTER[3].U_FIR_filter/FIR_en_d_reg[5
 INFO: [Synth 8-3886] merging instance 'GEN_FILTER[4].U_FIR_filter/FIR_en_d_reg[4]' (FDC) to 'GEN_FILTER[5].U_FIR_filter/FIR_en_d_reg[4]'
 INFO: [Synth 8-3886] merging instance 'GEN_FILTER[4].U_FIR_filter/FIR_en_d_reg[5]' (FDC) to 'GEN_FILTER[5].U_FIR_filter/FIR_en_d_reg[5]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:04:39 ; elapsed = 00:04:42 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:04:41 ; elapsed = 00:04:48 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -860,13 +860,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:04:48 ; elapsed = 00:04:51 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:04:51 ; elapsed = 00:04:58 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:04:48 ; elapsed = 00:04:51 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Timing Optimization : Time (s): cpu = 00:04:51 ; elapsed = 00:04:58 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -878,7 +878,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:04:48 ; elapsed = 00:04:51 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Technology Mapping : Time (s): cpu = 00:04:51 ; elapsed = 00:04:58 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -902,7 +902,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:04:49 ; elapsed = 00:04:52 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished IO Insertion : Time (s): cpu = 00:04:52 ; elapsed = 00:04:59 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -915,7 +915,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:04:49 ; elapsed = 00:04:52 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Renaming Generated Instances : Time (s): cpu = 00:04:52 ; elapsed = 00:04:59 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -927,25 +927,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:49 ; elapsed = 00:04:52 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:52 ; elapsed = 00:04:59 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:04:49 ; elapsed = 00:04:52 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Renaming Generated Ports : Time (s): cpu = 00:04:52 ; elapsed = 00:04:59 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:04:49 ; elapsed = 00:04:52 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:52 ; elapsed = 00:04:59 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:04:49 ; elapsed = 00:04:52 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:52 ; elapsed = 00:04:59 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -988,17 +988,17 @@ Report Cell Usage:
 |24    |FDRE             |   304|
 +------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:04:49 ; elapsed = 00:04:52 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:52 ; elapsed = 00:04:59 . Memory (MB): peak = 1241.043 ; gain = 930.793
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1258 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:04:40 . Memory (MB): peak = 1247.086 ; gain = 936.555
-Synthesis Optimization Complete : Time (s): cpu = 00:04:49 ; elapsed = 00:04:52 . Memory (MB): peak = 1247.086 ; gain = 936.555
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:04:46 . Memory (MB): peak = 1241.043 ; gain = 930.793
+Synthesis Optimization Complete : Time (s): cpu = 00:04:52 ; elapsed = 00:04:59 . Memory (MB): peak = 1241.043 ; gain = 930.793
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 22 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1247.086 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1241.043 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   DSP48E => DSP48E1: 6 instances
@@ -1006,9 +1006,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 126 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:57 ; elapsed = 00:05:01 . Memory (MB): peak = 1247.086 ; gain = 948.754
+synth_design: Time (s): cpu = 00:05:00 ; elapsed = 00:05:08 . Memory (MB): peak = 1241.043 ; gain = 942.957
 INFO: [Coretcl 2-1174] Renamed 121 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1247.086 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1241.043 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FIR_interface_utilization_synth.rpt -pb FIR_interface_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Mar  2 23:22:02 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon Mar  2 23:47:18 2020...
