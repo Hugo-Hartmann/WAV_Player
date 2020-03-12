@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-01-07
+-- Last update: 2020-03-05
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -29,10 +29,10 @@ use IEEE.numeric_std.all;
 --------------------------------------------------------------------------------
 entity UART_Tx is
     generic(
-        G_SPEED         : INTEGER := 3686400;                        -- speed in baud
+        G_SPEED         : INTEGER := 3686400;                       -- speed in baud
         G_N_BITS        : INTEGER := 8;                             -- number of bits transmitted
-        G_PARITY_BIT    : INTEGER := 1;                             -- use parity bit
-        G_PARIY_EVEN    : INTEGER := 1                              -- select even/odd parity
+        G_PARITY_BIT    : INTEGER := 1;                             -- use parity bit (1 or 0)
+        G_PARIY_EVEN    : INTEGER := 1                              -- select even/odd parity (1 or 0)
         );
     port(
     
@@ -123,11 +123,11 @@ begin
     --------------------------------------------------------------------------------
     P_bit_count : process(clk, reset_n)
     begin
-        if(reset_n='0') then       -- start + bits + parity + stop (even when parity is not enabled)
-            bit_counter <= to_unsigned(1+G_N_BITS+1+1, bit_counter'length);
+        if(reset_n='0') then       -- start + bits + parity + stop
+            bit_counter <= to_unsigned(1+G_N_BITS+G_PARITY_BIT+1, bit_counter'length);
         elsif(rising_edge(clk)) then
             if(counter_set='1') then
-                bit_counter <= to_unsigned(1+G_N_BITS+1+1, bit_counter'length);
+                bit_counter <= to_unsigned(1+G_N_BITS+G_PARITY_BIT+1, bit_counter'length);
             elsif(end_count='1') then
                 bit_counter <= bit_counter - 1;
             end if;
@@ -144,18 +144,39 @@ begin
     -- SEQ PROCESS : P_reg_data
     -- Description : Tx output register
     --------------------------------------------------------------------------------
-    P_reg_data : process(clk, reset_n)
-    begin
-        if(reset_n='0') then
-            Tx_data <= (others => '1');
-        elsif(rising_edge(clk)) then
-            if(data_load='1') then
-                Tx_data <= parity_bit & Tx_in & '0'; -- parity + bits + start
-            elsif(end_count='1') then
-                Tx_data <= '1' & Tx_data(Tx_data'high downto 1);
+    PARITY : if G_PARITY_BIT=1 generate
+    
+        P_reg_data : process(clk, reset_n)
+        begin
+            if(reset_n='0') then
+                Tx_data <= (others => '1');
+            elsif(rising_edge(clk)) then
+                if(data_load='1') then
+                    Tx_data <= parity_bit & Tx_in & '0'; -- parity + bits + start
+                elsif(end_count='1') then
+                    Tx_data <= '1' & Tx_data(Tx_data'high downto 1);
+                end if;
             end if;
-        end if;
-    end process;
+        end process;
+        
+    end generate PARITY;
+
+    NO_PARITY : if G_PARITY_BIT=0 generate
+    
+        P_reg_data : process(clk, reset_n)
+        begin
+            if(reset_n='0') then
+                Tx_data <= (others => '1');
+            elsif(rising_edge(clk)) then
+                if(data_load='1') then
+                    Tx_data <= Tx_in & '0'; -- bits + start
+                elsif(end_count='1') then
+                    Tx_data <= '1' & Tx_data(Tx_data'high downto 1);
+                end if;
+            end if;
+        end process;
+        
+    end generate NO_PARITY;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
