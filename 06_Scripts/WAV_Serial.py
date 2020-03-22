@@ -1,7 +1,7 @@
 #############################
 ### Python code for handling Serial link
 ### Created     2020-01-07
-### Last update 2020-01-07
+### Last update 2020-02-29
 ### Author      Hugo HARTMANN
 #############################
 
@@ -9,6 +9,9 @@
 import serial
 import serial.tools.list_ports
 import numpy as np
+
+## Serial initialization
+ser = None
 
 ## Functions
 
@@ -28,6 +31,8 @@ def serial_detect():
 # Open the serial
 def serial_open(COMPORT):
 
+    global ser
+
     try:
         ser = serial.Serial(
             port=COMPORT,
@@ -37,13 +42,15 @@ def serial_open(COMPORT):
             timeout=1,
             bytesize=serial.EIGHTBITS
         )
-        return ser, 0
+        return 0
 
     except:
-        return None, 1
+        return 1
 
 # Close the serial
-def serial_close(ser):
+def serial_close():
+
+    global ser
 
     try:
         ser.close()
@@ -53,9 +60,10 @@ def serial_close(ser):
     return 0
 
 # Write FFT samping rate
-def serial_wr_FFT_sampling(ser, rate):
+def serial_wr_FFT_sampling(rate):
 
     cmd = [0] # FFT selection
+    global ser
 
     try:
         nb = int(rate)
@@ -73,6 +81,6 @@ def serial_wr_FFT_sampling(ser, rate):
         return 2
 
 # Write volume configuration
-def serial_wr_volume(ser, volume):
+def serial_wr_volume(volume):
     pass
 
