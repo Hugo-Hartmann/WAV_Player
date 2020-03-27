@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Mon Mar  2 23:52:27 2020
+| Date         : Fri Mar 27 19:16:49 2020
 | Host         : DESKTOP-K3B0LAI running 64-bit major release  (build 9200)
 | Command      : report_drc -file TOP_drc_routed.rpt -pb TOP_drc_routed.pb -rpx TOP_drc_routed.rpx
 | Design       : TOP
@@ -267,7 +267,7 @@ Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-37 net(s) have no routable loads. The problem bus(es) and/or net(s) are U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb (the first 15 of 37 listed).
+37 net(s) have no routable loads. The problem bus(es) and/or net(s) are U_Audio_Interface/U_FIFO_32bit_MOSI/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_Interface/U_FIFO_32bit_MISO/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, U_Audio_channel_right/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, U_Audio_channel_left/U_FFT_Wrapper/U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb (the first 15 of 37 listed).
 Related violations: <none>
 
 AVAL-4#1 Advisory
@@ -412,17 +412,17 @@ Related violations: <none>
 
 REQP-31#1 Advisory
 enum_PREG_0_connects_CEP_GND  
-U_Audio_channel_left/U_EQ_stage/GEN_EQ[2].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
+U_Audio_channel_left/U_EQ_stage/GEN_EQ[3].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
 Related violations: <none>
 
 REQP-31#2 Advisory
 enum_PREG_0_connects_CEP_GND  
-U_Audio_channel_left/U_EQ_stage/GEN_EQ[5].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
+U_Audio_channel_left/U_EQ_stage/GEN_EQ[4].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
 Related violations: <none>
 
 REQP-31#3 Advisory
 enum_PREG_0_connects_CEP_GND  
-U_Audio_channel_right/U_EQ_stage/GEN_EQ[1].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
+U_Audio_channel_left/U_EQ_stage/GEN_EQ[5].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
 Related violations: <none>
 
 REQP-31#4 Advisory
@@ -432,7 +432,7 @@ Related violations: <none>
 
 REQP-31#5 Advisory
 enum_PREG_0_connects_CEP_GND  
-U_Audio_channel_right/U_EQ_stage/GEN_EQ[4].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
+U_Audio_channel_right/U_EQ_stage/GEN_EQ[5].U_EQ_volume/U_Mult/U0/i_mult/gDSP.gDSP_only.iDSP/inferred_dsp.use_p_reg.p_reg_reg: When the DSP48E1 PREG attribute is set to 0, the CEP input pin should be tied to GND to save power.
 Related violations: <none>
 
 

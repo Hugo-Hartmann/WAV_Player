@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Mon Mar  2 23:52:34 2020
+| Date             : Fri Mar 27 19:16:57 2020
 | Host             : DESKTOP-K3B0LAI running 64-bit major release  (build 9200)
 | Command          : report_power -file TOP_power_routed.rpt -pb TOP_power_summary_routed.pb -rpx TOP_power_routed.rpx
 | Design           : TOP
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.930        |
+| Total On-Chip Power (W)  | 0.867        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.854        |
+| Dynamic (W)              | 0.791        |
 | Device Static (W)        | 0.076        |
 | Effective TJA (C/W)      | 4.9          |
-| Max Ambient (C)          | 80.4         |
-| Junction Temperature (C) | 29.6         |
+| Max Ambient (C)          | 80.7         |
+| Junction Temperature (C) | 29.3         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,22 +52,22 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.075 |        9 |       --- |             --- |
-| Slice Logic              |     0.076 |    15603 |       --- |             --- |
-|   LUT as Logic           |     0.057 |     4506 |     32600 |           13.82 |
-|   Register               |     0.011 |     7982 |     65200 |           12.24 |
+| Clocks                   |     0.077 |        9 |       --- |             --- |
+| Slice Logic              |     0.072 |    15611 |       --- |             --- |
+|   LUT as Logic           |     0.053 |     4517 |     32600 |           13.86 |
+|   Register               |     0.011 |     7974 |     65200 |           12.23 |
 |   CARRY4                 |     0.005 |      560 |      8150 |            6.87 |
-|   LUT as Shift Register  |     0.002 |      118 |      9600 |            1.23 |
+|   LUT as Shift Register  |     0.002 |      120 |      9600 |            1.25 |
 |   LUT as Distributed RAM |     0.001 |       80 |      9600 |            0.83 |
 |   F7/F8 Muxes            |    <0.001 |       42 |     32600 |            0.13 |
-|   Others                 |     0.000 |      954 |       --- |             --- |
-| Signals                  |     0.149 |    12562 |       --- |             --- |
-| Block RAM                |     0.243 |       41 |        75 |           54.67 |
+|   Others                 |     0.000 |      956 |       --- |             --- |
+| Signals                  |     0.145 |    12560 |       --- |             --- |
+| Block RAM                |     0.187 |       41 |        75 |           54.67 |
 | MMCM                     |     0.204 |        2 |         5 |           40.00 |
 | DSPs                     |     0.106 |       54 |       120 |           45.00 |
 | I/O                      |    <0.001 |       32 |       210 |           15.24 |
 | Static Power             |     0.076 |          |           |                 |
-| Total                    |     0.930 |          |           |                 |
+| Total                    |     0.867 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,7 +77,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.645 |       0.632 |      0.012 |
+| Vccint    |       1.000 |     0.586 |       0.574 |      0.012 |
 | Vccaux    |       1.800 |     0.126 |       0.113 |      0.013 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -86,7 +86,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.019 |       0.018 |      0.001 |
+| Vccbram   |       1.000 |     0.015 |       0.014 |      0.001 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
 +-----------+-------------+-----------+-------------+------------+
 
@@ -149,7 +149,7 @@ Table of Contents
 +----------------------------------+-----------+
 | Name                             | Power (W) |
 +----------------------------------+-----------+
-| TOP                              |     0.854 |
+| TOP                              |     0.791 |
 |   MMCM_GEN.U_MMCM                |     0.106 |
 |     inst                         |     0.106 |
 |   MMCM_GEN_112.U_MMCM_112        |     0.099 |
@@ -159,30 +159,30 @@ Table of Contents
 |       U0                         |     0.003 |
 |     U_FIFO_32bit_MOSI            |     0.003 |
 |       U0                         |     0.003 |
-|   U_Audio_channel_left           |     0.320 |
+|   U_Audio_channel_left           |     0.286 |
 |     U_EQ_stage                   |     0.047 |
 |       GEN_EQ[0].U_EQ_volume      |     0.005 |
-|       GEN_EQ[1].U_EQ_volume      |     0.006 |
+|       GEN_EQ[1].U_EQ_volume      |     0.005 |
 |       GEN_EQ[2].U_EQ_volume      |     0.006 |
 |       GEN_EQ[3].U_EQ_volume      |     0.006 |
 |       GEN_EQ[4].U_EQ_volume      |     0.006 |
-|       GEN_EQ[5].U_EQ_volume      |     0.006 |
+|       GEN_EQ[5].U_EQ_volume      |     0.007 |
 |       U_EQ_volume_ctrl           |     0.002 |
 |       U_EQ_volume_input          |     0.004 |
 |       U_EQ_volume_output         |     0.005 |
-|     U_FFT_Wrapper                |     0.114 |
+|     U_FFT_Wrapper                |     0.079 |
 |       U_FFT_FSM                  |     0.003 |
-|       U_FFT_RAM_Wrapper          |     0.074 |
-|       U_FFT_UAL                  |     0.034 |
+|       U_FFT_RAM_Wrapper          |     0.041 |
+|       U_FFT_UAL                  |     0.032 |
 |       U_FIFO_addrA               |     0.001 |
 |       U_FIFO_addrB               |     0.001 |
 |     U_FIR_interface              |     0.057 |
-|       GEN_FILTER[0].U_FIR_filter |     0.010 |
+|       GEN_FILTER[0].U_FIR_filter |     0.009 |
 |       GEN_FILTER[1].U_FIR_filter |     0.008 |
-|       GEN_FILTER[2].U_FIR_filter |     0.008 |
+|       GEN_FILTER[2].U_FIR_filter |     0.009 |
 |       GEN_FILTER[3].U_FIR_filter |     0.008 |
 |       GEN_FILTER[4].U_FIR_filter |     0.008 |
-|       GEN_FILTER[5].U_FIR_filter |     0.008 |
+|       GEN_FILTER[5].U_FIR_filter |     0.009 |
 |       RAM.U_RAM                  |     0.004 |
 |     U_NRM_Wrapper                |     0.053 |
 |       U_NRM_FSM                  |     0.001 |
@@ -190,7 +190,7 @@ Table of Contents
 |       U_NRM_RAM_Wrapper          |     0.016 |
 |     U_VGA_interface              |     0.005 |
 |       BRAM.U_BRAM                |     0.001 |
-|     U_VU_metre                   |     0.044 |
+|     U_VU_metre                   |     0.043 |
 |       GEN_RAM[0].U_RAM           |     0.005 |
 |       GEN_RAM[1].U_RAM           |     0.005 |
 |       GEN_RAM[2].U_RAM           |     0.005 |
@@ -200,36 +200,36 @@ Table of Contents
 |       GEN_RAM[6].U_RAM           |     0.005 |
 |       GEN_RAM[7].U_RAM           |     0.005 |
 |       U_VU_stage                 |     0.002 |
-|   U_Audio_channel_right          |     0.317 |
+|   U_Audio_channel_right          |     0.288 |
 |     U_EQ_stage                   |     0.047 |
 |       GEN_EQ[0].U_EQ_volume      |     0.005 |
 |       GEN_EQ[1].U_EQ_volume      |     0.006 |
 |       GEN_EQ[2].U_EQ_volume      |     0.006 |
 |       GEN_EQ[3].U_EQ_volume      |     0.006 |
 |       GEN_EQ[4].U_EQ_volume      |     0.006 |
-|       GEN_EQ[5].U_EQ_volume      |     0.006 |
+|       GEN_EQ[5].U_EQ_volume      |     0.007 |
 |       U_EQ_volume_ctrl           |     0.002 |
 |       U_EQ_volume_input          |     0.004 |
 |       U_EQ_volume_output         |     0.005 |
-|     U_FFT_Wrapper                |     0.112 |
+|     U_FFT_Wrapper                |     0.080 |
 |       U_FFT_FSM                  |     0.003 |
-|       U_FFT_RAM_Wrapper          |     0.073 |
-|       U_FFT_UAL                  |     0.032 |
+|       U_FFT_RAM_Wrapper          |     0.040 |
+|       U_FFT_UAL                  |     0.033 |
 |       U_FIFO_addrA               |     0.001 |
 |       U_FIFO_addrB               |     0.001 |
-|     U_FIR_interface              |     0.057 |
-|       GEN_FILTER[0].U_FIR_filter |     0.009 |
-|       GEN_FILTER[1].U_FIR_filter |     0.008 |
-|       GEN_FILTER[2].U_FIR_filter |     0.009 |
+|     U_FIR_interface              |     0.060 |
+|       GEN_FILTER[0].U_FIR_filter |     0.010 |
+|       GEN_FILTER[1].U_FIR_filter |     0.009 |
+|       GEN_FILTER[2].U_FIR_filter |     0.008 |
 |       GEN_FILTER[3].U_FIR_filter |     0.008 |
-|       GEN_FILTER[4].U_FIR_filter |     0.009 |
-|       GEN_FILTER[5].U_FIR_filter |     0.008 |
+|       GEN_FILTER[4].U_FIR_filter |     0.008 |
+|       GEN_FILTER[5].U_FIR_filter |     0.009 |
 |       RAM.U_RAM                  |     0.004 |
 |     U_NRM_Wrapper                |     0.052 |
 |       U_NRM_FSM                  |     0.001 |
 |       U_NRM_Normalizer           |     0.035 |
 |       U_NRM_RAM_Wrapper          |     0.016 |
-|     U_VGA_interface              |     0.004 |
+|     U_VGA_interface              |     0.005 |
 |       BRAM.U_BRAM                |     0.001 |
 |     U_VU_metre                   |     0.043 |
 |       GEN_RAM[0].U_RAM           |     0.005 |

@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="48285665000fs"></ZoomStartTime>
-      <ZoomEndTime time="48343165001fs"></ZoomEndTime>
-      <Cursor1Time time="48329065000fs"></Cursor1Time>
+      <ZoomStartTime time="4741791666fs"></ZoomStartTime>
+      <ZoomEndTime time="4815991667fs"></ZoomEndTime>
+      <Cursor1Time time="4803625000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="258"></NameColumnWidth>
-      <ValueColumnWidth column_width="142"></ValueColumnWidth>
+      <ValueColumnWidth column_width="134"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="8" />
    <wvobject fp_name="/FFT_Wrapper_tb/clk" type="logic">
@@ -151,6 +151,10 @@
          <obj_property name="ObjectShortName">RAM_dinB_i[15:0]</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_addr_valid" type="logic">
+         <obj_property name="ElementShortName">FFT_addr_valid</obj_property>
+         <obj_property name="ObjectShortName">FFT_addr_valid</obj_property>
+      </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_done" type="logic">
          <obj_property name="ElementShortName">FFT_done</obj_property>
          <obj_property name="ObjectShortName">FFT_done</obj_property>
@@ -158,26 +162,35 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_addrA_r" type="array">
          <obj_property name="ElementShortName">FFT_addrA_r[10:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrA_r[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_addrB_r" type="array">
          <obj_property name="ElementShortName">FFT_addrB_r[10:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrB_r[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_addrC_r" type="array">
          <obj_property name="ElementShortName">FFT_addrC_r[9:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrC_r[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_addrA_w" type="array">
          <obj_property name="ElementShortName">FFT_addrA_w[10:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrA_w[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_addrB_w" type="array">
          <obj_property name="ElementShortName">FFT_addrB_w[10:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrB_w[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_new_sample" type="logic">
          <obj_property name="ElementShortName">FFT_new_sample</obj_property>
          <obj_property name="ObjectShortName">FFT_new_sample</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_start" type="logic">
+         <obj_property name="ElementShortName">FFT_start</obj_property>
+         <obj_property name="ObjectShortName">FFT_start</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_doutA_r" type="array">
          <obj_property name="ElementShortName">RAM_doutA_r[15:0]</obj_property>
@@ -265,7 +278,6 @@
    <wvobject fp_name="group82" type="group">
       <obj_property name="label">FSM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/current_state" type="other">
          <obj_property name="ElementShortName">current_state</obj_property>
          <obj_property name="ObjectShortName">current_state</obj_property>
@@ -403,6 +415,7 @@
    <wvobject fp_name="group115" type="group">
       <obj_property name="label">RAM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/addrA_map" type="array">
          <obj_property name="ElementShortName">addrA_map[10:0]</obj_property>
          <obj_property name="ObjectShortName">addrA_map[10:0]</obj_property>
@@ -414,6 +427,10 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_wrA" type="array">
          <obj_property name="ElementShortName">RAM_smple_wrA[0:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_smple_wrA[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_enA" type="logic">
+         <obj_property name="ElementShortName">RAM_smple_enA</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_enA</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_addrA" type="array">
          <obj_property name="ElementShortName">RAM_smple_addrA[10:0]</obj_property>
@@ -430,6 +447,10 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_wrB" type="array">
          <obj_property name="ElementShortName">RAM_smple_wrB[0:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_smple_wrB[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_enB" type="logic">
+         <obj_property name="ElementShortName">RAM_smple_enB</obj_property>
+         <obj_property name="ObjectShortName">RAM_smple_enB</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_addrB" type="array">
          <obj_property name="ElementShortName">RAM_smple_addrB[10:0]</obj_property>
@@ -451,6 +472,10 @@
          <obj_property name="ElementShortName">RAM_FFTA_wrA[0:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_FFTA_wrA[0:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_enA" type="logic">
+         <obj_property name="ElementShortName">RAM_FFTA_enA</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_enA</obj_property>
+      </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_addrA" type="array">
          <obj_property name="ElementShortName">RAM_FFTA_addrA[10:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_FFTA_addrA[10:0]</obj_property>
@@ -466,6 +491,10 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_wrB" type="array">
          <obj_property name="ElementShortName">RAM_FFTA_wrB[0:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_FFTA_wrB[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_enB" type="logic">
+         <obj_property name="ElementShortName">RAM_FFTA_enB</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTA_enB</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTA_addrB" type="array">
          <obj_property name="ElementShortName">RAM_FFTA_addrB[10:0]</obj_property>
@@ -483,6 +512,10 @@
          <obj_property name="ElementShortName">RAM_FFTB_wrA[0:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_FFTB_wrA[0:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_enA" type="logic">
+         <obj_property name="ElementShortName">RAM_FFTB_enA</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_enA</obj_property>
+      </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_addrA" type="array">
          <obj_property name="ElementShortName">RAM_FFTB_addrA[10:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_FFTB_addrA[10:0]</obj_property>
@@ -499,6 +532,10 @@
          <obj_property name="ElementShortName">RAM_FFTB_wrB[0:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_FFTB_wrB[0:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_enB" type="logic">
+         <obj_property name="ElementShortName">RAM_FFTB_enB</obj_property>
+         <obj_property name="ObjectShortName">RAM_FFTB_enB</obj_property>
+      </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_FFTB_addrB" type="array">
          <obj_property name="ElementShortName">RAM_FFTB_addrB[10:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_FFTB_addrB[10:0]</obj_property>
@@ -514,6 +551,7 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_select" type="array">
          <obj_property name="ElementShortName">RAM_select[1:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_select[1:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_write" type="logic">
          <obj_property name="ElementShortName">FFT_write</obj_property>
@@ -543,18 +581,22 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_dinA_r" type="array">
          <obj_property name="ElementShortName">RAM_dinA_r[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_dinA_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_dinA_i" type="array">
          <obj_property name="ElementShortName">RAM_dinA_i[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_dinA_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_dinB_r" type="array">
          <obj_property name="ElementShortName">RAM_dinB_r[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_dinB_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_dinB_i" type="array">
          <obj_property name="ElementShortName">RAM_dinB_i[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_dinB_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_btfly_done" type="logic">
          <obj_property name="ElementShortName">FFT_btfly_done</obj_property>
@@ -563,46 +605,57 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_addrA_r" type="array">
          <obj_property name="ElementShortName">FFT_addrA_r[10:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrA_r[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_addrB_r" type="array">
          <obj_property name="ElementShortName">FFT_addrB_r[10:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrB_r[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_addrC_r" type="array">
          <obj_property name="ElementShortName">FFT_addrC_r[9:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrC_r[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_addrA_w" type="array">
          <obj_property name="ElementShortName">FFT_addrA_w[10:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrA_w[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_addrB_w" type="array">
          <obj_property name="ElementShortName">FFT_addrB_w[10:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_addrB_w[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_doutA_r" type="array">
          <obj_property name="ElementShortName">RAM_doutA_r[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_doutA_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_doutA_i" type="array">
          <obj_property name="ElementShortName">RAM_doutA_i[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_doutA_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_doutB_r" type="array">
          <obj_property name="ElementShortName">RAM_doutB_r[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_doutB_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_doutB_i" type="array">
          <obj_property name="ElementShortName">RAM_doutB_i[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_doutB_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_doutC_r" type="array">
          <obj_property name="ElementShortName">RAM_doutC_r[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_doutC_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/RAM_doutC_i" type="array">
          <obj_property name="ElementShortName">RAM_doutC_i[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_doutC_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_en" type="logic">
          <obj_property name="ElementShortName">FFT_en</obj_property>

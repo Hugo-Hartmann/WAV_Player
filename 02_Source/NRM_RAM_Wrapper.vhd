@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-09
--- Last update: 2019-02-29
+-- Last update: 2019-03-27
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -73,11 +73,13 @@ architecture RTL of NRM_RAM_Wrapper is
         port(
             clka    : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
+            ena     : in  std_logic;
             addra   : in  std_logic_vector(10 downto 0);
             dina    : in  std_logic_vector(31 downto 0);
             douta   : out std_logic_vector(31 downto 0);
             clkb    : in  std_logic;
             web     : in  std_logic_vector(0 downto 0);
+            enb     : in  std_logic;
             addrb   : in  std_logic_vector(10 downto 0);
             dinb    : in  std_logic_vector(31 downto 0);
             doutb   : out std_logic_vector(31 downto 0)
@@ -109,11 +111,13 @@ begin
         U_RAM_NRM : BRAM_2048_32bit port map(
             clka    => clk,
             wea     => RAM_NRM_wrA,
+            ena     => '1',
             addra   => RAM_NRM_addrA,
             dina    => RAM_NRM_dinA,
             douta   => RAM_NRM_doutA,
             clkb    => clk,
             web     => RAM_NRM_wrB,
+            enb     => '1',
             addrb   => RAM_NRM_addrB,
             dinb    => RAM_NRM_dinB,
             doutb   => RAM_NRM_doutB);

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-25
--- Last update: 2020-03-02
+-- Last update: 2020-03-27
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -46,6 +46,7 @@ entity FFT_RAM_Wrapper is
         RAM_dinB_i      : in  std_logic_vector(15 downto 0);
 
         ------- RAM control ----------------------
+        FFT_addr_valid  : in  std_logic;
         FFT_done        : in  std_logic;
         FFT_addrA_r     : in  std_logic_vector(10 downto 0);
         FFT_addrB_r     : in  std_logic_vector(10 downto 0);
@@ -78,11 +79,13 @@ architecture RTL of FFT_RAM_Wrapper is
         port(
             clka    : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
+            ena     : in  std_logic;
             addra   : in  std_logic_vector(10 downto 0);
             dina    : in  std_logic_vector(31 downto 0);
             douta   : out std_logic_vector(31 downto 0);
             clkb    : in  std_logic;
             web     : in  std_logic_vector(0 downto 0);
+            enb     : in  std_logic;
             addrb   : in  std_logic_vector(10 downto 0);
             dinb    : in  std_logic_vector(31 downto 0);
             doutb   : out std_logic_vector(31 downto 0)
@@ -93,11 +96,13 @@ architecture RTL of FFT_RAM_Wrapper is
         port(
             clka    : in  std_logic;
             wea     : in  std_logic_vector(0 downto 0);
+            ena     : in  std_logic;
             addra   : in  std_logic_vector(10 downto 0);
             dina    : in  std_logic_vector(15 downto 0);
             douta   : out std_logic_vector(15 downto 0);
             clkb    : in  std_logic;
             web     : in  std_logic_vector(0 downto 0);
+            enb     : in  std_logic;
             addrb   : in  std_logic_vector(10 downto 0);
             dinb    : in  std_logic_vector(15 downto 0);
             doutb   : out std_logic_vector(15 downto 0)
@@ -118,27 +123,33 @@ architecture RTL of FFT_RAM_Wrapper is
     signal addrA_map            : unsigned(10 downto 0);
     signal addrB_map            : unsigned(10 downto 0);
     signal RAM_smple_wrA        : std_logic_vector(0 downto 0);
+    signal RAM_smple_enA        : std_logic;
     signal RAM_smple_addrA      : std_logic_vector(10 downto 0);
     signal RAM_smple_dinA       : std_logic_vector(15 downto 0);
     signal RAM_smple_doutA      : std_logic_vector(15 downto 0);
     signal RAM_smple_wrB        : std_logic_vector(0 downto 0);
+    signal RAM_smple_enB        : std_logic;
     signal RAM_smple_addrB      : std_logic_vector(10 downto 0);
     signal RAM_smple_dinB       : std_logic_vector(15 downto 0);
     signal RAM_smple_doutB      : std_logic_vector(15 downto 0);
     signal addr_counter         : unsigned(10 downto 0);
     signal RAM_FFTA_wrA         : std_logic_vector(0 downto 0);
+    signal RAM_FFTA_enA         : std_logic;
     signal RAM_FFTA_addrA       : std_logic_vector(10 downto 0);
     signal RAM_FFTA_dinA        : std_logic_vector(31 downto 0);
     signal RAM_FFTA_doutA       : std_logic_vector(31 downto 0);
     signal RAM_FFTA_wrB         : std_logic_vector(0 downto 0);
+    signal RAM_FFTA_enB         : std_logic;
     signal RAM_FFTA_addrB       : std_logic_vector(10 downto 0);
     signal RAM_FFTA_dinB        : std_logic_vector(31 downto 0);
     signal RAM_FFTA_doutB       : std_logic_vector(31 downto 0);
     signal RAM_FFTB_wrA         : std_logic_vector(0 downto 0);
+    signal RAM_FFTB_enA         : std_logic;
     signal RAM_FFTB_addrA       : std_logic_vector(10 downto 0);
     signal RAM_FFTB_dinA        : std_logic_vector(31 downto 0);
     signal RAM_FFTB_doutA       : std_logic_vector(31 downto 0);
     signal RAM_FFTB_wrB         : std_logic_vector(0 downto 0);
+    signal RAM_FFTB_enB         : std_logic;
     signal RAM_FFTB_addrB       : std_logic_vector(10 downto 0);
     signal RAM_FFTB_dinB        : std_logic_vector(31 downto 0);
     signal RAM_FFTB_doutB       : std_logic_vector(31 downto 0);
@@ -154,6 +165,12 @@ architecture RTL of FFT_RAM_Wrapper is
     signal RAM_FFTB_doutB_d     : std_logic_vector(31 downto 0);
     signal RAM_smple_doutA_d    : std_logic_vector(15 downto 0);
     signal RAM_smple_doutB_d    : std_logic_vector(15 downto 0);
+    signal RAM_smple_rdA        : std_logic;
+    signal RAM_smple_rdB        : std_logic;
+    signal RAM_FFTA_rdA         : std_logic;
+    signal RAM_FFTA_rdB         : std_logic;
+    signal RAM_FFTB_rdA         : std_logic;
+    signal RAM_FFTB_rdB         : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -182,6 +199,17 @@ begin
     addrA_map   <= unsigned(FFT_addrA_r) + addr_counter;
     addrB_map   <= unsigned(FFT_addrB_r) + addr_counter;
 
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Creating enable signals for RAMs
+    --------------------------------------------------------------------------------
+    RAM_smple_enA   <= RAM_smple_rdA OR RAM_smple_wrA(0);
+    RAM_smple_enB   <= RAM_smple_rdB OR RAM_smple_wrB(0);
+    RAM_FFTA_enA    <= RAM_FFTA_rdA OR RAM_FFTA_wrA(0);
+    RAM_FFTA_enB    <= RAM_FFTA_rdB OR RAM_FFTA_wrB(0);
+    RAM_FFTB_enA    <= RAM_FFTB_rdA OR RAM_FFTB_wrA(0);
+    RAM_FFTB_enB    <= RAM_FFTB_rdB OR RAM_FFTB_wrB(0);
+
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM_Sample
     -- Description : Contains last 2048 Audio samples (always up-to-date)
@@ -190,11 +218,13 @@ begin
         U_RAM_Sample : BRAM_2048_16bit port map(
             clka    => clk,
             wea     => RAM_smple_wrA,
+            ena     => RAM_smple_enA,
             addra   => RAM_smple_addrA,
             dina    => RAM_smple_dinA,
             douta   => RAM_smple_doutA,
             clkb    => clk,
             web     => RAM_smple_wrB,
+            enb     => RAM_smple_enB,
             addrb   => RAM_smple_addrB,
             dinb    => RAM_smple_dinB,
             doutb   => RAM_smple_doutB);
@@ -228,11 +258,13 @@ begin
         U_RAM_FFTA : BRAM_2048_32bit port map(
             clka    => clk,
             wea     => RAM_FFTA_wrA,
+            ena     => RAM_FFTA_enA,
             addra   => RAM_FFTA_addrA,
             dina    => RAM_FFTA_dinA,
             douta   => RAM_FFTA_doutA,
             clkb    => clk,
             web     => RAM_FFTA_wrB,
+            enb     => RAM_FFTA_enB,
             addrb   => RAM_FFTA_addrB,
             dinb    => RAM_FFTA_dinB,
             doutb   => RAM_FFTA_doutB);
@@ -246,11 +278,13 @@ begin
         U_RAM_FFTB : BRAM_2048_32bit port map(
             clka    => clk,
             wea     => RAM_FFTB_wrA,
+            ena     => RAM_FFTB_enA,
             addra   => RAM_FFTB_addrA,
             dina    => RAM_FFTB_dinA,
             douta   => RAM_FFTB_doutA,
             clkb    => clk,
             web     => RAM_FFTB_wrB,
+            enb     => RAM_FFTB_enB,
             addrb   => RAM_FFTB_addrB,
             dinb    => RAM_FFTB_dinB,
             doutb   => RAM_FFTB_doutB);
@@ -335,6 +369,30 @@ begin
             RAM_FFTB_doutB_d    <= RAM_FFTB_doutB;
             RAM_smple_doutA_d   <= RAM_smple_doutA;
             RAM_smple_doutB_d   <= RAM_smple_doutB;
+
+            --- RAM enables
+            if(RAM_select="10") then
+                RAM_smple_rdA   <= FFT_addr_valid;
+                RAM_smple_rdB   <= FFT_addr_valid;
+                RAM_FFTA_rdA    <= '0';
+                RAM_FFTA_rdB    <= '0';
+                RAM_FFTB_rdA    <= '0';
+                RAM_FFTB_rdB    <= '0';
+            elsif(RAM_select="01") then
+                RAM_smple_rdA   <= '0';
+                RAM_smple_rdB   <= '0';
+                RAM_FFTA_rdA    <= FFT_addr_valid;
+                RAM_FFTA_rdB    <= FFT_addr_valid;
+                RAM_FFTB_rdA    <= '0';
+                RAM_FFTB_rdB    <= '0';
+            else
+                RAM_smple_rdA   <= '0';
+                RAM_smple_rdB   <= '0';
+                RAM_FFTA_rdA    <= '0';
+                RAM_FFTA_rdB    <= '0';
+                RAM_FFTB_rdA    <= FFT_addr_valid;
+                RAM_FFTB_rdB    <= FFT_addr_valid;
+            end if;
 
         end if;
     end process;

@@ -60,7 +60,7 @@ architecture RTL of FFT_FSM is
     --------------------------------------------------------------------------------
     type FFT_STATE is (FFT_RESET, FFT_IDLE, FFT_WAIT_SAMPLE, FFT_NEW_STAGE, FFT_WAIT_PIPE, FFT_ADDR_START1,
                        FFT_ADDR_START2, FFT_ADDR_START3, FFT_ADDR_START4, FFT_ADDR_START5, FFT_ADDR_LOOP,
-                       FFT_ADDR_END1, FFT_ADDR_END2, FFT_ADDR_END3, FFT_PIPE_UNLOAD, FFT_END);
+                       FFT_ADDR_END1, FFT_ADDR_END2, FFT_ADDR_END3, FFT_ADDR_END4, FFT_PIPE_UNLOAD, FFT_END);
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
@@ -391,6 +391,10 @@ begin
                 next_state  <= FFT_ADDR_END3;
 
             when FFT_ADDR_END3 =>
+                FFT_en      <= '1';
+                next_state  <= FFT_ADDR_END4;
+
+            when FFT_ADDR_END4 =>
                 FFT_en      <= '1';
                 next_state  <= FFT_PIPE_UNLOAD;
 

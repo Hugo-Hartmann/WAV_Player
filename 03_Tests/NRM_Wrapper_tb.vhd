@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-27
--- Last update: 2020-03-01
+-- Last update: 2020-03-27
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -193,6 +193,7 @@ begin
         Wait_cycles(5);
         wait until(rising_edge(clk));
 
+        FFT_start       <= '0';
         NRM_start       <= '1';
         Wait_cycles(1);
 

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2020-03-01
+-- Last update: 2020-03-27
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -100,6 +100,7 @@ architecture RTL of FFT_Wrapper is
             FFT_addrC_r     : in  std_logic_vector(9 downto 0);
             FFT_addrA_w     : in  std_logic_vector(10 downto 0);
             FFT_addrB_w     : in  std_logic_vector(10 downto 0);
+            FFT_addr_valid  : in  std_logic;
             FFT_new_sample  : in  std_logic;
             FFT_start       : in  std_logic;
             RAM_doutA_r     : out std_logic_vector(15 downto 0);
@@ -238,6 +239,7 @@ begin
         FFT_addrC_r     => FFT_addrC_r,
         FFT_addrA_w     => FFT_addrA_w,
         FFT_addrB_w     => FFT_addrB_w,
+        FFT_addr_valid  => FFT_addr_valid,
         FFT_new_sample  => FFT_new_sample_dd,
         FFT_start       => FFT_start,
         RAM_doutA_r     => RAM_doutA_r,

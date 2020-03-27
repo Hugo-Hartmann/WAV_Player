@@ -55,11 +55,13 @@
 COMPONENT BRAM_2048_16bit
   PORT (
     clka : IN STD_LOGIC;
+    ena : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     addra : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     dina : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     douta : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     clkb : IN STD_LOGIC;
+    enb : IN STD_LOGIC;
     web : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     addrb : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     dinb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -75,11 +77,13 @@ END COMPONENT;
 your_instance_name : BRAM_2048_16bit
   PORT MAP (
     clka => clka,
+    ena => ena,
     wea => wea,
     addra => addra,
     dina => dina,
     douta => douta,
     clkb => clkb,
+    enb => enb,
     web => web,
     addrb => addrb,
     dinb => dinb,

@@ -8,7 +8,6 @@ Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
 Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram3.U_RAM_COEF.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-blk_mem_gen_v8_4_2 collision detected at time: 39355, Instance: FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst, A write address: 0, B  read address: 0
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
 Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
@@ -17,7 +16,10 @@ Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
 Block Memory Generator module FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram3.U_RAM_COEF.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-blk_mem_gen_v8_4_2 collision detected at time: 39355, Instance: FFT_Wrapper_tb.U_FFT_Wrapper.U_FFT_RAM_Wrapper.ram0.U_RAM_Sample.inst.native_mem_module.blk_mem_gen_v8_4_2_inst, A write address: 0, B  read address: 0
 Failure: Assertion violation
-Time: 53099155 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
-$finish called at time : 53099155 ps : File "C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 148
+Time: 53150085 ps  Iteration: 0  Process: /FFT_Wrapper_tb/line__125  File: C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd
+$finish called at time : 53150085 ps : File "C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/FFT_Wrapper_tb.vhd" Line 149
+_RAM_Wrapper.ram3.U_RAM_COEF.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Failure: Assertion violation
+Time: 69493985 ps  Iteration: 0  Process: /NRM_Wrapper_tb/line__178  File: C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/NRM_Wrapper_tb.vhd
+$finish called at time : 69493985 ps : File "C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/NRM_Wrapper_tb.vhd" Line 227
