@@ -54,7 +54,7 @@ def write_FFT_zoom(slider_FFT, lbl_status_FFT, FONT):
     else:
         lbl_status_FFT.configure(text="Done.", font=(FONT, 10), foreground="green")
 
-def update_zoom_level(zoom, lbl_level_FFT, FONT):
+def update_zoom_level(lbl_level_FFT, FONT, zoom):
 
     zoom = int(round(float(zoom), 0))
 

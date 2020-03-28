@@ -9,6 +9,7 @@
 from tkinter import *
 from tkinter.ttk import *
 from WAV_Serial import *
+from WAV_Utils import *
 from functools import partial
 
 ## Global parameters
@@ -32,26 +33,30 @@ lbl_title_COM.grid(column=0, row=0, columnspan=2)
 
 # Port select
 combo_COM = Combobox(group_COM)
+combo_COM.grid(column=0, row=1, columnspan=2)
+
+# Label status (Connected)
+lbl_status_COM = Label(group_COM, text="", font=(FONT, 10))
+lbl_status_COM.grid(column=0, row=3, columnspan=2)
+
+# Refresh port list button
+btn_refresh_COM = Button(group_COM, text="Refresh")
+btn_refresh_COM.grid(column=0, row=2, sticky=W)
+
+# Connect to port button
+btn_connect_COM = Button(group_COM, text="Connect")
+btn_connect_COM.grid(column=1, row=2, sticky=W)
 
 # Partial function definitions
 p_refresh_COM = partial(refresh_COM, combo_COM)
 p_connect_COM = partial(connect_COM, combo_COM, lbl_status_COM, FONT)
 
-# Port select (continued)
+# Configure commands
+btn_refresh_COM.configure(command=p_refresh_COM)
+btn_connect_COM.configure(command=p_connect_COM)
+
+# Initialize COM list
 p_refresh_COM()
-combo_COM.grid(column=0, row=1, columnspan=2)
-
-# Refresh port list button
-btn_refresh_COM = Button(group_COM, text="Refresh", command=p_refresh_COM)
-btn_refresh_COM.grid(column=0, row=2, sticky=W)
-
-# Connect to port button
-btn_connect_COM = Button(group_COM, text="Connect", command=p_connect_COM)
-btn_connect_COM.grid(column=1, row=2, sticky=W)
-
-# Label status (Connected)
-lbl_status_COM = Label(group_COM, text="", font=(FONT, 10))
-lbl_status_COM.grid(column=0, row=3, columnspan=2)
 
 ################################
 ## FFT Zoom
@@ -69,17 +74,24 @@ lbl_level_FFT = Label(group_FFT, text="1", font=(FONT, 10))
 lbl_level_FFT.grid(column=0, row=1, columnspan=1)
 
 # Zoom text field
-slider_FFT = Scale(group_FFT, from_=1, to=50, orient='horizontal', command=update_zoom_level)
+slider_FFT = Scale(group_FFT, from_=1, to=50, orient='horizontal')
 slider_FFT.grid(column=0, row=2, sticky=W)
 
 # Set Zoom level button
-btn_set_FFT = Button(group_FFT, text="Set", command=write_FFT_zoom, width=10)
+btn_set_FFT = Button(group_FFT, text="Set", width=10)
 btn_set_FFT.grid(column=1, row=2, sticky=W)
 
 # Status text for Zoom
 lbl_status_FFT = Label(group_FFT, text="", font=(FONT, 10))
 lbl_status_FFT.grid(column=0, row=3, columnspan=2)
 
+# Partial function definitions
+p_update_zoom_level = partial(update_zoom_level, lbl_level_FFT, FONT) # zoom will be directly passed from the scale
+p_write_FFT_zoom = partial(write_FFT_zoom, slider_FFT, lbl_status_FFT, FONT)
+
+# Configure commands
+slider_FFT.configure(command=p_update_zoom_level)
+btn_set_FFT.configure(command=p_write_FFT_zoom)
 
 ################################
 ## Main
