@@ -15,12 +15,19 @@ from WAV_Serial import *
 # Refresh port COM list
 def refresh_COM(combo_COM):
 
-    combo_COM.set('') # Clear the text field
+    # Clear list
+    while(combo_COM.count()>0):
+        combo_COM.removeItem(combo_COM.count()-1)
+
+    # Get current COM ports available
     port_list = serial_detect()
-    combo_COM['values'] = port_list # Set new port list
+
+    # Add COM ports to combobox
+    for COM_port in port_list:
+        combo_COM.addItem(COM_port)
     
     try:
-        combo_COM.current(0) # If port list not empty, select 1st one in text box
+        combo_COM.setCurrentIndex(0) # If port list not empty, select 1st one in text box
 
     except:
         pass
@@ -28,22 +35,22 @@ def refresh_COM(combo_COM):
 # Connect Serial to port COM
 def connect_COM(combo_COM, lbl_status_COM, FONT):
 
-    COMPORT = combo_COM.get()
+    COMPORT = combo_COM.currentText()
 
     serial_close()
     fail = serial_open(COMPORT)
 
     if(fail):
-        lbl_status_COM.configure(text="Failed!", font=(FONT, 10), foreground="red")
+        lbl_status_COM.setText("<font color='Red'>Failed!</font>")
     else:
-        lbl_status_COM.configure(text="Connected!", font=(FONT, 10), foreground="green")
+        lbl_status_COM.setText("<font color='Green'>Connected!</font>")
 
 ################################
 ## FFT Zoom
 ################################
 
 # Configure FFT Zoom level
-def write_FFT_zoom(slider_FFT, lbl_status_FFT, FONT):
+def write_FFT_zoom(btn_connect_COM, slider_FFT, lbl_status_FFT, FONT):
 
     zoom = slider_FFT.get() # Get field value
     zoom = int(round(float(zoom), 0))
@@ -51,6 +58,7 @@ def write_FFT_zoom(slider_FFT, lbl_status_FFT, FONT):
     
     if(fail):
         lbl_status_FFT.configure(text="Serial not connected!", font=(FONT, 10), foreground="red")
+        btn_connect_COM.flash()
     else:
         lbl_status_FFT.configure(text="Done.", font=(FONT, 10), foreground="green")
 

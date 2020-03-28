@@ -1,7 +1,7 @@
 #############################
 ### Python code for handling Serial link
 ### Created     2020-01-07
-### Last update 2020-02-29
+### Last update 2020-03-28
 ### Author      Hugo HARTMANN
 #############################
 
