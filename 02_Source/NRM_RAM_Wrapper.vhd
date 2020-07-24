@@ -56,7 +56,10 @@ entity NRM_RAM_Wrapper is
         RAM_doutA_r     : out std_logic_vector(15 downto 0);
         RAM_doutA_i     : out std_logic_vector(15 downto 0);
         RAM_doutB_r     : out std_logic_vector(15 downto 0);
-        RAM_doutB_i     : out std_logic_vector(15 downto 0)
+        RAM_doutB_i     : out std_logic_vector(15 downto 0);
+
+        RAM_en          : in  std_logic;
+        RAM_rdy         : out std_logic
 
         );
 end NRM_RAM_Wrapper;
@@ -65,6 +68,11 @@ end NRM_RAM_Wrapper;
 -- ARCHITECTURE DECLARATION
 --------------------------------------------------------------------------------
 architecture RTL of NRM_RAM_Wrapper is
+
+    --------------------------------------------------------------------------------
+    -- TYPE DECLARATIONS
+    --------------------------------------------------------------------------------
+    type T_EN is array (0 to 2) of std_logic;
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
@@ -89,6 +97,7 @@ architecture RTL of NRM_RAM_Wrapper is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
+    signal NRM_en_d         : T_EN;
     signal RAM_NRM_wrA      : std_logic_vector(0 downto 0);
     signal RAM_NRM_addrA    : std_logic_vector(10 downto 0);
     signal RAM_NRM_dinA     : std_logic_vector(31 downto 0);
@@ -102,6 +111,30 @@ architecture RTL of NRM_RAM_Wrapper is
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_NRM_en_d
+    -- Description : Enable pipeline
+    --------------------------------------------------------------------------------
+    P_NRM_en_d : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            for i in 0 to NRM_en_d'high loop
+                NRM_en_d(i) <= '0';
+            end loop;
+        elsif(rising_edge(clk)) then
+            NRM_en_d(0) <= RAM_en;
+            for i in 1 to NRM_en_d'high loop
+                NRM_en_d(i) <= NRM_en_d(i-1);
+            end loop;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Map NRM_en_d
+    --------------------------------------------------------------------------------
+    RAM_rdy     <= NRM_en_d(NRM_en_d'high);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM_NRM

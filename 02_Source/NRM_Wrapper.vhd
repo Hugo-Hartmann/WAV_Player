@@ -100,7 +100,9 @@ architecture RTL of NRM_Wrapper is
             RAM_doutA_r     : out std_logic_vector(15 downto 0);
             RAM_doutA_i     : out std_logic_vector(15 downto 0);
             RAM_doutB_r     : out std_logic_vector(15 downto 0);
-            RAM_doutB_i     : out std_logic_vector(15 downto 0)
+            RAM_doutB_i     : out std_logic_vector(15 downto 0);
+            RAM_en          : in  std_logic;
+            RAM_rdy         : out std_logic
             );
     end component;
 
@@ -138,7 +140,8 @@ architecture RTL of NRM_Wrapper is
     signal RAM_doutB_i      : std_logic_vector(15 downto 0);
     signal NRM_addr         : std_logic_vector(10 downto 0);
     signal NRM_open         : std_logic;
-    signal NRM_en           : std_logic;
+    signal NRM_en_out_FSM   : std_logic;
+    signal NRM_en_out_RAM   : std_logic;
     signal NRM_done         : std_logic;
     signal NRM_norm_dout    : std_logic_vector(15 downto 0);
     signal addr_counter     : unsigned(10 downto 0);
@@ -213,7 +216,9 @@ begin
         RAM_doutA_r => RAM_doutA_r,
         RAM_doutA_i => RAM_doutA_i,
         RAM_doutB_r => RAM_doutB_r,
-        RAM_doutB_i => RAM_doutB_i);
+        RAM_doutB_i => RAM_doutB_i,
+        RAM_en      => NRM_en_out_FSM,
+        RAM_rdy     => NRM_en_out_RAM);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_NRM_FSM
@@ -227,7 +232,7 @@ begin
         NRM_new_sample  => NRM_new_sample,
         NRM_loaded      => NRM_loaded,
         NRM_open        => NRM_open,
-        NRM_en          => NRM_en);
+        NRM_en          => NRM_en_out_FSM);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_NRM_Normalizer
@@ -239,7 +244,7 @@ begin
         clk         => clk,
         reset_n     => reset_n,
         NRM_dout    => NRM_norm_dout,
-        NRM_en      => NRM_en,
+        NRM_en      => NRM_en_out_RAM,
         NRM_done    => NRM_done,
         NRM_din_r   => RAM_doutB_r,
         NRM_din_i   => RAM_doutB_i);

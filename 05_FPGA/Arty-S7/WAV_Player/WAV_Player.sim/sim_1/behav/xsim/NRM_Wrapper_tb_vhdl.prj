@@ -56,11 +56,13 @@ vhdl lib_VHDL  \
 vhdl xil_defaultlib  \
 "../../../../../../../02_Source/Audio_Interface.vhd" \
 "../../../../../../../02_Source/Audio_channel.vhd" \
+"../../../../../../../02_Source/PSH_Driver.vhd" \
 "../../../../../../../03_Tests/VGA_RAM_wrapper.vhd" \
 "../../../../../../../03_Tests/VU_wrapper.vhd" \
 "../../../../../../../03_Tests/FFT_Wrapper_tb.vhd" \
 "../../../../../../../03_Tests/NRM_Wrapper_tb.vhd" \
 "../../../../../../../03_Tests/Audio_channel_tb.vhd" \
+"../../../../../../../03_Tests/PSH_Driver_tb.vhd" \
 
 # Do not sort compile order
 nosort

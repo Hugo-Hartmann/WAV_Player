@@ -56,12 +56,12 @@ architecture RTL of NRM_FSM is
     -- TYPE DECLARATIONS
     --------------------------------------------------------------------------------
     type NRM_STATE is (NRM_RESET, NRM_IDLE, NRM_WAIT_SAMPLE, NRM_LOAD_SAMPLE,
-                       NRM_NORM_START1, NRM_NORM_START2, NRM_NORM_START3, NRM_NORM_START4,
                        NRM_NORM_LOOP, NRM_NORM_END);
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
+    signal send_en          : std_logic;
     signal current_state    : NRM_STATE;
     signal next_state       : NRM_STATE;
     signal counter_addr     : unsigned(10 downto 0);
@@ -75,6 +75,19 @@ architecture RTL of NRM_FSM is
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_NRM_en
+    -- Description : Enable pipeline
+    --------------------------------------------------------------------------------
+    P_NRM_en : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            NRM_en  <= '0';
+        elsif(rising_edge(clk)) then
+            NRM_en  <= send_en;
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_counter_addr
@@ -122,7 +135,7 @@ begin
     -- COMBINATORY :
     -- Description : End address signaling
     --------------------------------------------------------------------------------
-    cnt_addr_end    <= '1' when(Addr_d=std_logic_vector(to_unsigned(2047, Addr_d'length))) else '0';
+    cnt_addr_end    <= '1' when(Addr_d=std_logic_vector(to_unsigned(2046, Addr_d'length))) else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_FSM_NRM_sync
@@ -143,7 +156,7 @@ begin
     --------------------------------------------------------------------------------
     P_FSM_NRM_comb : process(current_state, NRM_start, NRM_new_sample, NRM_loaded, cnt_addr_end)
     begin
-        NRM_en          <= '0';
+        send_en         <= '0';
         NRM_open        <= '0';
         cnt_addr_clr    <= '0';
         cnt_addr_inc    <= '0';
@@ -170,30 +183,14 @@ begin
                 NRM_open        <= '1';
                 cnt_addr_clr    <= '1';
                 if(NRM_loaded='1') then
-                    next_state  <= NRM_NORM_START1;
+                    next_state  <= NRM_NORM_LOOP;
                 else
                     next_state  <= NRM_LOAD_SAMPLE;
                 end if;
 
-            when NRM_NORM_START1 =>
-                cnt_addr_inc    <= '1';
-                next_state      <= NRM_NORM_START2;
-
-            when NRM_NORM_START2 =>
-                cnt_addr_inc    <= '1';
-                next_state      <= NRM_NORM_START3;
-
-            when NRM_NORM_START3 =>
-                cnt_addr_inc    <= '1';
-                next_state      <= NRM_NORM_START4;
-
-            when NRM_NORM_START4 =>
-                cnt_addr_inc    <= '1';
-                next_state      <= NRM_NORM_LOOP;
-
             when NRM_NORM_LOOP =>
                 cnt_addr_inc    <= '1';
-                NRM_en          <= '1';
+                send_en         <= '1';
                 if(cnt_addr_end='1') then
                     next_state  <= NRM_NORM_END;
                 else
@@ -201,7 +198,6 @@ begin
                 end if;
 
             when NRM_NORM_END =>
-                NRM_en          <= '1';
                 next_state      <= NRM_IDLE;
 
         end case;
