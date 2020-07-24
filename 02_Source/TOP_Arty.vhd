@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-03-02
+-- Last update: 2020-07-24
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -116,7 +116,10 @@ architecture RTL of TOP is
             Rx              : in  std_logic;
             UART_addr       : out std_logic_vector(7 downto 0);
             UART_write      : out std_logic;
-            UART_dout       : out std_logic_vector(15 downto 0)
+            UART_dout       : out std_logic_vector(15 downto 0);
+            UART_send       : in  std_logic;
+            UART_busy       : out std_logic;
+            UART_din        : in  std_logic_vector(7 downto 0)
             );
     end component;
 
@@ -192,7 +195,26 @@ architecture RTL of TOP is
             VGA_address     : in  std_logic_vector(31 downto 0);
             VGA_v_add       : in  std_logic_vector(15 downto 0);
             VGA_h_add       : in  std_logic_vector(15 downto 0);
-            VGA_din         : out std_logic_vector(11 downto 0)
+            VGA_din         : out std_logic_vector(11 downto 0);
+            WAV_push        : out std_logic_vector(8 downto 0);
+            FFT_push        : out std_logic_vector(16 downto 0);
+            VU_push         : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+            );
+    end component;
+
+    component PSH_Driver is
+        port(
+            clk_108         : in  std_logic;
+            clk_216         : in  std_logic;
+            reset_n         : in  std_logic;
+            VGA_new_frame   : in  std_logic;
+            WAV_push        : in  std_logic_vector(8 downto 0);
+            FFT_push        : in  std_logic_vector(16 downto 0);
+            VU_push         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            UART_send       : out std_logic;
+            UART_busy       : in  std_logic;
+            UART_din        : out std_logic_vector(7 downto 0);
+            PSH_done        : out std_logic
             );
     end component;
 
@@ -209,6 +231,9 @@ architecture RTL of TOP is
     signal UART_dout        : std_logic_vector(15 downto 0);
     signal UART_addr        : std_logic_vector(7 downto 0);
     signal UART_write       : std_logic;
+    signal UART_send        : std_logic;
+    signal UART_busy        : std_logic;
+    signal UART_din         : std_logic_vector(7 downto 0);
     signal I2S_new_sample   : std_logic;
     signal VGA_read         : std_logic;
     signal VGA_address      : std_logic_vector(31 downto 0);
@@ -217,6 +242,12 @@ architecture RTL of TOP is
     signal VGA_din          : std_logic_vector(11 downto 0);
     signal VGA_din_top      : std_logic_vector(11 downto 0);
     signal VGA_din_bottom   : std_logic_vector(11 downto 0);
+    signal WAV_push_top     : std_logic_vector(8 downto 0);
+    signal FFT_push_top     : std_logic_vector(16 downto 0);
+    signal VU_push_top      : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal WAV_push_bottom  : std_logic_vector(8 downto 0);
+    signal FFT_push_bottom  : std_logic_vector(16 downto 0);
+    signal VU_push_bottom   : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal VGA_new_frame    : std_logic;
     signal VU_dout_r        : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal VU_dout_l        : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
@@ -243,6 +274,7 @@ architecture RTL of TOP is
     signal MCLK             : std_logic;
     signal SCLK             : std_logic;
     signal LRCK             : std_logic;
+    signal PSH_done         : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -314,7 +346,10 @@ begin
         Rx          => RX,
         UART_dout   => UART_dout,
         UART_addr   => UART_addr,
-        UART_write  => UART_write);
+        UART_write  => UART_write,
+        UART_send   => UART_send,
+        UART_busy   => UART_busy,
+        UART_din    => UART_din);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_VGA_controller
@@ -362,7 +397,10 @@ begin
         VGA_address     => VGA_address,
         VGA_v_add       => VGA_v_add,
         VGA_h_add       => VGA_h_add,
-        VGA_din         => VGA_din_bottom);
+        VGA_din         => VGA_din_bottom,
+        WAV_push        => WAV_push_bottom,
+        FFT_push        => FFT_push_bottom,
+        VU_push         => VU_push_bottom);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_Audio_channel_left
@@ -385,7 +423,10 @@ begin
         VGA_address     => VGA_address,
         VGA_v_add       => VGA_v_add,
         VGA_h_add       => VGA_h_add,
-        VGA_din         => VGA_din_top);
+        VGA_din         => VGA_din_top,
+        WAV_push        => WAV_push_top,
+        FFT_push        => FFT_push_top,
+        VU_push         => VU_push_top);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_I2S_Wrapper
@@ -436,6 +477,22 @@ begin
         MOSI_right_out  => MOSI_right_out,
         MOSI_left_out   => MOSI_left_out);
 
+    ----------------------------------------------------------------
+    -- INSTANCE : U_PSH_Driver
+    -- Description: Forward data from FFT, WAV and VU-metre to UART
+    ----------------------------------------------------------------
+    U_PSH_Driver : PSH_Driver port map(
+        clk_108         => clk_108,
+        clk_216         => clk_216,
+        reset_n         => reset_n,
+        VGA_new_frame   => VGA_new_frame,
+        WAV_push        => WAV_push_top,
+        FFT_push        => FFT_push_top,
+        VU_push         => VU_push_top,
+        UART_send       => UART_send,
+        UART_busy       => UART_busy,
+        UART_din        => UART_din,
+        PSH_done        => PSH_done);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : 

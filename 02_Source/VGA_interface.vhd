@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2020-03-01
+-- Last update: 2020-07-24
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -63,7 +63,11 @@ entity VGA_interface is
 
         ------- NRM interface -------------------
         NRM_addr        : out std_logic_vector(10 downto 0);
-        NRM_dout        : in  std_logic_vector(15 downto 0)
+        NRM_dout        : in  std_logic_vector(15 downto 0);
+        
+        ------- PUSH interface ------------------
+        WAV_push        : out std_logic_vector(8 downto 0);     -- push => enable + data (to UART FIFO)
+        FFT_push        : out std_logic_vector(16 downto 0)     -- push => enable + data (to UART FIFO)
 
         );
 end VGA_interface;
@@ -144,6 +148,9 @@ architecture RTL of VGA_interface is
     signal WAV_read_d2      : std_logic;
     signal EQ_level_dout_d1 : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal EQ_level_dout_d2 : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal WAV_en_push      : std_logic;
+    signal FFT_en_push      : std_logic;
+    signal VU_en_push       : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -262,7 +269,7 @@ begin
     -- COMBINATORY :
     -- Description : Display the FFT (normalized)
     --------------------------------------------------------------------------------
-    nrm_addr_map    <= unsigned(VGA_h_add) - 14;
+    nrm_addr_map    <= unsigned(VGA_h_add) - 12;
     nrm_addr_final  <= std_logic_vector(nrm_addr_map(10 downto 0));
     
     process(nrm_addr_final)
@@ -517,6 +524,48 @@ begin
                        X"F00"   when(red_color_d='1' and VU_inbound_d='1') else
                        X"888"   when(draw_box_d='1') else
                        X"000";
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_push_UART_WAV
+    -- Description : format enable and data to fill UART FIFO with WAV samples
+    --------------------------------------------------------------------------------
+    P_push_UART_WAV : process(clk_108, reset_n)
+    begin
+        if(reset_n='0') then
+            WAV_push    <= (others => '0');
+            WAV_en_push <= '0';
+        elsif(rising_edge(clk_108)) then
+            WAV_en_push <= VGA_read;
+            if(WAV_en_push='1' and unsigned(VGA_v_add)=0) then
+                WAV_push    <= '1' & dout_portB; -- Data out from WAV samples BRAM
+            else
+                WAV_push    <= (others => '0');
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_push_UART_FFT
+    -- Description : format enable and data to fill UART FIFO with FFT samples
+    --------------------------------------------------------------------------------
+    P_push_UART_FFT : process(clk_108, reset_n)
+    begin
+        if(reset_n='0') then
+            FFT_push    <= (others => '0');
+            FFT_en_push <= '0';
+        elsif(rising_edge(clk_108)) then
+            if(unsigned(nrm_addr_final)<1024) then
+                FFT_en_push <= '1';
+            else
+                FFT_en_push <= '0';
+            end if;
+            if(FFT_en_push='1' and unsigned(VGA_v_add)=0) then
+                FFT_push    <= '1' & NRM_dout; -- Data out from FFT samples BRAM
+            else
+                FFT_push    <= (others => '0');
+            end if;
+        end if;
+    end process;
 
 end RTL;
 --------------------------------------------------------------------------------

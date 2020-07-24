@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-03-02
+-- Last update: 2020-07-23
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -46,7 +46,13 @@ entity UART_Wrapper is
         ------- Interface with WAV Player --------
         UART_addr       : out std_logic_vector(7 downto 0);
         UART_write      : out std_logic;
-        UART_dout       : out std_logic_vector(15 downto 0)
+        UART_dout       : out std_logic_vector(15 downto 0);
+        
+        ------- Interface PUSH -------------------
+        UART_send       : in  std_logic;
+        UART_busy       : out std_logic;
+        UART_din        : in  std_logic_vector(7 downto 0)
+        
         );
 end UART_Wrapper;
 
@@ -102,9 +108,6 @@ architecture RTL of UART_Wrapper is
     --------------------------------------------------------------------------------
     signal current_state    : UART_STATE;
     signal next_state       : UART_STATE;
-    signal Tx_busy          : std_logic;
-    signal Tx_send          : std_logic;
-    signal Tx_in            : std_logic_vector(7 downto 0);
     signal Rx_new           : std_logic;
     signal Rx_out           : std_logic_vector(7 downto 0);
     signal data_buff        : std_logic_vector(15 downto 0);
@@ -146,9 +149,9 @@ begin
         clk     => clk,
         reset_n => reset_n,
         Tx      => Tx,
-        Tx_busy => Tx_busy,
-        Tx_send => Tx_send,
-        Tx_in   => Tx_in);
+        Tx_busy => UART_busy,
+        Tx_send => UART_send,
+        Tx_in   => UART_din);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_addr

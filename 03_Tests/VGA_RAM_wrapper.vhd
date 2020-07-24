@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-25
--- Last update: 2019-12-21
+-- Last update: 2020-07-23
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -78,9 +78,10 @@ architecture A of VGA_RAM_wrapper is
             EQ_level_dout   : in  std_logic_vector((5+2)*5+4 downto 0);
             EQ_dout         : in  std_logic_vector((5+2)*16+15 downto 0);
             VU_dout         : in  std_logic_vector((5+2)*5+4 downto 0);
-            NRM_addr        : out std_logic_vector(8 downto 0);
-            NRM_read        : out std_logic;
-            NRM_dout        : in  std_logic_vector(15 downto 0)
+            NRM_addr        : out std_logic_vector(10 downto 0);
+            NRM_dout        : in  std_logic_vector(15 downto 0);
+            WAV_push        : out std_logic_vector(8 downto 0);
+            FFT_push        : out std_logic_vector(16 downto 0)
             );
     end component;
 
@@ -106,9 +107,10 @@ architecture A of VGA_RAM_wrapper is
     signal EQ_level_dout    : std_logic_vector((5+2)*5+4 downto 0);
     signal EQ_dout          : std_logic_vector((5+2)*16+15 downto 0);
     signal VU_dout          : std_logic_vector((5+2)*5+4 downto 0);
-    signal NRM_addr         : std_logic_vector(8 downto 0);
-    signal NRM_read         : std_logic;
+    signal NRM_addr         : std_logic_vector(10 downto 0);
     signal NRM_dout         : std_logic_vector(15 downto 0);
+    signal WAV_push         : std_logic_vector(8 downto 0);
+    signal FFT_push         : std_logic_vector(16 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -154,8 +156,9 @@ begin
         EQ_dout         => EQ_dout,
         EQ_level_dout   => EQ_level_dout,
         NRM_addr        => NRM_addr,
-        NRM_read        => NRM_read,
-        NRM_dout        => NRM_dout);
+        NRM_dout        => NRM_dout,
+        WAV_push        => WAV_push,
+        FFT_push        => FFT_push);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_clock_gen_108

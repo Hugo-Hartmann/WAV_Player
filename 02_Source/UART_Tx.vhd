@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-03-05
+-- Last update: 2020-07-23
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -151,7 +151,7 @@ begin
             if(reset_n='0') then
                 Tx_data <= (others => '1');
             elsif(rising_edge(clk)) then
-                if(data_load='1') then
+                if(Tx_send='1') then
                     Tx_data <= parity_bit & Tx_in & '0'; -- parity + bits + start
                 elsif(end_count='1') then
                     Tx_data <= '1' & Tx_data(Tx_data'high downto 1);
@@ -168,7 +168,7 @@ begin
             if(reset_n='0') then
                 Tx_data <= (others => '1');
             elsif(rising_edge(clk)) then
-                if(data_load='1') then
+                if(Tx_send='1') then
                     Tx_data <= Tx_in & '0'; -- bits + start
                 elsif(end_count='1') then
                     Tx_data <= '1' & Tx_data(Tx_data'high downto 1);
@@ -236,7 +236,6 @@ begin
     P_FSM_UART_comb : process(current_state, end_bit_count, Tx_send)
     begin
         counter_set <= '0';
-        data_load   <= '0';
         Tx_busy     <= '0';
         
         case current_state is
@@ -252,7 +251,6 @@ begin
 
             when UART_START =>
                 Tx_busy     <= '1';
-                data_load   <= '1';
                 counter_set <= '1';
                 next_state  <= UART_WAIT;
 

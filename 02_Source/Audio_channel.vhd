@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-21
--- Last update: 2020-03-01
+-- Last update: 2020-07-23
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -57,7 +57,12 @@ entity Audio_channel is
         VGA_address     : in  std_logic_vector(31 downto 0);
         VGA_v_add       : in  std_logic_vector(15 downto 0);
         VGA_h_add       : in  std_logic_vector(15 downto 0);
-        VGA_din         : out std_logic_vector(11 downto 0)
+        VGA_din         : out std_logic_vector(11 downto 0);
+
+        -------- PUSH interface -----------------
+        WAV_push        : out std_logic_vector(8 downto 0);
+        FFT_push        : out std_logic_vector(16 downto 0);
+        VU_push         : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
 
         );
 end Audio_channel;
@@ -156,7 +161,9 @@ architecture RTL of Audio_channel is
             EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
             VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
             NRM_addr        : out std_logic_vector(10 downto 0);
-            NRM_dout        : in  std_logic_vector(15 downto 0)
+            NRM_dout        : in  std_logic_vector(15 downto 0);
+            WAV_push        : out std_logic_vector(8 downto 0);
+            FFT_push        : out std_logic_vector(16 downto 0)
             );
     end component;
 
@@ -330,13 +337,21 @@ begin
         EQ_dout         => EQ_dout,
         EQ_level_dout   => EQ_level_dout,
         NRM_addr        => NRM_addr_r,
-        NRM_dout        => NRM_dout);
+        NRM_dout        => NRM_dout,
+        WAV_push        => WAV_push,
+        FFT_push        => FFT_push);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
     -- Description : Audio selection
     --------------------------------------------------------------------------------
     Audio_out   <= SW_out;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : VU_push forwarding
+    --------------------------------------------------------------------------------
+    VU_push <= VU_dout;
 
 end RTL;
 --------------------------------------------------------------------------------

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-09
--- Last update: 2019-03-27
+-- Last update: 2020-07-24
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -124,27 +124,51 @@ begin
     end generate;
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : RAM_NRM port multiplexing
+    -- SEQ PROCESS : P_BRAM
+    -- Description : Register all BRAM signals
     --------------------------------------------------------------------------------
-    
-    --- Port A
-    RAM_NRM_wrA     <= (others => NRM_write_A);
-    RAM_NRM_addrA   <= NRM_addrA_r  when(NRM_write_A='0') else NRM_addrA_w;
-    RAM_NRM_dinA    <= RAM_dinA_r & RAM_dinA_i;
+    P_BRAM : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            RAM_NRM_wrA     <= (others => '0');
+            RAM_NRM_addrA   <= (others => '0');
+            RAM_NRM_dinA    <= (others => '0');
+            RAM_NRM_wrB     <= (others => '0');
+            RAM_NRM_addrB   <= (others => '0');
+            RAM_NRM_dinB    <= (others => '0');
+            RAM_doutA_r     <= (others => '0');
+            RAM_doutA_i     <= (others => '0');
+            RAM_doutB_r     <= (others => '0');
+            RAM_doutB_i     <= (others => '0');
+        elsif(rising_edge(clk)) then
 
-    --- Port B
-    RAM_NRM_wrB     <= (others => NRM_write_B);
-    RAM_NRM_addrB   <= NRM_addrB_r  when(NRM_write_B='0') else NRM_addrB_w;
-    RAM_NRM_dinB    <= RAM_dinB_r & RAM_dinB_i;
+            --- Port A
+            if(NRM_write_A='0') then
+                RAM_NRM_addrA   <= NRM_addrA_r;
+            else
+                RAM_NRM_addrA   <= NRM_addrA_w;
+            end if;
+            RAM_NRM_wrA     <= (others => NRM_write_A);
+            RAM_NRM_dinA    <= RAM_dinA_r & RAM_dinA_i;
 
-    --- Outputs
-    RAM_doutA_r     <= RAM_NRM_doutA(31 downto 16);
-    RAM_doutA_i     <= RAM_NRM_doutA(15 downto 0);
+            --- Port B
+            if(NRM_write_B='0') then
+                RAM_NRM_addrB   <= NRM_addrB_r;
+            else
+                RAM_NRM_addrB   <= NRM_addrB_w;
+            end if;
+            RAM_NRM_wrB     <= (others => NRM_write_B);
+            RAM_NRM_dinB    <= RAM_dinB_r & RAM_dinB_i;
 
-    RAM_doutB_r     <= RAM_NRM_doutB(31 downto 16);
-    RAM_doutB_i     <= RAM_NRM_doutB(15 downto 0);
+            --- Outputs
+            RAM_doutA_r     <= RAM_NRM_doutA(31 downto 16);
+            RAM_doutA_i     <= RAM_NRM_doutA(15 downto 0);
 
+            RAM_doutB_r     <= RAM_NRM_doutB(31 downto 16);
+            RAM_doutB_i     <= RAM_NRM_doutB(15 downto 0);
+
+        end if;
+    end process;
 
 end RTL;
 --------------------------------------------------------------------------------

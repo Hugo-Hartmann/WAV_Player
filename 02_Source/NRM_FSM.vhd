@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-09
--- Last update: 2020-03-01
+-- Last update: 2020-07-24
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -56,7 +56,8 @@ architecture RTL of NRM_FSM is
     -- TYPE DECLARATIONS
     --------------------------------------------------------------------------------
     type NRM_STATE is (NRM_RESET, NRM_IDLE, NRM_WAIT_SAMPLE, NRM_LOAD_SAMPLE,
-                       NRM_NORM_START1, NRM_NORM_START2, NRM_NORM_LOOP, NRM_NORM_END);
+                       NRM_NORM_START1, NRM_NORM_START2, NRM_NORM_START3, NRM_NORM_START4,
+                       NRM_NORM_LOOP, NRM_NORM_END);
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
@@ -179,6 +180,14 @@ begin
                 next_state      <= NRM_NORM_START2;
 
             when NRM_NORM_START2 =>
+                cnt_addr_inc    <= '1';
+                next_state      <= NRM_NORM_START3;
+
+            when NRM_NORM_START3 =>
+                cnt_addr_inc    <= '1';
+                next_state      <= NRM_NORM_START4;
+
+            when NRM_NORM_START4 =>
                 cnt_addr_inc    <= '1';
                 next_state      <= NRM_NORM_LOOP;
 

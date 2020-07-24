@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="PSH_Driver_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="PSH_Driver_tb" />
+            <top_module name="glbl" />
+            <top_module name="type_pkg" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="73931398752fs"></ZoomEndTime>
+      <Cursor1Time time="73832295000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="258"></NameColumnWidth>
+      <ValueColumnWidth column_width="126"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="group466" type="group">
+      <obj_property name="label">CLK</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/PSH_Driver_tb/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group467" type="group">
+      <obj_property name="label">FIFOs INPUTS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/PSH_Driver_tb/VGA_new_frame" type="logic">
+         <obj_property name="ElementShortName">VGA_new_frame</obj_property>
+         <obj_property name="ObjectShortName">VGA_new_frame</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/WAV_push" type="array">
+         <obj_property name="ElementShortName">WAV_push[8:0]</obj_property>
+         <obj_property name="ObjectShortName">WAV_push[8:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/FFT_push" type="array">
+         <obj_property name="ElementShortName">FFT_push[16:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_push[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/VU_push" type="array">
+         <obj_property name="ElementShortName">VU_push[39:0]</obj_property>
+         <obj_property name="ObjectShortName">VU_push[39:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group468" type="group">
+      <obj_property name="label">UART lines</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/PSH_Driver_tb/RX" type="logic">
+         <obj_property name="ElementShortName">RX</obj_property>
+         <obj_property name="ObjectShortName">RX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/TX" type="logic">
+         <obj_property name="ElementShortName">TX</obj_property>
+         <obj_property name="ObjectShortName">TX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group469" type="group">
+      <obj_property name="label">UART interface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/PSH_Driver_tb/UART_din" type="array">
+         <obj_property name="ElementShortName">UART_din[7:0]</obj_property>
+         <obj_property name="ObjectShortName">UART_din[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/UART_busy" type="logic">
+         <obj_property name="ElementShortName">UART_busy</obj_property>
+         <obj_property name="ObjectShortName">UART_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/UART_send" type="logic">
+         <obj_property name="ElementShortName">UART_send</obj_property>
+         <obj_property name="ObjectShortName">UART_send</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/UART_write" type="logic">
+         <obj_property name="ElementShortName">UART_write</obj_property>
+         <obj_property name="ObjectShortName">UART_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/UART_dout" type="array">
+         <obj_property name="ElementShortName">UART_dout[15:0]</obj_property>
+         <obj_property name="ObjectShortName">UART_dout[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/UART_addr" type="array">
+         <obj_property name="ElementShortName">UART_addr[7:0]</obj_property>
+         <obj_property name="ObjectShortName">UART_addr[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group470" type="group">
+      <obj_property name="label">OUTPUTs</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/PSH_Driver_tb/Rx_new" type="logic">
+         <obj_property name="ElementShortName">Rx_new</obj_property>
+         <obj_property name="ObjectShortName">Rx_new</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/Rx_out" type="array">
+         <obj_property name="ElementShortName">Rx_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">Rx_out[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/PSH_Driver_tb/PSH_done" type="logic">
+      <obj_property name="ElementShortName">PSH_done</obj_property>
+      <obj_property name="ObjectShortName">PSH_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="group1220" type="group">
+      <obj_property name="label">PSH_Driver</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/current_state" type="other">
+         <obj_property name="ElementShortName">current_state</obj_property>
+         <obj_property name="ObjectShortName">current_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/next_state" type="other">
+         <obj_property name="ElementShortName">next_state</obj_property>
+         <obj_property name="ObjectShortName">next_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/mem_state" type="other">
+         <obj_property name="ElementShortName">mem_state</obj_property>
+         <obj_property name="ObjectShortName">mem_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/return_state" type="other">
+         <obj_property name="ElementShortName">return_state</obj_property>
+         <obj_property name="ObjectShortName">return_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/PSH_start" type="logic">
+         <obj_property name="ElementShortName">PSH_start</obj_property>
+         <obj_property name="ObjectShortName">PSH_start</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/WAV_write" type="logic">
+         <obj_property name="ElementShortName">WAV_write</obj_property>
+         <obj_property name="ObjectShortName">WAV_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FFT_write" type="logic">
+         <obj_property name="ElementShortName">FFT_write</obj_property>
+         <obj_property name="ObjectShortName">FFT_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/WAV_rst" type="logic">
+         <obj_property name="ElementShortName">WAV_rst</obj_property>
+         <obj_property name="ObjectShortName">WAV_rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/WAV_din" type="array">
+         <obj_property name="ElementShortName">WAV_din[7:0]</obj_property>
+         <obj_property name="ObjectShortName">WAV_din[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/WAV_wr_en" type="logic">
+         <obj_property name="ElementShortName">WAV_wr_en</obj_property>
+         <obj_property name="ObjectShortName">WAV_wr_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/WAV_rd_en" type="logic">
+         <obj_property name="ElementShortName">WAV_rd_en</obj_property>
+         <obj_property name="ObjectShortName">WAV_rd_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/WAV_dout" type="array">
+         <obj_property name="ElementShortName">WAV_dout[7:0]</obj_property>
+         <obj_property name="ObjectShortName">WAV_dout[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/WAV_full" type="logic">
+         <obj_property name="ElementShortName">WAV_full</obj_property>
+         <obj_property name="ObjectShortName">WAV_full</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/WAV_empty" type="logic">
+         <obj_property name="ElementShortName">WAV_empty</obj_property>
+         <obj_property name="ObjectShortName">WAV_empty</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FFT_rst" type="logic">
+         <obj_property name="ElementShortName">FFT_rst</obj_property>
+         <obj_property name="ObjectShortName">FFT_rst</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FFT_din" type="array">
+         <obj_property name="ElementShortName">FFT_din[15:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_din[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FFT_wr_en" type="logic">
+         <obj_property name="ElementShortName">FFT_wr_en</obj_property>
+         <obj_property name="ObjectShortName">FFT_wr_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FFT_rd_en" type="logic">
+         <obj_property name="ElementShortName">FFT_rd_en</obj_property>
+         <obj_property name="ObjectShortName">FFT_rd_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FFT_dout" type="array">
+         <obj_property name="ElementShortName">FFT_dout[15:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_dout[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FFT_full" type="logic">
+         <obj_property name="ElementShortName">FFT_full</obj_property>
+         <obj_property name="ObjectShortName">FFT_full</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FFT_empty" type="logic">
+         <obj_property name="ElementShortName">FFT_empty</obj_property>
+         <obj_property name="ObjectShortName">FFT_empty</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FIFO_read" type="logic">
+         <obj_property name="ElementShortName">FIFO_read</obj_property>
+         <obj_property name="ObjectShortName">FIFO_read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FIFO_select" type="array">
+         <obj_property name="ElementShortName">FIFO_select[3:0]</obj_property>
+         <obj_property name="ObjectShortName">FIFO_select[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/FIFO_select_d" type="array">
+         <obj_property name="ElementShortName">FIFO_select_d[3:0]</obj_property>
+         <obj_property name="ObjectShortName">FIFO_select_d[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/cnt_header" type="array">
+         <obj_property name="ElementShortName">cnt_header[1:0]</obj_property>
+         <obj_property name="ObjectShortName">cnt_header[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PSH_Driver_tb/U_PSH_Driver/cnt_header_zero" type="logic">
+         <obj_property name="ElementShortName">cnt_header_zero</obj_property>
+         <obj_property name="ObjectShortName">cnt_header_zero</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

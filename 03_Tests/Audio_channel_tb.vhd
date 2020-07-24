@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-03-01
--- Last update: 2020-03-01
+-- Last update: 2020-07-22
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -25,6 +25,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 library lib_VHDL;
 use lib_VHDL.all;
+use lib_VHDL.TYPE_Pkg.all;
 
 --------------------------------------------------------------------------------
 -- ENTITY DECLARATION
@@ -63,7 +64,10 @@ architecture A of Audio_channel_tb is
             VGA_address     : in  std_logic_vector(31 downto 0);
             VGA_v_add       : in  std_logic_vector(15 downto 0);
             VGA_h_add       : in  std_logic_vector(15 downto 0);
-            VGA_din         : out std_logic_vector(11 downto 0)
+            VGA_din         : out std_logic_vector(11 downto 0);
+            WAV_push        : out std_logic_vector(8 downto 0);
+            FFT_push        : out std_logic_vector(16 downto 0);
+            VU_push         : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
             );
     end component;
 
@@ -85,9 +89,9 @@ architecture A of Audio_channel_tb is
     signal VGA_v_add        : std_logic_vector(15 downto 0);
     signal VGA_h_add        : std_logic_vector(15 downto 0);
     signal VGA_din          : std_logic_vector(11 downto 0);
-
-
-
+    signal WAV_push         : std_logic_vector(8 downto 0);
+    signal FFT_push         : std_logic_vector(16 downto 0);
+    signal VU_push          : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -113,7 +117,10 @@ begin
         VGA_address     => VGA_address,
         VGA_v_add       => VGA_v_add,
         VGA_h_add       => VGA_h_add,
-        VGA_din         => VGA_din);
+        VGA_din         => VGA_din,
+        WAV_push        => WAV_push,
+        FFT_push        => FFT_push,
+        VU_push         => VU_push);
 
     --------------------------------------------------------------------------------
     -- PROCESS : P_new_frame
