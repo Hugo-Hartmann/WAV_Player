@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2020-03-2
+-- Last update: 2020-07-24
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -151,6 +151,7 @@ architecture RTL of FIR_filter is
     signal mult_out         : std_logic_vector(31 downto 0);
     signal mult_out_d       : std_logic_vector(31 downto 0);
     signal sat_out          : std_logic_vector(15 downto 0);
+    signal accu_en          : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -267,9 +268,15 @@ begin
     U_Accu : Accu_s43 port map(
         clk     => clk,
         b       => mult_out_d,
-        ce      => FIR_en_d(4) OR FIR_en_d(5),
+        ce      => accu_en,
         sclr    => FIR_clr,
         q       => accu);
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : accu_en
+    --------------------------------------------------------------------------------
+    accu_en <= FIR_en_d(4) OR FIR_en_d(5);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_delay_add

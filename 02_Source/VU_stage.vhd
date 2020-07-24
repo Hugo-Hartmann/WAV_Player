@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-20
--- Last update: 2019-12-31
+-- Last update: 2020-07-24
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -83,6 +83,7 @@ architecture RTL of VU_stage is
     signal accu         : std_logic_vector(19 downto 0);
     signal accu_sat     : std_logic_vector(9 downto 0);
     signal accu_map     : unsigned(9 downto 0);
+    signal accu_en      : std_logic;
 
 
 --------------------------------------------------------------------------------
@@ -125,9 +126,15 @@ begin
     U_Accu : Accu_u20 port map(
         clk     => clk,
         b       => Accu_din,
-        ce      => VU_en_d(0) OR VU_en_d(1),
+        ce      => accu_en,
         sclr    => VU_clr,
         q       => accu);
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : accu_en
+    --------------------------------------------------------------------------------
+    accu_en <= VU_en_d(0) OR VU_en_d(1);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_delay_accu
