@@ -1,7 +1,7 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-03-28
+### Last update 2020-07-25
 ### Author      Hugo HARTMANN
 #############################
 
@@ -10,6 +10,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider
 from PyQt5.QtCore import Qt
 from WAV_Serial import *
+from WAV_Plot import *
 from WAV_Utils import *
 from functools import partial
 
@@ -26,13 +27,14 @@ class VuSlider(QSlider):
 
 class MainWindow(QMainWindow):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, serial, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
-        
+
         self.setWindowTitle("WAV Player")
-        self.resize(400, 300)
-        
-        
+        self.resize(500, 800)
+        self.serial = serial
+
+
         ################################
         ## Port COM Area
         ################################
@@ -58,8 +60,8 @@ class MainWindow(QMainWindow):
         COM_lyt.addLayout(COM_lyt_btn)
         COM_lyt.addWidget(COM_status_lbl)
         
-        p_refresh_COM = partial(refresh_COM, COM_combobox)
-        p_connect_COM = partial(connect_COM, COM_combobox, COM_status_lbl)
+        p_refresh_COM = partial(refresh_COM, serial, COM_combobox)
+        p_connect_COM = partial(connect_COM, serial, COM_combobox, COM_status_lbl)
         
         COM_refresh_btn.clicked.connect(p_refresh_COM)
         COM_connect_btn.clicked.connect(p_connect_COM)
@@ -92,25 +94,57 @@ class MainWindow(QMainWindow):
         ################################
         ## Main Area
         ################################
-        MAIN_lyt = QHBoxLayout()
-        MAIN_lyt.addLayout(COM_lyt)
-        MAIN_lyt.addLayout(EQ_lyt)
+        self.PLT_canvas = MplCanvas(self, width=5, height=4, dpi=100)
+        self._plot_ref = None
+        PLT_lyt = QHBoxLayout()
+        PLT_lyt.addWidget(self.PLT_canvas)
+        self.update_plot(np.arange(1280))
+        self.show()
+
+        ################################
+        ## Main Area
+        ################################
+        MAIN_lyt = QVBoxLayout()
+        UTIL_lyt = QHBoxLayout()
+        UTIL_lyt.addLayout(COM_lyt)
+        UTIL_lyt.addLayout(EQ_lyt)
+        MAIN_lyt.addLayout(PLT_lyt)
+        MAIN_lyt.addLayout(UTIL_lyt)
 
         MAIN_widget = QWidget()
         MAIN_widget.setLayout(MAIN_lyt)
         self.setCentralWidget(MAIN_widget)
 
 
+    def update_plot(self, WAV_data):
+        if self._plot_ref is None:
+            plot_refs = self.PLT_canvas.axes.plot(np.arange(1280), WAV_data, 'r')
+            self._plot_ref = plot_refs[0]
+        else:
+            self._plot_ref.set_ydata(WAV_data)
+
+        self.PLT_canvas.draw()
+
+    def closeEvent(self, event):
+        self.serial.serial_close()
+
 ################################
 ## Main App
 ################################
+
+## Create Serial Port handler
+serial = SerialPort()
 
 ## App creation (GUI)
 app = QApplication([])
 
 ## Window creation
-window = MainWindow()
+window = MainWindow(serial)
 window.show()
+
+## Serial Monitor
+serial_monitor = SerialMonitor(serial, window)
+serial.set_ser_monitor(serial_monitor)
 
 ## app mainloop
 app.exec_()
