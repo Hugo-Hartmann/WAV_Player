@@ -10,17 +10,23 @@ import serial
 import serial.tools.list_ports
 import numpy as np
 from threading import Thread
+import threading
 
 # Monitor serial inputs
 class SerialMonitor(Thread):
 
     def __init__(self, serial, GUI):
         Thread.__init__(self)
+        self._stop = threading.Event() 
         self.serial = serial
         self.GUI = GUI
         self.WAV_tab = np.arange(1280)
         self.FFT_tab = np.arange(1024)
         self.synced = False
+        self.ser_status = False
+
+    def set_ser_status(self, status):
+        self.ser_status = status
 
     def check_header(self, header):
         if(header[0]==header[1] and header[1]==header[2] and header[2]==header[3] and header[3]==header[4] and header[4]==header[5] and header[5]==header[6] and header[0]==170):
@@ -60,20 +66,19 @@ class SerialMonitor(Thread):
             return 1
 
     def run(self):
-#        try:
         while(True):
-            if(self.synced==False):
-                self.sync_with_header()
-            else:
-                self.GUI.update_plot(self.WAV_tab)
-
-            self.get_data()
-
-#        except:
-#            pass
+            try:
+                if(self.synced==False):
+                    self.sync_with_header()
+                else:
+                    self.GUI.update_plot(self.WAV_tab)
+                
+                self.get_data()
+            except:
+                print("1")
 
     def stop(self):
-        self._stop_event.set()
+        self._stop.set()
 
 class SerialPort():
 
@@ -114,7 +119,7 @@ class SerialPort():
         )
     
         self.ser.set_buffer_size(rx_size = 20000, tx_size = 20000) #overfit buffer size to expected data burst size
-        self.ser_monitor.run()
+        self.ser_monitor.set_ser_status(True)
     
         # Create monitoring thread
         #monitor_thread = SerialMonitor(ser)
@@ -132,6 +137,7 @@ class SerialPort():
         try:
             self.ser.close()
             self.ser = None
+            self.ser_monitor.set_ser_status(False)
 
         except:
             pass

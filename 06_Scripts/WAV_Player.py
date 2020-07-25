@@ -127,6 +127,8 @@ class MainWindow(QMainWindow):
 
     def closeEvent(self, event):
         self.serial.serial_close()
+        self.serial.ser_monitor.stop()
+        self.serial.ser_monitor.join()
 
 ################################
 ## Main App
@@ -144,6 +146,7 @@ window.show()
 
 ## Serial Monitor
 serial_monitor = SerialMonitor(serial, window)
+serial_monitor.start()
 serial.set_ser_monitor(serial_monitor)
 
 ## app mainloop
