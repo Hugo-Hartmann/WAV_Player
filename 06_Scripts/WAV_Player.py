@@ -92,7 +92,7 @@ class MainWindow(QMainWindow):
         EQ_lyt.addWidget(EQ_output_sld)
 
         ################################
-        ## Main Area
+        ## Graph Area
         ################################
         self.PLT_canvas = MplCanvas(self, width=5, height=4, dpi=100)
         self._plot_ref = None
