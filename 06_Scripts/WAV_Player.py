@@ -98,7 +98,7 @@ class MainWindow(QMainWindow):
         self._plot_ref = None
         PLT_lyt = QHBoxLayout()
         PLT_lyt.addWidget(self.PLT_canvas)
-        self.update_plot(np.arange(1280))
+        self.update_plot(np.arange(1280), np.arange(1024))
         self.show()
 
         ################################
@@ -116,12 +116,14 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(MAIN_widget)
 
 
-    def update_plot(self, WAV_data):
+    def update_plot(self, WAV_data, FFT_data):
         if self._plot_ref is None:
-            plot_refs = self.PLT_canvas.axes.plot(np.arange(1280), WAV_data, 'r')
-            self._plot_ref = plot_refs[0]
+            plot_WAV = self.PLT_canvas.axes[0].plot(np.arange(1280), WAV_data, 'r')
+            plot_FFT = self.PLT_canvas.axes[1].plot(np.arange(1024), FFT_data, 'r')
+            self._plot_ref = [plot_WAV[0], plot_FFT[0]]
         else:
-            self._plot_ref.set_ydata(WAV_data)
+            self._plot_ref[0].set_ydata(WAV_data)
+            self._plot_ref[1].set_ydata(FFT_data)
 
         self.PLT_canvas.draw()
 

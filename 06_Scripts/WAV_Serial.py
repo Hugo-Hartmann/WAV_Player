@@ -74,7 +74,7 @@ class SerialMonitor(Thread):
                 if(self.synced==False):
                     self.sync_with_header()
                 else:
-                    self.GUI.update_plot(self.WAV_tab)
+                    self.GUI.update_plot(self.WAV_tab, self.FFT_tab)
                 
                 self.get_data()
             except:
@@ -111,7 +111,7 @@ class SerialPort():
 
     # Open the serial
     def serial_open(self, COMPORT):
-    
+
 #        try:
         self.ser = serial.Serial(
             port=COMPORT,
@@ -121,15 +121,15 @@ class SerialPort():
             timeout=1,
             bytesize=serial.EIGHTBITS,
         )
-    
+
         self.ser.set_buffer_size(rx_size = 20000, tx_size = 20000) #overfit buffer size to expected data burst size
         self.ser_monitor.set_ser_status(True)
-    
+
         # Create monitoring thread
         #monitor_thread = SerialMonitor(ser)
         #monitor_run = True
         #monitor_thread.start()
-    
+
         return 0
         
 #        except:
