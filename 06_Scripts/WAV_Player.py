@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
 
         self.setWindowTitle("WAV Player")
-        self.resize(500, 800)
+        self.resize(1200, 800)
         self.serial = serial
 
 

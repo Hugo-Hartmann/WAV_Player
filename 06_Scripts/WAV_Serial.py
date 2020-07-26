@@ -11,6 +11,7 @@ import serial.tools.list_ports
 import numpy as np
 from threading import Thread
 import threading
+import time
 
 # Monitor serial inputs
 class SerialMonitor(Thread):
@@ -24,6 +25,7 @@ class SerialMonitor(Thread):
         self.FFT_tab = np.arange(1024)
         self.synced = False
         self.ser_status = False
+        self.running = True
 
     def set_ser_status(self, status):
         self.ser_status = status
@@ -37,7 +39,7 @@ class SerialMonitor(Thread):
     def sync_with_header(self):
         self.serial.ser.reset_input_buffer() # Clear buffer to get most recent data directly
         header = [0, 0, 0, 0, 0, 0, 0]
-        while(True):
+        while(self.running):
             cmd = self.serial.ser.read(1)
             if(cmd!=b''):
                 header = [cmd[0]] + header[0:6]
@@ -60,13 +62,14 @@ class SerialMonitor(Thread):
             return 0
 
         else:
-            for i in range(1024):
+            for i in range(1280):
                 self.WAV_tab[i] = WAV_data[i]
+            for i in range(1024):
                 self.FFT_tab[i] = FFT_data[2*i]+FFT_data[2*i+1]*256
             return 1
 
     def run(self):
-        while(True):
+        while(self.running):
             try:
                 if(self.synced==False):
                     self.sync_with_header()
@@ -75,10 +78,11 @@ class SerialMonitor(Thread):
                 
                 self.get_data()
             except:
-                print("1")
+                time.sleep(0.1)
 
     def stop(self):
-        self._stop.set()
+        self.running = False
+        self.join()
 
 class SerialPort():
 
@@ -102,9 +106,9 @@ class SerialPort():
             name = name[-1]     # Select last word (should be (COMXX))
             name = name[1:-1]   # Delete brackets around (COMXX)
             port_list.append(name)
-        
+
         return port_list
-    
+
     # Open the serial
     def serial_open(self, COMPORT):
     
