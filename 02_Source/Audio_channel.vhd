@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-21
--- Last update: 2020-07-23
+-- Last update: 2020-07-27
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ use lib_VHDL.TYPE_Pkg.all;
 --------------------------------------------------------------------------------
 entity Audio_channel is
     generic(
-        G_VGA_TOP       : boolean := true
+        G_LEFT_CHANNEL : boolean := true
         );
     port(
         ------- Clock and reset -----------------
@@ -39,9 +39,10 @@ entity Audio_channel is
         clk_216         : in  std_logic;
         reset_n         : in  std_logic;
 
-        ------- Buttons -------------------------
-        VOL_UP          : in  std_logic;
-        VOL_DOWN        : in  std_logic;
+        ------- Interface with UART -------------
+        UART_addr       : in  std_logic_vector(7 downto 0);
+        UART_write      : in  std_logic;
+        UART_dout       : in  std_logic_vector(15 downto 0);
 
         ------- Switches ------------------------
         SW              : in  std_logic_vector(3 downto 0);
@@ -72,6 +73,9 @@ end Audio_channel;
 --------------------------------------------------------------------------------
 architecture RTL of Audio_channel is
 
+    --------------------------------------------------------------------------------
+    -- COMPONENT DECLARATION
+    --------------------------------------------------------------------------------
     component FIR_interface is
         port(
             clk             : in  std_logic;
@@ -92,14 +96,17 @@ architecture RTL of Audio_channel is
             );
     end component;
 
-    component EQ_stage is
+    component EQ_Wrapper is
+        generic(
+            G_LEFT_CHANNEL : boolean := true
+            );
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
+            EQ_addr         : in  std_logic_vector(7 downto 0);
+            EQ_write        : in  std_logic;
+            EQ_level_din    : in  std_logic_vector(15 downto 0);
             EQ_en           : in  std_logic;
-            EQ_select       : in  std_logic_vector(3 downto 0);
-            EQ_vol_up       : in  std_logic;
-            EQ_vol_down     : in  std_logic;
             EQ_din_band     : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
             EQ_din          : in  std_logic_vector(15 downto 0);
             EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
@@ -232,16 +239,18 @@ begin
         VU_dout     => VU_dout);
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_EQ_stage
-    -- Description: 6 Channel audio equalizer
+    -- INSTANCE : U_EQ_Wrapper
+    -- Description: Wrapper for Equalizer bloc
     ----------------------------------------------------------------
-    U_EQ_stage : EQ_stage port map(
+    U_EQ_Wrapper : EQ_Wrapper generic map(
+        G_LEFT_CHANNEL  => G_LEFT_CHANNEL)
+    port map(
         clk             => clk_216,
         reset_n         => reset_n,
+        EQ_addr         => UART_addr,
+        EQ_write        => UART_write,
+        EQ_level_din    => UART_dout,
         EQ_en           => New_sample_d,
-        EQ_select       => SW,
-        EQ_vol_up       => VOL_UP,
-        EQ_vol_down     => VOL_DOWN,
         EQ_din_band     => FIR_dout,
         EQ_din          => Audio_din_d,
         EQ_dout         => EQ_dout,
@@ -299,7 +308,7 @@ begin
         NRM_addr_r      => NRM_addr_r,
         NRM_dout        => NRM_dout);
 
-    GEN_VGA_OFFSET : if(G_VGA_TOP=true) generate
+    GEN_VGA_OFFSET : if(G_LEFT_CHANNEL=true) generate
         process(clk_108)
         begin
             if(rising_edge(clk_108)) then
@@ -308,7 +317,7 @@ begin
         end process;
     end generate GEN_VGA_OFFSET;
     
-    GEN_VGA_PASS : if(G_VGA_TOP=false) generate
+    GEN_VGA_PASS : if(G_LEFT_CHANNEL=false) generate
         process(clk_108)
         begin
             if(rising_edge(clk_108)) then

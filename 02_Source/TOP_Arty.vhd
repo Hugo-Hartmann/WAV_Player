@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-07-24
+-- Last update: 2020-07-27
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -39,10 +39,6 @@ entity TOP is
         ------- Clock and reset -----------------
         CLK12MHZ    : in  std_logic;
         RESET       : in  std_logic;
-
-        ------- Buttons -------------------------
-        VOL_UP      : in  std_logic;
-        VOL_DOWN    : in  std_logic;
 
         ------- Switches ------------------------
         SW          : in  std_logic_vector(3 downto 0);
@@ -178,14 +174,15 @@ architecture RTL of TOP is
 
     component Audio_channel is
         generic(
-            G_VGA_TOP       : boolean := true
+            G_LEFT_CHANNEL : boolean := true
             );
         port(
             clk_108         : in  std_logic;
             clk_216         : in  std_logic;
             reset_n         : in  std_logic;
-            VOL_UP          : in  std_logic;
-            VOL_DOWN        : in  std_logic;
+            UART_addr       : in  std_logic_vector(7 downto 0);
+            UART_write      : in  std_logic;
+            UART_dout       : in  std_logic_vector(15 downto 0);
             SW              : in  std_logic_vector(3 downto 0);
             New_sample      : in  std_logic;
             Audio_din       : in  std_logic_vector(15 downto 0);
@@ -381,13 +378,14 @@ begin
     -- Description: Audio channel full treatment chain
     ----------------------------------------------------------------
     U_Audio_channel_right : Audio_channel generic map(
-        G_VGA_TOP   => false)
+        G_LEFT_CHANNEL => false)
     port map(
         clk_108         => clk_108,
         clk_216         => clk_216,
         reset_n         => reset_n,
-        VOL_UP          => VOL_UP,
-        VOL_DOWN        => VOL_DOWN,
+        UART_addr       => UART_addr,
+        UART_write      => UART_write,
+        UART_dout       => UART_dout,
         SW              => SW,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_right_out,
@@ -407,13 +405,14 @@ begin
     -- Description: Audio channel full treatment chain
     ----------------------------------------------------------------
     U_Audio_channel_left : Audio_channel generic map(
-        G_VGA_TOP   => true)
+        G_LEFT_CHANNEL => true)
     port map(
         clk_108         => clk_108,
         clk_216         => clk_216,
         reset_n         => reset_n,
-        VOL_UP          => VOL_UP,
-        VOL_DOWN        => VOL_DOWN,
+        UART_addr       => UART_addr,
+        UART_write      => UART_write,
+        UART_dout       => UART_dout,
         SW              => SW,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_left_out,

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-05
--- Last update: 2019-12-19
+-- Last update: 2020-07-27
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -30,9 +30,6 @@ use lib_VHDL.TYPE_Pkg.all;
 -- ENTITY DECLARATION
 --------------------------------------------------------------------------------
 entity EQ_stage is
-    generic(
-        G_BEHAVIOURAL   : boolean := false
-        );
     port(
     
         ------- Clock and RESET ------------------
@@ -41,17 +38,14 @@ entity EQ_stage is
 
         ------- EQ control ----------------------
         EQ_en           : in  std_logic;
-        EQ_select       : in  std_logic_vector(3 downto 0);
-        EQ_vol_up       : in  std_logic;
-        EQ_vol_down     : in  std_logic;
 
         ------- EQ in --------------------------
         EQ_din_band     : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
         EQ_din          : in  std_logic_vector(15 downto 0);
+        EQ_level        : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
         
         ------- EQ out --------------------------
-        EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-        EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+        EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0)
 
         );
 end EQ_stage;
@@ -74,17 +68,6 @@ architecture RTL of EQ_stage is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
     --------------------------------------------------------------------------------
-    component EQ_volume_ctrl is
-        port(
-            clk             : in  std_logic;
-            reset_n         : in  std_logic;
-            EQ_select       : in  std_logic_vector(3 downto 0);
-            EQ_vol_up       : in  std_logic;
-            EQ_vol_down     : in  std_logic;
-            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
-            );
-    end component;
-
     component EQ_volume is
         port(
             clk         : in  std_logic;
@@ -135,31 +118,6 @@ begin
     end process;
 
     ----------------------------------------------------------------
-    -- INSTANCE : EQ_volume_ctrl
-    -- Description : 6 Channel audio equalizer volume controller
-    ----------------------------------------------------------------
-    U_EQ_volume_ctrl : EQ_volume_ctrl port map(
-        clk             => clk,
-        reset_n         => reset_n,
-        EQ_select       => EQ_select,
-        EQ_vol_up       => EQ_vol_up,
-        EQ_vol_down     => EQ_vol_down,
-        EQ_level_dout   => EQ_level_dout_net);
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_EQ_level_dout
-    -- Description : EQ_level_dout
-    --------------------------------------------------------------------------------
-    P_EQ_level_dout : process(reset_n, clk)
-    begin
-        if(reset_n='0') then
-            EQ_level_dout   <= (others => '0');
-        elsif(rising_edge(clk)) then
-            EQ_level_dout   <= EQ_level_dout_net;
-        end if;
-    end process;
-
-    ----------------------------------------------------------------
     -- INSTANCE : EQ_volume_input
     -- Description : 1 Channel audio volume controller
     ----------------------------------------------------------------
@@ -187,10 +145,10 @@ begin
         end loop;
     end process;
 
-    process(EQ_level_dout_net)
+    process(EQ_level)
     begin
         for i in C_FIR_MIN to C_FIR_MAX+2 loop
-            EQ_level_tab(i)   <= EQ_level_dout_net(i*5+4 downto i*5);
+            EQ_level_tab(i)   <= EQ_level(i*5+4 downto i*5);
         end loop;
     end process;
 

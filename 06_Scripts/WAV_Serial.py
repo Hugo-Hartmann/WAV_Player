@@ -10,6 +10,7 @@ import serial
 import serial.tools.list_ports
 import numpy as np
 from threading import Thread
+from WAV_Config_Constants import *
 import threading
 import time
 import sys
@@ -25,11 +26,7 @@ class SerialMonitor(Thread):
         self.WAV_tab = np.arange(1280)
         self.FFT_tab = np.arange(1024)
         self.synced = False
-        self.ser_status = False
         self.running = True
-
-    def set_ser_status(self, status):
-        self.ser_status = status
 
     def check_header(self, header):
         if(header[0]==header[1] and header[1]==header[2] and header[2]==header[3] and header[3]==header[4] and header[4]==header[5] and header[5]==header[6] and header[0]==170):
@@ -40,7 +37,7 @@ class SerialMonitor(Thread):
     def sync_with_header(self):
         self.serial.ser.reset_input_buffer() # Clear buffer to get most recent data directly
         header = [0, 0, 0, 0, 0, 0, 0]
-        while(self.running):
+        while(self.running and self.serial.opened):
             cmd = self.serial.ser.read(1)
             if(cmd!=b''):
                 header = [cmd[0]] + header[0:6]
@@ -72,7 +69,7 @@ class SerialMonitor(Thread):
     def run(self):
         while(self.running):
             try:
-                if(self.ser_status): # Check is a serial port is opened
+                if(self.serial.opened): # Check is a serial port is opened
                     if(self.synced==False):
                         self.sync_with_header()
                     else:
@@ -99,6 +96,7 @@ class SerialPort():
     def __init__(self):
         self.ser = None
         self.ser_monitor = None
+        self.opened = False
 
     def set_ser_monitor(self, ser_monitor):
         self.ser_monitor = ser_monitor
@@ -130,7 +128,7 @@ class SerialPort():
             )
 
             self.ser.set_buffer_size(rx_size = 20000, tx_size = 20000) #overfit buffer size to expected data burst size
-            self.ser_monitor.set_ser_status(True)
+            self.opened = True
 
             return 0
 
@@ -141,9 +139,9 @@ class SerialPort():
     def serial_close(self):
 
         try:
+            self.opened = False
             self.ser.close()
             self.ser = None
-            self.ser_monitor.set_ser_status(False)
 
         except:
             pass
@@ -151,22 +149,25 @@ class SerialPort():
         return 0
 
     # Write volume configuration
-    def serial_wr_volume(self, level, band):
+    def serial_wr_volume(self, level, index):
 
-        cmd = [0] # FFT selection
-    
-        try:
-            nb = int(rate)
-            if(nb>=1 and nb<=256):
-                cmd.append(nb-1)
-                self.ser.write(bytearray(cmd))
+        if(self.opened):
+
+            # Currently sets both channels
+            # Add 0 MSB of level (16 bits sent, only 5 LSBs used)
+
+            cmd_right = [C_RIGHT_CHANNEL+C_EQUALIZER+index, 0]
+            cmd_left = [C_LEFT_CHANNEL+C_EQUALIZER+index, 0]
+
+            nb = int(level)
+            if(nb>=0 and nb<=24):
+                cmd_right.append(level)
+                cmd_left.append(level)
+                self.ser.write(bytearray(cmd_right))
+                self.ser.write(bytearray(cmd_left))
                 return 0
             else:
                 return 1
-    
-        except ValueError:
-            return 1
-    
-        except:
-            return 2
 
+        else:
+            return 2

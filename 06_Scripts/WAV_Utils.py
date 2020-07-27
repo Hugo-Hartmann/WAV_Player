@@ -50,3 +50,12 @@ def close_COM(serial, lbl_status_COM, COM_close_btn):
     COM_close_btn.setEnabled(False)
 
     lbl_status_COM.setText("<font color='Green'></font>")
+
+################################
+## Equalizer Area
+################################
+
+def update_EQ(serial, EQ_sld, index):
+    level = EQ_sld.value()
+
+    serial.serial_wr_volume(level, index)

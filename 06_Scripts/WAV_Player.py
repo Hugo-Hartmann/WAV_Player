@@ -34,6 +34,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("WAV Player")
         self.resize(1200, 800)
         self.serial = serial
+        self.slider_num = 8
 
 
         ################################
@@ -79,23 +80,14 @@ class MainWindow(QMainWindow):
         ################################
         EQ_lyt = QHBoxLayout()
 
-        EQ_input_sld = VuSlider(orientation=Qt.Vertical)
-        EQ_band0_sld = VuSlider(orientation=Qt.Vertical)
-        EQ_band1_sld = VuSlider(orientation=Qt.Vertical)
-        EQ_band2_sld = VuSlider(orientation=Qt.Vertical)
-        EQ_band3_sld = VuSlider(orientation=Qt.Vertical)
-        EQ_band4_sld = VuSlider(orientation=Qt.Vertical)
-        EQ_band5_sld = VuSlider(orientation=Qt.Vertical)
-        EQ_output_sld = VuSlider(orientation=Qt.Vertical)
+        EQ_sliders = [None for i in range(self.slider_num)]
+        p_EQ_sliders = [None for i in range(self.slider_num)]
 
-        EQ_lyt.addWidget(EQ_input_sld)
-        EQ_lyt.addWidget(EQ_band0_sld)
-        EQ_lyt.addWidget(EQ_band1_sld)
-        EQ_lyt.addWidget(EQ_band2_sld)
-        EQ_lyt.addWidget(EQ_band3_sld)
-        EQ_lyt.addWidget(EQ_band4_sld)
-        EQ_lyt.addWidget(EQ_band5_sld)
-        EQ_lyt.addWidget(EQ_output_sld)
+        for i in range(self.slider_num):
+            EQ_sliders[i] = VuSlider(orientation=Qt.Vertical)
+            EQ_lyt.addWidget(EQ_sliders[i])
+            p_EQ_sliders[i] = partial(update_EQ, self.serial, EQ_sliders[i], i)
+            EQ_sliders[i].valueChanged.connect(p_EQ_sliders[i])
 
         ################################
         ## Graph Area
@@ -126,6 +118,7 @@ class MainWindow(QMainWindow):
         if self._plot_ref is None:
             plot_WAV = self.PLT_canvas.axes[0].plot(np.arange(1280), [0]*1280,  'r')
             plot_FFT = self.PLT_canvas.axes[1].plot(np.arange(1024), [0]*1024, 'r')
+            #plot_FFT = self.PLT_canvas.axes[1].bar(np.arange(1024), [0]*1024)
             self._plot_ref = [plot_WAV[0], plot_FFT[0]]
         else:
             self._plot_ref[0].set_ydata(WAV_data)
