@@ -1,7 +1,7 @@
 #############################
 ### Python code for handling Serial link
 ### Created     2020-01-07
-### Last update 2020-07-25
+### Last update 2020-07-27
 ### Author      Hugo HARTMANN
 #############################
 
@@ -12,13 +12,14 @@ import numpy as np
 from threading import Thread
 import threading
 import time
+import sys
 
 # Monitor serial inputs
 class SerialMonitor(Thread):
 
     def __init__(self, serial, GUI):
         Thread.__init__(self)
-        self._stop = threading.Event() 
+        self._stop_event = threading.Event()
         self.serial = serial
         self.GUI = GUI
         self.WAV_tab = np.arange(1280)
@@ -71,18 +72,24 @@ class SerialMonitor(Thread):
     def run(self):
         while(self.running):
             try:
-                if(self.synced==False):
-                    self.sync_with_header()
+                if(self.ser_status): # Check is a serial port is opened
+                    if(self.synced==False):
+                        self.sync_with_header()
+                    else:
+                        self.GUI.update_plot(self.WAV_tab, self.FFT_tab)
+                    
+                    self.get_data()
                 else:
-                    self.GUI.update_plot(self.WAV_tab, self.FFT_tab)
-                
-                self.get_data()
+                    time.sleep(0.1)
+
             except:
+                self.synced = False
+                print("Unexpected error:", sys.exc_info())
                 time.sleep(0.1)
 
     def stop(self):
         self.running = False
-        self.join()
+        self._stop_event.set()
 
 class SerialPort():
 
@@ -112,28 +119,23 @@ class SerialPort():
     # Open the serial
     def serial_open(self, COMPORT):
 
-#        try:
-        self.ser = serial.Serial(
-            port=COMPORT,
-            baudrate=3686400,
-            parity=serial.PARITY_EVEN,
-            stopbits=serial.STOPBITS_ONE,
-            timeout=1,
-            bytesize=serial.EIGHTBITS,
-        )
+        try:
+            self.ser = serial.Serial(
+                port=COMPORT,
+                baudrate=3686400,
+                parity=serial.PARITY_EVEN,
+                stopbits=serial.STOPBITS_ONE,
+                timeout=1,
+                bytesize=serial.EIGHTBITS,
+            )
 
-        self.ser.set_buffer_size(rx_size = 20000, tx_size = 20000) #overfit buffer size to expected data burst size
-        self.ser_monitor.set_ser_status(True)
+            self.ser.set_buffer_size(rx_size = 20000, tx_size = 20000) #overfit buffer size to expected data burst size
+            self.ser_monitor.set_ser_status(True)
 
-        # Create monitoring thread
-        #monitor_thread = SerialMonitor(ser)
-        #monitor_run = True
-        #monitor_thread.start()
+            return 0
 
-        return 0
-        
-#        except:
-#            return 1
+        except:
+            return 1
     
     # Close the serial
     def serial_close(self):
@@ -148,9 +150,9 @@ class SerialPort():
 
         return 0
 
-    # Write FFT samping rate
-    def serial_wr_FFT_sampling(self, rate):
-    
+    # Write volume configuration
+    def serial_wr_volume(self, level, band):
+
         cmd = [0] # FFT selection
     
         try:
@@ -167,8 +169,4 @@ class SerialPort():
     
         except:
             return 2
-    
-    # Write volume configuration
-    def serial_wr_volume(self, volume):
-        pass
 

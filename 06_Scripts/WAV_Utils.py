@@ -1,7 +1,7 @@
 #############################
 ### Python Utility function for GUI
 ### Created     2020-02-29
-### Last update 2020-07-25
+### Last update 2020-07-27
 ### Author      Hugo HARTMANN
 #############################
 
@@ -30,7 +30,7 @@ def refresh_COM(serial, combo_COM):
         pass
 
 # Connect Serial to port COM
-def connect_COM(serial, combo_COM, lbl_status_COM, FONT):
+def connect_COM(serial, combo_COM, lbl_status_COM, COM_close_btn):
 
     COMPORT = combo_COM.currentText()
 
@@ -41,3 +41,12 @@ def connect_COM(serial, combo_COM, lbl_status_COM, FONT):
         lbl_status_COM.setText("<font color='Red'>Failed!</font>")
     else:
         lbl_status_COM.setText("<font color='Green'>Connected!</font>")
+        COM_close_btn.setEnabled(True)
+
+# Close Serial port
+def close_COM(serial, lbl_status_COM, COM_close_btn):
+
+    serial.serial_close()
+    COM_close_btn.setEnabled(False)
+
+    lbl_status_COM.setText("<font color='Green'></font>")

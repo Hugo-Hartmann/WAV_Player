@@ -1,7 +1,7 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-07-25
+### Last update 2020-07-27
 ### Author      Hugo HARTMANN
 #############################
 
@@ -20,10 +20,11 @@ class VuSlider(QSlider):
         super(QSlider, self).__init__(*args, **kwargs)
         
         self.setTickInterval(1)
-        self.setRange(0, 15)
+        self.setRange(0, 24)
         self.setSingleStep(1)
         self.setPageStep(1)
         self.setTickPosition(QSlider.TicksBothSides)
+        self.setValue(12)
 
 class MainWindow(QMainWindow):
 
@@ -42,37 +43,42 @@ class MainWindow(QMainWindow):
         COM_lbl.setAlignment(Qt.AlignCenter)
 
         COM_lyt_btn = QHBoxLayout()
-        
+
         COM_combobox = QComboBox()
-        
+
         COM_connect_btn = QPushButton("Connect")
         COM_refresh_btn = QPushButton("Refresh")
-        
+        COM_close_btn = QPushButton("Close")
+        COM_close_btn.setEnabled(False)
+
         COM_lyt_btn.addWidget(COM_refresh_btn)
         COM_lyt_btn.addWidget(COM_connect_btn)
-        
+        COM_lyt_btn.addWidget(COM_close_btn)
+
         COM_status_lbl = QLabel("")
         COM_status_lbl.setAlignment(Qt.AlignCenter)
-        
+
         COM_lyt = QVBoxLayout()
         COM_lyt.addWidget(COM_lbl)
         COM_lyt.addWidget(COM_combobox)
         COM_lyt.addLayout(COM_lyt_btn)
         COM_lyt.addWidget(COM_status_lbl)
-        
-        p_refresh_COM = partial(refresh_COM, serial, COM_combobox)
-        p_connect_COM = partial(connect_COM, serial, COM_combobox, COM_status_lbl)
-        
+
+        p_refresh_COM = partial(refresh_COM, self.serial, COM_combobox)
+        p_connect_COM = partial(connect_COM, self.serial, COM_combobox, COM_status_lbl, COM_close_btn)
+        p_close_COM = partial(close_COM, self.serial, COM_status_lbl, COM_close_btn)
+
         COM_refresh_btn.clicked.connect(p_refresh_COM)
         COM_connect_btn.clicked.connect(p_connect_COM)
-        
+        COM_close_btn.clicked.connect(p_close_COM)
+
         p_refresh_COM()
 
         ################################
         ## Equalizer Area
         ################################
         EQ_lyt = QHBoxLayout()
-        
+
         EQ_input_sld = VuSlider(orientation=Qt.Vertical)
         EQ_band0_sld = VuSlider(orientation=Qt.Vertical)
         EQ_band1_sld = VuSlider(orientation=Qt.Vertical)
@@ -81,7 +87,7 @@ class MainWindow(QMainWindow):
         EQ_band4_sld = VuSlider(orientation=Qt.Vertical)
         EQ_band5_sld = VuSlider(orientation=Qt.Vertical)
         EQ_output_sld = VuSlider(orientation=Qt.Vertical)
-        
+
         EQ_lyt.addWidget(EQ_input_sld)
         EQ_lyt.addWidget(EQ_band0_sld)
         EQ_lyt.addWidget(EQ_band1_sld)
@@ -118,8 +124,8 @@ class MainWindow(QMainWindow):
 
     def update_plot(self, WAV_data, FFT_data):
         if self._plot_ref is None:
-            plot_WAV = self.PLT_canvas.axes[0].plot(np.arange(1280), WAV_data, 'r')
-            plot_FFT = self.PLT_canvas.axes[1].plot(np.arange(1024), FFT_data, 'r')
+            plot_WAV = self.PLT_canvas.axes[0].plot(np.arange(1280), [0]*1280,  'r')
+            plot_FFT = self.PLT_canvas.axes[1].plot(np.arange(1024), [0]*1024, 'r')
             self._plot_ref = [plot_WAV[0], plot_FFT[0]]
         else:
             self._plot_ref[0].set_ydata(WAV_data)
@@ -130,7 +136,6 @@ class MainWindow(QMainWindow):
     def closeEvent(self, event):
         self.serial.serial_close()
         self.serial.ser_monitor.stop()
-        self.serial.ser_monitor.join()
 
 ################################
 ## Main App
