@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-07-27
+-- Last update: 2020-07-28
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -55,7 +55,8 @@ architecture A of UART_EQ_tb is
             EQ_addr         : in  std_logic_vector(7 downto 0);
             EQ_write        : in  std_logic;
             EQ_level_din    : in  std_logic_vector(15 downto 0);
-            EQ_en           : in  std_logic;
+            EQ_start        : in  std_logic;
+            EQ_done         : out std_logic;
             EQ_din_band     : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
             EQ_din          : in  std_logic_vector(15 downto 0);
             EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
@@ -107,9 +108,10 @@ architecture A of UART_EQ_tb is
     signal UART_dout        : std_logic_vector(15 downto 0);
     signal UART_send        : std_logic := '0';
     signal UART_din         : std_logic_vector(7 downto 0) := (others => '0');
-    signal EQ_en            : std_logic := '0';
-    signal EQ_din_band      : std_logic_vector(C_FIR_MAX*16+15 downto 0) := (others => '0');
-    signal EQ_din           : std_logic_vector(15 downto 0) := (others => '0');
+    signal EQ_start         : std_logic;
+    signal EQ_done          : std_logic;
+    signal EQ_din_band      : std_logic_vector(C_FIR_MAX*16+15 downto 0) := X"0000FFFF1000100001000000";
+    signal EQ_din           : std_logic_vector(15 downto 0) := X"0001";
     signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal Tx_busy          : std_logic;
     signal Tx_in            : std_logic_vector(7 downto 0);
@@ -132,7 +134,8 @@ begin
         EQ_addr         => UART_addr,
         EQ_write        => UART_write,
         EQ_level_din    => UART_dout,
-        EQ_en           => EQ_en,
+        EQ_start        => EQ_start,
+        EQ_done         => EQ_done,
         EQ_din_band     => EQ_din_band,
         EQ_din          => EQ_din,
         EQ_dout         => open,
@@ -223,14 +226,22 @@ begin
         end Send_cmd;
 
     begin
-        
-        Tx_send <= '0';
-        Tx_in   <= (others => '0');
+        EQ_start    <= '0';
+        Tx_send     <= '0';
+        Tx_in       <= (others => '0');
         Wait_cycles(4);
         wait until(rising_edge(clk));
 
         Wait_cycles(2);
-        Send_cmd(X"02", X"000A");
+        Send_cmd(X"42", X"000A");
+
+        Wait_cycles(10);
+        EQ_start    <= '1';
+
+        Wait_cycles(1);
+        EQ_start    <= '0';
+
+        wait until(EQ_done='1');
 
         Wait_cycles(10);
 

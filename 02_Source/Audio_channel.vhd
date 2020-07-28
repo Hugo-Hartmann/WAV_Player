@@ -106,7 +106,8 @@ architecture RTL of Audio_channel is
             EQ_addr         : in  std_logic_vector(7 downto 0);
             EQ_write        : in  std_logic;
             EQ_level_din    : in  std_logic_vector(15 downto 0);
-            EQ_en           : in  std_logic;
+            EQ_start        : in  std_logic;
+            EQ_done         : out std_logic;
             EQ_din_band     : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
             EQ_din          : in  std_logic_vector(15 downto 0);
             EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
@@ -191,6 +192,7 @@ architecture RTL of Audio_channel is
     signal FFT_write        : std_logic;
     signal FFT_done         : std_logic;
     signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal EQ_done          : std_logic;
     signal VU_dout          : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal NRM_addr_r       : std_logic_vector(10 downto 0);
     signal NRM_dout         : std_logic_vector(15 downto 0);
@@ -250,7 +252,8 @@ begin
         EQ_addr         => UART_addr,
         EQ_write        => UART_write,
         EQ_level_din    => UART_dout,
-        EQ_en           => New_sample_d,
+        EQ_start        => New_sample_d,
+        EQ_done         => EQ_done,
         EQ_din_band     => FIR_dout,
         EQ_din          => Audio_din_d,
         EQ_dout         => EQ_dout,
