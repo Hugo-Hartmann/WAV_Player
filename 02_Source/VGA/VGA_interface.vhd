@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2020-07-24
+-- Last update: 2020-07-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -40,8 +40,11 @@ entity VGA_interface is
         clk_216         : in  std_logic;                        -- clock 216 MHz
         reset_n         : in  std_logic;                        -- reset_n
 
-        ------- Switch selection -----------------
-        VGA_select      : in  std_logic_vector(3 downto 0);
+        ------- SW_in ---------------------------
+        SW_in           : in  std_logic_vector(2 downto 0);
+
+        ------- WAV_din --------------------------
+        WAV_din         : in  std_logic_vector(7 downto 0);
 
         ------- VGA interface --------------------
         VGA_new_frame   : in  std_logic;
@@ -135,7 +138,7 @@ architecture RTL of VGA_interface is
     signal draw_vol_d       : std_logic;
     signal display_nrm      : std_logic;
     signal display_nrm_d    : std_logic;
-    signal WAV_din          : std_logic_vector(7 downto 0);
+    signal WAV_din_d        : std_logic_vector(7 downto 0);
     signal WAV_din_map      : std_logic_vector(7 downto 0);
     signal NRM_data         : std_logic_vector(15 downto 0);
     signal pixel_ok         : std_logic;
@@ -164,22 +167,13 @@ begin
     P_select : process(clk_216, reset_n)
     begin
         if(reset_n='0') then
-            WAV_din <= (others => '0');
+            WAV_din_d   <= (others => '0');
             WAV_din_map <= (others => '0');
             WAV_read_d1 <= '0';
             WAV_read_d2 <= '0';
         elsif(rising_edge(clk_216)) then
-            case VGA_select(2 downto 0) is
-                when "000" => WAV_din <= EQ_dout(15 downto 8);
-                when "001" => WAV_din <= EQ_dout(31 downto 24);
-                when "010" => WAV_din <= EQ_dout(47 downto 40);
-                when "011" => WAV_din <= EQ_dout(63 downto 56);
-                when "100" => WAV_din <= EQ_dout(79 downto 72);
-                when "101" => WAV_din <= EQ_dout(95 downto 88);
-                when "110" => WAV_din <= EQ_dout(111 downto 104);
-                when others => WAV_din <= EQ_dout(127 downto 120);
-            end case;
-            WAV_din_map <= std_logic_vector(unsigned(WAV_din)+128);
+            WAV_din_d   <= WAV_din;
+            WAV_din_map <= std_logic_vector(unsigned(WAV_din_d)+128);
             WAV_read_d1 <= WAV_read;
             WAV_read_d2 <= WAV_read_d1;
         end if;
@@ -438,7 +432,7 @@ begin
     -- COMBINATORY :
     -- Description : Display a box around selected frequency band
     --------------------------------------------------------------------------------
-    process(VGA_select, VGA_v_add, VGA_h_add)
+    process(SW_in, VGA_v_add, VGA_h_add)
     
     variable h_min      : integer := 0;
     variable h_max      : integer := 0;
@@ -448,7 +442,7 @@ begin
     
     begin
         draw_box    <= '0';
-        case VGA_select(2 downto 0) is
+        case SW_in is
             when "000" => h_min := base_min+0*step; h_max := base_max+0*step;
             when "001" => h_min := base_min+2*step; h_max := base_max+2*step;
             when "010" => h_min := base_min+3*step; h_max := base_max+3*step;

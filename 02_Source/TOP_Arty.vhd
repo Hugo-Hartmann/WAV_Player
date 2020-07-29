@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-07-27
+-- Last update: 2020-07-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -39,9 +39,6 @@ entity TOP is
         ------- Clock and reset -----------------
         CLK12MHZ    : in  std_logic;
         RESET       : in  std_logic;
-
-        ------- Switches ------------------------
-        SW          : in  std_logic_vector(3 downto 0);
 
         ------- AUDIO interface -----------------
         DIN         : in  std_logic;
@@ -183,7 +180,6 @@ architecture RTL of TOP is
             UART_addr       : in  std_logic_vector(7 downto 0);
             UART_write      : in  std_logic;
             UART_dout       : in  std_logic_vector(15 downto 0);
-            SW              : in  std_logic_vector(3 downto 0);
             New_sample      : in  std_logic;
             Audio_din       : in  std_logic_vector(15 downto 0);
             Audio_out       : out std_logic_vector(15 downto 0);
@@ -386,7 +382,6 @@ begin
         UART_addr       => UART_addr,
         UART_write      => UART_write,
         UART_dout       => UART_dout,
-        SW              => SW,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_right_out,
         Audio_out       => MISO_right_in,
@@ -413,7 +408,6 @@ begin
         UART_addr       => UART_addr,
         UART_write      => UART_write,
         UART_dout       => UART_dout,
-        SW              => SW,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_left_out,
         Audio_out       => MISO_left_in,

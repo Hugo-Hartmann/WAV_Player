@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-21
--- Last update: 2020-07-27
+-- Last update: 2020-07-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -43,9 +43,6 @@ entity Audio_channel is
         UART_addr       : in  std_logic_vector(7 downto 0);
         UART_write      : in  std_logic;
         UART_dout       : in  std_logic_vector(15 downto 0);
-
-        ------- Switches ------------------------
-        SW              : in  std_logic_vector(3 downto 0);
 
         ------- Audio interface -----------------
         New_sample      : in  std_logic;
@@ -157,6 +154,8 @@ architecture RTL of Audio_channel is
             clk_108         : in  std_logic;
             clk_216         : in  std_logic;
             reset_n         : in  std_logic;
+            SW_in           : in  std_logic_vector(2 downto 0);
+            WAV_din         : in  std_logic_vector(7 downto 0);
             VGA_new_frame   : in  std_logic;
             VGA_read        : in  std_logic;
             VGA_address     : in  std_logic_vector(31 downto 0);
@@ -164,7 +163,6 @@ architecture RTL of Audio_channel is
             VGA_h_add       : in  std_logic_vector(15 downto 0);
             VGA_din         : out std_logic_vector(11 downto 0);
             WAV_read        : in  std_logic;
-            VGA_select      : in  std_logic_vector(3 downto 0);
             EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
             EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
             VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
@@ -172,6 +170,20 @@ architecture RTL of Audio_channel is
             NRM_dout        : in  std_logic_vector(15 downto 0);
             WAV_push        : out std_logic_vector(8 downto 0);
             FFT_push        : out std_logic_vector(16 downto 0)
+            );
+    end component;
+
+    component SW_Config_RAM is
+        generic(
+            G_LEFT_CHANNEL : boolean := true
+            );
+        port(
+            clk             : in  std_logic;
+            reset_n         : in  std_logic;
+            SW_addr         : in  std_logic_vector(7 downto 0);
+            SW_write        : in  std_logic;
+            SW_din          : in  std_logic_vector(15 downto 0);
+            SW_select_dout  : out std_logic_vector(2 downto 0)
             );
     end component;
 
@@ -197,6 +209,8 @@ architecture RTL of Audio_channel is
     signal NRM_addr_r       : std_logic_vector(10 downto 0);
     signal NRM_dout         : std_logic_vector(15 downto 0);
     signal VGA_v_add_map    : std_logic_vector(15 downto 0);
+    signal SW_select_dout   : std_logic_vector(2 downto 0);
+    signal WAV_din          : std_logic_vector(7 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -263,14 +277,15 @@ begin
     -- COMBINATORY :
     -- Description : Audio selection
     --------------------------------------------------------------------------------
-    SW_out   <= EQ_dout(15 downto 0)    when(SW="0000") else
-                EQ_dout(31 downto 16)   when(SW="0001") else
-                EQ_dout(47 downto 32)   when(SW="0010") else
-                EQ_dout(63 downto 48)   when(SW="0011") else
-                EQ_dout(79 downto 64)   when(SW="0100") else
-                EQ_dout(95 downto 80)   when(SW="0101") else
-                EQ_dout(111 downto 96)  when(SW="0110") else
+    SW_out  <= EQ_dout(15 downto 0)    when(SW_select_dout="000") else
+                EQ_dout(31 downto 16)   when(SW_select_dout="001") else
+                EQ_dout(47 downto 32)   when(SW_select_dout="010") else
+                EQ_dout(63 downto 48)   when(SW_select_dout="011") else
+                EQ_dout(79 downto 64)   when(SW_select_dout="100") else
+                EQ_dout(95 downto 80)   when(SW_select_dout="101") else
+                EQ_dout(111 downto 96)  when(SW_select_dout="110") else
                 EQ_dout(127 downto 112);
+    WAV_din <= SW_out(15 downto 8);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_FFT_Wrapper
@@ -337,6 +352,7 @@ begin
         clk_108         => clk_108,
         clk_216         => clk_216,
         reset_n         => reset_n,
+        SW_in           => SW_select_dout,
         VGA_new_frame   => VGA_new_frame,
         VGA_read        => VGA_read,
         VGA_address     => VGA_address,
@@ -344,7 +360,7 @@ begin
         VGA_h_add       => VGA_h_add,
         VGA_din         => VGA_din,
         WAV_read        => New_sample_d,
-        VGA_select      => SW,
+        WAV_din         => WAV_din,
         VU_dout         => VU_dout,
         EQ_dout         => EQ_dout,
         EQ_level_dout   => EQ_level_dout,
@@ -352,6 +368,20 @@ begin
         NRM_dout        => NRM_dout,
         WAV_push        => WAV_push,
         FFT_push        => FFT_push);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_SW_Config_RAM
+    -- Description: Store channel selection config
+    ----------------------------------------------------------------
+    U_SW_Config_RAM : SW_Config_RAM generic map(
+        G_LEFT_CHANNEL  => G_LEFT_CHANNEL)
+    port map(
+        clk             => clk_216,
+        reset_n         => reset_n,
+        SW_addr         => UART_addr,
+        SW_write        => UART_write,
+        SW_din          => UART_dout,
+        SW_select_dout  => SW_select_dout);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

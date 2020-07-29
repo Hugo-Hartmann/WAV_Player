@@ -1,7 +1,7 @@
 #############################
 ### Python code for handling Serial link
 ### Created     2020-01-07
-### Last update 2020-07-27
+### Last update 2020-07-29
 ### Author      Hugo HARTMANN
 #############################
 
@@ -168,6 +168,25 @@ class SerialPort():
                 return 0
             else:
                 return 1
+
+        else:
+            return 2
+
+    # Write channel selection
+    def serial_wr_sw(self, index):
+
+        if(self.opened):
+
+            # Currently sets both channels
+
+            cmd_right = [C_RIGHT_CHANNEL+C_SWITCH, 0]
+            cmd_left = [C_LEFT_CHANNEL+C_SWITCH, 0]
+
+            cmd_right.append(index)
+            cmd_left.append(index)
+            self.ser.write(bytearray(cmd_right))
+            self.ser.write(bytearray(cmd_left))
+            return 0
 
         else:
             return 2

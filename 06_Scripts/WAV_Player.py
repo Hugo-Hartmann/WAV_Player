@@ -1,13 +1,13 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-07-27
+### Last update 2020-07-29
 ### Author      Hugo HARTMANN
 #############################
 
 ## Library imports
 import sys
-from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider
+from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider, QRadioButton
 from PyQt5.QtCore import Qt
 from WAV_Serial import *
 from WAV_Plot import *
@@ -35,7 +35,6 @@ class MainWindow(QMainWindow):
         self.resize(1200, 800)
         self.serial = serial
         self.slider_num = 8
-
 
         ################################
         ## Port COM Area
@@ -76,6 +75,21 @@ class MainWindow(QMainWindow):
         p_refresh_COM()
 
         ################################
+        ## Channel select Area
+        ################################
+        SW_lyt = QVBoxLayout()
+
+        SW_btn_labels = ["Input", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5", "Band 6", "Output"]
+        SW_buttons = [None for i in range(8)]
+        p_SW_buttons = [None for i in range(8)]
+
+        for i in range(len(SW_buttons)):
+            SW_buttons[i] = QRadioButton(text=SW_btn_labels[i])
+            SW_lyt.addWidget(SW_buttons[i])
+            p_SW_buttons[i] = partial(update_SW, self.serial, i)
+            SW_buttons[i].pressed.connect(p_SW_buttons[i])
+
+        ################################
         ## Equalizer Area
         ################################
         EQ_lyt = QHBoxLayout()
@@ -106,7 +120,10 @@ class MainWindow(QMainWindow):
         UTIL_lyt = QHBoxLayout()
         UTIL_lyt.addLayout(COM_lyt)
         UTIL_lyt.addLayout(EQ_lyt)
-        MAIN_lyt.addLayout(PLT_lyt)
+        GRAPH_lyt = QHBoxLayout()
+        GRAPH_lyt.addLayout(PLT_lyt)
+        GRAPH_lyt.addLayout(SW_lyt)
+        MAIN_lyt.addLayout(GRAPH_lyt)
         MAIN_lyt.addLayout(UTIL_lyt)
 
         MAIN_widget = QWidget()
@@ -118,7 +135,6 @@ class MainWindow(QMainWindow):
         if self._plot_ref is None:
             plot_WAV = self.PLT_canvas.axes[0].plot(np.arange(1280), [0]*1280,  'r')
             plot_FFT = self.PLT_canvas.axes[1].plot(np.arange(1024), [0]*1024, 'r')
-            #plot_FFT = self.PLT_canvas.axes[1].bar(np.arange(1024), [0]*1024)
             self._plot_ref = [plot_WAV[0], plot_FFT[0]]
         else:
             self._plot_ref[0].set_ydata(WAV_data)

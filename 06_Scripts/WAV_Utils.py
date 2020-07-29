@@ -1,7 +1,7 @@
 #############################
 ### Python Utility function for GUI
 ### Created     2020-02-29
-### Last update 2020-07-27
+### Last update 2020-07-29
 ### Author      Hugo HARTMANN
 #############################
 
@@ -59,3 +59,10 @@ def update_EQ(serial, EQ_sld, index):
     level = EQ_sld.value()
 
     serial.serial_wr_volume(level, index)
+
+################################
+## Channel select Area
+################################
+
+def update_SW(serial, index):
+    serial.serial_wr_sw(index)
