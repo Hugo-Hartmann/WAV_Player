@@ -13,10 +13,6 @@ set_property src_info {type:XDC file:1 line:23 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN E18   IOSTANDARD LVCMOS33 } [get_ports { LED0 }]; #IO_L16N_T2_A27_15 Sch=led[2]
 set_property src_info {type:XDC file:1 line:29 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN G15   IOSTANDARD LVCMOS33 } [get_ports { RESET }]; #IO_L18N_T2_A23_15 Sch=btn[0]
-set_property src_info {type:XDC file:1 line:31 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN J16   IOSTANDARD LVCMOS33 } [get_ports { VOL_DOWN }]; #IO_L19N_T3_A21_VREF_15 Sch=btn[2]
-set_property src_info {type:XDC file:1 line:32 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN H13   IOSTANDARD LVCMOS33 } [get_ports { VOL_UP }]; #IO_L20P_T3_A20_15 Sch=btn[3]
 set_property src_info {type:XDC file:1 line:35 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports { RED_OUT[0] }]; #IO_L4P_T0_D04_14 Sch=ja_p[1]
 set_property src_info {type:XDC file:1 line:36 export:INPUT save:INPUT read:READ} [current_design]
@@ -65,7 +61,3 @@ set_property src_info {type:XDC file:1 line:75 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN R12   IOSTANDARD LVCMOS33 } [get_ports { TX }]; #IO_25_14 Sch=uart_rxd_out
 set_property src_info {type:XDC file:1 line:76 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN V12   IOSTANDARD LVCMOS33 } [get_ports { RX }]; #IO_L24N_T3_A00_D16_14 Sch=uart_txd_in
-set_property src_info {type:XDC file:1 line:194 export:INPUT save:INPUT read:READ} [current_design]
-set_multicycle_path -hold -from [get_pins {{U_VGA_controller/h_addr_counter_reg[0]/C} {U_VGA_controller/h_addr_counter_reg[1]/C} {U_VGA_controller/h_addr_counter_reg[2]/C} {U_VGA_controller/h_addr_counter_reg[3]/C} {U_VGA_controller/h_addr_counter_reg[4]/C} {U_VGA_controller/h_addr_counter_reg[5]/C} {U_VGA_controller/h_addr_counter_reg[6]/C} {U_VGA_controller/h_addr_counter_reg[7]/C} {U_VGA_controller/h_addr_counter_reg[8]/C} {U_VGA_controller/h_addr_counter_reg[9]/C} {U_VGA_controller/h_addr_counter_reg[10]/C} {U_VGA_controller/h_addr_counter_reg[11]/C} {U_VGA_controller/h_addr_counter_reg[12]/C} {U_VGA_controller/h_addr_counter_reg[13]/C} {U_VGA_controller/h_addr_counter_reg[14]/C} {U_VGA_controller/h_addr_counter_reg[15]/C}}] -to [get_pins -hierarchical -filter { NAME =~  "*U_NRM_RAM*" && NAME =~  "*ADDRARDADDR*" }] 2
-set_property src_info {type:XDC file:1 line:195 export:INPUT save:INPUT read:READ} [current_design]
-set_multicycle_path -setup -from [get_pins {{U_VGA_controller/h_addr_counter_reg[0]/C} {U_VGA_controller/h_addr_counter_reg[1]/C} {U_VGA_controller/h_addr_counter_reg[2]/C} {U_VGA_controller/h_addr_counter_reg[3]/C} {U_VGA_controller/h_addr_counter_reg[4]/C} {U_VGA_controller/h_addr_counter_reg[5]/C} {U_VGA_controller/h_addr_counter_reg[6]/C} {U_VGA_controller/h_addr_counter_reg[7]/C} {U_VGA_controller/h_addr_counter_reg[8]/C} {U_VGA_controller/h_addr_counter_reg[9]/C} {U_VGA_controller/h_addr_counter_reg[10]/C} {U_VGA_controller/h_addr_counter_reg[11]/C} {U_VGA_controller/h_addr_counter_reg[12]/C} {U_VGA_controller/h_addr_counter_reg[13]/C} {U_VGA_controller/h_addr_counter_reg[14]/C} {U_VGA_controller/h_addr_counter_reg[15]/C}}] -to [get_pins -hierarchical -filter { NAME =~  "*U_NRM_RAM*" && NAME =~  "*ADDRARDADDR*" }] 2

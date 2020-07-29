@@ -17,7 +17,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config  -id {Synth 8-3331}  -suppress 
 set_msg_config  -id {Constraints 18-5210}  -suppress 
 set_param project.vivado.isBlockSynthRun true
@@ -34,10 +35,10 @@ set_property target_language VHDL [current_project]
 set_property board_part digilentinc.com:arty-s7-50:part0:1.0 [current_project]
 set_property ip_output_repo c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library lib_VHDL {
-  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART_Rx.vhd
-  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART_Tx.vhd
-  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART_Wrapper.vhd
+read_vhdl -library xil_defaultlib {
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART/UART_Rx.vhd
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART/UART_Tx.vhd
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/UART/UART_Wrapper.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -55,8 +55,9 @@
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 ROM_32_16bit your_instance_name (
-  .a(a),      // input wire [4 : 0] a
-  .spo(spo)  // output wire [15 : 0] spo
+  .a(a),        // input wire [4 : 0] a
+  .clk(clk),    // input wire clk
+  .qspo(qspo)  // output wire [15 : 0] qspo
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

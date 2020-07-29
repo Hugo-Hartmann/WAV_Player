@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Mar 27 19:16:58 2020
+| Date         : Tue Jul 28 23:02:54 2020
 | Host         : DESKTOP-K3B0LAI running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file TOP_clock_utilization_routed.rpt
 | Design       : TOP
@@ -49,9 +49,9 @@ Table of Contents
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+------------------+--------------------------------------------+----------------------------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock            | Driver Pin                                 | Net                                    |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+------------------+--------------------------------------------+----------------------------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 4 |        7474 |               0 |        4.630 | clk_216_MMCM     | MMCM_GEN.U_MMCM/inst/clkout1_buf/O         | MMCM_GEN.U_MMCM/inst/clk_216           |
-| g1        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y17 | n/a          |                 4 |         417 |               0 |        9.259 | clk_108_MMCM     | MMCM_GEN.U_MMCM/inst/clkout2_buf/O         | MMCM_GEN.U_MMCM/inst/clk_108           |
-| g2        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y18 | n/a          |                 3 |         373 |               0 |        8.889 | clk_112_MMCM_112 | MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O | MMCM_GEN_112.U_MMCM_112/inst/clk_112   |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 4 |        6847 |               0 |        4.630 | clk_216_MMCM     | MMCM_GEN.U_MMCM/inst/clkout1_buf/O         | MMCM_GEN.U_MMCM/inst/clk_216           |
+| g1        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y17 | n/a          |                 4 |         469 |               0 |        9.259 | clk_108_MMCM     | MMCM_GEN.U_MMCM/inst/clkout2_buf/O         | MMCM_GEN.U_MMCM/inst/clk_108           |
+| g2        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y18 | n/a          |                 2 |         373 |               0 |        8.889 | clk_112_MMCM_112 | MMCM_GEN_112.U_MMCM_112/inst/clkout1_buf/O | MMCM_GEN_112.U_MMCM_112/inst/clk_112   |
 | g3        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y19 | n/a          |                 1 |           1 |               0 |       83.333 | clkfbout_MMCM    | MMCM_GEN.U_MMCM/inst/clkf_buf/O            | MMCM_GEN.U_MMCM/inst/clkfbout_buf_MMCM |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+------------------+--------------------------------------------+----------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
@@ -81,10 +81,10 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 2171 |  1200 |  828 |   400 |    0 |    20 |   10 |    10 |   13 |    20 |
-| X1Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 3847 |  1500 | 1210 |   450 |    3 |    40 |   15 |    20 |   19 |    20 |
-| X0Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  709 |  1200 |  244 |   400 |    0 |    20 |    4 |    10 |    6 |    20 |
-| X1Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1247 |  1500 |  482 |   450 |    1 |    40 |    5 |    20 |   16 |    20 |
+| X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1403 |  1200 |  555 |   400 |    0 |    20 |    9 |    10 |    8 |    20 |
+| X1Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 3644 |  1500 | 1163 |   450 |    8 |    40 |   10 |    20 |   19 |    20 |
+| X0Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  955 |  1200 |  405 |   400 |    0 |    20 |    6 |    10 |    2 |    20 |
+| X1Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1395 |  1500 |  485 |   450 |    0 |    40 |    9 |    20 |   11 |    20 |
 | X0Y2              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1800 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y2              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |   950 |    0 |   300 |    0 |    10 |    0 |     5 |    0 |    20 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
@@ -99,7 +99,7 @@ All Modules
 |    | X0 | X1 |
 +----+----+----+
 | Y2 |  0 |  0 |
-| Y1 |  3 |  3 |
+| Y1 |  3 |  2 |
 | Y0 |  3 |  3 |
 +----+----+----+
 
@@ -110,7 +110,7 @@ All Modules
 +-----------+-----------------+-------------------+--------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock        | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                          |
 +-----------+-----------------+-------------------+--------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------+
-| g0        | BUFG/O          | n/a               | clk_216_MMCM |       4.630 | {0.000 2.315} |        7414 |        0 |              0 |        0 | MMCM_GEN.U_MMCM/inst/clk_216 |
+| g0        | BUFG/O          | n/a               | clk_216_MMCM |       4.630 | {0.000 2.315} |        6787 |        0 |              0 |        0 | MMCM_GEN.U_MMCM/inst/clk_216 |
 +-----------+-----------------+-------------------+--------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -122,8 +122,8 @@ All Modules
 |    | X0    | X1    |
 +----+-------+-------+
 | Y2 |     0 |     0 |
-| Y1 |   700 |  1172 |
-| Y0 |  2119 |  3423 |
+| Y1 |   965 |  1444 |
+| Y0 |  1278 |  3100 |
 +----+-------+-------+
 
 
@@ -133,7 +133,7 @@ All Modules
 +-----------+-----------------+-------------------+--------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock        | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                          |
 +-----------+-----------------+-------------------+--------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------+
-| g1        | BUFG/O          | n/a               | clk_108_MMCM |       9.259 | {0.000 4.630} |         417 |        0 |              0 |        0 | MMCM_GEN.U_MMCM/inst/clk_108 |
+| g1        | BUFG/O          | n/a               | clk_108_MMCM |       9.259 | {0.000 4.630} |         469 |        0 |              0 |        0 | MMCM_GEN.U_MMCM/inst/clk_108 |
 +-----------+-----------------+-------------------+--------------+-------------+---------------+-------------+----------+----------------+----------+------------------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -145,8 +145,8 @@ All Modules
 |    | X0   | X1   |
 +----+------+------+
 | Y2 |    0 |    0 |
-| Y1 |   25 |  102 |
-| Y0 |  104 |  186 |
+| Y1 |   33 |    1 |
+| Y0 |  150 |  285 |
 +----+------+------+
 
 
@@ -168,8 +168,8 @@ All Modules
 |    | X0  | X1   |
 +----+-----+------+
 | Y2 |   0 |    0 |
-| Y1 |   0 |    2 |
-| Y0 |  17 |  348 |
+| Y1 |   0 |    0 |
+| Y0 |  17 |  350 |
 +----+-----+------+
 
 
@@ -202,8 +202,8 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                  |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        2119 |               0 | 2050 |     46 |   10 |  13 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_216         |
-| g1        | n/a   | BUFG/O          | None       |         104 |               0 |  104 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_108         |
+| g0        | n/a   | BUFG/O          | None       |        1278 |               0 | 1237 |     24 |    9 |   8 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_216         |
+| g1        | n/a   | BUFG/O          | None       |         150 |               0 |  149 |      1 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_108         |
 | g2        | n/a   | BUFG/O          | None       |          17 |               0 |   17 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN_112.U_MMCM_112/inst/clk_112 |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
@@ -217,9 +217,9 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                  |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        3423 |               0 | 3314 |     68 |   18 |  19 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_216         |
-| g1        | n/a   | BUFG/O          | None       |         186 |               0 |  185 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_108         |
-| g2        | n/a   | BUFG/O          | None       |         348 |               0 |  348 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN_112.U_MMCM_112/inst/clk_112 |
+| g0        | n/a   | BUFG/O          | None       |        3100 |               0 | 3011 |     46 |   18 |  19 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_216         |
+| g1        | n/a   | BUFG/O          | None       |         285 |               0 |  283 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_108         |
+| g2        | n/a   | BUFG/O          | None       |         350 |               0 |  350 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN_112.U_MMCM_112/inst/clk_112 |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -232,8 +232,8 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+----------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                    |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+----------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |         700 |               0 | 684 |      6 |    4 |   6 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_216           |
-| g1        | n/a   | BUFG/O          | None       |          25 |               0 |  25 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_108           |
+| g0        | n/a   | BUFG/O          | None       |         965 |               0 | 925 |     30 |    6 |   2 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_216           |
+| g1        | n/a   | BUFG/O          | None       |          33 |               0 |  30 |      1 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_108           |
 | g3        | n/a   | BUFG/O          | None       |           1 |               0 |   0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clkfbout_buf_MMCM |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+----------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
@@ -244,13 +244,12 @@ All Modules
 13. Clock Region Cell Placement per Global Clock: Region X1Y1
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                  |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        1172 |               0 | 1144 |      0 |    6 |  16 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_216         |
-| g1        | n/a   | BUFG/O          | None       |         102 |               0 |  101 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_108         |
-| g2        | n/a   | BUFG/O          | None       |           2 |               0 |    2 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN_112.U_MMCM_112/inst/clk_112 |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+--------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                          |
++-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+------------------------------+
+| g0        | n/a   | BUFG/O          | None       |        1444 |               0 | 1394 |     30 |    9 |  11 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_216 |
+| g1        | n/a   | BUFG/O          | None       |           1 |               0 |    1 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MMCM_GEN.U_MMCM/inst/clk_108 |
++-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -272,7 +271,7 @@ set_property LOC IOB_X0Y74 [get_ports CLK12MHZ]
 #startgroup
 create_pblock {CLKAG_MMCM_GEN_112.U_MMCM_112/inst/clk_112}
 add_cells_to_pblock [get_pblocks  {CLKAG_MMCM_GEN_112.U_MMCM_112/inst/clk_112}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="MMCM_GEN_112.U_MMCM_112/inst/clk_112"}]]]
-resize_pblock [get_pblocks {CLKAG_MMCM_GEN_112.U_MMCM_112/inst/clk_112}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
+resize_pblock [get_pblocks {CLKAG_MMCM_GEN_112.U_MMCM_112/inst/clk_112}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0}
 #endgroup
 
 # Clock net "MMCM_GEN.U_MMCM/inst/clk_216" driven by instance "MMCM_GEN.U_MMCM/inst/clkout1_buf" located at site "BUFGCTRL_X0Y16"

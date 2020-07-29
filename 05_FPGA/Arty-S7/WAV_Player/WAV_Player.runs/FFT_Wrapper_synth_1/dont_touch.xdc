@@ -4,6 +4,9 @@
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==FFT_FIFO || ORIG_REF_NAME==FFT_FIFO} -quiet] -quiet
 
+# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Multiplier_s16_s16 || ORIG_REF_NAME==Multiplier_s16_s16} -quiet] -quiet
+
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/Accu11.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Accu11 || ORIG_REF_NAME==Accu11} -quiet] -quiet
 
@@ -13,28 +16,28 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Accu10 || ORIG_
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ROM_1024_32bit || ORIG_REF_NAME==ROM_1024_32bit} -quiet] -quiet
 
-# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_16bit || ORIG_REF_NAME==BRAM_2048_16bit} -quiet] -quiet
-
-# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Multiplier_s16_s16 || ORIG_REF_NAME==Multiplier_s16_s16} -quiet] -quiet
-
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_32bit || ORIG_REF_NAME==BRAM_2048_32bit} -quiet] -quiet
+
+# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_16bit || ORIG_REF_NAME==BRAM_2048_16bit} -quiet] -quiet
 
 # XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xdc
 set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==FFT_FIFO || ORIG_REF_NAME==FFT_FIFO} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
 # XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit_ooc.xdc
 
-# XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit_ooc.xdc
-
 # XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc
+
+# XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit_ooc.xdc
 
 # XDC: new/FFT_Wrapper_ooc.xdc
 
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==FFT_FIFO || ORIG_REF_NAME==FFT_FIFO} -quiet] -quiet
+
+# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Multiplier_s16_s16 || ORIG_REF_NAME==Multiplier_s16_s16} -quiet] -quiet
 
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/Accu11.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Accu11 || ORIG_REF_NAME==Accu11} -quiet] -quiet
@@ -45,22 +48,19 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ROM_1024_32bit || ORIG_REF_NAME==ROM_1024_32bit} -quiet] -quiet
 
-# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit.xci
-#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_16bit || ORIG_REF_NAME==BRAM_2048_16bit} -quiet] -quiet
-
-# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
-#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Multiplier_s16_s16 || ORIG_REF_NAME==Multiplier_s16_s16} -quiet] -quiet
-
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_32bit || ORIG_REF_NAME==BRAM_2048_32bit} -quiet] -quiet
+
+# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_16bit || ORIG_REF_NAME==BRAM_2048_16bit} -quiet] -quiet
 
 # XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xdc
 #dup# set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==FFT_FIFO || ORIG_REF_NAME==FFT_FIFO} -quiet] {/U0 } ]/U0 ] -quiet] -quiet
 
 # XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit_ooc.xdc
 
-# XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit_ooc.xdc
-
 # XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc
+
+# XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit_ooc.xdc
 
 # XDC: new/FFT_Wrapper_ooc.xdc

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Mar 27 19:15:38 2020
+| Date         : Tue Jul 28 23:01:46 2020
 | Host         : DESKTOP-K3B0LAI running 64-bit major release  (build 9200)
 | Command      : report_drc -file TOP_drc_opted.rpt -pb TOP_drc_opted.pb -rpx TOP_drc_opted.rpx
 | Design       : TOP
@@ -24,12 +24,11 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 73
+             Violations found: 70
 +-----------+----------+-------------------------------------------------------------------+------------+
 | Rule      | Severity | Description                                                       | Violations |
 +-----------+----------+-------------------------------------------------------------------+------------+
 | CHECK-3   | Warning  | Report rule limit reached                                         | 2          |
-| IOSR-1    | Warning  | IOB set reset sharing                                             | 3          |
 | REQP-1839 | Warning  | RAMB36 async control check                                        | 20         |
 | REQP-1840 | Warning  | RAMB18 async control check                                        | 20         |
 | AVAL-4    | Advisory | enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND | 14         |
@@ -46,21 +45,6 @@ Related violations: <none>
 CHECK-3#2 Warning
 Report rule limit reached  
 REQP-1840 rule limit reached: 20 violations have been found.
-Related violations: <none>
-
-IOSR-1#1 Warning
-IOB set reset sharing  
-IO SW[0] connects to flops which have these U_Audio_channel_right/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1, U_Audio_channel_left/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
-Related violations: <none>
-
-IOSR-1#2 Warning
-IOB set reset sharing  
-IO SW[1] connects to flops which have these U_Audio_channel_right/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1, U_Audio_channel_left/U_EQ_stage/U_EQ_volume_ctrl/reset_n_1 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
-Related violations: <none>
-
-IOSR-1#3 Warning
-IOB set reset sharing  
-IO SW[2] connects to flops which have these U_Audio_channel_right/U_EQ_stage/U_EQ_volume_ctrl/reset_n_0, U_Audio_channel_left/U_EQ_stage/U_EQ_volume_ctrl/reset_n_0 set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
 Related violations: <none>
 
 REQP-1839#1 Warning

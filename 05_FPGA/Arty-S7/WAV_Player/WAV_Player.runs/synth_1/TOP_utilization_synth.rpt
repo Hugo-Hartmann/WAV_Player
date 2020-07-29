@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Mar 27 19:14:49 2020
+| Date         : Tue Jul 28 23:01:01 2020
 | Host         : DESKTOP-K3B0LAI running 64-bit major release  (build 9200)
 | Command      : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
 | Design       : TOP
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  119 |     0 |     32600 |  0.37 |
-|   LUT as Logic          |  119 |     0 |     32600 |  0.37 |
+| Slice LUTs*             |  136 |     0 |     32600 |  0.42 |
+|   LUT as Logic          |  136 |     0 |     32600 |  0.42 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |   57 |     0 |     65200 |  0.09 |
-|   Register as Flip Flop |   57 |     0 |     65200 |  0.09 |
+| Slice Registers         |  230 |     0 |     65200 |  0.35 |
+|   Register as Flip Flop |  230 |     0 |     65200 |  0.35 |
 |   Register as Latch     |    0 |     0 |     65200 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -54,8 +54,8 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 0     |          Yes |           - |          Set |
-| 33    |          Yes |           - |        Reset |
+| 32    |          Yes |           - |          Set |
+| 174   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 24    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   33 |     0 |       210 | 15.71 |
+| Bonded IOB                  |   31 |     0 |       210 | 14.76 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         5 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         5 |  0.00 |
@@ -145,14 +145,16 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |   64 |                 LUT |
-| FDCE     |   33 |        Flop & Latch |
+| FDCE     |  174 |        Flop & Latch |
+| LUT6     |   80 |                 LUT |
 | LUT5     |   32 |                 LUT |
+| FDPE     |   32 |        Flop & Latch |
 | FDRE     |   24 |        Flop & Latch |
 | OBUF     |   23 |                  IO |
-| LUT2     |   14 |                 LUT |
-| IBUF     |   10 |                  IO |
-| LUT1     |    9 |                 LUT |
+| LUT2     |   15 |                 LUT |
+| LUT1     |    8 |                 LUT |
+| IBUF     |    8 |                  IO |
+| LUT3     |    2 |                 LUT |
 | CARRY4   |    2 |          CarryLogic |
 +----------+------+---------------------+
 
@@ -160,23 +162,25 @@ Table of Contents
 8. Black Boxes
 --------------
 
-+----------------+------+
-|    Ref Name    | Used |
-+----------------+------+
-| VU_metre       |    2 |
-| VGA_interface  |    2 |
-| NRM_Wrapper    |    2 |
-| FIR_interface  |    2 |
-| FIFO_32bit     |    2 |
-| FFT_Wrapper    |    2 |
-| EQ_stage       |    2 |
-| VGA_Controller |    1 |
-| UART_Wrapper   |    1 |
-| MMCM_112       |    1 |
-| MMCM           |    1 |
-| I2S_Wrapper    |    1 |
-| Hearbeat       |    1 |
-+----------------+------+
++-----------------+------+
+|     Ref Name    | Used |
++-----------------+------+
+| VU_metre        |    2 |
+| VGA_interface   |    2 |
+| NRM_Wrapper     |    2 |
+| FIR_interface   |    2 |
+| FFT_Wrapper     |    2 |
+| EQ_UAL          |    2 |
+| EQ_FSM          |    2 |
+| VGA_Controller  |    1 |
+| UART_Wrapper    |    1 |
+| PSH_Driver      |    1 |
+| MMCM_112        |    1 |
+| MMCM            |    1 |
+| I2S_Wrapper     |    1 |
+| Hearbeat        |    1 |
+| Audio_Interface |    1 |
++-----------------+------+
 
 
 9. Instantiated Netlists

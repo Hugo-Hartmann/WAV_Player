@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="I2S_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1582972973">
+<GenRun Id="I2S_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595967772">
   <File Type="PA-TCL" Name="I2S_Wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="I2S_Wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="I2S_Wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="I2S_Wrapper.vds"/>
   <File Type="RDS-UTIL" Name="I2S_Wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="I2S_Wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="I2S_Wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="I2S_Wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="I2S_Wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/I2S_Wrapper">
-    <File Path="$PPRDIR/../../../02_Source/I2S_Emitter.vhd">
+    <File Path="$PPRDIR/../../../02_Source/I2S/I2S_Emitter.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/I2S_Receiver.vhd">
+    <File Path="$PPRDIR/../../../02_Source/I2S/I2S_Receiver.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/I2S_Wrapper.vhd">
+    <File Path="$PPRDIR/../../../02_Source/I2S/I2S_Wrapper.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -34,24 +37,24 @@
     </File>
     <Config>
       <Option Name="TopModule" Val="I2S_Wrapper"/>
-      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/I2S_Wrapper.vhd"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/I2S/I2S_Wrapper.vhd"/>
       <Option Name="UseBlackboxStub" Val="1"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/I2S_Wrapper">
-    <File Path="$PPRDIR/../../../02_Source/I2S_Emitter.vhd">
+    <File Path="$PPRDIR/../../../02_Source/I2S/I2S_Emitter.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/I2S_Receiver.vhd">
+    <File Path="$PPRDIR/../../../02_Source/I2S/I2S_Receiver.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/I2S_Wrapper.vhd">
+    <File Path="$PPRDIR/../../../02_Source/I2S/I2S_Wrapper.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -66,7 +69,7 @@
     </File>
     <Config>
       <Option Name="TopModule" Val="I2S_Wrapper"/>
-      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/I2S_Wrapper.vhd"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/I2S/I2S_Wrapper.vhd"/>
       <Option Name="UseBlackboxStub" Val="1"/>
     </Config>
   </FileSet>
@@ -77,7 +80,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

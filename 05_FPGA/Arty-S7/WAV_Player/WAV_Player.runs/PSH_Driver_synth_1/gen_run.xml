@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="PSH_Driver_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595967774">
+  <File Type="PA-TCL" Name="PSH_Driver.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="PSH_Driver_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="PSH_Driver_reports.tcl"/>
+  <File Type="RDS-RDS" Name="PSH_Driver.vds"/>
+  <File Type="RDS-UTIL" Name="PSH_Driver_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="PSH_Driver_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="PSH_Driver.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="PSH_Driver_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="PSH_Driver_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PSH_Driver">
+    <File Path="$PSRCDIR/sources_1/ip/FIFO_16bit_1024/FIFO_16bit_1024.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/FIFO_8bit_2048/FIFO_8bit_2048.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="lib_VHDL"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/PSH/PSH_Driver.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/PSH_Driver/new/PSH_Driver_ooc.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="PSH_Driver"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/PSH/PSH_Driver.vhd"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PSH_Driver">
+    <File Path="$PSRCDIR/sources_1/ip/FIFO_16bit_1024/FIFO_16bit_1024.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/FIFO_8bit_2048/FIFO_8bit_2048.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="lib_VHDL"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/PSH/PSH_Driver.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/PSH_Driver/new/PSH_Driver_ooc.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="PSH_Driver"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/PSH/PSH_Driver.vhd"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

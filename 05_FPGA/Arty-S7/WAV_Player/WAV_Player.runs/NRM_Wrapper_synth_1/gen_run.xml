@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="NRM_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1585332678">
+<GenRun Id="NRM_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595967778">
   <File Type="PA-TCL" Name="NRM_Wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="NRM_Wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="NRM_Wrapper_reports.tcl"/>
@@ -31,25 +31,25 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/NRM_FSM.vhd">
+    <File Path="$PPRDIR/../../../02_Source/NRM/NRM_FSM.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/NRM_Normalizer.vhd">
+    <File Path="$PPRDIR/../../../02_Source/NRM/NRM_Normalizer.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/NRM_RAM_Wrapper.vhd">
+    <File Path="$PPRDIR/../../../02_Source/NRM/NRM_RAM_Wrapper.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/NRM_Wrapper.vhd">
+    <File Path="$PPRDIR/../../../02_Source/NRM/NRM_Wrapper.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -64,7 +64,7 @@
     </File>
     <Config>
       <Option Name="TopModule" Val="NRM_Wrapper"/>
-      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/NRM_Wrapper.vhd"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/NRM/NRM_Wrapper.vhd"/>
       <Option Name="UseBlackboxStub" Val="1"/>
     </Config>
   </FileSet>
@@ -90,25 +90,25 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/NRM_FSM.vhd">
+    <File Path="$PPRDIR/../../../02_Source/NRM/NRM_FSM.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/NRM_Normalizer.vhd">
+    <File Path="$PPRDIR/../../../02_Source/NRM/NRM_Normalizer.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/NRM_RAM_Wrapper.vhd">
+    <File Path="$PPRDIR/../../../02_Source/NRM/NRM_RAM_Wrapper.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/NRM_Wrapper.vhd">
+    <File Path="$PPRDIR/../../../02_Source/NRM/NRM_Wrapper.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -123,7 +123,7 @@
     </File>
     <Config>
       <Option Name="TopModule" Val="NRM_Wrapper"/>
-      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/NRM_Wrapper.vhd"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/NRM/NRM_Wrapper.vhd"/>
       <Option Name="UseBlackboxStub" Val="1"/>
     </Config>
   </FileSet>
@@ -134,7 +134,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

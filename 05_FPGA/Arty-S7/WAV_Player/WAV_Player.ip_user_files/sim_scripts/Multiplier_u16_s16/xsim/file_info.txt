@@ -1,2 +1,0 @@
-Multiplier_u16_s16.vhd,vhdl,xil_defaultlib,../../../../WAV_Player.srcs/sources_1/ip/Multiplier_u16_s16/sim/Multiplier_u16_s16.vhd,
-glbl.v,Verilog,xil_defaultlib,glbl.v

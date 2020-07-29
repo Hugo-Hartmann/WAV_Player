@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="Hearbeat_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1582972952">
+<GenRun Id="Hearbeat_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595967784">
   <File Type="PA-TCL" Name="Hearbeat.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Hearbeat_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="Hearbeat_reports.tcl"/>
   <File Type="RDS-RDS" Name="Hearbeat.vds"/>
   <File Type="RDS-UTIL" Name="Hearbeat_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="Hearbeat_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="Hearbeat.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Hearbeat_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Hearbeat_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Hearbeat">
     <File Path="$PPRDIR/../../../02_Source/Heartbeat.vhd">
       <FileInfo>
-        <Attr Name="Library" Val="lib_VHDL"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -30,7 +32,6 @@
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Hearbeat">
     <File Path="$PPRDIR/../../../02_Source/Heartbeat.vhd">
       <FileInfo>
-        <Attr Name="Library" Val="lib_VHDL"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -55,7 +56,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

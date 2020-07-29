@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun Mar  1 23:03:50 2020
+| Date         : Tue Jul 28 22:24:45 2020
 | Host         : DESKTOP-K3B0LAI running 64-bit major release  (build 9200)
 | Command      : report_utilization -file VGA_interface_utilization_synth.rpt -pb VGA_interface_utilization_synth.pb
 | Design       : VGA_interface
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  471 |     0 |     32600 |  1.44 |
-|   LUT as Logic          |  471 |     0 |     32600 |  1.44 |
+| Slice LUTs*             |  489 |     0 |     32600 |  1.50 |
+|   LUT as Logic          |  489 |     0 |     32600 |  1.50 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |  182 |     0 |     65200 |  0.28 |
-|   Register as Flip Flop |  182 |     0 |     65200 |  0.28 |
+| Slice Registers         |  210 |     0 |     65200 |  0.32 |
+|   Register as Flip Flop |  210 |     0 |     65200 |  0.32 |
 |   Register as Latch     |    0 |     0 |     65200 |  0.00 |
 | F7 Muxes                |    8 |     0 |     16300 |  0.05 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -55,7 +55,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 182   |          Yes |           - |        Reset |
+| 210   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -146,14 +146,14 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     |  199 |                 LUT |
-| FDCE     |  182 |        Flop & Latch |
-| LUT6     |  147 |                 LUT |
+| FDCE     |  210 |        Flop & Latch |
+| LUT2     |  206 |                 LUT |
+| LUT6     |  148 |                 LUT |
 | LUT5     |  111 |                 LUT |
-| LUT4     |   89 |                 LUT |
+| LUT4     |   90 |                 LUT |
+| LUT3     |   90 |                 LUT |
 | CARRY4   |   77 |          CarryLogic |
-| LUT3     |   64 |                 LUT |
-| LUT1     |   39 |                 LUT |
+| LUT1     |   40 |                 LUT |
 | MUXF7    |    8 |               MuxFx |
 | RAMB18E1 |    1 |        Block Memory |
 +----------+------+---------------------+

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date                      : Fri Mar 27 19:16:12 2020
+| Date                      : Tue Jul 28 23:02:12 2020
 | Host                      : DESKTOP-K3B0LAI running 64-bit major release  (build 9200)
 | Command                   : report_io -file TOP_io_placed.rpt
 | Design                    : TOP
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            33 |
+|            31 |
 +---------------+
 
 
@@ -173,7 +173,7 @@ Table of Contents
 | H10        |              | Dedicated  | VCCADC_0                     | XADC        |             |       0 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | H11        |              |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |          |                  |              |                   |              |
 | H12        |              |            | VCCAUX                       | VCCAUX      |             |         |            |      |                     |                      |    1.80 |            |           |          |          |                  |              |                   |              |
-| H13        | VOL_UP       | High Range | IO_L20P_T3_15                | INPUT       | LVCMOS33    |      15 |            |      |                     |                 NONE |         | FIXED      |           |          |          | NONE             |              |                   |              |
+| H13        |              | High Range | IO_L20P_T3_15                | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | H14        | SW[0]        | High Range | IO_L20N_T3_15                | INPUT       | LVCMOS33    |      15 |            |      |                     |                 NONE |         | FIXED      |           |          |          | NONE             |              |                   |              |
 | H15        |              | High Range | IO_L18P_T2_15                | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | H16        |              | High Range | IO_L22P_T3_15                | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
@@ -194,7 +194,7 @@ Table of Contents
 | J13        |              | High Range | IO_L24P_T3_RS1_15            | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | J14        |              | High Range | IO_L24N_T3_RS0_15            | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | J15        |              | High Range | IO_L23N_T3_15                | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
-| J16        | VOL_DOWN     | High Range | IO_L19N_T3_VREF_15           | INPUT       | LVCMOS33    |      15 |            |      |                     |                 NONE |         | FIXED      |           |          |          | NONE             |              |                   |              |
+| J16        |              | High Range | IO_L19N_T3_VREF_15           | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |
 | J17        |              | High Range | VCCO_15                      | VCCO        |             |      15 |            |      |                     |                      |    3.30 |            |           |          |          |                  |              |                   |              |
 | J18        |              |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |          |                  |              |                   |              |
 | K1         |              | High Range | IO_L3P_T0_DQS_34             | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |          |                  |              |                   |              |

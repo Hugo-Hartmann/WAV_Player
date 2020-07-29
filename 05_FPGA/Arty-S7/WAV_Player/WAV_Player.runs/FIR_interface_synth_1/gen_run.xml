@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="FIR_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1583188922">
+<GenRun Id="FIR_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595967779">
   <File Type="PA-TCL" Name="FIR_interface.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="FIR_interface_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="FIR_interface_reports.tcl"/>
   <File Type="RDS-RDS" Name="FIR_interface.vds"/>
   <File Type="RDS-UTIL" Name="FIR_interface_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="FIR_interface_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="FIR_interface.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="FIR_interface_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="FIR_interface_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FIR_interface">
     <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_4/ROM_1024_16bit_4.xci">
       <FileInfo>
@@ -70,16 +73,8 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/FIR_filter.vhd">
+    <File Path="$PPRDIR/../../../02_Source/FIR/FIR_filter.vhd">
       <FileInfo>
-        <Attr Name="Library" Val="lib_VHDL"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../02_Source/FIR_interface.vhd">
-      <FileInfo>
-        <Attr Name="Library" Val="lib_VHDL"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -87,6 +82,12 @@
     <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
       <FileInfo>
         <Attr Name="Library" Val="lib_VHDL"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/FIR/FIR_interface.vhd">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -100,7 +101,7 @@
     </File>
     <Config>
       <Option Name="TopModule" Val="FIR_interface"/>
-      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/FIR_interface.vhd"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/FIR/FIR_interface.vhd"/>
       <Option Name="UseBlackboxStub" Val="1"/>
     </Config>
   </FileSet>
@@ -168,16 +169,8 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../02_Source/FIR_filter.vhd">
+    <File Path="$PPRDIR/../../../02_Source/FIR/FIR_filter.vhd">
       <FileInfo>
-        <Attr Name="Library" Val="lib_VHDL"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../02_Source/FIR_interface.vhd">
-      <FileInfo>
-        <Attr Name="Library" Val="lib_VHDL"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -185,6 +178,12 @@
     <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
       <FileInfo>
         <Attr Name="Library" Val="lib_VHDL"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/FIR/FIR_interface.vhd">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -198,7 +197,7 @@
     </File>
     <Config>
       <Option Name="TopModule" Val="FIR_interface"/>
-      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/FIR_interface.vhd"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/FIR/FIR_interface.vhd"/>
       <Option Name="UseBlackboxStub" Val="1"/>
     </Config>
   </FileSet>
@@ -209,7 +208,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -55,7 +55,8 @@
 COMPONENT ROM_32_16bit
   PORT (
     a : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-    spo : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    clk : IN STD_LOGIC;
+    qspo : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -67,7 +68,8 @@ END COMPONENT;
 your_instance_name : ROM_32_16bit
   PORT MAP (
     a => a,
-    spo => spo
+    clk => clk,
+    qspo => qspo
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 

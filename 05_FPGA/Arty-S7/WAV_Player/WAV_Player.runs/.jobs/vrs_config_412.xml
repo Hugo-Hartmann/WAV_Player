@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="EQ_UAL_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_UAL_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="EQ_FSM_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_FSM_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="I2S_Wrapper_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="VU_metre_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="PSH_Driver_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/PSH_Driver_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Audio_Interface_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Audio_Interface_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="VGA_interface_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="NRM_Wrapper_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="FIR_interface_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="UART_Wrapper_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/UART_Wrapper_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="VGA_Controller_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_Controller_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="FFT_Wrapper_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Hearbeat_synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Hearbeat_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="EQ_UAL_synth_1"/>
+		<Parent Id="EQ_FSM_synth_1"/>
+		<Parent Id="I2S_Wrapper_synth_1"/>
+		<Parent Id="VU_metre_synth_1"/>
+		<Parent Id="PSH_Driver_synth_1"/>
+		<Parent Id="Audio_Interface_synth_1"/>
+		<Parent Id="VGA_interface_synth_1"/>
+		<Parent Id="NRM_Wrapper_synth_1"/>
+		<Parent Id="FIR_interface_synth_1"/>
+		<Parent Id="UART_Wrapper_synth_1"/>
+		<Parent Id="VGA_Controller_synth_1"/>
+		<Parent Id="FFT_Wrapper_synth_1"/>
+		<Parent Id="Hearbeat_synth_1"/>
+	</Run>
+	<Run Id="impl_1" LaunchDir="C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
+		<Parent Id="synth_1"/>
+		<Parent Id="EQ_UAL_synth_1"/>
+		<Parent Id="EQ_FSM_synth_1"/>
+		<Parent Id="I2S_Wrapper_synth_1"/>
+		<Parent Id="VU_metre_synth_1"/>
+		<Parent Id="PSH_Driver_synth_1"/>
+		<Parent Id="Audio_Interface_synth_1"/>
+		<Parent Id="VGA_interface_synth_1"/>
+		<Parent Id="NRM_Wrapper_synth_1"/>
+		<Parent Id="FIR_interface_synth_1"/>
+		<Parent Id="UART_Wrapper_synth_1"/>
+		<Parent Id="VGA_Controller_synth_1"/>
+		<Parent Id="FFT_Wrapper_synth_1"/>
+		<Parent Id="Hearbeat_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -55,18 +55,20 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module ROM_32_16bit (
   a,
-  spo
+  clk,
+  qspo
 );
 
 input wire [4 : 0] a;
-output wire [15 : 0] spo;
+input wire clk;
+output wire [15 : 0] qspo;
 
   dist_mem_gen_v8_0_12 #(
     .C_FAMILY("spartan7"),
     .C_ADDR_WIDTH(5),
     .C_DEFAULT_DATA("0"),
     .C_DEPTH(32),
-    .C_HAS_CLK(0),
+    .C_HAS_CLK(1),
     .C_HAS_D(0),
     .C_HAS_DPO(0),
     .C_HAS_DPRA(0),
@@ -76,11 +78,11 @@ output wire [15 : 0] spo;
     .C_HAS_QDPO_CLK(0),
     .C_HAS_QDPO_RST(0),
     .C_HAS_QDPO_SRST(0),
-    .C_HAS_QSPO(0),
+    .C_HAS_QSPO(1),
     .C_HAS_QSPO_CE(0),
     .C_HAS_QSPO_RST(0),
     .C_HAS_QSPO_SRST(0),
-    .C_HAS_SPO(1),
+    .C_HAS_SPO(0),
     .C_HAS_WE(0),
     .C_MEM_INIT_FILE("ROM_32_16bit.mif"),
     .C_ELABORATION_DIR("./"),
@@ -98,7 +100,7 @@ output wire [15 : 0] spo;
     .a(a),
     .d(16'B0),
     .dpra(5'B0),
-    .clk(1'D0),
+    .clk(clk),
     .we(1'D0),
     .i_ce(1'D1),
     .qspo_ce(1'D1),
@@ -108,9 +110,9 @@ output wire [15 : 0] spo;
     .qdpo_rst(1'D0),
     .qspo_srst(1'D0),
     .qdpo_srst(1'D0),
-    .spo(spo),
+    .spo(),
     .dpo(),
-    .qspo(),
+    .qspo(qspo),
     .qdpo()
   );
 endmodule
