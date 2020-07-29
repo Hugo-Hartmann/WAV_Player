@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-07-28
+-- Last update: 2020-07-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -110,8 +110,8 @@ architecture A of UART_EQ_tb is
     signal UART_din         : std_logic_vector(7 downto 0) := (others => '0');
     signal EQ_start         : std_logic;
     signal EQ_done          : std_logic;
-    signal EQ_din_band      : std_logic_vector(C_FIR_MAX*16+15 downto 0) := X"0000FFFF1000100001000000";
-    signal EQ_din           : std_logic_vector(15 downto 0) := X"0001";
+    signal EQ_din_band      : std_logic_vector(C_FIR_MAX*16+15 downto 0) := X"0084FFFF0083008200810080";
+    signal EQ_din           : std_logic_vector(15 downto 0) := X"007F";
     signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
     signal Tx_busy          : std_logic;
     signal Tx_in            : std_logic_vector(7 downto 0);
@@ -233,7 +233,15 @@ begin
         wait until(rising_edge(clk));
 
         Wait_cycles(2);
-        Send_cmd(X"42", X"000A");
+        Send_cmd(X"40", X"000A");
+
+        Wait_cycles(10);
+        EQ_start    <= '1';
+
+        Wait_cycles(1);
+        EQ_start    <= '0';
+
+        wait until(EQ_done='1');
 
         Wait_cycles(10);
         EQ_start    <= '1';

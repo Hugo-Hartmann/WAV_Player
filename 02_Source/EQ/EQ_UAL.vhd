@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-28
--- Last update: 2020-07-28
+-- Last update: 2020-07-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -265,7 +265,7 @@ begin
         elsif(rising_edge(clk)) then
             if(EQ_clear='1') then
                 EQ_accu <= to_unsigned(0, EQ_accu'length);
-            elsif(EQ_en_d(6)='1') then
+            elsif(EQ_en_d(6)='1' and unsigned(EQ_select_d(6))>0) then
                 EQ_accu <= EQ_accu + unsigned(EQ_accu_din) ;
             end if;
         end if;
