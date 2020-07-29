@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-07-27
+-- Last update: 2020-07-29
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -98,7 +98,7 @@ begin
     GEN_RIGHT_CHANNEL : if(G_LEFT_CHANNEL=false) generate
         process(EQ_addr_d)
         begin
-            if(EQ_addr_d(7)='0' and EQ_addr_d(6)='1') then
+            if(EQ_addr_d(7)='0' and EQ_addr_d(6 downto 3)="0001") then
                 addr_valid  <= '1';
             else
                 addr_valid  <= '0';
@@ -109,7 +109,7 @@ begin
     GEN_LEFT_CHANNEL : if(G_LEFT_CHANNEL=true) generate
         process(EQ_addr_d)
         begin
-            if(EQ_addr_d(7)='1' and EQ_addr_d(6)='1') then
+            if(EQ_addr_d(7)='1' and EQ_addr_d(6 downto 3)="0001") then
                 addr_valid  <= '1';
             else
                 addr_valid  <= '0';
@@ -129,7 +129,7 @@ begin
             end loop;
         elsif(rising_edge(clk)) then
             if(addr_valid='1' and EQ_write_d='1') then
-                EQ_level(to_integer(unsigned(EQ_addr_d(4 downto 0))))    <= EQ_din_d(4 downto 0);
+                EQ_level(to_integer(unsigned(EQ_addr_d(2 downto 0))))    <= EQ_din_d(4 downto 0);
             end if;
         end if;
     end process;

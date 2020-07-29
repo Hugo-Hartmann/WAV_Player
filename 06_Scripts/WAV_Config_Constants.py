@@ -14,7 +14,7 @@ C_LEFT_CHANNEL = 128
 
 # Equalizer selection
 
-C_EQUALIZER = 64
+C_EQUALIZER = 8
 
 # Switch (Channel) selection
 
