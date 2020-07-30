@@ -1,7 +1,7 @@
 #############################
 ### Python Utility function for GUI
 ### Created     2020-02-29
-### Last update 2020-07-29
+### Last update 2020-07-30
 ### Author      Hugo HARTMANN
 #############################
 
@@ -55,14 +55,19 @@ def close_COM(serial, lbl_status_COM, COM_close_btn):
 ## Equalizer Area
 ################################
 
-def update_EQ(serial, EQ_sld, index):
+def update_EQ_lvl(serial, EQ_sld, index):
     level = EQ_sld.value()
 
-    serial.serial_wr_volume(level, index)
+    serial.serial_wr_EQ_level(level, index)
+
+def update_EQ_sel(serial, EQ_btn, index):
+    sel = EQ_btn.checkState()
+
+    serial.serial_wr_EQ_sel(sel, index+1)
 
 ################################
 ## Channel select Area
 ################################
 
 def update_SW(serial, index):
-    serial.serial_wr_sw(index)
+    serial.serial_wr_SW(index)

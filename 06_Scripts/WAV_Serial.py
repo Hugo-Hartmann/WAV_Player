@@ -1,7 +1,7 @@
 #############################
 ### Python code for handling Serial link
 ### Created     2020-01-07
-### Last update 2020-07-29
+### Last update 2020-07-30
 ### Author      Hugo HARTMANN
 #############################
 
@@ -149,15 +149,15 @@ class SerialPort():
         return 0
 
     # Write volume configuration
-    def serial_wr_volume(self, level, index):
+    def serial_wr_EQ_level(self, level, index):
 
         if(self.opened):
 
             # Currently sets both channels
             # Add 0 MSB of level (16 bits sent, only 5 LSBs used)
 
-            cmd_right = [C_RIGHT_CHANNEL+C_EQUALIZER+index, 0]
-            cmd_left = [C_LEFT_CHANNEL+C_EQUALIZER+index, 0]
+            cmd_right = [C_RIGHT_CHANNEL+C_EQUALIZER_LEVEL+index, 0]
+            cmd_left = [C_LEFT_CHANNEL+C_EQUALIZER_LEVEL+index, 0]
 
             nb = int(level)
             if(nb>=0 and nb<=24):
@@ -172,8 +172,32 @@ class SerialPort():
         else:
             return 2
 
+    # Write volume configuration
+    def serial_wr_EQ_sel(self, sel, index):
+
+        if(self.opened):
+
+            # Currently sets both channels
+
+            cmd_right = [C_RIGHT_CHANNEL+C_EQUALIZER_SEL+index, 0]
+            cmd_left = [C_LEFT_CHANNEL+C_EQUALIZER_SEL+index, 0]
+
+            if(sel):
+                enable = 1
+            else:
+                enable = 0
+
+            cmd_right.append(enable)
+            cmd_left.append(enable)
+            self.ser.write(bytearray(cmd_right))
+            self.ser.write(bytearray(cmd_left))
+            return 0
+
+        else:
+            return 2
+
     # Write channel selection
-    def serial_wr_sw(self, index):
+    def serial_wr_SW(self, index):
 
         if(self.opened):
 

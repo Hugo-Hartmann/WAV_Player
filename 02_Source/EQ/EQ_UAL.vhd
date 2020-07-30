@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-28
--- Last update: 2020-07-29
+-- Last update: 2020-07-30
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ entity EQ_UAL is
         EQ_din_band : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
         EQ_din      : in  std_logic_vector(15 downto 0);
         EQ_level    : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-        --EQ_active_band  : in  std_logic_vector(C_FIR_MAX downto 0);
+        EQ_chan_sel : in  std_logic_vector(7 downto 0);
 
         ------- EQ out --------------------------
         EQ_dout     : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0)
@@ -265,7 +265,7 @@ begin
         elsif(rising_edge(clk)) then
             if(EQ_clear='1') then
                 EQ_accu <= to_unsigned(0, EQ_accu'length);
-            elsif(EQ_en_d(6)='1' and unsigned(EQ_select_d(6))>0) then
+            elsif(EQ_en_d(6)='1' and EQ_chan_sel(to_integer(unsigned(EQ_select_d(6))))='1') then
                 EQ_accu <= EQ_accu + unsigned(EQ_accu_din) ;
             end if;
         end if;

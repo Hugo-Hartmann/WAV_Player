@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-07-27
+-- Last update: 2020-07-30
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ architecture RTL of EQ_Wrapper is
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATION
     --------------------------------------------------------------------------------
-    component EQ_volume_RAM is
+    component EQ_Config_RAM is
         generic(
             G_LEFT_CHANNEL : boolean := true
             );
@@ -76,6 +76,7 @@ architecture RTL of EQ_Wrapper is
             EQ_addr         : in  std_logic_vector(7 downto 0);
             EQ_write        : in  std_logic;
             EQ_din          : in  std_logic_vector(15 downto 0);
+            EQ_sel_dout     : out std_logic_vector(7 downto 0);
             EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
             );
     end component;
@@ -104,6 +105,7 @@ architecture RTL of EQ_Wrapper is
             EQ_din_band : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
             EQ_din      : in  std_logic_vector(15 downto 0);
             EQ_level    : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            EQ_chan_sel : in  std_logic_vector(7 downto 0);
             EQ_dout     : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0)
             );
     end component;
@@ -116,6 +118,7 @@ architecture RTL of EQ_Wrapper is
     signal EQ_clear     : std_logic;
     signal EQ_en        : std_logic;
     signal EQ_select    : std_logic_vector(3 downto 0);
+    signal EQ_sel_dout  : std_logic_vector(7 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -123,10 +126,10 @@ architecture RTL of EQ_Wrapper is
 begin
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_EQ_volume_RAM
+    -- INSTANCE : U_EQ_Config_RAM
     -- Description: Store volume levels
     ----------------------------------------------------------------
-    U_EQ_volume_RAM : EQ_volume_RAM generic map(
+    U_EQ_Config_RAM : EQ_Config_RAM generic map(
         G_LEFT_CHANNEL  => G_LEFT_CHANNEL)
     port map(
         clk             => clk,
@@ -134,6 +137,7 @@ begin
         EQ_addr         => EQ_addr,
         EQ_write        => EQ_write,
         EQ_din          => EQ_level_din,
+        EQ_sel_dout     => EQ_sel_dout,
         EQ_level_dout   => EQ_level_net);
 
     ----------------------------------------------------------------
@@ -164,6 +168,7 @@ begin
         EQ_din_band => EQ_din_band,
         EQ_din      => EQ_din,
         EQ_level    => EQ_level_net,
+        EQ_chan_sel => EQ_sel_dout,
         EQ_dout     => EQ_dout);
 
     --------------------------------------------------------------------------------

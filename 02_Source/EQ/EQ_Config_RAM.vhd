@@ -2,11 +2,11 @@
 -- Title      : 
 -- Project    : WAV_Player
 -------------------------------------------------------------------------------
--- File       : EQ_volume_RAM.vhd
+-- File       : EQ_Config_RAM.vhd
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-07-29
+-- Last update: 2020-07-30
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ use lib_VHDL.TYPE_Pkg.all;
 --------------------------------------------------------------------------------
 -- ENTITY DECLARATION
 --------------------------------------------------------------------------------
-entity EQ_volume_RAM is
+entity EQ_Config_RAM is
     generic(
         G_LEFT_CHANNEL : boolean := true
         );
@@ -45,15 +45,16 @@ entity EQ_volume_RAM is
         EQ_din          : in  std_logic_vector(15 downto 0);
 
         ------- EQ out --------------------------
+        EQ_sel_dout     : out std_logic_vector(7 downto 0);
         EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
 
         );
-end EQ_volume_RAM;
+end EQ_Config_RAM;
 
 --------------------------------------------------------------------------------
 -- ARCHITECTURE DECLARATION
 --------------------------------------------------------------------------------
-architecture RTL of EQ_volume_RAM is
+architecture RTL of EQ_Config_RAM is
 
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
@@ -63,11 +64,12 @@ architecture RTL of EQ_volume_RAM is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal EQ_level     : vol_tab;
-    signal EQ_addr_d    : std_logic_vector(7 downto 0);
-    signal EQ_write_d   : std_logic;
-    signal EQ_din_d     : std_logic_vector(15 downto 0);
-    signal addr_valid   : std_logic;
+    signal EQ_level         : vol_tab;
+    signal EQ_addr_d        : std_logic_vector(7 downto 0);
+    signal EQ_write_d       : std_logic;
+    signal EQ_din_d         : std_logic_vector(15 downto 0);
+    signal sel_addr_valid   : std_logic;
+    signal lvl_addr_valid   : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -93,15 +95,21 @@ begin
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
-    -- Description : Check address range
+    -- Description : Check address range for level
     --------------------------------------------------------------------------------
     GEN_RIGHT_CHANNEL : if(G_LEFT_CHANNEL=false) generate
         process(EQ_addr_d)
         begin
             if(EQ_addr_d(7)='0' and EQ_addr_d(6 downto 3)="0001") then
-                addr_valid  <= '1';
+                lvl_addr_valid  <= '1';
             else
-                addr_valid  <= '0';
+                lvl_addr_valid  <= '0';
+            end if;
+
+            if(EQ_addr_d(7)='0' and EQ_addr_d(6 downto 3)="0010") then
+                sel_addr_valid  <= '1';
+            else
+                sel_addr_valid  <= '0';
             end if;
         end process;
     end generate GEN_RIGHT_CHANNEL;
@@ -110,25 +118,31 @@ begin
         process(EQ_addr_d)
         begin
             if(EQ_addr_d(7)='1' and EQ_addr_d(6 downto 3)="0001") then
-                addr_valid  <= '1';
+                lvl_addr_valid  <= '1';
             else
-                addr_valid  <= '0';
+                lvl_addr_valid  <= '0';
+            end if;
+
+            if(EQ_addr_d(7)='1' and EQ_addr_d(6 downto 3)="0010") then
+                sel_addr_valid  <= '1';
+            else
+                sel_addr_valid  <= '0';
             end if;
         end process;
     end generate GEN_LEFT_CHANNEL;
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_RAM
+    -- SEQ PROCESS : P_RAM_lvl
     -- Description : RAM emulation
     --------------------------------------------------------------------------------
-    P_RAM : process(clk, reset_n)
+    P_RAM_lvl : process(clk, reset_n)
     begin
         if(reset_n='0') then
             for i in EQ_level'range loop
                 EQ_level(i)  <= std_logic_vector(to_unsigned(12, 5));
             end loop;
         elsif(rising_edge(clk)) then
-            if(addr_valid='1' and EQ_write_d='1') then
+            if(lvl_addr_valid='1' and EQ_write_d='1') then
                 EQ_level(to_integer(unsigned(EQ_addr_d(2 downto 0))))    <= EQ_din_d(4 downto 0);
             end if;
         end if;
@@ -146,6 +160,21 @@ begin
             for i in EQ_level'range loop
                 EQ_level_dout(i*5+4 downto i*5) <= EQ_level(i);
             end loop;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_RAM_sel
+    -- Description : RAM emulation
+    --------------------------------------------------------------------------------
+    P_RAM_sel : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            EQ_sel_dout <= "01111110";
+        elsif(rising_edge(clk)) then
+            if(sel_addr_valid='1' and EQ_write_d='1') then
+                EQ_sel_dout(to_integer(unsigned(EQ_addr_d(2 downto 0))))    <= EQ_din_d(0);
+            end if;
         end if;
     end process;
 

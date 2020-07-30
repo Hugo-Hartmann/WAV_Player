@@ -1,13 +1,13 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-07-29
+### Last update 2020-07-30
 ### Author      Hugo HARTMANN
 #############################
 
 ## Library imports
 import sys
-from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider, QRadioButton
+from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider, QRadioButton, QCheckBox
 from PyQt5.QtCore import Qt
 from WAV_Serial import *
 from WAV_Plot import *
@@ -34,7 +34,6 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("WAV Player")
         self.resize(1200, 800)
         self.serial = serial
-        self.slider_num = 8
 
         ################################
         ## Port COM Area
@@ -89,19 +88,37 @@ class MainWindow(QMainWindow):
             p_SW_buttons[i] = partial(update_SW, self.serial, i)
             SW_buttons[i].pressed.connect(p_SW_buttons[i])
 
+        SW_buttons[0].setChecked(True)
+
         ################################
         ## Equalizer Area
         ################################
-        EQ_lyt = QHBoxLayout()
+        EQ_lyt = QVBoxLayout()
+        SLD_lyt = QHBoxLayout()
+        BTN_lyt = QHBoxLayout()
 
-        EQ_sliders = [None for i in range(self.slider_num)]
-        p_EQ_sliders = [None for i in range(self.slider_num)]
+        EQ_lyt.addLayout(SLD_lyt)
+        EQ_lyt.addLayout(BTN_lyt)
 
-        for i in range(self.slider_num):
+        EQ_sliders = [None for i in range(8)]
+        p_EQ_sliders = [None for i in range(8)]
+
+        for i in range(8):
             EQ_sliders[i] = VuSlider(orientation=Qt.Vertical)
-            EQ_lyt.addWidget(EQ_sliders[i])
-            p_EQ_sliders[i] = partial(update_EQ, self.serial, EQ_sliders[i], i)
+            SLD_lyt.addWidget(EQ_sliders[i])
+            p_EQ_sliders[i] = partial(update_EQ_lvl, self.serial, EQ_sliders[i], i)
             EQ_sliders[i].valueChanged.connect(p_EQ_sliders[i])
+
+        EQ_buttons = [None for i in range(6)]
+        p_EQ_buttons = [None for i in range(6)]
+
+        for i in range(6):
+            EQ_buttons[i] = QCheckBox()
+            EQ_buttons[i].setCheckState(True)
+            EQ_buttons[i].setTristate(False)
+            BTN_lyt.addWidget(EQ_buttons[i])
+            p_EQ_buttons[i] = partial(update_EQ_sel, self.serial, EQ_buttons[i], i)
+            EQ_buttons[i].stateChanged.connect(p_EQ_buttons[i])
 
         ################################
         ## Graph Area
