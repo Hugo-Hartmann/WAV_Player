@@ -15,7 +15,7 @@ from WAV_Utils import *
 from functools import partial
 
 class VuSlider(QSlider):
-    
+
     def __init__(self, *args, **kwargs):
         super(QSlider, self).__init__(*args, **kwargs)
         
@@ -26,159 +26,151 @@ class VuSlider(QSlider):
         self.setTickPosition(QSlider.TicksBothSides)
         self.setValue(12)
 
+class ComPortWidget(QWidget):
+    def __init__(self, serial, *args, **kwargs):
+        super(ComPortWidget, self).__init__(*args, **kwargs)
+        self.serial = serial
+
+        self.lbl = QLabel("Serial")
+        self.lbl.setAlignment(Qt.AlignCenter)
+
+        self.lyt = QGridLayout()
+
+        self.combobox = QComboBox()
+
+        self.connect_btn = QPushButton("Connect")
+        self.refresh_btn = QPushButton("Refresh")
+        self.close_btn = QPushButton("Close")
+        self.close_btn.setEnabled(False)
+
+        self.status_lbl = QLabel("")
+        self.status_lbl.setAlignment(Qt.AlignCenter)
+
+        self.lyt.addWidget(self.lbl, 0, 0, 1, 3)
+        self.lyt.addWidget(self.combobox, 1, 0, 1, 3)
+        self.lyt.addWidget(self.refresh_btn, 2, 0)
+        self.lyt.addWidget(self.connect_btn, 2, 1)
+        self.lyt.addWidget(self.close_btn, 2, 2)
+        self.lyt.addWidget(self.status_lbl, 3, 0, 1, 3)
+
+        self.p_refresh = partial(refresh_COM, self.serial, self.combobox)
+        self.p_connect = partial(connect_COM, self.serial, self.combobox, self.status_lbl, self.close_btn)
+        self.p_close = partial(close_COM, self.serial, self.status_lbl, self.close_btn)
+
+        self.refresh_btn.clicked.connect(self.p_refresh)
+        self.connect_btn.clicked.connect(self.p_connect)
+        self.close_btn.clicked.connect(self.p_close)
+
+        self.p_refresh()
+
+class BandSelectWidget(QWidget):
+    def __init__(self, serial, *args, **kwargs):
+        super(BandSelectWidget, self).__init__(*args, **kwargs)
+        self.serial = serial
+
+        self.lyt = QGridLayout()
+
+        self.btn_labels = ["Input", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5", "Band 6", "Output"]
+        self.buttons = [None for i in range(8)]
+        self.p_buttons = [None for i in range(8)]
+
+        for i in range(len(self.buttons)):
+            self.buttons[i] = QRadioButton(text=self.btn_labels[i])
+            self.lyt.addWidget(self.buttons[i], i, 0)
+            self.p_buttons[i] = partial(update_SW, self.serial, i)
+            self.buttons[i].pressed.connect(self.p_buttons[i])
+
+        self.buttons[0].setChecked(True)
+
+class EqualizerWidget(QWidget):
+    def __init__(self, serial, *args, **kwargs):
+        super(EqualizerWidget, self).__init__(*args, **kwargs)
+        self.serial = serial
+
+        self.lyt = QGridLayout()
+        self.SLD_lyt = QGridLayout()
+
+        self.sliders = [None for i in range(8)]
+        self.p_sliders = [None for i in range(8)]
+
+        for i in range(8):
+            self.sliders[i] = VuSlider(orientation=Qt.Vertical)
+            self.SLD_lyt.addWidget(self.sliders[i], 0, i)
+            self.p_sliders[i] = partial(update_EQ_lvl, self.serial, self.sliders[i], i)
+            self.sliders[i].valueChanged.connect(self.p_sliders[i])
+
+        self.buttons = [None for i in range(6)]
+        self.p_buttons = [None for i in range(6)]
+
+        for i in range(6):
+            self.buttons[i] = QCheckBox()
+            self.buttons[i].setCheckState(True)
+            self.buttons[i].setTristate(False)
+            self.lyt.addWidget(self.buttons[i], 3, i+2)
+            self.p_buttons[i] = partial(update_EQ_sel, self.serial, self.buttons[i], i)
+            self.buttons[i].stateChanged.connect(self.p_buttons[i])
+
+        self.VU_canvas = BarCanvas(self, width=5, height=4, dpi=100)
+
+        self.lyt.addWidget(self.VU_canvas, 0, 0, 3, 8)
+        self.lyt.addLayout(self.SLD_lyt, 1, 1, 1, 6)
+        self.lyt.setRowMinimumHeight(0, 30)
+        self.lyt.setRowMinimumHeight(2, 30)
+
+    def update_VU(self, data):
+        self.VU_canvas.update_data(data)
+
+class OscilloscopeWidget(QWidget):
+    def __init__(self, serial, *args, **kwargs):
+        super(OscilloscopeWidget, self).__init__(*args, **kwargs)
+        self.serial = serial
+
+        self.lyt = QGridLayout()
+
+        self.PLT_canvas = DualPlotCanvas(self, width=5, height=4, dpi=100)
+        self.lyt.addWidget(self.PLT_canvas, 0, 0)
+
+        # Create radio buttons to select band
+        self.SW_Menu = BandSelectWidget(self.serial)
+
+        self.lyt.addLayout(self.SW_Menu.lyt, 0, 1)
+
+    def update_OSC(self, data_top, data_bot):
+        self.PLT_canvas.update_data(data_top, data_bot)
+
 class MainWindow(QMainWindow):
 
     def __init__(self, serial, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
         self.setWindowTitle("WAV Player")
-        self.resize(600, 600)
+        self.resize(800, 600)
         self.serial = serial
 
-        ################################
-        ## Port COM Area
-        ################################
-        COM_lbl = QLabel("Serial")
-        COM_lbl.setAlignment(Qt.AlignCenter)
+        ## Port COM
+        self.COM_Port = ComPortWidget(self.serial);
 
-        COM_lyt_btn = QHBoxLayout()
+        ## Equalizer
+        self.Equalizer_Bloc = EqualizerWidget(self.serial)
 
-        COM_combobox = QComboBox()
+        ## Oscilloscope
+        self.Oscilloscope_bloc = OscilloscopeWidget(self.serial)
 
-        COM_connect_btn = QPushButton("Connect")
-        COM_refresh_btn = QPushButton("Refresh")
-        COM_close_btn = QPushButton("Close")
-        COM_close_btn.setEnabled(False)
-
-        COM_lyt_btn.addWidget(COM_refresh_btn)
-        COM_lyt_btn.addWidget(COM_connect_btn)
-        COM_lyt_btn.addWidget(COM_close_btn)
-
-        COM_status_lbl = QLabel("")
-        COM_status_lbl.setAlignment(Qt.AlignCenter)
-
-        COM_lyt = QVBoxLayout()
-        COM_lyt.addWidget(COM_lbl)
-        COM_lyt.addWidget(COM_combobox)
-        COM_lyt.addLayout(COM_lyt_btn)
-        COM_lyt.addWidget(COM_status_lbl)
-
-        p_refresh_COM = partial(refresh_COM, self.serial, COM_combobox)
-        p_connect_COM = partial(connect_COM, self.serial, COM_combobox, COM_status_lbl, COM_close_btn)
-        p_close_COM = partial(close_COM, self.serial, COM_status_lbl, COM_close_btn)
-
-        COM_refresh_btn.clicked.connect(p_refresh_COM)
-        COM_connect_btn.clicked.connect(p_connect_COM)
-        COM_close_btn.clicked.connect(p_close_COM)
-
-        p_refresh_COM()
-
-        ################################
-        ## Channel select Area
-        ################################
-        SW_lyt = QVBoxLayout()
-
-        SW_btn_labels = ["Input", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5", "Band 6", "Output"]
-        SW_buttons = [None for i in range(8)]
-        p_SW_buttons = [None for i in range(8)]
-
-        for i in range(len(SW_buttons)):
-            SW_buttons[i] = QRadioButton(text=SW_btn_labels[i])
-            SW_lyt.addWidget(SW_buttons[i])
-            p_SW_buttons[i] = partial(update_SW, self.serial, i)
-            SW_buttons[i].pressed.connect(p_SW_buttons[i])
-
-        SW_buttons[0].setChecked(True)
-
-        ################################
-        ## Equalizer Area
-        ################################
-        EQ_lyt = QVBoxLayout()
-        SLD_lyt = QHBoxLayout()
-        BTN_lyt = QHBoxLayout()
-        VU_lyt = QHBoxLayout()
-        VU_SLD_lyt = QGridLayout()
-        VU_SLD_lyt.addLayout(VU_lyt, 0, 0)
-        VU_SLD_lyt.addLayout(SLD_lyt, 0, 0)
-
-        EQ_lyt.addLayout(VU_SLD_lyt)
-        EQ_lyt.addLayout(BTN_lyt)
-
-        EQ_sliders = [None for i in range(8)]
-        p_EQ_sliders = [None for i in range(8)]
-
-        for i in range(8):
-            EQ_sliders[i] = VuSlider(orientation=Qt.Vertical)
-            SLD_lyt.addWidget(EQ_sliders[i])
-            p_EQ_sliders[i] = partial(update_EQ_lvl, self.serial, EQ_sliders[i], i)
-            EQ_sliders[i].valueChanged.connect(p_EQ_sliders[i])
-
-        EQ_buttons = [None for i in range(6)]
-        p_EQ_buttons = [None for i in range(6)]
-
-        for i in range(6):
-            EQ_buttons[i] = QCheckBox()
-            EQ_buttons[i].setCheckState(True)
-            EQ_buttons[i].setTristate(False)
-            BTN_lyt.addWidget(EQ_buttons[i])
-            p_EQ_buttons[i] = partial(update_EQ_sel, self.serial, EQ_buttons[i], i)
-            EQ_buttons[i].stateChanged.connect(p_EQ_buttons[i])
-
-        self.VU_canvas = BarCanvas(self, width=5, height=4, dpi=100)
-        self._plot_vu_ref = None
-        VU_lyt.addWidget(self.VU_canvas)
-        self.update_bar(np.arange(8))
-        self.show()
-
-
-        ################################
-        ## Graph Area
-        ################################
-        self.PLT_canvas = PlotCanvas(self, width=5, height=4, dpi=100)
-        self._plot_ref = None
-        PLT_lyt = QHBoxLayout()
-        PLT_lyt.addWidget(self.PLT_canvas)
-        self.update_plot(np.arange(1280), np.arange(1024))
-        self.show()
-
-        ################################
         ## Main Area
-        ################################
-        MAIN_lyt = QVBoxLayout()
-        UTIL_lyt = QHBoxLayout()
-        UTIL_lyt.addLayout(COM_lyt)
-        UTIL_lyt.addLayout(EQ_lyt)
-        GRAPH_lyt = QHBoxLayout()
-        GRAPH_lyt.addLayout(PLT_lyt)
-        GRAPH_lyt.addLayout(SW_lyt)
-        MAIN_lyt.addLayout(GRAPH_lyt)
-        MAIN_lyt.addLayout(UTIL_lyt)
+        self.lyt = QGridLayout()
+        self.lyt.addLayout(self.Oscilloscope_bloc.lyt, 0, 0, 1, 2)
+        self.lyt.addLayout(self.COM_Port.lyt, 1, 0)
+        self.lyt.addLayout(self.Equalizer_Bloc.lyt, 1, 1)
 
-        MAIN_widget = QWidget()
-        MAIN_widget.setLayout(MAIN_lyt)
-        self.setCentralWidget(MAIN_widget)
+        self.widget = QWidget()
+        self.widget.setLayout(self.lyt)
+        self.setCentralWidget(self.widget)
 
+    def update_VU(self, data):
+        self.Equalizer_Bloc.update_VU(data)
 
-    def update_plot(self, WAV_data, FFT_data):
-        if self._plot_ref is None:
-            plot_WAV = self.PLT_canvas.axes[0].plot(np.arange(1280), [0]*1280, 'r')
-            plot_FFT = self.PLT_canvas.axes[1].plot(np.arange(1024), [0]*1024, 'r')
-            self._plot_ref = [plot_WAV[0], plot_FFT[0]]
-        else:
-            self._plot_ref[0].set_ydata(WAV_data)
-            self._plot_ref[1].set_ydata(FFT_data)
-
-        self.PLT_canvas.draw()
-
-    def update_bar(self, VU_data):
-        if self._plot_vu_ref is None:
-            plot_VU = self.VU_canvas.ax.bar(np.arange(8), [4]*8)
-            self._plot_vu_ref = plot_VU
-        else:
-            for i in range(len(VU_data)):
-                self._plot_vu_ref[i].set_height(VU_data[i])
-
-        self.VU_canvas.draw()
+    def update_OSC(self, data_top, data_bot):
+        self.Oscilloscope_bloc.update_OSC(data_top, data_bot)
 
     def closeEvent(self, event):
         self.serial.serial_close()

@@ -77,8 +77,8 @@ class SerialMonitor(Thread):
                     if(self.synced==False):
                         self.sync_with_header()
                     else:
-                        self.GUI.update_plot(self.WAV_tab, self.FFT_tab)
-                        self.GUI.update_bar(self.VU_tab)
+                        self.GUI.update_OSC(self.WAV_tab, self.FFT_tab)
+                        self.GUI.update_VU(self.VU_tab)
                     
                     self.get_data()
                 else:
