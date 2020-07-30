@@ -36,18 +36,44 @@ class DualPlotCanvas(FigureCanvas):
 class BarCanvas(FigureCanvas):
 
     def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi)
-        self.ax = fig.subplots(1)
-        self.ax.get_xaxis().set_visible(False)
-        self.ax.get_yaxis().set_visible(False)
+        self.fig = Figure(figsize=(width, height), dpi=dpi)
+        self.ax = self.fig.subplots()
+        self.fig.patch.set_visible(False)
+        self.ax.axis('off')
         self.ax.set_ylim([0, 31])
-        super(BarCanvas, self).__init__(fig)
+        self.bar = self.ax.bar([0], [4])[0]
 
-        self.plot_Bar = self.ax.bar(np.arange(8), [4]*8)
+        super(BarCanvas, self).__init__(self.fig)
+
+        self.grad = [[255-i] for i in range(256)]
+        self.lim = self.ax.get_xlim()+self.ax.get_ylim()
+        self.bar.set_zorder(1)
+        self.bar.set_facecolor("none")
+        x, y = self.bar.get_xy()
+        w, h = self.bar.get_width(), self.bar.get_height()
+        self.im = self.ax.imshow(self.grad, extent=[x,x+w,y,y+h], aspect="auto", zorder=0, origin="lower", cmap="RdYlGn")
+        self.ax.axis(self.lim)
+
         self.show()
 
+
     def update_data(self, data):
-        for i in range(len(data)):
-            self.plot_Bar[i].set_height(data[i])
+        self.bar.set_height(data)
+        x, y = self.bar.get_xy()
+        w, h = self.bar.get_width(), self.bar.get_height()
+        self.im.set_extent([x,x+w,y,y+h])
+        self.im.set_data(self.grad[:int((h+1)*255/32)][:][:])
 
         self.draw()
+
+class BarPatch():
+
+    def __init__(self):
+        self.canvas = []
+        for i in range(8):
+            self.canvas.append(BarCanvas())
+
+
+    def update_data(self, data):
+        for i in range(8):
+            self.canvas[i].update_data(data[i])

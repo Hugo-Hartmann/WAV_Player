@@ -19,6 +19,23 @@ class VuSlider(QSlider):
     def __init__(self, *args, **kwargs):
         super(QSlider, self).__init__(*args, **kwargs)
         
+        self.sld_style = """ QSlider::groove:vertical {
+            border: 1px solid tranparent;
+            background: transparent;
+            height: 100px;
+            margin: 2px 0;
+            }
+         
+        QSlider::handle:vertical {
+            background: #505050;
+            border: 1px solid #5c5c5c;
+            width: 20px;
+            height: 8px;
+            margin: -2px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
+            border-radius: 30px;
+            }"""
+
+        self.setStyleSheet(self.sld_style)
         self.setTickInterval(1)
         self.setRange(0, 24)
         self.setSingleStep(1)
@@ -88,14 +105,18 @@ class EqualizerWidget(QWidget):
         self.serial = serial
 
         self.lyt = QGridLayout()
-        self.SLD_lyt = QGridLayout()
+
+        self.bars = BarPatch()
 
         self.sliders = [None for i in range(8)]
         self.p_sliders = [None for i in range(8)]
 
         for i in range(8):
+            self.lyt.addWidget(self.bars.canvas[i], 0, i)
+            self.lyt.setAlignment(self.bars.canvas[i], Qt.AlignCenter)
             self.sliders[i] = VuSlider(orientation=Qt.Vertical)
-            self.SLD_lyt.addWidget(self.sliders[i], 0, i)
+            self.lyt.addWidget(self.sliders[i], 0, i)
+            self.lyt.setAlignment(self.sliders[i], Qt.AlignCenter)
             self.p_sliders[i] = partial(update_EQ_lvl, self.serial, self.sliders[i], i)
             self.sliders[i].valueChanged.connect(self.p_sliders[i])
 
@@ -106,19 +127,13 @@ class EqualizerWidget(QWidget):
             self.buttons[i] = QCheckBox()
             self.buttons[i].setCheckState(True)
             self.buttons[i].setTristate(False)
-            self.lyt.addWidget(self.buttons[i], 3, i+2)
+            self.lyt.addWidget(self.buttons[i], 1, i+1)
+            self.lyt.setAlignment(self.buttons[i], Qt.AlignCenter)
             self.p_buttons[i] = partial(update_EQ_sel, self.serial, self.buttons[i], i)
             self.buttons[i].stateChanged.connect(self.p_buttons[i])
 
-        self.VU_canvas = BarCanvas(self, width=5, height=4, dpi=100)
-
-        self.lyt.addWidget(self.VU_canvas, 0, 0, 3, 8)
-        self.lyt.addLayout(self.SLD_lyt, 1, 1, 1, 6)
-        self.lyt.setRowMinimumHeight(0, 30)
-        self.lyt.setRowMinimumHeight(2, 30)
-
     def update_VU(self, data):
-        self.VU_canvas.update_data(data)
+        self.bars.update_data(data)
 
 class OscilloscopeWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):

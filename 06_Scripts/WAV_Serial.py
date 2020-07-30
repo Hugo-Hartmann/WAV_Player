@@ -77,8 +77,10 @@ class SerialMonitor(Thread):
                     if(self.synced==False):
                         self.sync_with_header()
                     else:
+                        #start = time.time_ns()
                         self.GUI.update_OSC(self.WAV_tab, self.FFT_tab)
                         self.GUI.update_VU(self.VU_tab)
+                        #print((time.time_ns()-start)/1000000)
                     
                     self.get_data()
                 else:
