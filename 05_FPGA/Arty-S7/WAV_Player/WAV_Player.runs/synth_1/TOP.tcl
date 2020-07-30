@@ -36,14 +36,14 @@ set_property board_part digilentinc.com:arty-s7-50:part0:1.0 [current_project]
 set_property ip_output_repo c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/FFT_test.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_coef.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_60_250.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_20_60.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_250_1500.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_1500_4000.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_4000_7000.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_7000_15000.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_2048.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_coef.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_60_250.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_20_60.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_250_1500.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_1500_4000.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_4000_7000.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_7000_15000.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_2048.coe
 add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_UAL_synth_1/EQ_UAL.dcp
 set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_UAL_synth_1/EQ_UAL.dcp]
 add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_FSM_synth_1/EQ_FSM.dcp
@@ -76,8 +76,9 @@ read_vhdl -library lib_VHDL {
 }
 read_vhdl -library xil_defaultlib {
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd
-  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_volume_RAM.vhd
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd
 }
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM/MMCM.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM/MMCM_board.xdc]

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="PSH_Driver_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595967774">
   <File Type="PA-TCL" Name="PSH_Driver.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="PSH_Driver_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="PSH_Driver_reports.tcl"/>
   <File Type="RDS-RDS" Name="PSH_Driver.vds"/>
   <File Type="RDS-UTIL" Name="PSH_Driver_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="PSH_Driver_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="PSH_Driver.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="PSH_Driver_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="PSH_Driver_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PSH_Driver">
     <File Path="$PSRCDIR/sources_1/ip/FIFO_16bit_1024/FIFO_16bit_1024.xci">
       <FileInfo>
@@ -98,9 +95,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

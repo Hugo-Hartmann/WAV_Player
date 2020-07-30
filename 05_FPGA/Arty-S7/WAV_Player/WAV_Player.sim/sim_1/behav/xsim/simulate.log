@@ -3,5 +3,5 @@ Time resolution is 1 ps
 WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
 WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
 Failure: Assertion violation
-Time: 18941330 ps  Iteration: 0  Process: /UART_EQ_tb/line__192  File: C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/UART_EQ_tb.vhd
-$finish called at time : 18941330 ps : File "C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/UART_EQ_tb.vhd" Line 248
+Time: 19311730 ps  Iteration: 0  Process: /UART_EQ_tb/line__192  File: C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/UART_EQ_tb.vhd
+$finish called at time : 19311730 ps : File "C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/UART_EQ_tb.vhd" Line 256
