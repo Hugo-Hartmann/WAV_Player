@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-23
--- Last update: 2020-07-24
+-- Last update: 2020-07-30
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -204,7 +204,7 @@ begin
         end Wait_cycles;
     
     begin
-        VU_push         <= (others => '0');
+        VU_push         <= "0000100010000110010000101001100011101000";
         WAV_push        <= (others => '0');
         FFT_push        <= (others => '0');
         VGA_new_frame   <= '0';

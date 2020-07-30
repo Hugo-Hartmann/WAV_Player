@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-22
--- Last update: 2020-07-24
+-- Last update: 2020-07-30
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ architecture RTL of PSH_Driver is
     --------------------------------------------------------------------------------
     type PSH_STATE is (PSH_RESET0, PSH_RESET1, PSH_IDLE, PSH_WAIT_SAMPLE, PSH_LOAD_SAMPLE,
                        PSH_SEND_UART, PSH_WAIT_WAV, PSH_WAIT_FFT_B0, PSH_WAIT_FFT_B1,
-                       PSH_WAIT_HEADER, PSH_END, PSH_WAIT_UART);
+                       PSH_WAIT_HEADER, PSH_END, PSH_WAIT_UART, PSH_WAIT_VU);
 
     --------------------------------------------------------------------------------
     -- CONSTANTS DECLARATIONS
@@ -132,17 +132,23 @@ architecture RTL of PSH_Driver is
     signal FIFO_read_d      : std_logic;
     signal FIFO_dout        : std_logic_vector(7 downto 0);
     signal FIFO_dout_d      : std_logic_vector(7 downto 0);
-    signal FIFO_select      : std_logic_vector(3 downto 0);
-    signal FIFO_select_d    : std_logic_vector(3 downto 0);
+    signal FIFO_select      : std_logic_vector(4 downto 0);
+    signal FIFO_select_d    : std_logic_vector(4 downto 0);
     --  0 => WAV Byte 0
     --  1 => FFT Byte 0
     --  2 => FFT Byte 1
+    --  3 => VU Byte 0
     -- High => Header frame
     signal cnt_header       : unsigned(2 downto 0);
     signal cnt_header_zero  : std_logic;
     signal cnt_header_dec   : std_logic;
     signal cnt_header_set   : std_logic;
+    signal cnt_vu           : unsigned(3 downto 0);
+    signal cnt_vu_end       : std_logic;
+    signal cnt_vu_dec       : std_logic;
+    signal cnt_vu_set       : std_logic;
     signal FIFO_open        : std_logic;
+    signal VU_dout          : std_logic_vector(7 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -211,6 +217,19 @@ begin
     FFT_write   <= FFT_push(FFT_push'high);
 
     --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_VU_dout
+    -- Description : Register input signal
+    --------------------------------------------------------------------------------
+    P_VU_dout : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            VU_dout <= (others => '0');
+        elsif(rising_edge(clk)) then
+            VU_dout <= "000" & VU_push(to_integer(cnt_vu(2 downto 0))*5+4 downto to_integer(cnt_vu(2 downto 0))*5);
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_reg_input
     -- Description : Register input signal
     --------------------------------------------------------------------------------
@@ -243,6 +262,7 @@ begin
      FIFO_dout  <= WAV_dout                 when(FIFO_select_d(0)='1') else
                    FFT_dout(7 downto 0)     when(FIFO_select_d(1)='1') else
                    FFT_dout(15 downto 8)    when(FIFO_select_d(2)='1') else
+                   VU_dout                  when(FIFO_select_d(3)='1') else
                    X"AA"                    when(FIFO_select_d(FIFO_select_d'high)='1') else
                    X"00";
 
@@ -306,6 +326,46 @@ begin
     end process;
 
     --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_cnt_vu
+    -- Description : Counter 3->0
+    --------------------------------------------------------------------------------
+    P_cnt_vu : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            cnt_vu  <= (others => '1');
+        elsif(rising_edge(clk)) then
+            if(cnt_vu_set='1') then
+                cnt_vu  <= "0111";
+            elsif(cnt_vu_dec='1') then
+                cnt_vu  <= cnt_vu - 1;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : FIFOs cnt_vu_dec
+    --------------------------------------------------------------------------------
+    cnt_vu_dec  <= FIFO_read AND FIFO_select_d(3);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_cnt_vu_end
+    -- Description : Counter is zero
+    --------------------------------------------------------------------------------
+    P_cnt_vu_end : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            cnt_vu_end  <= '0';
+        elsif(rising_edge(clk)) then
+            if(cnt_vu(cnt_vu'high)='1') then
+                cnt_vu_end  <= '1';
+            else
+                cnt_vu_end  <= '0';
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_FSM_PSH_sync
     -- Description : FSM_PSH sequential part (current_state logic)
     --------------------------------------------------------------------------------
@@ -324,7 +384,7 @@ begin
     -- COMB PROCESS : P_FSM_PSH_comb
     -- Description : FSM_PSH combinatorial part (next_state logic)
     --------------------------------------------------------------------------------
-    P_FSM_PSH_comb : process(current_state, mem_state, PSH_start, UART_busy, WAV_write, WAV_empty, FFT_empty, cnt_header_zero)
+    P_FSM_PSH_comb : process(current_state, mem_state, PSH_start, UART_busy, WAV_write, WAV_empty, FFT_empty, cnt_header_zero, cnt_vu_end)
     begin
         FIFO_read       <= '0';
         FIFO_select     <= (others => '0');
@@ -332,6 +392,7 @@ begin
         PSH_done        <= '0';
         FIFO_open       <= '0';
         cnt_header_set  <= '0';
+        cnt_vu_set      <= '0';
 
         case current_state is
             when PSH_RESET0 =>
@@ -350,6 +411,7 @@ begin
 
             when PSH_IDLE =>
                 cnt_header_set  <= '1';
+                cnt_vu_set      <= '1';
                 if(PSH_start='1') then
                     next_state  <= PSH_WAIT_SAMPLE;
                 else
@@ -397,7 +459,7 @@ begin
             when PSH_WAIT_FFT_B0 =>
                 FIFO_select <= (1 => '1', others => '0');
                 if(FFT_empty='1') then
-                    next_state      <= PSH_WAIT_HEADER;
+                    next_state      <= PSH_WAIT_VU;
                 elsif(UART_busy='0') then
                     next_state      <= PSH_SEND_UART;
                     return_state    <= PSH_WAIT_FFT_B1;
@@ -414,8 +476,19 @@ begin
                     next_state      <= PSH_WAIT_FFT_B1;
                 end if;
 
-            when PSH_WAIT_HEADER =>
+            when PSH_WAIT_VU =>
                 FIFO_select <= (3 => '1', others => '0');
+                if(cnt_vu_end='1') then
+                    next_state      <= PSH_WAIT_HEADER;
+                elsif(UART_busy='0') then
+                    next_state      <= PSH_SEND_UART;
+                    return_state    <= PSH_WAIT_VU;
+                else
+                    next_state      <= PSH_WAIT_VU;
+                end if;
+
+            when PSH_WAIT_HEADER =>
+                FIFO_select <= (FIFO_select'high => '1', others => '0');
                 if(cnt_header_zero='1') then
                     next_state      <= PSH_END;
                 elsif(UART_busy='0') then

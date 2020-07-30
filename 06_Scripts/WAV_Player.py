@@ -7,7 +7,7 @@
 
 ## Library imports
 import sys
-from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider, QRadioButton, QCheckBox
+from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider, QRadioButton, QCheckBox, QGridLayout
 from PyQt5.QtCore import Qt
 from WAV_Serial import *
 from WAV_Plot import *
@@ -96,8 +96,12 @@ class MainWindow(QMainWindow):
         EQ_lyt = QVBoxLayout()
         SLD_lyt = QHBoxLayout()
         BTN_lyt = QHBoxLayout()
+        VU_lyt = QHBoxLayout()
+        VU_SLD_lyt = QGridLayout()
+        VU_SLD_lyt.addLayout(VU_lyt, 0, 0)
+        VU_SLD_lyt.addLayout(SLD_lyt, 0, 0)
 
-        EQ_lyt.addLayout(SLD_lyt)
+        EQ_lyt.addLayout(VU_SLD_lyt)
         EQ_lyt.addLayout(BTN_lyt)
 
         EQ_sliders = [None for i in range(8)]
@@ -120,10 +124,17 @@ class MainWindow(QMainWindow):
             p_EQ_buttons[i] = partial(update_EQ_sel, self.serial, EQ_buttons[i], i)
             EQ_buttons[i].stateChanged.connect(p_EQ_buttons[i])
 
+        self.VU_canvas = BarCanvas(self, width=5, height=4, dpi=100)
+        self._plot_vu_ref = None
+        VU_lyt.addWidget(self.VU_canvas)
+        self.update_bar(np.arange(8))
+        self.show()
+
+
         ################################
         ## Graph Area
         ################################
-        self.PLT_canvas = MplCanvas(self, width=5, height=4, dpi=100)
+        self.PLT_canvas = PlotCanvas(self, width=5, height=4, dpi=100)
         self._plot_ref = None
         PLT_lyt = QHBoxLayout()
         PLT_lyt.addWidget(self.PLT_canvas)
@@ -150,7 +161,7 @@ class MainWindow(QMainWindow):
 
     def update_plot(self, WAV_data, FFT_data):
         if self._plot_ref is None:
-            plot_WAV = self.PLT_canvas.axes[0].plot(np.arange(1280), [0]*1280,  'r')
+            plot_WAV = self.PLT_canvas.axes[0].plot(np.arange(1280), [0]*1280, 'r')
             plot_FFT = self.PLT_canvas.axes[1].plot(np.arange(1024), [0]*1024, 'r')
             self._plot_ref = [plot_WAV[0], plot_FFT[0]]
         else:
@@ -158,6 +169,16 @@ class MainWindow(QMainWindow):
             self._plot_ref[1].set_ydata(FFT_data)
 
         self.PLT_canvas.draw()
+
+    def update_bar(self, VU_data):
+        if self._plot_vu_ref is None:
+            plot_VU = self.VU_canvas.ax.bar(np.arange(8), [4]*8)
+            self._plot_vu_ref = plot_VU
+        else:
+            for i in range(len(VU_data)):
+                self._plot_vu_ref[i].set_height(VU_data[i])
+
+        self.VU_canvas.draw()
 
     def closeEvent(self, event):
         self.serial.serial_close()

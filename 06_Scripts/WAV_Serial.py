@@ -25,6 +25,7 @@ class SerialMonitor(Thread):
         self.GUI = GUI
         self.WAV_tab = np.arange(1280)
         self.FFT_tab = np.arange(1024)
+        self.VU_tab = np.arange(8)
         self.synced = False
         self.running = True
 
@@ -52,6 +53,7 @@ class SerialMonitor(Thread):
     def get_data(self):
         WAV_data = self.serial.ser.read(1280)
         FFT_data = self.serial.ser.read(2048)
+        VU_data = self.serial.ser.read(8)
         header = self.serial.ser.read(7)
         
         if(self.check_header(header)==False):
@@ -64,6 +66,8 @@ class SerialMonitor(Thread):
                 self.WAV_tab[i] = WAV_data[i]
             for i in range(1024):
                 self.FFT_tab[i] = FFT_data[2*i]+FFT_data[2*i+1]*256
+            for i in range(8):
+                self.VU_tab[i] = VU_data[7-i]
             return 1
 
     def run(self):
@@ -74,6 +78,7 @@ class SerialMonitor(Thread):
                         self.sync_with_header()
                     else:
                         self.GUI.update_plot(self.WAV_tab, self.FFT_tab)
+                        self.GUI.update_bar(self.VU_tab)
                     
                     self.get_data()
                 else:
