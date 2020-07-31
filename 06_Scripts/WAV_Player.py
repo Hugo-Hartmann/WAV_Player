@@ -171,9 +171,12 @@ class OscilloscopeWidget(QWidget):
         self.serial = serial
 
         self.lyt = QGridLayout()
+        self.setLayout(self.lyt)
 
-        self.PLT_canvas = DualPlotCanvas(self, width=5, height=4, dpi=100)
-        self.lyt.addWidget(self.PLT_canvas, 0, 0)
+        self.graphs = DualPlotCanvas(self, width=5, height=4, dpi=100)
+        self.graphs.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
+        self.graphs.setFixedSize(1300, 550);
+        self.lyt.addWidget(self.graphs, 0, 0)
 
         # Create radio buttons to select band
         self.SW_Menu = BandSelectWidget(self.serial)
@@ -184,7 +187,7 @@ class OscilloscopeWidget(QWidget):
         self.SW_Menu.load_config()
 
     def update_OSC(self, data_top, data_bot):
-        self.PLT_canvas.update_data(data_top, data_bot)
+        self.graphs.update_data(data_top, data_bot)
 
 class MainWindow(QMainWindow):
 
@@ -206,7 +209,8 @@ class MainWindow(QMainWindow):
 
         ## Main Area
         self.lyt = QGridLayout()
-        self.lyt.addLayout(self.Oscilloscope_bloc.lyt, 0, 0, 1, 2)
+        self.lyt.addWidget(self.Oscilloscope_bloc, 0, 0, 1, 2)
+        self.lyt.setAlignment(self.Oscilloscope_bloc, Qt.AlignCenter)
         self.lyt.addLayout(self.COM_Port.lyt, 1, 0)
         self.lyt.addWidget(self.Equalizer_Bloc, 1, 1)
 

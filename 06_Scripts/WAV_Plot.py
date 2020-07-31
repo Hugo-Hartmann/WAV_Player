@@ -15,13 +15,15 @@ class DualPlotCanvas(FigureCanvas):
 
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         self.fig = Figure(figsize=(width, height), dpi=dpi, facecolor=(240/255, 240/255, 240/255))
+        self.fig.subplots_adjust(bottom=0, top=1, left=0, right=1, hspace=0.1)
         self.axes = self.fig.subplots(2)
         for ax in self.axes:
-            ax.get_xaxis().set_visible(False)
-            ax.get_yaxis().set_visible(False)
+            ax.axis('off')
             ax.patch.set_facecolor((240/255, 240/255, 240/255))
         self.axes[0].set_ylim([0, 255])
+        self.axes[0].set_xlim([0, 1280])
         self.axes[1].set_ylim([0, 1000])
+        self.axes[1].set_xlim([0, 1024])
         super(DualPlotCanvas, self).__init__(self.fig)
 
         self.plot_top = self.axes[0].plot(np.arange(1280), [0]*1280, 'r')
