@@ -21,8 +21,8 @@ class VuSlider(QSlider):
         
         self.sld_style = """
         QSlider {
-            min-height: 300px;
-            max-height: 300px;
+            min-height: 270px;
+            max-height: 270px;
             min-width: 50px;
             max-width: 50px;
             }
@@ -30,7 +30,7 @@ class VuSlider(QSlider):
         QSlider::groove:vertical {
             border: 0px solid tranparent;
             background: transparent;
-            height: 300px;
+            height: 270px;
             width: 600px;
             margin: 2px 0;
             }
@@ -121,7 +121,7 @@ class EqualizerWidget(QWidget):
 
         self.bars = BarCanvas()
         self.bars.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
-        self.bars.setFixedSize(450, 305);
+        self.bars.setFixedSize(450, 270);
 
         self.sliders = [None for i in range(8)]
         self.p_sliders = [None for i in range(8)]

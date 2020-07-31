@@ -57,7 +57,7 @@ class BarCanvas(FigureCanvas):
         self.grad = [[i] for i in range(100)]
         
         for i in range(8):
-            self.imgs.append(self.axes[i].imshow(self.grad, extent=[self.x, self.x+self.w, self.y, self.y+20], aspect='auto', zorder=0, origin="lower", cmap="RdPu"))
+            self.imgs.append(self.axes[i].imshow(self.grad, extent=[self.x, self.x+self.w, self.y, self.y+32], aspect='auto', zorder=0, origin="lower", cmap="RdPu"))
 
         self.show()
 
