@@ -26,13 +26,14 @@ class DualPlotCanvas(FigureCanvas):
         self.axes[1].set_xlim([0, 1024])
         super(DualPlotCanvas, self).__init__(self.fig)
 
-        self.plot_top = self.axes[0].plot(np.arange(1280), [0]*1280, 'r')
-        self.plot_bot = self.axes[1].plot(np.arange(1024), [0]*1024, 'r')
+        self.plot_top = self.axes[0].plot(np.arange(1280), [0]*1280, 'k')
+        self.plot_bot = self.axes[1].scatter(np.arange(1024), [0]*1024, cmap="RdPu", c=np.arange(0, 128, 0.125), marker='.', s=5)
         self.show()
 
     def update_data(self, data_top, data_bot):
         self.plot_top[0].set_ydata(data_top)
-        self.plot_bot[0].set_ydata(data_bot)
+        self.plot_bot.set_offsets(np.c_[np.arange(1024), data_bot])
+        self.plot_bot.set_array(data_bot)
 
         self.draw()
         self.flush_events()
