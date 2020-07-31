@@ -7,7 +7,7 @@
 
 ## Library imports
 import sys
-from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider, QRadioButton, QCheckBox, QGridLayout
+from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider, QRadioButton, QCheckBox, QGridLayout, QSizePolicy
 from PyQt5.QtCore import Qt
 from WAV_Serial import *
 from WAV_Plot import *
@@ -19,28 +19,35 @@ class VuSlider(QSlider):
     def __init__(self, *args, **kwargs):
         super(QSlider, self).__init__(*args, **kwargs)
         
-        self.sld_style = """ QSlider::groove:vertical {
-            border: 1px solid tranparent;
+        self.sld_style = """
+        QSlider {
+            min-height: 300px;
+            max-height: 300px;
+            min-width: 50px;
+            max-width: 50px;
+            }
+        
+        QSlider::groove:vertical {
+            border: 0px solid tranparent;
             background: transparent;
-            height: 100px;
+            height: 300px;
+            width: 600px;
             margin: 2px 0;
             }
          
         QSlider::handle:vertical {
             background: #505050;
             border: 1px solid #5c5c5c;
-            width: 20px;
+            width: 15px;
             height: 8px;
             margin: -2px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
-            border-radius: 30px;
+            border-radius: 50px;
             }"""
 
         self.setStyleSheet(self.sld_style)
-        self.setTickInterval(1)
         self.setRange(0, 24)
         self.setSingleStep(1)
         self.setPageStep(1)
-        self.setTickPosition(QSlider.TicksBothSides)
         self.setValue(12)
 
 class ComPortWidget(QWidget):
@@ -106,17 +113,25 @@ class EqualizerWidget(QWidget):
         self.busy = False
 
         self.lyt = QGridLayout()
+        self.setLayout(self.lyt)
+        self.lyt.setHorizontalSpacing(8)
 
-        self.bars = BarPatch()
+        self.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
+        self.setFixedSize(470, 310);
+
+        self.bars = BarCanvas()
+        self.bars.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
+        self.bars.setFixedSize(450, 305);
 
         self.sliders = [None for i in range(8)]
         self.p_sliders = [None for i in range(8)]
 
+        self.lyt.addWidget(self.bars, 0, 1, 1, 8)
+        self.lyt.setAlignment(self.bars, Qt.AlignCenter)
+
         for i in range(8):
-            self.lyt.addWidget(self.bars.canvas[i], 0, i)
-            self.lyt.setAlignment(self.bars.canvas[i], Qt.AlignCenter)
             self.sliders[i] = VuSlider(orientation=Qt.Vertical)
-            self.lyt.addWidget(self.sliders[i], 0, i)
+            self.lyt.addWidget(self.sliders[i], 0, i+1, 1, 1)
             self.lyt.setAlignment(self.sliders[i], Qt.AlignCenter)
             self.p_sliders[i] = partial(update_EQ_lvl, self.serial, self.sliders[i], i)
             self.sliders[i].valueChanged.connect(self.p_sliders[i])
@@ -128,7 +143,7 @@ class EqualizerWidget(QWidget):
             self.buttons[i] = QCheckBox()
             self.buttons[i].setCheckState(True)
             self.buttons[i].setTristate(False)
-            self.lyt.addWidget(self.buttons[i], 1, i+1)
+            self.lyt.addWidget(self.buttons[i], 1, i+2)
             self.lyt.setAlignment(self.buttons[i], Qt.AlignCenter)
             self.p_buttons[i] = partial(update_EQ_sel, self.serial, self.buttons[i], i)
             self.buttons[i].stateChanged.connect(self.p_buttons[i])
@@ -178,7 +193,7 @@ class MainWindow(QMainWindow):
         self.lyt = QGridLayout()
         self.lyt.addLayout(self.Oscilloscope_bloc.lyt, 0, 0, 1, 2)
         self.lyt.addLayout(self.COM_Port.lyt, 1, 0)
-        self.lyt.addLayout(self.Equalizer_Bloc.lyt, 1, 1)
+        self.lyt.addWidget(self.Equalizer_Bloc, 1, 1)
 
         self.widget = QWidget()
         self.widget.setLayout(self.lyt)

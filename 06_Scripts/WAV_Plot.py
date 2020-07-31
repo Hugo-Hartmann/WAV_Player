@@ -39,44 +39,33 @@ class BarCanvas(FigureCanvas):
 
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         self.fig = Figure(figsize=(width, height), dpi=dpi, facecolor=(240/255, 240/255, 240/255))
-        self.ax = self.fig.subplots()
-        self.fig.subplots_adjust(bottom=0, top=1, left=-1, right=2)
-        self.ax.patch.set_facecolor((240/255, 240/255, 240/255))
-        self.ax.axis('off')
-        self.ax.set_ylim([0, 31])
-        self.bar = self.ax.bar([0], [4])[0]
+        self.axes = self.fig.subplots(1, 8)
+        self.imgs = []
+        self.fig.subplots_adjust(bottom=0, top=1, left=0, right=1)
+        for ax in self.axes:
+            #ax.patch.set_facecolor((240/255, 240/255, 240/255))
+            ax.axis('off')
+            ax.set_ylim([0, 31])
+            ax.set_xlim([0, 1])
+
+        self.x = 0
+        self.y = 0
+        self.w = 1
 
         super(BarCanvas, self).__init__(self.fig)
 
-        self.grad = [[99-i] for i in range(100)]
-        self.lim = self.ax.get_xlim()+self.ax.get_ylim()
-        self.bar.set_zorder(1)
-        self.bar.set_visible(False)
-        self.x, self.y = self.bar.get_xy()
-        self.w, h = self.bar.get_width(), self.bar.get_height()
-        self.im = self.ax.imshow(self.grad, extent=[self.x, self.x+self.w, self.y, self.y+h], aspect="auto", zorder=0, origin="lower", cmap="RdYlGn")
-        self.ax.axis(self.lim)
+        self.grad = [[i] for i in range(100)]
+        
+        for i in range(8):
+            self.imgs.append(self.axes[i].imshow(self.grad, extent=[self.x, self.x+self.w, self.y, self.y+20], aspect='auto', zorder=0, origin="lower", cmap="RdPu"))
 
         self.show()
 
 
     def update_data(self, data):
-        self.bar.set_height(data)
-        h = self.bar.get_height()
-        self.im.set_extent([self.x, self.x+self.w, self.y, self.y+h])
-        self.im.set_data(self.grad[:int((h+1)*100/32)][:][:])
+        for i in range(8):
+            self.imgs[i].set_extent([self.x, self.x+self.w, self.y, self.y+data[i]])
+            self.imgs[i].set_data(self.grad[:int((data[i]+1)*100/32)][:][:])
 
         self.draw()
         self.flush_events()
-
-class BarPatch():
-
-    def __init__(self):
-        self.canvas = []
-        for i in range(8):
-            self.canvas.append(BarCanvas())
-
-
-    def update_data(self, data):
-        for i in range(8):
-            self.canvas[i].update_data(data[i])
