@@ -1,7 +1,7 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-07-30
+### Last update 2020-07-31
 ### Author      Hugo HARTMANN
 #############################
 
@@ -103,6 +103,7 @@ class EqualizerWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):
         super(EqualizerWidget, self).__init__(*args, **kwargs)
         self.serial = serial
+        self.busy = False
 
         self.lyt = QGridLayout()
 
@@ -133,7 +134,9 @@ class EqualizerWidget(QWidget):
             self.buttons[i].stateChanged.connect(self.p_buttons[i])
 
     def update_VU(self, data):
+        self.busy = True
         self.bars.update_data(data)
+        self.busy = False
 
 class OscilloscopeWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):
@@ -182,7 +185,10 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.widget)
 
     def update_VU(self, data):
-        self.Equalizer_Bloc.update_VU(data)
+        if(self.Equalizer_Bloc.busy):
+            print("Skipped VU display")
+        else:
+            self.Equalizer_Bloc.update_VU(data)
 
     def update_OSC(self, data_top, data_bot):
         self.Oscilloscope_bloc.update_OSC(data_top, data_bot)
