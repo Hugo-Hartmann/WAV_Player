@@ -136,6 +136,7 @@ class SerialPort():
 
             self.ser.set_buffer_size(rx_size = 20000, tx_size = 20000) #overfit buffer size to expected data burst size
             self.opened = True
+            self.ser_monitor.GUI.load_config()
 
             return 0
 

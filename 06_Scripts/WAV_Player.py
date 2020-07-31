@@ -106,6 +106,11 @@ class BandSelectWidget(QWidget):
 
         self.buttons[0].setChecked(True)
 
+    def load_config(self):
+        for i in range(len(self.buttons)):
+            if(self.buttons[i].isChecked()):
+                self.p_buttons[i]()
+
 class EqualizerWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):
         super(EqualizerWidget, self).__init__(*args, **kwargs)
@@ -148,6 +153,13 @@ class EqualizerWidget(QWidget):
             self.p_buttons[i] = partial(update_EQ_sel, self.serial, self.buttons[i], i)
             self.buttons[i].stateChanged.connect(self.p_buttons[i])
 
+    def load_config(self):
+        for i in range(len(self.buttons)):
+            self.p_buttons[i]()
+
+        for i in range(len(self.sliders)):
+            self.p_sliders[i]()
+
     def update_VU(self, data):
         self.busy = True
         self.bars.update_data(data)
@@ -167,6 +179,9 @@ class OscilloscopeWidget(QWidget):
         self.SW_Menu = BandSelectWidget(self.serial)
 
         self.lyt.addLayout(self.SW_Menu.lyt, 0, 1)
+
+    def load_config(self):
+        self.SW_Menu.load_config()
 
     def update_OSC(self, data_top, data_bot):
         self.PLT_canvas.update_data(data_top, data_bot)
@@ -198,6 +213,10 @@ class MainWindow(QMainWindow):
         self.widget = QWidget()
         self.widget.setLayout(self.lyt)
         self.setCentralWidget(self.widget)
+
+    def load_config(self):
+        self.Equalizer_Bloc.load_config()
+        self.Oscilloscope_bloc.load_config()
 
     def update_VU(self, data):
         if(self.Equalizer_Bloc.busy):
