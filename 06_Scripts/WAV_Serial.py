@@ -222,3 +222,24 @@ class SerialPort():
 
         else:
             return 2
+
+    # Write channel selection
+    def serial_wr_EQ_level(self, end_point, sampling_point):
+
+        if(self.opened):
+
+            # Currently sets both channels
+
+            cmd_right = [C_RIGHT_CHANNEL+C_FFT_SAMPLING]
+            cmd_left = [C_LEFT_CHANNEL+C_FFT_SAMPLING]
+
+            cmd_right.append(end_point)
+            cmd_right.append(sampling_point)
+            cmd_left.append(end_point)
+            cmd_left.append(sampling_point)
+            self.ser.write(bytearray(cmd_right))
+            self.ser.write(bytearray(cmd_left))
+            return 0
+
+        else:
+            return 2

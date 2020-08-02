@@ -71,3 +71,20 @@ def update_EQ_sel(serial, EQ_btn, index):
 
 def update_SW(serial, index):
     serial.serial_wr_SW(index)
+
+################################
+## FFT Area
+################################
+
+def update_FFT_sampling(serial, FFT_sampling_sld):
+    level = (FFT_sampling_sld.value()+2)/2
+    print(level)
+
+    if(level==int(level)):
+        end_point       = int(level-1)
+        sampling_point  = 0
+    else:
+        end_point       = int((level*2)-1)
+        sampling_point  = int(end_point/2)
+
+    serial.serial_wr_EQ_level(end_point, sampling_point)

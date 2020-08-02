@@ -22,7 +22,7 @@
     <Object name="xc7s50_0" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value=""/>
       <Properties Property="PROBES.FILE" value=""/>
-      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/TOP.bit"/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="C:/Xilinx/Vivado/2018.3/data/xicom/cfgmem/bitfile/spi_xc7s50_pullnone.bit"/>
       <Properties Property="PROGRAM.HW_CFGMEM_PART" value="s25fl128sxxxxxx0-spi-x1_x2_x4"/>
       <Properties Property="SLR.COUNT" value="1"/>
     </Object>

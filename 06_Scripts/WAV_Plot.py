@@ -22,7 +22,7 @@ class DualPlotCanvas(FigureCanvas):
             ax.patch.set_facecolor((240/255, 240/255, 240/255))
         self.axes[0].set_ylim([0, 255])
         self.axes[0].set_xlim([0, 1280])
-        self.axes[1].set_ylim([0, 1000])
+        self.axes[1].set_ylim([0, 2000])
         self.axes[1].set_xlim([0, 1024])
         super(DualPlotCanvas, self).__init__(self.fig)
 

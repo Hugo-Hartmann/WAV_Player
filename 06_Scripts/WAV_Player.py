@@ -1,7 +1,7 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-07-31
+### Last update 2020-08-02
 ### Author      Hugo HARTMANN
 #############################
 
@@ -49,6 +49,34 @@ class VuSlider(QSlider):
         self.setSingleStep(1)
         self.setPageStep(1)
         self.setValue(12)
+
+class FFTWidget(QWidget):
+    def __init__(self, serial, *args, **kwargs):
+        super(FFTWidget, self).__init__(*args, **kwargs)
+        self.serial = serial
+
+        self.lbl = QLabel("FFT")
+        self.lbl.setAlignment(Qt.AlignCenter)
+
+        self.lyt = QGridLayout()
+        self.setLayout(self.lyt)
+
+        self.sampling_sld = QSlider()
+        self.sampling_sld.setRange(0, 30)
+        self.sampling_sld.setSingleStep(1)
+        self.sampling_sld.setPageStep(1)
+        self.sampling_sld.setValue(0)
+
+
+        self.lyt.addWidget(self.lbl, 0, 0)
+        self.lyt.addWidget(self.sampling_sld, 1, 0)
+
+        self.p_update_FFT_sampling = partial(update_FFT_sampling, self.serial, self.sampling_sld)
+
+        self.sampling_sld.valueChanged.connect(self.p_update_FFT_sampling)
+
+    def load_config(self):
+        self.p_update_FFT_sampling()
 
 class ComPortWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):
@@ -207,12 +235,16 @@ class MainWindow(QMainWindow):
         ## Oscilloscope
         self.Oscilloscope_bloc = OscilloscopeWidget(self.serial)
 
+        ## FFT
+        self.FFT_Bloc = FFTWidget(self.serial)
+
         ## Main Area
         self.lyt = QGridLayout()
         self.lyt.addWidget(self.Oscilloscope_bloc, 0, 0, 1, 2)
         self.lyt.setAlignment(self.Oscilloscope_bloc, Qt.AlignCenter)
         self.lyt.addLayout(self.COM_Port.lyt, 1, 0)
-        self.lyt.addWidget(self.Equalizer_Bloc, 1, 1)
+        self.lyt.addWidget(self.Equalizer_Bloc, 1, 2)
+        self.lyt.addWidget(self.FFT_Bloc, 1, 1)
 
         self.widget = QWidget()
         self.widget.setLayout(self.lyt)
@@ -221,6 +253,7 @@ class MainWindow(QMainWindow):
     def load_config(self):
         self.Equalizer_Bloc.load_config()
         self.Oscilloscope_bloc.load_config()
+        self.FFT_Bloc.load_config()
 
     def update_VU(self, data):
         if(self.Equalizer_Bloc.busy):
