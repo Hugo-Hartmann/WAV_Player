@@ -36,12 +36,12 @@ entity EQ_Config_RAM is
         clk             : in  std_logic;                        -- clock
         reset_n         : in  std_logic;                        -- reset_n
 
-        ------- Interface with UART --------
-        EQ_addr         : in  std_logic_vector(7 downto 0);
-        EQ_write        : in  std_logic;
-        EQ_din          : in  std_logic_vector(15 downto 0);
+        ------- Config interface -----------------
+        CFG_addr        : in  std_logic_vector(7 downto 0);
+        CFG_write       : in  std_logic;
+        CFG_din         : in  std_logic_vector(15 downto 0);
 
-        ------- EQ out --------------------------
+        ------- EQ Config out --------------------
         EQ_sel_dout     : out std_logic_vector(7 downto 0);
         EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
 
@@ -62,9 +62,9 @@ architecture RTL of EQ_Config_RAM is
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
     signal EQ_level         : vol_tab;
-    signal EQ_addr_d        : std_logic_vector(7 downto 0);
-    signal EQ_write_d       : std_logic;
-    signal EQ_din_d         : std_logic_vector(15 downto 0);
+    signal addr_d           : std_logic_vector(7 downto 0);
+    signal write_d          : std_logic;
+    signal din_d            : std_logic_vector(15 downto 0);
     signal sel_addr_valid   : std_logic;
     signal lvl_addr_valid   : std_logic;
 
@@ -80,13 +80,13 @@ begin
     P_reg_input : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            EQ_addr_d   <= (others => '0');
-            EQ_write_d  <= '0';
-            EQ_din_d    <= (others => '0');
+            addr_d  <= (others => '0');
+            write_d <= '0';
+            din_d   <= (others => '0');
         elsif(rising_edge(clk)) then
-            EQ_addr_d   <= EQ_addr;
-            EQ_write_d  <= EQ_write;
-            EQ_din_d    <= EQ_din;
+            addr_d  <= CFG_addr;
+            write_d <= CFG_write;
+            din_d   <= CFG_din;
         end if;
     end process;
 
@@ -94,15 +94,15 @@ begin
     -- COMBINATORY :
     -- Description : Check address range for level
     --------------------------------------------------------------------------------
-    process(EQ_addr_d)
+    process(addr_d)
     begin
-        if(EQ_addr_d(6 downto 3)="0001") then
+        if(addr_d(6 downto 3)="0001") then
             lvl_addr_valid  <= '1';
         else
             lvl_addr_valid  <= '0';
         end if;
 
-        if(EQ_addr_d(6 downto 3)="0010") then
+        if(addr_d(6 downto 3)="0010") then
             sel_addr_valid  <= '1';
         else
             sel_addr_valid  <= '0';
@@ -120,8 +120,8 @@ begin
                 EQ_level(i)  <= std_logic_vector(to_unsigned(12, 5));
             end loop;
         elsif(rising_edge(clk)) then
-            if(lvl_addr_valid='1' and EQ_write_d='1') then
-                EQ_level(to_integer(unsigned(EQ_addr_d(2 downto 0))))    <= EQ_din_d(4 downto 0);
+            if(lvl_addr_valid='1' and write_d='1') then
+                EQ_level(to_integer(unsigned(addr_d(2 downto 0))))  <= din_d(4 downto 0);
             end if;
         end if;
     end process;
@@ -150,8 +150,8 @@ begin
         if(reset_n='0') then
             EQ_sel_dout <= "01111110";
         elsif(rising_edge(clk)) then
-            if(sel_addr_valid='1' and EQ_write_d='1') then
-                EQ_sel_dout(to_integer(unsigned(EQ_addr_d(2 downto 0))))    <= EQ_din_d(0);
+            if(sel_addr_valid='1' and write_d='1') then
+                EQ_sel_dout(to_integer(unsigned(addr_d(2 downto 0))))   <= din_d(0);
             end if;
         end if;
     end process;

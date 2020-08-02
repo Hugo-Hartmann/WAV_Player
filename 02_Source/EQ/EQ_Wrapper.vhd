@@ -35,10 +35,10 @@ entity EQ_Wrapper is
         clk             : in  std_logic;
         reset_n         : in  std_logic;
 
-        ------- Volume control data -------------
-        EQ_addr         : in  std_logic_vector(7 downto 0);
-        EQ_write        : in  std_logic;
-        EQ_level_din    : in  std_logic_vector(15 downto 0);
+        ------- Config interface -------------
+        CFG_addr        : in  std_logic_vector(7 downto 0);
+        CFG_write       : in  std_logic;
+        CFG_din         : in  std_logic_vector(15 downto 0);
 
         ------- EQ control ----------------------
         EQ_start        : in  std_logic;
@@ -67,9 +67,9 @@ architecture RTL of EQ_Wrapper is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
-            EQ_addr         : in  std_logic_vector(7 downto 0);
-            EQ_write        : in  std_logic;
-            EQ_din          : in  std_logic_vector(15 downto 0);
+            CFG_addr        : in  std_logic_vector(7 downto 0);
+            CFG_write       : in  std_logic;
+            CFG_din         : in  std_logic_vector(15 downto 0);
             EQ_sel_dout     : out std_logic_vector(7 downto 0);
             EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
             );
@@ -126,9 +126,9 @@ begin
     U_EQ_Config_RAM : EQ_Config_RAM port map(
         clk             => clk,
         reset_n         => reset_n,
-        EQ_addr         => EQ_addr,
-        EQ_write        => EQ_write,
-        EQ_din          => EQ_level_din,
+        CFG_addr        => CFG_addr,
+        CFG_write       => CFG_write,
+        CFG_din         => CFG_din,
         EQ_sel_dout     => EQ_sel_dout,
         EQ_level_dout   => EQ_level_net);
 
