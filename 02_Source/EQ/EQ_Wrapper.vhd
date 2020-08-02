@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-07-30
+-- Last update: 2020-08-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -30,9 +30,6 @@ use lib_VHDL.TYPE_Pkg.all;
 -- ENTITY DECLARATION
 --------------------------------------------------------------------------------
 entity EQ_Wrapper is
-    generic(
-        G_LEFT_CHANNEL : boolean := true
-        );
     port(
         ------- Clock and reset -----------------
         clk             : in  std_logic;
@@ -67,9 +64,6 @@ architecture RTL of EQ_Wrapper is
     -- COMPONENT DECLARATION
     --------------------------------------------------------------------------------
     component EQ_Config_RAM is
-        generic(
-            G_LEFT_CHANNEL : boolean := true
-            );
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -129,9 +123,7 @@ begin
     -- INSTANCE : U_EQ_Config_RAM
     -- Description: Store volume levels
     ----------------------------------------------------------------
-    U_EQ_Config_RAM : EQ_Config_RAM generic map(
-        G_LEFT_CHANNEL  => G_LEFT_CHANNEL)
-    port map(
+    U_EQ_Config_RAM : EQ_Config_RAM port map(
         clk             => clk,
         reset_n         => reset_n,
         EQ_addr         => EQ_addr,

@@ -2,11 +2,11 @@
 -- Title      : 
 -- Project    : WAV_Player
 -------------------------------------------------------------------------------
--- File       : Audio_channel.vhd
+-- File       : CHN_Wrapper.vhd
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-21
--- Last update: 2020-07-29
+-- Last update: 2020-08-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ use lib_VHDL.TYPE_Pkg.all;
 --------------------------------------------------------------------------------
 -- ENTITY DECLARATION
 --------------------------------------------------------------------------------
-entity Audio_channel is
+entity CHN_Wrapper is
     generic(
         G_LEFT_CHANNEL : boolean := true
         );
@@ -63,12 +63,12 @@ entity Audio_channel is
         VU_push         : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
 
         );
-end Audio_channel;
+end CHN_Wrapper;
 
 --------------------------------------------------------------------------------
 -- ARCHITECTURE DECLARATION
 --------------------------------------------------------------------------------
-architecture RTL of Audio_channel is
+architecture RTL of CHN_Wrapper is
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATION
@@ -94,9 +94,6 @@ architecture RTL of Audio_channel is
     end component;
 
     component EQ_Wrapper is
-        generic(
-            G_LEFT_CHANNEL : boolean := true
-            );
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -173,10 +170,7 @@ architecture RTL of Audio_channel is
             );
     end component;
 
-    component SW_Config_RAM is
-        generic(
-            G_LEFT_CHANNEL : boolean := true
-            );
+    component CHN_Config_RAM is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -258,9 +252,7 @@ begin
     -- INSTANCE : U_EQ_Wrapper
     -- Description: Wrapper for Equalizer bloc
     ----------------------------------------------------------------
-    U_EQ_Wrapper : EQ_Wrapper generic map(
-        G_LEFT_CHANNEL  => G_LEFT_CHANNEL)
-    port map(
+    U_EQ_Wrapper : EQ_Wrapper port map(
         clk             => clk_216,
         reset_n         => reset_n,
         EQ_addr         => UART_addr,
@@ -370,12 +362,10 @@ begin
         FFT_push        => FFT_push);
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_SW_Config_RAM
+    -- INSTANCE : U_CHN_Config_RAM
     -- Description: Store channel selection config
     ----------------------------------------------------------------
-    U_SW_Config_RAM : SW_Config_RAM generic map(
-        G_LEFT_CHANNEL  => G_LEFT_CHANNEL)
-    port map(
+    U_CHN_Config_RAM : CHN_Config_RAM port map(
         clk             => clk_216,
         reset_n         => reset_n,
         SW_addr         => UART_addr,

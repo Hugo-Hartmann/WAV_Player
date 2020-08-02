@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-07-30
+-- Last update: 2020-08-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -30,9 +30,6 @@ use lib_VHDL.TYPE_Pkg.all;
 -- ENTITY DECLARATION
 --------------------------------------------------------------------------------
 entity EQ_Config_RAM is
-    generic(
-        G_LEFT_CHANNEL : boolean := true
-        );
     port(
     
         ------- Clock and RESET ------------------
@@ -97,39 +94,20 @@ begin
     -- COMBINATORY :
     -- Description : Check address range for level
     --------------------------------------------------------------------------------
-    GEN_RIGHT_CHANNEL : if(G_LEFT_CHANNEL=false) generate
-        process(EQ_addr_d)
-        begin
-            if(EQ_addr_d(7)='0' and EQ_addr_d(6 downto 3)="0001") then
-                lvl_addr_valid  <= '1';
-            else
-                lvl_addr_valid  <= '0';
-            end if;
+    process(EQ_addr_d)
+    begin
+        if(EQ_addr_d(6 downto 3)="0001") then
+            lvl_addr_valid  <= '1';
+        else
+            lvl_addr_valid  <= '0';
+        end if;
 
-            if(EQ_addr_d(7)='0' and EQ_addr_d(6 downto 3)="0010") then
-                sel_addr_valid  <= '1';
-            else
-                sel_addr_valid  <= '0';
-            end if;
-        end process;
-    end generate GEN_RIGHT_CHANNEL;
-    
-    GEN_LEFT_CHANNEL : if(G_LEFT_CHANNEL=true) generate
-        process(EQ_addr_d)
-        begin
-            if(EQ_addr_d(7)='1' and EQ_addr_d(6 downto 3)="0001") then
-                lvl_addr_valid  <= '1';
-            else
-                lvl_addr_valid  <= '0';
-            end if;
-
-            if(EQ_addr_d(7)='1' and EQ_addr_d(6 downto 3)="0010") then
-                sel_addr_valid  <= '1';
-            else
-                sel_addr_valid  <= '0';
-            end if;
-        end process;
-    end generate GEN_LEFT_CHANNEL;
+        if(EQ_addr_d(6 downto 3)="0010") then
+            sel_addr_valid  <= '1';
+        else
+            sel_addr_valid  <= '0';
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_RAM_lvl

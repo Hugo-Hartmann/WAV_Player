@@ -2,11 +2,11 @@
 -- Title      : 
 -- Project    : WAV_Player
 -------------------------------------------------------------------------------
--- File       : SW_Config_RAM.vhd
+-- File       : CHN_Config_RAM.vhd
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-29
--- Last update: 2020-07-29
+-- Last update: 2020-08-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -27,10 +27,7 @@ use IEEE.numeric_std.all;
 --------------------------------------------------------------------------------
 -- ENTITY DECLARATION
 --------------------------------------------------------------------------------
-entity SW_Config_RAM is
-    generic(
-        G_LEFT_CHANNEL : boolean := true
-        );
+entity CHN_Config_RAM is
     port(
     
         ------- Clock and RESET ------------------
@@ -46,12 +43,12 @@ entity SW_Config_RAM is
         SW_select_dout  : out std_logic_vector(2 downto 0)
 
         );
-end SW_Config_RAM;
+end CHN_Config_RAM;
 
 --------------------------------------------------------------------------------
 -- ARCHITECTURE DECLARATION
 --------------------------------------------------------------------------------
-architecture RTL of SW_Config_RAM is
+architecture RTL of CHN_Config_RAM is
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
@@ -87,27 +84,14 @@ begin
     -- COMBINATORY :
     -- Description : Check address range
     --------------------------------------------------------------------------------
-    GEN_RIGHT_CHANNEL : if(G_LEFT_CHANNEL=false) generate
-        process(SW_addr_d)
-        begin
-            if(SW_addr_d(7)='0' and SW_addr_d(6 downto 3)="0000") then
-                addr_valid  <= '1';
-            else
-                addr_valid  <= '0';
-            end if;
-        end process;
-    end generate GEN_RIGHT_CHANNEL;
-    
-    GEN_LEFT_CHANNEL : if(G_LEFT_CHANNEL=true) generate
-        process(SW_addr_d)
-        begin
-            if(SW_addr_d(7)='1' and SW_addr_d(6 downto 3)="0000") then
-                addr_valid  <= '1';
-            else
-                addr_valid  <= '0';
-            end if;
-        end process;
-    end generate GEN_LEFT_CHANNEL;
+    process(SW_addr_d)
+    begin
+        if(SW_addr_d(6 downto 3)="0000") then
+            addr_valid  <= '1';
+        else
+            addr_valid  <= '0';
+        end if;
+    end process;
 
     --------------------------------------------------------------------------------
     -- SSW PROCESS : P_RAM
