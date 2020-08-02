@@ -121,7 +121,7 @@ begin
 
     ----------------------------------------------------------------
     -- INSTANCE : U_EQ_Config_RAM
-    -- Description: Store volume levels
+    -- Description: Store Equalizer config
     ----------------------------------------------------------------
     U_EQ_Config_RAM : EQ_Config_RAM port map(
         clk             => clk,
