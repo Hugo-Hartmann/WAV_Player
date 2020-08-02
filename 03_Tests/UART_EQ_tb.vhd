@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-07-29
+-- Last update: 2020-08-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -46,9 +46,6 @@ architecture A of UART_EQ_tb is
     constant G_OPERAND_SIZE     : integer   := 16;
 
     component EQ_Wrapper is
-        generic(
-            G_LEFT_CHANNEL : boolean := true
-            );
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
@@ -126,9 +123,7 @@ begin
     -- INSTANCE : U_EQ_Wrapper
     -- Description: Wrapper for Equalizer bloc
     ----------------------------------------------------------------
-    U_EQ_Wrapper : EQ_Wrapper generic map(
-        G_LEFT_CHANNEL  => false)
-    port map(
+    U_EQ_Wrapper : EQ_Wrapper port map(
         clk             => clk,
         reset_n         => reset_n,
         EQ_addr         => UART_addr,

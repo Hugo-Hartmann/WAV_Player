@@ -2,15 +2,15 @@
 -- Title      : 
 -- Project    : WAV_Player
 -------------------------------------------------------------------------------
--- File       : Audio_channel_tb.vhd
+-- File       : CHN_Wrapper_tb.vhd
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-03-01
--- Last update: 2020-07-22
+-- Last update: 2020-08-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
--- Description: Stimuli for Audio_channel
+-- Description: Stimuli for CHN_Wrapper
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
@@ -30,13 +30,13 @@ use lib_VHDL.TYPE_Pkg.all;
 --------------------------------------------------------------------------------
 -- ENTITY DECLARATION
 --------------------------------------------------------------------------------
-entity Audio_channel_tb is
-end Audio_channel_tb;
+entity CHN_Wrapper_tb is
+end CHN_Wrapper_tb;
 
 --------------------------------------------------------------------------------
 -- ARCHITECTURE DECLARATION
 --------------------------------------------------------------------------------
-architecture A of Audio_channel_tb is
+architecture A of CHN_Wrapper_tb is
 
     --------------------------------------------------------------------------------
     -- CONSTANTS DECLARATIONS
@@ -45,17 +45,17 @@ architecture A of Audio_channel_tb is
     constant C_DEMI_CLK_108     : time      := 4630 ps;
     constant C_TIMEOUT          : time      := 16 ms;
 
-    component Audio_channel is
+    component CHN_Wrapper is
         generic(
-            G_VGA_TOP       : boolean := true
+            G_LEFT_CHANNEL  : boolean := true
             );
         port(
             clk_108         : in  std_logic;
             clk_216         : in  std_logic;
             reset_n         : in  std_logic;
-            VOL_UP          : in  std_logic;
-            VOL_DOWN        : in  std_logic;
-            SW              : in  std_logic_vector(3 downto 0);
+            UART_addr       : in  std_logic_vector(7 downto 0);
+            UART_write      : in  std_logic;
+            UART_dout       : in  std_logic_vector(15 downto 0);
             New_sample      : in  std_logic;
             Audio_din       : in  std_logic_vector(15 downto 0);
             Audio_out       : out std_logic_vector(15 downto 0);
@@ -77,9 +77,9 @@ architecture A of Audio_channel_tb is
     signal clk_108          : std_logic := '0';
     signal clk_216          : std_logic := '0';
     signal reset_n          : std_logic;
-    signal VOL_UP           : std_logic;
-    signal VOL_DOWN         : std_logic;
-    signal SW               : std_logic_vector(3 downto 0);
+    signal UART_addr        : std_logic_vector(7 downto 0);
+    signal UART_write       : std_logic;
+    signal UART_dout        : std_logic_vector(15 downto 0);
     signal New_sample       : std_logic;
     signal Audio_din        : std_logic_vector(15 downto 0);
     signal Audio_out        : std_logic_vector(15 downto 0);
@@ -99,16 +99,16 @@ architecture A of Audio_channel_tb is
 begin
 
     ----------------------------------------------------------------
-    -- INSTANCE : U_Audio_channel
+    -- INSTANCE : U_CHN_Wrapper
     -- Description: Audio channel full treatment chain
     ----------------------------------------------------------------
-    U_Audio_channel : Audio_channel port map(
+    U_CHN_Wrapper : CHN_Wrapper port map(
         clk_108         => clk_108,
         clk_216         => clk_216,
         reset_n         => reset_n,
-        VOL_UP          => VOL_UP,
-        VOL_DOWN        => VOL_DOWN,
-        SW              => SW,
+        UART_addr       => UART_addr,
+        UART_write      => UART_write,
+        UART_dout       => UART_dout,
         New_sample      => New_sample,
         Audio_din       => Audio_din,
         Audio_out       => Audio_out,
@@ -193,9 +193,9 @@ begin
         end Wait_cycles;
     
     begin
-        VOL_UP      <= '0';
-        VOL_DOWN    <= '0';
-        SW          <= (others => '0');
+        UART_addr   <= (others => '0');
+        UART_write  <= '0';
+        UART_dout   <= (others => '0');
         Audio_din   <= X"7FFF";
         VGA_v_add   <= std_logic_vector(to_unsigned(400, VGA_v_add'length));
         Wait_cycles(4);
