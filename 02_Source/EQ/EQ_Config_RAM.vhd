@@ -10,7 +10,7 @@
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
--- Description: Store volume levels
+-- Description: Store Equalizer config
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description
