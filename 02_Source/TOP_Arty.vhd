@@ -177,9 +177,9 @@ architecture RTL of TOP is
             clk_108         : in  std_logic;
             clk_216         : in  std_logic;
             reset_n         : in  std_logic;
-            UART_addr       : in  std_logic_vector(7 downto 0);
-            UART_write      : in  std_logic;
-            UART_dout       : in  std_logic_vector(15 downto 0);
+            CFG_addr        : in  std_logic_vector(7 downto 0);
+            CFG_write       : in  std_logic;
+            CFG_din         : in  std_logic_vector(15 downto 0);
             New_sample      : in  std_logic;
             Audio_din       : in  std_logic_vector(15 downto 0);
             Audio_out       : out std_logic_vector(15 downto 0);
@@ -398,9 +398,9 @@ begin
         clk_108         => clk_108,
         clk_216         => clk_216,
         reset_n         => reset_n,
-        UART_addr       => CRS_addr_out,
-        UART_write      => CRS_write_right_out,
-        UART_dout       => CRS_dout,
+        CFG_addr        => CRS_addr_out,
+        CFG_write       => CRS_write_right_out,
+        CFG_din         => CRS_dout,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_right_out,
         Audio_out       => MISO_right_in,
@@ -424,9 +424,9 @@ begin
         clk_108         => clk_108,
         clk_216         => clk_216,
         reset_n         => reset_n,
-        UART_addr       => CRS_addr_out,
-        UART_write      => CRS_write_left_out,
-        UART_dout       => CRS_dout,
+        CFG_addr        => CRS_addr_out,
+        CFG_write       => CRS_write_left_out,
+        CFG_din         => CRS_dout,
         New_sample      => New_sample_216,
         Audio_din       => MOSI_left_out,
         Audio_out       => MISO_left_in,

@@ -39,10 +39,10 @@ entity CHN_Wrapper is
         clk_216         : in  std_logic;
         reset_n         : in  std_logic;
 
-        ------- Interface with UART -------------
-        UART_addr       : in  std_logic_vector(7 downto 0);
-        UART_write      : in  std_logic;
-        UART_dout       : in  std_logic_vector(15 downto 0);
+        ------- Config interface -----------------
+        CFG_addr        : in  std_logic_vector(7 downto 0);
+        CFG_write       : in  std_logic;
+        CFG_din         : in  std_logic_vector(15 downto 0);
 
         ------- Audio interface -----------------
         New_sample      : in  std_logic;
@@ -97,9 +97,9 @@ architecture RTL of CHN_Wrapper is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
-            EQ_addr         : in  std_logic_vector(7 downto 0);
-            EQ_write        : in  std_logic;
-            EQ_level_din    : in  std_logic_vector(15 downto 0);
+            CFG_addr        : in  std_logic_vector(7 downto 0);
+            CFG_write       : in  std_logic;
+            CFG_din         : in  std_logic_vector(15 downto 0);
             EQ_start        : in  std_logic;
             EQ_done         : out std_logic;
             EQ_din_band     : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
@@ -113,6 +113,9 @@ architecture RTL of CHN_Wrapper is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
+            CFG_addr        : in  std_logic_vector(7 downto 0);
+            CFG_write       : in  std_logic;
+            CFG_din         : in  std_logic_vector(15 downto 0);
             FFT_din         : in  std_logic_vector(15 downto 0);
             FFT_new_sample  : in  std_logic;
             FFT_addrA       : out std_logic_vector(10 downto 0);
@@ -174,10 +177,10 @@ architecture RTL of CHN_Wrapper is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
-            SW_addr         : in  std_logic_vector(7 downto 0);
-            SW_write        : in  std_logic;
-            SW_din          : in  std_logic_vector(15 downto 0);
-            SW_select_dout  : out std_logic_vector(2 downto 0)
+            CFG_addr        : in  std_logic_vector(7 downto 0);
+            CFG_write       : in  std_logic;
+            CFG_din         : in  std_logic_vector(15 downto 0);
+            CHN_select      : out std_logic_vector(2 downto 0)
             );
     end component;
 
@@ -187,7 +190,7 @@ architecture RTL of CHN_Wrapper is
     signal New_sample_d     : std_logic;
     signal Audio_din_d      : std_logic_vector(15 downto 0);
     signal FIR_dout         : std_logic_vector(C_FIR_MAX*16+15 downto 0);
-    signal SW_out           : std_logic_vector(15 downto 0);
+    signal CHN_select_dout  : std_logic_vector(15 downto 0);
     signal EQ_dout          : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
     signal FFT_addrA        : std_logic_vector(10 downto 0);
     signal FFT_addrB        : std_logic_vector(10 downto 0);
@@ -203,7 +206,7 @@ architecture RTL of CHN_Wrapper is
     signal NRM_addr_r       : std_logic_vector(10 downto 0);
     signal NRM_dout         : std_logic_vector(15 downto 0);
     signal VGA_v_add_map    : std_logic_vector(15 downto 0);
-    signal SW_select_dout   : std_logic_vector(2 downto 0);
+    signal CHN_select       : std_logic_vector(2 downto 0);
     signal WAV_din          : std_logic_vector(7 downto 0);
 
 --------------------------------------------------------------------------------
@@ -255,9 +258,9 @@ begin
     U_EQ_Wrapper : EQ_Wrapper port map(
         clk             => clk_216,
         reset_n         => reset_n,
-        EQ_addr         => UART_addr,
-        EQ_write        => UART_write,
-        EQ_level_din    => UART_dout,
+        CFG_addr        => CFG_addr,
+        CFG_write       => CFG_write,
+        CFG_din         => CFG_din,
         EQ_start        => New_sample_d,
         EQ_done         => EQ_done,
         EQ_din_band     => FIR_dout,
@@ -269,15 +272,15 @@ begin
     -- COMBINATORY :
     -- Description : Audio selection
     --------------------------------------------------------------------------------
-    SW_out  <= EQ_dout(15 downto 0)    when(SW_select_dout="000") else
-                EQ_dout(31 downto 16)   when(SW_select_dout="001") else
-                EQ_dout(47 downto 32)   when(SW_select_dout="010") else
-                EQ_dout(63 downto 48)   when(SW_select_dout="011") else
-                EQ_dout(79 downto 64)   when(SW_select_dout="100") else
-                EQ_dout(95 downto 80)   when(SW_select_dout="101") else
-                EQ_dout(111 downto 96)  when(SW_select_dout="110") else
-                EQ_dout(127 downto 112);
-    WAV_din <= SW_out(15 downto 8);
+    CHN_select_dout <=  EQ_dout(15 downto 0)    when(CHN_select="000") else
+                        EQ_dout(31 downto 16)   when(CHN_select="001") else
+                        EQ_dout(47 downto 32)   when(CHN_select="010") else
+                        EQ_dout(63 downto 48)   when(CHN_select="011") else
+                        EQ_dout(79 downto 64)   when(CHN_select="100") else
+                        EQ_dout(95 downto 80)   when(CHN_select="101") else
+                        EQ_dout(111 downto 96)  when(CHN_select="110") else
+                        EQ_dout(127 downto 112);
+    WAV_din <= CHN_select_dout(15 downto 8);
 
     ----------------------------------------------------------------
     -- INSTANCE : U_FFT_Wrapper
@@ -286,7 +289,10 @@ begin
     U_FFT_Wrapper : FFT_Wrapper port map(
         clk             => clk_216,
         reset_n         => reset_n,
-        FFT_din         => SW_out,
+        CFG_addr        => CFG_addr,
+        CFG_write       => CFG_write,
+        CFG_din         => CFG_din,
+        FFT_din         => CHN_select_dout,
         FFT_new_sample  => New_sample_d,
         FFT_addrA       => FFT_addrA,
         FFT_addrB       => FFT_addrB,
@@ -344,7 +350,7 @@ begin
         clk_108         => clk_108,
         clk_216         => clk_216,
         reset_n         => reset_n,
-        SW_in           => SW_select_dout,
+        SW_in           => CHN_select,
         VGA_new_frame   => VGA_new_frame,
         VGA_read        => VGA_read,
         VGA_address     => VGA_address,
@@ -368,16 +374,16 @@ begin
     U_CHN_Config_RAM : CHN_Config_RAM port map(
         clk             => clk_216,
         reset_n         => reset_n,
-        SW_addr         => UART_addr,
-        SW_write        => UART_write,
-        SW_din          => UART_dout,
-        SW_select_dout  => SW_select_dout);
+        CFG_addr        => CFG_addr,
+        CFG_write       => CFG_write,
+        CFG_din         => CFG_din,
+        CHN_select      => CHN_select);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
     -- Description : Audio selection
     --------------------------------------------------------------------------------
-    Audio_out   <= SW_out;
+    Audio_out   <= CHN_select_dout;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2020-03-27
+-- Last update: 2020-08-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -37,6 +37,11 @@ entity FFT_Wrapper is
         ------- Clock and RESET ------------------
         clk             : in  std_logic;                        -- clock
         reset_n         : in  std_logic;                        -- reset_n
+
+        ------- Config interface -------------
+        CFG_addr        : in  std_logic_vector(7 downto 0);
+        CFG_write       : in  std_logic;
+        CFG_din         : in  std_logic_vector(15 downto 0);
 
         ------- Audio interface ------------------
         FFT_din         : in  std_logic_vector(15 downto 0);
@@ -147,6 +152,31 @@ architecture RTL of FFT_Wrapper is
         );
     end component;
 
+    component FFT_Sampler is
+        port(
+            clk             : in  std_logic;
+            reset_n             : in  std_logic;
+            FFT_din             : in  std_logic_vector(15 downto 0);
+            FFT_new_sample      : in  std_logic;
+            FFT_sample_point    : in  std_logic_vector(3 downto 0);
+            FFT_end_point       : in  std_logic_vector(3 downto 0);
+            FFT_sample          : out std_logic_vector(15 downto 0);
+            FFT_sample_valid    : out std_logic
+            );
+    end component;
+
+    component FFT_Config_RAM is
+        port(
+            clk                 : in  std_logic;
+            reset_n             : in  std_logic;
+            CFG_addr            : in  std_logic_vector(7 downto 0);
+            CFG_write           : in  std_logic;
+            CFG_din             : in  std_logic_vector(15 downto 0);
+            FFT_sample_point    : out std_logic_vector(3 downto 0);
+            FFT_end_point       : out std_logic_vector(3 downto 0)
+            );
+    end component;
+
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
@@ -170,47 +200,17 @@ architecture RTL of FFT_Wrapper is
     signal FFT_stage_busy       : std_logic;
     signal addrA_btfly          : std_logic_vector(10 downto 0);
     signal addrB_btfly          : std_logic_vector(10 downto 0);
-    signal FFT_din_d            : std_logic_vector(15 downto 0);
-    signal FFT_new_sample_d     : std_logic;
-    signal FFT_din_dd           : std_logic_vector(15 downto 0);
-    signal FFT_new_sample_dd    : std_logic;
     signal FFT_addr_valid       : std_logic;
     signal reset                : std_logic;
+    signal FFT_sample           : std_logic_vector(15 downto 0);
+    signal FFT_sample_valid     : std_logic;
+    signal FFT_sample_point     : std_logic_vector(3 downto 0);
+    signal FFT_end_point        : std_logic_vector(3 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_input
-    -- Description : Register inputs
-    --------------------------------------------------------------------------------
-    P_input : process(reset_n, clk)
-    begin
-        if(reset_n='0') then
-            FFT_din_d           <= (others => '0');
-            FFT_new_sample_d    <= '0';
-        elsif(rising_edge(clk)) then
-            FFT_din_d           <= FFT_din;
-            FFT_new_sample_d    <= FFT_new_sample;
-        end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_input_last_stage
-    -- Description : Select inputs
-    --------------------------------------------------------------------------------
-    P_input_last_stage : process(reset_n, clk)
-    begin
-        if(reset_n='0') then
-            FFT_din_dd          <= (others => '0');
-            FFT_new_sample_dd   <= '0';
-        elsif(rising_edge(clk)) then
-            FFT_din_dd          <= FFT_din_d;
-            FFT_new_sample_dd   <= FFT_new_sample_d;
-        end if;
-    end process;
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
@@ -228,7 +228,7 @@ begin
     port map(
         clk             => clk,
         reset_n         => reset_n,
-        FFT_din         => FFT_din_dd,
+        FFT_din         => FFT_sample,
         RAM_dinA_r      => RAM_dinA_r,
         RAM_dinA_i      => RAM_dinA_i,
         RAM_dinB_r      => RAM_dinB_r,
@@ -240,7 +240,7 @@ begin
         FFT_addrA_w     => FFT_addrA_w,
         FFT_addrB_w     => FFT_addrB_w,
         FFT_addr_valid  => FFT_addr_valid,
-        FFT_new_sample  => FFT_new_sample_dd,
+        FFT_new_sample  => FFT_sample_valid,
         FFT_start       => FFT_start,
         RAM_doutA_r     => RAM_doutA_r,
         RAM_doutA_i     => RAM_doutA_i,
@@ -261,7 +261,7 @@ begin
         FFT_addr_coef   => FFT_addrC_r,
         FFT_addr_valid  => FFT_addr_valid,
         FFT_start       => FFT_start,
-        FFT_new_sample  => FFT_new_sample_dd,
+        FFT_new_sample  => FFT_sample_valid,
         FFT_stage_busy  => FFT_stage_busy,
         FFT_en          => FFT_en,
         FFT_done        => FFT_done);
@@ -321,6 +321,33 @@ begin
         dout    => addrB_btfly,
         full    => open,
         empty   => open);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_FFT_Sampler
+    -- Description : Manage sampling for FFT module
+    ----------------------------------------------------------------
+    U_FFT_Sampler : FFT_Sampler port map(
+        clk                 => clk,
+        reset_n             => reset_n,
+        FFT_din             => FFT_din,
+        FFT_new_sample      => FFT_new_sample,
+        FFT_sample_point    => FFT_sample_point,
+        FFT_end_point       => FFT_end_point,
+        FFT_sample          => FFT_sample,
+        FFT_sample_valid    => FFT_sample_valid);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_FFT_Config_RAM
+    -- Description : Manage sampling for FFT module
+    ----------------------------------------------------------------
+    U_FFT_Config_RAM : FFT_Config_RAM port map(
+        clk                 => clk,
+        reset_n             => reset_n,
+        CFG_addr            => CFG_addr,
+        CFG_write           => CFG_write,
+        CFG_din             => CFG_din,
+        FFT_sample_point    => FFT_sample_point,
+        FFT_end_point       => FFT_end_point);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-27
--- Last update: 2020-03-27
+-- Last update: 2020-08-02
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -51,6 +51,9 @@ architecture A of FFT_Wrapper_tb is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
+            CFG_addr        : in  std_logic_vector(7 downto 0);
+            CFG_write       : in  std_logic;
+            CFG_din         : in  std_logic_vector(15 downto 0);
             FFT_din         : in  std_logic_vector(15 downto 0);
             FFT_new_sample  : in  std_logic;
             FFT_addrA       : out std_logic_vector(10 downto 0);
@@ -81,6 +84,9 @@ architecture A of FFT_Wrapper_tb is
     signal FFT_start        : std_logic;
     signal FFT_write        : std_logic;
     signal FFT_done         : std_logic;
+    signal CFG_addr         : std_logic_vector(7 downto 0);
+    signal CFG_write        : std_logic;
+    signal CFG_din          : std_logic_vector(15 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -94,6 +100,9 @@ begin
     U_FFT_Wrapper : FFT_Wrapper port map(
         clk             => clk,
         reset_n         => reset_n,
+        CFG_addr        => CFG_addr,
+        CFG_write       => CFG_write,
+        CFG_din         => CFG_din,
         FFT_din         => FFT_din,
         FFT_new_sample  => FFT_new_sample,
         FFT_addrA       => FFT_addrA,
@@ -131,6 +140,9 @@ begin
         end Wait_cycles;
     
     begin
+        CFG_addr        <= (others => '0');
+        CFG_write       <= '0';
+        CFG_din         <= (others => '0');
         FFT_din         <= X"7FFF";
         FFT_start       <= '1';
         FFT_new_sample  <= '0';
