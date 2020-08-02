@@ -78,7 +78,6 @@ def update_SW(serial, index):
 
 def update_FFT_sampling(serial, FFT_sampling_sld):
     level = (FFT_sampling_sld.value()+2)/2
-    print(level)
 
     if(level==int(level)):
         end_point       = int(level-1)
