@@ -70,8 +70,6 @@ class SerialMonitor(QThread):
                 self.WAV_tab[i] = WAV_data[i]
             for i in range(1024):
                 self.FFT_tab[i] = FFT_data[2*i]+FFT_data[2*i+1]*256
-                if(self.FFT_tab[i]>1999):
-                    self.FFT_tab[i] = 2000
             for i in range(11):
                 self.VU_tab[i] = VU_data[10-i]
             return 1

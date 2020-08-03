@@ -124,9 +124,9 @@ class FFTWidget(QWidget):
         self.sampling_sld.setRange(0, 30)
         self.sampling_sld.setSingleStep(1)
         self.sampling_sld.setPageStep(1)
-        self.sampling_sld.setValue(0)
+        self.sampling_sld.setValue(6)
 
-        self.lbl_lvl = QLabel("Zoom x1")
+        self.lbl_lvl = QLabel("")
 
         self.lyt.addWidget(self.lbl_main, 0, 0)
         self.lyt.addWidget(self.lbl_lvl, 1, 1)
@@ -136,6 +136,7 @@ class FFTWidget(QWidget):
         self.p_update_FFT_level = partial(self.update_FFT_level, self.lbl_lvl, self.sampling_sld)
 
         self.sampling_sld.valueChanged.connect(self.p_update_FFT_level)
+        self.p_update_FFT_level()
 
     def update_FFT_level(self, lbl, sld):
         zoom = (sld.value()+2)/2
