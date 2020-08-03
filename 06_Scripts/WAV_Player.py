@@ -55,8 +55,8 @@ class FFTWidget(QWidget):
         super(FFTWidget, self).__init__(*args, **kwargs)
         self.serial = serial
 
-        self.lbl = QLabel("FFT")
-        self.lbl.setAlignment(Qt.AlignCenter)
+        self.lbl_main = QLabel("FFT")
+        self.lbl_main.setAlignment(Qt.AlignCenter)
 
         self.lyt = QGridLayout()
         self.setLayout(self.lyt)
@@ -67,13 +67,24 @@ class FFTWidget(QWidget):
         self.sampling_sld.setPageStep(1)
         self.sampling_sld.setValue(0)
 
+        self.lbl_lvl = QLabel("Zoom x1")
 
-        self.lyt.addWidget(self.lbl, 0, 0)
+        self.lyt.addWidget(self.lbl_main, 0, 0)
+        self.lyt.addWidget(self.lbl_lvl, 1, 1)
         self.lyt.addWidget(self.sampling_sld, 1, 0)
 
         self.p_update_FFT_sampling = partial(update_FFT_sampling, self.serial, self.sampling_sld)
+        self.p_update_FFT_level = partial(self.update_FFT_level, self.lbl_lvl, self.sampling_sld)
 
-        self.sampling_sld.valueChanged.connect(self.p_update_FFT_sampling)
+        self.sampling_sld.valueChanged.connect(self.p_update_FFT_level)
+
+    def update_FFT_level(self, lbl, sld):
+        zoom = (sld.value()+2)/2
+        txt = "Zoom x" + str(zoom)
+        lbl.setText(txt)
+
+        # Update level via serial port
+        self.p_update_FFT_sampling()
 
     def load_config(self):
         self.p_update_FFT_sampling()

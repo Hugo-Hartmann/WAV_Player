@@ -1,7 +1,7 @@
 #############################
 ### Python code for handling Dynamic Plot
 ### Created     2020-07-24
-### Last update 2020-07-31
+### Last update 2020-08-03
 ### Author      Hugo HARTMANN
 #############################
 
@@ -24,6 +24,7 @@ class DualPlotCanvas(FigureCanvas):
         self.axes[0].set_xlim([0, 1280])
         self.axes[1].set_ylim([0, 2000])
         self.axes[1].set_xlim([0, 1024])
+
         super(DualPlotCanvas, self).__init__(self.fig)
 
         self.plot_top = self.axes[0].plot(np.arange(1280), [0]*1280, 'k')
