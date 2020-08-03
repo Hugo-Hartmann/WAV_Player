@@ -23,13 +23,13 @@ class DualPlotCanvas(FigureCanvas):
         self.axes[0].set_ylim([0, 255])
         self.axes[0].set_xlim([0, 1280])
         self.axes[1].set_yscale('log')
-        self.axes[1].set_ylim([0, 65536])
+        self.axes[1].set_ylim([4, 65536])
         self.axes[1].set_xlim([0, 1024])
 
         super(DualPlotCanvas, self).__init__(self.fig)
 
         self.plot_top = self.axes[0].plot(np.arange(1280), [0]*1280, 'k')
-        log_cmap = [np.log(i) for i in np.arange(0, 65536, 64)]
+        log_cmap = [np.log(i) for i in np.arange(64, 65600, 64)]
         self.plot_bot = self.axes[1].scatter(np.arange(1024), [0]*1024, cmap="RdPu", c=log_cmap, marker='.', s=5)
 
         self.show()
