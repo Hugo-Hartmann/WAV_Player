@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-12-31
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -40,10 +40,10 @@ entity VU_metre is
         VU_start    : in  std_logic;
 
         ------- VU in ---------------------------
-        VU_din      : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
+        VU_din      : in  std_logic_vector(C_FIR_TOT*16+15 downto 0);
 
         ------- VU out --------------------------
-        VU_dout     : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+        VU_dout     : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
 
         );
 end VU_metre;
@@ -57,7 +57,7 @@ architecture RTL of VU_metre is
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
     type VU_STATE is (VU_RESET, VU_CLEAN, VU_IDLE, VU_STORE, VU_ACCU);
-    type T_RAM is array (0 to 7) of std_logic_vector(7 downto 0);
+    type T_RAM is array (0 to C_FIR_TOT) of std_logic_vector(7 downto 0);
     type T_EN is array (0 to 3) of std_logic;
 
     --------------------------------------------------------------------------------
@@ -91,7 +91,7 @@ architecture RTL of VU_metre is
     --------------------------------------------------------------------------------
     signal current_state    : VU_STATE;
     signal next_state       : VU_STATE;
-    signal counter_select   : unsigned(2 downto 0);
+    signal counter_select   : unsigned(3 downto 0);
     signal cnt_select_inc   : std_logic;
     signal counter_write    : unsigned(11 downto 0);
     signal cnt_write_dec    : std_logic;
@@ -99,7 +99,7 @@ architecture RTL of VU_metre is
     signal counter_read     : unsigned(11 downto 0);
     signal cnt_read_dec     : std_logic;
     signal cnt_read_end     : std_logic;
-    signal VU_din_d         : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
+    signal VU_din_d         : std_logic_vector(C_FIR_TOT*16+15 downto 0);
     signal VU_clr           : std_logic;
     signal VU_zero          : std_logic;
     signal VU_en            : std_logic;
@@ -122,7 +122,7 @@ begin
     -- INSTANCE : U_RAM
     -- Description : 4096 8-bit elements RAM
     ----------------------------------------------------------------
-    GEN_RAM : for i in C_FIR_MIN to C_FIR_MAX+2 generate
+    GEN_RAM : for i in C_FIR_MIN to C_FIR_TOT generate
         U_RAM : RAM_4096_8bit port map(
             clka    => clk,
             addra   => RAM_addr,
@@ -183,10 +183,14 @@ begin
     P_counter_select : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            counter_select  <= (others => '1');
+            counter_select  <= to_unsigned(0, counter_select'length);
         elsif(rising_edge(clk)) then
             if(cnt_select_inc='1') then
-                counter_select  <= counter_select + 1;
+                if(counter_select=C_FIR_TOT) then
+                    counter_select  <= to_unsigned(0, counter_select'length);
+                else
+                    counter_select  <= counter_select + 1;
+                end if;
             end if;
         end if;
     end process;

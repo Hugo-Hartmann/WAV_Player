@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-23
--- Last update: 2020-08-02
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -191,7 +191,7 @@ architecture RTL of TOP is
             VGA_din         : out std_logic_vector(11 downto 0);
             WAV_push        : out std_logic_vector(8 downto 0);
             FFT_push        : out std_logic_vector(16 downto 0);
-            VU_push         : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+            VU_push         : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
             );
     end component;
 
@@ -203,7 +203,7 @@ architecture RTL of TOP is
             VGA_new_frame   : in  std_logic;
             WAV_push        : in  std_logic_vector(8 downto 0);
             FFT_push        : in  std_logic_vector(16 downto 0);
-            VU_push         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            VU_push         : in  std_logic_vector(C_FIR_TOT*5+4 downto 0);
             UART_send       : out std_logic;
             UART_busy       : in  std_logic;
             UART_din        : out std_logic_vector(7 downto 0);
@@ -251,17 +251,17 @@ architecture RTL of TOP is
     signal VGA_din_bottom       : std_logic_vector(11 downto 0);
     signal WAV_push_top         : std_logic_vector(8 downto 0);
     signal FFT_push_top         : std_logic_vector(16 downto 0);
-    signal VU_push_top          : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal VU_push_top          : std_logic_vector(C_FIR_TOT*5+4 downto 0);
     signal WAV_push_bottom      : std_logic_vector(8 downto 0);
     signal FFT_push_bottom      : std_logic_vector(16 downto 0);
-    signal VU_push_bottom       : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal VU_push_bottom       : std_logic_vector(C_FIR_TOT*5+4 downto 0);
     signal VGA_new_frame        : std_logic;
-    signal VU_dout_r            : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-    signal VU_dout_l            : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-    signal EQ_level_dout_r      : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-    signal EQ_level_dout_l      : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-    signal EQ_dout_r            : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-    signal EQ_dout_l            : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
+    signal VU_dout_r            : std_logic_vector(C_FIR_TOT*5+4 downto 0);
+    signal VU_dout_l            : std_logic_vector(C_FIR_TOT*5+4 downto 0);
+    signal EQ_level_dout_r      : std_logic_vector(C_FIR_TOT*5+4 downto 0);
+    signal EQ_level_dout_l      : std_logic_vector(C_FIR_TOT*5+4 downto 0);
+    signal EQ_dout_r            : std_logic_vector(C_FIR_TOT*16+15 downto 0);
+    signal EQ_dout_l            : std_logic_vector(C_FIR_TOT*16+15 downto 0);
     signal NRM_read_r           : std_logic;
     signal NRM_read_l           : std_logic;
     signal NRM_addr_r           : std_logic_vector(8 downto 0);

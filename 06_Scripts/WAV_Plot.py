@@ -42,7 +42,7 @@ class BarCanvas(FigureCanvas):
 
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         self.fig = Figure(figsize=(width, height), dpi=dpi, facecolor=(240/255, 240/255, 240/255))
-        self.axes = self.fig.subplots(1, 8)
+        self.axes = self.fig.subplots(1, 11)
         self.imgs = []
         self.fig.subplots_adjust(bottom=0, top=1, left=0, right=1)
         for ax in self.axes:
@@ -59,14 +59,14 @@ class BarCanvas(FigureCanvas):
 
         self.grad = [[i] for i in range(100)]
         
-        for i in range(8):
+        for i in range(11):
             self.imgs.append(self.axes[i].imshow(self.grad, extent=[self.x, self.x+self.w, self.y, self.y+32], aspect='auto', zorder=0, origin="lower", cmap="RdPu"))
 
         self.show()
 
 
     def update_data(self, data):
-        for i in range(8):
+        for i in range(11):
             self.imgs[i].set_extent([self.x, self.x+self.w, self.y, self.y+data[i]])
             self.imgs[i].set_data(self.grad[:int((data[i]+1)*100/32)][:][:])
 

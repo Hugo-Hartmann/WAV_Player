@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-08-02
--- Last update: 2020-08-02
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ begin
     --------------------------------------------------------------------------------
     process(addr_d)
     begin
-        if(addr_d(6 downto 3)="0011") then
+        if(addr_d(6 downto 4)="011") then
             spl_addr_valid  <= '1';
         else
             spl_addr_valid  <= '0';

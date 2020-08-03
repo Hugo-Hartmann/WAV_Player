@@ -86,4 +86,4 @@ def update_FFT_sampling(serial, FFT_sampling_sld):
         end_point       = int((level*2)-1)
         sampling_point  = int(end_point/2)
 
-    serial.serial_wr_EQ_level(end_point, sampling_point)
+    serial.serial_wr_FFT_sampling(end_point, sampling_point)

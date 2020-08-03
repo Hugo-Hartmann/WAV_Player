@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-08-02
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -42,8 +42,8 @@ entity EQ_Config_RAM is
         CFG_din         : in  std_logic_vector(15 downto 0);
 
         ------- EQ Config out --------------------
-        EQ_sel_dout     : out std_logic_vector(7 downto 0);
-        EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+        EQ_sel_dout     : out std_logic_vector(C_FIR_TOT downto 0);
+        EQ_level_dout   : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
 
         );
 end EQ_Config_RAM;
@@ -56,7 +56,7 @@ architecture RTL of EQ_Config_RAM is
     --------------------------------------------------------------------------------
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
-    type vol_tab is array (0 to C_FIR_MAX+2) of std_logic_vector(4 downto 0);
+    type vol_tab is array (0 to C_FIR_TOT) of std_logic_vector(4 downto 0);
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
@@ -96,13 +96,13 @@ begin
     --------------------------------------------------------------------------------
     process(addr_d)
     begin
-        if(addr_d(6 downto 3)="0001") then
+        if(addr_d(6 downto 4)="001") then
             lvl_addr_valid  <= '1';
         else
             lvl_addr_valid  <= '0';
         end if;
 
-        if(addr_d(6 downto 3)="0010") then
+        if(addr_d(6 downto 4)="010") then
             sel_addr_valid  <= '1';
         else
             sel_addr_valid  <= '0';
@@ -121,7 +121,7 @@ begin
             end loop;
         elsif(rising_edge(clk)) then
             if(lvl_addr_valid='1' and write_d='1') then
-                EQ_level(to_integer(unsigned(addr_d(2 downto 0))))  <= din_d(4 downto 0);
+                EQ_level(to_integer(unsigned(addr_d(3 downto 0))))  <= din_d(4 downto 0);
             end if;
         end if;
     end process;
@@ -148,10 +148,10 @@ begin
     P_RAM_sel : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            EQ_sel_dout <= "01111110";
+            EQ_sel_dout <= (0 => '0', EQ_sel_dout'high => '0', others => '1');
         elsif(rising_edge(clk)) then
             if(sel_addr_valid='1' and write_d='1') then
-                EQ_sel_dout(to_integer(unsigned(addr_d(2 downto 0))))   <= din_d(0);
+                EQ_sel_dout(to_integer(unsigned(addr_d(3 downto 0))))   <= din_d(0);
             end if;
         end if;
     end process;

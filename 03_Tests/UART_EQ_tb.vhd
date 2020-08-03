@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-08-02
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -56,8 +56,8 @@ architecture A of UART_EQ_tb is
             EQ_done         : out std_logic;
             EQ_din_band     : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
             EQ_din          : in  std_logic_vector(15 downto 0);
-            EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+            EQ_dout         : out std_logic_vector(C_FIR_TOT*16+15 downto 0);
+            EQ_level_dout   : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
             );
     end component;
 
@@ -107,9 +107,9 @@ architecture A of UART_EQ_tb is
     signal UART_din         : std_logic_vector(7 downto 0) := (others => '0');
     signal EQ_start         : std_logic;
     signal EQ_done          : std_logic;
-    signal EQ_din_band      : std_logic_vector(C_FIR_MAX*16+15 downto 0) := X"0084FFFF0083008200810080";
+    signal EQ_din_band      : std_logic_vector(C_FIR_MAX*16+15 downto 0) := X"0084FFFF0086008500840083008200810080";
     signal EQ_din           : std_logic_vector(15 downto 0) := X"007F";
-    signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal EQ_level_dout    : std_logic_vector(C_FIR_TOT*5+4 downto 0);
     signal Tx_busy          : std_logic;
     signal Tx_in            : std_logic_vector(7 downto 0);
     signal Tx_send          : std_logic;

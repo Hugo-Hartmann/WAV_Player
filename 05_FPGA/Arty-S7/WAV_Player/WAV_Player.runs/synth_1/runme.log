@@ -14,9 +14,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 8820 
+INFO: Helper process launched with PID 17604 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 431.023 ; gain = 105.430
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 431.215 ; gain = 107.160
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'TOP' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:72]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
@@ -25,87 +25,60 @@ INFO: [Synth 8-638] synthesizing module 'TOP' [C:/Users/Hugo/Documents/GitHub/WA
 	Parameter IBUF_LOW_PWR bound to: 1 - type: bool 
 	Parameter IFD_DELAY_VALUE bound to: AUTO - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
-INFO: [Synth 8-113] binding component instance 'IBUF_inst' to cell 'IBUF' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:277]
-INFO: [Synth 8-3491] module 'MMCM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/MMCM_stub.vhdl:5' bound to instance 'U_MMCM' of component 'MMCM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:291]
-INFO: [Synth 8-638] synthesizing module 'MMCM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/MMCM_stub.vhdl:16]
-INFO: [Synth 8-3491] module 'MMCM_112' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/MMCM_112_stub.vhdl:5' bound to instance 'U_MMCM_112' of component 'MMCM_112' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:310]
-INFO: [Synth 8-638] synthesizing module 'MMCM_112' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/MMCM_112_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'Hearbeat' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/Hearbeat_stub.vhdl:5' bound to instance 'U_Hearbeat' of component 'Hearbeat' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:326]
-INFO: [Synth 8-638] synthesizing module 'Hearbeat' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/Hearbeat_stub.vhdl:14]
-INFO: [Synth 8-3491] module 'UART_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/UART_Wrapper_stub.vhdl:5' bound to instance 'U_UART_Wrapper' of component 'UART_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:335]
-INFO: [Synth 8-638] synthesizing module 'UART_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/UART_Wrapper_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'VGA_Controller' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/VGA_Controller_stub.vhdl:5' bound to instance 'U_VGA_controller' of component 'VGA_controller' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:351]
-INFO: [Synth 8-638] synthesizing module 'VGA_Controller' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/VGA_Controller_stub.vhdl:24]
+INFO: [Synth 8-113] binding component instance 'IBUF_inst' to cell 'IBUF' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:296]
+INFO: [Synth 8-3491] module 'MMCM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/MMCM_stub.vhdl:5' bound to instance 'U_MMCM' of component 'MMCM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:310]
+INFO: [Synth 8-638] synthesizing module 'MMCM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/MMCM_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'MMCM_112' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/MMCM_112_stub.vhdl:5' bound to instance 'U_MMCM_112' of component 'MMCM_112' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:329]
+INFO: [Synth 8-638] synthesizing module 'MMCM_112' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/MMCM_112_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'Hearbeat' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/Hearbeat_stub.vhdl:5' bound to instance 'U_Hearbeat' of component 'Hearbeat' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:345]
+INFO: [Synth 8-638] synthesizing module 'Hearbeat' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/Hearbeat_stub.vhdl:14]
+INFO: [Synth 8-3491] module 'UART_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/UART_Wrapper_stub.vhdl:5' bound to instance 'U_UART_Wrapper' of component 'UART_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:354]
+INFO: [Synth 8-638] synthesizing module 'UART_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/UART_Wrapper_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'VGA_Controller' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/VGA_Controller_stub.vhdl:5' bound to instance 'U_VGA_controller' of component 'VGA_controller' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:370]
+INFO: [Synth 8-638] synthesizing module 'VGA_Controller' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/VGA_Controller_stub.vhdl:24]
 	Parameter G_LEFT_CHANNEL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'Audio_channel' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:32' bound to instance 'U_Audio_channel_right' of component 'Audio_channel' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:376]
-INFO: [Synth 8-638] synthesizing module 'Audio_channel' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:71]
+INFO: [Synth 8-3491] module 'CHN_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:32' bound to instance 'U_CHN_Wrapper_right' of component 'CHN_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:395]
+INFO: [Synth 8-638] synthesizing module 'CHN_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:71]
 	Parameter G_LEFT_CHANNEL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'FIR_interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/FIR_interface_stub.vhdl:5' bound to instance 'U_FIR_interface' of component 'FIR_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:239]
-INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/FIR_interface_stub.vhdl:16]
-INFO: [Synth 8-3491] module 'VU_metre' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/VU_metre_stub.vhdl:5' bound to instance 'U_VU_metre' of component 'VU_metre' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:250]
-INFO: [Synth 8-638] synthesizing module 'VU_metre' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/VU_metre_stub.vhdl:16]
-	Parameter G_LEFT_CHANNEL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'EQ_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:32' bound to instance 'U_EQ_Wrapper' of component 'EQ_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:261]
-INFO: [Synth 8-638] synthesizing module 'EQ_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:64]
-	Parameter G_LEFT_CHANNEL bound to: 0 - type: bool 
-	Parameter G_LEFT_CHANNEL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'EQ_Config_RAM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd:32' bound to instance 'U_EQ_Config_RAM' of component 'EQ_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:132]
-INFO: [Synth 8-638] synthesizing module 'EQ_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd:57]
-	Parameter G_LEFT_CHANNEL bound to: 0 - type: bool 
-INFO: [Synth 8-256] done synthesizing module 'EQ_Config_RAM' (1#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd:57]
-INFO: [Synth 8-3491] module 'EQ_FSM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/EQ_FSM_stub.vhdl:5' bound to instance 'U_EQ_FSM' of component 'EQ_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:147]
-INFO: [Synth 8-638] synthesizing module 'EQ_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/EQ_FSM_stub.vhdl:19]
-INFO: [Synth 8-3491] module 'EQ_UAL' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/EQ_UAL_stub.vhdl:5' bound to instance 'U_EQ_UAL' of component 'EQ_UAL' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:161]
-INFO: [Synth 8-638] synthesizing module 'EQ_UAL' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/EQ_UAL_stub.vhdl:22]
-INFO: [Synth 8-256] done synthesizing module 'EQ_Wrapper' (2#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:64]
-INFO: [Synth 8-3491] module 'FFT_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/FFT_Wrapper_stub.vhdl:5' bound to instance 'U_FFT_Wrapper' of component 'FFT_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:294]
-INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/FFT_Wrapper_stub.vhdl:24]
-INFO: [Synth 8-3491] module 'NRM_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/NRM_Wrapper_stub.vhdl:5' bound to instance 'U_NRM_Wrapper' of component 'NRM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:313]
-INFO: [Synth 8-638] synthesizing module 'NRM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/NRM_Wrapper_stub.vhdl:25]
-INFO: [Synth 8-3491] module 'VGA_interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/VGA_interface_stub.vhdl:5' bound to instance 'U_VGA_interface' of component 'VGA_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:351]
-INFO: [Synth 8-638] synthesizing module 'VGA_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/VGA_interface_stub.vhdl:30]
-	Parameter G_LEFT_CHANNEL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'SW_Config_RAM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:30' bound to instance 'U_SW_Config_RAM' of component 'SW_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:376]
-INFO: [Synth 8-638] synthesizing module 'SW_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:54]
-	Parameter G_LEFT_CHANNEL bound to: 0 - type: bool 
-INFO: [Synth 8-256] done synthesizing module 'SW_Config_RAM' (3#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:54]
-INFO: [Synth 8-256] done synthesizing module 'Audio_channel' (4#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:71]
+INFO: [Synth 8-3491] module 'FIR_interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/FIR_interface_stub.vhdl:5' bound to instance 'U_FIR_interface' of component 'FIR_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:236]
+INFO: [Synth 8-638] synthesizing module 'FIR_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/FIR_interface_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'VU_metre' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/VU_metre_stub.vhdl:5' bound to instance 'U_VU_metre' of component 'VU_metre' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:247]
+INFO: [Synth 8-638] synthesizing module 'VU_metre' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/VU_metre_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'EQ_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/EQ_Wrapper_stub.vhdl:5' bound to instance 'U_EQ_Wrapper' of component 'EQ_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:258]
+INFO: [Synth 8-638] synthesizing module 'EQ_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/EQ_Wrapper_stub.vhdl:22]
+INFO: [Synth 8-3491] module 'FFT_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/FFT_Wrapper_stub.vhdl:5' bound to instance 'U_FFT_Wrapper' of component 'FFT_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:292]
+INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/FFT_Wrapper_stub.vhdl:27]
+INFO: [Synth 8-3491] module 'NRM_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/NRM_Wrapper_stub.vhdl:5' bound to instance 'U_NRM_Wrapper' of component 'NRM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:314]
+INFO: [Synth 8-638] synthesizing module 'NRM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/NRM_Wrapper_stub.vhdl:25]
+INFO: [Synth 8-3491] module 'VGA_interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/VGA_interface_stub.vhdl:5' bound to instance 'U_VGA_interface' of component 'VGA_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:352]
+INFO: [Synth 8-638] synthesizing module 'VGA_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/VGA_interface_stub.vhdl:30]
+INFO: [Synth 8-3491] module 'CHN_Config_RAM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/CHN_Config_RAM_stub.vhdl:5' bound to instance 'U_CHN_Config_RAM' of component 'CHN_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:377]
+INFO: [Synth 8-638] synthesizing module 'CHN_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/CHN_Config_RAM_stub.vhdl:17]
+INFO: [Synth 8-256] done synthesizing module 'CHN_Wrapper' (1#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:71]
 	Parameter G_LEFT_CHANNEL bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'Audio_channel' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:32' bound to instance 'U_Audio_channel_left' of component 'Audio_channel' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:402]
-INFO: [Synth 8-638] synthesizing module 'Audio_channel__parameterized1' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:71]
+INFO: [Synth 8-3491] module 'CHN_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:32' bound to instance 'U_CHN_Wrapper_left' of component 'CHN_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:421]
+INFO: [Synth 8-638] synthesizing module 'CHN_Wrapper__parameterized1' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:71]
 	Parameter G_LEFT_CHANNEL bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'FIR_interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/FIR_interface_stub.vhdl:5' bound to instance 'U_FIR_interface' of component 'FIR_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:239]
-INFO: [Synth 8-3491] module 'VU_metre' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/VU_metre_stub.vhdl:5' bound to instance 'U_VU_metre' of component 'VU_metre' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:250]
-	Parameter G_LEFT_CHANNEL bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'EQ_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:32' bound to instance 'U_EQ_Wrapper' of component 'EQ_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:261]
-INFO: [Synth 8-638] synthesizing module 'EQ_Wrapper__parameterized1' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:64]
-	Parameter G_LEFT_CHANNEL bound to: 1 - type: bool 
-	Parameter G_LEFT_CHANNEL bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'EQ_Config_RAM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd:32' bound to instance 'U_EQ_Config_RAM' of component 'EQ_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:132]
-INFO: [Synth 8-638] synthesizing module 'EQ_Config_RAM__parameterized1' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd:57]
-	Parameter G_LEFT_CHANNEL bound to: 1 - type: bool 
-INFO: [Synth 8-256] done synthesizing module 'EQ_Config_RAM__parameterized1' (4#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd:57]
-INFO: [Synth 8-3491] module 'EQ_FSM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/EQ_FSM_stub.vhdl:5' bound to instance 'U_EQ_FSM' of component 'EQ_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:147]
-INFO: [Synth 8-3491] module 'EQ_UAL' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/EQ_UAL_stub.vhdl:5' bound to instance 'U_EQ_UAL' of component 'EQ_UAL' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:161]
-INFO: [Synth 8-256] done synthesizing module 'EQ_Wrapper__parameterized1' (4#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Wrapper.vhd:64]
-INFO: [Synth 8-3491] module 'FFT_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/FFT_Wrapper_stub.vhdl:5' bound to instance 'U_FFT_Wrapper' of component 'FFT_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:294]
-INFO: [Synth 8-3491] module 'NRM_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/NRM_Wrapper_stub.vhdl:5' bound to instance 'U_NRM_Wrapper' of component 'NRM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:313]
-INFO: [Synth 8-3491] module 'VGA_interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/VGA_interface_stub.vhdl:5' bound to instance 'U_VGA_interface' of component 'VGA_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:351]
-	Parameter G_LEFT_CHANNEL bound to: 1 - type: bool 
-INFO: [Synth 8-3491] module 'SW_Config_RAM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:30' bound to instance 'U_SW_Config_RAM' of component 'SW_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:376]
-INFO: [Synth 8-638] synthesizing module 'SW_Config_RAM__parameterized1' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:54]
-	Parameter G_LEFT_CHANNEL bound to: 1 - type: bool 
-INFO: [Synth 8-256] done synthesizing module 'SW_Config_RAM__parameterized1' (4#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:54]
-INFO: [Synth 8-256] done synthesizing module 'Audio_channel__parameterized1' (4#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:71]
-INFO: [Synth 8-3491] module 'I2S_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/I2S_Wrapper_stub.vhdl:5' bound to instance 'U_I2S_Wrapper' of component 'I2S_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:428]
-INFO: [Synth 8-638] synthesizing module 'I2S_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/I2S_Wrapper_stub.vhdl:23]
-INFO: [Synth 8-3491] module 'Audio_Interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/Audio_Interface_stub.vhdl:5' bound to instance 'U_Audio_Interface' of component 'Audio_Interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:458]
-INFO: [Synth 8-638] synthesizing module 'Audio_Interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/Audio_Interface_stub.vhdl:24]
-INFO: [Synth 8-3491] module 'PSH_Driver' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/PSH_Driver_stub.vhdl:5' bound to instance 'U_PSH_Driver' of component 'PSH_Driver' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:477]
-INFO: [Synth 8-638] synthesizing module 'PSH_Driver' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-15816-DESKTOP-K3B0LAI/realtime/PSH_Driver_stub.vhdl:22]
-INFO: [Synth 8-256] done synthesizing module 'TOP' (5#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:72]
+INFO: [Synth 8-3491] module 'FIR_interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/FIR_interface_stub.vhdl:5' bound to instance 'U_FIR_interface' of component 'FIR_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:236]
+INFO: [Synth 8-3491] module 'VU_metre' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/VU_metre_stub.vhdl:5' bound to instance 'U_VU_metre' of component 'VU_metre' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:247]
+INFO: [Synth 8-3491] module 'EQ_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/EQ_Wrapper_stub.vhdl:5' bound to instance 'U_EQ_Wrapper' of component 'EQ_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:258]
+INFO: [Synth 8-3491] module 'FFT_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/FFT_Wrapper_stub.vhdl:5' bound to instance 'U_FFT_Wrapper' of component 'FFT_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:292]
+INFO: [Synth 8-3491] module 'NRM_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/NRM_Wrapper_stub.vhdl:5' bound to instance 'U_NRM_Wrapper' of component 'NRM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:314]
+INFO: [Synth 8-3491] module 'VGA_interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/VGA_interface_stub.vhdl:5' bound to instance 'U_VGA_interface' of component 'VGA_interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:352]
+INFO: [Synth 8-3491] module 'CHN_Config_RAM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/CHN_Config_RAM_stub.vhdl:5' bound to instance 'U_CHN_Config_RAM' of component 'CHN_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:377]
+INFO: [Synth 8-256] done synthesizing module 'CHN_Wrapper__parameterized1' (1#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:71]
+INFO: [Synth 8-3491] module 'I2S_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/I2S_Wrapper_stub.vhdl:5' bound to instance 'U_I2S_Wrapper' of component 'I2S_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:447]
+INFO: [Synth 8-638] synthesizing module 'I2S_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/I2S_Wrapper_stub.vhdl:23]
+INFO: [Synth 8-3491] module 'Audio_Interface' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/Audio_Interface_stub.vhdl:5' bound to instance 'U_Audio_Interface' of component 'Audio_Interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:477]
+INFO: [Synth 8-638] synthesizing module 'Audio_Interface' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/Audio_Interface_stub.vhdl:24]
+INFO: [Synth 8-3491] module 'PSH_Driver' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/PSH_Driver_stub.vhdl:5' bound to instance 'U_PSH_Driver' of component 'PSH_Driver' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:496]
+INFO: [Synth 8-638] synthesizing module 'PSH_Driver' [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/.Xil/Vivado-4508-DESKTOP-K3B0LAI/realtime/PSH_Driver_stub.vhdl:22]
+INFO: [Synth 8-3491] module 'Crossbar' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Crossbar.vhd:31' bound to instance 'U_Crossbar' of component 'Crossbar' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:513]
+INFO: [Synth 8-638] synthesizing module 'Crossbar' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Crossbar.vhd:55]
+INFO: [Synth 8-256] done synthesizing module 'Crossbar' (2#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Crossbar.vhd:55]
+INFO: [Synth 8-256] done synthesizing module 'TOP' (3#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd:72]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 612.621 ; gain = 287.027
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 616.180 ; gain = 292.125
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -118,56 +91,56 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 612.621 ; gain = 287.027
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 616.180 ; gain = 292.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 612.621 ; gain = 287.027
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 616.180 ; gain = 292.125
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_UAL_synth_1/EQ_UAL/EQ_UAL_in_context.xdc] for cell 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_UAL'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_UAL_synth_1/EQ_UAL/EQ_UAL_in_context.xdc] for cell 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_UAL'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_UAL_synth_1/EQ_UAL/EQ_UAL_in_context.xdc] for cell 'U_Audio_channel_left/U_EQ_Wrapper/U_EQ_UAL'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_UAL_synth_1/EQ_UAL/EQ_UAL_in_context.xdc] for cell 'U_Audio_channel_left/U_EQ_Wrapper/U_EQ_UAL'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_FSM_synth_1/EQ_FSM/EQ_FSM_in_context.xdc] for cell 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_FSM'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_FSM_synth_1/EQ_FSM/EQ_FSM_in_context.xdc] for cell 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_FSM'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_FSM_synth_1/EQ_FSM/EQ_FSM_in_context.xdc] for cell 'U_Audio_channel_left/U_EQ_Wrapper/U_EQ_FSM'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_FSM_synth_1/EQ_FSM/EQ_FSM_in_context.xdc] for cell 'U_Audio_channel_left/U_EQ_Wrapper/U_EQ_FSM'
 Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1/I2S_Wrapper/I2S_Wrapper_in_context.xdc] for cell 'U_I2S_Wrapper'
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1/I2S_Wrapper/I2S_Wrapper_in_context.xdc] for cell 'U_I2S_Wrapper'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_Audio_channel_right/U_VU_metre'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_Audio_channel_right/U_VU_metre'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_Audio_channel_left/U_VU_metre'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_Audio_channel_left/U_VU_metre'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_VU_metre'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_VU_metre'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_VU_metre'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre/VU_metre_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_VU_metre'
 Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/PSH_Driver_synth_1/PSH_Driver/PSH_Driver_in_context.xdc] for cell 'U_PSH_Driver'
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/PSH_Driver_synth_1/PSH_Driver/PSH_Driver_in_context.xdc] for cell 'U_PSH_Driver'
 Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Audio_Interface_synth_1/Audio_Interface/Audio_Interface_in_context.xdc] for cell 'U_Audio_Interface'
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Audio_Interface_synth_1/Audio_Interface/Audio_Interface_in_context.xdc] for cell 'U_Audio_Interface'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_Audio_channel_right/U_VGA_interface'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_Audio_channel_right/U_VGA_interface'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_Audio_channel_left/U_VGA_interface'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_Audio_channel_left/U_VGA_interface'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper/NRM_Wrapper_in_context.xdc] for cell 'U_Audio_channel_right/U_NRM_Wrapper'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper/NRM_Wrapper_in_context.xdc] for cell 'U_Audio_channel_right/U_NRM_Wrapper'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper/NRM_Wrapper_in_context.xdc] for cell 'U_Audio_channel_left/U_NRM_Wrapper'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper/NRM_Wrapper_in_context.xdc] for cell 'U_Audio_channel_left/U_NRM_Wrapper'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface/FIR_interface_in_context.xdc] for cell 'U_Audio_channel_right/U_FIR_interface'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface/FIR_interface_in_context.xdc] for cell 'U_Audio_channel_right/U_FIR_interface'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface/FIR_interface_in_context.xdc] for cell 'U_Audio_channel_left/U_FIR_interface'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface/FIR_interface_in_context.xdc] for cell 'U_Audio_channel_left/U_FIR_interface'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_VGA_interface'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_VGA_interface'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_VGA_interface'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface/VGA_interface_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_VGA_interface'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper/NRM_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_NRM_Wrapper'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper/NRM_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_NRM_Wrapper'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper/NRM_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_NRM_Wrapper'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper/NRM_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_NRM_Wrapper'
 Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/UART_Wrapper_synth_1/UART_Wrapper/UART_Wrapper_in_context.xdc] for cell 'U_UART_Wrapper'
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/UART_Wrapper_synth_1/UART_Wrapper/UART_Wrapper_in_context.xdc] for cell 'U_UART_Wrapper'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper/FFT_Wrapper_in_context.xdc] for cell 'U_Audio_channel_right/U_FFT_Wrapper'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper/FFT_Wrapper_in_context.xdc] for cell 'U_Audio_channel_right/U_FFT_Wrapper'
-Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper/FFT_Wrapper_in_context.xdc] for cell 'U_Audio_channel_left/U_FFT_Wrapper'
-Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper/FFT_Wrapper_in_context.xdc] for cell 'U_Audio_channel_left/U_FFT_Wrapper'
 Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Hearbeat_synth_1/Hearbeat/Hearbeat_in_context.xdc] for cell 'U_Hearbeat'
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Hearbeat_synth_1/Hearbeat/Hearbeat_in_context.xdc] for cell 'U_Hearbeat'
 Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_Controller_synth_1/VGA_Controller/VGA_Controller_in_context.xdc] for cell 'U_VGA_controller'
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_Controller_synth_1/VGA_Controller/VGA_Controller_in_context.xdc] for cell 'U_VGA_controller'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_Wrapper_synth_1/EQ_Wrapper/EQ_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_EQ_Wrapper'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_Wrapper_synth_1/EQ_Wrapper/EQ_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_EQ_Wrapper'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_Wrapper_synth_1/EQ_Wrapper/EQ_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_EQ_Wrapper'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_Wrapper_synth_1/EQ_Wrapper/EQ_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_EQ_Wrapper'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/CHN_Config_RAM_synth_1/CHN_Config_RAM/CHN_Config_RAM_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_CHN_Config_RAM'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/CHN_Config_RAM_synth_1/CHN_Config_RAM/CHN_Config_RAM_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_CHN_Config_RAM'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/CHN_Config_RAM_synth_1/CHN_Config_RAM/CHN_Config_RAM_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_CHN_Config_RAM'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/CHN_Config_RAM_synth_1/CHN_Config_RAM/CHN_Config_RAM_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_CHN_Config_RAM'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper/FFT_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_FFT_Wrapper'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper/FFT_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_FFT_Wrapper'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper/FFT_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_FFT_Wrapper'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper/FFT_Wrapper_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_FFT_Wrapper'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface/FIR_interface_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_FIR_interface'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface/FIR_interface_in_context.xdc] for cell 'U_CHN_Wrapper_right/U_FIR_interface'
+Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface/FIR_interface_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_FIR_interface'
+Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface/FIR_interface_in_context.xdc] for cell 'U_CHN_Wrapper_left/U_FIR_interface'
 Parsing XDC File [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM/MMCM/MMCM_in_context.xdc] for cell 'MMCM_GEN.U_MMCM'
 Finished Parsing XDC File [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM/MMCM/MMCM_in_context.xdc] for cell 'MMCM_GEN.U_MMCM'
 Parsing XDC File [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/MMCM_112/MMCM_112/MMCM_112_in_context.xdc] for cell 'MMCM_GEN_112.U_MMCM_112'
@@ -180,27 +153,27 @@ Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Contrainte
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Contraintes_Arty.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Contraintes_Arty.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 809.227 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 796.836 ; gain = 0.000
 CRITICAL WARNING: [Designutils 20-1280] Could not find module 'FIFO_16bit_1024'. The XDC file c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FIFO_16bit_1024/FIFO_16bit_1024_clocks.xdc will not be read for any cell of this module.
 CRITICAL WARNING: [Designutils 20-1280] Could not find module 'FIFO_8bit_2048'. The XDC file c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FIFO_8bit_2048/FIFO_8bit_2048_clocks.xdc will not be read for any cell of this module.
 CRITICAL WARNING: [Designutils 20-1280] Could not find module 'FIFO_32bit'. The XDC file c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FIFO_32bit/FIFO_32bit_clocks.xdc will not be read for any cell of this module.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 809.227 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 796.836 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 809.227 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 809.227 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 796.836 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 796.836 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 809.227 ; gain = 483.633
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 796.836 ; gain = 472.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 809.227 ; gain = 483.633
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 796.836 ; gain = 472.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -208,26 +181,10 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for \MMCM_GEN.U_MMCM . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for \MMCM_GEN_112.U_MMCM_112 . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 809.227 ; gain = 483.633
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 796.836 ; gain = 472.781
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5544] ROM "EQ_level_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[7]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "EQ_level_reg[7]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 809.227 ; gain = 483.633
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 796.836 ; gain = 472.781
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -242,15 +199,9 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     16 Bit       Adders := 1     
 +---Registers : 
-	               40 Bit    Registers := 2     
-	               16 Bit    Registers := 8     
-	                8 Bit    Registers := 6     
-	                5 Bit    Registers := 16    
-	                3 Bit    Registers := 2     
-	                1 Bit    Registers := 6     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 16    
+	               16 Bit    Registers := 5     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -258,54 +209,24 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module EQ_Config_RAM 
-Detailed RTL Component Info : 
-+---Registers : 
-	               40 Bit    Registers := 1     
-	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                5 Bit    Registers := 8     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 8     
-Module SW_Config_RAM 
-Detailed RTL Component Info : 
-+---Registers : 
-	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-Module Audio_channel 
+Module CHN_Wrapper 
 Detailed RTL Component Info : 
 +---Registers : 
 	               16 Bit    Registers := 2     
 	                1 Bit    Registers := 1     
-Module EQ_Config_RAM__parameterized1 
-Detailed RTL Component Info : 
-+---Registers : 
-	               40 Bit    Registers := 1     
-	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                5 Bit    Registers := 8     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 8     
-Module SW_Config_RAM__parameterized1 
-Detailed RTL Component Info : 
-+---Registers : 
-	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-Module Audio_channel__parameterized1 
+Module CHN_Wrapper__parameterized1 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     16 Bit       Adders := 1     
 +---Registers : 
 	               16 Bit    Registers := 2     
 	                1 Bit    Registers := 1     
+Module Crossbar 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -322,34 +243,17 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_left/New_sample_d_reg' into 'U_Audio_channel_right/New_sample_d_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/Audio_channel.vhd:227]
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_right/U_SW_Config_RAM/SW_addr_d_reg[7:0]' into 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_addr_d_reg[7:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:76]
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_right/U_SW_Config_RAM/SW_write_d_reg' into 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_write_d_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:77]
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_right/U_SW_Config_RAM/SW_din_d_reg[15:0]' into 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_din_d_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:78]
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_left/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_addr_d_reg[7:0]' into 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_addr_d_reg[7:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd:86]
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_left/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_write_d_reg' into 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_write_d_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd:87]
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_left/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_din_d_reg[15:0]' into 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_din_d_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_Config_RAM.vhd:88]
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_left/U_SW_Config_RAM/SW_addr_d_reg[7:0]' into 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_addr_d_reg[7:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:76]
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_left/U_SW_Config_RAM/SW_write_d_reg' into 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_write_d_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:77]
-INFO: [Synth 8-4471] merging register 'U_Audio_channel_left/U_SW_Config_RAM/SW_din_d_reg[15:0]' into 'U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_din_d_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/SW_Config_RAM.vhd:78]
-INFO: [Synth 8-5544] ROM "U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_level_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_level_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_level_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_level_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_level_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_level_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_level_reg[6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "U_Audio_channel_right/U_EQ_Wrapper/U_EQ_Config_RAM/EQ_level_reg[7]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-3886] merging instance 'U_Audio_channel_right/GEN_VGA_PASS.VGA_v_add_map_reg[0]' (FD) to 'U_Audio_channel_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[0]'
-INFO: [Synth 8-3886] merging instance 'U_Audio_channel_right/GEN_VGA_PASS.VGA_v_add_map_reg[1]' (FD) to 'U_Audio_channel_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_Audio_channel_right/GEN_VGA_PASS.VGA_v_add_map_reg[2]' (FD) to 'U_Audio_channel_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_Audio_channel_right/GEN_VGA_PASS.VGA_v_add_map_reg[3]' (FD) to 'U_Audio_channel_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_Audio_channel_right/GEN_VGA_PASS.VGA_v_add_map_reg[4]' (FD) to 'U_Audio_channel_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_Audio_channel_right/GEN_VGA_PASS.VGA_v_add_map_reg[5]' (FD) to 'U_Audio_channel_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_Audio_channel_right/GEN_VGA_PASS.VGA_v_add_map_reg[6]' (FD) to 'U_Audio_channel_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[6]'
-INFO: [Synth 8-3886] merging instance 'U_Audio_channel_right/GEN_VGA_PASS.VGA_v_add_map_reg[7]' (FD) to 'U_Audio_channel_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[7]'
+INFO: [Synth 8-4471] merging register 'U_CHN_Wrapper_left/New_sample_d_reg' into 'U_CHN_Wrapper_right/New_sample_d_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/CHN/CHN_Wrapper.vhd:224]
+INFO: [Synth 8-3886] merging instance 'U_CHN_Wrapper_right/GEN_VGA_PASS.VGA_v_add_map_reg[0]' (FD) to 'U_CHN_Wrapper_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[0]'
+INFO: [Synth 8-3886] merging instance 'U_CHN_Wrapper_right/GEN_VGA_PASS.VGA_v_add_map_reg[1]' (FD) to 'U_CHN_Wrapper_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_CHN_Wrapper_right/GEN_VGA_PASS.VGA_v_add_map_reg[2]' (FD) to 'U_CHN_Wrapper_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_CHN_Wrapper_right/GEN_VGA_PASS.VGA_v_add_map_reg[3]' (FD) to 'U_CHN_Wrapper_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_CHN_Wrapper_right/GEN_VGA_PASS.VGA_v_add_map_reg[4]' (FD) to 'U_CHN_Wrapper_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_CHN_Wrapper_right/GEN_VGA_PASS.VGA_v_add_map_reg[5]' (FD) to 'U_CHN_Wrapper_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_CHN_Wrapper_right/GEN_VGA_PASS.VGA_v_add_map_reg[6]' (FD) to 'U_CHN_Wrapper_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[6]'
+INFO: [Synth 8-3886] merging instance 'U_CHN_Wrapper_right/GEN_VGA_PASS.VGA_v_add_map_reg[7]' (FD) to 'U_CHN_Wrapper_left/GEN_VGA_OFFSET.VGA_v_add_map_reg[7]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 809.227 ; gain = 483.633
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 796.836 ; gain = 472.781
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -370,13 +274,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'MMCM_GEN_112.U_MMCM_112/c
 INFO: [Synth 8-5783] Moving clock source from hierarchical pin 'MMCM_GEN_112.U_MMCM_112/CLK12MHZ' to 'IBUF_inst/O'
 INFO: [Synth 8-5819] Moved 5 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 809.227 ; gain = 483.633
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 796.836 ; gain = 472.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 817.129 ; gain = 491.535
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 796.836 ; gain = 472.781
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -388,7 +292,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 817.129 ; gain = 491.535
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 805.156 ; gain = 481.102
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -412,7 +316,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 817.129 ; gain = 491.535
+Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 805.156 ; gain = 481.102
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -425,7 +329,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 817.129 ; gain = 491.535
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 805.156 ; gain = 481.102
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -437,25 +341,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 817.129 ; gain = 491.535
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 805.156 ; gain = 481.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 817.129 ; gain = 491.535
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 805.156 ; gain = 481.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 817.129 ; gain = 491.535
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 805.156 ; gain = 481.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 817.129 ; gain = 491.535
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 805.156 ; gain = 481.102
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -475,11 +379,11 @@ Report BlackBoxes:
 |8     |MMCM_112        |         1|
 |9     |FIR_interface   |         2|
 |10    |VU_metre        |         2|
-|11    |FFT_Wrapper     |         2|
-|12    |NRM_Wrapper     |         2|
-|13    |VGA_interface   |         2|
-|14    |EQ_FSM          |         2|
-|15    |EQ_UAL          |         2|
+|11    |EQ_Wrapper      |         2|
+|12    |FFT_Wrapper     |         2|
+|13    |NRM_Wrapper     |         2|
+|14    |VGA_interface   |         2|
+|15    |CHN_Config_RAM  |         2|
 +------+----------------+----------+
 
 Report Cell Usage: 
@@ -487,75 +391,67 @@ Report Cell Usage:
 |      |Cell                    |Count |
 +------+------------------------+------+
 |1     |Audio_Interface_bbox_27 |     1|
-|2     |EQ_FSM_bbox_14          |     1|
-|3     |EQ_FSM_bbox_21          |     1|
-|4     |EQ_UAL_bbox_15          |     1|
-|5     |EQ_UAL_bbox_22          |     1|
-|6     |FFT_Wrapper_bbox_16     |     1|
-|7     |FFT_Wrapper_bbox_23     |     1|
+|2     |CHN_Config_RAM_bbox_18  |     1|
+|3     |CHN_Config_RAM_bbox_25  |     1|
+|4     |EQ_Wrapper_bbox_14      |     1|
+|5     |EQ_Wrapper_bbox_21      |     1|
+|6     |FFT_Wrapper_bbox_15     |     1|
+|7     |FFT_Wrapper_bbox_22     |     1|
 |8     |FIR_interface_bbox_12   |     1|
 |9     |FIR_interface_bbox_19   |     1|
 |10    |Hearbeat_bbox_9         |     1|
 |11    |I2S_Wrapper_bbox_26     |     1|
 |12    |MMCM_112_bbox_8         |     1|
 |13    |MMCM_bbox_7             |     1|
-|14    |NRM_Wrapper_bbox_17     |     1|
-|15    |NRM_Wrapper_bbox_24     |     1|
+|14    |NRM_Wrapper_bbox_16     |     1|
+|15    |NRM_Wrapper_bbox_23     |     1|
 |16    |PSH_Driver_bbox_28      |     1|
 |17    |UART_Wrapper_bbox_10    |     1|
 |18    |VGA_Controller_bbox_11  |     1|
-|19    |VGA_interface_bbox_18   |     1|
-|20    |VGA_interface_bbox_25   |     1|
+|19    |VGA_interface_bbox_17   |     1|
+|20    |VGA_interface_bbox_24   |     1|
 |21    |VU_metre_bbox_13        |     1|
 |22    |VU_metre_bbox_20        |     1|
 |23    |CARRY4                  |     2|
 |24    |LUT1                    |     8|
-|25    |LUT2                    |    19|
-|26    |LUT3                    |     6|
-|27    |LUT5                    |    18|
-|28    |LUT6                    |    82|
-|29    |MUXF7                   |    32|
-|30    |FDCE                    |   185|
-|31    |FDPE                    |    44|
-|32    |FDRE                    |    24|
-|33    |IBUF                    |     4|
-|34    |OBUF                    |    23|
+|25    |LUT2                    |    16|
+|26    |LUT5                    |    32|
+|27    |LUT6                    |    96|
+|28    |FDCE                    |    59|
+|29    |FDRE                    |    24|
+|30    |IBUF                    |     4|
+|31    |OBUF                    |    23|
 +------+------------------------+------+
 
 Report Instance Areas: 
-+------+------------------------+------------------------------+------+
-|      |Instance                |Module                        |Cells |
-+------+------------------------+------------------------------+------+
-|1     |top                     |                              |  1522|
-|2     |  U_Audio_channel_left  |Audio_channel__parameterized1 |   617|
-|3     |    U_EQ_Wrapper        |EQ_Wrapper__parameterized1    |   233|
-|4     |      U_EQ_Config_RAM   |EQ_Config_RAM__parameterized1 |    96|
-|5     |    U_SW_Config_RAM     |SW_Config_RAM__parameterized1 |     6|
-|6     |  U_Audio_channel_right |Audio_channel                 |   652|
-|7     |    U_EQ_Wrapper        |EQ_Wrapper                    |   272|
-|8     |      U_EQ_Config_RAM   |EQ_Config_RAM                 |   136|
-|9     |    U_SW_Config_RAM     |SW_Config_RAM                 |     6|
-+------+------------------------+------------------------------+------+
++------+----------------------+----------------------------+------+
+|      |Instance              |Module                      |Cells |
++------+----------------------+----------------------------+------+
+|1     |top                   |                            |  1665|
+|2     |  U_CHN_Wrapper_left  |CHN_Wrapper__parameterized1 |   694|
+|3     |  U_CHN_Wrapper_right |CHN_Wrapper                 |   689|
+|4     |  U_Crossbar          |Crossbar                    |    29|
++------+----------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 817.129 ; gain = 491.535
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 805.156 ; gain = 481.102
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 817.129 ; gain = 294.930
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 817.129 ; gain = 491.535
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:21 . Memory (MB): peak = 805.156 ; gain = 300.445
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 805.156 ; gain = 481.102
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 34 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 820.242 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 814.398 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-127 Infos, 0 Warnings, 7 Critical Warnings and 0 Errors encountered.
+79 Infos, 0 Warnings, 7 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 820.242 ; gain = 504.266
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 820.242 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 814.445 ; gain = 501.098
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 814.445 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/synth_1/TOP.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Jul 30 10:46:52 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon Aug  3 12:12:22 2020...

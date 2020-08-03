@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Tue Jul 28 22:23:33 2020
-# Process ID: 17628
+# Start of session at: Thu Jul 30 12:40:55 2020
+# Process ID: 7876
 # Current directory: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1
 # Command line: vivado.exe -log NRM_Wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source NRM_Wrapper.tcl
 # Log file: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11064 
+INFO: Helper process launched with PID 12852 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 413.469 ; gain = 105.285
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 413.359 ; gain = 105.340
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'NRM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM/NRM_Wrapper.vhd:65]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
@@ -177,7 +177,7 @@ INFO: [Synth 8-256] done synthesizing module 'NRM_SQRT' (32#1) [c:/Users/Hugo/Do
 INFO: [Synth 8-256] done synthesizing module 'NRM_Normalizer' (33#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM/NRM_Normalizer.vhd:57]
 INFO: [Synth 8-256] done synthesizing module 'NRM_Wrapper' (34#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM/NRM_Wrapper.vhd:65]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:02 ; elapsed = 00:01:07 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished RTL Elaboration : Time (s): cpu = 00:01:03 ; elapsed = 00:01:09 . Memory (MB): peak = 842.586 ; gain = 534.566
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -190,10 +190,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:07 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:03 ; elapsed = 00:01:09 . Memory (MB): peak = 842.586 ; gain = 534.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:02 ; elapsed = 00:01:07 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:03 ; elapsed = 00:01:09 . Memory (MB): peak = 842.586 ; gain = 534.566
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 534 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -208,21 +208,21 @@ Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 857.184 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 842.586 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 857.184 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 857.184 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 842.586 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 842.586 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:09 ; elapsed = 00:01:15 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished Constraint Validation : Time (s): cpu = 00:01:10 ; elapsed = 00:01:16 . Memory (MB): peak = 842.586 ; gain = 534.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:09 ; elapsed = 00:01:15 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:10 ; elapsed = 00:01:16 . Memory (MB): peak = 842.586 ; gain = 534.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -232,7 +232,7 @@ Applied set_property DONT_TOUCH = true for U_NRM_Normalizer/U_Mult1. (constraint
 Applied set_property DONT_TOUCH = true for U_NRM_Normalizer/U_Mult2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_NRM_RAM_Wrapper/\RAM.U_RAM_NRM . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:09 ; elapsed = 00:01:15 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:10 ; elapsed = 00:01:16 . Memory (MB): peak = 842.586 ; gain = 534.566
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'NRM_FSM'
 INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
@@ -252,7 +252,7 @@ INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because addre
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'NRM_FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:10 ; elapsed = 00:01:16 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:11 ; elapsed = 00:01:18 . Memory (MB): peak = 842.586 ; gain = 534.566
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -381,7 +381,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_No
 INFO: [Synth 8-3886] merging instance 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[19].gen_last.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[15][1]' (FDE) to 'U_NRM_Normalizer/U_Sqrt/U0/i_synth/i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_NRM_Normalizer/U_Sqrt /U0/i_synth/\i_synth/gen_sqrt.square_root/gen_iterations[18].gen_post_mid.gen_rem/gen_data_int/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[0][1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:12 ; elapsed = 00:01:18 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:13 ; elapsed = 00:01:20 . Memory (MB): peak = 842.586 ; gain = 534.566
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -393,13 +393,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:21 ; elapsed = 00:01:28 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:23 ; elapsed = 00:01:30 . Memory (MB): peak = 842.586 ; gain = 534.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:22 ; elapsed = 00:01:28 . Memory (MB): peak = 857.184 ; gain = 549.000
+Finished Timing Optimization : Time (s): cpu = 00:01:23 ; elapsed = 00:01:30 . Memory (MB): peak = 843.336 ; gain = 535.316
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -411,7 +411,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:22 ; elapsed = 00:01:28 . Memory (MB): peak = 865.063 ; gain = 556.879
+Finished Technology Mapping : Time (s): cpu = 00:01:23 ; elapsed = 00:01:31 . Memory (MB): peak = 862.840 ; gain = 554.820
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -435,7 +435,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:23 ; elapsed = 00:01:29 . Memory (MB): peak = 865.063 ; gain = 556.879
+Finished IO Insertion : Time (s): cpu = 00:01:24 ; elapsed = 00:01:31 . Memory (MB): peak = 862.840 ; gain = 554.820
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -448,7 +448,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:23 ; elapsed = 00:01:29 . Memory (MB): peak = 865.063 ; gain = 556.879
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:24 ; elapsed = 00:01:31 . Memory (MB): peak = 862.840 ; gain = 554.820
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -460,25 +460,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:23 ; elapsed = 00:01:29 . Memory (MB): peak = 865.063 ; gain = 556.879
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:24 ; elapsed = 00:01:31 . Memory (MB): peak = 862.840 ; gain = 554.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:23 ; elapsed = 00:01:29 . Memory (MB): peak = 865.063 ; gain = 556.879
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:24 ; elapsed = 00:01:31 . Memory (MB): peak = 862.840 ; gain = 554.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:23 ; elapsed = 00:01:29 . Memory (MB): peak = 865.063 ; gain = 556.879
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:24 ; elapsed = 00:01:31 . Memory (MB): peak = 862.840 ; gain = 554.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:23 ; elapsed = 00:01:29 . Memory (MB): peak = 865.063 ; gain = 556.879
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:24 ; elapsed = 00:01:31 . Memory (MB): peak = 862.840 ; gain = 554.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -512,17 +512,17 @@ Report Cell Usage:
 |16    |FDRE     |   451|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:23 ; elapsed = 00:01:29 . Memory (MB): peak = 865.063 ; gain = 556.879
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:24 ; elapsed = 00:01:31 . Memory (MB): peak = 862.840 ; gain = 554.820
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 333 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:01:24 . Memory (MB): peak = 865.063 ; gain = 556.879
-Synthesis Optimization Complete : Time (s): cpu = 00:01:23 ; elapsed = 00:01:29 . Memory (MB): peak = 865.063 ; gain = 556.879
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:01:26 . Memory (MB): peak = 862.840 ; gain = 554.820
+Synthesis Optimization Complete : Time (s): cpu = 00:01:24 ; elapsed = 00:01:32 . Memory (MB): peak = 862.840 ; gain = 554.820
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 468 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 865.063 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 862.840 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 71 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 71 instances
@@ -530,9 +530,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 139 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:25 ; elapsed = 00:01:32 . Memory (MB): peak = 865.063 ; gain = 568.680
+synth_design: Time (s): cpu = 00:01:26 ; elapsed = 00:01:34 . Memory (MB): peak = 862.840 ; gain = 566.293
 INFO: [Coretcl 2-1174] Renamed 183 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 865.063 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 862.840 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file NRM_Wrapper_utilization_synth.rpt -pb NRM_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jul 28 22:25:10 2020...
+INFO: [Common 17-206] Exiting Vivado at Thu Jul 30 12:42:34 2020...

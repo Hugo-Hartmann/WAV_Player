@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-31
--- Last update: 2019-12-31
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -49,8 +49,8 @@ architecture A of VU_wrapper is
             clk         : in  std_logic;
             reset_n     : in  std_logic;
             VU_start    : in  std_logic;
-            VU_din      : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            VU_dout     : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+            VU_din      : in  std_logic_vector(C_FIR_TOT*16+15 downto 0);
+            VU_dout     : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
             );
     end component;
 
@@ -60,8 +60,8 @@ architecture A of VU_wrapper is
     signal clk_216  : std_logic := '0';
     signal reset_n  : std_logic;
     signal VU_start : std_logic;
-    signal VU_din   : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-    signal VU_dout  : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal VU_din   : std_logic_vector(C_FIR_TOT*16+15 downto 0);
+    signal VU_dout  : std_logic_vector(C_FIR_TOT*5+4 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -94,7 +94,7 @@ begin
     --------------------------------------------------------------------------------
     reset_n         <= '0' , '1'    after (3*C_DEMI_CLK_216);
 
-    VU_din  <= X"7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF";
+    VU_din  <= X"7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF7FFF";
 
     P_scenario : process
     begin

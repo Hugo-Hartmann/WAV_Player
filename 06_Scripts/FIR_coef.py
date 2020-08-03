@@ -1,8 +1,8 @@
 import numpy as np
 import scipy.signal as fir
 
-FMIN = 20
-FMAX = 60
+FMIN = 8000
+FMAX = 16000
 
 fichier = "FIR_" + str(FMIN) + "_" + str(FMAX) + ".coe"
 

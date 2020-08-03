@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-03-01
--- Last update: 2020-08-02
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ architecture A of CHN_Wrapper_tb is
             VGA_din         : out std_logic_vector(11 downto 0);
             WAV_push        : out std_logic_vector(8 downto 0);
             FFT_push        : out std_logic_vector(16 downto 0);
-            VU_push         : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+            VU_push         : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
             );
     end component;
 

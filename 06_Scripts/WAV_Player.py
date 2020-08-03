@@ -1,7 +1,7 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-08-02
+### Last update 2020-08-03
 ### Author      Hugo HARTMANN
 #############################
 
@@ -121,10 +121,11 @@ class BandSelectWidget(QWidget):
         self.serial = serial
 
         self.lyt = QGridLayout()
+        self.setLayout(self.lyt)
 
-        self.btn_labels = ["Input", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5", "Band 6", "Output"]
-        self.buttons = [None for i in range(8)]
-        self.p_buttons = [None for i in range(8)]
+        self.btn_labels = ["Input", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5", "Band 6", "Band 7", "Band 8", "Band 9", "Output"]
+        self.buttons = [None for i in range(11)]
+        self.p_buttons = [None for i in range(11)]
 
         for i in range(len(self.buttons)):
             self.buttons[i] = QRadioButton(text=self.btn_labels[i])
@@ -144,35 +145,36 @@ class EqualizerWidget(QWidget):
         super(EqualizerWidget, self).__init__(*args, **kwargs)
         self.serial = serial
         self.busy = False
+        self.nb_bar = 11
 
         self.lyt = QGridLayout()
         self.setLayout(self.lyt)
         self.lyt.setHorizontalSpacing(8)
 
         self.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
-        self.setFixedSize(470, 310);
+        self.setFixedSize(640, 310);
 
         self.bars = BarCanvas()
         self.bars.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
-        self.bars.setFixedSize(450, 270);
+        self.bars.setFixedSize(620, 270);
 
-        self.sliders = [None for i in range(8)]
-        self.p_sliders = [None for i in range(8)]
+        self.sliders = [None for i in range(self.nb_bar)]
+        self.p_sliders = [None for i in range(self.nb_bar)]
 
-        self.lyt.addWidget(self.bars, 0, 1, 1, 8)
+        self.lyt.addWidget(self.bars, 0, 1, 1, self.nb_bar)
         self.lyt.setAlignment(self.bars, Qt.AlignCenter)
 
-        for i in range(8):
+        for i in range(self.nb_bar):
             self.sliders[i] = VuSlider(orientation=Qt.Vertical)
             self.lyt.addWidget(self.sliders[i], 0, i+1, 1, 1)
             self.lyt.setAlignment(self.sliders[i], Qt.AlignCenter)
             self.p_sliders[i] = partial(update_EQ_lvl, self.serial, self.sliders[i], i)
             self.sliders[i].valueChanged.connect(self.p_sliders[i])
 
-        self.buttons = [None for i in range(6)]
-        self.p_buttons = [None for i in range(6)]
+        self.buttons = [None for i in range(self.nb_bar-2)]
+        self.p_buttons = [None for i in range(self.nb_bar-2)]
 
-        for i in range(6):
+        for i in range(self.nb_bar-2):
             self.buttons[i] = QCheckBox()
             self.buttons[i].setCheckState(True)
             self.buttons[i].setTristate(False)
@@ -209,7 +211,7 @@ class OscilloscopeWidget(QWidget):
         # Create radio buttons to select band
         self.SW_Menu = BandSelectWidget(self.serial)
 
-        self.lyt.addLayout(self.SW_Menu.lyt, 0, 1)
+        self.lyt.addWidget(self.SW_Menu, 0, 1)
 
     def load_config(self):
         self.SW_Menu.load_config()
@@ -280,7 +282,7 @@ app = QApplication([])
 
 ## Window creation
 window = MainWindow(serial)
-window.show()
+window.showMaximized()
 
 ## Serial Monitor
 serial_monitor = SerialMonitor(serial, window)

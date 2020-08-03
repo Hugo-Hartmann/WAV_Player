@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="FIR_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595967779">
+<GenRun Id="FIR_interface_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1596448683">
   <File Type="PA-TCL" Name="FIR_interface.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="FIR_interface_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="FIR_interface_reports.tcl"/>
   <File Type="RDS-RDS" Name="FIR_interface.vds"/>
   <File Type="RDS-UTIL" Name="FIR_interface_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="FIR_interface_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="FIR_interface.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="FIR_interface_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="FIR_interface_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FIR_interface">
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_7/ROM_1024_16bit_7.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_6/ROM_1024_16bit_6.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_4/ROM_1024_16bit_4.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -56,7 +80,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5.xci">
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_8/ROM_1024_16bit_8.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -103,6 +127,27 @@
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FIR_interface">
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_7/ROM_1024_16bit_7.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_6/ROM_1024_16bit_6.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_4/ROM_1024_16bit_4.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -152,7 +197,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5.xci">
+    <File Path="$PSRCDIR/sources_1/ip/ROM_1024_16bit_8/ROM_1024_16bit_8.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -205,7 +250,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

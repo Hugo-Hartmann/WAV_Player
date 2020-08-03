@@ -38,13 +38,16 @@ set_property ip_output_repo c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Ar
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Adder.vhd
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Config_RAM.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FIFO_CUSTOM.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FSM.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Multiplier.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Sampler.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_UAL.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd
 }
+read_vhdl -library lib_VHDL C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TYPE_Pkg.vhd
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xdc]
 

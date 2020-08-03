@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="CHN_Config_RAM_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1596441647">
+  <File Type="PA-TCL" Name="CHN_Config_RAM.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="CHN_Config_RAM_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="CHN_Config_RAM_reports.tcl"/>
+  <File Type="RDS-RDS" Name="CHN_Config_RAM.vds"/>
+  <File Type="RDS-UTIL" Name="CHN_Config_RAM_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="CHN_Config_RAM_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="CHN_Config_RAM.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="CHN_Config_RAM_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="CHN_Config_RAM_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/CHN_Config_RAM">
+    <File Path="$PPRDIR/../../../02_Source/CHN/CHN_Config_RAM.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/CHN_Config_RAM/new/CHN_Config_RAM_ooc.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="CHN_Config_RAM"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/CHN/CHN_Config_RAM.vhd"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/CHN_Config_RAM">
+    <File Path="$PPRDIR/../../../02_Source/CHN/CHN_Config_RAM.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/CHN_Config_RAM/new/CHN_Config_RAM_ooc.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="out_of_context"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="CHN_Config_RAM"/>
+      <Option Name="TopRTLFile" Val="$PPRDIR/../../../02_Source/CHN/CHN_Config_RAM.vhd"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

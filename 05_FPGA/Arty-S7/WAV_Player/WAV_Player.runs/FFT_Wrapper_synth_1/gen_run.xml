@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="FFT_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595967782">
+<GenRun Id="FFT_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1596442738">
   <File Type="PA-TCL" Name="FFT_Wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="FFT_Wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="FFT_Wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="FFT_Wrapper.vds"/>
   <File Type="RDS-UTIL" Name="FFT_Wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="FFT_Wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="FFT_Wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="FFT_Wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="FFT_Wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FFT_Wrapper">
     <File Path="$PSRCDIR/sources_1/ip/FFT_FIFO/FFT_FIFO.xci">
       <FileInfo>
@@ -62,6 +65,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="lib_VHDL"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/FFT/FFT_Config_RAM.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../02_Source/FFT/FFT_FIFO_CUSTOM.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -81,6 +97,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../02_Source/FFT/FFT_RAM_Wrapper.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/FFT/FFT_Sampler.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -167,6 +189,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../02_Source/TYPE_Pkg.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="lib_VHDL"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/FFT/FFT_Config_RAM.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../02_Source/FFT/FFT_FIFO_CUSTOM.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -186,6 +221,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../02_Source/FFT/FFT_RAM_Wrapper.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/FFT/FFT_Sampler.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

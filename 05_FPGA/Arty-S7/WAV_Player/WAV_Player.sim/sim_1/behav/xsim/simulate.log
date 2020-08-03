@@ -3,5 +3,12 @@ Time resolution is 1 ps
 WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
 WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
 Failure: Assertion violation
-Time: 19311730 ps  Iteration: 0  Process: /UART_EQ_tb/line__192  File: C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/UART_EQ_tb.vhd
-$finish called at time : 19311730 ps : File "C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/UART_EQ_tb.vhd" Line 256
+Time: 19367290 ps  Iteration: 0  Process: /UART_EQ_tb/line__187  File: C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/UART_EQ_tb.vhd
+$finish called at time : 19367290 ps : File "C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/UART_EQ_tb.vhd" Line 251
+te: Actual FIFO Depth = 2049
+Time: 0 ps  Iteration: 0
+Note:  DEPTH = 2048 WIDTH = 9 C_RD_PRIM_WIDTH = 9 C_RD_PRIM_DEPTH = 2048 DEEP = 1 WIDE = 1
+Time: 0 ps  Iteration: 0
+Failure: Assertion violation
+Time: 120303605 ps  Iteration: 0  Process: /PSH_Driver_tb/line__198  File: C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/PSH_Driver_tb.vhd
+$finish called at time : 120303605 ps : File "C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/PSH_Driver_tb.vhd" Line 245

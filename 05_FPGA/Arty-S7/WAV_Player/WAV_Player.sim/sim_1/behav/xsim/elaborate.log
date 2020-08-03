@@ -21,7 +21,7 @@ Compiling package unisim.vcomponents
 Compiling package mult_gen_v12_0_14.dsp_pkg
 Compiling package vl.vl_types
 Compiling module xil_defaultlib.glbl
-Compiling architecture rtl of entity xil_defaultlib.EQ_volume_RAM [\EQ_volume_RAM(g_left_channel=fa...]
+Compiling architecture rtl of entity xil_defaultlib.EQ_Config_RAM [eq_config_ram_default]
 Compiling architecture rtl of entity xil_defaultlib.EQ_FSM [eq_fsm_default]
 Compiling module dist_mem_gen_v8_0_12.dist_mem_gen_v8_0_12(C_FAMILY="s...
 Compiling module xil_defaultlib.ROM_32_16bit
@@ -32,9 +32,9 @@ Compiling architecture xilinx of entity mult_gen_v12_0_14.mult_gen_v12_0_14_viv 
 Compiling architecture xilinx of entity mult_gen_v12_0_14.mult_gen_v12_0_14 [\mult_gen_v12_0_14(c_xdevicefami...]
 Compiling architecture multiplier_u16_s19_arch of entity xil_defaultlib.Multiplier_u16_s19 [multiplier_u16_s19_default]
 Compiling architecture rtl of entity xil_defaultlib.EQ_UAL [eq_ual_default]
-Compiling architecture rtl of entity xil_defaultlib.EQ_Wrapper [\EQ_Wrapper(g_left_channel=false...]
-Compiling architecture rtl of entity lib_vhdl.UART_Rx [uart_rx_default]
-Compiling architecture rtl of entity lib_vhdl.UART_Tx [uart_tx_default]
-Compiling architecture rtl of entity lib_vhdl.UART_Wrapper [uart_wrapper_default]
+Compiling architecture rtl of entity xil_defaultlib.EQ_Wrapper [eq_wrapper_default]
+Compiling architecture rtl of entity xil_defaultlib.UART_Rx [uart_rx_default]
+Compiling architecture rtl of entity xil_defaultlib.UART_Tx [uart_tx_default]
+Compiling architecture rtl of entity xil_defaultlib.UART_Wrapper [uart_wrapper_default]
 Compiling architecture a of entity xil_defaultlib.uart_eq_tb
 Built simulation snapshot UART_EQ_tb_behav

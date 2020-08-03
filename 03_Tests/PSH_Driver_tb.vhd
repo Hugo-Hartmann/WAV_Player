@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-23
--- Last update: 2020-07-30
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ architecture A of PSH_Driver_tb is
             VGA_new_frame   : in  std_logic;
             WAV_push        : in  std_logic_vector(8 downto 0);
             FFT_push        : in  std_logic_vector(16 downto 0);
-            VU_push         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            VU_push         : in  std_logic_vector(C_FIR_TOT*5+4 downto 0);
             UART_send       : out std_logic;
             UART_busy       : in  std_logic;
             UART_din        : out std_logic_vector(7 downto 0);
@@ -104,7 +104,7 @@ architecture A of PSH_Driver_tb is
     signal VGA_new_frame    : std_logic;
     signal WAV_push         : std_logic_vector(8 downto 0);
     signal FFT_push         : std_logic_vector(16 downto 0);
-    signal VU_push          : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal VU_push          : std_logic_vector(C_FIR_TOT*5+4 downto 0);
     signal UART_send        : std_logic;
     signal UART_busy        : std_logic;
     signal UART_din         : std_logic_vector(7 downto 0);
@@ -204,7 +204,7 @@ begin
         end Wait_cycles;
     
     begin
-        VU_push         <= "0000100010000110010000101001100011101000";
+        VU_push         <= "0000100010000110010000101001100011101000010010101001011";
         WAV_push        <= (others => '0');
         FFT_push        <= (others => '0');
         VGA_new_frame   <= '0';

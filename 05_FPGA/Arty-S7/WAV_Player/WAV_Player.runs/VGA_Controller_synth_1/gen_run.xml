@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="VGA_Controller_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1595969991">
+<GenRun Id="VGA_Controller_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1596105624">
   <File Type="PA-TCL" Name="VGA_Controller.tcl"/>
   <File Type="REPORTS-TCL" Name="VGA_Controller_reports.tcl"/>
   <File Type="RDS-RDS" Name="VGA_Controller.vds"/>

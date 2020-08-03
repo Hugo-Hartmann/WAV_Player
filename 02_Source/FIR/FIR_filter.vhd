@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2020-07-24
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -121,6 +121,33 @@ architecture RTL of FIR_filter is
             );
     end component;
 
+    component ROM_1024_16bit_6
+        port (
+            clka    : in  std_logic;
+            ena     : in  std_logic;
+            addra   : in  std_logic_vector(9 downto 0);
+            douta   : out std_logic_vector(15 downto 0)
+            );
+    end component;
+
+    component ROM_1024_16bit_7
+        port (
+            clka    : in  std_logic;
+            ena     : in  std_logic;
+            addra   : in  std_logic_vector(9 downto 0);
+            douta   : out std_logic_vector(15 downto 0)
+            );
+    end component;
+
+    component ROM_1024_16bit_8
+        port (
+            clka    : in  std_logic;
+            ena     : in  std_logic;
+            addra   : in  std_logic_vector(9 downto 0);
+            douta   : out std_logic_vector(15 downto 0)
+            );
+    end component;
+
     component Multiplier_s16_s16
         port(
             clk : in  std_logic;
@@ -210,6 +237,29 @@ begin
             douta   => ROM_out);
     end generate;
 
+    ROM6 : if G_BEHAVIOURAL=false and G_SELECT=6 generate
+        U_ROM : ROM_1024_16bit_6 port map(
+            clka    => clk,
+            addra   => FIR_addr,
+            ena     => '1',
+            douta   => ROM_out);
+    end generate;
+
+    ROM7 : if G_BEHAVIOURAL=false and G_SELECT=7 generate
+        U_ROM : ROM_1024_16bit_7 port map(
+            clka    => clk,
+            addra   => FIR_addr,
+            ena     => '1',
+            douta   => ROM_out);
+    end generate;
+
+    ROM8 : if G_BEHAVIOURAL=false and G_SELECT=8 generate
+        U_ROM : ROM_1024_16bit_8 port map(
+            clka    => clk,
+            addra   => FIR_addr,
+            ena     => '1',
+            douta   => ROM_out);
+    end generate;
 
     ----------------------------------------------------------------
     -- INSTANCE : U_Mult
@@ -313,6 +363,32 @@ begin
     SAT1 : if G_SELECT=1 generate
         process(accu)
         begin
+            if(accu(42 downto 38)="00000" or accu(42 downto 38)="11111") then
+                sat_out <= accu(38 downto 23);
+            elsif(accu(42)='0') then
+                sat_out <= X"7FFF";
+            else
+                sat_out <= X"8000";
+            end if;
+        end process;
+    end generate;
+
+    SAT2 : if G_SELECT=2 generate
+        process(accu)
+        begin
+            if(accu(42 downto 37)="000000" or accu(42 downto 37)="111111") then
+                sat_out <= accu(37 downto 22);
+            elsif(accu(42)='0') then
+                sat_out <= X"7FFF";
+            else
+                sat_out <= X"8000";
+            end if;
+        end process;
+    end generate;
+
+    SAT3 : if G_SELECT=3 generate
+        process(accu)
+        begin
             if(accu(42 downto 36)="0000000" or accu(42 downto 36)="1111111") then
                 sat_out <= accu(36 downto 21);
             elsif(accu(42)='0') then
@@ -323,7 +399,20 @@ begin
         end process;
     end generate;
 
-    SAT2 : if G_SELECT=2 generate
+    SAT4 : if G_SELECT=4 generate
+        process(accu)
+        begin
+            if(accu(42 downto 35)="00000000" or accu(42 downto 35)="11111111") then
+                sat_out <= accu(35 downto 20);
+            elsif(accu(42)='0') then
+                sat_out <= X"7FFF";
+            else
+                sat_out <= X"8000";
+            end if;
+        end process;
+    end generate;
+
+    SAT5 : if G_SELECT=5 generate
         process(accu)
         begin
             if(accu(42 downto 34)="000000000" or accu(42 downto 34)="111111111") then
@@ -336,7 +425,7 @@ begin
         end process;
     end generate;
 
-    SAT3 : if G_SELECT=3 generate
+    SAT6 : if G_SELECT=6 generate
         process(accu)
         begin
             if(accu(42 downto 33)="0000000000" or accu(42 downto 33)="1111111111") then
@@ -349,7 +438,7 @@ begin
         end process;
     end generate;
 
-    SAT4 : if G_SELECT=4 generate
+    SAT7 : if G_SELECT=7 generate
         process(accu)
         begin
             if(accu(42 downto 32)="00000000000" or accu(42 downto 32)="11111111111") then
@@ -362,7 +451,7 @@ begin
         end process;
     end generate;
 
-    SAT5 : if G_SELECT=5 generate
+    SAT8 : if G_SELECT=8 generate
         process(accu)
         begin
             if(accu(42 downto 31)="000000000000" or accu(42 downto 31)="111111111111") then

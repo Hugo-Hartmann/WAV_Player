@@ -1,0 +1,7 @@
+Running: xsim.dir/PSH_Driver_tb_behav/xsimk.exe -simmode gui -wdb PSH_Driver_tb_behav.wdb -simrunnum 0 -socket 63472
+Design successfully loaded
+Design Loading Memory Usage: 6032 KB (Peak: 6032 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 10748 KB (Peak: 10748 KB)
+Simulation CPU Usage: 406 ms

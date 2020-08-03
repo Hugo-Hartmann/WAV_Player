@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-28
--- Last update: 2020-07-30
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ use lib_VHDL.TYPE_Pkg.all;
 --------------------------------------------------------------------------------
 entity EQ_UAL is
     port(
-    
+
         ------- Clock and RESET ------------------
         clk         : in  std_logic;                        -- clock
         reset_n     : in  std_logic;                        -- reset_n
@@ -45,11 +45,11 @@ entity EQ_UAL is
         ------- EQ in --------------------------
         EQ_din_band : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
         EQ_din      : in  std_logic_vector(15 downto 0);
-        EQ_level    : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-        EQ_chan_sel : in  std_logic_vector(7 downto 0);
+        EQ_level    : in  std_logic_vector(C_FIR_TOT*5+4 downto 0);
+        EQ_chan_sel : in  std_logic_vector(C_FIR_TOT downto 0);
 
         ------- EQ out --------------------------
-        EQ_dout     : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0)
+        EQ_dout     : out std_logic_vector(C_FIR_TOT*16+15 downto 0)
 
         );
 end EQ_UAL;
@@ -64,8 +64,8 @@ architecture RTL of EQ_UAL is
     --------------------------------------------------------------------------------
     type T_EN is array (0 to 7) of std_logic;
     type T_SELECT is array (0 to 7) of std_logic_vector(3 downto 0);
-    type T_LEVEL_TAB is array (0 to (C_FIR_MAX+2)) of std_logic_vector(4 downto 0);
-    type T_DATA_TAB is array (0 to (C_FIR_MAX+2)) of std_logic_vector(18 downto 0);
+    type T_LEVEL_TAB is array (0 to C_FIR_TOT) of std_logic_vector(4 downto 0);
+    type T_DATA_TAB is array (0 to C_FIR_TOT) of std_logic_vector(18 downto 0);
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS

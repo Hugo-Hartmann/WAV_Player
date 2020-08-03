@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-27
--- Last update: 2020-08-02
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -49,8 +49,8 @@ entity EQ_Wrapper is
         EQ_din          : in  std_logic_vector(15 downto 0);
 
         ------- EQ data outpus ------------------
-        EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-        EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+        EQ_dout         : out std_logic_vector(C_FIR_TOT*16+15 downto 0);
+        EQ_level_dout   : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
 
         );
 end EQ_Wrapper;
@@ -70,8 +70,8 @@ architecture RTL of EQ_Wrapper is
             CFG_addr        : in  std_logic_vector(7 downto 0);
             CFG_write       : in  std_logic;
             CFG_din         : in  std_logic_vector(15 downto 0);
-            EQ_sel_dout     : out std_logic_vector(7 downto 0);
-            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+            EQ_sel_dout     : out std_logic_vector(C_FIR_TOT downto 0);
+            EQ_level_dout   : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
             );
     end component;
 
@@ -98,21 +98,21 @@ architecture RTL of EQ_Wrapper is
             EQ_UAL_done : out std_logic;
             EQ_din_band : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
             EQ_din      : in  std_logic_vector(15 downto 0);
-            EQ_level    : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-            EQ_chan_sel : in  std_logic_vector(7 downto 0);
-            EQ_dout     : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0)
+            EQ_level    : in  std_logic_vector(C_FIR_TOT*5+4 downto 0);
+            EQ_chan_sel : in  std_logic_vector(C_FIR_TOT downto 0);
+            EQ_dout     : out std_logic_vector(C_FIR_TOT*16+15 downto 0)
             );
     end component;
 
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
-    signal EQ_level_net : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal EQ_level_net : std_logic_vector(C_FIR_TOT*5+4 downto 0);
     signal EQ_UAL_done  : std_logic;
     signal EQ_clear     : std_logic;
     signal EQ_en        : std_logic;
     signal EQ_select    : std_logic_vector(3 downto 0);
-    signal EQ_sel_dout  : std_logic_vector(7 downto 0);
+    signal EQ_sel_dout  : std_logic_vector(C_FIR_TOT downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE

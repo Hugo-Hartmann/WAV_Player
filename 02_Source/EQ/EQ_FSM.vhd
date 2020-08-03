@@ -100,7 +100,11 @@ begin
             if(cnt_sel_clr='1') then
                 cnt_sel <= to_unsigned(0, cnt_sel'length);
             elsif(cnt_sel_inc='1') then
-                cnt_sel <= cnt_sel + 1;
+                if(cnt_sel=C_FIR_TOT) then
+                    cnt_sel <= to_unsigned(0, cnt_sel'length);
+                else
+                    cnt_sel <= cnt_sel + 1;
+                end if;
             end if;
         end if;
     end process;

@@ -9,15 +9,15 @@ vhdl lib_VHDL  \
 "../../../../../../../02_Source/TYPE_Pkg.vhd" \
 
 vhdl xil_defaultlib  \
-"../../../../../../../02_Source/EQ/EQ_UAL.vhd" \
+"../../../../../../../02_Source/EQ/EQ_Config_RAM.vhd" \
 "../../../../../../../02_Source/EQ/EQ_FSM.vhd" \
+"../../../../../../../02_Source/EQ/EQ_UAL.vhd" \
+"../../../../../../../02_Source/EQ/EQ_Wrapper.vhd" \
 
 vhdl lib_VHDL  \
 "../../../../../../../02_Source/TOP_Arty.vhd" \
 
 vhdl xil_defaultlib  \
-"../../../../../../../02_Source/EQ/EQ_Wrapper.vhd" \
-"../../../../../../../02_Source/EQ/EQ_volume_RAM.vhd" \
 "../../../../../../../03_Tests/UART_EQ_tb.vhd" \
 
 # Do not sort compile order

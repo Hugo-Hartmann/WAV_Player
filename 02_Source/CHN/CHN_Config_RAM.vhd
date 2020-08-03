@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-29
--- Last update: 2020-08-02
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ entity CHN_Config_RAM is
         CFG_din         : in  std_logic_vector(15 downto 0);
 
         ------- Channel select out ---------------
-        CHN_select      : out std_logic_vector(2 downto 0)
+        CHN_select      : out std_logic_vector(3 downto 0)
 
         );
 end CHN_Config_RAM;
@@ -86,7 +86,7 @@ begin
     --------------------------------------------------------------------------------
     process(addr_d)
     begin
-        if(addr_d(6 downto 3)="0000") then
+        if(addr_d(6 downto 4)="000") then
             addr_valid  <= '1';
         else
             addr_valid  <= '0';

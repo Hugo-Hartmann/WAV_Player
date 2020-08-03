@@ -12,13 +12,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="512620748fs"></ZoomStartTime>
-      <ZoomEndTime time="727683256fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="18255413881fs"></ZoomStartTime>
+      <ZoomEndTime time="18671052998fs"></ZoomEndTime>
+      <Cursor1Time time="18434894000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="258"></NameColumnWidth>
-      <ValueColumnWidth column_width="193"></ValueColumnWidth>
+      <ValueColumnWidth column_width="189"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="5" />
    <wvobject fp_name="group392" type="group">
@@ -61,16 +61,16 @@
          <obj_property name="ObjectShortName">UART_din[7:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/UART_EQ_tb/EQ_din_band" type="array">
-         <obj_property name="ElementShortName">EQ_din_band[95:0]</obj_property>
-         <obj_property name="ObjectShortName">EQ_din_band[95:0]</obj_property>
+         <obj_property name="ElementShortName">EQ_din_band[143:0]</obj_property>
+         <obj_property name="ObjectShortName">EQ_din_band[143:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/UART_EQ_tb/EQ_din" type="array">
          <obj_property name="ElementShortName">EQ_din[15:0]</obj_property>
          <obj_property name="ObjectShortName">EQ_din[15:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/UART_EQ_tb/EQ_level_dout" type="array">
-         <obj_property name="ElementShortName">EQ_level_dout[39:0]</obj_property>
-         <obj_property name="ObjectShortName">EQ_level_dout[39:0]</obj_property>
+         <obj_property name="ElementShortName">EQ_level_dout[54:0]</obj_property>
+         <obj_property name="ObjectShortName">EQ_level_dout[54:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/UART_EQ_tb/Tx_busy" type="logic">
          <obj_property name="ElementShortName">Tx_busy</obj_property>
@@ -89,30 +89,6 @@
       <obj_property name="label">Volume_RAM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_volume_RAM/EQ_level_dout" type="array">
-         <obj_property name="ElementShortName">EQ_level_dout[39:0]</obj_property>
-         <obj_property name="ObjectShortName">EQ_level_dout[39:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_volume_RAM/EQ_level" type="array">
-         <obj_property name="ElementShortName">EQ_level[0:7][4:0]</obj_property>
-         <obj_property name="ObjectShortName">EQ_level[0:7][4:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_volume_RAM/EQ_addr_d" type="array">
-         <obj_property name="ElementShortName">EQ_addr_d[7:0]</obj_property>
-         <obj_property name="ObjectShortName">EQ_addr_d[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_volume_RAM/EQ_write_d" type="logic">
-         <obj_property name="ElementShortName">EQ_write_d</obj_property>
-         <obj_property name="ObjectShortName">EQ_write_d</obj_property>
-      </wvobject>
-      <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_volume_RAM/EQ_din_d" type="array">
-         <obj_property name="ElementShortName">EQ_din_d[15:0]</obj_property>
-         <obj_property name="ObjectShortName">EQ_din_d[15:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_volume_RAM/addr_valid" type="logic">
-         <obj_property name="ElementShortName">addr_valid</obj_property>
-         <obj_property name="ObjectShortName">addr_valid</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="group413" type="group">
       <obj_property name="label">FSM</obj_property>
@@ -191,8 +167,8 @@
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_level_inputs" type="array">
-         <obj_property name="ElementShortName">EQ_level_inputs[0:7][4:0]</obj_property>
-         <obj_property name="ObjectShortName">EQ_level_inputs[0:7][4:0]</obj_property>
+         <obj_property name="ElementShortName">EQ_level_inputs[0:10][4:0]</obj_property>
+         <obj_property name="ObjectShortName">EQ_level_inputs[0:10][4:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="divider" fp_name="divider453">
@@ -235,8 +211,8 @@
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_data_inputs" type="array">
-         <obj_property name="ElementShortName">EQ_data_inputs[0:7][18:0]</obj_property>
-         <obj_property name="ObjectShortName">EQ_data_inputs[0:7][18:0]</obj_property>
+         <obj_property name="ElementShortName">EQ_data_inputs[0:10][18:0]</obj_property>
+         <obj_property name="ObjectShortName">EQ_data_inputs[0:10][18:0]</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="divider" fp_name="divider457">
@@ -322,8 +298,215 @@
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout" type="array">
-            <obj_property name="ElementShortName">EQ_dout[127:0]</obj_property>
-            <obj_property name="ObjectShortName">EQ_dout[127:0]</obj_property>
+            <obj_property name="ElementShortName">EQ_dout[175:0]</obj_property>
+            <obj_property name="ObjectShortName">EQ_dout[175:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="vbus1410" type="vbus">
+            <obj_property name="label">10</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[175]" type="logic">
+               <obj_property name="ElementShortName">[175]</obj_property>
+               <obj_property name="ObjectShortName">[175]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[174]" type="logic">
+               <obj_property name="ElementShortName">[174]</obj_property>
+               <obj_property name="ObjectShortName">[174]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[173]" type="logic">
+               <obj_property name="ElementShortName">[173]</obj_property>
+               <obj_property name="ObjectShortName">[173]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[172]" type="logic">
+               <obj_property name="ElementShortName">[172]</obj_property>
+               <obj_property name="ObjectShortName">[172]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[171]" type="logic">
+               <obj_property name="ElementShortName">[171]</obj_property>
+               <obj_property name="ObjectShortName">[171]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[170]" type="logic">
+               <obj_property name="ElementShortName">[170]</obj_property>
+               <obj_property name="ObjectShortName">[170]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[169]" type="logic">
+               <obj_property name="ElementShortName">[169]</obj_property>
+               <obj_property name="ObjectShortName">[169]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[168]" type="logic">
+               <obj_property name="ElementShortName">[168]</obj_property>
+               <obj_property name="ObjectShortName">[168]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[167]" type="logic">
+               <obj_property name="ElementShortName">[167]</obj_property>
+               <obj_property name="ObjectShortName">[167]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[166]" type="logic">
+               <obj_property name="ElementShortName">[166]</obj_property>
+               <obj_property name="ObjectShortName">[166]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[165]" type="logic">
+               <obj_property name="ElementShortName">[165]</obj_property>
+               <obj_property name="ObjectShortName">[165]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[164]" type="logic">
+               <obj_property name="ElementShortName">[164]</obj_property>
+               <obj_property name="ObjectShortName">[164]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[163]" type="logic">
+               <obj_property name="ElementShortName">[163]</obj_property>
+               <obj_property name="ObjectShortName">[163]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[162]" type="logic">
+               <obj_property name="ElementShortName">[162]</obj_property>
+               <obj_property name="ObjectShortName">[162]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[161]" type="logic">
+               <obj_property name="ElementShortName">[161]</obj_property>
+               <obj_property name="ObjectShortName">[161]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[160]" type="logic">
+               <obj_property name="ElementShortName">[160]</obj_property>
+               <obj_property name="ObjectShortName">[160]</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="vbus1393" type="vbus">
+            <obj_property name="label">9</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[159]" type="logic">
+               <obj_property name="ElementShortName">[159]</obj_property>
+               <obj_property name="ObjectShortName">[159]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[158]" type="logic">
+               <obj_property name="ElementShortName">[158]</obj_property>
+               <obj_property name="ObjectShortName">[158]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[157]" type="logic">
+               <obj_property name="ElementShortName">[157]</obj_property>
+               <obj_property name="ObjectShortName">[157]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[156]" type="logic">
+               <obj_property name="ElementShortName">[156]</obj_property>
+               <obj_property name="ObjectShortName">[156]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[155]" type="logic">
+               <obj_property name="ElementShortName">[155]</obj_property>
+               <obj_property name="ObjectShortName">[155]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[154]" type="logic">
+               <obj_property name="ElementShortName">[154]</obj_property>
+               <obj_property name="ObjectShortName">[154]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[153]" type="logic">
+               <obj_property name="ElementShortName">[153]</obj_property>
+               <obj_property name="ObjectShortName">[153]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[152]" type="logic">
+               <obj_property name="ElementShortName">[152]</obj_property>
+               <obj_property name="ObjectShortName">[152]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[151]" type="logic">
+               <obj_property name="ElementShortName">[151]</obj_property>
+               <obj_property name="ObjectShortName">[151]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[150]" type="logic">
+               <obj_property name="ElementShortName">[150]</obj_property>
+               <obj_property name="ObjectShortName">[150]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[149]" type="logic">
+               <obj_property name="ElementShortName">[149]</obj_property>
+               <obj_property name="ObjectShortName">[149]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[148]" type="logic">
+               <obj_property name="ElementShortName">[148]</obj_property>
+               <obj_property name="ObjectShortName">[148]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[147]" type="logic">
+               <obj_property name="ElementShortName">[147]</obj_property>
+               <obj_property name="ObjectShortName">[147]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[146]" type="logic">
+               <obj_property name="ElementShortName">[146]</obj_property>
+               <obj_property name="ObjectShortName">[146]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[145]" type="logic">
+               <obj_property name="ElementShortName">[145]</obj_property>
+               <obj_property name="ObjectShortName">[145]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[144]" type="logic">
+               <obj_property name="ElementShortName">[144]</obj_property>
+               <obj_property name="ObjectShortName">[144]</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="vbus1376" type="vbus">
+            <obj_property name="label">8</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[143]" type="logic">
+               <obj_property name="ElementShortName">[143]</obj_property>
+               <obj_property name="ObjectShortName">[143]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[142]" type="logic">
+               <obj_property name="ElementShortName">[142]</obj_property>
+               <obj_property name="ObjectShortName">[142]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[141]" type="logic">
+               <obj_property name="ElementShortName">[141]</obj_property>
+               <obj_property name="ObjectShortName">[141]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[140]" type="logic">
+               <obj_property name="ElementShortName">[140]</obj_property>
+               <obj_property name="ObjectShortName">[140]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[139]" type="logic">
+               <obj_property name="ElementShortName">[139]</obj_property>
+               <obj_property name="ObjectShortName">[139]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[138]" type="logic">
+               <obj_property name="ElementShortName">[138]</obj_property>
+               <obj_property name="ObjectShortName">[138]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[137]" type="logic">
+               <obj_property name="ElementShortName">[137]</obj_property>
+               <obj_property name="ObjectShortName">[137]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[136]" type="logic">
+               <obj_property name="ElementShortName">[136]</obj_property>
+               <obj_property name="ObjectShortName">[136]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[135]" type="logic">
+               <obj_property name="ElementShortName">[135]</obj_property>
+               <obj_property name="ObjectShortName">[135]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[134]" type="logic">
+               <obj_property name="ElementShortName">[134]</obj_property>
+               <obj_property name="ObjectShortName">[134]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[133]" type="logic">
+               <obj_property name="ElementShortName">[133]</obj_property>
+               <obj_property name="ObjectShortName">[133]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[132]" type="logic">
+               <obj_property name="ElementShortName">[132]</obj_property>
+               <obj_property name="ObjectShortName">[132]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[131]" type="logic">
+               <obj_property name="ElementShortName">[131]</obj_property>
+               <obj_property name="ObjectShortName">[131]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[130]" type="logic">
+               <obj_property name="ElementShortName">[130]</obj_property>
+               <obj_property name="ObjectShortName">[130]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[129]" type="logic">
+               <obj_property name="ElementShortName">[129]</obj_property>
+               <obj_property name="ObjectShortName">[129]</obj_property>
+            </wvobject>
+            <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/U_EQ_UAL/EQ_dout[128]" type="logic">
+               <obj_property name="ElementShortName">[128]</obj_property>
+               <obj_property name="ObjectShortName">[128]</obj_property>
+            </wvobject>
          </wvobject>
          <wvobject fp_name="vbus732" type="vbus">
             <obj_property name="label">7</obj_property>
@@ -884,8 +1067,8 @@
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/EQ_level_net" type="array">
-         <obj_property name="ElementShortName">EQ_level_net[39:0]</obj_property>
-         <obj_property name="ObjectShortName">EQ_level_net[39:0]</obj_property>
+         <obj_property name="ElementShortName">EQ_level_net[54:0]</obj_property>
+         <obj_property name="ObjectShortName">EQ_level_net[54:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/UART_EQ_tb/U_EQ_Wrapper/EQ_UAL_done" type="logic">
          <obj_property name="ElementShortName">EQ_UAL_done</obj_property>

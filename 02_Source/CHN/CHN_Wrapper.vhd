@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-21
--- Last update: 2020-08-02
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ entity CHN_Wrapper is
         -------- PUSH interface -----------------
         WAV_push        : out std_logic_vector(8 downto 0);
         FFT_push        : out std_logic_vector(16 downto 0);
-        VU_push         : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+        VU_push         : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
 
         );
 end CHN_Wrapper;
@@ -88,8 +88,8 @@ architecture RTL of CHN_Wrapper is
             clk         : in  std_logic;
             reset_n     : in  std_logic;
             VU_start    : in  std_logic;
-            VU_din      : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            VU_dout     : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+            VU_din      : in  std_logic_vector(C_FIR_TOT*16+15 downto 0);
+            VU_dout     : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
             );
     end component;
 
@@ -104,8 +104,8 @@ architecture RTL of CHN_Wrapper is
             EQ_done         : out std_logic;
             EQ_din_band     : in  std_logic_vector(C_FIR_MAX*16+15 downto 0);
             EQ_din          : in  std_logic_vector(15 downto 0);
-            EQ_dout         : out std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            EQ_level_dout   : out std_logic_vector((C_FIR_MAX+2)*5+4 downto 0)
+            EQ_dout         : out std_logic_vector(C_FIR_TOT*16+15 downto 0);
+            EQ_level_dout   : out std_logic_vector(C_FIR_TOT*5+4 downto 0)
             );
     end component;
 
@@ -154,7 +154,7 @@ architecture RTL of CHN_Wrapper is
             clk_108         : in  std_logic;
             clk_216         : in  std_logic;
             reset_n         : in  std_logic;
-            SW_in           : in  std_logic_vector(2 downto 0);
+            SW_in           : in  std_logic_vector(3 downto 0);
             WAV_din         : in  std_logic_vector(7 downto 0);
             VGA_new_frame   : in  std_logic;
             VGA_read        : in  std_logic;
@@ -163,9 +163,9 @@ architecture RTL of CHN_Wrapper is
             VGA_h_add       : in  std_logic_vector(15 downto 0);
             VGA_din         : out std_logic_vector(11 downto 0);
             WAV_read        : in  std_logic;
-            EQ_level_dout   : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
-            EQ_dout         : in  std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
-            VU_dout         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+            EQ_level_dout   : in  std_logic_vector(C_FIR_TOT*5+4 downto 0);
+            EQ_dout         : in  std_logic_vector(C_FIR_TOT*16+15 downto 0);
+            VU_dout         : in  std_logic_vector(C_FIR_TOT*5+4 downto 0);
             NRM_addr        : out std_logic_vector(10 downto 0);
             NRM_dout        : in  std_logic_vector(15 downto 0);
             WAV_push        : out std_logic_vector(8 downto 0);
@@ -180,7 +180,7 @@ architecture RTL of CHN_Wrapper is
             CFG_addr        : in  std_logic_vector(7 downto 0);
             CFG_write       : in  std_logic;
             CFG_din         : in  std_logic_vector(15 downto 0);
-            CHN_select      : out std_logic_vector(2 downto 0)
+            CHN_select      : out std_logic_vector(3 downto 0)
             );
     end component;
 
@@ -191,7 +191,7 @@ architecture RTL of CHN_Wrapper is
     signal Audio_din_d      : std_logic_vector(15 downto 0);
     signal FIR_dout         : std_logic_vector(C_FIR_MAX*16+15 downto 0);
     signal CHN_select_dout  : std_logic_vector(15 downto 0);
-    signal EQ_dout          : std_logic_vector((C_FIR_MAX+2)*16+15 downto 0);
+    signal EQ_dout          : std_logic_vector(C_FIR_TOT*16+15 downto 0);
     signal FFT_addrA        : std_logic_vector(10 downto 0);
     signal FFT_addrB        : std_logic_vector(10 downto 0);
     signal FFT_doutA_r      : std_logic_vector(15 downto 0);
@@ -200,13 +200,13 @@ architecture RTL of CHN_Wrapper is
     signal FFT_doutB_i      : std_logic_vector(15 downto 0);
     signal FFT_write        : std_logic;
     signal FFT_done         : std_logic;
-    signal EQ_level_dout    : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal EQ_level_dout    : std_logic_vector(C_FIR_TOT*5+4 downto 0);
     signal EQ_done          : std_logic;
-    signal VU_dout          : std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+    signal VU_dout          : std_logic_vector(C_FIR_TOT*5+4 downto 0);
     signal NRM_addr_r       : std_logic_vector(10 downto 0);
     signal NRM_dout         : std_logic_vector(15 downto 0);
     signal VGA_v_add_map    : std_logic_vector(15 downto 0);
-    signal CHN_select       : std_logic_vector(2 downto 0);
+    signal CHN_select       : std_logic_vector(3 downto 0);
     signal WAV_din          : std_logic_vector(7 downto 0);
 
 --------------------------------------------------------------------------------
@@ -272,14 +272,17 @@ begin
     -- COMBINATORY :
     -- Description : Audio selection
     --------------------------------------------------------------------------------
-    CHN_select_dout <=  EQ_dout(15 downto 0)    when(CHN_select="000") else
-                        EQ_dout(31 downto 16)   when(CHN_select="001") else
-                        EQ_dout(47 downto 32)   when(CHN_select="010") else
-                        EQ_dout(63 downto 48)   when(CHN_select="011") else
-                        EQ_dout(79 downto 64)   when(CHN_select="100") else
-                        EQ_dout(95 downto 80)   when(CHN_select="101") else
-                        EQ_dout(111 downto 96)  when(CHN_select="110") else
-                        EQ_dout(127 downto 112);
+    CHN_select_dout <=  EQ_dout(15 downto 0)    when(CHN_select="0000") else
+                        EQ_dout(31 downto 16)   when(CHN_select="0001") else
+                        EQ_dout(47 downto 32)   when(CHN_select="0010") else
+                        EQ_dout(63 downto 48)   when(CHN_select="0011") else
+                        EQ_dout(79 downto 64)   when(CHN_select="0100") else
+                        EQ_dout(95 downto 80)   when(CHN_select="0101") else
+                        EQ_dout(111 downto 96)  when(CHN_select="0110") else
+                        EQ_dout(127 downto 112) when(CHN_select="0111") else
+                        EQ_dout(143 downto 128) when(CHN_select="1000") else
+                        EQ_dout(159 downto 144) when(CHN_select="1001") else
+                        EQ_dout(175 downto 160);
     WAV_din <= CHN_select_dout(15 downto 8);
 
     ----------------------------------------------------------------

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-07-22
--- Last update: 2020-07-30
+-- Last update: 2020-08-03
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ entity PSH_Driver is
         ------- PUSH interface -------------------
         WAV_push        : in  std_logic_vector(8 downto 0);
         FFT_push        : in  std_logic_vector(16 downto 0);
-        VU_push         : in  std_logic_vector((C_FIR_MAX+2)*5+4 downto 0);
+        VU_push         : in  std_logic_vector(C_FIR_TOT*5+4 downto 0);
 
         ------- Interface VGA to UART ------------
         UART_send       : out std_logic;
@@ -225,7 +225,7 @@ begin
         if(reset_n='0') then
             VU_dout <= (others => '0');
         elsif(rising_edge(clk)) then
-            VU_dout <= "000" & VU_push(to_integer(cnt_vu(2 downto 0))*5+4 downto to_integer(cnt_vu(2 downto 0))*5);
+            VU_dout <= "000" & VU_push(to_integer(cnt_vu(3 downto 0))*5+4 downto to_integer(cnt_vu(3 downto 0))*5);
         end if;
     end process;
 
@@ -332,12 +332,20 @@ begin
     P_cnt_vu : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            cnt_vu  <= (others => '1');
+            cnt_vu      <= (others => '0');
+            cnt_vu_end  <= '0';
         elsif(rising_edge(clk)) then
             if(cnt_vu_set='1') then
-                cnt_vu  <= "0111";
+                cnt_vu      <= to_unsigned(C_FIR_TOT, cnt_vu'length);
+                cnt_vu_end  <= '0';
             elsif(cnt_vu_dec='1') then
-                cnt_vu  <= cnt_vu - 1;
+                if(cnt_vu=0) then
+                    cnt_vu      <= to_unsigned(C_FIR_TOT, cnt_vu'length);
+                    cnt_vu_end  <= '1';
+                else
+                    cnt_vu      <= cnt_vu - 1;
+                    cnt_vu_end  <= '0';
+                end if;
             end if;
         end if;
     end process;
@@ -347,23 +355,6 @@ begin
     -- Description : FIFOs cnt_vu_dec
     --------------------------------------------------------------------------------
     cnt_vu_dec  <= FIFO_read AND FIFO_select_d(3);
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_cnt_vu_end
-    -- Description : Counter is zero
-    --------------------------------------------------------------------------------
-    P_cnt_vu_end : process(clk, reset_n)
-    begin
-        if(reset_n='0') then
-            cnt_vu_end  <= '0';
-        elsif(rising_edge(clk)) then
-            if(cnt_vu(cnt_vu'high)='1') then
-                cnt_vu_end  <= '1';
-            else
-                cnt_vu_end  <= '0';
-            end if;
-        end if;
-    end process;
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_FSM_PSH_sync

@@ -1,7 +1,7 @@
 #############################
 ### Python code for handling Serial link
 ### Created     2020-01-07
-### Last update 2020-07-31
+### Last update 2020-08-03
 ### Author      Hugo HARTMANN
 #############################
 
@@ -25,7 +25,7 @@ class SerialMonitor(Thread):
         self.GUI = GUI
         self.WAV_tab = np.arange(1280)
         self.FFT_tab = np.arange(1024)
-        self.VU_tab = np.arange(8)
+        self.VU_tab = np.arange(11)
         self.synced = False
         self.running = True
 
@@ -53,11 +53,11 @@ class SerialMonitor(Thread):
     def get_data(self):
         WAV_data = self.serial.ser.read(1280)
         FFT_data = self.serial.ser.read(2048)
-        VU_data = self.serial.ser.read(8)
+        VU_data = self.serial.ser.read(11)
         header = self.serial.ser.read(7)
         
         if(self.check_header(header)==False):
-            print("Sync lost!")
+            print("Sync lost! Received :", header)
             self.synced = False
             return 0
 
@@ -66,8 +66,10 @@ class SerialMonitor(Thread):
                 self.WAV_tab[i] = WAV_data[i]
             for i in range(1024):
                 self.FFT_tab[i] = FFT_data[2*i]+FFT_data[2*i+1]*256
-            for i in range(8):
-                self.VU_tab[i] = VU_data[7-i]
+                if(self.FFT_tab[i]>1999):
+                    self.FFT_tab[i] = 2000
+            for i in range(11):
+                self.VU_tab[i] = VU_data[10-i]
             return 1
 
     def run(self):
@@ -156,6 +158,10 @@ class SerialPort():
 
         return 0
 
+    def serial_write(self, cmd):
+        #print("sent cmd :", cmd)
+        self.ser.write(bytearray(cmd))
+
     # Write volume configuration
     def serial_wr_EQ_level(self, level, index):
 
@@ -171,8 +177,8 @@ class SerialPort():
             if(nb>=0 and nb<=24):
                 cmd_right.append(level)
                 cmd_left.append(level)
-                self.ser.write(bytearray(cmd_right))
-                self.ser.write(bytearray(cmd_left))
+                self.serial_write(cmd_right)
+                self.serial_write(cmd_left)
                 return 0
             else:
                 return 1
@@ -197,8 +203,8 @@ class SerialPort():
 
             cmd_right.append(enable)
             cmd_left.append(enable)
-            self.ser.write(bytearray(cmd_right))
-            self.ser.write(bytearray(cmd_left))
+            self.serial_write(cmd_right)
+            self.serial_write(cmd_left)
             return 0
 
         else:
@@ -216,15 +222,15 @@ class SerialPort():
 
             cmd_right.append(index)
             cmd_left.append(index)
-            self.ser.write(bytearray(cmd_right))
-            self.ser.write(bytearray(cmd_left))
+            self.serial_write(cmd_right)
+            self.serial_write(cmd_left)
             return 0
 
         else:
             return 2
 
-    # Write channel selection
-    def serial_wr_EQ_level(self, end_point, sampling_point):
+    # Write FFT Sampling rate config
+    def serial_wr_FFT_sampling(self, end_point, sampling_point):
 
         if(self.opened):
 
@@ -237,8 +243,8 @@ class SerialPort():
             cmd_right.append(sampling_point)
             cmd_left.append(end_point)
             cmd_left.append(sampling_point)
-            self.ser.write(bytearray(cmd_right))
-            self.ser.write(bytearray(cmd_left))
+            self.serial_write(cmd_right)
+            self.serial_write(cmd_left)
             return 0
 
         else:
