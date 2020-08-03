@@ -29,6 +29,7 @@ class DualPlotCanvas(FigureCanvas):
 
         self.plot_top = self.axes[0].plot(np.arange(1280), [0]*1280, 'k')
         self.plot_bot = self.axes[1].scatter(np.arange(1024), [0]*1024, cmap="RdPu", c=np.arange(0, 128, 0.125), marker='.', s=5)
+
         self.show()
 
     def update_data(self, data_top, data_bot):

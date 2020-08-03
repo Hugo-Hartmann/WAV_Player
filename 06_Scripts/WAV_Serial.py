@@ -11,15 +11,19 @@ import serial.tools.list_ports
 import numpy as np
 from threading import Thread
 from WAV_Config_Constants import *
+from PyQt5.QtCore import pyqtSignal, QThread
 import threading
 import time
 import sys
 
 # Monitor serial inputs
-class SerialMonitor(Thread):
+class SerialMonitor(QThread):
+
+    UpdateOSC = pyqtSignal(list)
+    UpdateVU = pyqtSignal(list)
 
     def __init__(self, serial, GUI):
-        Thread.__init__(self)
+        QThread.__init__(self)
         self._stop_event = threading.Event()
         self.serial = serial
         self.GUI = GUI
@@ -80,8 +84,10 @@ class SerialMonitor(Thread):
                         self.sync_with_header()
                     else:
                         #start = time.time_ns()
-                        self.GUI.update_OSC(self.WAV_tab, self.FFT_tab)
-                        self.GUI.update_VU(self.VU_tab)
+                        self.UpdateOSC.emit([self.WAV_tab, self.FFT_tab])
+                        self.UpdateVU.emit([self.VU_tab])
+                        #self.GUI.update_OSC(self.WAV_tab, self.FFT_tab)
+                        #self.GUI.update_VU(self.VU_tab)
                         #print((time.time_ns()-start)/1000000)
 
                     self.get_data()

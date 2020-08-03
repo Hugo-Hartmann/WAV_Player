@@ -7,18 +7,77 @@
 
 ## Library imports
 import sys
-from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider, QRadioButton, QCheckBox, QGridLayout, QSizePolicy
+from PyQt5.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QComboBox, QSlider, QRadioButton, QCheckBox, QGridLayout, QSizePolicy, QProgressBar
 from PyQt5.QtCore import Qt
 from WAV_Serial import *
 from WAV_Plot import *
 from WAV_Utils import *
 from functools import partial
+import matplotlib.pyplot as plt
+
+class VuBar(QProgressBar):
+
+    def __init__(self, *args, **kwargs):
+        super(QProgressBar, self).__init__(*args, **kwargs)
+
+        self.my_cmap = [0 for i in range(33)]
+        self.gen_cmap()
+
+        self.vubar_style = """
+        QProgressBar {
+            border: 1px solid transparent;
+            min-height: 270px;
+            max-height: 270px;
+            min-width: 50px;
+            max-width: 50px;
+            background-color: #F0F0F0;
+            }
+
+        QProgressBar::chunk {
+            border: 0px solid black;
+            background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1
+        """
+
+        self.setStyleSheet(self.vubar_style + ");}")
+        self.setRange(0, 31)
+        self.setOrientation(Qt.Vertical)
+        self.setTextVisible(False)
+
+    def gen_cmap(self):
+        # Generate Custom cmap
+        plot = plt.scatter(np.arange(33), [i for i in range(33)], cmap="RdPu", c=np.arange(33), marker='.', s=5)
+        colors = []
+        for i in range(33):
+            colors.append(plot.to_rgba(i)[:-1])
+            color = [hex(int(colors[i][0]*255))[2:], hex(int(colors[i][1]*255))[2:], hex(int(colors[i][2]*255))[2:]]
+            for k in range(3):
+                if(len(color[k])==1):
+                    color[k] = "0" + str(color[k])
+
+            self.my_cmap[i] = "#" + str(color[0]) + str(color[1]) + str(color[2])
+
+    def update_value(self, value):
+        self.setValue(value)
+
+        # Update Stylesheet for nice cmap :)
+        val = value
+        if(val==0):
+            val = 1
+        idx = np.arange(0, 1, 1/(val))
+        for i in range(val):
+            idx[i] = round(idx[i], 2)
+        text = ""
+        for i in range(val):
+           text = text + ", stop: " + str(idx[i]) + " " + self.my_cmap[val-i]
+
+        text = text + ", stop: 1 " + self.my_cmap[0] + ");}"
+        self.setStyleSheet(self.vubar_style + text)
 
 class VuSlider(QSlider):
 
     def __init__(self, *args, **kwargs):
         super(QSlider, self).__init__(*args, **kwargs)
-        
+
         self.sld_style = """
         QSlider {
             min-height: 270px;
@@ -162,20 +221,18 @@ class EqualizerWidget(QWidget):
         self.setLayout(self.lyt)
         self.lyt.setHorizontalSpacing(8)
 
-        self.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
-        self.setFixedSize(640, 310);
-
-        self.bars = BarCanvas()
-        self.bars.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
-        self.bars.setFixedSize(620, 270);
+        #self.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
+        #self.setFixedSize(640, 310);
 
         self.sliders = [None for i in range(self.nb_bar)]
         self.p_sliders = [None for i in range(self.nb_bar)]
-
-        self.lyt.addWidget(self.bars, 0, 1, 1, self.nb_bar)
-        self.lyt.setAlignment(self.bars, Qt.AlignCenter)
+        self.vubars = [None for i in range(self.nb_bar)]
 
         for i in range(self.nb_bar):
+            self.vubars[i] = VuBar()
+            self.lyt.addWidget(self.vubars[i], 0, i+1, 1, 1)
+            self.lyt.setAlignment(self.vubars[i], Qt.AlignCenter)
+
             self.sliders[i] = VuSlider(orientation=Qt.Vertical)
             self.lyt.addWidget(self.sliders[i], 0, i+1, 1, 1)
             self.lyt.setAlignment(self.sliders[i], Qt.AlignCenter)
@@ -189,8 +246,7 @@ class EqualizerWidget(QWidget):
             self.buttons[i] = QCheckBox()
             self.buttons[i].setCheckState(True)
             self.buttons[i].setTristate(False)
-            self.lyt.addWidget(self.buttons[i], 1, i+2)
-            self.lyt.setAlignment(self.buttons[i], Qt.AlignCenter)
+            self.lyt.addWidget(self.buttons[i], 1, i+2, Qt.AlignHCenter)
             self.p_buttons[i] = partial(update_EQ_sel, self.serial, self.buttons[i], i)
             self.buttons[i].stateChanged.connect(self.p_buttons[i])
 
@@ -203,7 +259,8 @@ class EqualizerWidget(QWidget):
 
     def update_VU(self, data):
         self.busy = True
-        self.bars.update_data(data)
+        for i in range(self.nb_bar):
+            self.vubars[i].update_value(data[i])
         self.busy = False
 
 class OscilloscopeWidget(QWidget):
@@ -253,7 +310,7 @@ class MainWindow(QMainWindow):
 
         ## Main Area
         self.lyt = QGridLayout()
-        self.lyt.addWidget(self.Oscilloscope_bloc, 0, 0, 1, 2)
+        self.lyt.addWidget(self.Oscilloscope_bloc, 0, 0, 1, 3)
         self.lyt.setAlignment(self.Oscilloscope_bloc, Qt.AlignCenter)
         self.lyt.addLayout(self.COM_Port.lyt, 1, 0)
         self.lyt.addWidget(self.Equalizer_Bloc, 1, 2)
@@ -264,6 +321,8 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.widget)
 
     def load_config(self):
+        self.serial.ser_monitor.UpdateOSC.connect(self.update_OSC)
+        self.serial.ser_monitor.UpdateVU.connect(self.update_VU)
         self.Equalizer_Bloc.load_config()
         self.Oscilloscope_bloc.load_config()
         self.FFT_Bloc.load_config()
@@ -272,10 +331,10 @@ class MainWindow(QMainWindow):
         if(self.Equalizer_Bloc.busy):
             print("Skipped VU display")
         else:
-            self.Equalizer_Bloc.update_VU(data)
+            self.Equalizer_Bloc.update_VU(data[0])
 
-    def update_OSC(self, data_top, data_bot):
-        self.Oscilloscope_bloc.update_OSC(data_top, data_bot)
+    def update_OSC(self, data):
+        self.Oscilloscope_bloc.update_OSC(data[0], data[1])
 
     def closeEvent(self, event):
         self.serial.serial_close()
