@@ -1,7 +1,7 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-08-03
+### Last update 2020-08-04
 ### Author      Hugo HARTMANN
 #############################
 
@@ -110,9 +110,10 @@ class VuSlider(QSlider):
         self.setValue(12)
 
 class FFTWidget(QWidget):
-    def __init__(self, serial, *args, **kwargs):
+    def __init__(self, serial, oscillo, *args, **kwargs):
         super(FFTWidget, self).__init__(*args, **kwargs)
         self.serial = serial
+        self.oscillo = oscillo
 
         self.lbl_main = QLabel("FFT")
         self.lbl_main.setAlignment(Qt.AlignCenter)
@@ -142,6 +143,9 @@ class FFTWidget(QWidget):
         zoom = (sld.value()+2)/2
         txt = "Zoom x" + str(zoom)
         lbl.setText(txt)
+
+        # Update legend scale of FFT plot
+        self.oscillo.update_scale(zoom)
 
         # Update level via serial port
         self.p_update_FFT_sampling()
@@ -272,15 +276,30 @@ class OscilloscopeWidget(QWidget):
         self.lyt = QGridLayout()
         self.setLayout(self.lyt)
 
+        # Oscilloscope and FFT
         self.graphs = DualPlotCanvas(self, width=5, height=4, dpi=100)
         self.graphs.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
         self.graphs.setFixedSize(1300, 550);
         self.lyt.addWidget(self.graphs, 0, 0)
+        self.lyt.setAlignment(self.graphs, Qt.AlignCenter)
+
+        # Legend for FFT plot
+        self.legendgraphs = LegendPlotCanvas(self, width=5, height=4, dpi=100)
+        self.legendgraphs.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed));
+        self.legendgraphs.setFixedSize(1352, 40);
+        self.lyt.addWidget(self.legendgraphs, 1, 0)
 
         # Create radio buttons to select band
         self.SW_Menu = BandSelectWidget(self.serial)
 
         self.lyt.addWidget(self.SW_Menu, 0, 1)
+
+    def update_scale(self, level):
+        Fmax = 22000
+
+        Fmax = 22000/level
+
+        self.legendgraphs.update_scale(Fmax);
 
     def load_config(self):
         self.SW_Menu.load_config()
@@ -307,7 +326,7 @@ class MainWindow(QMainWindow):
         self.Oscilloscope_bloc = OscilloscopeWidget(self.serial)
 
         ## FFT
-        self.FFT_Bloc = FFTWidget(self.serial)
+        self.FFT_Bloc = FFTWidget(self.serial, self.Oscilloscope_bloc)
 
         ## Main Area
         self.lyt = QGridLayout()
@@ -353,7 +372,8 @@ app = QApplication([])
 
 ## Window creation
 window = MainWindow(serial)
-window.showMaximized()
+window.show()
+#window.showMaximized()
 
 ## Serial Monitor
 serial_monitor = SerialMonitor(serial, window)

@@ -1,7 +1,7 @@
 #############################
 ### Python code for handling Dynamic Plot
 ### Created     2020-07-24
-### Last update 2020-08-03
+### Last update 2020-08-04
 ### Author      Hugo HARTMANN
 #############################
 
@@ -41,6 +41,52 @@ class DualPlotCanvas(FigureCanvas):
 
         self.draw()
         self.flush_events()
+
+class LegendPlotCanvas(FigureCanvas):
+
+    def __init__(self, parent=None, width=5, height=4, dpi=100):
+        self.fig = Figure(figsize=(width, height), dpi=dpi, facecolor=(240/255, 240/255, 240/255))
+        self.fig.subplots_adjust(bottom=0.99, top=1, left=0.02, right=0.98)
+        self.fig.patch.set_facecolor('none')
+        self.fig.patch.set_alpha(0.0)
+        self.ax = self.fig.subplots(1)
+
+        self.ax.tick_params(which='both', labelbottom=True, bottom=True, direction='out')
+        self.ax.tick_params(which='minor', length=4, width=2, labelsize=8)
+        self.ax.tick_params(which='major', length=13)
+        self.ax.patch.set_facecolor('none')
+        self.ax.patch.set_alpha(0.0)
+        self.ax.get_yaxis().set_visible(False)
+
+        self.Fband = [31.5, 63, 125, 250, 500, 1000, 2000, 4000, 8000, 16000]
+
+        super(LegendPlotCanvas, self).__init__(self.fig)
+
+        self.setStyleSheet("background-color:transparent;")
+
+        self.show()
+
+    def update_scale(self, Fmax):
+
+        self.ax.set_xticks(self.Fband, minor=True)
+        self.ax.set_xticks([i*Fmax/5 for i in range(6)], minor=False)
+
+        FbandLabels = []
+        N = len(self.Fband)
+
+        for i in range(N):
+            if(i<N-1):
+                if((self.Fband[i+1]-self.Fband[i])/Fmax<0.0144):
+                    FbandLabels.append("")
+                else:
+                    FbandLabels.append(str(self.Fband[i]))
+        FbandLabels.append(str(self.Fband[N-1]))
+
+        self.ax.set_xticklabels(FbandLabels, minor=True)
+
+        self.ax.set_xlim([0, Fmax])
+
+        self.draw()
 
 class BarCanvas(FigureCanvas):
 
