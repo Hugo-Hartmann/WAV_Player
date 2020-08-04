@@ -13,7 +13,7 @@ from matplotlib.figure import Figure
 
 class DualPlotCanvas(FigureCanvas):
 
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
+    def __init__(self, parent=None, width=5, height=4, dpi=100, style="magma_r"):
         self.fig = Figure(figsize=(width, height), dpi=dpi, facecolor=(240/255, 240/255, 240/255))
         self.fig.subplots_adjust(bottom=0, top=1, left=0, right=1, hspace=0.1)
         self.axes = self.fig.subplots(2)
@@ -30,7 +30,7 @@ class DualPlotCanvas(FigureCanvas):
 
         self.plot_top = self.axes[0].plot(np.arange(1280), [0]*1280, 'k')
         log_cmap = [i for i in np.linspace(np.log(4), 3*np.log(65536), 1024)]
-        self.plot_bot = self.axes[1].scatter(np.arange(1024), [0]*1024, cmap="magma_r", c=log_cmap, marker='.', s=5)
+        self.plot_bot = self.axes[1].scatter(np.arange(1024), [0]*1024, cmap=style, c=log_cmap, marker='.', s=5)
 
         self.show()
 

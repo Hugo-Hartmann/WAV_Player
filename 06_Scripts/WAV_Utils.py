@@ -5,6 +5,47 @@
 ### Author      Hugo HARTMANN
 #############################
 
+## Library imports
+import matplotlib.pyplot as plt
+import numpy as np
+
+################################
+## Util Area
+################################
+
+def gen_cmap(N, style):
+    # Generate Custom cmap
+
+    my_cmap = [0 for i in range(N)]
+    plot = plt.scatter(np.arange(N), [i for i in range(N)], cmap=style, c=np.arange(N), marker='.', s=5)
+    colors = []
+    for i in range(N):
+        colors.append(plot.to_rgba(i)[:-1])
+        color = [hex(int(colors[i][0]*255))[2:], hex(int(colors[i][1]*255))[2:], hex(int(colors[i][2]*255))[2:]]
+        for k in range(3):
+            if(len(color[k])==1):
+                color[k] = "0" + str(color[k])
+
+        my_cmap[i] = "#" + str(color[0]) + str(color[1]) + str(color[2])
+
+    return my_cmap
+
+def gen_QLinearGradient(N, cmap, val):
+    # Generate QlinearGradient object based on cmap
+
+    if(val==0):
+        val = 1
+    idx = np.arange(0, 1, 1/(val))
+    for i in range(val):
+        idx[i] = round(idx[i], 2)
+    text = "QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1"
+    for i in range(val):
+       text = text + ", stop: " + str(idx[i]) + " " + cmap[val-i]
+
+    text = text + ", stop: 1 " + cmap[0] + ")"
+
+    return text
+
 ################################
 ## Port COM Area
 ################################

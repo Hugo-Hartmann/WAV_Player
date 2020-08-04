@@ -13,15 +13,11 @@ from WAV_Serial import *
 from WAV_Plot import *
 from WAV_Utils import *
 from functools import partial
-import matplotlib.pyplot as plt
 
 class VuBar(QProgressBar):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, style="magma_r", *args, **kwargs):
         super(QProgressBar, self).__init__(*args, **kwargs)
-
-        self.my_cmap = [0 for i in range(33)]
-        self.gen_cmap()
 
         self.vubar_style = """
         QProgressBar {
@@ -35,42 +31,21 @@ class VuBar(QProgressBar):
 
         QProgressBar::chunk {
             border: 0px solid black;
-            background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1
+            
         """
 
-        self.setStyleSheet(self.vubar_style + ");}")
+        self.setStyleSheet(self.vubar_style + "}")
         self.setRange(0, 31)
         self.setOrientation(Qt.Vertical)
         self.setTextVisible(False)
 
-    def gen_cmap(self):
-        # Generate Custom cmap
-        plot = plt.scatter(np.arange(33), [i for i in range(33)], cmap="magma_r", c=np.arange(33), marker='.', s=5)
-        colors = []
-        for i in range(33):
-            colors.append(plot.to_rgba(i)[:-1])
-            color = [hex(int(colors[i][0]*255))[2:], hex(int(colors[i][1]*255))[2:], hex(int(colors[i][2]*255))[2:]]
-            for k in range(3):
-                if(len(color[k])==1):
-                    color[k] = "0" + str(color[k])
-
-            self.my_cmap[i] = "#" + str(color[0]) + str(color[1]) + str(color[2])
+        self.my_cmap = gen_cmap(33, style)
 
     def update_value(self, value):
         self.setValue(value)
 
         # Update Stylesheet for nice cmap :)
-        val = value
-        if(val==0):
-            val = 1
-        idx = np.arange(0, 1, 1/(val))
-        for i in range(val):
-            idx[i] = round(idx[i], 2)
-        text = ""
-        for i in range(val):
-           text = text + ", stop: " + str(idx[i]) + " " + self.my_cmap[val-i]
-
-        text = text + ", stop: 1 " + self.my_cmap[0] + ");}"
+        text = "background:"  + gen_QLinearGradient(33, self.my_cmap, value) + ";}"
         self.setStyleSheet(self.vubar_style + text)
 
 class VuSlider(QSlider):
@@ -110,7 +85,7 @@ class VuSlider(QSlider):
         self.setValue(12)
 
 class FFTWidget(QWidget):
-    def __init__(self, serial, oscillo, *args, **kwargs):
+    def __init__(self, serial, oscillo, style="magma_r", *args, **kwargs):
         super(FFTWidget, self).__init__(*args, **kwargs)
         self.serial = serial
         self.oscillo = oscillo
@@ -120,6 +95,37 @@ class FFTWidget(QWidget):
 
         self.lyt = QGridLayout()
         self.setLayout(self.lyt)
+
+        self.my_cmap = gen_cmap(33, style)
+        self.QGrad = gen_QLinearGradient(33, self.my_cmap, 32)
+
+        self.sld_style = """
+        QSlider {
+            background-color:transparent;
+            min-height: 270px;
+            max-height: 270px;
+            min-width: 50px;
+            max-width: 50px;
+            }
+
+        QSlider::groove:vertical {
+            border: 2px solid """ + self.QGrad + """;
+            background-color:transparent;
+            height: 270px;
+            width: 30px;
+            margin: 2px 0;
+            }
+
+        QSlider::handle:vertical {
+            background: #505050;
+            border: 1px solid #5c5c5c;
+            width: 50px;
+            height: 8px;
+            margin: -2px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
+            border-radius: 50px;
+            }"""
+
+        self.setStyleSheet(self.sld_style)
 
         self.sampling_sld = QSlider()
         self.sampling_sld.setRange(0, 30)
