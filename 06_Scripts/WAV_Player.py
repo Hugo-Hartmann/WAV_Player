@@ -190,6 +190,9 @@ class ComPortWidget(QWidget):
 
         self.p_refresh()
 
+    def auto_connect(self):
+        auto_connect(self.serial, self.combobox, self.status_lbl, self.close_btn)
+
 class BandSelectWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):
         super(BandSelectWidget, self).__init__(*args, **kwargs)
@@ -340,6 +343,9 @@ class MainWindow(QMainWindow):
         self.widget.setLayout(self.lyt)
         self.setCentralWidget(self.widget)
 
+    def auto_connect(self):
+        self.COM_Port.auto_connect()
+
     def load_config(self):
         self.serial.ser_monitor.UpdateOSC.connect(self.update_OSC)
         self.serial.ser_monitor.UpdateVU.connect(self.update_VU)
@@ -379,6 +385,9 @@ window.show()
 serial_monitor = SerialMonitor(serial, window)
 serial_monitor.start()
 serial.set_ser_monitor(serial_monitor)
+
+## App try to auto connect to existing com ports
+window.auto_connect()
 
 ## app mainloop
 app.exec_()

@@ -1,7 +1,7 @@
 #############################
 ### Python Utility function for GUI
 ### Created     2020-02-29
-### Last update 2020-07-30
+### Last update 2020-08-04
 ### Author      Hugo HARTMANN
 #############################
 
@@ -28,6 +28,16 @@ def refresh_COM(serial, combo_COM):
 
     except:
         pass
+
+# Auto connect to available port COM
+def auto_connect(serial, combo_COM, lbl_status_COM, COM_close_btn):
+    refresh_COM(serial, combo_COM)
+
+    for i in range(combo_COM.count()):
+        combo_COM.setCurrentIndex(i)
+        if(serial.opened==False):
+            connect_COM(serial, combo_COM, lbl_status_COM, COM_close_btn)
+
 
 # Connect Serial to port COM
 def connect_COM(serial, combo_COM, lbl_status_COM, COM_close_btn):
