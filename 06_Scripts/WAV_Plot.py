@@ -26,17 +26,23 @@ class DualPlotCanvas(FigureCanvas):
         self.axes[1].set_ylim([4, 65536])
         self.axes[1].set_xlim([0, 1024])
 
+        self.nb_points = 1024
+
         super(DualPlotCanvas, self).__init__(self.fig)
 
         self.plot_top = self.axes[0].plot(np.arange(1280), [0]*1280, 'k')
         log_cmap = [i for i in np.linspace(np.log(4), 3*np.log(65536), 1024)]
-        self.plot_bot = self.axes[1].scatter(np.arange(1024), [0]*1024, cmap=style, c=log_cmap, marker='.', s=5)
+        self.plot_bot = self.axes[1].scatter([i+0.5 for i in range(self.nb_points)], [0]*1024, cmap=style, c=log_cmap, marker='.', s=5)
 
         self.show()
 
+    def update_nb_points(self, N):
+        self.nb_points = N
+        self.axes[1].set_xlim([0, N])
+
     def update_data(self, data_top, data_bot):
         self.plot_top[0].set_ydata(data_top)
-        self.plot_bot.set_offsets(np.c_[np.arange(1024), data_bot])
+        self.plot_bot.set_offsets(np.c_[[i+0.5 for i in range(self.nb_points)], data_bot[:self.nb_points]])
         self.plot_bot.set_array(data_bot)
 
         self.draw()

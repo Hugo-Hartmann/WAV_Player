@@ -127,8 +127,10 @@ def update_SW(serial, index):
 ## FFT Area
 ################################
 
-def update_FFT_sampling(serial, FFT_sampling_sld):
-    level = (FFT_sampling_sld.value()+2)/2
+def update_FFT_sampling(serial, level, lbl_lvl):
+
+    txt = "Zoom x" + str(level)
+    lbl_lvl.setText(txt)
 
     if(level==int(level)):
         end_point       = int(level-1)
@@ -138,3 +140,11 @@ def update_FFT_sampling(serial, FFT_sampling_sld):
         sampling_point  = int(end_point/2)
 
     serial.serial_wr_FFT_sampling(end_point, sampling_point)
+
+def update_FFT_rounds_nb(serial, rounds_sld, rounds_lbl):
+    nb_rounds = 2**(rounds_sld.value()+1)
+
+    rounds_lbl.setText(str(nb_rounds) + " points")
+
+    serial.serial_wr_FFT_rounds_nb(rounds_sld.value()+1)
+    serial.serial_wr_NRM_rounds_nb(rounds_sld.value()+1)

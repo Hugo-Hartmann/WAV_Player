@@ -1,7 +1,7 @@
 #############################
 ### CONFIG MAP CONSTANTS
 ### Created     2020-07-27
-### Last update 2020-08-03
+### Last update 2020-08-04
 ### Author      Hugo HARTMANN
 #############################
 
@@ -24,3 +24,8 @@ C_EQUALIZER_SEL = 32
 # FFT selection
 
 C_FFT_SAMPLING = 48
+C_FFT_ROUND_NB = 49
+
+# NRM selection
+
+C_NRM_ROUND_NB = 64

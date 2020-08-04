@@ -14,6 +14,54 @@ from WAV_Plot import *
 from WAV_Utils import *
 from functools import partial
 
+class FFTSlider(QWidget):
+
+    def __init__(self, sld_range, sld_start, QGrad, *args, **kwargs):
+        super(FFTSlider, self).__init__(*args, **kwargs)
+
+        self.lyt = QGridLayout()
+        self.setLayout(self.lyt)
+
+        self.sld_style = """
+        QSlider {
+            background-color:transparent;
+            min-height: 270px;
+            max-height: 270px;
+            min-width: 50px;
+            max-width: 50px;
+            }
+
+        QSlider::groove:vertical {
+            border: 2px solid """ + QGrad + """;
+            background-color:transparent;
+            height: 270px;
+            width: 30px;
+            margin: 2px 0;
+            }
+
+        QSlider::handle:vertical {
+            background: #505050;
+            border: 1px solid #5c5c5c;
+            width: 50px;
+            height: 8px;
+            margin: -2px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
+            border-radius: 50px;
+            }"""
+
+        self.setStyleSheet(self.sld_style)
+
+        self.sld = QSlider()
+        self.sld.setRange(0, sld_range)
+        self.sld.setSingleStep(1)
+        self.sld.setPageStep(1)
+        self.sld.setValue(sld_start)
+
+        self.lbl = QLabel("")
+
+        self.lyt.addWidget(self.lbl, 0, 1)
+        self.lyt.addWidget(self.sld, 0, 0)
+
+
 class VuBar(QProgressBar):
 
     def __init__(self, style="magma_r", *args, **kwargs):
@@ -99,65 +147,41 @@ class FFTWidget(QWidget):
         self.my_cmap = gen_cmap(33, style)
         self.QGrad = gen_QLinearGradient(33, self.my_cmap, 32)
 
-        self.sld_style = """
-        QSlider {
-            background-color:transparent;
-            min-height: 270px;
-            max-height: 270px;
-            min-width: 50px;
-            max-width: 50px;
-            }
+        self.sampling_sld = FFTSlider(30, 6, self.QGrad)
+        self.rounds_sld = FFTSlider(10, 10, self.QGrad)
 
-        QSlider::groove:vertical {
-            border: 2px solid """ + self.QGrad + """;
-            background-color:transparent;
-            height: 270px;
-            width: 30px;
-            margin: 2px 0;
-            }
-
-        QSlider::handle:vertical {
-            background: #505050;
-            border: 1px solid #5c5c5c;
-            width: 50px;
-            height: 8px;
-            margin: -2px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
-            border-radius: 50px;
-            }"""
-
-        self.setStyleSheet(self.sld_style)
-
-        self.sampling_sld = QSlider()
-        self.sampling_sld.setRange(0, 30)
-        self.sampling_sld.setSingleStep(1)
-        self.sampling_sld.setPageStep(1)
-        self.sampling_sld.setValue(6)
-
-        self.lbl_lvl = QLabel("")
-
-        self.lyt.addWidget(self.lbl_main, 0, 0)
-        self.lyt.addWidget(self.lbl_lvl, 1, 1)
+        self.lyt.addWidget(self.lbl_main, 0, 0, 1, 2)
         self.lyt.addWidget(self.sampling_sld, 1, 0)
+        self.lyt.addWidget(self.rounds_sld, 1, 1)
 
-        self.p_update_FFT_sampling = partial(update_FFT_sampling, self.serial, self.sampling_sld)
-        self.p_update_FFT_level = partial(self.update_FFT_level, self.lbl_lvl, self.sampling_sld)
+        self.sampling_sld.sld.valueChanged.connect(self.update_FFT_level)
+        self.rounds_sld.sld.valueChanged.connect(self.update_FFT_nb_points)
 
-        self.sampling_sld.valueChanged.connect(self.p_update_FFT_level)
-        self.p_update_FFT_level()
+        self.update_FFT_level()
+        self.update_FFT_nb_points()
 
-    def update_FFT_level(self, lbl, sld):
-        zoom = (sld.value()+2)/2
-        txt = "Zoom x" + str(zoom)
-        lbl.setText(txt)
+    def update_FFT_nb_points(self):
+
+        N = 2**(self.rounds_sld.sld.value())
 
         # Update legend scale of FFT plot
-        self.oscillo.update_scale(zoom)
+        self.oscillo.update_nb_points(N)
 
         # Update level via serial port
-        self.p_update_FFT_sampling()
+        update_FFT_rounds_nb(self.serial, self.rounds_sld.sld, self.rounds_sld.lbl)
+
+    def update_FFT_level(self):
+
+        level = (self.sampling_sld.sld.value()+2)/2
+
+        # Update legend scale of FFT plot
+        self.oscillo.update_scale(level)
+
+        # Update level via serial port
+        update_FFT_sampling(self.serial, level, self.sampling_sld.lbl)
 
     def load_config(self):
-        self.p_update_FFT_sampling()
+        self.update_FFT_level()
 
 class ComPortWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):
@@ -302,6 +326,9 @@ class OscilloscopeWidget(QWidget):
         self.SW_Menu = BandSelectWidget(self.serial)
 
         self.lyt.addWidget(self.SW_Menu, 0, 1)
+
+    def update_nb_points(self, N):
+        self.graphs.update_nb_points(N);
 
     def update_scale(self, level):
         Fmax = 22000

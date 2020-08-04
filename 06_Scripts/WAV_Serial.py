@@ -253,3 +253,41 @@ class SerialPort():
 
         else:
             return 2
+
+    # Write FFT Sampling rate config
+    def serial_wr_FFT_rounds_nb(self, nb_round):
+
+        if(self.opened):
+
+            # Currently sets both channels
+
+            cmd_right = [C_RIGHT_CHANNEL+C_FFT_ROUND_NB, 0]
+            cmd_left = [C_LEFT_CHANNEL+C_FFT_ROUND_NB, 0]
+
+            cmd_right.append(nb_round)
+            cmd_left.append(nb_round)
+            self.serial_write(cmd_right)
+            self.serial_write(cmd_left)
+            return 0
+
+        else:
+            return 2
+
+    # Write NRM Sampling rate config
+    def serial_wr_NRM_rounds_nb(self, nb_round):
+
+        if(self.opened):
+
+            # Currently sets both channels
+
+            cmd_right = [C_RIGHT_CHANNEL+C_NRM_ROUND_NB, 0]
+            cmd_left = [C_LEFT_CHANNEL+C_NRM_ROUND_NB, 0]
+
+            cmd_right.append(nb_round)
+            cmd_left.append(nb_round)
+            self.serial_write(cmd_right)
+            self.serial_write(cmd_left)
+            return 0
+
+        else:
+            return 2
