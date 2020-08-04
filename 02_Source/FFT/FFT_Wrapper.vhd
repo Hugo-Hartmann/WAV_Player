@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2020-08-02
+-- Last update: 2020-08-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -79,10 +79,10 @@ architecture RTL of FFT_Wrapper is
             FFT_addr_B      : out std_logic_vector(10 downto 0);
             FFT_addr_coef   : out std_logic_vector(9 downto 0);
             FFT_addr_valid  : out std_logic;
+            FFT_rounds_nb   : in  std_logic_vector(3 downto 0);
             FFT_new_sample  : in  std_logic;
             FFT_start       : in  std_logic;
             FFT_stage_busy  : in  std_logic;
-            FFT_en          : out std_logic;
             FFT_done        : out std_logic
             );
     end component;
@@ -106,6 +106,7 @@ architecture RTL of FFT_Wrapper is
             FFT_addrA_w     : in  std_logic_vector(10 downto 0);
             FFT_addrB_w     : in  std_logic_vector(10 downto 0);
             FFT_addr_valid  : in  std_logic;
+            FFT_data_valid  : out std_logic;
             FFT_new_sample  : in  std_logic;
             FFT_start       : in  std_logic;
             RAM_doutA_r     : out std_logic_vector(15 downto 0);
@@ -172,6 +173,7 @@ architecture RTL of FFT_Wrapper is
             CFG_addr            : in  std_logic_vector(7 downto 0);
             CFG_write           : in  std_logic;
             CFG_din             : in  std_logic_vector(15 downto 0);
+            FFT_rounds_nb       : out std_logic_vector(3 downto 0);
             FFT_sample_point    : out std_logic_vector(3 downto 0);
             FFT_end_point       : out std_logic_vector(3 downto 0)
             );
@@ -196,16 +198,17 @@ architecture RTL of FFT_Wrapper is
     signal RAM_doutB_i          : std_logic_vector(15 downto 0);
     signal RAM_doutC_r          : std_logic_vector(15 downto 0);
     signal RAM_doutC_i          : std_logic_vector(15 downto 0);
-    signal FFT_en               : std_logic;
     signal FFT_stage_busy       : std_logic;
     signal addrA_btfly          : std_logic_vector(10 downto 0);
     signal addrB_btfly          : std_logic_vector(10 downto 0);
-    signal FFT_addr_valid       : std_logic;
     signal reset                : std_logic;
     signal FFT_sample           : std_logic_vector(15 downto 0);
     signal FFT_sample_valid     : std_logic;
     signal FFT_sample_point     : std_logic_vector(3 downto 0);
     signal FFT_end_point        : std_logic_vector(3 downto 0);
+    signal FFT_rounds_nb        : std_logic_vector(3 downto 0);
+    signal FFT_addr_valid       : std_logic;
+    signal FFT_data_valid       : std_logic;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -240,6 +243,7 @@ begin
         FFT_addrA_w     => FFT_addrA_w,
         FFT_addrB_w     => FFT_addrB_w,
         FFT_addr_valid  => FFT_addr_valid,
+        FFT_data_valid  => FFT_data_valid,
         FFT_new_sample  => FFT_sample_valid,
         FFT_start       => FFT_start,
         RAM_doutA_r     => RAM_doutA_r,
@@ -261,9 +265,9 @@ begin
         FFT_addr_coef   => FFT_addrC_r,
         FFT_addr_valid  => FFT_addr_valid,
         FFT_start       => FFT_start,
+        FFT_rounds_nb   => FFT_rounds_nb,
         FFT_new_sample  => FFT_sample_valid,
         FFT_stage_busy  => FFT_stage_busy,
-        FFT_en          => FFT_en,
         FFT_done        => FFT_done);
 
     --------------------------------------------------------------------------------
@@ -285,7 +289,7 @@ begin
         FFT_doutA_i     => RAM_dinA_i,
         FFT_doutB_r     => RAM_dinB_r,
         FFT_doutB_i     => RAM_dinB_i,
-        FFT_en          => FFT_en,
+        FFT_en          => FFT_data_valid,
         FFT_done        => FFT_btfly_done,
         FFT_dinA_r      => RAM_doutA_r,
         FFT_dinA_i      => RAM_doutA_i,
@@ -346,6 +350,7 @@ begin
         CFG_addr            => CFG_addr,
         CFG_write           => CFG_write,
         CFG_din             => CFG_din,
+        FFT_rounds_nb       => FFT_rounds_nb,
         FFT_sample_point    => FFT_sample_point,
         FFT_end_point       => FFT_end_point);
 

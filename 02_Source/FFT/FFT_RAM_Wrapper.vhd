@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-25
--- Last update: 2020-03-27
+-- Last update: 2020-08-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -47,6 +47,7 @@ entity FFT_RAM_Wrapper is
 
         ------- RAM control ----------------------
         FFT_addr_valid  : in  std_logic;
+        FFT_data_valid  : out std_logic;
         FFT_done        : in  std_logic;
         FFT_addrA_r     : in  std_logic_vector(10 downto 0);
         FFT_addrB_r     : in  std_logic_vector(10 downto 0);
@@ -71,6 +72,11 @@ end FFT_RAM_Wrapper;
 -- ARCHITECTURE DECLARATION
 --------------------------------------------------------------------------------
 architecture RTL of FFT_RAM_Wrapper is
+
+    --------------------------------------------------------------------------------
+    -- TYPE DECLARATIONS
+    --------------------------------------------------------------------------------
+    type T_EN is array (0 to 3) of std_logic;
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
@@ -171,11 +177,36 @@ architecture RTL of FFT_RAM_Wrapper is
     signal RAM_FFTA_rdB         : std_logic;
     signal RAM_FFTB_rdA         : std_logic;
     signal RAM_FFTB_rdB         : std_logic;
+    signal FFT_en_d             : T_EN;
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_FFT_en_d
+    -- Description : Enable pipeline
+    --------------------------------------------------------------------------------
+    P_FFT_en_d : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            for i in 0 to FFT_en_d'high loop
+                FFT_en_d(i) <= '0';
+            end loop;
+        elsif(rising_edge(clk)) then
+            FFT_en_d(0) <= FFT_addr_valid;
+            for i in 1 to FFT_en_d'high loop
+                FFT_en_d(i) <= FFT_en_d(i-1);
+            end loop;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : Map FFT_en_d
+    --------------------------------------------------------------------------------
+    FFT_data_valid <=   FFT_en_d(FFT_en_d'high);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_count

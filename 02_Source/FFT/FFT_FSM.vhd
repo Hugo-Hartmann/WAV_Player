@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-21
--- Last update: 2020-03-02
+-- Last update: 2020-08-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -41,6 +41,7 @@ entity FFT_FSM is
 
         ------- FFT control ----------------------
         FFT_addr_valid  : out std_logic;
+        FFT_rounds_nb   : in  std_logic_vector(3 downto 0);
         FFT_new_sample  : in  std_logic;
         FFT_start       : in  std_logic;
         FFT_stage_busy  : in  std_logic;
@@ -58,9 +59,8 @@ architecture RTL of FFT_FSM is
     --------------------------------------------------------------------------------
     -- TYPE DECLARATIONS
     --------------------------------------------------------------------------------
-    type FFT_STATE is (FFT_RESET, FFT_IDLE, FFT_WAIT_SAMPLE, FFT_NEW_STAGE, FFT_WAIT_PIPE, FFT_ADDR_START1,
-                       FFT_ADDR_START2, FFT_ADDR_START3, FFT_ADDR_START4, FFT_ADDR_START5, FFT_ADDR_LOOP,
-                       FFT_ADDR_END1, FFT_ADDR_END2, FFT_ADDR_END3, FFT_ADDR_END4, FFT_PIPE_UNLOAD, FFT_END);
+    type FFT_STATE is (FFT_RESET, FFT_IDLE, FFT_WAIT_SAMPLE, FFT_NEW_STAGE, FFT_WAIT_PIPE,
+                       FFT_ADDR_LOOP, FFT_PIPE_UNLOAD, FFT_END);
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
@@ -96,7 +96,6 @@ architecture RTL of FFT_FSM is
     signal counter_coef_l   : std_logic_vector(9 downto 0);
     signal cnt_addr_clr     : std_logic;
     signal cnt_addr_inc     : std_logic;
-    signal cnt_addr_end     : std_logic;
     signal counter_stage    : unsigned(3 downto 0);
     signal cnt_stage_set    : std_logic;
     signal cnt_stage_dec    : std_logic;
@@ -117,6 +116,15 @@ architecture RTL of FFT_FSM is
     signal addrC_acc_din_d  : unsigned(9 downto 0);
     signal addrA_acc_clr_d  : std_logic;
     signal addrC_acc_clr_d  : std_logic;
+    signal addr_valid       : std_logic;
+    signal cnt_data_clr     : std_logic;
+    signal cnt_data_inc     : std_logic;
+    signal cnt_data_end     : std_logic;
+    signal cnt_data         : unsigned(9 downto 0);
+    signal cnt_jump_clr     : std_logic;
+    signal cnt_jump_inc     : std_logic;
+    signal cnt_jump_end     : std_logic;
+    signal counter_jump     : unsigned(9 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -153,19 +161,75 @@ begin
     counter_addr    <= unsigned(counter_addr_l);
 
     --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_counter_jump
+    -- Description : Counter to determine jump addresses
+    --------------------------------------------------------------------------------
+    P_counter_jump : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            counter_jump    <= to_unsigned(0, counter_jump'length);
+        elsif(rising_edge(clk)) then
+            if(cnt_jump_clr='1') then
+                counter_jump    <= to_unsigned(0, counter_jump'length);
+            elsif(cnt_jump_inc='1') then
+                if(cnt_jump_end='1' and counter_stage>1) then -- counter_stage>1 : Special case to create oscillating cnt_jump_end
+                    counter_jump    <= to_unsigned(0, counter_jump'length);
+                else
+                    counter_jump    <= counter_jump + 1;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_cnt_jump_end
+    -- Description : Counter to determine cnt_jump end
+    --------------------------------------------------------------------------------
+    P_cnt_jump_end : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            cnt_jump_end    <= '0';
+        elsif(rising_edge(clk)) then
+            if(counter_stage=9 and counter_jump=510) then
+                cnt_jump_end    <= '1';
+            elsif(counter_stage=8 and counter_jump=254) then
+                cnt_jump_end    <= '1';
+            elsif(counter_stage=7 and counter_jump=126) then
+                cnt_jump_end    <= '1';
+            elsif(counter_stage=6 and counter_jump=62) then
+                cnt_jump_end    <= '1';
+            elsif(counter_stage=5 and counter_jump=30) then
+                cnt_jump_end    <= '1';
+            elsif(counter_stage=4 and counter_jump=14) then
+                cnt_jump_end    <= '1';
+            elsif(counter_stage=3 and counter_jump=6) then
+                cnt_jump_end    <= '1';
+            elsif(counter_stage=2 and counter_jump=2) then
+                cnt_jump_end    <= '1';
+            elsif(counter_stage=1 and counter_jump(0)='0') then -- Special case to create oscillating cnt_jump_end
+                cnt_jump_end    <= '1';
+            elsif(counter_stage=0) then
+                cnt_jump_end    <= '1';
+            else
+                cnt_jump_end    <= '0';
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
     -- COMBINATORY :
     -- Description : Logic to choose accumulators input values and clear signal
     --------------------------------------------------------------------------------
     addrA_acc_din   <= to_unsigned(1  , addrA_acc_din'length)  when(counter_stage=10)  else
-                       to_unsigned(513, addrA_acc_din'length)  when(counter_stage=9 and counter_addr(8 downto 0)=510)  else
-                       to_unsigned(257, addrA_acc_din'length)  when(counter_stage=8 and counter_addr(7 downto 0)=254)  else
-                       to_unsigned(129, addrA_acc_din'length)  when(counter_stage=7 and counter_addr(6 downto 0)=126)  else
-                       to_unsigned(65 , addrA_acc_din'length)  when(counter_stage=6 and counter_addr(5 downto 0)=62)   else
-                       to_unsigned(33 , addrA_acc_din'length)  when(counter_stage=5 and counter_addr(4 downto 0)=30)   else
-                       to_unsigned(17 , addrA_acc_din'length)  when(counter_stage=4 and counter_addr(3 downto 0)=14)   else
-                       to_unsigned(9  , addrA_acc_din'length)  when(counter_stage=3 and counter_addr(2 downto 0)=6)    else
-                       to_unsigned(5  , addrA_acc_din'length)  when(counter_stage=2 and counter_addr(1 downto 0)=2)    else
-                       to_unsigned(3  , addrA_acc_din'length)  when(counter_stage=1 and counter_addr(0 downto 0)=0)    else
+                       to_unsigned(513, addrA_acc_din'length)  when(counter_stage=9 and cnt_jump_end='1')   else
+                       to_unsigned(257, addrA_acc_din'length)  when(counter_stage=8 and cnt_jump_end='1')   else
+                       to_unsigned(129, addrA_acc_din'length)  when(counter_stage=7 and cnt_jump_end='1')   else
+                       to_unsigned(65 , addrA_acc_din'length)  when(counter_stage=6 and cnt_jump_end='1')   else
+                       to_unsigned(33 , addrA_acc_din'length)  when(counter_stage=5 and cnt_jump_end='1')   else
+                       to_unsigned(17 , addrA_acc_din'length)  when(counter_stage=4 and cnt_jump_end='1')   else
+                       to_unsigned(9  , addrA_acc_din'length)  when(counter_stage=3 and cnt_jump_end='1')   else
+                       to_unsigned(5  , addrA_acc_din'length)  when(counter_stage=2 and cnt_jump_end='1')   else
+                       to_unsigned(3  , addrA_acc_din'length)  when(counter_stage=1 and cnt_jump_end='1')   else
                        to_unsigned(2  , addrA_acc_din'length)  when(counter_stage=0)   else
                        to_unsigned(1  , addrA_acc_din'length);
 
@@ -199,15 +263,15 @@ begin
                        '0';
 
     addrC_acc_clr   <= '1'  when(cnt_addr_clr='1')  else
-                       '1'  when(counter_stage=9 and counter_addr(8 downto 0)=510)  else
-                       '1'  when(counter_stage=8 and counter_addr(7 downto 0)=254)  else
-                       '1'  when(counter_stage=7 and counter_addr(6 downto 0)=126)  else
-                       '1'  when(counter_stage=6 and counter_addr(5 downto 0)=62)   else
-                       '1'  when(counter_stage=5 and counter_addr(4 downto 0)=30)   else
-                       '1'  when(counter_stage=4 and counter_addr(3 downto 0)=14)   else
-                       '1'  when(counter_stage=3 and counter_addr(2 downto 0)=6)    else
-                       '1'  when(counter_stage=2 and counter_addr(1 downto 0)=2)    else
-                       '1'  when(counter_stage=1 and counter_addr(0 downto 0)=0)    else
+                       '1'  when(counter_stage=9 and cnt_jump_end='1')  else
+                       '1'  when(counter_stage=8 and cnt_jump_end='1')  else
+                       '1'  when(counter_stage=7 and cnt_jump_end='1')  else
+                       '1'  when(counter_stage=6 and cnt_jump_end='1')  else
+                       '1'  when(counter_stage=5 and cnt_jump_end='1')  else
+                       '1'  when(counter_stage=4 and cnt_jump_end='1')  else
+                       '1'  when(counter_stage=3 and cnt_jump_end='1')  else
+                       '1'  when(counter_stage=2 and cnt_jump_end='1')  else
+                       '1'  when(counter_stage=1 and cnt_jump_end='1')  else
                        '1'  when(counter_stage=0)   else
                        '0';
 
@@ -266,10 +330,27 @@ begin
     FFT_addr_coef   <= AddrC_d;
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : End address signaling
+    -- SEQ PROCESS : P_counter_data
+    -- Description : Counter for number of data treated
     --------------------------------------------------------------------------------
-    cnt_addr_end    <= '1' when(AddrB_d=std_logic_vector(to_unsigned(2047, AddrB_d'length))) else '0';
+    P_counter_data : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            cnt_data    <= to_unsigned(0, cnt_data'length);
+        elsif(rising_edge(clk)) then
+            if(cnt_data_clr='1') then
+                cnt_data <= to_unsigned(0, cnt_data'length);
+            elsif(cnt_data_inc='1') then
+                cnt_data    <= cnt_data + 1;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : End cnt_data signaling
+    --------------------------------------------------------------------------------
+    cnt_data_end  <= '1' when(cnt_data=1023) else '0';
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_counter_stage
@@ -278,10 +359,10 @@ begin
     P_counter_stage : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            counter_stage   <= to_unsigned(10+1, counter_stage'length);
+            counter_stage   <= to_unsigned(11, counter_stage'length);
         elsif(rising_edge(clk)) then
             if(cnt_stage_set='1') then
-                counter_stage   <= to_unsigned(10+1, counter_stage'length); -- case for normalization, should be deprecated
+                counter_stage   <= unsigned(FFT_rounds_nb);
             elsif(cnt_stage_dec='1') then
                 counter_stage   <= counter_stage - 1;
             end if;
@@ -311,15 +392,18 @@ begin
     -- COMB PROCESS : P_FSM_FFT_comb
     -- Description : FSM_FFT combinatorial part (next_state logic)
     --------------------------------------------------------------------------------
-    P_FSM_FFT_comb : process(current_state, FFT_start, FFT_new_sample, cnt_addr_end, cnt_stage_end, FFT_stage_busy)
+    P_FSM_FFT_comb : process(current_state, FFT_start, FFT_new_sample, cnt_data_end, cnt_stage_end, FFT_stage_busy)
     begin
-        FFT_en          <= '0';
+        addr_valid      <= '0';
         cnt_addr_clr    <= '0';
         cnt_addr_inc    <= '0';
         cnt_stage_set   <= '0';
         cnt_stage_dec   <= '0';
+        cnt_data_clr    <= '0';
+        cnt_data_inc    <= '0';
+        cnt_jump_clr    <= '0';
+        cnt_jump_inc    <= '0';
         FFT_done        <= '0';
-        FFT_addr_valid  <= '0';
 
         case current_state is
             when FFT_RESET =>
@@ -342,61 +426,25 @@ begin
 
             when FFT_NEW_STAGE =>
                 cnt_addr_clr    <= '1';
+                cnt_data_clr    <= '1';
+                cnt_jump_clr    <= '1';
                 cnt_stage_dec   <= '1';
                 next_state      <= FFT_WAIT_PIPE;
 
             when FFT_WAIT_PIPE =>
-                next_state      <= FFT_ADDR_START1;
-
-            when FFT_ADDR_START1 =>
-                cnt_addr_inc    <= '1';
-                next_state      <= FFT_ADDR_START2;
-
-            when FFT_ADDR_START2 =>
-                FFT_addr_valid  <= '1';
-                cnt_addr_inc    <= '1';
-                next_state      <= FFT_ADDR_START3;
-
-            when FFT_ADDR_START3 =>
-                FFT_addr_valid  <= '1';
-                cnt_addr_inc    <= '1';
-                next_state      <= FFT_ADDR_START4;
-
-            when FFT_ADDR_START4 =>
-                FFT_addr_valid  <= '1';
-                cnt_addr_inc    <= '1';
-                next_state      <= FFT_ADDR_START5;
-
-            when FFT_ADDR_START5 =>
-                FFT_addr_valid  <= '1';
-                cnt_addr_inc    <= '1';
+                cnt_jump_inc    <= '1';
                 next_state      <= FFT_ADDR_LOOP;
 
             when FFT_ADDR_LOOP =>
-                FFT_addr_valid  <= '1';
+                addr_valid      <= '1';
                 cnt_addr_inc    <= '1';
-                FFT_en          <= '1';
-                if(cnt_addr_end='1') then
-                    next_state  <= FFT_ADDR_END1;
+                cnt_data_inc    <= '1';
+                cnt_jump_inc    <= '1';
+                if(cnt_data_end='1') then
+                    next_state  <= FFT_PIPE_UNLOAD;
                 else
                     next_state  <= FFT_ADDR_LOOP;
                 end if;
-
-            when FFT_ADDR_END1 =>
-                FFT_en      <= '1';
-                next_state  <= FFT_ADDR_END2;
-
-            when FFT_ADDR_END2 =>
-                FFT_en      <= '1';
-                next_state  <= FFT_ADDR_END3;
-
-            when FFT_ADDR_END3 =>
-                FFT_en      <= '1';
-                next_state  <= FFT_ADDR_END4;
-
-            when FFT_ADDR_END4 =>
-                FFT_en      <= '1';
-                next_state  <= FFT_PIPE_UNLOAD;
 
             when FFT_PIPE_UNLOAD =>
                 if(FFT_stage_busy='0' and cnt_stage_end='1') then
@@ -412,6 +460,19 @@ begin
                 next_state  <= FFT_IDLE;
 
         end case;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_reg_addr_valid
+    -- Description : register addr_valid signal
+    --------------------------------------------------------------------------------
+    P_reg_addr_valid : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            FFT_addr_valid  <= '0';
+        elsif(rising_edge(clk)) then
+            FFT_addr_valid  <= addr_valid;
+        end if;
     end process;
 
 end RTL;

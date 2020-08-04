@@ -7,19 +7,20 @@
          <top_modules>
             <top_module name="FFT_Wrapper_tb" />
             <top_module name="glbl" />
+            <top_module name="type_pkg" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="4741791666fs"></ZoomStartTime>
-      <ZoomEndTime time="4815991667fs"></ZoomEndTime>
-      <Cursor1Time time="4803625000fs"></Cursor1Time>
+      <ZoomStartTime time="52954466110fs"></ZoomStartTime>
+      <ZoomEndTime time="53001614066fs"></ZoomEndTime>
+      <Cursor1Time time="53052855000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="258"></NameColumnWidth>
-      <ValueColumnWidth column_width="134"></ValueColumnWidth>
+      <ValueColumnWidth column_width="118"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
+   <WVObjectSize size="9" />
    <wvobject fp_name="/FFT_Wrapper_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -27,7 +28,6 @@
    <wvobject fp_name="group17" type="group">
       <obj_property name="label">TOP</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/FFT_Wrapper_tb/reset_n" type="logic">
          <obj_property name="ElementShortName">reset_n</obj_property>
          <obj_property name="ObjectShortName">reset_n</obj_property>
@@ -126,7 +126,6 @@
    <wvobject fp_name="group39" type="group">
       <obj_property name="label">RAM_TOP</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_din" type="array">
          <obj_property name="ElementShortName">FFT_din[15:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_din[15:0]</obj_property>
@@ -278,6 +277,7 @@
    <wvobject fp_name="group82" type="group">
       <obj_property name="label">FSM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/current_state" type="other">
          <obj_property name="ElementShortName">current_state</obj_property>
          <obj_property name="ObjectShortName">current_state</obj_property>
@@ -285,11 +285,6 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/next_state" type="other">
          <obj_property name="ElementShortName">next_state</obj_property>
          <obj_property name="ObjectShortName">next_state</obj_property>
-      </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/counter_addr" type="array">
-         <obj_property name="ElementShortName">counter_addr[10:0]</obj_property>
-         <obj_property name="ObjectShortName">counter_addr[10:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/counter_addr_l" type="array">
          <obj_property name="ElementShortName">counter_addr_l[10:0]</obj_property>
@@ -304,23 +299,6 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/counter_coef_l" type="array">
          <obj_property name="ElementShortName">counter_coef_l[9:0]</obj_property>
          <obj_property name="ObjectShortName">counter_coef_l[9:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/cnt_addr_clr" type="logic">
-         <obj_property name="ElementShortName">cnt_addr_clr</obj_property>
-         <obj_property name="ObjectShortName">cnt_addr_clr</obj_property>
-      </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/cnt_addr_inc" type="logic">
-         <obj_property name="ElementShortName">cnt_addr_inc</obj_property>
-         <obj_property name="ObjectShortName">cnt_addr_inc</obj_property>
-      </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/cnt_addr_end" type="logic">
-         <obj_property name="ElementShortName">cnt_addr_end</obj_property>
-         <obj_property name="ObjectShortName">cnt_addr_end</obj_property>
-      </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/counter_stage" type="array">
-         <obj_property name="ElementShortName">counter_stage[3:0]</obj_property>
-         <obj_property name="ObjectShortName">counter_stage[3:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/cnt_stage_set" type="logic">
@@ -343,11 +321,6 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/addrB" type="array">
          <obj_property name="ElementShortName">addrB[10:0]</obj_property>
          <obj_property name="ObjectShortName">addrB[10:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/addrC" type="array">
-         <obj_property name="ElementShortName">addrC[9:0]</obj_property>
-         <obj_property name="ObjectShortName">addrC[9:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/addrA_d" type="array">
@@ -384,10 +357,6 @@
          <obj_property name="ElementShortName">addrA_acc_clr</obj_property>
          <obj_property name="ObjectShortName">addrA_acc_clr</obj_property>
       </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/addrC_acc_clr" type="logic">
-         <obj_property name="ElementShortName">addrC_acc_clr</obj_property>
-         <obj_property name="ObjectShortName">addrC_acc_clr</obj_property>
-      </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/addrA_acc_din_d" type="array">
          <obj_property name="ElementShortName">addrA_acc_din_d[10:0]</obj_property>
          <obj_property name="ObjectShortName">addrA_acc_din_d[10:0]</obj_property>
@@ -407,15 +376,58 @@
          <obj_property name="ElementShortName">addrA_acc_clr_d</obj_property>
          <obj_property name="ObjectShortName">addrA_acc_clr_d</obj_property>
       </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/cnt_addr_clr" type="logic">
+         <obj_property name="ElementShortName">cnt_addr_clr</obj_property>
+         <obj_property name="ObjectShortName">cnt_addr_clr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/cnt_addr_inc" type="logic">
+         <obj_property name="ElementShortName">cnt_addr_inc</obj_property>
+         <obj_property name="ObjectShortName">cnt_addr_inc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/counter_addr" type="array">
+         <obj_property name="ElementShortName">counter_addr[10:0]</obj_property>
+         <obj_property name="ObjectShortName">counter_addr[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/counter_stage" type="array">
+         <obj_property name="ElementShortName">counter_stage[3:0]</obj_property>
+         <obj_property name="ObjectShortName">counter_stage[3:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/addrC_acc_clr" type="logic">
+         <obj_property name="ElementShortName">addrC_acc_clr</obj_property>
+         <obj_property name="ObjectShortName">addrC_acc_clr</obj_property>
+      </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/addrC_acc_clr_d" type="logic">
          <obj_property name="ElementShortName">addrC_acc_clr_d</obj_property>
          <obj_property name="ObjectShortName">addrC_acc_clr_d</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/addrC" type="array">
+         <obj_property name="ElementShortName">addrC[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addrC[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/cnt_jump_clr" type="logic">
+         <obj_property name="ElementShortName">cnt_jump_clr</obj_property>
+         <obj_property name="ObjectShortName">cnt_jump_clr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/cnt_jump_inc" type="logic">
+         <obj_property name="ElementShortName">cnt_jump_inc</obj_property>
+         <obj_property name="ObjectShortName">cnt_jump_inc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/cnt_jump_end" type="logic">
+         <obj_property name="ElementShortName">cnt_jump_end</obj_property>
+         <obj_property name="ObjectShortName">cnt_jump_end</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/counter_jump" type="array">
+         <obj_property name="ElementShortName">counter_jump[9:0]</obj_property>
+         <obj_property name="ObjectShortName">counter_jump[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group115" type="group">
       <obj_property name="label">RAM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/addrA_map" type="array">
          <obj_property name="ElementShortName">addrA_map[10:0]</obj_property>
          <obj_property name="ObjectShortName">addrA_map[10:0]</obj_property>
@@ -443,6 +455,7 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_doutA" type="array">
          <obj_property name="ElementShortName">RAM_smple_doutA[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_smple_doutA[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_wrB" type="array">
          <obj_property name="ElementShortName">RAM_smple_wrB[0:0]</obj_property>
@@ -463,6 +476,7 @@
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_smple_doutB" type="array">
          <obj_property name="ElementShortName">RAM_smple_doutB[15:0]</obj_property>
          <obj_property name="ObjectShortName">RAM_smple_doutB[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/addr_counter" type="array">
          <obj_property name="ElementShortName">addr_counter[10:0]</obj_property>
@@ -573,7 +587,6 @@
    <wvobject fp_name="group262" type="group">
       <obj_property name="label">Wrapper</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_addr_valid" type="logic">
          <obj_property name="ElementShortName">FFT_addr_valid</obj_property>
          <obj_property name="ObjectShortName">FFT_addr_valid</obj_property>
@@ -657,10 +670,6 @@
          <obj_property name="ObjectShortName">RAM_doutC_i[15:0]</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_en" type="logic">
-         <obj_property name="ElementShortName">FFT_en</obj_property>
-         <obj_property name="ObjectShortName">FFT_en</obj_property>
-      </wvobject>
       <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_stage_busy" type="logic">
          <obj_property name="ElementShortName">FFT_stage_busy</obj_property>
          <obj_property name="ObjectShortName">FFT_stage_busy</obj_property>
@@ -673,21 +682,79 @@
          <obj_property name="ElementShortName">addrB_btfly[10:0]</obj_property>
          <obj_property name="ObjectShortName">addrB_btfly[10:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_din_d" type="array">
-         <obj_property name="ElementShortName">FFT_din_d[15:0]</obj_property>
-         <obj_property name="ObjectShortName">FFT_din_d[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group640" type="group">
+      <obj_property name="label">Debug Valid</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="divider" fp_name="divider1914">
+         <obj_property name="label">NB_ROUND</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
       </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_new_sample_d" type="logic">
-         <obj_property name="ElementShortName">FFT_new_sample_d</obj_property>
-         <obj_property name="ObjectShortName">FFT_new_sample_d</obj_property>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/FFT_rounds_nb" type="array">
+         <obj_property name="ElementShortName">FFT_rounds_nb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_rounds_nb[3:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_din_dd" type="array">
-         <obj_property name="ElementShortName">FFT_din_dd[15:0]</obj_property>
-         <obj_property name="ObjectShortName">FFT_din_dd[15:0]</obj_property>
+      <wvobject type="divider" fp_name="divider1915">
+         <obj_property name="label">FSM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
       </wvobject>
-      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/FFT_new_sample_dd" type="logic">
-         <obj_property name="ElementShortName">FFT_new_sample_dd</obj_property>
-         <obj_property name="ObjectShortName">FFT_new_sample_dd</obj_property>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/FFT_addr_A" type="array">
+         <obj_property name="ElementShortName">FFT_addr_A[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addr_A[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/FFT_addr_B" type="array">
+         <obj_property name="ElementShortName">FFT_addr_B[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addr_B[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/FFT_addr_coef" type="array">
+         <obj_property name="ElementShortName">FFT_addr_coef[9:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addr_coef[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_FSM/FFT_addr_valid" type="logic">
+         <obj_property name="ElementShortName">FFT_addr_valid</obj_property>
+         <obj_property name="ObjectShortName">FFT_addr_valid</obj_property>
+      </wvobject>
+      <wvobject type="divider" fp_name="divider1913">
+         <obj_property name="label">RAM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/FFT_data_valid" type="logic">
+         <obj_property name="ElementShortName">FFT_data_valid</obj_property>
+         <obj_property name="ObjectShortName">FFT_data_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_doutA_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutA_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutA_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_doutA_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutA_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutA_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_doutB_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_doutB_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_doutC_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutC_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutC_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/FFT_Wrapper_tb/U_FFT_Wrapper/U_FFT_RAM_Wrapper/RAM_doutC_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutC_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutC_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
