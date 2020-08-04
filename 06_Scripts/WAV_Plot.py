@@ -29,8 +29,8 @@ class DualPlotCanvas(FigureCanvas):
         super(DualPlotCanvas, self).__init__(self.fig)
 
         self.plot_top = self.axes[0].plot(np.arange(1280), [0]*1280, 'k')
-        log_cmap = [np.log(i) for i in np.arange(64, 65600, 64)]
-        self.plot_bot = self.axes[1].scatter(np.arange(1024), [0]*1024, cmap="RdPu", c=log_cmap, marker='.', s=5)
+        log_cmap = [i for i in np.linspace(np.log(4), 3*np.log(65536), 1024)]
+        self.plot_bot = self.axes[1].scatter(np.arange(1024), [0]*1024, cmap="magma_r", c=log_cmap, marker='.', s=5)
 
         self.show()
 

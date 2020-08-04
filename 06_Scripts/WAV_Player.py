@@ -45,7 +45,7 @@ class VuBar(QProgressBar):
 
     def gen_cmap(self):
         # Generate Custom cmap
-        plot = plt.scatter(np.arange(33), [i for i in range(33)], cmap="RdPu", c=np.arange(33), marker='.', s=5)
+        plot = plt.scatter(np.arange(33), [i for i in range(33)], cmap="magma_r", c=np.arange(33), marker='.', s=5)
         colors = []
         for i in range(33):
             colors.append(plot.to_rgba(i)[:-1])
