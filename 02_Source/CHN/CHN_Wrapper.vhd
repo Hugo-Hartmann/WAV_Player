@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-21
--- Last update: 2020-08-03
+-- Last update: 2020-08-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -134,6 +134,9 @@ architecture RTL of CHN_Wrapper is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
+            CFG_addr        : in  std_logic_vector(7 downto 0);
+            CFG_write       : in  std_logic;
+            CFG_din         : in  std_logic_vector(15 downto 0);
             NRM_addrA_w     : in  std_logic_vector(10 downto 0);
             NRM_addrB_w     : in  std_logic_vector(10 downto 0);
             NRM_dinA_r      : in  std_logic_vector(15 downto 0);
@@ -314,6 +317,9 @@ begin
     U_NRM_Wrapper : NRM_Wrapper port map(
         clk             => clk_216,
         reset_n         => reset_n,
+        CFG_addr        => CFG_addr,
+        CFG_write       => CFG_write,
+        CFG_din         => CFG_din,
         NRM_addrA_w     => FFT_addrA,
         NRM_addrB_w     => FFT_addrB,
         NRM_dinA_r      => FFT_doutA_r,

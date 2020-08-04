@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-24
--- Last update: 2020-08-03
+-- Last update: 2020-08-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -240,11 +240,8 @@ begin
     nrm_addr_final  <= std_logic_vector(nrm_addr_map(10 downto 0));
     
     process(nrm_addr_final)
-    -- Invert address to fetch correct samples
     begin
-        for i in nrm_addr_final'range loop
-            NRM_addr(i) <= nrm_addr_final(nrm_addr_final'high-i);
-        end loop;
+        NRM_addr    <= nrm_addr_final;
     end process;
 
     --------------------------------------------------------------------------------

@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-27
--- Last update: 2020-08-02
+-- Last update: 2020-08-04
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -72,6 +72,9 @@ architecture A of NRM_Wrapper_tb is
         port(
             clk             : in  std_logic;
             reset_n         : in  std_logic;
+            CFG_addr        : in  std_logic_vector(7 downto 0);
+            CFG_write       : in  std_logic;
+            CFG_din         : in  std_logic_vector(15 downto 0);
             NRM_addrA_w     : in  std_logic_vector(10 downto 0);
             NRM_addrB_w     : in  std_logic_vector(10 downto 0);
             NRM_dinA_r      : in  std_logic_vector(15 downto 0);
@@ -105,7 +108,6 @@ architecture A of NRM_Wrapper_tb is
     signal FFT_done         : std_logic;
     signal NRM_start        : std_logic;
     signal NRM_addr         : std_logic_vector(10 downto 0);
-    signal nrm_addr_final   : std_logic_vector(10 downto 0);
     signal NRM_dout         : std_logic_vector(15 downto 0);
     signal NRM_new_sample   : std_logic;
     signal NRM_loaded       : std_logic;
@@ -125,6 +127,9 @@ begin
     U_NRM_Wrapper : NRM_Wrapper port map(
         clk             => clk,
         reset_n         => reset_n,
+        CFG_addr        => CFG_addr,
+        CFG_write       => CFG_write,
+        CFG_din         => CFG_din,
         NRM_addrA_w     => FFT_addrA,
         NRM_addrB_w     => FFT_addrB,
         NRM_dinA_r      => FFT_doutA_r,
@@ -137,15 +142,6 @@ begin
         NRM_start       => NRM_start,
         NRM_addr_r      => NRM_addr,
         NRM_dout        => NRM_dout);
-
-    -- Get correct sample order
-    process(nrm_addr_final)
-    begin
-        for i in nrm_addr_final'range loop
-            NRM_addr(i) <= nrm_addr_final(nrm_addr_final'high-i);
-        end loop;
-    end process;
-
 
     ----------------------------------------------------------------
     -- INSTANCE : U_FFT_Wrapper
@@ -201,7 +197,7 @@ begin
         FFT_new_sample  <= '0';
         NRM_new_sample  <= '0';
         NRM_start       <= '0';
-        nrm_addr_final  <= (others => '0');
+        NRM_addr        <= (others => '0');
         Wait_cycles(5);
         wait until(rising_edge(clk));
 
@@ -230,7 +226,7 @@ begin
         Wait_cycles(2500);
 
         for i in 0 to 1024 loop
-            nrm_addr_final  <= std_logic_vector(to_unsigned(i, nrm_addr_final'length));
+            NRM_addr    <= std_logic_vector(to_unsigned(i, NRM_addr'length));
             Wait_cycles(1);
         end loop;
 

@@ -7,17 +7,18 @@
          <top_modules>
             <top_module name="NRM_Wrapper_tb" />
             <top_module name="glbl" />
+            <top_module name="type_pkg" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="27318016913fs"></ZoomEndTime>
-      <Cursor1Time time="64664995000fs"></Cursor1Time>
+      <ZoomStartTime time="48340746000fs"></ZoomStartTime>
+      <ZoomEndTime time="48415146001fs"></ZoomEndTime>
+      <Cursor1Time time="48371696000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="258"></NameColumnWidth>
-      <ValueColumnWidth column_width="134"></ValueColumnWidth>
+      <ValueColumnWidth column_width="130"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="5" />
    <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/clk" type="logic">
@@ -35,26 +36,32 @@
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_addrA_w" type="array">
          <obj_property name="ElementShortName">NRM_addrA_w[10:0]</obj_property>
          <obj_property name="ObjectShortName">NRM_addrA_w[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_addrB_w" type="array">
          <obj_property name="ElementShortName">NRM_addrB_w[10:0]</obj_property>
          <obj_property name="ObjectShortName">NRM_addrB_w[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_dinA_r" type="array">
          <obj_property name="ElementShortName">NRM_dinA_r[15:0]</obj_property>
          <obj_property name="ObjectShortName">NRM_dinA_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_dinA_i" type="array">
          <obj_property name="ElementShortName">NRM_dinA_i[15:0]</obj_property>
          <obj_property name="ObjectShortName">NRM_dinA_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_dinB_r" type="array">
          <obj_property name="ElementShortName">NRM_dinB_r[15:0]</obj_property>
          <obj_property name="ObjectShortName">NRM_dinB_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_dinB_i" type="array">
          <obj_property name="ElementShortName">NRM_dinB_i[15:0]</obj_property>
          <obj_property name="ObjectShortName">NRM_dinB_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_write" type="logic">
          <obj_property name="ElementShortName">NRM_write</obj_property>
@@ -72,10 +79,6 @@
          <obj_property name="ElementShortName">NRM_start</obj_property>
          <obj_property name="ObjectShortName">NRM_start</obj_property>
       </wvobject>
-      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_read" type="logic">
-         <obj_property name="ElementShortName">NRM_read</obj_property>
-         <obj_property name="ObjectShortName">NRM_read</obj_property>
-      </wvobject>
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_addr_r" type="array">
          <obj_property name="ElementShortName">NRM_addr_r[10:0]</obj_property>
          <obj_property name="ObjectShortName">NRM_addr_r[10:0]</obj_property>
@@ -86,10 +89,73 @@
          <obj_property name="ObjectShortName">NRM_dout[15:0]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
+      <wvobject type="divider" fp_name="divider6520">
+         <obj_property name="label">FSM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/RAM_addrB_r" type="array">
+         <obj_property name="ElementShortName">RAM_addrB_r[10:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_addrB_r[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_en_out_FSM" type="logic">
+         <obj_property name="ElementShortName">NRM_en_out_FSM</obj_property>
+         <obj_property name="ObjectShortName">NRM_en_out_FSM</obj_property>
+      </wvobject>
+      <wvobject type="divider" fp_name="divider6519">
+         <obj_property name="label">RAM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/RAM_doutB_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/RAM_doutB_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_en_out_RAM" type="logic">
+         <obj_property name="ElementShortName">NRM_en_out_RAM</obj_property>
+         <obj_property name="ObjectShortName">NRM_en_out_RAM</obj_property>
+      </wvobject>
+      <wvobject type="divider" fp_name="divider6518">
+         <obj_property name="label">Normalizer</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_UAL_done" type="logic">
+         <obj_property name="ElementShortName">NRM_UAL_done</obj_property>
+         <obj_property name="ObjectShortName">NRM_UAL_done</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_norm_dout" type="array">
+         <obj_property name="ElementShortName">NRM_norm_dout[15:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_norm_dout[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="divider" fp_name="divider6517">
+         <obj_property name="label">Mapper</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_addr_valid" type="logic">
+         <obj_property name="ElementShortName">NRM_addr_valid</obj_property>
+         <obj_property name="ObjectShortName">NRM_addr_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_map_dout" type="array">
+         <obj_property name="ElementShortName">NRM_map_dout[15:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_map_dout[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_addr_map" type="array">
+         <obj_property name="ElementShortName">NRM_addr_map[10:0]</obj_property>
+         <obj_property name="ObjectShortName">NRM_addr_map[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="group434" type="group">
       <obj_property name="label">FFT</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/FFT_din" type="array">
          <obj_property name="ElementShortName">FFT_din[15:0]</obj_property>
          <obj_property name="ObjectShortName">FFT_din[15:0]</obj_property>
@@ -134,11 +200,63 @@
          <obj_property name="ElementShortName">FFT_done</obj_property>
          <obj_property name="ObjectShortName">FFT_done</obj_property>
       </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/FFT_addrA_r" type="array">
+         <obj_property name="ElementShortName">FFT_addrA_r[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrA_r[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/FFT_addrB_r" type="array">
+         <obj_property name="ElementShortName">FFT_addrB_r[10:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrB_r[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/FFT_addrC_r" type="array">
+         <obj_property name="ElementShortName">FFT_addrC_r[9:0]</obj_property>
+         <obj_property name="ObjectShortName">FFT_addrC_r[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/FFT_addr_valid" type="logic">
+         <obj_property name="ElementShortName">FFT_addr_valid</obj_property>
+         <obj_property name="ObjectShortName">FFT_addr_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/RAM_doutA_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutA_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutA_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/RAM_doutA_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutA_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutA_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/RAM_doutB_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/RAM_doutB_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutB_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutB_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/RAM_doutC_r" type="array">
+         <obj_property name="ElementShortName">RAM_doutC_r[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutC_r[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/RAM_doutC_i" type="array">
+         <obj_property name="ElementShortName">RAM_doutC_i[15:0]</obj_property>
+         <obj_property name="ObjectShortName">RAM_doutC_i[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/NRM_Wrapper_tb/U_FFT_Wrapper/FFT_data_valid" type="logic">
+         <obj_property name="ElementShortName">FFT_data_valid</obj_property>
+         <obj_property name="ObjectShortName">FFT_data_valid</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="group458" type="group">
       <obj_property name="label">Wrapper</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_dout" type="array">
          <obj_property name="ElementShortName">NRM_dout[15:0]</obj_property>
          <obj_property name="ObjectShortName">NRM_dout[15:0]</obj_property>
@@ -206,18 +324,6 @@
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_open" type="logic">
          <obj_property name="ElementShortName">NRM_open</obj_property>
          <obj_property name="ObjectShortName">NRM_open</obj_property>
-      </wvobject>
-      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_en" type="logic">
-         <obj_property name="ElementShortName">NRM_en</obj_property>
-         <obj_property name="ObjectShortName">NRM_en</obj_property>
-      </wvobject>
-      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_read_compute" type="logic">
-         <obj_property name="ElementShortName">NRM_read_compute</obj_property>
-         <obj_property name="ObjectShortName">NRM_read_compute</obj_property>
-      </wvobject>
-      <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_done" type="logic">
-         <obj_property name="ElementShortName">NRM_done</obj_property>
-         <obj_property name="ObjectShortName">NRM_done</obj_property>
       </wvobject>
       <wvobject fp_name="/NRM_Wrapper_tb/U_NRM_Wrapper/NRM_norm_dout" type="array">
          <obj_property name="ElementShortName">NRM_norm_dout[15:0]</obj_property>

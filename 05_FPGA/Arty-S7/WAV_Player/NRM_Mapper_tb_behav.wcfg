@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="NRM_Mapper_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="NRM_Mapper_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="76027328334fs"></ZoomStartTime>
+      <ZoomEndTime time="76087273911fs"></ZoomEndTime>
+      <Cursor1Time time="76151925000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="258"></NameColumnWidth>
+      <ValueColumnWidth column_width="114"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/reset_n" type="logic">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/NRM_rounds_nb" type="array">
+      <obj_property name="ElementShortName">NRM_rounds_nb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">NRM_rounds_nb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/NRM_en" type="logic">
+      <obj_property name="ElementShortName">NRM_en</obj_property>
+      <obj_property name="ObjectShortName">NRM_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/NRM_din" type="array">
+      <obj_property name="ElementShortName">NRM_din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">NRM_din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/NRM_dout" type="array">
+      <obj_property name="ElementShortName">NRM_dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">NRM_dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/NRM_addr_map" type="array">
+      <obj_property name="ElementShortName">NRM_addr_map[10:0]</obj_property>
+      <obj_property name="ObjectShortName">NRM_addr_map[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/NRM_addr_valid" type="logic">
+      <obj_property name="ElementShortName">NRM_addr_valid</obj_property>
+      <obj_property name="ObjectShortName">NRM_addr_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/NRM_en_d" type="array">
+      <obj_property name="ElementShortName">NRM_en_d[0:1]</obj_property>
+      <obj_property name="ObjectShortName">NRM_en_d[0:1]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/NRM_data_d" type="array">
+      <obj_property name="ElementShortName">NRM_data_d[0:1][15:0]</obj_property>
+      <obj_property name="ObjectShortName">NRM_data_d[0:1][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/counter_addr" type="array">
+      <obj_property name="ElementShortName">counter_addr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_addr[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/addr_offset" type="array">
+      <obj_property name="ElementShortName">addr_offset[10:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_offset[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/base_addr" type="array">
+      <obj_property name="ElementShortName">base_addr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">base_addr[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/addr_map" type="array">
+      <obj_property name="ElementShortName">addr_map[10:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_map[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/final_addr" type="array">
+      <obj_property name="ElementShortName">final_addr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">final_addr[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/NRM_Mapper_tb/U_NRM_Mapper/cnt_addr_end" type="logic">
+      <obj_property name="ElementShortName">cnt_addr_end</obj_property>
+      <obj_property name="ObjectShortName">cnt_addr_end</obj_property>
+   </wvobject>
+</wave_config>
