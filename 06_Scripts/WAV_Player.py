@@ -1,7 +1,7 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-08-04
+### Last update 2020-08-05
 ### Author      Hugo HARTMANN
 #############################
 
@@ -147,7 +147,7 @@ class FFTWidget(QWidget):
         self.my_cmap = gen_cmap(33, style)
         self.QGrad = gen_QLinearGradient(33, self.my_cmap, 32)
 
-        self.sampling_sld = FFTSlider(30, 6, self.QGrad)
+        self.sampling_sld = FFTSlider(15, 3, self.QGrad)
         self.rounds_sld = FFTSlider(10, 10, self.QGrad)
 
         self.lyt.addWidget(self.lbl_main, 0, 0, 1, 2)
@@ -172,7 +172,7 @@ class FFTWidget(QWidget):
 
     def update_FFT_level(self):
 
-        level = (self.sampling_sld.sld.value()+2)/2
+        level = self.sampling_sld.sld.value()+1
 
         # Update legend scale of FFT plot
         self.oscillo.update_scale(level)
