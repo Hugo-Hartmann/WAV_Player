@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-26
--- Last update: 2020-08-04
+-- Last update: 2020-08-24
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -179,6 +179,18 @@ architecture RTL of FFT_Wrapper is
             );
     end component;
 
+    component FFT_Filter is
+        port(
+            clk             : in  std_logic;
+            reset_n         : in  std_logic;
+            FFT_dout        : out std_logic_vector(15 downto 0);
+            FFT_start       : in  std_logic;
+            FFT_selection   : in  std_logic_vector(3 downto 0);
+            FFT_done        : out std_logic;
+            FFT_din         : in  std_logic_vector(15 downto 0)
+            );
+    end component;
+
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
@@ -209,6 +221,8 @@ architecture RTL of FFT_Wrapper is
     signal FFT_rounds_nb        : std_logic_vector(3 downto 0);
     signal FFT_addr_valid       : std_logic;
     signal FFT_data_valid       : std_logic;
+    signal FFT_filter_done      : std_logic;
+    signal FFT_filter_out       : std_logic_vector(15 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
@@ -333,7 +347,7 @@ begin
     U_FFT_Sampler : FFT_Sampler port map(
         clk                 => clk,
         reset_n             => reset_n,
-        FFT_din             => FFT_din,
+        FFT_din             => FFT_filter_out,
         FFT_new_sample      => FFT_new_sample,
         FFT_sample_point    => FFT_sample_point,
         FFT_end_point       => FFT_end_point,
@@ -353,6 +367,19 @@ begin
         FFT_rounds_nb       => FFT_rounds_nb,
         FFT_sample_point    => FFT_sample_point,
         FFT_end_point       => FFT_end_point);
+
+    ----------------------------------------------------------------
+    -- INSTANCE : U_FFT_Filter
+    -- Description : FFT filter to cut unwanted frequencies before undersampling
+    ----------------------------------------------------------------
+    U_FFT_Filter : FFT_Filter port map(
+        clk             => clk,
+        reset_n         => reset_n,
+        FFT_dout        => FFT_filter_out,
+        FFT_start       => FFT_new_sample,
+        FFT_selection   => FFT_end_point,
+        FFT_done        => FFT_filter_done,
+        FFT_din         => FFT_din);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :

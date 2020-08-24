@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="FFT_Filter_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="FFT_Filter_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1003584739fs"></ZoomEndTime>
+      <Cursor1Time time="2405285000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="258"></NameColumnWidth>
+      <ValueColumnWidth column_width="110"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="48" />
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/reset_n" type="logic">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FFT_dout" type="array">
+      <obj_property name="ElementShortName">FFT_dout[15:0]</obj_property>
+      <obj_property name="ObjectShortName">FFT_dout[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FFT_start" type="logic">
+      <obj_property name="ElementShortName">FFT_start</obj_property>
+      <obj_property name="ObjectShortName">FFT_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FFT_selection" type="array">
+      <obj_property name="ElementShortName">FFT_selection[3:0]</obj_property>
+      <obj_property name="ObjectShortName">FFT_selection[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FFT_done" type="logic">
+      <obj_property name="ElementShortName">FFT_done</obj_property>
+      <obj_property name="ObjectShortName">FFT_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FFT_din" type="array">
+      <obj_property name="ElementShortName">FFT_din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">FFT_din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/current_state" type="other">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/next_state" type="other">
+      <obj_property name="ElementShortName">next_state</obj_property>
+      <obj_property name="ObjectShortName">next_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_clr" type="logic">
+      <obj_property name="ElementShortName">FSM_clr</obj_property>
+      <obj_property name="ObjectShortName">FSM_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_addr_sel" type="logic">
+      <obj_property name="ElementShortName">FSM_addr_sel</obj_property>
+      <obj_property name="ObjectShortName">FSM_addr_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_store" type="logic">
+      <obj_property name="ElementShortName">FSM_store</obj_property>
+      <obj_property name="ObjectShortName">FSM_store</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_done" type="logic">
+      <obj_property name="ElementShortName">FSM_done</obj_property>
+      <obj_property name="ObjectShortName">FSM_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_en_d" type="array">
+      <obj_property name="ElementShortName">FSM_en_d[0:7]</obj_property>
+      <obj_property name="ObjectShortName">FSM_en_d[0:7]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_start" type="logic">
+      <obj_property name="ElementShortName">FSM_start</obj_property>
+      <obj_property name="ObjectShortName">FSM_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/RAM_out" type="array">
+      <obj_property name="ElementShortName">RAM_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_out[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/RAM_in" type="array">
+      <obj_property name="ElementShortName">RAM_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_in[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/RAM_wea" type="array">
+      <obj_property name="ElementShortName">RAM_wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/RAM_write" type="logic">
+      <obj_property name="ElementShortName">RAM_write</obj_property>
+      <obj_property name="ObjectShortName">RAM_write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/RAM_enable" type="logic">
+      <obj_property name="ElementShortName">RAM_enable</obj_property>
+      <obj_property name="ObjectShortName">RAM_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_en" type="logic">
+      <obj_property name="ElementShortName">FSM_en</obj_property>
+      <obj_property name="ObjectShortName">FSM_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/RAM_addr" type="array">
+      <obj_property name="ElementShortName">RAM_addr[8:0]</obj_property>
+      <obj_property name="ObjectShortName">RAM_addr[8:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/ROM_addr" type="array">
+      <obj_property name="ElementShortName">ROM_addr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">ROM_addr[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/ROM_out" type="array">
+      <obj_property name="ElementShortName">ROM_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ROM_out[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_coef" type="array">
+      <obj_property name="ElementShortName">cnt_coef[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_coef[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_coef_clr" type="logic">
+      <obj_property name="ElementShortName">cnt_coef_clr</obj_property>
+      <obj_property name="ObjectShortName">cnt_coef_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_coef_dec" type="logic">
+      <obj_property name="ElementShortName">cnt_coef_dec</obj_property>
+      <obj_property name="ObjectShortName">cnt_coef_dec</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_coef_inc" type="logic">
+      <obj_property name="ElementShortName">cnt_coef_inc</obj_property>
+      <obj_property name="ObjectShortName">cnt_coef_inc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_coef_end" type="logic">
+      <obj_property name="ElementShortName">cnt_coef_end</obj_property>
+      <obj_property name="ObjectShortName">cnt_coef_end</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_coef_zero" type="logic">
+      <obj_property name="ElementShortName">cnt_coef_zero</obj_property>
+      <obj_property name="ObjectShortName">cnt_coef_zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_wr" type="array">
+      <obj_property name="ElementShortName">cnt_wr[8:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_wr[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_rd" type="array">
+      <obj_property name="ElementShortName">cnt_rd[8:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_rd[8:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_rd_load" type="logic">
+      <obj_property name="ElementShortName">cnt_rd_load</obj_property>
+      <obj_property name="ObjectShortName">cnt_rd_load</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_rd_dec" type="logic">
+      <obj_property name="ElementShortName">cnt_rd_dec</obj_property>
+      <obj_property name="ObjectShortName">cnt_rd_dec</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/accu" type="array">
+      <obj_property name="ElementShortName">accu[40:0]</obj_property>
+      <obj_property name="ObjectShortName">accu[40:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_en_d[2]" type="logic">
+      <obj_property name="ElementShortName">[2]</obj_property>
+      <obj_property name="ObjectShortName">[2]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/mult_opA" type="array">
+      <obj_property name="ElementShortName">mult_opA[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_opA[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/mult_opB" type="array">
+      <obj_property name="ElementShortName">mult_opB[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_opB[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_en_d[5]" type="logic">
+      <obj_property name="ElementShortName">[5]</obj_property>
+      <obj_property name="ObjectShortName">[5]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/mult_out" type="array">
+      <obj_property name="ElementShortName">mult_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FSM_en_d[6]" type="logic">
+      <obj_property name="ElementShortName">[6]</obj_property>
+      <obj_property name="ObjectShortName">[6]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/mult_out_d" type="array">
+      <obj_property name="ElementShortName">mult_out_d[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_out_d[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/sat0_out" type="array">
+      <obj_property name="ElementShortName">sat0_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sat0_out[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/sat1_out" type="array">
+      <obj_property name="ElementShortName">sat1_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sat1_out[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/sat2_out" type="array">
+      <obj_property name="ElementShortName">sat2_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sat2_out[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/sat3_out" type="array">
+      <obj_property name="ElementShortName">sat3_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sat3_out[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/sat4_out" type="array">
+      <obj_property name="ElementShortName">sat4_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sat4_out[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/accu_en" type="logic">
+      <obj_property name="ElementShortName">accu_en</obj_property>
+      <obj_property name="ObjectShortName">accu_en</obj_property>
+   </wvobject>
+</wave_config>
