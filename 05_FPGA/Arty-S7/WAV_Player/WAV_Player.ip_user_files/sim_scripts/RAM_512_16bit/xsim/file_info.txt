@@ -1,0 +1,2 @@
+RAM_512_16bit.v,verilog,xil_defaultlib,../../../../WAV_Player.srcs/sources_1/ip/RAM_512_16bit/sim/RAM_512_16bit.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

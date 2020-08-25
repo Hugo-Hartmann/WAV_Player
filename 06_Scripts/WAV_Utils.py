@@ -1,7 +1,7 @@
 #############################
 ### Python Utility function for GUI
 ### Created     2020-02-29
-### Last update 2020-08-04
+### Last update 2020-08-05
 ### Author      Hugo HARTMANN
 #############################
 

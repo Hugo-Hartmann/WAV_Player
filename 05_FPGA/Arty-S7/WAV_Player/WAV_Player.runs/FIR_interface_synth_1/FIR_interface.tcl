@@ -18,10 +18,15 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -id {Synth 8-3331}  -suppress 
 set_msg_config  -id {Constraints 18-5210}  -suppress 
+set_msg_config  -id {Vivado 12-4473}  -string {{ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.}}  -suppress 
+set_msg_config  -id {USF-XSim-62}  -string {{ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.sim/sim_1/behav/xsim/xvhdl.log' file for more information.}}  -suppress 
 set_param project.vivado.isBlockSynthRun true
 create_project -in_memory -part xc7s50csga324-1
 
@@ -42,10 +47,10 @@ read_vhdl -library xil_defaultlib {
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_interface.vhd
 }
 read_vhdl -library lib_VHDL C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TYPE_Pkg.vhd
-read_ip -quiet c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_7/ROM_1024_16bit_7.xci
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_7/ROM_1024_16bit_7.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_7/ROM_1024_16bit_7_ooc.xdc]
 
-read_ip -quiet c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_6/ROM_1024_16bit_6.xci
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_6/ROM_1024_16bit_6.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_6/ROM_1024_16bit_6_ooc.xdc]
 
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5.xci
@@ -70,7 +75,7 @@ read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Pla
 
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
 
-read_ip -quiet c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_8/ROM_1024_16bit_8.xci
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_8/ROM_1024_16bit_8.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_8/ROM_1024_16bit_8_ooc.xdc]
 
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci

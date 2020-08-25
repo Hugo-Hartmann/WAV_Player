@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="FFT_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1596442738">
+<GenRun Id="FFT_Wrapper_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1598351876">
   <File Type="PA-TCL" Name="FFT_Wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="FFT_Wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="FFT_Wrapper_reports.tcl"/>
@@ -10,7 +10,7 @@
   <File Type="VDS-TIMINGSUMMARY" Name="FFT_Wrapper_timing_summary_synth.rpt"/>
   <File Type="VDS-TIMING-PB" Name="FFT_Wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FFT_Wrapper">
-    <File Path="$PSRCDIR/sources_1/ip/FFT_FIFO/FFT_FIFO.xci">
+    <File Path="$PSRCDIR/sources_1/ip/Accu_s41/Accu_s41.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -18,6 +18,27 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/RAM_512_16bit/RAM_512_16bit.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ROM_16x256_16bit/ROM_16x256_16bit.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/FFT_FIFO/FFT_FIFO.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -85,6 +106,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../02_Source/FFT/FFT_FSM.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/FFT/FFT_Filter.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -134,7 +161,7 @@
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/FFT_Wrapper">
-    <File Path="$PSRCDIR/sources_1/ip/FFT_FIFO/FFT_FIFO.xci">
+    <File Path="$PSRCDIR/sources_1/ip/Accu_s41/Accu_s41.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -142,6 +169,27 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/RAM_512_16bit/RAM_512_16bit.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ROM_16x256_16bit/ROM_16x256_16bit.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/FFT_FIFO/FFT_FIFO.xci">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -209,6 +257,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../02_Source/FFT/FFT_FSM.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../02_Source/FFT/FFT_Filter.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -264,7 +318,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

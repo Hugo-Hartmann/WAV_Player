@@ -10,7 +10,12 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==Multiplier_s16_
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_32bit || ORIG_REF_NAME==BRAM_2048_32bit} -quiet] -quiet
 
+# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit_NRM/RAM_2048_16bit_NRM.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_16bit_NRM || ORIG_REF_NAME==RAM_2048_16bit_NRM} -quiet] -quiet
+
 # XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc
+
+# XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit_NRM/RAM_2048_16bit_NRM_ooc.xdc
 
 # XDC: new/NRM_Wrapper_ooc.xdc
 
@@ -23,6 +28,11 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_32bit
 # IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BRAM_2048_32bit || ORIG_REF_NAME==BRAM_2048_32bit} -quiet] -quiet
 
+# IP: C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit_NRM/RAM_2048_16bit_NRM.xci
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==RAM_2048_16bit_NRM || ORIG_REF_NAME==RAM_2048_16bit_NRM} -quiet] -quiet
+
 # XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc
+
+# XDC: c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit_NRM/RAM_2048_16bit_NRM_ooc.xdc
 
 # XDC: new/NRM_Wrapper_ooc.xdc

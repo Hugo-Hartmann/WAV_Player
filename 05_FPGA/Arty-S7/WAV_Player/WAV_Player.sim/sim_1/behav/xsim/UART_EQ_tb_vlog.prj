@@ -1,9 +1,0 @@
-# compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../WAV_Player.srcs/sources_1/ip/MMCM" --include "../../../../WAV_Player.srcs/sources_1/ip/MMCM_112" \
-"../../../../WAV_Player.srcs/sources_1/ip/ROM_32_16bit/sim/ROM_32_16bit.v" \
-
-# compile glbl module
-verilog xil_defaultlib "glbl.v"
-
-# Do not sort compile order
-nosort

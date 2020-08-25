@@ -14,17 +14,17 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s50'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 17016 
+INFO: Helper process launched with PID 13248 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 415.867 ; gain = 105.984
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 417.582 ; gain = 106.359
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'FFT_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:69]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'FFT_RAM_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:31' bound to instance 'U_FFT_RAM_Wrapper' of component 'FFT_RAM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:226]
-INFO: [Synth 8-638] synthesizing module 'FFT_RAM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:73]
+INFO: [Synth 8-3491] module 'FFT_RAM_Wrapper' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:31' bound to instance 'U_FFT_RAM_Wrapper' of component 'FFT_RAM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:243]
+INFO: [Synth 8-638] synthesizing module 'FFT_RAM_Wrapper' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:74]
 	Parameter G_BEHAVIOURAL bound to: 0 - type: bool 
-INFO: [Synth 8-3491] module 'BRAM_2048_16bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:59' bound to instance 'U_RAM_Sample' of component 'BRAM_2048_16bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:218]
+INFO: [Synth 8-3491] module 'BRAM_2048_16bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:59' bound to instance 'U_RAM_Sample' of component 'BRAM_2048_16bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:249]
 INFO: [Synth 8-638] synthesizing module 'BRAM_2048_16bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:76]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -101,9 +101,9 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_2048_16bit' [c:/Users/Hugo/Documen
 	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     5.349 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:249]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:249]
 INFO: [Synth 8-256] done synthesizing module 'BRAM_2048_16bit' (9#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/synth/BRAM_2048_16bit.vhd:76]
-INFO: [Synth 8-3491] module 'BRAM_2048_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:59' bound to instance 'U_RAM_FFTA' of component 'BRAM_2048_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:258]
+INFO: [Synth 8-3491] module 'BRAM_2048_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:59' bound to instance 'U_RAM_FFTA' of component 'BRAM_2048_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:289]
 INFO: [Synth 8-638] synthesizing module 'BRAM_2048_32bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:76]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -180,10 +180,10 @@ INFO: [Synth 8-638] synthesizing module 'BRAM_2048_32bit' [c:/Users/Hugo/Documen
 	Parameter C_COUNT_36K_BRAM bound to: 2 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     10.698 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:249]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:249]
 INFO: [Synth 8-256] done synthesizing module 'BRAM_2048_32bit' (11#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:76]
-INFO: [Synth 8-3491] module 'BRAM_2048_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:59' bound to instance 'U_RAM_FFTB' of component 'BRAM_2048_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:278]
-INFO: [Synth 8-3491] module 'ROM_1024_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:59' bound to instance 'U_RAM_COEF' of component 'ROM_1024_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:446]
+INFO: [Synth 8-3491] module 'BRAM_2048_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/synth/BRAM_2048_32bit.vhd:59' bound to instance 'U_RAM_FFTB' of component 'BRAM_2048_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:309]
+INFO: [Synth 8-3491] module 'ROM_1024_32bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:59' bound to instance 'U_RAM_COEF' of component 'ROM_1024_32bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:477]
 INFO: [Synth 8-638] synthesizing module 'ROM_1024_32bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:67]
 	Parameter C_FAMILY bound to: spartan7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
@@ -260,26 +260,26 @@ INFO: [Synth 8-638] synthesizing module 'ROM_1024_32bit' [c:/Users/Hugo/Document
 	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.622 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:230]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:230]
 INFO: [Synth 8-256] done synthesizing module 'ROM_1024_32bit' (12#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/synth/ROM_1024_32bit.vhd:67]
-INFO: [Synth 8-4471] merging register 'RAM_FFTA_wrB_reg[0:0]' into 'RAM_FFTA_wrA_reg[0:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:209]
-INFO: [Synth 8-4471] merging register 'RAM_FFTB_dinA_reg[31:0]' into 'RAM_FFTA_dinA_reg[31:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:283]
-INFO: [Synth 8-4471] merging register 'RAM_FFTB_dinB_reg[31:0]' into 'RAM_FFTA_dinB_reg[31:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:289]
-INFO: [Synth 8-4471] merging register 'RAM_FFTB_wrB_reg[0:0]' into 'RAM_FFTB_wrA_reg[0:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:211]
-INFO: [Synth 8-4471] merging register 'RAM_smple_rdB_reg' into 'RAM_smple_rdA_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:207]
-INFO: [Synth 8-4471] merging register 'RAM_FFTA_rdB_reg' into 'RAM_FFTA_rdA_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:209]
-INFO: [Synth 8-4471] merging register 'RAM_FFTB_rdB_reg' into 'RAM_FFTB_rdA_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:211]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTA_wrB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:209]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinA_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:283]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:289]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_wrB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:211]
-WARNING: [Synth 8-6014] Unused sequential element RAM_smple_rdB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:207]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTA_rdB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:209]
-WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_rdB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:211]
-INFO: [Synth 8-256] done synthesizing module 'FFT_RAM_Wrapper' (13#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:73]
-INFO: [Synth 8-3491] module 'FFT_FSM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FSM.vhd:30' bound to instance 'U_FFT_FSM' of component 'FFT_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:256]
+INFO: [Synth 8-4471] merging register 'RAM_FFTA_wrB_reg[0:0]' into 'RAM_FFTA_wrA_reg[0:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:240]
+INFO: [Synth 8-4471] merging register 'RAM_FFTB_dinA_reg[31:0]' into 'RAM_FFTA_dinA_reg[31:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:314]
+INFO: [Synth 8-4471] merging register 'RAM_FFTB_dinB_reg[31:0]' into 'RAM_FFTA_dinB_reg[31:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:320]
+INFO: [Synth 8-4471] merging register 'RAM_FFTB_wrB_reg[0:0]' into 'RAM_FFTB_wrA_reg[0:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:242]
+INFO: [Synth 8-4471] merging register 'RAM_smple_rdB_reg' into 'RAM_smple_rdA_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:238]
+INFO: [Synth 8-4471] merging register 'RAM_FFTA_rdB_reg' into 'RAM_FFTA_rdA_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:240]
+INFO: [Synth 8-4471] merging register 'RAM_FFTB_rdB_reg' into 'RAM_FFTB_rdA_reg' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:242]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTA_wrB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:240]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinA_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:314]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_dinB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:320]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_wrB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:242]
+WARNING: [Synth 8-6014] Unused sequential element RAM_smple_rdB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:238]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTA_rdB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:240]
+WARNING: [Synth 8-6014] Unused sequential element RAM_FFTB_rdB_reg was removed.  [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:242]
+INFO: [Synth 8-256] done synthesizing module 'FFT_RAM_Wrapper' (13#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_RAM_Wrapper.vhd:74]
+INFO: [Synth 8-3491] module 'FFT_FSM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FSM.vhd:30' bound to instance 'U_FFT_FSM' of component 'FFT_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:274]
 INFO: [Synth 8-638] synthesizing module 'FFT_FSM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FSM.vhd:56]
-INFO: [Synth 8-3491] module 'Accu10' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu10/synth/Accu10.vhd:59' bound to instance 'U_Coef_Accu' of component 'Accu10' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FSM.vhd:130]
+INFO: [Synth 8-3491] module 'Accu10' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu10/synth/Accu10.vhd:59' bound to instance 'U_Coef_Accu' of component 'Accu10' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FSM.vhd:137]
 INFO: [Synth 8-638] synthesizing module 'Accu10' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu10/synth/Accu10.vhd:69]
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_IMPLEMENTATION bound to: 0 - type: integer 
@@ -301,9 +301,9 @@ INFO: [Synth 8-638] synthesizing module 'Accu10' [c:/Users/Hugo/Documents/GitHub
 	Parameter C_SCLR_OVERRIDES_SSET bound to: 1 - type: integer 
 	Parameter C_HAS_SSET bound to: 0 - type: integer 
 	Parameter C_HAS_SINIT bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'c_accum_v12_0_12' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/hdl/c_accum_v12_0_vh_rfs.vhd:2296' bound to instance 'U0' of component 'c_accum_v12_0_12' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu10/synth/Accu10.vhd:127]
+INFO: [Synth 8-3491] module 'c_accum_v12_0_12' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s41/hdl/c_accum_v12_0_vh_rfs.vhd:2296' bound to instance 'U0' of component 'c_accum_v12_0_12' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu10/synth/Accu10.vhd:127]
 INFO: [Synth 8-256] done synthesizing module 'Accu10' (22#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu10/synth/Accu10.vhd:69]
-INFO: [Synth 8-3491] module 'Accu11' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/synth/Accu11.vhd:59' bound to instance 'U_AddrA_Accu' of component 'Accu11' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FSM.vhd:141]
+INFO: [Synth 8-3491] module 'Accu11' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/synth/Accu11.vhd:59' bound to instance 'U_AddrA_Accu' of component 'Accu11' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FSM.vhd:148]
 INFO: [Synth 8-638] synthesizing module 'Accu11' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/synth/Accu11.vhd:69]
 	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
 	Parameter C_IMPLEMENTATION bound to: 0 - type: integer 
@@ -325,11 +325,11 @@ INFO: [Synth 8-638] synthesizing module 'Accu11' [c:/Users/Hugo/Documents/GitHub
 	Parameter C_SCLR_OVERRIDES_SSET bound to: 1 - type: integer 
 	Parameter C_HAS_SSET bound to: 0 - type: integer 
 	Parameter C_HAS_SINIT bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'c_accum_v12_0_12' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/hdl/c_accum_v12_0_vh_rfs.vhd:2296' bound to instance 'U0' of component 'c_accum_v12_0_12' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/synth/Accu11.vhd:127]
+INFO: [Synth 8-3491] module 'c_accum_v12_0_12' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s41/hdl/c_accum_v12_0_vh_rfs.vhd:2296' bound to instance 'U0' of component 'c_accum_v12_0_12' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/synth/Accu11.vhd:127]
 INFO: [Synth 8-256] done synthesizing module 'Accu11' (23#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/synth/Accu11.vhd:69]
 INFO: [Synth 8-256] done synthesizing module 'FFT_FSM' (24#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_FSM.vhd:56]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'FFT_UAL' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_UAL.vhd:30' bound to instance 'U_FFT_UAL' of component 'FFT_UAL' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:279]
+INFO: [Synth 8-3491] module 'FFT_UAL' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_UAL.vhd:30' bound to instance 'U_FFT_UAL' of component 'FFT_UAL' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:297]
 INFO: [Synth 8-638] synthesizing module 'FFT_UAL' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_UAL.vhd:64]
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
 	Parameter G_OPERAND_SIZE bound to: 16 - type: integer 
@@ -402,7 +402,7 @@ INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Docu
 INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult4' of component 'Multiplier_s16_s16' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Multiplier.vhd:170]
 INFO: [Synth 8-256] done synthesizing module 'FFT_Multiplier' (33#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Multiplier.vhd:60]
 INFO: [Synth 8-256] done synthesizing module 'FFT_UAL' (34#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_UAL.vhd:64]
-INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/synth/FFT_FIFO.vhd:59' bound to instance 'U_FIFO_addrA' of component 'FFT_FIFO' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:301]
+INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/synth/FFT_FIFO.vhd:59' bound to instance 'U_FIFO_addrA' of component 'FFT_FIFO' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:319]
 INFO: [Synth 8-638] synthesizing module 'FFT_FIFO' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/synth/FFT_FIFO.vhd:72]
 	Parameter C_COMMON_CLOCK bound to: 1 - type: integer 
 	Parameter C_SELECT_XPM bound to: 0 - type: integer 
@@ -611,16 +611,202 @@ INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_async_rst' [C:/Xilinx/Vivado/2
 INFO: [Synth 8-5534] Detected attribute (* ASYNC_REG = "TRUE" *) [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1222]
 INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_async_rst' (35#1) [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1171]
 INFO: [Synth 8-256] done synthesizing module 'FFT_FIFO' (53#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/synth/FFT_FIFO.vhd:72]
-INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/synth/FFT_FIFO.vhd:59' bound to instance 'U_FIFO_addrB' of component 'FFT_FIFO' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:315]
-INFO: [Synth 8-3491] module 'FFT_Sampler' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Sampler.vhd:31' bound to instance 'U_FFT_Sampler' of component 'FFT_Sampler' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:329]
+INFO: [Synth 8-3491] module 'FFT_FIFO' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/synth/FFT_FIFO.vhd:59' bound to instance 'U_FIFO_addrB' of component 'FFT_FIFO' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:333]
+INFO: [Synth 8-3491] module 'FFT_Sampler' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Sampler.vhd:31' bound to instance 'U_FFT_Sampler' of component 'FFT_Sampler' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:347]
 INFO: [Synth 8-638] synthesizing module 'FFT_Sampler' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Sampler.vhd:56]
 INFO: [Synth 8-256] done synthesizing module 'FFT_Sampler' (54#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Sampler.vhd:56]
-INFO: [Synth 8-3491] module 'FFT_Config_RAM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Config_RAM.vhd:32' bound to instance 'U_FFT_Config_RAM' of component 'FFT_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:343]
-INFO: [Synth 8-638] synthesizing module 'FFT_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Config_RAM.vhd:54]
-INFO: [Synth 8-256] done synthesizing module 'FFT_Config_RAM' (55#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Config_RAM.vhd:54]
-INFO: [Synth 8-256] done synthesizing module 'FFT_Wrapper' (56#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:69]
+INFO: [Synth 8-3491] module 'FFT_Config_RAM' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Config_RAM.vhd:32' bound to instance 'U_FFT_Config_RAM' of component 'FFT_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:361]
+INFO: [Synth 8-638] synthesizing module 'FFT_Config_RAM' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Config_RAM.vhd:55]
+INFO: [Synth 8-256] done synthesizing module 'FFT_Config_RAM' (55#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Config_RAM.vhd:55]
+INFO: [Synth 8-3491] module 'FFT_Filter' declared at 'C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Filter.vhd:30' bound to instance 'U_FFT_Filter' of component 'FFT_Filter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:375]
+INFO: [Synth 8-638] synthesizing module 'FFT_Filter' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Filter.vhd:54]
+INFO: [Synth 8-3491] module 'ROM_16x256_16bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_16x256_16bit/synth/ROM_16x256_16bit.vhd:59' bound to instance 'U_ROM' of component 'ROM_16x256_16bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Filter.vhd:181]
+INFO: [Synth 8-638] synthesizing module 'ROM_16x256_16bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_16x256_16bit/synth/ROM_16x256_16bit.vhd:68]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: ROM_16x256_16bit.mif - type: string 
+	Parameter C_INIT_FILE bound to: ROM_16x256_16bit.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 4096 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 4096 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 12 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 4096 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 4096 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 12 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 2 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     4.652799 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_16x256_16bit/synth/ROM_16x256_16bit.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'ROM_16x256_16bit' (56#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_16x256_16bit/synth/ROM_16x256_16bit.vhd:68]
+INFO: [Synth 8-3491] module 'RAM_512_16bit' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/synth/RAM_512_16bit.vhd:59' bound to instance 'U_RAM' of component 'RAM_512_16bit' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Filter.vhd:202]
+INFO: [Synth 8-638] synthesizing module 'RAM_512_16bit' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/synth/RAM_512_16bit.vhd:70]
+	Parameter C_FAMILY bound to: spartan7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 0 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
+	Parameter C_INIT_FILE bound to: RAM_512_16bit.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 512 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 512 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 9 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 512 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 512 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 9 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.87285 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/synth/RAM_512_16bit.vhd:236]
+INFO: [Synth 8-256] done synthesizing module 'RAM_512_16bit' (57#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/synth/RAM_512_16bit.vhd:70]
+INFO: [Synth 8-3491] module 'Multiplier_s16_s16' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/synth/Multiplier_s16_s16.vhd:59' bound to instance 'U_Mult' of component 'Multiplier_s16_s16' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Filter.vhd:232]
+INFO: [Synth 8-3491] module 'Accu_s41' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s41/synth/Accu_s41.vhd:59' bound to instance 'U_Accu' of component 'Accu_s41' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Filter.vhd:278]
+INFO: [Synth 8-638] synthesizing module 'Accu_s41' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s41/synth/Accu_s41.vhd:69]
+	Parameter C_XDEVICEFAMILY bound to: spartan7 - type: string 
+	Parameter C_IMPLEMENTATION bound to: 1 - type: integer 
+	Parameter C_VERBOSITY bound to: 0 - type: integer 
+	Parameter C_B_WIDTH bound to: 32 - type: integer 
+	Parameter C_OUT_WIDTH bound to: 41 - type: integer 
+	Parameter C_B_TYPE bound to: 0 - type: integer 
+	Parameter C_CE_OVERRIDES_SCLR bound to: 0 - type: integer 
+	Parameter C_ADD_MODE bound to: 0 - type: integer 
+	Parameter C_HAS_C_IN bound to: 0 - type: integer 
+	Parameter C_HAS_CE bound to: 1 - type: integer 
+	Parameter C_HAS_BYPASS bound to: 0 - type: integer 
+	Parameter C_HAS_SCLR bound to: 1 - type: integer 
+	Parameter C_LATENCY bound to: 2 - type: integer 
+	Parameter C_SCALE bound to: 0 - type: integer 
+	Parameter C_AINIT_VAL bound to: 0 - type: string 
+	Parameter C_SINIT_VAL bound to: 0 - type: string 
+	Parameter C_BYPASS_LOW bound to: 0 - type: integer 
+	Parameter C_SCLR_OVERRIDES_SSET bound to: 1 - type: integer 
+	Parameter C_HAS_SSET bound to: 0 - type: integer 
+	Parameter C_HAS_SINIT bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'c_accum_v12_0_12' declared at 'c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s41/hdl/c_accum_v12_0_vh_rfs.vhd:2296' bound to instance 'U0' of component 'c_accum_v12_0_12' [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s41/synth/Accu_s41.vhd:127]
+INFO: [Synth 8-256] done synthesizing module 'Accu_s41' (62#1) [c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s41/synth/Accu_s41.vhd:69]
+INFO: [Synth 8-256] done synthesizing module 'FFT_Filter' (63#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Filter.vhd:54]
+INFO: [Synth 8-256] done synthesizing module 'FFT_Wrapper' (64#1) [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Wrapper.vhd:69]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:59 ; elapsed = 00:02:01 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished RTL Elaboration : Time (s): cpu = 00:03:18 ; elapsed = 00:03:22 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -633,13 +819,13 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:59 ; elapsed = 00:02:02 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:18 ; elapsed = 00:03:22 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:59 ; elapsed = 00:02:02 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:03:18 ; elapsed = 00:03:22 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 46 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-17] Analyzing 50 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Device 21-403] Loading part xc7s50csga324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -655,43 +841,48 @@ Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_
 Finished Parsing XDC File [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/FFT_Wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/FFT_Wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 884.375 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1100.117 ; gain = 0.000
 Sourcing Tcl File [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'U_FIFO_addrA/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 Sourcing Tcl File [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 Finished Sourcing Tcl File [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'U_FIFO_addrB/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/FFT_Wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/FFT_Wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 884.375 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1100.117 ; gain = 0.000
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 884.375 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1100.117 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 1 instances were transformed.
+  DSP48E => DSP48E1: 1 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 884.375 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.060 . Memory (MB): peak = 884.375 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1100.117 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1100.117 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Constraint Validation : Time (s): cpu = 00:03:32 ; elapsed = 00:03:37 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Loading Part and Timing Information : Time (s): cpu = 00:03:32 ; elapsed = 00:03:37 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for U_FIFO_addrA/U0. (constraint file  C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc, line 26).
-Applied set_property DONT_TOUCH = true for U_FIFO_addrB/U0. (constraint file  C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc, line 26).
-Applied set_property DONT_TOUCH = true for U_FIFO_addrA. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for U_FIFO_addrB. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FIFO_addrA/U0. (constraint file  C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc, line 39).
+Applied set_property DONT_TOUCH = true for U_FIFO_addrB/U0. (constraint file  C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/dont_touch.xdc, line 39).
+Applied set_property DONT_TOUCH = true for U_FFT_Filter/U_Accu. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FFT_Filter/U_Mult. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_UAL/U_Multiplier/U_Mult1. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_UAL/U_Multiplier/U_Mult2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_UAL/U_Multiplier/U_Mult3. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_UAL/U_Multiplier/U_Mult4. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FFT_Filter/U_RAM. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FFT_Filter/U_ROM. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FIFO_addrA. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_FIFO_addrB. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_FSM/U_AddrA_Accu. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_FSM/U_Coef_Accu. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM3.U_RAM_COEF . (constraint file  auto generated constraint, line ).
@@ -701,51 +892,73 @@ Applied set_property DONT_TOUCH = true for U_FFT_RAM_Wrapper/\RAM0.U_RAM_Sample 
 Applied set_property DONT_TOUCH = true for U_FIFO_addrA/U0/inst_fifo_gen/\gconvfifo.rf /\grf.rf /rstblk/\ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U_FIFO_addrB/U0/inst_fifo_gen/\gconvfifo.rf /\grf.rf /rstblk/\ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:32 ; elapsed = 00:03:38 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "RAM_FFTA_rdA" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'FFT_FSM'
-INFO: [Synth 8-5544] ROM "addrA_acc_din" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "addrB_add_din" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "addrA_acc_din" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "cnt_data_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "cnt_stage_set" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "addr_valid" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cnt_jump_inc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cnt_addr_clr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FFT_done" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "addrB_add_din" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "addrA_acc_din" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "cnt_data_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "cnt_stage_set" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "addr_valid" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cnt_jump_inc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "cnt_addr_clr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FFT_done" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "leaving_empty_fwft" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "cnt_sample_zero" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "spl_addr_valid" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "spl_addr_valid" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rd_addr_valid" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Filter.vhd:427]
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'FFT_Filter'
+INFO: [Synth 8-5546] ROM "cnt_coef_zero" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_coef_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-               fft_reset |                00000000000000001 |                            00000
-                fft_idle |                00000000000000010 |                            00001
-         fft_wait_sample |                00000000000000100 |                            00010
-           fft_new_stage |                00000000000001000 |                            00011
-           fft_wait_pipe |                00000000000010000 |                            00100
-         fft_addr_start1 |                00000000000100000 |                            00101
-         fft_addr_start2 |                00000000001000000 |                            00110
-         fft_addr_start3 |                00000000010000000 |                            00111
-         fft_addr_start4 |                00000000100000000 |                            01000
-         fft_addr_start5 |                00000001000000000 |                            01001
-           fft_addr_loop |                00000010000000000 |                            01010
-           fft_addr_end1 |                00000100000000000 |                            01011
-           fft_addr_end2 |                00001000000000000 |                            01100
-           fft_addr_end3 |                00010000000000000 |                            01101
-           fft_addr_end4 |                00100000000000000 |                            01110
-         fft_pipe_unload |                01000000000000000 |                            01111
-                 fft_end |                10000000000000000 |                            10000
+               fft_reset |                         00000001 |                              000
+                fft_idle |                         00000010 |                              001
+         fft_wait_sample |                         00000100 |                              010
+           fft_new_stage |                         00001000 |                              011
+           fft_wait_pipe |                         00010000 |                              100
+           fft_addr_loop |                         00100000 |                              101
+         fft_pipe_unload |                         01000000 |                              110
+                 fft_end |                         10000000 |                              111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'FFT_FSM'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+               fft_reset |                          0000001 |                              000
+                fft_idle |                          0000010 |                              001
+               fft_begin |                          0000100 |                              010
+                fft_acc1 |                          0001000 |                              011
+                fft_acc2 |                          0010000 |                              100
+                 fft_end |                          0100000 |                              101
+               fft_store |                          1000000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'FFT_Filter'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:13 ; elapsed = 00:02:16 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:03:34 ; elapsed = 00:03:39 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -785,14 +998,19 @@ INFO: [Synth 8-4471] merging register 'U_Sub/opB_r_reg[15:0]' into 'U_Adder/opB_
 INFO: [Synth 8-4471] merging register 'U_Sub/opA_r_reg[15:0]' into 'U_Adder/opA_r_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Adder.vhd:94]
 INFO: [Synth 8-4471] merging register 'U_Sub/opB_i_reg[15:0]' into 'U_Adder/opB_i_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Adder.vhd:97]
 INFO: [Synth 8-4471] merging register 'U_Sub/opA_i_reg[15:0]' into 'U_Adder/opA_i_reg[15:0]' [C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Adder.vhd:95]
-INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "cnt_addr_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_data_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_data_end" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "p_0_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "cnt_sample_zero" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "rd_addr_valid" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "spl_addr_valid" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_coef_end" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt_coef_zero" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3886] merging instance 'U_FFT_Filter/FSM_start_reg' (FDC) to 'U_FFT_Sampler/FFT_new_sample_d_reg'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_RAM_Wrapper/RAM_smple_dinB_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_RAM_Wrapper/RAM_smple_dinB_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_RAM_Wrapper/RAM_smple_dinB_reg[2] )
@@ -810,73 +1028,74 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_RA
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_RAM_Wrapper/RAM_smple_dinB_reg[14] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_RAM_Wrapper/RAM_smple_dinB_reg[15] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_RAM_Wrapper/RAM_smple_wrB_reg[0] )
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[1]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[2]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[3]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[4]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[5]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[6]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[6]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[7]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[7]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[8]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[8]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[9]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[9]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[10]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[10]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[11]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[11]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[12]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[12]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[13]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[13]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[14]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[13] )
 INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opA_r_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opA_r_reg[15]'
 INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opB_r_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opB_r_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_r_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_r_reg[15]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[1]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[2]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[3]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[4]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[5]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[6]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[6]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[7]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[7]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[8]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[8]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[9]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[9]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[10]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[10]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[11]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[11]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[12]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[12]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[13]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[13]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[14]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_r_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[13] )
 INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opA_i_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opA_i_reg[15]'
 INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/opB_i_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/opB_i_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[14]' (FDC) to 'U_FFT_UAL/U_Adder/Cin_i_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Adder/Cin_i_reg[15]' (FDC) to 'U_FFT_FSM/addrA_acc_din_d_reg[10]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrA_acc_din_d_reg[10]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[1]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[2]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[3]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[4]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[5]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[6]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[6]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[7]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[7]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[8]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[8]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[9]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[9]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[10]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[10]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[11]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[11]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[12]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[12]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[13]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[13]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[14]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[14]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[15]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[16]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_i_reg[16]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[1]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[2]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[3]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[4]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[5]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[6]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[6]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[7]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[7]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[8]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[8]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[9]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[9]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[10]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[10]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[11]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[11]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[12]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[12]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[13]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[13]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[14]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[14]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[15]' (FDC) to 'U_FFT_UAL/U_Multiplier/round_Cin_r_reg[16]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Adder/Cin_i_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_FSM/addrA_acc_din_d_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_i_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[15] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_FFT_UAL/U_Multiplier/round_Cin_r_reg[16] )
+INFO: [Synth 8-3886] merging instance 'U_FFT_Filter/FSM_onehot_current_state_reg[0]' (FDP) to 'U_FFT_FSM/FSM_onehot_current_state_reg[0]'
 INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrC_acc_din_d_reg[0]' (FDC) to 'U_FFT_FSM/addrB_add_din_d_reg[10]'
 INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrC_acc_din_d_reg[1]' (FDC) to 'U_FFT_FSM/addrB_add_din_d_reg[9]'
 INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrC_acc_din_d_reg[2]' (FDC) to 'U_FFT_FSM/addrB_add_din_d_reg[8]'
@@ -888,7 +1107,7 @@ INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrC_acc_din_d_reg[7]' (FDC) t
 INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrC_acc_din_d_reg[8]' (FDC) to 'U_FFT_FSM/addrB_add_din_d_reg[2]'
 INFO: [Synth 8-3886] merging instance 'U_FFT_FSM/addrC_acc_din_d_reg[9]' (FDC) to 'U_FFT_FSM/addrB_add_din_d_reg[1]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:15 ; elapsed = 00:02:19 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:37 ; elapsed = 00:03:43 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -900,13 +1119,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:47 ; elapsed = 00:03:53 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:25 ; elapsed = 00:02:28 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Timing Optimization : Time (s): cpu = 00:03:47 ; elapsed = 00:03:53 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -918,7 +1137,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:25 ; elapsed = 00:02:29 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Technology Mapping : Time (s): cpu = 00:03:48 ; elapsed = 00:03:54 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -942,7 +1161,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished IO Insertion : Time (s): cpu = 00:03:49 ; elapsed = 00:03:54 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -955,7 +1174,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:49 ; elapsed = 00:03:54 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -967,82 +1186,89 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:49 ; elapsed = 00:03:54 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:49 ; elapsed = 00:03:54 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:49 ; elapsed = 00:03:55 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:49 ; elapsed = 00:03:55 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |DSP48E        |         1|
++------+--------------+----------+
 
 Report Cell Usage: 
-+------+-----------+------+
-|      |Cell       |Count |
-+------+-----------+------+
-|1     |CARRY4     |    51|
-|2     |DSP48E1    |     4|
-|3     |LUT1       |    14|
-|4     |LUT2       |   223|
-|5     |LUT3       |   142|
-|6     |LUT4       |   101|
-|7     |LUT5       |    63|
-|8     |LUT6       |    17|
-|9     |MUXCY      |    19|
-|10    |RAM32M     |     4|
-|11    |RAMB36E1   |     1|
-|12    |RAMB36E1_1 |     4|
-|13    |RAMB36E1_2 |     1|
-|14    |SRL16E     |    33|
-|15    |XORCY      |    21|
-|16    |FDCE       |   658|
-|17    |FDPE       |    29|
-|18    |FDRE       |   576|
-+------+-----------+------+
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |DSP48E_bbox_0 |     1|
+|2     |CARRY4        |    53|
+|3     |DSP48E1       |     5|
+|4     |LUT1          |    17|
+|5     |LUT2          |   243|
+|6     |LUT3          |   210|
+|7     |LUT4          |   130|
+|8     |LUT5          |    99|
+|9     |LUT6          |    80|
+|10    |MUXCY         |    19|
+|11    |MUXF7         |     1|
+|12    |RAM32M        |     4|
+|13    |RAMB18E1      |     1|
+|14    |RAMB36E1      |     1|
+|15    |RAMB36E1_1    |     4|
+|16    |RAMB36E1_2    |     1|
+|17    |RAMB36E1_3    |     1|
+|18    |RAMB36E1_4    |     1|
+|19    |SRL16E        |    34|
+|20    |XORCY         |    21|
+|21    |FDCE          |   810|
+|22    |FDPE          |    32|
+|23    |FDRE          |   681|
++------+--------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 884.375 ; gain = 574.492
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:49 ; elapsed = 00:03:55 . Memory (MB): peak = 1100.117 ; gain = 788.895
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1406 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:02:19 . Memory (MB): peak = 884.375 ; gain = 574.492
-Synthesis Optimization Complete : Time (s): cpu = 00:02:26 ; elapsed = 00:02:30 . Memory (MB): peak = 884.375 ; gain = 574.492
+Synthesis finished with 0 errors, 0 critical warnings and 1757 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:03:42 . Memory (MB): peak = 1100.117 ; gain = 788.895
+Synthesis Optimization Complete : Time (s): cpu = 00:03:49 ; elapsed = 00:03:55 . Memory (MB): peak = 1100.117 ; gain = 788.895
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 105 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 113 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 884.375 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1100.117 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 10 instances were transformed.
+  A total of 11 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 6 instances
+  DSP48E => DSP48E1: 1 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-221 Infos, 10 Warnings, 0 Critical Warnings and 0 Errors encountered.
+263 Infos, 10 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:33 ; elapsed = 00:02:38 . Memory (MB): peak = 884.375 ; gain = 586.988
-INFO: [Coretcl 2-1174] Renamed 110 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 884.375 ; gain = 0.000
+synth_design: Time (s): cpu = 00:03:57 ; elapsed = 00:04:05 . Memory (MB): peak = 1100.117 ; gain = 801.148
+INFO: [Coretcl 2-1174] Renamed 138 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1100.117 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FFT_Wrapper_utilization_synth.rpt -pb FFT_Wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Aug  3 10:21:44 2020...
+INFO: [Common 17-206] Exiting Vivado at Tue Aug 25 12:42:08 2020...

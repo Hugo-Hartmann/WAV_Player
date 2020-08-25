@@ -17,11 +17,16 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
 set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -id {Synth 8-3331}  -suppress 
 set_msg_config  -id {Constraints 18-5210}  -suppress 
+set_msg_config  -id {Vivado 12-4473}  -string {{ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.}}  -suppress 
+set_msg_config  -id {USF-XSim-62}  -string {{ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.sim/sim_1/behav/xsim/xvhdl.log' file for more information.}}  -suppress 
 set_param project.vivado.isBlockSynthRun true
 create_project -in_memory -part xc7s50csga324-1
 
@@ -37,8 +42,11 @@ set_property target_language VHDL [current_project]
 set_property board_part digilentinc.com:arty-s7-50:part0:1.0 [current_project]
 set_property ip_output_repo c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
+read_vhdl -library lib_VHDL C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TYPE_Pkg.vhd
 read_vhdl -library xil_defaultlib {
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM/NRM_Config_RAM.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM/NRM_FSM.vhd
+  C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM/NRM_Mapper.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM/NRM_Normalizer.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM/NRM_RAM_Wrapper.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/NRM/NRM_Wrapper.vhd
@@ -49,6 +57,9 @@ read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Pla
 
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit_NRM/RAM_2048_16bit_NRM.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit_NRM/RAM_2048_16bit_NRM_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

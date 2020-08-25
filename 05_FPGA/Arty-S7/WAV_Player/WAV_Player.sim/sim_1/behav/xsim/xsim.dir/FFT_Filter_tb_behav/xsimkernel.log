@@ -1,0 +1,7 @@
+Running: xsim.dir/FFT_Filter_tb_behav/xsimk.exe -simmode gui -wdb FFT_Filter_tb_behav.wdb -simrunnum 0 -socket 56896
+Design successfully loaded
+Design Loading Memory Usage: 5736 KB (Peak: 5736 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 7320 KB (Peak: 7320 KB)
+Simulation CPU Usage: 30 ms

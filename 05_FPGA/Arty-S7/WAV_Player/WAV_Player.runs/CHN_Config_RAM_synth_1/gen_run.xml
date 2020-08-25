@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="CHN_Config_RAM_synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1596441647">
   <File Type="PA-TCL" Name="CHN_Config_RAM.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="CHN_Config_RAM_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="CHN_Config_RAM_reports.tcl"/>
   <File Type="RDS-RDS" Name="CHN_Config_RAM.vds"/>
   <File Type="RDS-UTIL" Name="CHN_Config_RAM_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="CHN_Config_RAM_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="CHN_Config_RAM.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="CHN_Config_RAM_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="CHN_Config_RAM_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/CHN_Config_RAM">
     <File Path="$PPRDIR/../../../02_Source/CHN/CHN_Config_RAM.vhd">
       <FileInfo>

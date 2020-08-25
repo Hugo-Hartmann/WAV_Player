@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl lib_VHDL  \
+"../../../../../../../02_Source/TYPE_Pkg.vhd" \
+"../../../../../../../02_Source/TOP_Arty.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../../../../02_Source/NRM/NRM_Mapper.vhd" \
+"../../../../../../../03_Tests/NRM_Mapper_tb.vhd" \
+
+# Do not sort compile order
+nosort

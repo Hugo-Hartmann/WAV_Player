@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2349530292fs"></ZoomStartTime>
-      <ZoomEndTime time="2376566901fs"></ZoomEndTime>
-      <Cursor1Time time="2405285000fs"></Cursor1Time>
+      <ZoomStartTime time="2416844612fs"></ZoomStartTime>
+      <ZoomEndTime time="2480985078fs"></ZoomEndTime>
+      <Cursor1Time time="2454542000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="258"></NameColumnWidth>
-      <ValueColumnWidth column_width="106"></ValueColumnWidth>
+      <ValueColumnWidth column_width="102"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="48" />
    <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/clk" type="logic">
@@ -31,6 +31,7 @@
    <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FFT_dout" type="array">
       <obj_property name="ElementShortName">FFT_dout[15:0]</obj_property>
       <obj_property name="ObjectShortName">FFT_dout[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/FFT_start" type="logic">
       <obj_property name="ElementShortName">FFT_start</obj_property>

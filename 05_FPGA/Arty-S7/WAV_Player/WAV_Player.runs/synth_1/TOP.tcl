@@ -18,10 +18,15 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -id {Synth 8-3331}  -suppress 
 set_msg_config  -id {Constraints 18-5210}  -suppress 
+set_msg_config  -id {Vivado 12-4473}  -string {{ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.}}  -suppress 
+set_msg_config  -id {USF-XSim-62}  -string {{ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.sim/sim_1/behav/xsim/xvhdl.log' file for more information.}}  -suppress 
 create_project -in_memory -part xc7s50csga324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -39,15 +44,16 @@ set_property ip_cache_permissions {read write} [current_project]
 add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/03_Tests/FFT_test.coe
 add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/EQ/EQ_coef.coe
 add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_2048.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_2000_4000.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_4000_8000.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_1000_2000.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_500_1000.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_125_250.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_63_125.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_31.5_63.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_8000_16000.coe
-add_files c:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_250_500.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_2000_4000.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_4000_8000.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_1000_2000.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_500_1000.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_125_250.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_63_125.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_31.5_63.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_8000_16000.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FIR/FIR_250_500.coe
+add_files C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/FFT/FFT_Filter_coef.coe
 add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1/I2S_Wrapper.dcp
 set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/I2S_Wrapper_synth_1/I2S_Wrapper.dcp]
 add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VU_metre_synth_1/VU_metre.dcp
@@ -58,8 +64,6 @@ add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_P
 set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Audio_Interface_synth_1/Audio_Interface.dcp]
 add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface.dcp
 set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/VGA_interface_synth_1/VGA_interface.dcp]
-add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper.dcp
-set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper.dcp]
 add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/UART_Wrapper_synth_1/UART_Wrapper.dcp
 set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/UART_Wrapper_synth_1/UART_Wrapper.dcp]
 add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/Hearbeat_synth_1/Hearbeat.dcp
@@ -70,10 +74,12 @@ add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_P
 set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/EQ_Wrapper_synth_1/EQ_Wrapper.dcp]
 add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/CHN_Config_RAM_synth_1/CHN_Config_RAM.dcp
 set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/CHN_Config_RAM_synth_1/CHN_Config_RAM.dcp]
-add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper.dcp
-set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper.dcp]
 add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.dcp
 set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FIR_interface_synth_1/FIR_interface.dcp]
+add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper.dcp
+set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/NRM_Wrapper_synth_1/NRM_Wrapper.dcp]
+add_files -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper.dcp
+set_property used_in_implementation false [get_files C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.runs/FFT_Wrapper_synth_1/FFT_Wrapper.dcp]
 read_vhdl -library lib_VHDL {
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TYPE_Pkg.vhd
   C:/Users/Hugo/Documents/GitHub/WAV_Player/02_Source/TOP_Arty.vhd
@@ -112,40 +118,15 @@ set_property used_in_implementation false [get_files -all c:/Users/Hugo/Document
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_8bit/BRAM_2048_8bit_ooc.xdc]
 
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/NRM_SQRT.xci
-
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
-
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
-set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc]
-
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_u16_s19/Multiplier_u16_s19.xci
 
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_32_16bit/ROM_32_16bit.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_32_16bit/ROM_32_16bit_ooc.xdc]
 
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xci
-set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xdc]
-
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
-
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/Accu11.xci
-
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu10/Accu10.xci
-
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit.xci
-set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit_ooc.xdc]
-
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
-set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc]
-
-read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit.xci
-set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit_ooc.xdc]
-
-read_ip -quiet c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_7/ROM_1024_16bit_7.xci
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_7/ROM_1024_16bit_7.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_7/ROM_1024_16bit_7_ooc.xdc]
 
-read_ip -quiet c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_6/ROM_1024_16bit_6.xci
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_6/ROM_1024_16bit_6.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_6/ROM_1024_16bit_6_ooc.xdc]
 
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_5/ROM_1024_16bit_5.xci
@@ -170,11 +151,47 @@ read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Pla
 
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
 
-read_ip -quiet c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_8/ROM_1024_16bit_8.xci
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_8/ROM_1024_16bit_8.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_16bit_8/ROM_1024_16bit_8_ooc.xdc]
 
 read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit.xci
 set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit/RAM_2048_16bit_ooc.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/NRM_SQRT/NRM_SQRT.xci
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit_NRM/RAM_2048_16bit_NRM.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_2048_16bit_NRM/RAM_2048_16bit_NRM_ooc.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu_s41/Accu_s41.xci
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Multiplier_s16_s16/Multiplier_s16_s16.xci
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/RAM_512_16bit.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/RAM_512_16bit/RAM_512_16bit_ooc.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_16x256_16bit/ROM_16x256_16bit.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_16x256_16bit/ROM_16x256_16bit_ooc.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/FFT_FIFO/FFT_FIFO.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu11/Accu11.xci
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/Accu10/Accu10.xci
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/ROM_1024_32bit/ROM_1024_32bit_ooc.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_32bit/BRAM_2048_32bit_ooc.xdc]
+
+read_ip -quiet C:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit.xci
+set_property used_in_implementation false [get_files -all c:/Users/Hugo/Documents/GitHub/WAV_Player/05_FPGA/Arty-S7/WAV_Player/WAV_Player.srcs/sources_1/ip/BRAM_2048_16bit/BRAM_2048_16bit_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
