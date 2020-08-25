@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2020-08-24
+-- Last update: 2020-08-25
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -30,7 +30,6 @@ use IEEE.numeric_std.all;
 --------------------------------------------------------------------------------
 entity FIR_filter is
     generic(
-        G_BEHAVIOURAL   : boolean := false;
         G_SELECT        : integer := 0
         );
     port(
@@ -62,7 +61,7 @@ architecture RTL of FIR_filter is
     --------------------------------------------------------------------------------
     -- TYPE DECLARATIONS
     --------------------------------------------------------------------------------
-    type T_EN is array (0 to 5) of std_logic;
+    type T_EN is array (0 to 7) of std_logic;
 
     --------------------------------------------------------------------------------
     -- COMPONENT DECLARATIONS
@@ -171,7 +170,12 @@ architecture RTL of FIR_filter is
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
     signal FIR_en_d         : T_EN;
+
+    -- ROM
+    signal ROM_addr         : std_logic_vector(9 downto 0);
     signal ROM_out          : std_logic_vector(15 downto 0);
+
+    -- Arithmetic
     signal accu             : std_logic_vector(42 downto 0);
     signal mult_opA         : std_logic_vector(15 downto 0);
     signal mult_opB         : std_logic_vector(15 downto 0);
@@ -189,77 +193,109 @@ begin
     -- INSTANCE : U_ROM
     -- Description : Contains coefficient for filtering
     ----------------------------------------------------------------
-    ROM0 : if G_BEHAVIOURAL=false and G_SELECT=0 generate
+    ROM0 : if G_SELECT=0 generate
         U_ROM : ROM_1024_16bit_0 port map(
             clka    => clk,
-            addra   => FIR_addr,
+            addra   => ROM_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
 
-    ROM1 : if G_BEHAVIOURAL=false and G_SELECT=1 generate
+    ROM1 : if G_SELECT=1 generate
         U_ROM : ROM_1024_16bit_1 port map(
             clka    => clk,
-            addra   => FIR_addr,
+            addra   => ROM_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
 
-    ROM2 : if G_BEHAVIOURAL=false and G_SELECT=2 generate
+    ROM2 : if G_SELECT=2 generate
         U_ROM : ROM_1024_16bit_2 port map(
             clka    => clk,
-            addra   => FIR_addr,
+            addra   => ROM_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
 
-    ROM3 : if G_BEHAVIOURAL=false and G_SELECT=3 generate
+    ROM3 : if G_SELECT=3 generate
         U_ROM : ROM_1024_16bit_3 port map(
             clka    => clk,
-            addra   => FIR_addr,
+            addra   => ROM_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
 
-    ROM4 : if G_BEHAVIOURAL=false and G_SELECT=4 generate
+    ROM4 : if G_SELECT=4 generate
         U_ROM : ROM_1024_16bit_4 port map(
             clka    => clk,
-            addra   => FIR_addr,
+            addra   => ROM_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
 
-    ROM5 : if G_BEHAVIOURAL=false and G_SELECT=5 generate
+    ROM5 : if G_SELECT=5 generate
         U_ROM : ROM_1024_16bit_5 port map(
             clka    => clk,
-            addra   => FIR_addr,
+            addra   => ROM_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
 
-    ROM6 : if G_BEHAVIOURAL=false and G_SELECT=6 generate
+    ROM6 : if G_SELECT=6 generate
         U_ROM : ROM_1024_16bit_6 port map(
             clka    => clk,
-            addra   => FIR_addr,
+            addra   => ROM_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
 
-    ROM7 : if G_BEHAVIOURAL=false and G_SELECT=7 generate
+    ROM7 : if G_SELECT=7 generate
         U_ROM : ROM_1024_16bit_7 port map(
             clka    => clk,
-            addra   => FIR_addr,
+            addra   => ROM_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
 
-    ROM8 : if G_BEHAVIOURAL=false and G_SELECT=8 generate
+    ROM8 : if G_SELECT=8 generate
         U_ROM : ROM_1024_16bit_8 port map(
             clka    => clk,
-            addra   => FIR_addr,
+            addra   => ROM_addr,
             ena     => '1',
             douta   => ROM_out);
     end generate;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_ROM
+    -- Description : Register ROM inputs
+    --------------------------------------------------------------------------------
+    P_ROM : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            ROM_addr    <= (others => '0');
+        elsif(rising_edge(clk)) then
+            ROM_addr    <= FIR_addr;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_FIR_en_d
+    -- Description : Enable pipeline
+    --------------------------------------------------------------------------------
+    P_FIR_en_d : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            for i in 0 to FIR_en_d'high loop
+                FIR_en_d(i) <= '0';
+            end loop;
+        elsif(rising_edge(clk)) then
+            FIR_en_d(0) <= FIR_en;
+            for i in 1 to FIR_en_d'high loop
+                FIR_en_d(i) <= FIR_en_d(i-1);
+            end loop;
+            FIR_done <= FIR_en_d(FIR_en_d'high);
+        end if;
+    end process;
 
     ----------------------------------------------------------------
     -- INSTANCE : U_Mult
@@ -272,42 +308,19 @@ begin
         p   => mult_out);
 
     --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_ROM
+    -- SEQ PROCESS : P_Mult
     -- Description : Register rom data
     --------------------------------------------------------------------------------
-    P_ROM : process(clk, reset_n)
+    P_Mult : process(clk, reset_n)
     begin
         if(reset_n='0') then
             -- mult_opA    <= (others => '0'); -- Merge reg with DSP block
             -- mult_opB    <= (others => '0');
             -- mult_out_d  <= (others => '0');
         elsif(rising_edge(clk)) then
-            if(FIR_en='1') then -- virtually useless, test to improve routing during implementation
-                mult_opA    <= FIR_din;
-                mult_opB    <= ROM_out;
-                mult_out_d  <= mult_out;
-            end if;
-        end if;
-    end process;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_delay
-    -- Description : Register delay
-    --------------------------------------------------------------------------------
-    P_delay : process(clk, reset_n)
-    begin
-        if(reset_n='0') then
-            FIR_en_d(0) <= '0';
-            FIR_en_d(1) <= '0';
-            FIR_en_d(2) <= '0';
-            FIR_en_d(3) <= '0';
-            FIR_en_d(4) <= '0';
-        elsif(rising_edge(clk)) then
-            FIR_en_d(0) <= FIR_en;
-            FIR_en_d(1) <= FIR_en_d(0);
-            FIR_en_d(2) <= FIR_en_d(1);
-            FIR_en_d(3) <= FIR_en_d(2);
-            FIR_en_d(4) <= FIR_en_d(3);
+            mult_opA    <= FIR_din;
+            mult_opB    <= ROM_out;
+            mult_out_d  <= mult_out;
         end if;
     end process;
 
@@ -326,140 +339,161 @@ begin
     -- COMBINATORY :
     -- Description : accu_en
     --------------------------------------------------------------------------------
-    accu_en <= FIR_en_d(4) OR FIR_en_d(5);
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_delay_add
-    -- Description : Register delay
-    --------------------------------------------------------------------------------
-    P_delay_add : process(clk, reset_n)
-    begin
-        if(reset_n='0') then
-            FIR_en_d(5) <= '0';
-            FIR_done    <= '0';
-        elsif(rising_edge(clk)) then
-            FIR_en_d(5) <= FIR_en_d(4);
-            FIR_done    <= FIR_en_d(5);
-        end if;
-    end process;
+    accu_en <= FIR_en_d(6) OR FIR_en_d(7);
 
     --------------------------------------------------------------------------------
     -- COMBINATORY :
     -- Description : Saturation
     --------------------------------------------------------------------------------
     SAT0 : if G_SELECT=0 generate
-        process(accu)
+        process(clk, reset_n)
         begin
-            if(accu(42 downto 38)="00000" or accu(42 downto 38)="11111") then
-                sat_out <= accu(38 downto 23);
-            elsif(accu(42)='0') then
-                sat_out <= X"7FFF";
-            else
-                sat_out <= X"8000";
+            if(reset_n='0') then
+                sat_out    <= (others => '0');
+            elsif(rising_edge(clk)) then
+                if(accu(42 downto 38)="00000" or accu(42 downto 38)="11111") then
+                    sat_out <= accu(38 downto 23);
+                elsif(accu(42)='0') then
+                    sat_out <= X"7FFF";
+                else
+                    sat_out <= X"8000";
+                end if;
             end if;
         end process;
     end generate;
 
     SAT1 : if G_SELECT=1 generate
-        process(accu)
+        process(clk, reset_n)
         begin
-            if(accu(42 downto 38)="00000" or accu(42 downto 38)="11111") then
-                sat_out <= accu(38 downto 23);
-            elsif(accu(42)='0') then
-                sat_out <= X"7FFF";
-            else
-                sat_out <= X"8000";
+            if(reset_n='0') then
+                sat_out    <= (others => '0');
+            elsif(rising_edge(clk)) then
+                if(accu(42 downto 38)="00000" or accu(42 downto 38)="11111") then
+                    sat_out <= accu(38 downto 23);
+                elsif(accu(42)='0') then
+                    sat_out <= X"7FFF";
+                else
+                    sat_out <= X"8000";
+                end if;
             end if;
         end process;
     end generate;
 
     SAT2 : if G_SELECT=2 generate
-        process(accu)
+        process(clk, reset_n)
         begin
-            if(accu(42 downto 37)="000000" or accu(42 downto 37)="111111") then
-                sat_out <= accu(37 downto 22);
-            elsif(accu(42)='0') then
-                sat_out <= X"7FFF";
-            else
-                sat_out <= X"8000";
+            if(reset_n='0') then
+                sat_out    <= (others => '0');
+            elsif(rising_edge(clk)) then
+                if(accu(42 downto 37)="000000" or accu(42 downto 37)="111111") then
+                    sat_out <= accu(37 downto 22);
+                elsif(accu(42)='0') then
+                    sat_out <= X"7FFF";
+                else
+                    sat_out <= X"8000";
+                end if;
             end if;
         end process;
     end generate;
 
     SAT3 : if G_SELECT=3 generate
-        process(accu)
+        process(clk, reset_n)
         begin
-            if(accu(42 downto 36)="0000000" or accu(42 downto 36)="1111111") then
-                sat_out <= accu(36 downto 21);
-            elsif(accu(42)='0') then
-                sat_out <= X"7FFF";
-            else
-                sat_out <= X"8000";
+            if(reset_n='0') then
+                sat_out    <= (others => '0');
+            elsif(rising_edge(clk)) then
+                if(accu(42 downto 36)="0000000" or accu(42 downto 36)="1111111") then
+                    sat_out <= accu(36 downto 21);
+                elsif(accu(42)='0') then
+                    sat_out <= X"7FFF";
+                else
+                    sat_out <= X"8000";
+                end if;
             end if;
         end process;
     end generate;
 
     SAT4 : if G_SELECT=4 generate
-        process(accu)
+        process(clk, reset_n)
         begin
-            if(accu(42 downto 35)="00000000" or accu(42 downto 35)="11111111") then
-                sat_out <= accu(35 downto 20);
-            elsif(accu(42)='0') then
-                sat_out <= X"7FFF";
-            else
-                sat_out <= X"8000";
+            if(reset_n='0') then
+                sat_out    <= (others => '0');
+            elsif(rising_edge(clk)) then
+                if(accu(42 downto 35)="00000000" or accu(42 downto 35)="11111111") then
+                    sat_out <= accu(35 downto 20);
+                elsif(accu(42)='0') then
+                    sat_out <= X"7FFF";
+                else
+                    sat_out <= X"8000";
+                end if;
             end if;
         end process;
     end generate;
 
     SAT5 : if G_SELECT=5 generate
-        process(accu)
+        process(clk, reset_n)
         begin
-            if(accu(42 downto 34)="000000000" or accu(42 downto 34)="111111111") then
-                sat_out <= accu(34 downto 19);
-            elsif(accu(42)='0') then
-                sat_out <= X"7FFF";
-            else
-                sat_out <= X"8000";
+            if(reset_n='0') then
+                sat_out    <= (others => '0');
+            elsif(rising_edge(clk)) then
+                if(accu(42 downto 34)="000000000" or accu(42 downto 34)="111111111") then
+                    sat_out <= accu(34 downto 19);
+                elsif(accu(42)='0') then
+                    sat_out <= X"7FFF";
+                else
+                    sat_out <= X"8000";
+                end if;
             end if;
         end process;
     end generate;
 
     SAT6 : if G_SELECT=6 generate
-        process(accu)
+        process(clk, reset_n)
         begin
-            if(accu(42 downto 33)="0000000000" or accu(42 downto 33)="1111111111") then
-                sat_out <= accu(33 downto 18);
-            elsif(accu(42)='0') then
-                sat_out <= X"7FFF";
-            else
-                sat_out <= X"8000";
+            if(reset_n='0') then
+                sat_out    <= (others => '0');
+            elsif(rising_edge(clk)) then
+                if(accu(42 downto 33)="0000000000" or accu(42 downto 33)="1111111111") then
+                    sat_out <= accu(33 downto 18);
+                elsif(accu(42)='0') then
+                    sat_out <= X"7FFF";
+                else
+                    sat_out <= X"8000";
+                end if;
             end if;
         end process;
     end generate;
 
     SAT7 : if G_SELECT=7 generate
-        process(accu)
+        process(clk, reset_n)
         begin
-            if(accu(42 downto 32)="00000000000" or accu(42 downto 32)="11111111111") then
-                sat_out <= accu(32 downto 17);
-            elsif(accu(42)='0') then
-                sat_out <= X"7FFF";
-            else
-                sat_out <= X"8000";
+            if(reset_n='0') then
+                sat_out    <= (others => '0');
+            elsif(rising_edge(clk)) then
+                if(accu(42 downto 32)="00000000000" or accu(42 downto 32)="11111111111") then
+                    sat_out <= accu(32 downto 17);
+                elsif(accu(42)='0') then
+                    sat_out <= X"7FFF";
+                else
+                    sat_out <= X"8000";
+                end if;
             end if;
         end process;
     end generate;
 
     SAT8 : if G_SELECT=8 generate
-        process(accu)
+        process(clk, reset_n)
         begin
-            if(accu(42 downto 31)="000000000000" or accu(42 downto 31)="111111111111") then
-                sat_out <= accu(31 downto 16);
-            elsif(accu(42)='0') then
-                sat_out <= X"7FFF";
-            else
-                sat_out <= X"8000";
+            if(reset_n='0') then
+                sat_out    <= (others => '0');
+            elsif(rising_edge(clk)) then
+                if(accu(42 downto 31)="000000000000" or accu(42 downto 31)="111111111111") then
+                    sat_out <= accu(31 downto 16);
+                elsif(accu(42)='0') then
+                    sat_out <= X"7FFF";
+                else
+                    sat_out <= X"8000";
+                end if;
             end if;
         end process;
     end generate;

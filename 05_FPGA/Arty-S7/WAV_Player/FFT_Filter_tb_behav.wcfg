@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1003584739fs"></ZoomEndTime>
+      <ZoomStartTime time="2349530292fs"></ZoomStartTime>
+      <ZoomEndTime time="2376566901fs"></ZoomEndTime>
       <Cursor1Time time="2405285000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="258"></NameColumnWidth>
-      <ValueColumnWidth column_width="110"></ValueColumnWidth>
+      <ValueColumnWidth column_width="106"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="48" />
    <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/clk" type="logic">
@@ -98,6 +98,10 @@
       <obj_property name="ElementShortName">RAM_write</obj_property>
       <obj_property name="ObjectShortName">RAM_write</obj_property>
    </wvobject>
+   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/RAM_read" type="logic">
+      <obj_property name="ElementShortName">RAM_read</obj_property>
+      <obj_property name="ObjectShortName">RAM_read</obj_property>
+   </wvobject>
    <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/RAM_enable" type="logic">
       <obj_property name="ElementShortName">RAM_enable</obj_property>
       <obj_property name="ObjectShortName">RAM_enable</obj_property>
@@ -158,10 +162,6 @@
    <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_rd_load" type="logic">
       <obj_property name="ElementShortName">cnt_rd_load</obj_property>
       <obj_property name="ObjectShortName">cnt_rd_load</obj_property>
-   </wvobject>
-   <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/cnt_rd_dec" type="logic">
-      <obj_property name="ElementShortName">cnt_rd_dec</obj_property>
-      <obj_property name="ObjectShortName">cnt_rd_dec</obj_property>
    </wvobject>
    <wvobject fp_name="/FFT_Filter_tb/U_FFT_Filter/accu" type="array">
       <obj_property name="ElementShortName">accu[40:0]</obj_property>

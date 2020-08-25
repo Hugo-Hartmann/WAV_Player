@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-10-28
--- Last update: 2019-12-20
+-- Last update: 2020-08-25
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -30,9 +30,6 @@ use lib_VHDL.TYPE_Pkg.all;
 -- ENTITY DECLARATION
 --------------------------------------------------------------------------------
 entity FIR_interface is
-    generic(
-        G_BEHAVIOURAL   : boolean := false
-        );
     port(
     
         ------- Clock and RESET ------------------
@@ -44,6 +41,7 @@ entity FIR_interface is
 
         ------- FIR control ----------------------
         FIR_start       : in  std_logic;
+        FIR_done        : out std_logic;
 
         ------- FIR in ---------------------------
         FIR_din         : in  std_logic_vector(15 downto 0)
@@ -60,7 +58,7 @@ architecture RTL of FIR_interface is
     -- TYPES DECLARATIONS
     --------------------------------------------------------------------------------
     type FIR_tab is array (C_FIR_MIN to C_FIR_MAX) of std_logic_vector(15 downto 0);
-    type FIR_STATE is (FIR_RESET, FIR_IDLE, FIR_BEGIN, FIR_LOAD, FIR_PIPE,
+    type FIR_STATE is (FIR_RESET, FIR_IDLE, FIR_BEGIN,
                        FIR_ACC1, FIR_ACC2, FIR_END, FIR_STORE);
     type T_done is array (C_FIR_MIN to C_FIR_MAX) of std_logic;
 
@@ -69,7 +67,6 @@ architecture RTL of FIR_interface is
     --------------------------------------------------------------------------------
     component FIR_filter is
         generic(
-            G_BEHAVIOURAL   : boolean := false;
             G_SELECT        : integer := 0
             );
         port(
@@ -98,53 +95,96 @@ architecture RTL of FIR_interface is
     --------------------------------------------------------------------------------
     -- SIGNAL DECLARATIONS
     --------------------------------------------------------------------------------
+    -- FSM
     signal current_state    : FIR_STATE;
     signal next_state       : FIR_STATE;
+    signal FSM_clr          : std_logic;
+    signal FSM_en           : std_logic;
+    signal FSM_addr_sel     : std_logic;
+    signal FSM_store        : std_logic;
+    signal FSM_done         : std_logic;
+    signal FSM_start        : std_logic;
+
+    -- RAM
     signal RAM_out          : std_logic_vector(15 downto 0);
+    signal RAM_in           : std_logic_vector(15 downto 0);
     signal RAM_wea          : std_logic_vector(0 downto 0);
     signal RAM_write        : std_logic;
     signal RAM_enable       : std_logic;
     signal RAM_read         : std_logic;
     signal RAM_addr         : std_logic_vector(10 downto 0);
-    signal RAM_addr_rd      : std_logic_vector(10 downto 0);
-    signal RAM_addr_wr      : std_logic_vector(10 downto 0);
-    signal FIR_clr          : std_logic;
-    signal FIR_en           : std_logic;
-    signal RAM_counter_wr   : unsigned(10 downto 0);
-    signal RAM_counter_rd   : unsigned(10 downto 0);
-    signal cnt_rd_load      : std_logic;
-    signal cnt_rd_dec       : std_logic;
-    signal coef_counter     : unsigned(9 downto 0);
+
+    -- Counter coef
+    signal cnt_coef         : unsigned(9 downto 0);
     signal cnt_coef_clr     : std_logic;
     signal cnt_coef_dec     : std_logic;
     signal cnt_coef_inc     : std_logic;
     signal cnt_coef_end     : std_logic;
     signal cnt_coef_zero    : std_logic;
-    signal FIR_addr         : std_logic_vector(9 downto 0);
-    signal addr_select      : std_logic;
-    signal dout_store       : std_logic;
+
+    -- Counter data
+    signal cnt_wr           : unsigned(10 downto 0);
+    signal cnt_rd           : unsigned(10 downto 0);
+    signal cnt_rd_load      : std_logic;
+    signal cnt_rd_inc       : std_logic;
+
+    -- Instances
     signal FIR_out_tab      : FIR_tab;
     signal FIR_done_tab     : T_done;
-    signal FIR_done         : std_logic;
+    signal FIR_addr         : std_logic_vector(9 downto 0);
 
 --------------------------------------------------------------------------------
 -- BEGINNING OF THE CODE
 --------------------------------------------------------------------------------
 begin
 
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_START
+    -- Description : Register Start signal
+    --------------------------------------------------------------------------------
+    P_START : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            FSM_start   <= '0';
+        elsif(rising_edge(clk)) then
+            FSM_start   <= FIR_start;
+        end if;
+    end process;
+
     ----------------------------------------------------------------
     -- INSTANCE : U_RAM
     -- Description : Contains the 2048 last samples read
     ----------------------------------------------------------------
-    RAM : if G_BEHAVIOURAL=false generate
-        U_RAM : RAM_2048_16bit port map(
-            clka    => clk,
-            addra   => RAM_addr,
-            wea     => RAM_wea,
-            ena     => RAM_enable,
-            dina    => FIR_din,
-            douta   => RAM_out);
-    end generate;
+    U_RAM : RAM_2048_16bit port map(
+        clka    => clk,
+        addra   => RAM_addr,
+        wea     => RAM_wea,
+        ena     => RAM_enable,
+        dina    => RAM_in,
+        douta   => RAM_out);
+
+    --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_RAM
+    -- Description : Register RAM inputs
+    --------------------------------------------------------------------------------
+    P_RAM : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            RAM_addr    <= (others => '0');
+            RAM_wea     <= (others => '0');
+            RAM_enable  <= '0';
+            RAM_in      <= (others => '0');
+        elsif(rising_edge(clk)) then
+            if(FSM_addr_sel='0') then
+                RAM_addr    <= std_logic_vector(cnt_wr);
+            else
+                RAM_addr    <= std_logic_vector(cnt_rd);
+            end if;
+            RAM_wea     <= (0 downto 0 => RAM_write);
+            RAM_enable  <= RAM_read or RAM_write;
+            RAM_in      <= FIR_din;
+        end if;
+    end process;
 
     ----------------------------------------------------------------
     -- INSTANCE : U_FIR_filter
@@ -153,13 +193,12 @@ begin
     ----------------------------------------------------------------
     GEN_FILTER : for i in C_FIR_MIN to C_FIR_MAX generate
         U_FIR_filter : FIR_filter generic map(
-            G_BEHAVIOURAL   => G_BEHAVIOURAL,
             G_SELECT        => i)
         port map(
             clk         => clk,
             reset_n     => reset_n,
-            FIR_clr     => FIR_clr,
-            FIR_en      => FIR_en,
+            FIR_clr     => FSM_clr,
+            FIR_en      => FSM_en,
             FIR_done    => FIR_done_tab(i),
             FIR_din     => RAM_out,
             FIR_addr    => FIR_addr,
@@ -168,77 +207,57 @@ begin
 
     --------------------------------------------------------------------------------
     -- COMBINATORY : 
-    -- Description : FIR_done
+    -- Description : FSM_done
     --------------------------------------------------------------------------------
-    FIR_done    <= FIR_done_tab(0);
+    FSM_done    <= FIR_done_tab(0);
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY : 
-    -- Description : Address selection for RAM
-    --------------------------------------------------------------------------------
-    RAM_addr    <= RAM_addr_wr when(addr_select='0') else RAM_addr_rd;
-    RAM_enable  <= RAM_read or RAM_write;
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_RAM_counter_wr
+    -- SEQ PROCESS : P_cnt_wr
     -- Description : Manage RAM write address
     --------------------------------------------------------------------------------
-    P_RAM_counter_wr : process(clk, reset_n)
+    P_cnt_wr : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            RAM_counter_wr <= to_unsigned(0, RAM_counter_wr'length);
+            cnt_wr  <= to_unsigned(0, cnt_wr'length);
         elsif(rising_edge(clk)) then
-            if(FIR_start='1') then
-                RAM_counter_wr <= RAM_counter_wr + 1;
+            if(FSM_start='1') then
+                cnt_wr  <= cnt_wr + 1;
             end if;
         end if;
     end process;
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : Write to RAM
-    --------------------------------------------------------------------------------
-    RAM_wea     <= (0 downto 0 => RAM_write);
-    RAM_addr_wr <= std_logic_vector(RAM_counter_wr);
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_RAM_counter_rd
+    -- SEQ PROCESS : P_cnt_rd
     -- Description : Manage RAM read address
     --------------------------------------------------------------------------------
-    P_RAM_counter_rd : process(clk, reset_n)
+    P_cnt_rd : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            RAM_counter_rd  <= to_unsigned(0, RAM_counter_rd'length);
+            cnt_rd  <= to_unsigned(0, cnt_rd'length);
         elsif(rising_edge(clk)) then
             if(cnt_rd_load='1') then
-                RAM_counter_rd  <= RAM_counter_wr - 1;
-            elsif(cnt_rd_dec='1') then
-                RAM_counter_rd  <= RAM_counter_rd - 1;
+                cnt_rd  <= cnt_wr + 3;
+            elsif(cnt_rd_inc='1') then
+                cnt_rd  <= cnt_rd + 1;
             end if;
         end if;
     end process;
 
     --------------------------------------------------------------------------------
-    -- COMBINATORY :
-    -- Description : Read from RAM
-    --------------------------------------------------------------------------------
-    RAM_addr_rd <= std_logic_vector(RAM_counter_rd);
-
-    --------------------------------------------------------------------------------
-    -- SEQ PROCESS : P_coef_counter
+    -- SEQ PROCESS : P_cnt_coef
     -- Description : Manage counter for coefficient addressing
     --------------------------------------------------------------------------------
-    P_coef_counter : process(clk, reset_n)
+    P_cnt_coef : process(clk, reset_n)
     begin
         if(reset_n='0') then
-            coef_counter <= to_unsigned(0, coef_counter'length);
+            cnt_coef    <= to_unsigned(0, cnt_coef'length);
         elsif(rising_edge(clk)) then
             if(cnt_coef_clr='1') then
-                coef_counter <= to_unsigned(0, coef_counter'length);
+                cnt_coef    <= to_unsigned(0, cnt_coef'length);
             elsif(cnt_coef_dec='1') then
-                coef_counter <= coef_counter - 1;
+                cnt_coef    <= cnt_coef - 1;
             elsif(cnt_coef_inc='1') then
-                coef_counter <= coef_counter + 1;
+                cnt_coef    <= cnt_coef + 1;
             end if;
         end if;
     end process;
@@ -247,9 +266,9 @@ begin
     -- COMBINATORY :
     -- Description : coef counter control signals
     --------------------------------------------------------------------------------
-    cnt_coef_end    <= '1' when(coef_counter=1022) else '0';
-    cnt_coef_zero   <= '1' when(coef_counter=0) else '0';
-    FIR_addr        <= std_logic_vector(coef_counter);
+    cnt_coef_end    <= '1' when(cnt_coef=1022) else '0';
+    cnt_coef_zero   <= '1' when(cnt_coef=0) else '0';
+    FIR_addr        <= std_logic_vector(cnt_coef);
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_FSM_FIR_sync
@@ -268,18 +287,18 @@ begin
     -- COMB PROCESS : P_FSM_FIR_comb
     -- Description : FSM_FIR combinatorial part (next_state logic)
     --------------------------------------------------------------------------------
-    P_FSM_FIR_comb : process(current_state, cnt_coef_zero, cnt_coef_end, FIR_start, FIR_done)
+    P_FSM_FIR_comb : process(current_state, cnt_coef_zero, cnt_coef_end, FSM_start, FSM_done)
     begin
         cnt_coef_clr    <= '0';
         cnt_coef_inc    <= '0';
         cnt_coef_dec    <= '0';
         cnt_rd_load     <= '0';
-        cnt_rd_dec      <= '0';
-        addr_select     <= '0';
-        FIR_en          <= '0';
-        FIR_clr         <= '0';
+        cnt_rd_inc      <= '0';
+        FSM_addr_sel    <= '0';
+        FSM_en          <= '0';
+        FSM_clr         <= '0';
         RAM_read        <= '0';
-        dout_store      <= '0';
+        FSM_store       <= '0';
         RAM_write       <= '0';
 
         case current_state is
@@ -287,7 +306,9 @@ begin
                 next_state  <= FIR_IDLE;
 
             when FIR_IDLE =>
-                if(FIR_start='1') then
+                cnt_rd_load     <= '1';
+                cnt_coef_clr    <= '1';
+                if(FSM_start='1') then
                     next_state  <= FIR_BEGIN;
                 else
                     next_state  <= FIR_IDLE;
@@ -295,24 +316,15 @@ begin
 
             when FIR_BEGIN =>
                 RAM_write       <= '1';
-                FIR_clr         <= '1';
-                cnt_rd_load     <= '1';
-                cnt_coef_clr    <= '1';
-                next_state      <= FIR_LOAD;
-
-            when FIR_LOAD =>
-                RAM_read        <= '1';
-                cnt_coef_inc    <= '1';
-                cnt_rd_dec      <= '1';
-                addr_select     <= '1';
+                FSM_clr         <= '1';
                 next_state      <= FIR_ACC1;
 
             when FIR_ACC1 =>
                 RAM_read        <= '1';
                 cnt_coef_inc    <= '1';
-                cnt_rd_dec      <= '1';
-                addr_select     <= '1';
-                FIR_en          <= '1';
+                cnt_rd_inc      <= '1';
+                FSM_addr_sel    <= '1';
+                FSM_en          <= '1';
                 if(cnt_coef_end='1') then
                     next_state  <= FIR_ACC2;
                 else
@@ -322,29 +334,25 @@ begin
             when FIR_ACC2 =>
                 RAM_read        <= '1';
                 cnt_coef_dec    <= '1';
-                cnt_rd_dec      <= '1';
-                addr_select     <= '1';
-                FIR_en          <= '1';
+                cnt_rd_inc      <= '1';
+                FSM_addr_sel    <= '1';
+                FSM_en          <= '1';
                 if(cnt_coef_zero='1') then
-                    next_state  <= FIR_PIPE;
+                    next_state  <= FIR_END;
                 else
                     next_state  <= FIR_ACC2;
                 end if;
 
-            when FIR_PIPE =>
-                FIR_en          <= '1';
-                next_state      <= FIR_END;
-
             when FIR_END =>
-                if(FIR_done='1') then
+                if(FSM_done='1') then
                     next_state      <= FIR_END;
                 else
                     next_state      <= FIR_STORE;
                 end if;
 
             when FIR_STORE =>
-                dout_store      <= '1';
-                next_state      <= FIR_IDLE;
+                FSM_store   <= '1';
+                next_state  <= FIR_IDLE;
 
         end case;
     end process;
@@ -358,13 +366,19 @@ begin
         if(reset_n='0') then
             FIR_dout    <= (others => '0');
         elsif(rising_edge(clk)) then
-            if(dout_store='1') then
+            if(FSM_store='1') then
                 for i in C_FIR_MIN to C_FIR_MAX loop
                     FIR_dout(i*16+15 downto i*16) <= FIR_out_tab(i);
                 end loop;
             end if;
         end if;
     end process;
+
+    --------------------------------------------------------------------------------
+    -- COMBINATORY :
+    -- Description : FIR_done
+    --------------------------------------------------------------------------------
+    FIR_done    <= FSM_store;
 
 end RTL;
 --------------------------------------------------------------------------------

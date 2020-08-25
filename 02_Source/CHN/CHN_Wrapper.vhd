@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-12-21
--- Last update: 2020-08-04
+-- Last update: 2020-08-25
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -79,6 +79,7 @@ architecture RTL of CHN_Wrapper is
             reset_n         : in  std_logic;
             FIR_dout        : out std_logic_vector(C_FIR_MAX*16+15 downto 0);
             FIR_start       : in  std_logic;
+            FIR_done        : out std_logic;
             FIR_din         : in  std_logic_vector(15 downto 0)
             );
     end component;
@@ -195,6 +196,7 @@ architecture RTL of CHN_Wrapper is
     signal FIR_dout         : std_logic_vector(C_FIR_MAX*16+15 downto 0);
     signal CHN_select_dout  : std_logic_vector(15 downto 0);
     signal EQ_dout          : std_logic_vector(C_FIR_TOT*16+15 downto 0);
+    signal FIR_done         : std_logic;
     signal FFT_addrA        : std_logic_vector(10 downto 0);
     signal FFT_addrB        : std_logic_vector(10 downto 0);
     signal FFT_doutA_r      : std_logic_vector(15 downto 0);
@@ -241,6 +243,7 @@ begin
         reset_n         => reset_n,
         FIR_dout        => FIR_dout,
         FIR_start       => New_sample_d,
+        FIR_done        => FIR_done,
         FIR_din         => Audio_din_d);
 
     ----------------------------------------------------------------
