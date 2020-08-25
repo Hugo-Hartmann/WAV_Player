@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-08-04
--- Last update: 2020-08-04
+-- Last update: 2020-08-25
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -67,6 +67,7 @@ architecture RTL of NRM_Mapper is
     signal base_addr        : unsigned(10 downto 0);
     signal addr_map         : unsigned(10 downto 0);
     signal final_addr       : unsigned(10 downto 0);
+    signal nb_points        : unsigned(3 downto 0);
     signal cnt_addr_end     : std_logic;
     signal cnt_addr_end_d   : std_logic;
 
@@ -225,15 +226,24 @@ begin
     end process;
 
     --------------------------------------------------------------------------------
+    -- SEQ PROCESS : P_nb_points
+    -- Description : nb_points mapping
+    --------------------------------------------------------------------------------
+    P_nb_points : process(clk, reset_n)
+    begin
+        if(reset_n='0') then
+            nb_points   <= to_unsigned(0, nb_points'length);
+        elsif(rising_edge(clk)) then
+            nb_points   <= unsigned(NRM_rounds_nb)-1;
+        end if;
+    end process;
+
+    --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_mapping
     -- Description : Map LSBs to correct addresses based on FFT current size
     --------------------------------------------------------------------------------
     P_mapping : process(clk, reset_n)
-    
-    variable nb_points : integer := to_integer(unsigned(NRM_rounds_nb)-1);
-    
     begin
-        nb_points   := to_integer(unsigned(NRM_rounds_nb)-1);
         if(reset_n='0') then
             addr_map    <= to_unsigned(0, addr_map'length);
         elsif(rising_edge(clk)) then
