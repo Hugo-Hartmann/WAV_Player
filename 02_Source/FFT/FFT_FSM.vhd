@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2019-11-21
--- Last update: 2020-08-04
+-- Last update: 2020-08-25
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -45,7 +45,6 @@ entity FFT_FSM is
         FFT_new_sample  : in  std_logic;
         FFT_start       : in  std_logic;
         FFT_stage_busy  : in  std_logic;
-        FFT_en          : out std_logic;
         FFT_done        : out std_logic
 
         );
