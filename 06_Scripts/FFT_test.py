@@ -1,7 +1,39 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy.signal as fir
 
-N = 2048
+def filter_vec(vec, filtre, N):
+
+    res = 0
+
+    for i in range(N):
+        res += vec[i]*filtre[i]
+
+    return res
+
+def gen_fir(fmin, fmax, fsample, N):
+
+    if(fmin==0):
+        filtre = np.array(fir.firwin(N-1, 2*fmax/fsample, pass_zero=True))
+    elif(fmax==fsample):
+        filtre = np.array(fir.firwin(N-1, 2*fmin/fsample, pass_zero=False))
+    else:
+        filtre = np.array(fir.firwin(N-1, [2*fmin/fsample, 2*fmin/fsample], pass_zero=False))
+
+    cmax = max(filtre)
+    cmin = abs(min(filtre))
+    if(cmin>cmax):
+        cmax = cmin
+    coef = 1
+
+    while(cmax < 16383):
+        coef = coef*2
+        cmax = cmax*2
+
+    for i in range(len(filtre)):
+        filtre[i] = round(filtre[i]*coef, 0)/coef
+
+    return filtre
 
 def gen_coef(N):
 
@@ -97,10 +129,13 @@ def my_fft(vec):
         addrC = 0
 
         while(addrB<N):
-            #print("addr", addrA, addrB, addrC)
-            #print("data", res[addrA], res[addrB], coefs[addrC])
+            #if(addrB>2046):
+            #    print("\n round", i)
+            #    print("addr", addrA, addrB, addrC)
+            #    print("data", res[addrA], res[addrB], coefs[addrC])
             res[addrA], res[addrB] = fft_ual(res[addrA], res[addrB], coefs[addrC])
-            #print(res[addrA], res[addrB])
+            #if(addrB>2046):
+            #    print(res[addrA], res[addrB])
 
             if(i==0 or (addrA)%(2**i)==(2**i)-1):
                 addrA   = addrA + inc_addrA
@@ -118,28 +153,62 @@ def my_fft(vec):
 
     return res_arranged
 
-fig, axs = plt.subplots(2)
+def test_fft():
+    fig, axs = plt.subplots(2)
 
-for k in range(40):
     N = 2048
     vec = []
     for i in range(N):
-        vec.append(32768*np.cos(k*2*np.pi*i/44100))
+        vec.append(32768*np.cos(1000*2*np.pi*i/44100))
 
     for i in range(N):
         vec[i] = int(vec[i])
         if(vec[i]==32768):
             vec[i] = 32767
 
-    #vec = [1000, -32000, 30000, 8915, 1000, 600, -8000, 500]
+    vec[0] = 32767
 
-    vec = np.array(vec)
+    vec = np.array(vec[1:]+[vec[0]])
     fft_out = np.absolute(np.fft.fft(vec/N))
     my_fft_out = np.absolute(my_fft(vec))
 
-    print(k, fft_out[0], fft_out[1])
+    print(my_fft_out[:20])
+
     axs[0].plot(np.arange(N), fft_out)
     axs[1].plot(np.arange(N), np.array(my_fft_out))
 
-plt.show()
+    plt.show()
 
+fig, axs = plt.subplots(2)
+
+fir_points = 2048
+N = fir_points
+
+vec = []
+for i in range(4*N):
+    vec.append(32768*np.cos(3200*2*np.pi*i/44100)+32768*np.cos(15100*2*np.pi*i/44100))
+
+for i in range(4*N):
+    vec[i] = int(vec[i])
+    if(vec[i]==32768):
+        vec[i] = 32767
+
+fir_filter = gen_fir(0, 11024, 22050, fir_points)
+
+for i in range(2*N):
+    vec[i] = int(vec[2*i])
+
+for i in range(2*N-1, fir_points-1, -1):
+    vec[i] = filter_vec(vec[i-fir_points+2 :i+1], fir_filter, fir_points-1)
+
+
+vec = np.array(vec[:N])
+fft_out = np.absolute(np.fft.fft(vec/N))
+my_fft_out = np.absolute(my_fft(vec))
+
+print(my_fft_out[:20])
+
+axs[0].plot(np.arange(N), fft_out)
+axs[1].plot(np.arange(N), np.array(my_fft_out))
+
+plt.show()
