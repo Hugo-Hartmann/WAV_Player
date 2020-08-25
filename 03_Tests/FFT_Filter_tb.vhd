@@ -6,11 +6,11 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-08-24
--- Last update: 2020-08-24
+-- Last update: 2020-08-25
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
--- Description: Stimuli for FFT_Wrapper
+-- Description: Stimuli for FFT_Filter
 -------------------------------------------------------------------------------
 -- Revisions  :
 -- Date        Version  Author          Description

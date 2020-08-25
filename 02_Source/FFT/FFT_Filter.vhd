@@ -6,7 +6,7 @@
 -- Author     : Hugo HARTMANN
 -- Company    : ELSYS DESIGN
 -- Created    : 2020-08-24
--- Last update: 2020-08-24
+-- Last update: 2020-08-25
 -- Platform   : Notepad++
 -- Standard   : VHDL'93
 -------------------------------------------------------------------------------
@@ -141,7 +141,7 @@ architecture RTL of FFT_Filter is
     signal cnt_wr           : unsigned(8 downto 0);
     signal cnt_rd           : unsigned(8 downto 0);
     signal cnt_rd_load      : std_logic;
-    signal cnt_rd_dec       : std_logic;
+    signal cnt_rd_inc       : std_logic;
 
     -- Arithmetic
     signal accu             : std_logic_vector(40 downto 0);
@@ -186,7 +186,7 @@ begin
 
     --------------------------------------------------------------------------------
     -- SEQ PROCESS : P_ROM
-    -- Description : Register RAM inputs
+    -- Description : Register ROM inputs
     --------------------------------------------------------------------------------
     P_ROM : process(clk, reset_n)
     begin
@@ -399,7 +399,7 @@ begin
         if(reset_n='0') then
             cnt_wr  <= to_unsigned(0, cnt_wr'length);
         elsif(rising_edge(clk)) then
-            if(FFT_start='1') then
+            if(FSM_start='1') then
                 cnt_wr  <= cnt_wr + 1;
             end if;
         end if;
@@ -415,9 +415,9 @@ begin
             cnt_rd  <= to_unsigned(0, cnt_rd'length);
         elsif(rising_edge(clk)) then
             if(cnt_rd_load='1') then
-                cnt_rd  <= cnt_wr - 2;
-            elsif(cnt_rd_dec='1') then
-                cnt_rd  <= cnt_rd - 1;
+                cnt_rd  <= cnt_wr + 3;
+            elsif(cnt_rd_inc='1') then
+                cnt_rd  <= cnt_rd + 1;
             end if;
         end if;
     end process;
@@ -471,7 +471,7 @@ begin
         cnt_coef_inc    <= '0';
         cnt_coef_dec    <= '0';
         cnt_rd_load     <= '0';
-        cnt_rd_dec      <= '0';
+        cnt_rd_inc      <= '0';
         FSM_addr_sel    <= '0';
         FSM_en          <= '0';
         FSM_clr         <= '0';
@@ -500,7 +500,7 @@ begin
             when FFT_ACC1 =>
                 RAM_read        <= '1';
                 cnt_coef_inc    <= '1';
-                cnt_rd_dec      <= '1';
+                cnt_rd_inc      <= '1';
                 FSM_addr_sel    <= '1';
                 FSM_en          <= '1';
                 if(cnt_coef_end='1') then
@@ -512,7 +512,7 @@ begin
             when FFT_ACC2 =>
                 RAM_read        <= '1';
                 cnt_coef_dec    <= '1';
-                cnt_rd_dec      <= '1';
+                cnt_rd_inc      <= '1';
                 FSM_addr_sel    <= '1';
                 FSM_en          <= '1';
                 if(cnt_coef_zero='1') then
