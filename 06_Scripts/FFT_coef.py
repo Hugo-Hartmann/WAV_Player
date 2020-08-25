@@ -11,6 +11,8 @@ for i in range(int(N/2)):
 for i in range(len(coef)):
     real, imag = np.real(coef[i]), np.imag(coef[i])
     real, imag = int(real*32768), int(imag*32768)
+    if(i<2 or i>1021):
+        print(i, real, imag)
     if(real==32768):
         real = 32767
     if(imag==32768):
