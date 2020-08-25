@@ -167,14 +167,9 @@ begin
     -- SEQ PROCESS : P_RAM
     -- Description : Register RAM inputs
     --------------------------------------------------------------------------------
-    P_RAM : process(clk, reset_n)
+    P_RAM : process(clk)
     begin
-        if(reset_n='0') then
-            RAM_addr    <= (others => '0');
-            RAM_wea     <= (others => '0');
-            RAM_enable  <= '0';
-            RAM_in      <= (others => '0');
-        elsif(rising_edge(clk)) then
+        if(rising_edge(clk)) then
             if(FSM_addr_sel='0') then
                 RAM_addr    <= std_logic_vector(cnt_wr);
             else

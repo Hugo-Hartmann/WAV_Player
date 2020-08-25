@@ -269,11 +269,9 @@ begin
     -- SEQ PROCESS : P_ROM
     -- Description : Register ROM inputs
     --------------------------------------------------------------------------------
-    P_ROM : process(clk, reset_n)
+    P_ROM : process(clk)
     begin
-        if(reset_n='0') then
-            ROM_addr    <= (others => '0');
-        elsif(rising_edge(clk)) then
+        if(rising_edge(clk)) then
             ROM_addr    <= FIR_addr;
         end if;
     end process;
