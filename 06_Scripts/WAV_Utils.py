@@ -1,7 +1,7 @@
 #############################
 ### Python Utility function for GUI
 ### Created     2020-02-29
-### Last update 2020-08-05
+### Last update 2020-08-26
 ### Author      Hugo HARTMANN
 #############################
 
@@ -79,21 +79,6 @@ def auto_connect(serial, combo_COM, lbl_status_COM, COM_close_btn):
         if(serial.opened==False):
             connect_COM(serial, combo_COM, lbl_status_COM, COM_close_btn)
 
-
-# Connect Serial to port COM
-def connect_COM(serial, combo_COM, lbl_status_COM, COM_close_btn):
-
-    COMPORT = combo_COM.currentText()
-
-    serial.serial_close()
-    fail = serial.serial_open(COMPORT)
-
-    if(fail):
-        lbl_status_COM.setText("<font color='Red'>Failed!</font>")
-    else:
-        lbl_status_COM.setText("<font color='Green'>Connected!</font>")
-        COM_close_btn.setEnabled(True)
-
 # Close Serial port
 def close_COM(serial, lbl_status_COM, COM_close_btn):
 
@@ -101,6 +86,20 @@ def close_COM(serial, lbl_status_COM, COM_close_btn):
     COM_close_btn.setEnabled(False)
 
     lbl_status_COM.setText("<font color='Green'></font>")
+
+# Connect Serial to port COM
+def connect_COM(serial, combo_COM, lbl_status_COM, COM_close_btn):
+
+    COMPORT = combo_COM.currentText()
+
+    close_COM(serial, lbl_status_COM, COM_close_btn)
+    fail = serial.serial_open(COMPORT)
+
+    if(fail):
+        lbl_status_COM.setText("<font color='Red'>Failed!</font>")
+    else:
+        lbl_status_COM.setText("<font color='Green'>Connected!</font>")
+        COM_close_btn.setEnabled(True)
 
 ################################
 ## Equalizer Area

@@ -1,7 +1,7 @@
 #############################
 ### Python code for handling Serial link
 ### Created     2020-01-07
-### Last update 2020-08-03
+### Last update 2020-08-26
 ### Author      Hugo HARTMANN
 #############################
 
@@ -15,6 +15,7 @@ from PyQt5.QtCore import pyqtSignal, QThread
 import threading
 import time
 import sys
+import copy
 
 # Monitor serial inputs
 class SerialMonitor(QThread):
@@ -82,8 +83,8 @@ class SerialMonitor(QThread):
                         self.sync_with_header()
                     else:
                         #start = time.time_ns()
-                        self.UpdateOSC.emit([self.WAV_tab, self.FFT_tab])
-                        self.UpdateVU.emit([self.VU_tab])
+                        self.UpdateOSC.emit([copy.deepcopy(self.WAV_tab), copy.deepcopy(self.FFT_tab)])
+                        self.UpdateVU.emit([copy.deepcopy(self.VU_tab)])
                         #self.GUI.update_OSC(self.WAV_tab, self.FFT_tab)
                         #self.GUI.update_VU(self.VU_tab)
                         #print((time.time_ns()-start)/1000000)

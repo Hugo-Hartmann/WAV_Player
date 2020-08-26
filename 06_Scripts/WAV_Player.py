@@ -1,7 +1,7 @@
 #############################
 ### Python GUI for WAV Player
 ### Created     2020-01-07
-### Last update 2020-08-05
+### Last update 2020-08-26
 ### Author      Hugo HARTMANN
 #############################
 
@@ -296,10 +296,13 @@ class EqualizerWidget(QWidget):
             self.p_sliders[i]()
 
     def update_VU(self, data):
-        self.busy = True
-        for i in range(self.nb_bar):
-            self.vubars[i].update_value(data[i])
-        self.busy = False
+        if(self.busy):
+            print("Skipped VU")
+        else:
+            self.busy = True
+            for i in range(self.nb_bar):
+                self.vubars[i].update_value(data[i])
+            self.busy = False
 
 class OscilloscopeWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):
@@ -308,6 +311,7 @@ class OscilloscopeWidget(QWidget):
 
         self.lyt = QGridLayout()
         self.setLayout(self.lyt)
+        self.busy = False
 
         # Oscilloscope and FFT
         self.graphs = DualPlotCanvas(self, width=5, height=4, dpi=100)
@@ -338,7 +342,12 @@ class OscilloscopeWidget(QWidget):
         self.legendgraphs.update_scale(Fmax);
 
     def load_config(self):
-        self.SW_Menu.load_config()
+        if(self.busy):
+            print("Skipped OSC")
+        else:
+            self.busy = True
+            self.SW_Menu.load_config()
+            self.busy = False
 
     def update_OSC(self, data_top, data_bot):
         self.graphs.update_data(data_top, data_bot)
@@ -387,10 +396,7 @@ class MainWindow(QMainWindow):
         self.FFT_Bloc.load_config()
 
     def update_VU(self, data):
-        if(self.Equalizer_Bloc.busy):
-            print("Skipped VU display")
-        else:
-            self.Equalizer_Bloc.update_VU(data[0])
+        self.Equalizer_Bloc.update_VU(data[0])
 
     def update_OSC(self, data):
         self.Oscilloscope_bloc.update_OSC(data[0], data[1])
