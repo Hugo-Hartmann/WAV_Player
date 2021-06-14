@@ -46,7 +46,7 @@ class DualPlotCanvas(FigureCanvas):
         self.plot_bot.set_array(data_bot)
 
         self.draw()
-        self.flush_events()
+        #self.flush_events()
 
 class LegendPlotCanvas(FigureCanvas):
 
@@ -65,6 +65,7 @@ class LegendPlotCanvas(FigureCanvas):
         self.ax.get_yaxis().set_visible(False)
 
         self.Fband = [31.5, 63, 125, 250, 500, 1000, 2000, 4000, 8000, 16000]
+        self.N = len(self.Fband)
 
         super(LegendPlotCanvas, self).__init__(self.fig)
 
@@ -78,15 +79,14 @@ class LegendPlotCanvas(FigureCanvas):
         self.ax.set_xticks([i*Fmax/5 for i in range(6)], minor=False)
 
         FbandLabels = []
-        N = len(self.Fband)
 
-        for i in range(N):
-            if(i<N-1):
+        for i in range(self.N):
+            if(i<self.N-1):
                 if((self.Fband[i+1]-self.Fband[i])/Fmax<0.0144):
                     FbandLabels.append("")
                 else:
                     FbandLabels.append(str(self.Fband[i]))
-        FbandLabels.append(str(self.Fband[N-1]))
+        FbandLabels.append(str(self.Fband[self.N-1]))
 
         self.ax.set_xticklabels(FbandLabels, minor=True)
 

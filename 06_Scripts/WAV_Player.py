@@ -252,7 +252,6 @@ class EqualizerWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):
         super(EqualizerWidget, self).__init__(*args, **kwargs)
         self.serial = serial
-        self.busy = False
         self.nb_bar = 11
 
         self.lyt = QGridLayout()
@@ -296,13 +295,8 @@ class EqualizerWidget(QWidget):
             self.p_sliders[i]()
 
     def update_VU(self, data):
-        if(self.busy):
-            print("Skipped VU")
-        else:
-            self.busy = True
-            for i in range(self.nb_bar):
-                self.vubars[i].update_value(data[i])
-            self.busy = False
+        for i in range(self.nb_bar):
+            self.vubars[i].update_value(data[i])
 
 class OscilloscopeWidget(QWidget):
     def __init__(self, serial, *args, **kwargs):
@@ -311,7 +305,6 @@ class OscilloscopeWidget(QWidget):
 
         self.lyt = QGridLayout()
         self.setLayout(self.lyt)
-        self.busy = False
 
         # Oscilloscope and FFT
         self.graphs = DualPlotCanvas(self, width=5, height=4, dpi=100)
@@ -339,15 +332,10 @@ class OscilloscopeWidget(QWidget):
 
         Fmax = 22000/level
 
-        self.legendgraphs.update_scale(Fmax);
+        self.legendgraphs.update_scale(Fmax)
 
     def load_config(self):
-        if(self.busy):
-            print("Skipped OSC")
-        else:
-            self.busy = True
-            self.SW_Menu.load_config()
-            self.busy = False
+        self.SW_Menu.load_config()
 
     def update_OSC(self, data_top, data_bot):
         self.graphs.update_data(data_top, data_bot)
@@ -360,6 +348,8 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("WAV Player")
         self.resize(800, 600)
         self.serial = serial
+        self.oscBusy = False
+        self.sliderBusy = False
 
         ## Port COM
         self.COM_Port = ComPortWidget(self.serial);
@@ -396,10 +386,16 @@ class MainWindow(QMainWindow):
         self.FFT_Bloc.load_config()
 
     def update_VU(self, data):
-        self.Equalizer_Bloc.update_VU(data[0])
+        if(not self.sliderBusy):
+            self.sliderBusy = True
+            self.Equalizer_Bloc.update_VU(data[0])
+            self.sliderBusy = False
 
     def update_OSC(self, data):
-        self.Oscilloscope_bloc.update_OSC(data[0], data[1])
+        if(not self.oscBusy):
+            self.oscBusy = True
+            self.Oscilloscope_bloc.update_OSC(data[0], data[1])
+            self.oscBusy = False
 
     def closeEvent(self, event):
         self.serial.serial_close()
