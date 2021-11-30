@@ -22,8 +22,9 @@ class DualPlotCanvas(FigureCanvas):
             ax.patch.set_facecolor((240/255, 240/255, 240/255))
         self.axes[0].set_ylim([0, 255])
         self.axes[0].set_xlim([0, 1280])
-        self.axes[1].set_yscale('log')
-        self.axes[1].set_ylim([4, 65536])
+        #self.axes[1].set_yscale('log')
+        self.plot_bot_ymax = 1024
+        self.axes[1].set_ylim([0, self.plot_bot_ymax])
         self.axes[1].set_xlim([0, 1024])
 
         self.nb_points = 1024
@@ -43,7 +44,8 @@ class DualPlotCanvas(FigureCanvas):
     def update_data(self, data_top, data_bot):
         self.plot_top[0].set_ydata(data_top)
         self.plot_bot.set_offsets(np.c_[[i+0.5 for i in range(self.nb_points)], data_bot[:self.nb_points]])
-        self.plot_bot.set_array(data_bot)
+        data_bot = [min(data, self.plot_bot_ymax-1) for data in data_bot]
+        self.plot_bot.set_array(np.array(data_bot))
 
         self.draw()
         #self.flush_events()
@@ -114,7 +116,7 @@ class BarCanvas(FigureCanvas):
         super(BarCanvas, self).__init__(self.fig)
 
         self.grad = [[i] for i in range(100)]
-        
+
         for i in range(11):
             self.imgs.append(self.axes[i].imshow(self.grad, extent=[self.x, self.x+self.w, self.y, self.y+32], aspect='auto', zorder=0, origin="lower", cmap="RdPu"))
 

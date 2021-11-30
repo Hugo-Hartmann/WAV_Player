@@ -64,7 +64,7 @@ class FFTSlider(QWidget):
 
 class VuBar(QProgressBar):
 
-    def __init__(self, style="magma_r", *args, **kwargs):
+    def __init__(self, style="Spectral", *args, **kwargs):
         super(QProgressBar, self).__init__(*args, **kwargs)
 
         self.vubar_style = """
@@ -133,7 +133,7 @@ class VuSlider(QSlider):
         self.setValue(12)
 
 class FFTWidget(QWidget):
-    def __init__(self, serial, oscillo, style="magma_r", *args, **kwargs):
+    def __init__(self, serial, oscillo, style="twilight_shifted", *args, **kwargs):
         super(FFTWidget, self).__init__(*args, **kwargs)
         self.serial = serial
         self.oscillo = oscillo
